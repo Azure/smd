@@ -87,6 +87,15 @@
       }
     ],
     "schemaDefinitions": {
+      "ProcessValueSetpointVariableType": {
+        "description": "Define the desired value of the Variable it belongs to.",
+        "dov:typeRef": "org.opcfoundation.UA.Machinery.ProcessValues.ProcessValueSetpointVariableType",
+        "type": "number"
+      },
+      "AnalogSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalogSignalVariableType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -160,8 +169,7 @@
       },
       "AnalogSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "description": "The process value.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogSignalVariableType",
         "readOnly": false,
         "dov:contains": [ "AnalogSignal_HighHighLimit", "AnalogSignal_HighLimit", "AnalogSignal_LowLimit", "AnalogSignal_LowLowLimit", "AnalogSignal_PercentageValue" ],
         "forms": [
@@ -278,8 +286,7 @@
       },
       "ProcessValueSetpoint": {
         "dov:namespace": "http://opcfoundation.org/UA/Machinery/ProcessValues/",
-        "description": "The desired value, may or may not be controlled by the server.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/ProcessValueSetpointVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -347,8 +354,7 @@
       "AnalogSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "description": "The process value.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogSignalVariableType"
         },
         "dov:contains": [ "AnalogSignal_HighHighLimit", "AnalogSignal_HighLimit", "AnalogSignal_LowLimit", "AnalogSignal_LowLowLimit", "AnalogSignal_PercentageValue" ],
         "forms": [
@@ -441,8 +447,7 @@
       "ProcessValueSetpoint": {
         "dov:namespace": "http://opcfoundation.org/UA/Machinery/ProcessValues/",
         "data": {
-          "description": "The desired value, may or may not be controlled by the server.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/ProcessValueSetpointVariableType"
         },
         "forms": [
           {
@@ -468,6 +473,36 @@
           }
         ]
       }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "Machinery_ProcessValues_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "ProcessValueSetpointVariableType": {
+        "description": "Define the desired value of the Variable it belongs to.",
+        "dov:typeRef": "org.opcfoundation.UA.Machinery.ProcessValues.ProcessValueSetpointVariableType",
+        "type": "number"
+      },
+      "ProcessValueVariableType": {
+        "description": "Provides a process value and additional meta data",
+        "dov:typeRef": "org.opcfoundation.UA.Machinery.ProcessValues.ProcessValueVariableType",
+        "type": "number"
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
     }
   }
 ]

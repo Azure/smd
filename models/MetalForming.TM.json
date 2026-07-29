@@ -542,6 +542,28 @@
       }
     ],
     "schemaDefinitions": {
+      "CyclicProcessValueVariableType": {
+        "title": "CyclicProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueVariableType",
+        "required": [ "AnalogSignal", "Setpoint", "CycleCount", "IsActive" ],
+        "properties": {
+          "AnalogSignal": {
+            "type": "number"
+          },
+          "Setpoint": {
+            "type": "number"
+          },
+          "CycleCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "IsActive": {
+            "type": "boolean"
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -565,26 +587,7 @@
     "properties": {
       "CyclicProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/MetalForming/",
-        "title": "CyclicProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueDataType",
-        "required": [ "AnalogSignal", "Setpoint", "CycleCount", "IsActive" ],
-        "properties": {
-          "AnalogSignal": {
-            "type": "number"
-          },
-          "Setpoint": {
-            "type": "number"
-          },
-          "CycleCount": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          },
-          "IsActive": {
-            "type": "boolean"
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/CyclicProcessValueVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -604,26 +607,7 @@
       "CyclicProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/MetalForming/",
         "data": {
-          "title": "CyclicProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueDataType",
-          "required": [ "AnalogSignal", "Setpoint", "CycleCount", "IsActive" ],
-          "properties": {
-            "AnalogSignal": {
-              "type": "number"
-            },
-            "Setpoint": {
-              "type": "number"
-            },
-            "CycleCount": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            },
-            "IsActive": {
-              "type": "boolean"
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/CyclicProcessValueVariableType"
         },
         "forms": [
           {
@@ -665,6 +649,48 @@
       "CyclicProcessValueDataType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueDataType",
+        "required": [ "AnalogSignal", "Setpoint", "CycleCount", "IsActive" ],
+        "properties": {
+          "AnalogSignal": {
+            "type": "number"
+          },
+          "Setpoint": {
+            "type": "number"
+          },
+          "CycleCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "IsActive": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "MetalForming_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "CyclicProcessValueVariableType": {
+        "title": "CyclicProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueVariableType",
         "required": [ "AnalogSignal", "Setpoint", "CycleCount", "IsActive" ],
         "properties": {
           "AnalogSignal": {

@@ -1984,5 +1984,49 @@
     },
     "events": {
     }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "IA_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "CalibrationValueType": {
+        "description": "Represents the specific quantity and value (with engineering unit) that a calibration target provides for calibration of equipment.",
+        "dov:typeRef": "org.opcfoundation.UA.IA.CalibrationValueType",
+        "type": "number"
+      },
+      "CapacityRangeType": {
+        "title": "Range",
+        "description": "Represent a scale of calibration values. The value defines the range (lowest and highest value), and the resolution property the size of each step.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.IA.CapacityRangeType",
+        "required": [ "Low", "High" ],
+        "properties": {
+          "Low": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "High": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
   }
 ]

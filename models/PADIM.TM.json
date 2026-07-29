@@ -694,6 +694,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalogSignalVariableType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -730,7 +734,7 @@
     "properties": {
       "AnalogSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogSignalVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -750,7 +754,7 @@
       "AnalogSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogSignalVariableType"
         },
         "forms": [
           {
@@ -796,6 +800,12 @@
             "type": "integer"
           }
         }
+      },
+      "ControlVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.ControlVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
       }
     },
     "forms": [
@@ -847,9 +857,7 @@
     "properties": {
       "ControlSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "number",
-        "minimum": -3.40e+38,
-        "maximum": 3.40e+38,
+        "tm:ref": "#/schemaDefinitions/ControlVariableType",
         "readOnly": false,
         "dov:contains": [ "ControlSignal_ActuatorType", "ControlSignal_OperatingDirection", "ControlSignal_Setpoint" ],
         "forms": [
@@ -930,9 +938,7 @@
       "ControlSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "number",
-          "minimum": -3.40e+38,
-          "maximum": 3.40e+38
+          "tm:ref": "#/schemaDefinitions/ControlVariableType"
         },
         "dov:contains": [ "ControlSignal_ActuatorType", "ControlSignal_OperatingDirection", "ControlSignal_Setpoint" ],
         "forms": [
@@ -1012,6 +1018,11 @@
       }
     ],
     "schemaDefinitions": {
+      "DiscreteSignalVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.DiscreteSignalVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -1035,8 +1046,7 @@
     "properties": {
       "DiscreteSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/DiscreteSignalVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -1056,8 +1066,7 @@
       "DiscreteSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/DiscreteSignalVariableType"
         },
         "forms": [
           {
@@ -1088,6 +1097,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TwoStateDiscreteSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.TwoStateDiscreteSignalVariableType",
+        "type": "boolean"
+      }
     },
     "forms": [
       {
@@ -1111,7 +1124,7 @@
     "properties": {
       "TwoStateDiscreteSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteSignalVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -1131,7 +1144,7 @@
       "TwoStateDiscreteSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/TwoStateDiscreteSignalVariableType"
         },
         "forms": [
           {
@@ -1162,6 +1175,12 @@
       }
     ],
     "schemaDefinitions": {
+      "MultiStateDiscreteSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteSignalVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
     },
     "forms": [
       {
@@ -1185,9 +1204,7 @@
     "properties": {
       "MultiStateDiscreteSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "integer",
-        "minimum": 0,
-        "maximum": 4294967295,
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteSignalVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -1207,9 +1224,7 @@
       "MultiStateDiscreteSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 4294967295
+          "tm:ref": "#/schemaDefinitions/MultiStateDiscreteSignalVariableType"
         },
         "forms": [
           {
@@ -1240,6 +1255,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TwoStateDiscreteControlVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.TwoStateDiscreteControlVariableType",
+        "type": "boolean"
+      }
     },
     "forms": [
       {
@@ -1263,7 +1282,7 @@
     "properties": {
       "ControlSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteControlVariableType",
         "readOnly": false,
         "dov:contains": [ "ControlSignal_OperatingDirection", "ControlSignal_Setpoint" ],
         "forms": [
@@ -1322,7 +1341,7 @@
       "ControlSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/TwoStateDiscreteControlVariableType"
         },
         "dov:contains": [ "ControlSignal_OperatingDirection", "ControlSignal_Setpoint" ],
         "forms": [
@@ -1384,6 +1403,12 @@
       }
     ],
     "schemaDefinitions": {
+      "MultiStateDiscreteControlVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteControlVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
     },
     "forms": [
       {
@@ -1407,9 +1432,7 @@
     "properties": {
       "ControlSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "integer",
-        "minimum": 0,
-        "maximum": 4294967295,
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteControlVariableType",
         "readOnly": false,
         "dov:contains": [ "ControlSignal_Setpoint" ],
         "forms": [
@@ -1450,9 +1473,7 @@
       "ControlSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 4294967295
+          "tm:ref": "#/schemaDefinitions/MultiStateDiscreteControlVariableType"
         },
         "dov:contains": [ "ControlSignal_Setpoint" ],
         "forms": [
@@ -4443,6 +4464,12 @@
       }
     ],
     "schemaDefinitions": {
+      "PatMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.PatMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
     },
     "forms": [
       {
@@ -4466,9 +4493,7 @@
     "properties": {
       "AnalogSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
-        "type": "number",
-        "minimum": -3.40e+38,
-        "maximum": 3.40e+38,
+        "tm:ref": "#/schemaDefinitions/PatMeasurementVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -4488,9 +4513,7 @@
       "AnalogSignal": {
         "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
         "data": {
-          "type": "number",
-          "minimum": -3.40e+38,
-          "maximum": 3.40e+38
+          "tm:ref": "#/schemaDefinitions/PatMeasurementVariableType"
         },
         "forms": [
           {
@@ -7675,6 +7698,125 @@
             "type": "integer"
           }
         }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PADIM_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "ActualDensityVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.ActualDensityVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "ActualVolumeFlowRateVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.ActualVolumeFlowRateVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "AnalogSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalogSignalVariableType",
+        "type": "number"
+      },
+      "AnalyticalMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalyticalMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "ControlVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.ControlVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "DiscreteSignalVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.DiscreteSignalVariableType",
+        "type": "string"
+      },
+      "FlowMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.FlowMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "LevelMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.LevelMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "MassFlowRateVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.MassFlowRateVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "MultiStateDiscreteControlVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteControlVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "MultiStateDiscreteSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteSignalVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "NormalizedVolumeFlowRateVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.NormalizedVolumeFlowRateVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "PatMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.PatMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "PressureMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.PressureMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "TemperatureMeasurementVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.TemperatureMeasurementVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "TotalizerVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.TotalizerVariableType",
+        "type": "number"
+      },
+      "TwoStateDiscreteControlVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.TwoStateDiscreteControlVariableType",
+        "type": "boolean"
+      },
+      "TwoStateDiscreteSignalVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PADIM.TwoStateDiscreteSignalVariableType",
+        "type": "boolean"
       }
     },
     "actions": {

@@ -654,6 +654,57 @@
       }
     ],
     "schemaDefinitions": {
+      "AssetVerificationModeEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+        "const": {
+          "AssetCompatibility": 0,
+          "AssetIdentity": 1,
+          "AssetIdentityAndCompatibility": 2
+        },
+        "properties": {
+          "AssetCompatibility": {
+            "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+            "type": "integer"
+          },
+          "AssetIdentity": {
+            "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+            "type": "integer"
+          },
+          "AssetIdentityAndCompatibility": {
+            "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+            "type": "integer"
+          }
+        }
+      },
+      "AssetVerificationResultEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+        "const": {
+          "NotSet": 0,
+          "Match": 1,
+          "Compatible": 2,
+          "Mismatch": 3
+        },
+        "properties": {
+          "NotSet": {
+            "description": "The verification result is not set.",
+            "type": "integer"
+          },
+          "Match": {
+            "description": "Asset matches expectation.",
+            "type": "integer"
+          },
+          "Compatible": {
+            "description": "Asset does not match expectation but is compatible.",
+            "type": "integer"
+          },
+          "Mismatch": {
+            "description": "Asset does not match expectation and is not compatible.",
+            "type": "integer"
+          }
+        }
+      },
       "DeviceHealthOptionSet": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
@@ -682,30 +733,25 @@
           }
         }
       },
-      "OperationalHealthOptionSet": {
+      "FunctionalEntityVerificationResultEnum": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
         "const": {
-          "OperationalWarning": 16,
-          "OperationalError": 17,
-          "SubOperationalWarning": 18,
-          "SubOperationalError": 19
+          "NotSet": 0,
+          "Match": 1,
+          "Mismatch": 2
         },
         "properties": {
-          "OperationalWarning": {
-            "description": "FunctionalEntity indicates a warning.",
+          "NotSet": {
+            "description": "The verification result is not set.",
             "type": "integer"
           },
-          "OperationalError": {
-            "description": "FunctionalEntity indicates an error.",
+          "Match": {
+            "description": "FunctionalEntity matches expectation.",
             "type": "integer"
           },
-          "SubOperationalWarning": {
-            "description": "One of the SubFunctionalEntities indicates a warning.",
-            "type": "integer"
-          },
-          "SubOperationalError": {
-            "description": "One of the SubFunctionalEntities indicates an error.",
+          "Mismatch": {
+            "description": "FunctionalEntity does not match expectation.",
             "type": "integer"
           }
         }
@@ -764,77 +810,53 @@
           }
         }
       },
-      "AssetVerificationModeEnum": {
+      "OperationalHealthOptionSet": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
         "const": {
-          "AssetCompatibility": 0,
-          "AssetIdentity": 1,
-          "AssetIdentityAndCompatibility": 2
+          "OperationalWarning": 16,
+          "OperationalError": 17,
+          "SubOperationalWarning": 18,
+          "SubOperationalError": 19
         },
         "properties": {
-          "AssetCompatibility": {
-            "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+          "OperationalWarning": {
+            "description": "FunctionalEntity indicates a warning.",
             "type": "integer"
           },
-          "AssetIdentity": {
-            "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+          "OperationalError": {
+            "description": "FunctionalEntity indicates an error.",
             "type": "integer"
           },
-          "AssetIdentityAndCompatibility": {
-            "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+          "SubOperationalWarning": {
+            "description": "One of the SubFunctionalEntities indicates a warning.",
+            "type": "integer"
+          },
+          "SubOperationalError": {
+            "description": "One of the SubFunctionalEntities indicates an error.",
             "type": "integer"
           }
         }
       },
-      "AssetVerificationResultEnum": {
+      "AggregatedHealthType": {
+        "title": "AggregatedHealthDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
-        "const": {
-          "NotSet": 0,
-          "Match": 1,
-          "Compatible": 2,
-          "Mismatch": 3
-        },
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthType",
+        "required": [ "AggregatedDeviceHealth", "AggregatedOperationalHealth" ],
         "properties": {
-          "NotSet": {
-            "description": "The verification result is not set.",
-            "type": "integer"
+          "AggregatedDeviceHealth": {
+            "title": "DeviceHealthOptionSet",
+            "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           },
-          "Match": {
-            "description": "Asset matches expectation.",
-            "type": "integer"
-          },
-          "Compatible": {
-            "description": "Asset does not match expectation but is compatible.",
-            "type": "integer"
-          },
-          "Mismatch": {
-            "description": "Asset does not match expectation and is not compatible.",
-            "type": "integer"
-          }
-        }
-      },
-      "FunctionalEntityVerificationResultEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
-        "const": {
-          "NotSet": 0,
-          "Match": 1,
-          "Mismatch": 2
-        },
-        "properties": {
-          "NotSet": {
-            "description": "The verification result is not set.",
-            "type": "integer"
-          },
-          "Match": {
-            "description": "FunctionalEntity matches expectation.",
-            "type": "integer"
-          },
-          "Mismatch": {
-            "description": "FunctionalEntity does not match expectation.",
-            "type": "integer"
+          "AggregatedOperationalHealth": {
+            "title": "OperationalHealthOptionSet",
+            "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           }
         }
       }
@@ -1299,26 +1321,7 @@
     "properties": {
       "AggregatedHealth": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
-        "title": "AggregatedHealthDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthDataType",
-        "required": [ "AggregatedDeviceHealth", "AggregatedOperationalHealth" ],
-        "properties": {
-          "AggregatedDeviceHealth": {
-            "title": "DeviceHealthOptionSet",
-            "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "AggregatedOperationalHealth": {
-            "title": "OperationalHealthOptionSet",
-            "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/AggregatedHealthType",
         "readOnly": false,
         "dov:contains": [ "AggregatedHealth_AggregatedDeviceHealth", "AggregatedHealth_AggregatedOperationalHealth" ],
         "forms": [
@@ -1385,26 +1388,7 @@
       "AggregatedHealth": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
         "data": {
-          "title": "AggregatedHealthDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthDataType",
-          "required": [ "AggregatedDeviceHealth", "AggregatedOperationalHealth" ],
-          "properties": {
-            "AggregatedDeviceHealth": {
-              "title": "DeviceHealthOptionSet",
-              "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "AggregatedOperationalHealth": {
-              "title": "OperationalHealthOptionSet",
-              "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/AggregatedHealthType"
         },
         "dov:contains": [ "AggregatedHealth_AggregatedDeviceHealth", "AggregatedHealth_AggregatedOperationalHealth" ],
         "forms": [
@@ -1946,6 +1930,29 @@
       }
     ],
     "schemaDefinitions": {
+      "FunctionalEntityVerificationResultEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+        "const": {
+          "NotSet": 0,
+          "Match": 1,
+          "Mismatch": 2
+        },
+        "properties": {
+          "NotSet": {
+            "description": "The verification result is not set.",
+            "type": "integer"
+          },
+          "Match": {
+            "description": "FunctionalEntity matches expectation.",
+            "type": "integer"
+          },
+          "Mismatch": {
+            "description": "FunctionalEntity does not match expectation.",
+            "type": "integer"
+          }
+        }
+      },
       "OperationalHealthOptionSet": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
@@ -1970,29 +1977,6 @@
           },
           "SubOperationalError": {
             "description": "One of the SubFunctionalEntities indicates an error.",
-            "type": "integer"
-          }
-        }
-      },
-      "FunctionalEntityVerificationResultEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
-        "const": {
-          "NotSet": 0,
-          "Match": 1,
-          "Mismatch": 2
-        },
-        "properties": {
-          "NotSet": {
-            "description": "The verification result is not set.",
-            "type": "integer"
-          },
-          "Match": {
-            "description": "FunctionalEntity matches expectation.",
-            "type": "integer"
-          },
-          "Mismatch": {
-            "description": "FunctionalEntity does not match expectation.",
             "type": "integer"
           }
         }
@@ -3483,6 +3467,29 @@
       }
     ],
     "schemaDefinitions": {
+      "FunctionalEntityVerificationResultEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+        "const": {
+          "NotSet": 0,
+          "Match": 1,
+          "Mismatch": 2
+        },
+        "properties": {
+          "NotSet": {
+            "description": "The verification result is not set.",
+            "type": "integer"
+          },
+          "Match": {
+            "description": "FunctionalEntity matches expectation.",
+            "type": "integer"
+          },
+          "Mismatch": {
+            "description": "FunctionalEntity does not match expectation.",
+            "type": "integer"
+          }
+        }
+      },
       "OperationalHealthOptionSet": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
@@ -3507,29 +3514,6 @@
           },
           "SubOperationalError": {
             "description": "One of the SubFunctionalEntities indicates an error.",
-            "type": "integer"
-          }
-        }
-      },
-      "FunctionalEntityVerificationResultEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
-        "const": {
-          "NotSet": 0,
-          "Match": 1,
-          "Mismatch": 2
-        },
-        "properties": {
-          "NotSet": {
-            "description": "The verification result is not set.",
-            "type": "integer"
-          },
-          "Match": {
-            "description": "FunctionalEntity matches expectation.",
-            "type": "integer"
-          },
-          "Mismatch": {
-            "description": "FunctionalEntity does not match expectation.",
             "type": "integer"
           }
         }
@@ -3841,39 +3825,6 @@
       }
     ],
     "schemaDefinitions": {
-      "DeviceHealthEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
-        "const": {
-          "NORMAL": 0,
-          "FAILURE": 1,
-          "CHECK_FUNCTION": 2,
-          "OFF_SPEC": 3,
-          "MAINTENANCE_REQUIRED": 4
-        },
-        "properties": {
-          "NORMAL": {
-            "description": "This device functions normally.",
-            "type": "integer"
-          },
-          "FAILURE": {
-            "description": "Malfunction of the device or any of its peripherals.",
-            "type": "integer"
-          },
-          "CHECK_FUNCTION": {
-            "description": "Functional checks are currently performed.",
-            "type": "integer"
-          },
-          "OFF_SPEC": {
-            "description": "The device is currently working outside of its specified range or that internal diagnoses indicate deviations from measured or set values.",
-            "type": "integer"
-          },
-          "MAINTENANCE_REQUIRED": {
-            "description": "This element is working, but a maintenance operation is required.",
-            "type": "integer"
-          }
-        }
-      },
       "AssetVerificationModeEnum": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
@@ -3921,6 +3872,39 @@
           },
           "Mismatch": {
             "description": "Asset does not match expectation and is not compatible.",
+            "type": "integer"
+          }
+        }
+      },
+      "DeviceHealthEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+        "const": {
+          "NORMAL": 0,
+          "FAILURE": 1,
+          "CHECK_FUNCTION": 2,
+          "OFF_SPEC": 3,
+          "MAINTENANCE_REQUIRED": 4
+        },
+        "properties": {
+          "NORMAL": {
+            "description": "This device functions normally.",
+            "type": "integer"
+          },
+          "FAILURE": {
+            "description": "Malfunction of the device or any of its peripherals.",
+            "type": "integer"
+          },
+          "CHECK_FUNCTION": {
+            "description": "Functional checks are currently performed.",
+            "type": "integer"
+          },
+          "OFF_SPEC": {
+            "description": "The device is currently working outside of its specified range or that internal diagnoses indicate deviations from measured or set values.",
+            "type": "integer"
+          },
+          "MAINTENANCE_REQUIRED": {
+            "description": "This element is working, but a maintenance operation is required.",
             "type": "integer"
           }
         }
@@ -5475,6 +5459,48 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "FX_AC_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "AggregatedHealthType": {
+        "title": "AggregatedHealthDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthType",
+        "required": [ "AggregatedDeviceHealth", "AggregatedOperationalHealth" ],
+        "properties": {
+          "AggregatedDeviceHealth": {
+            "title": "DeviceHealthOptionSet",
+            "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "AggregatedOperationalHealth": {
+            "title": "OperationalHealthOptionSet",
+            "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           }
         }
       }

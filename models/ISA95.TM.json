@@ -275,6 +275,11 @@
       }
     ],
     "schemaDefinitions": {
+      "ISA95AssetAssignmentType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95AssetAssignmentType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -297,8 +302,7 @@
     "properties": {
       "AssetAssignment": {
         "dov:namespace": "http://www.OPCFoundation.org/UA/2013/01/ISA95",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/ISA95AssetAssignmentType",
         "readOnly": true,
         "forms": [
           {
@@ -313,8 +317,7 @@
       "AssetAssignment": {
         "dov:namespace": "http://www.OPCFoundation.org/UA/2013/01/ISA95",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/ISA95AssetAssignmentType"
         },
         "forms": [
           {
@@ -431,6 +434,11 @@
       }
     ],
     "schemaDefinitions": {
+      "ISA95AssetAssignmentType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95AssetAssignmentType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -453,8 +461,7 @@
     "properties": {
       "AssetAssignment": {
         "dov:namespace": "http://www.OPCFoundation.org/UA/2013/01/ISA95",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/ISA95AssetAssignmentType",
         "readOnly": true,
         "forms": [
           {
@@ -469,8 +476,7 @@
       "AssetAssignment": {
         "dov:namespace": "http://www.OPCFoundation.org/UA/2013/01/ISA95",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/ISA95AssetAssignmentType"
         },
         "forms": [
           {
@@ -991,6 +997,200 @@
         "type": "string"
       },
       "TimeString": {
+        "type": "string"
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "ISA95_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "CompanyType": {
+        "description": "This VariableType is used to provide details regarding company information for PhysicalAssetClassTypes or for instances of PhysicalAssetType",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.CompanyType",
+        "type": "string"
+      },
+      "EquipmentCapabilityTestResultType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.EquipmentCapabilityTestResultType",
+        "type": "string"
+      },
+      "EquipmentClassPropertyType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.EquipmentClassPropertyType",
+        "type": "string"
+      },
+      "EquipmentPropertyType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.EquipmentPropertyType",
+        "type": "string"
+      },
+      "GeoSpatialLocationType": {
+        "description": "This VariableType is used to provide details regarding Physical Location information for PhysicalAssetClassType",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.GeoSpatialLocationType",
+        "type": "string"
+      },
+      "ISA95AssetAssignmentType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95AssetAssignmentType",
+        "type": "string"
+      },
+      "ISA95ClassPropertyType": {
+        "description": "This VariableType is used to define an ISA95ClassProperty for an ISA95Class",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95ClassPropertyType",
+        "type": "string"
+      },
+      "ISA95PropertyType": {
+        "description": "This VariableType is used to define an ISA95Property for an ISA95Object",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95PropertyType",
+        "type": "string"
+      },
+      "ISA95TestResultEUType": {
+        "title": "ISA95TestResultMeasurementDataType",
+        "description": "",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95TestResultEUType",
+        "required": [ "Id", "TestResultDescription", "Date", "Result", "ResultUnitOfMeasure", "Expiration" ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "TestResultDescription": {
+            "type": "string"
+          },
+          "Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Result": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          },
+          "ResultUnitOfMeasure": {
+            "title": "EUInformation",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [ "NamespaceUri", "UnitId", "DisplayName", "Description" ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          },
+          "Expiration": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ISA95TestResultNonEUType": {
+        "title": "ISA95TestResultDataType",
+        "description": "",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95TestResultNonEUType",
+        "required": [ "Id", "TestResultDescription", "Date", "Result", "ResultUnitOfMeasure", "Expiration" ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "TestResultDescription": {
+            "type": "string"
+          },
+          "Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Result": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          },
+          "ResultUnitOfMeasure": {
+            "type": "string"
+          },
+          "Expiration": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ISA95TestResultType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95TestResultType",
+        "type": "string"
+      },
+      "MaterialClassPropertyType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.MaterialClassPropertyType",
+        "type": "string"
+      },
+      "MaterialDefinitionPropertyType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.MaterialDefinitionPropertyType",
+        "type": "string"
+      },
+      "MaterialLotPropertyType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.MaterialLotPropertyType",
+        "type": "string"
+      },
+      "MaterialTestResultType": {
+        "description": "This VariableType indicates the results from executing an instance of a MaterialTestSpecificationType for a specific MaterialLotType",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.MaterialTestResultType",
+        "type": "string"
+      },
+      "PersonPropertyType": {
+        "description": "This VariableType indicates ISA95Properties of a person",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.PersonPropertyType",
+        "type": "string"
+      },
+      "PersonnelClassPropertyType": {
+        "description": "This VariableType indicates ISA95ClassProperties for PersonnelClass.",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.PersonnelClassPropertyType",
+        "type": "string"
+      },
+      "PhysicalAssetCapabilityTestResultType": {
+        "description": "This VariableType indicates the results from a physical asset capability test for a specific physical asset.",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.PhysicalAssetCapabilityTestResultType",
+        "type": "string"
+      },
+      "PhysicalAssetClassPropertyType": {
+        "description": "This VariableType indicates ISA95ClassProperties for a PhysicalAssetClassType",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.PhysicalAssetClassPropertyType",
+        "type": "string"
+      },
+      "PhysicalAssetPropertyType": {
+        "description": "This VariableType indicates ISA95Properties of a role based equipment.",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.PhysicalAssetPropertyType",
+        "type": "string"
+      },
+      "QualificationTestResultType": {
+        "description": "",
+        "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.QualificationTestResultType",
         "type": "string"
       }
     },

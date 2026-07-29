@@ -612,6 +612,11 @@
             "type": "integer"
           }
         }
+      },
+      "GsdGenIoDataItemVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoDataItemVariableType",
+        "type": "string"
       }
     },
     "forms": [
@@ -651,8 +656,7 @@
       },
       "DataItemx": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/GsdGenIoDataItemVariableType",
         "readOnly": true,
         "dov:placeholder": true,
         "forms": [
@@ -668,8 +672,7 @@
       "DataItemx": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/GsdGenIoDataItemVariableType"
         },
         "dov:placeholder": true,
         "forms": [
@@ -1306,6 +1309,42 @@
             "maximum": 4294967295
           }
         }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PNGSDGM_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "GsdGenIoBitDataItemVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoBitDataItemVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "GsdGenIoDataItemVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoDataItemVariableType",
+        "type": "string"
+      },
+      "GsdGenParameterVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenParameterVariableType",
+        "type": "string"
       }
     },
     "actions": {

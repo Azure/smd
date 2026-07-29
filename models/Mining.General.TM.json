@@ -237,5 +237,55 @@
     },
     "events": {
     }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "Mining_General_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "LongwallShieldOffsetArrayItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Mining.General.LongwallShieldOffsetArrayItemType",
+        "type": "array",
+        "items": {
+          "title": "LongwallShieldOffsetDataType",
+          "description": "The LongwallShieldOffsetDataType describes a tuple containing a roof support shield number and its corresponding offset",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Mining.General.LongwallShieldOffsetDataType",
+          "required": [ "ShieldNumber", "ShieldOffset" ],
+          "properties": {
+            "ShieldNumber": {
+              "description": "The ShieldNumber describes the number of a roof support shield",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "ShieldOffset": {
+              "description": "The ShieldOffset describes the offset of a roof support shield",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        }
+      },
+      "StructuredArrayItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Mining.General.StructuredArrayItemType",
+        "type": "string"
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
   }
 ]

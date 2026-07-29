@@ -966,6 +966,30 @@
             "type": "integer"
           }
         }
+      },
+      "LifetimeVariableType": {
+        "description": "Remaining lifetime",
+        "dov:typeRef": "org.opcfoundation.UA.DI.LifetimeVariableType",
+        "type": "number"
+      },
+      "SEMI_E10SystemStateType": {
+        "title": "SEMI_E10SystemStateDataType",
+        "description": "It is used to denote a single level with one or multiple SEMI E10 states that might be active in an item",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.SEMI_E10SystemStateType",
+        "required": [ "Id", "Priority" ],
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
       }
     },
     "forms": [
@@ -1022,8 +1046,7 @@
       },
       "RemainingLifeTime": {
         "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
-        "description": "denotes the remaining lifetime of the item. It serves as an indication to service personnel for maintenance activities",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/LifetimeVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -1040,23 +1063,7 @@
       },
       "State": {
         "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
-        "title": "SEMI_E10SystemStateDataType",
-        "description": "denotes the SEMI E10 State of the item ",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.SEMI_E10SystemStateDataType",
-        "required": [ "Id", "Priority" ],
-        "properties": {
-          "Id": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          },
-          "Priority": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/SEMI_E10SystemStateType",
         "readOnly": false,
         "forms": [
           {
@@ -1114,8 +1121,7 @@
       "RemainingLifeTime": {
         "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
         "data": {
-          "description": "denotes the remaining lifetime of the item. It serves as an indication to service personnel for maintenance activities",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/LifetimeVariableType"
         },
         "forms": [
           {
@@ -1128,23 +1134,7 @@
       "State": {
         "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
         "data": {
-          "title": "SEMI_E10SystemStateDataType",
-          "description": "denotes the SEMI E10 State of the item ",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.SEMI_E10SystemStateDataType",
-          "required": [ "Id", "Priority" ],
-          "properties": {
-            "Id": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            },
-            "Priority": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/SEMI_E10SystemStateType"
         },
         "forms": [
           {
@@ -2743,6 +2733,45 @@
           },
           "Description": {
             "type": "string"
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "MachineVision_AMCM_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "SEMI_E10SystemStateType": {
+        "title": "SEMI_E10SystemStateDataType",
+        "description": "It is used to denote a single level with one or multiple SEMI E10 states that might be active in an item",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.SEMI_E10SystemStateType",
+        "required": [ "Id", "Priority" ],
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
           }
         }
       }

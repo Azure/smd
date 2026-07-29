@@ -17,6 +17,29 @@
       }
     ],
     "schemaDefinitions": {
+      "AssetVerificationModeEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+        "const": {
+          "AssetCompatibility": 0,
+          "AssetIdentity": 1,
+          "AssetIdentityAndCompatibility": 2
+        },
+        "properties": {
+          "AssetCompatibility": {
+            "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+            "type": "integer"
+          },
+          "AssetIdentity": {
+            "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+            "type": "integer"
+          },
+          "AssetIdentityAndCompatibility": {
+            "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+            "type": "integer"
+          }
+        }
+      },
       "AssetVerificationResultEnum": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
@@ -41,29 +64,6 @@
           },
           "Mismatch": {
             "description": "Asset does not match expectation and is not compatible.",
-            "type": "integer"
-          }
-        }
-      },
-      "AssetVerificationModeEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
-        "const": {
-          "AssetCompatibility": 0,
-          "AssetIdentity": 1,
-          "AssetIdentityAndCompatibility": 2
-        },
-        "properties": {
-          "AssetCompatibility": {
-            "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
-            "type": "integer"
-          },
-          "AssetIdentity": {
-            "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
-            "type": "integer"
-          },
-          "AssetIdentityAndCompatibility": {
-            "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
             "type": "integer"
           }
         }
@@ -1733,6 +1733,174 @@
       }
     ],
     "schemaDefinitions": {
+      "ApplicationType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+        "const": {
+          "Server": 0,
+          "Client": 1,
+          "ClientAndServer": 2,
+          "DiscoveryServer": 3
+        },
+        "properties": {
+          "Server": {
+            "type": "integer"
+          },
+          "Client": {
+            "type": "integer"
+          },
+          "ClientAndServer": {
+            "type": "integer"
+          },
+          "DiscoveryServer": {
+            "type": "integer"
+          }
+        }
+      },
+      "DataSetFieldContentMask": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+        "const": {
+          "StatusCode": 0,
+          "SourceTimestamp": 1,
+          "ServerTimestamp": 2,
+          "SourcePicoSeconds": 3,
+          "ServerPicoSeconds": 4,
+          "RawData": 5
+        },
+        "properties": {
+          "StatusCode": {
+            "type": "integer"
+          },
+          "SourceTimestamp": {
+            "type": "integer"
+          },
+          "ServerTimestamp": {
+            "type": "integer"
+          },
+          "SourcePicoSeconds": {
+            "type": "integer"
+          },
+          "ServerPicoSeconds": {
+            "type": "integer"
+          },
+          "RawData": {
+            "type": "integer"
+          }
+        }
+      },
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
+      "MessageSecurityMode": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+        "const": {
+          "Invalid": 0,
+          "None": 1,
+          "Sign": 2,
+          "SignAndEncrypt": 3
+        },
+        "properties": {
+          "Invalid": {
+            "type": "integer"
+          },
+          "None": {
+            "type": "integer"
+          },
+          "Sign": {
+            "type": "integer"
+          },
+          "SignAndEncrypt": {
+            "type": "integer"
+          }
+        }
+      },
+      "PermissionType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+        "const": {
+          "Browse": 0,
+          "ReadRolePermissions": 1,
+          "WriteAttribute": 2,
+          "WriteRolePermissions": 3,
+          "WriteHistorizing": 4,
+          "Read": 5,
+          "Write": 6,
+          "ReadHistory": 7,
+          "InsertHistory": 8,
+          "ModifyHistory": 9,
+          "DeleteHistory": 10,
+          "ReceiveEvents": 11,
+          "Call": 12,
+          "AddReference": 13,
+          "RemoveReference": 14,
+          "DeleteNode": 15,
+          "AddNode": 16
+        },
+        "properties": {
+          "Browse": {
+            "type": "integer"
+          },
+          "ReadRolePermissions": {
+            "type": "integer"
+          },
+          "WriteAttribute": {
+            "type": "integer"
+          },
+          "WriteRolePermissions": {
+            "type": "integer"
+          },
+          "WriteHistorizing": {
+            "type": "integer"
+          },
+          "Read": {
+            "type": "integer"
+          },
+          "Write": {
+            "type": "integer"
+          },
+          "ReadHistory": {
+            "type": "integer"
+          },
+          "InsertHistory": {
+            "type": "integer"
+          },
+          "ModifyHistory": {
+            "type": "integer"
+          },
+          "DeleteHistory": {
+            "type": "integer"
+          },
+          "ReceiveEvents": {
+            "type": "integer"
+          },
+          "Call": {
+            "type": "integer"
+          },
+          "AddReference": {
+            "type": "integer"
+          },
+          "RemoveReference": {
+            "type": "integer"
+          },
+          "DeleteNode": {
+            "type": "integer"
+          },
+          "AddNode": {
+            "type": "integer"
+          }
+        }
+      },
       "PubSubConfigurationRefMask": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefMask",
@@ -1821,66 +1989,6 @@
           }
         }
       },
-      "DataSetFieldFlags": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
-        "const": {
-          "PromotedField": 0
-        },
-        "properties": {
-          "PromotedField": {
-            "type": "integer"
-          }
-        }
-      },
-      "MessageSecurityMode": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
-        "const": {
-          "Invalid": 0,
-          "None": 1,
-          "Sign": 2,
-          "SignAndEncrypt": 3
-        },
-        "properties": {
-          "Invalid": {
-            "type": "integer"
-          },
-          "None": {
-            "type": "integer"
-          },
-          "Sign": {
-            "type": "integer"
-          },
-          "SignAndEncrypt": {
-            "type": "integer"
-          }
-        }
-      },
-      "ApplicationType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
-        "const": {
-          "Server": 0,
-          "Client": 1,
-          "ClientAndServer": 2,
-          "DiscoveryServer": 3
-        },
-        "properties": {
-          "Server": {
-            "type": "integer"
-          },
-          "Client": {
-            "type": "integer"
-          },
-          "ClientAndServer": {
-            "type": "integer"
-          },
-          "DiscoveryServer": {
-            "type": "integer"
-          }
-        }
-      },
       "UserTokenType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
@@ -1901,114 +2009,6 @@
             "type": "integer"
           },
           "IssuedToken": {
-            "type": "integer"
-          }
-        }
-      },
-      "DataSetFieldContentMask": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
-        "const": {
-          "StatusCode": 0,
-          "SourceTimestamp": 1,
-          "ServerTimestamp": 2,
-          "SourcePicoSeconds": 3,
-          "ServerPicoSeconds": 4,
-          "RawData": 5
-        },
-        "properties": {
-          "StatusCode": {
-            "type": "integer"
-          },
-          "SourceTimestamp": {
-            "type": "integer"
-          },
-          "ServerTimestamp": {
-            "type": "integer"
-          },
-          "SourcePicoSeconds": {
-            "type": "integer"
-          },
-          "ServerPicoSeconds": {
-            "type": "integer"
-          },
-          "RawData": {
-            "type": "integer"
-          }
-        }
-      },
-      "PermissionType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PermissionType",
-        "const": {
-          "Browse": 0,
-          "ReadRolePermissions": 1,
-          "WriteAttribute": 2,
-          "WriteRolePermissions": 3,
-          "WriteHistorizing": 4,
-          "Read": 5,
-          "Write": 6,
-          "ReadHistory": 7,
-          "InsertHistory": 8,
-          "ModifyHistory": 9,
-          "DeleteHistory": 10,
-          "ReceiveEvents": 11,
-          "Call": 12,
-          "AddReference": 13,
-          "RemoveReference": 14,
-          "DeleteNode": 15,
-          "AddNode": 16
-        },
-        "properties": {
-          "Browse": {
-            "type": "integer"
-          },
-          "ReadRolePermissions": {
-            "type": "integer"
-          },
-          "WriteAttribute": {
-            "type": "integer"
-          },
-          "WriteRolePermissions": {
-            "type": "integer"
-          },
-          "WriteHistorizing": {
-            "type": "integer"
-          },
-          "Read": {
-            "type": "integer"
-          },
-          "Write": {
-            "type": "integer"
-          },
-          "ReadHistory": {
-            "type": "integer"
-          },
-          "InsertHistory": {
-            "type": "integer"
-          },
-          "ModifyHistory": {
-            "type": "integer"
-          },
-          "DeleteHistory": {
-            "type": "integer"
-          },
-          "ReceiveEvents": {
-            "type": "integer"
-          },
-          "Call": {
-            "type": "integer"
-          },
-          "AddReference": {
-            "type": "integer"
-          },
-          "RemoveReference": {
-            "type": "integer"
-          },
-          "DeleteNode": {
-            "type": "integer"
-          },
-          "AddNode": {
             "type": "integer"
           }
         }
@@ -6783,49 +6783,6 @@
       }
     ],
     "schemaDefinitions": {
-      "LastActivityMask": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.CM.LastActivityMask",
-        "const": {
-          "EstablishEnabled": 0,
-          "EstablishDisabled": 1,
-          "Establish": 2,
-          "Remove": 3,
-          "Enable": 4,
-          "Disable": 5,
-          "Error": 15
-        },
-        "properties": {
-          "EstablishEnabled": {
-            "description": "The last activity of the ConnectionManager was establishing a connection (enabled).",
-            "type": "integer"
-          },
-          "EstablishDisabled": {
-            "description": "The last activity of the ConnectionManager was establishing a connection (disabled).",
-            "type": "integer"
-          },
-          "Establish": {
-            "description": "The last activity of the ConnectionManager was establishing a connection.",
-            "type": "integer"
-          },
-          "Remove": {
-            "description": "The last activity of the ConnectionManager was to remove a connection.",
-            "type": "integer"
-          },
-          "Enable": {
-            "description": "The last activity of the ConnectionManager was to enable a connection.",
-            "type": "integer"
-          },
-          "Disable": {
-            "description": "The last activity of the ConnectionManager was to disable a connection.",
-            "type": "integer"
-          },
-          "Error": {
-            "description": "If this bit is set, then the last activity of the ConnectionManager failed; if this bit is cleared, then the last activity of the ConnectionManager was a success.",
-            "type": "integer"
-          }
-        }
-      },
       "ConnectionStateEnum": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionStateEnum",
@@ -7002,26 +6959,45 @@
           }
         }
       },
-      "UserTokenType": {
+      "LastActivityMask": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.LastActivityMask",
         "const": {
-          "Anonymous": 0,
-          "UserName": 1,
-          "Certificate": 2,
-          "IssuedToken": 3
+          "EstablishEnabled": 0,
+          "EstablishDisabled": 1,
+          "Establish": 2,
+          "Remove": 3,
+          "Enable": 4,
+          "Disable": 5,
+          "Error": 15
         },
         "properties": {
-          "Anonymous": {
+          "EstablishEnabled": {
+            "description": "The last activity of the ConnectionManager was establishing a connection (enabled).",
             "type": "integer"
           },
-          "UserName": {
+          "EstablishDisabled": {
+            "description": "The last activity of the ConnectionManager was establishing a connection (disabled).",
             "type": "integer"
           },
-          "Certificate": {
+          "Establish": {
+            "description": "The last activity of the ConnectionManager was establishing a connection.",
             "type": "integer"
           },
-          "IssuedToken": {
+          "Remove": {
+            "description": "The last activity of the ConnectionManager was to remove a connection.",
+            "type": "integer"
+          },
+          "Enable": {
+            "description": "The last activity of the ConnectionManager was to enable a connection.",
+            "type": "integer"
+          },
+          "Disable": {
+            "description": "The last activity of the ConnectionManager was to disable a connection.",
+            "type": "integer"
+          },
+          "Error": {
+            "description": "If this bit is set, then the last activity of the ConnectionManager failed; if this bit is cleared, then the last activity of the ConnectionManager was a success.",
             "type": "integer"
           }
         }
@@ -7099,6 +7075,50 @@
           },
           "AddNode": {
             "type": "integer"
+          }
+        }
+      },
+      "UserTokenType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+        "const": {
+          "Anonymous": 0,
+          "UserName": 1,
+          "Certificate": 2,
+          "IssuedToken": 3
+        },
+        "properties": {
+          "Anonymous": {
+            "type": "integer"
+          },
+          "UserName": {
+            "type": "integer"
+          },
+          "Certificate": {
+            "type": "integer"
+          },
+          "IssuedToken": {
+            "type": "integer"
+          }
+        }
+      },
+      "SecurityKeyServerAddressType": {
+        "title": "SecurityKeyServerAddressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.SecurityKeyServerAddressType",
+        "required": [ "Address", "SecurityPolicyUri", "ServerUri", "UsePushModel" ],
+        "properties": {
+          "Address": {
+            "type": "string"
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "ServerUri": {
+            "type": "string"
+          },
+          "UsePushModel": {
+            "type": "boolean"
           }
         }
       }
@@ -7418,24 +7438,7 @@
       },
       "SecurityKeyServer": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
-        "title": "SecurityKeyServerAddressDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.CM.SecurityKeyServerAddressDataType",
-        "required": [ "Address", "SecurityPolicyUri", "ServerUri", "UsePushModel" ],
-        "properties": {
-          "Address": {
-            "type": "string"
-          },
-          "SecurityPolicyUri": {
-            "type": "string"
-          },
-          "ServerUri": {
-            "type": "string"
-          },
-          "UsePushModel": {
-            "type": "boolean"
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/SecurityKeyServerAddressType",
         "readOnly": false,
         "dov:contains": [ "SecurityKeyServer_Address", "SecurityKeyServer_SecurityPolicyUri", "SecurityKeyServer_ServerUri", "SecurityKeyServer_UsePushModel" ],
         "forms": [
@@ -7786,24 +7789,7 @@
       "SecurityKeyServer": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
         "data": {
-          "title": "SecurityKeyServerAddressDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.FX.CM.SecurityKeyServerAddressDataType",
-          "required": [ "Address", "SecurityPolicyUri", "ServerUri", "UsePushModel" ],
-          "properties": {
-            "Address": {
-              "type": "string"
-            },
-            "SecurityPolicyUri": {
-              "type": "string"
-            },
-            "ServerUri": {
-              "type": "string"
-            },
-            "UsePushModel": {
-              "type": "boolean"
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/SecurityKeyServerAddressType"
         },
         "dov:contains": [ "SecurityKeyServer_Address", "SecurityKeyServer_SecurityPolicyUri", "SecurityKeyServer_ServerUri", "SecurityKeyServer_UsePushModel" ],
         "forms": [
@@ -20765,6 +20751,70 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "FX_CM_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "SecurityKeyServerAddressType": {
+        "title": "SecurityKeyServerAddressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.SecurityKeyServerAddressType",
+        "required": [ "Address", "SecurityPolicyUri", "ServerUri", "UsePushModel" ],
+        "properties": {
+          "Address": {
+            "type": "string"
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "ServerUri": {
+            "type": "string"
+          },
+          "UsePushModel": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ServerAddressType": {
+        "title": "ServerAddressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.ServerAddressType",
+        "required": [ "Address", "SecurityMode", "SecurityPolicyUri", "ServerUri" ],
+        "properties": {
+          "Address": {
+            "type": "string"
+          },
+          "SecurityMode": {
+            "title": "MessageSecurityMode",
+            "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "ServerUri": {
+            "type": "string"
           }
         }
       }

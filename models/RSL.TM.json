@@ -18,6 +18,11 @@
       }
     ],
     "schemaDefinitions": {
+      "SpatialLocationType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialLocationType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -74,8 +79,7 @@
       },
       "WorldFrame": {
         "dov:namespace": "http://opcfoundation.org/UA/RSL/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/SpatialLocationType",
         "readOnly": false,
         "dov:contains": [ "WorldFrame_Base" ],
         "forms": [
@@ -115,8 +119,7 @@
       "WorldFrame": {
         "dov:namespace": "http://opcfoundation.org/UA/RSL/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/SpatialLocationType"
         },
         "dov:contains": [ "WorldFrame_Base" ],
         "forms": [
@@ -180,6 +183,11 @@
       }
     ],
     "schemaDefinitions": {
+      "SpatialLocationType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialLocationType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -241,8 +249,7 @@
       },
       "PositionFrame": {
         "dov:namespace": "http://opcfoundation.org/UA/RSL/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/SpatialLocationType",
         "readOnly": false,
         "dov:contains": [ "PositionFrame_Base" ],
         "forms": [
@@ -281,8 +288,7 @@
       "PositionFrame": {
         "dov:namespace": "http://opcfoundation.org/UA/RSL/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/SpatialLocationType"
         },
         "dov:contains": [ "PositionFrame_Base" ],
         "forms": [
@@ -307,6 +313,113 @@
           }
         ]
       }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "RSL_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "CartesianFrameAngleOrientationType": {
+        "title": "ThreeDFrame",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RSL.CartesianFrameAngleOrientationType",
+        "required": [ "CartesianCoordinates", "Orientation" ],
+        "properties": {
+          "CartesianCoordinates": {
+            "title": "ThreeDCartesianCoordinates",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinates",
+            "required": [ "X", "Y", "Z" ],
+            "properties": {
+              "X": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Y": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Z": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              }
+            }
+          },
+          "Orientation": {
+            "title": "ThreeDOrientation",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ThreeDOrientation",
+            "required": [ "A", "B", "C" ],
+            "properties": {
+              "A": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "B": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "C": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              }
+            }
+          }
+        }
+      },
+      "RelativeValueType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.RSL.RelativeValueType",
+        "type": "string"
+      },
+      "RpyOrientationType": {
+        "title": "ThreeDOrientation",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RSL.RpyOrientationType",
+        "required": [ "A", "B", "C" ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "B": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "C": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "SpatialLocationType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialLocationType",
+        "type": "string"
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
     }
   }
 ]

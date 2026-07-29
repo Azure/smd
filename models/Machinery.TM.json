@@ -76,6 +76,11 @@
       }
     ],
     "schemaDefinitions": {
+      "LifetimeVariableType": {
+        "description": "Remaining lifetime",
+        "dov:typeRef": "org.opcfoundation.UA.DI.LifetimeVariableType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -122,8 +127,7 @@
       },
       "EquipmentLife": {
         "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
-        "description": "Lifetime indication of the MachineryEquipment.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/LifetimeVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -156,8 +160,7 @@
       "EquipmentLife": {
         "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
         "data": {
-          "description": "Lifetime indication of the MachineryEquipment.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/LifetimeVariableType"
         },
         "forms": [
           {
@@ -952,6 +955,11 @@
       }
     ],
     "schemaDefinitions": {
+      "LifetimeVariableType": {
+        "description": "Remaining lifetime",
+        "dov:typeRef": "org.opcfoundation.UA.DI.LifetimeVariableType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -995,7 +1003,7 @@
       },
       "LifetimeVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/LifetimeVariableType",
         "readOnly": false,
         "dov:placeholder": true,
         "forms": [
@@ -1016,7 +1024,7 @@
       "LifetimeVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/LifetimeVariableType"
         },
         "dov:placeholder": true,
         "forms": [
