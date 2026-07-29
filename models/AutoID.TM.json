@@ -2024,54 +2024,6 @@
       }
     ],
     "schemaDefinitions": {
-      "DeviceStatusEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.DeviceStatusEnumeration",
-        "const": {
-          "Idle": 0,
-          "Error": 1,
-          "Scanning": 2,
-          "Busy": 3
-        },
-        "properties": {
-          "Idle": {
-            "type": "integer"
-          },
-          "Error": {
-            "type": "integer"
-          },
-          "Scanning": {
-            "type": "integer"
-          },
-          "Busy": {
-            "type": "integer"
-          }
-        }
-      },
-      "LocationTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
-        "const": {
-          "NMEA": 0,
-          "LOCAL": 1,
-          "WGS84": 2,
-          "NAME": 3
-        },
-        "properties": {
-          "NMEA": {
-            "type": "integer"
-          },
-          "LOCAL": {
-            "type": "integer"
-          },
-          "WGS84": {
-            "type": "integer"
-          },
-          "NAME": {
-            "type": "integer"
-          }
-        }
-      },
       "AutoIdOperationStatusEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.AutoID.AutoIdOperationStatusEnumeration",
@@ -2187,6 +2139,155 @@
           "TAG_HAS_LOW_BATTERY": {
             "description": "The battery of the (active) tag is low.",
             "type": "integer"
+          }
+        }
+      },
+      "DeviceStatusEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.DeviceStatusEnumeration",
+        "const": {
+          "Idle": 0,
+          "Error": 1,
+          "Scanning": 2,
+          "Busy": 3
+        },
+        "properties": {
+          "Idle": {
+            "type": "integer"
+          },
+          "Error": {
+            "type": "integer"
+          },
+          "Scanning": {
+            "type": "integer"
+          },
+          "Busy": {
+            "type": "integer"
+          }
+        }
+      },
+      "LocationTypeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+        "const": {
+          "NMEA": 0,
+          "LOCAL": 1,
+          "WGS84": 2,
+          "NAME": 3
+        },
+        "properties": {
+          "NMEA": {
+            "type": "integer"
+          },
+          "LOCAL": {
+            "type": "integer"
+          },
+          "WGS84": {
+            "type": "integer"
+          },
+          "NAME": {
+            "type": "integer"
+          }
+        }
+      },
+      "LocationVariableType": {
+        "title": "Location",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationVariableType",
+        "properties": {
+          "NMEA": {
+            "type": "string"
+          },
+          "Local": {
+            "title": "LocalCoordinate",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+            "required": [ "X", "Y", "Z", "Timestamp", "DilutionOfPrecision", "UsefulPrecision" ],
+            "properties": {
+              "X": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Y": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Z": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Timestamp": {
+                "description": "Optional",
+                "type": "string",
+                "format": "time"
+              },
+              "DilutionOfPrecision": {
+                "description": "Optional",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "UsefulPrecision": {
+                "description": "Optional",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          },
+          "WGS84": {
+            "title": "WGS84Coordinate",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
+            "required": [ "N/S Hemisphere", "Latitude", "E/W Hemisphere", "Longitude", "Altitude", "Timestamp", "DilutionOfPrecision", "UsefulPrecisionLatLon", "UsefulPrecisionAlt" ],
+            "properties": {
+              "N/S Hemisphere": {
+                "type": "string"
+              },
+              "Latitude": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "E/W Hemisphere": {
+                "type": "string"
+              },
+              "Longitude": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Altitude": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Timestamp": {
+                "type": "string",
+                "format": "time"
+              },
+              "DilutionOfPrecision": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "UsefulPrecisionLatLon": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UsefulPrecisionAlt": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          },
+          "Name": {
+            "type": "string"
           }
         }
       }
@@ -2691,106 +2792,7 @@
       },
       "DeviceLocation": {
         "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
-        "title": "Location",
-        "description": "Union of GPS, UTM, Local.",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.Location",
-        "properties": {
-          "NMEA": {
-            "type": "string"
-          },
-          "Local": {
-            "title": "LocalCoordinate",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
-            "required": [ "X", "Y", "Z", "Timestamp", "DilutionOfPrecision", "UsefulPrecision" ],
-            "properties": {
-              "X": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "Y": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "Z": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "Timestamp": {
-                "description": "Optional",
-                "type": "string",
-                "format": "time"
-              },
-              "DilutionOfPrecision": {
-                "description": "Optional",
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "UsefulPrecision": {
-                "description": "Optional",
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              }
-            }
-          },
-          "WGS84": {
-            "title": "WGS84Coordinate",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
-            "required": [ "N/S Hemisphere", "Latitude", "E/W Hemisphere", "Longitude", "Altitude", "Timestamp", "DilutionOfPrecision", "UsefulPrecisionLatLon", "UsefulPrecisionAlt" ],
-            "properties": {
-              "N/S Hemisphere": {
-                "type": "string"
-              },
-              "Latitude": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "E/W Hemisphere": {
-                "type": "string"
-              },
-              "Longitude": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "Altitude": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "Timestamp": {
-                "type": "string",
-                "format": "time"
-              },
-              "DilutionOfPrecision": {
-                "type": "number",
-                "minimum": -1.80e+308,
-                "maximum": 1.80e+308
-              },
-              "UsefulPrecisionLatLon": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UsefulPrecisionAlt": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              }
-            }
-          },
-          "Name": {
-            "type": "string"
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/LocationVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -2917,106 +2919,7 @@
       "DeviceLocation": {
         "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
         "data": {
-          "title": "Location",
-          "description": "Union of GPS, UTM, Local.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.AutoID.Location",
-          "properties": {
-            "NMEA": {
-              "type": "string"
-            },
-            "Local": {
-              "title": "LocalCoordinate",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
-              "required": [ "X", "Y", "Z", "Timestamp", "DilutionOfPrecision", "UsefulPrecision" ],
-              "properties": {
-                "X": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Y": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Z": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Timestamp": {
-                  "description": "Optional",
-                  "type": "string",
-                  "format": "time"
-                },
-                "DilutionOfPrecision": {
-                  "description": "Optional",
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "UsefulPrecision": {
-                  "description": "Optional",
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                }
-              }
-            },
-            "WGS84": {
-              "title": "WGS84Coordinate",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
-              "required": [ "N/S Hemisphere", "Latitude", "E/W Hemisphere", "Longitude", "Altitude", "Timestamp", "DilutionOfPrecision", "UsefulPrecisionLatLon", "UsefulPrecisionAlt" ],
-              "properties": {
-                "N/S Hemisphere": {
-                  "type": "string"
-                },
-                "Latitude": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "E/W Hemisphere": {
-                  "type": "string"
-                },
-                "Longitude": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Altitude": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Timestamp": {
-                  "type": "string",
-                  "format": "time"
-                },
-                "DilutionOfPrecision": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "UsefulPrecisionLatLon": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UsefulPrecisionAlt": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                }
-              }
-            },
-            "Name": {
-              "type": "string"
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/LocationVariableType"
         },
         "forms": [
           {
@@ -3119,30 +3022,6 @@
       }
     ],
     "schemaDefinitions": {
-      "LocationTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
-        "const": {
-          "NMEA": 0,
-          "LOCAL": 1,
-          "WGS84": 2,
-          "NAME": 3
-        },
-        "properties": {
-          "NMEA": {
-            "type": "integer"
-          },
-          "LOCAL": {
-            "type": "integer"
-          },
-          "WGS84": {
-            "type": "integer"
-          },
-          "NAME": {
-            "type": "integer"
-          }
-        }
-      },
       "AutoIdOperationStatusEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.AutoID.AutoIdOperationStatusEnumeration",
@@ -3257,6 +3136,30 @@
           },
           "TAG_HAS_LOW_BATTERY": {
             "description": "The battery of the (active) tag is low.",
+            "type": "integer"
+          }
+        }
+      },
+      "LocationTypeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+        "const": {
+          "NMEA": 0,
+          "LOCAL": 1,
+          "WGS84": 2,
+          "NAME": 3
+        },
+        "properties": {
+          "NMEA": {
+            "type": "integer"
+          },
+          "LOCAL": {
+            "type": "integer"
+          },
+          "WGS84": {
+            "type": "integer"
+          },
+          "NAME": {
             "type": "integer"
           }
         }
@@ -3582,30 +3485,6 @@
       }
     ],
     "schemaDefinitions": {
-      "LocationTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
-        "const": {
-          "NMEA": 0,
-          "LOCAL": 1,
-          "WGS84": 2,
-          "NAME": 3
-        },
-        "properties": {
-          "NMEA": {
-            "type": "integer"
-          },
-          "LOCAL": {
-            "type": "integer"
-          },
-          "WGS84": {
-            "type": "integer"
-          },
-          "NAME": {
-            "type": "integer"
-          }
-        }
-      },
       "AutoIdOperationStatusEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.AutoID.AutoIdOperationStatusEnumeration",
@@ -3720,6 +3599,30 @@
           },
           "TAG_HAS_LOW_BATTERY": {
             "description": "The battery of the (active) tag is low.",
+            "type": "integer"
+          }
+        }
+      },
+      "LocationTypeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+        "const": {
+          "NMEA": 0,
+          "LOCAL": 1,
+          "WGS84": 2,
+          "NAME": 3
+        },
+        "properties": {
+          "NMEA": {
+            "type": "integer"
+          },
+          "LOCAL": {
+            "type": "integer"
+          },
+          "WGS84": {
+            "type": "integer"
+          },
+          "NAME": {
             "type": "integer"
           }
         }
@@ -4026,30 +3929,6 @@
       }
     ],
     "schemaDefinitions": {
-      "LocationTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
-        "const": {
-          "NMEA": 0,
-          "LOCAL": 1,
-          "WGS84": 2,
-          "NAME": 3
-        },
-        "properties": {
-          "NMEA": {
-            "type": "integer"
-          },
-          "LOCAL": {
-            "type": "integer"
-          },
-          "WGS84": {
-            "type": "integer"
-          },
-          "NAME": {
-            "type": "integer"
-          }
-        }
-      },
       "AutoIdOperationStatusEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.AutoID.AutoIdOperationStatusEnumeration",
@@ -4164,6 +4043,30 @@
           },
           "TAG_HAS_LOW_BATTERY": {
             "description": "The battery of the (active) tag is low.",
+            "type": "integer"
+          }
+        }
+      },
+      "LocationTypeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+        "const": {
+          "NMEA": 0,
+          "LOCAL": 1,
+          "WGS84": 2,
+          "NAME": 3
+        },
+        "properties": {
+          "NMEA": {
+            "type": "integer"
+          },
+          "LOCAL": {
+            "type": "integer"
+          },
+          "WGS84": {
+            "type": "integer"
+          },
+          "NAME": {
             "type": "integer"
           }
         }
@@ -4437,30 +4340,26 @@
           }
         }
       },
-      "RfidLockRegionEnumeration": {
+      "LocationTypeEnumeration": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidLockRegionEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
         "const": {
-          "Kill": 0,
-          "Access": 1,
-          "EPC": 2,
-          "TID": 3,
-          "User": 4
+          "NMEA": 0,
+          "LOCAL": 1,
+          "WGS84": 2,
+          "NAME": 3
         },
         "properties": {
-          "Kill": {
+          "NMEA": {
             "type": "integer"
           },
-          "Access": {
+          "LOCAL": {
             "type": "integer"
           },
-          "EPC": {
+          "WGS84": {
             "type": "integer"
           },
-          "TID": {
-            "type": "integer"
-          },
-          "User": {
+          "NAME": {
             "type": "integer"
           }
         }
@@ -4489,26 +4388,30 @@
           }
         }
       },
-      "LocationTypeEnumeration": {
+      "RfidLockRegionEnumeration": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidLockRegionEnumeration",
         "const": {
-          "NMEA": 0,
-          "LOCAL": 1,
-          "WGS84": 2,
-          "NAME": 3
+          "Kill": 0,
+          "Access": 1,
+          "EPC": 2,
+          "TID": 3,
+          "User": 4
         },
         "properties": {
-          "NMEA": {
+          "Kill": {
             "type": "integer"
           },
-          "LOCAL": {
+          "Access": {
             "type": "integer"
           },
-          "WGS84": {
+          "EPC": {
             "type": "integer"
           },
-          "NAME": {
+          "TID": {
+            "type": "integer"
+          },
+          "User": {
             "type": "integer"
           }
         }
@@ -5539,30 +5442,6 @@
       }
     ],
     "schemaDefinitions": {
-      "LocationTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
-        "const": {
-          "NMEA": 0,
-          "LOCAL": 1,
-          "WGS84": 2,
-          "NAME": 3
-        },
-        "properties": {
-          "NMEA": {
-            "type": "integer"
-          },
-          "LOCAL": {
-            "type": "integer"
-          },
-          "WGS84": {
-            "type": "integer"
-          },
-          "NAME": {
-            "type": "integer"
-          }
-        }
-      },
       "AutoIdOperationStatusEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.AutoID.AutoIdOperationStatusEnumeration",
@@ -5677,6 +5556,30 @@
           },
           "TAG_HAS_LOW_BATTERY": {
             "description": "The battery of the (active) tag is low.",
+            "type": "integer"
+          }
+        }
+      },
+      "LocationTypeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+        "const": {
+          "NMEA": 0,
+          "LOCAL": 1,
+          "WGS84": 2,
+          "NAME": 3
+        },
+        "properties": {
+          "NMEA": {
+            "type": "integer"
+          },
+          "LOCAL": {
+            "type": "integer"
+          },
+          "WGS84": {
+            "type": "integer"
+          },
+          "NAME": {
             "type": "integer"
           }
         }
@@ -8581,6 +8484,127 @@
             "type": "integer",
             "minimum": -2147483648,
             "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "AutoID_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "LocationVariableType": {
+        "title": "Location",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationVariableType",
+        "properties": {
+          "NMEA": {
+            "type": "string"
+          },
+          "Local": {
+            "title": "LocalCoordinate",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+            "required": [ "X", "Y", "Z", "Timestamp", "DilutionOfPrecision", "UsefulPrecision" ],
+            "properties": {
+              "X": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Y": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Z": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Timestamp": {
+                "description": "Optional",
+                "type": "string",
+                "format": "time"
+              },
+              "DilutionOfPrecision": {
+                "description": "Optional",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "UsefulPrecision": {
+                "description": "Optional",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          },
+          "WGS84": {
+            "title": "WGS84Coordinate",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
+            "required": [ "N/S Hemisphere", "Latitude", "E/W Hemisphere", "Longitude", "Altitude", "Timestamp", "DilutionOfPrecision", "UsefulPrecisionLatLon", "UsefulPrecisionAlt" ],
+            "properties": {
+              "N/S Hemisphere": {
+                "type": "string"
+              },
+              "Latitude": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "E/W Hemisphere": {
+                "type": "string"
+              },
+              "Longitude": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Altitude": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Timestamp": {
+                "type": "string",
+                "format": "time"
+              },
+              "DilutionOfPrecision": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "UsefulPrecisionLatLon": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UsefulPrecisionAlt": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          },
+          "Name": {
+            "type": "string"
           }
         }
       }

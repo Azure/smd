@@ -4231,6 +4231,40 @@
       }
     ],
     "schemaDefinitions": {
+      "HeatTracingTypeClassification": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatTracingTypeClassification",
+        "const": {
+          "ElectricalHeatTracingSystem": 0,
+          "HeatTracingSystem": 1,
+          "NoHeatTracingSystem": 2,
+          "SteamHeatTracingSystem": 3,
+          "TubularHeatTracingSystem": 4
+        },
+        "description": "",
+        "properties": {
+          "ElectricalHeatTracingSystem": {
+            "description": "ElectricalHeatTracingSystem",
+            "type": "integer"
+          },
+          "HeatTracingSystem": {
+            "description": "HeatTracingSystem",
+            "type": "integer"
+          },
+          "NoHeatTracingSystem": {
+            "description": "NoHeatTracingSystem",
+            "type": "integer"
+          },
+          "SteamHeatTracingSystem": {
+            "description": "SteamHeatTracingSystem",
+            "type": "integer"
+          },
+          "TubularHeatTracingSystem": {
+            "description": "TubularHeatTracingSystem",
+            "type": "integer"
+          }
+        }
+      },
       "NominalDiameterStandardClassification": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.DEXPI.NominalDiameterStandardClassification",
@@ -4561,40 +4595,6 @@
           },
           "Nps8Artefact": {
             "description": "Nps8Artefact",
-            "type": "integer"
-          }
-        }
-      },
-      "HeatTracingTypeClassification": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatTracingTypeClassification",
-        "const": {
-          "ElectricalHeatTracingSystem": 0,
-          "HeatTracingSystem": 1,
-          "NoHeatTracingSystem": 2,
-          "SteamHeatTracingSystem": 3,
-          "TubularHeatTracingSystem": 4
-        },
-        "description": "",
-        "properties": {
-          "ElectricalHeatTracingSystem": {
-            "description": "ElectricalHeatTracingSystem",
-            "type": "integer"
-          },
-          "HeatTracingSystem": {
-            "description": "HeatTracingSystem",
-            "type": "integer"
-          },
-          "NoHeatTracingSystem": {
-            "description": "NoHeatTracingSystem",
-            "type": "integer"
-          },
-          "SteamHeatTracingSystem": {
-            "description": "SteamHeatTracingSystem",
-            "type": "integer"
-          },
-          "TubularHeatTracingSystem": {
-            "description": "TubularHeatTracingSystem",
             "type": "integer"
           }
         }
@@ -20198,25 +20198,6 @@
       }
     ],
     "schemaDefinitions": {
-      "PipingNetworkSegmentFlowClassification": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingNetworkSegmentFlowClassification",
-        "const": {
-          "DualFlowPipingNetworkSegment": 0,
-          "SingleFlowPipingNetworkSegment": 1
-        },
-        "description": "",
-        "properties": {
-          "DualFlowPipingNetworkSegment": {
-            "description": "DualFlowPipingNetworkSegment",
-            "type": "integer"
-          },
-          "SingleFlowPipingNetworkSegment": {
-            "description": "SingleFlowPipingNetworkSegment",
-            "type": "integer"
-          }
-        }
-      },
       "HeatTracingTypeClassification": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatTracingTypeClassification",
@@ -20623,6 +20604,44 @@
           }
         }
       },
+      "PipingNetworkSegmentFlowClassification": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingNetworkSegmentFlowClassification",
+        "const": {
+          "DualFlowPipingNetworkSegment": 0,
+          "SingleFlowPipingNetworkSegment": 1
+        },
+        "description": "",
+        "properties": {
+          "DualFlowPipingNetworkSegment": {
+            "description": "DualFlowPipingNetworkSegment",
+            "type": "integer"
+          },
+          "SingleFlowPipingNetworkSegment": {
+            "description": "SingleFlowPipingNetworkSegment",
+            "type": "integer"
+          }
+        }
+      },
+      "PipingNetworkSegmentSlopeClassification": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingNetworkSegmentSlopeClassification",
+        "const": {
+          "SlopedPipingNetworkSegment": 0,
+          "UnslopedPipingNetworkSegment": 1
+        },
+        "description": "",
+        "properties": {
+          "SlopedPipingNetworkSegment": {
+            "description": "SlopedPipingNetworkSegment",
+            "type": "integer"
+          },
+          "UnslopedPipingNetworkSegment": {
+            "description": "UnslopedPipingNetworkSegment",
+            "type": "integer"
+          }
+        }
+      },
       "PrimarySecondaryPipingNetworkSegmentClassification": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.DEXPI.PrimarySecondaryPipingNetworkSegmentClassification",
@@ -20657,25 +20676,6 @@
           },
           "Siphon": {
             "description": "Siphon",
-            "type": "integer"
-          }
-        }
-      },
-      "PipingNetworkSegmentSlopeClassification": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingNetworkSegmentSlopeClassification",
-        "const": {
-          "SlopedPipingNetworkSegment": 0,
-          "UnslopedPipingNetworkSegment": 1
-        },
-        "description": "",
-        "properties": {
-          "SlopedPipingNetworkSegment": {
-            "description": "SlopedPipingNetworkSegment",
-            "type": "integer"
-          },
-          "UnslopedPipingNetworkSegment": {
-            "description": "UnslopedPipingNetworkSegment",
             "type": "integer"
           }
         }

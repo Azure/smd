@@ -8356,6 +8356,30 @@
       }
     ],
     "schemaDefinitions": {
+      "RedundantServerMode": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RedundantServerMode",
+        "const": {
+          "PrimaryWithBackup": 0,
+          "PrimaryOnly": 1,
+          "BackupReady": 2,
+          "BackupNotReady": 3
+        },
+        "properties": {
+          "PrimaryWithBackup": {
+            "type": "integer"
+          },
+          "PrimaryOnly": {
+            "type": "integer"
+          },
+          "BackupReady": {
+            "type": "integer"
+          },
+          "BackupNotReady": {
+            "type": "integer"
+          }
+        }
+      },
       "ServerState": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.ServerState",
@@ -8392,30 +8416,6 @@
             "type": "integer"
           },
           "Unknown": {
-            "type": "integer"
-          }
-        }
-      },
-      "RedundantServerMode": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.RedundantServerMode",
-        "const": {
-          "PrimaryWithBackup": 0,
-          "PrimaryOnly": 1,
-          "BackupReady": 2,
-          "BackupNotReady": 3
-        },
-        "properties": {
-          "PrimaryWithBackup": {
-            "type": "integer"
-          },
-          "PrimaryOnly": {
-            "type": "integer"
-          },
-          "BackupReady": {
-            "type": "integer"
-          },
-          "BackupNotReady": {
             "type": "integer"
           }
         }
@@ -9055,6 +9055,30 @@
       }
     ],
     "schemaDefinitions": {
+      "AccessRestrictionType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AccessRestrictionType",
+        "const": {
+          "SigningRequired": 0,
+          "EncryptionRequired": 1,
+          "SessionRequired": 2,
+          "ApplyRestrictionsToBrowse": 3
+        },
+        "properties": {
+          "SigningRequired": {
+            "type": "integer"
+          },
+          "EncryptionRequired": {
+            "type": "integer"
+          },
+          "SessionRequired": {
+            "type": "integer"
+          },
+          "ApplyRestrictionsToBrowse": {
+            "type": "integer"
+          }
+        }
+      },
       "IdType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.IdType",
@@ -9151,30 +9175,6 @@
             "type": "integer"
           },
           "AddNode": {
-            "type": "integer"
-          }
-        }
-      },
-      "AccessRestrictionType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.AccessRestrictionType",
-        "const": {
-          "SigningRequired": 0,
-          "EncryptionRequired": 1,
-          "SessionRequired": 2,
-          "ApplyRestrictionsToBrowse": 3
-        },
-        "properties": {
-          "SigningRequired": {
-            "type": "integer"
-          },
-          "EncryptionRequired": {
-            "type": "integer"
-          },
-          "SessionRequired": {
-            "type": "integer"
-          },
-          "ApplyRestrictionsToBrowse": {
             "type": "integer"
           }
         }
@@ -9841,22 +9841,6 @@
       }
     ],
     "schemaDefinitions": {
-      "SecurityTokenRequestType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.SecurityTokenRequestType",
-        "const": {
-          "Issue": 0,
-          "Renew": 1
-        },
-        "properties": {
-          "Issue": {
-            "type": "integer"
-          },
-          "Renew": {
-            "type": "integer"
-          }
-        }
-      },
       "MessageSecurityMode": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
@@ -9877,6 +9861,22 @@
             "type": "integer"
           },
           "SignAndEncrypt": {
+            "type": "integer"
+          }
+        }
+      },
+      "SecurityTokenRequestType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SecurityTokenRequestType",
+        "const": {
+          "Issue": 0,
+          "Renew": 1
+        },
+        "properties": {
+          "Issue": {
+            "type": "integer"
+          },
+          "Renew": {
             "type": "integer"
           }
         }
@@ -19227,54 +19227,6 @@
       }
     ],
     "schemaDefinitions": {
-      "MessageSecurityMode": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
-        "const": {
-          "Invalid": 0,
-          "None": 1,
-          "Sign": 2,
-          "SignAndEncrypt": 3
-        },
-        "properties": {
-          "Invalid": {
-            "type": "integer"
-          },
-          "None": {
-            "type": "integer"
-          },
-          "Sign": {
-            "type": "integer"
-          },
-          "SignAndEncrypt": {
-            "type": "integer"
-          }
-        }
-      },
-      "UserTokenType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
-        "const": {
-          "Anonymous": 0,
-          "UserName": 1,
-          "Certificate": 2,
-          "IssuedToken": 3
-        },
-        "properties": {
-          "Anonymous": {
-            "type": "integer"
-          },
-          "UserName": {
-            "type": "integer"
-          },
-          "Certificate": {
-            "type": "integer"
-          },
-          "IssuedToken": {
-            "type": "integer"
-          }
-        }
-      },
       "FilterOperator": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
@@ -19351,6 +19303,54 @@
             "type": "integer"
           },
           "BitwiseOr": {
+            "type": "integer"
+          }
+        }
+      },
+      "MessageSecurityMode": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+        "const": {
+          "Invalid": 0,
+          "None": 1,
+          "Sign": 2,
+          "SignAndEncrypt": 3
+        },
+        "properties": {
+          "Invalid": {
+            "type": "integer"
+          },
+          "None": {
+            "type": "integer"
+          },
+          "Sign": {
+            "type": "integer"
+          },
+          "SignAndEncrypt": {
+            "type": "integer"
+          }
+        }
+      },
+      "UserTokenType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+        "const": {
+          "Anonymous": 0,
+          "UserName": 1,
+          "Certificate": 2,
+          "IssuedToken": 3
+        },
+        "properties": {
+          "Anonymous": {
+            "type": "integer"
+          },
+          "UserName": {
+            "type": "integer"
+          },
+          "Certificate": {
+            "type": "integer"
+          },
+          "IssuedToken": {
             "type": "integer"
           }
         }
@@ -19778,34 +19778,6 @@
       }
     ],
     "schemaDefinitions": {
-      "PerformUpdateType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
-        "const": {
-          "Insert": 1,
-          "Replace": 2,
-          "Update": 3,
-          "Remove": 4
-        },
-        "properties": {
-          "Insert": {
-            "description": "Data was inserted.",
-            "type": "integer"
-          },
-          "Replace": {
-            "description": "Data was replaced.",
-            "type": "integer"
-          },
-          "Update": {
-            "description": "Data was inserted or replaced.",
-            "type": "integer"
-          },
-          "Remove": {
-            "description": "Data was deleted.",
-            "type": "integer"
-          }
-        }
-      },
       "FilterOperator": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
@@ -19882,6 +19854,34 @@
             "type": "integer"
           },
           "BitwiseOr": {
+            "type": "integer"
+          }
+        }
+      },
+      "PerformUpdateType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+        "const": {
+          "Insert": 1,
+          "Replace": 2,
+          "Update": 3,
+          "Remove": 4
+        },
+        "properties": {
+          "Insert": {
+            "description": "Data was inserted.",
+            "type": "integer"
+          },
+          "Replace": {
+            "description": "Data was replaced.",
+            "type": "integer"
+          },
+          "Update": {
+            "description": "Data was inserted or replaced.",
+            "type": "integer"
+          },
+          "Remove": {
+            "description": "Data was deleted.",
             "type": "integer"
           }
         }
@@ -24392,54 +24392,6 @@
           }
         }
       },
-      "MessageSecurityMode": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
-        "const": {
-          "Invalid": 0,
-          "None": 1,
-          "Sign": 2,
-          "SignAndEncrypt": 3
-        },
-        "properties": {
-          "Invalid": {
-            "type": "integer"
-          },
-          "None": {
-            "type": "integer"
-          },
-          "Sign": {
-            "type": "integer"
-          },
-          "SignAndEncrypt": {
-            "type": "integer"
-          }
-        }
-      },
-      "UserTokenType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
-        "const": {
-          "Anonymous": 0,
-          "UserName": 1,
-          "Certificate": 2,
-          "IssuedToken": 3
-        },
-        "properties": {
-          "Anonymous": {
-            "type": "integer"
-          },
-          "UserName": {
-            "type": "integer"
-          },
-          "Certificate": {
-            "type": "integer"
-          },
-          "IssuedToken": {
-            "type": "integer"
-          }
-        }
-      },
       "DataSetFieldContentMask": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
@@ -24472,6 +24424,42 @@
           }
         }
       },
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
+      "MessageSecurityMode": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+        "const": {
+          "Invalid": 0,
+          "None": 1,
+          "Sign": 2,
+          "SignAndEncrypt": 3
+        },
+        "properties": {
+          "Invalid": {
+            "type": "integer"
+          },
+          "None": {
+            "type": "integer"
+          },
+          "Sign": {
+            "type": "integer"
+          },
+          "SignAndEncrypt": {
+            "type": "integer"
+          }
+        }
+      },
       "StructureType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.StructureType",
@@ -24500,14 +24488,26 @@
           }
         }
       },
-      "DataSetFieldFlags": {
+      "UserTokenType": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
         "const": {
-          "PromotedField": 0
+          "Anonymous": 0,
+          "UserName": 1,
+          "Certificate": 2,
+          "IssuedToken": 3
         },
         "properties": {
-          "PromotedField": {
+          "Anonymous": {
+            "type": "integer"
+          },
+          "UserName": {
+            "type": "integer"
+          },
+          "Certificate": {
+            "type": "integer"
+          },
+          "IssuedToken": {
             "type": "integer"
           }
         }
@@ -26014,6 +26014,18 @@
       }
     ],
     "schemaDefinitions": {
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
       "StructureType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.StructureType",
@@ -26038,18 +26050,6 @@
             "type": "integer"
           },
           "UnionWithSubtypedValues": {
-            "type": "integer"
-          }
-        }
-      },
-      "DataSetFieldFlags": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
-        "const": {
-          "PromotedField": 0
-        },
-        "properties": {
-          "PromotedField": {
             "type": "integer"
           }
         }
@@ -28324,30 +28324,6 @@
       }
     ],
     "schemaDefinitions": {
-      "MessageSecurityMode": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
-        "const": {
-          "Invalid": 0,
-          "None": 1,
-          "Sign": 2,
-          "SignAndEncrypt": 3
-        },
-        "properties": {
-          "Invalid": {
-            "type": "integer"
-          },
-          "None": {
-            "type": "integer"
-          },
-          "Sign": {
-            "type": "integer"
-          },
-          "SignAndEncrypt": {
-            "type": "integer"
-          }
-        }
-      },
       "ApplicationType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
@@ -28368,30 +28344,6 @@
             "type": "integer"
           },
           "DiscoveryServer": {
-            "type": "integer"
-          }
-        }
-      },
-      "UserTokenType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
-        "const": {
-          "Anonymous": 0,
-          "UserName": 1,
-          "Certificate": 2,
-          "IssuedToken": 3
-        },
-        "properties": {
-          "Anonymous": {
-            "type": "integer"
-          },
-          "UserName": {
-            "type": "integer"
-          },
-          "Certificate": {
-            "type": "integer"
-          },
-          "IssuedToken": {
             "type": "integer"
           }
         }
@@ -28428,6 +28380,42 @@
           }
         }
       },
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
+      "MessageSecurityMode": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+        "const": {
+          "Invalid": 0,
+          "None": 1,
+          "Sign": 2,
+          "SignAndEncrypt": 3
+        },
+        "properties": {
+          "Invalid": {
+            "type": "integer"
+          },
+          "None": {
+            "type": "integer"
+          },
+          "Sign": {
+            "type": "integer"
+          },
+          "SignAndEncrypt": {
+            "type": "integer"
+          }
+        }
+      },
       "StructureType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.StructureType",
@@ -28456,14 +28444,26 @@
           }
         }
       },
-      "DataSetFieldFlags": {
+      "UserTokenType": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
         "const": {
-          "PromotedField": 0
+          "Anonymous": 0,
+          "UserName": 1,
+          "Certificate": 2,
+          "IssuedToken": 3
         },
         "properties": {
-          "PromotedField": {
+          "Anonymous": {
+            "type": "integer"
+          },
+          "UserName": {
+            "type": "integer"
+          },
+          "Certificate": {
+            "type": "integer"
+          },
+          "IssuedToken": {
             "type": "integer"
           }
         }
@@ -29535,30 +29535,6 @@
       }
     ],
     "schemaDefinitions": {
-      "MessageSecurityMode": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
-        "const": {
-          "Invalid": 0,
-          "None": 1,
-          "Sign": 2,
-          "SignAndEncrypt": 3
-        },
-        "properties": {
-          "Invalid": {
-            "type": "integer"
-          },
-          "None": {
-            "type": "integer"
-          },
-          "Sign": {
-            "type": "integer"
-          },
-          "SignAndEncrypt": {
-            "type": "integer"
-          }
-        }
-      },
       "ApplicationType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
@@ -29579,6 +29555,30 @@
             "type": "integer"
           },
           "DiscoveryServer": {
+            "type": "integer"
+          }
+        }
+      },
+      "MessageSecurityMode": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+        "const": {
+          "Invalid": 0,
+          "None": 1,
+          "Sign": 2,
+          "SignAndEncrypt": 3
+        },
+        "properties": {
+          "Invalid": {
+            "type": "integer"
+          },
+          "None": {
+            "type": "integer"
+          },
+          "Sign": {
+            "type": "integer"
+          },
+          "SignAndEncrypt": {
             "type": "integer"
           }
         }
@@ -30154,42 +30154,26 @@
       }
     ],
     "schemaDefinitions": {
-      "StructureType": {
+      "ApplicationType": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.StructureType",
+        "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
         "const": {
-          "Structure": 0,
-          "StructureWithOptionalFields": 1,
-          "Union": 2,
-          "StructureWithSubtypedValues": 3,
-          "UnionWithSubtypedValues": 4
+          "Server": 0,
+          "Client": 1,
+          "ClientAndServer": 2,
+          "DiscoveryServer": 3
         },
         "properties": {
-          "Structure": {
+          "Server": {
             "type": "integer"
           },
-          "StructureWithOptionalFields": {
+          "Client": {
             "type": "integer"
           },
-          "Union": {
+          "ClientAndServer": {
             "type": "integer"
           },
-          "StructureWithSubtypedValues": {
-            "type": "integer"
-          },
-          "UnionWithSubtypedValues": {
-            "type": "integer"
-          }
-        }
-      },
-      "DataSetFieldFlags": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
-        "const": {
-          "PromotedField": 0
-        },
-        "properties": {
-          "PromotedField": {
+          "DiscoveryServer": {
             "type": "integer"
           }
         }
@@ -30226,6 +30210,18 @@
           }
         }
       },
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
       "MessageSecurityMode": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
@@ -30250,26 +30246,30 @@
           }
         }
       },
-      "ApplicationType": {
+      "StructureType": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+        "dov:typeRef": "org.opcfoundation.UA.StructureType",
         "const": {
-          "Server": 0,
-          "Client": 1,
-          "ClientAndServer": 2,
-          "DiscoveryServer": 3
+          "Structure": 0,
+          "StructureWithOptionalFields": 1,
+          "Union": 2,
+          "StructureWithSubtypedValues": 3,
+          "UnionWithSubtypedValues": 4
         },
         "properties": {
-          "Server": {
+          "Structure": {
             "type": "integer"
           },
-          "Client": {
+          "StructureWithOptionalFields": {
             "type": "integer"
           },
-          "ClientAndServer": {
+          "Union": {
             "type": "integer"
           },
-          "DiscoveryServer": {
+          "StructureWithSubtypedValues": {
+            "type": "integer"
+          },
+          "UnionWithSubtypedValues": {
             "type": "integer"
           }
         }
@@ -31125,42 +31125,26 @@
       }
     ],
     "schemaDefinitions": {
-      "StructureType": {
+      "ApplicationType": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.StructureType",
+        "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
         "const": {
-          "Structure": 0,
-          "StructureWithOptionalFields": 1,
-          "Union": 2,
-          "StructureWithSubtypedValues": 3,
-          "UnionWithSubtypedValues": 4
+          "Server": 0,
+          "Client": 1,
+          "ClientAndServer": 2,
+          "DiscoveryServer": 3
         },
         "properties": {
-          "Structure": {
+          "Server": {
             "type": "integer"
           },
-          "StructureWithOptionalFields": {
+          "Client": {
             "type": "integer"
           },
-          "Union": {
+          "ClientAndServer": {
             "type": "integer"
           },
-          "StructureWithSubtypedValues": {
-            "type": "integer"
-          },
-          "UnionWithSubtypedValues": {
-            "type": "integer"
-          }
-        }
-      },
-      "DataSetFieldFlags": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
-        "const": {
-          "PromotedField": 0
-        },
-        "properties": {
-          "PromotedField": {
+          "DiscoveryServer": {
             "type": "integer"
           }
         }
@@ -31197,6 +31181,18 @@
           }
         }
       },
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
       "MessageSecurityMode": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
@@ -31217,54 +31213,6 @@
             "type": "integer"
           },
           "SignAndEncrypt": {
-            "type": "integer"
-          }
-        }
-      },
-      "ApplicationType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
-        "const": {
-          "Server": 0,
-          "Client": 1,
-          "ClientAndServer": 2,
-          "DiscoveryServer": 3
-        },
-        "properties": {
-          "Server": {
-            "type": "integer"
-          },
-          "Client": {
-            "type": "integer"
-          },
-          "ClientAndServer": {
-            "type": "integer"
-          },
-          "DiscoveryServer": {
-            "type": "integer"
-          }
-        }
-      },
-      "UserTokenType": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
-        "const": {
-          "Anonymous": 0,
-          "UserName": 1,
-          "Certificate": 2,
-          "IssuedToken": 3
-        },
-        "properties": {
-          "Anonymous": {
-            "type": "integer"
-          },
-          "UserName": {
-            "type": "integer"
-          },
-          "Certificate": {
-            "type": "integer"
-          },
-          "IssuedToken": {
             "type": "integer"
           }
         }
@@ -31361,6 +31309,58 @@
             "type": "integer"
           },
           "AddNode": {
+            "type": "integer"
+          }
+        }
+      },
+      "StructureType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.StructureType",
+        "const": {
+          "Structure": 0,
+          "StructureWithOptionalFields": 1,
+          "Union": 2,
+          "StructureWithSubtypedValues": 3,
+          "UnionWithSubtypedValues": 4
+        },
+        "properties": {
+          "Structure": {
+            "type": "integer"
+          },
+          "StructureWithOptionalFields": {
+            "type": "integer"
+          },
+          "Union": {
+            "type": "integer"
+          },
+          "StructureWithSubtypedValues": {
+            "type": "integer"
+          },
+          "UnionWithSubtypedValues": {
+            "type": "integer"
+          }
+        }
+      },
+      "UserTokenType": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+        "const": {
+          "Anonymous": 0,
+          "UserName": 1,
+          "Certificate": 2,
+          "IssuedToken": 3
+        },
+        "properties": {
+          "Anonymous": {
+            "type": "integer"
+          },
+          "UserName": {
+            "type": "integer"
+          },
+          "Certificate": {
+            "type": "integer"
+          },
+          "IssuedToken": {
             "type": "integer"
           }
         }
@@ -32433,6 +32433,18 @@
       }
     ],
     "schemaDefinitions": {
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
       "StructureType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.StructureType",
@@ -32457,18 +32469,6 @@
             "type": "integer"
           },
           "UnionWithSubtypedValues": {
-            "type": "integer"
-          }
-        }
-      },
-      "DataSetFieldFlags": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
-        "const": {
-          "PromotedField": 0
-        },
-        "properties": {
-          "PromotedField": {
             "type": "integer"
           }
         }
@@ -32897,6 +32897,18 @@
       }
     ],
     "schemaDefinitions": {
+      "DataSetFieldFlags": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+        "const": {
+          "PromotedField": 0
+        },
+        "properties": {
+          "PromotedField": {
+            "type": "integer"
+          }
+        }
+      },
       "StructureType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.StructureType",
@@ -32921,18 +32933,6 @@
             "type": "integer"
           },
           "UnionWithSubtypedValues": {
-            "type": "integer"
-          }
-        }
-      },
-      "DataSetFieldFlags": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
-        "const": {
-          "PromotedField": 0
-        },
-        "properties": {
-          "PromotedField": {
             "type": "integer"
           }
         }
@@ -34543,6 +34543,38 @@
       }
     ],
     "schemaDefinitions": {
+      "UadpDataSetMessageContentMask": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UadpDataSetMessageContentMask",
+        "const": {
+          "Timestamp": 0,
+          "PicoSeconds": 1,
+          "Status": 2,
+          "MajorVersion": 3,
+          "MinorVersion": 4,
+          "SequenceNumber": 5
+        },
+        "properties": {
+          "Timestamp": {
+            "type": "integer"
+          },
+          "PicoSeconds": {
+            "type": "integer"
+          },
+          "Status": {
+            "type": "integer"
+          },
+          "MajorVersion": {
+            "type": "integer"
+          },
+          "MinorVersion": {
+            "type": "integer"
+          },
+          "SequenceNumber": {
+            "type": "integer"
+          }
+        }
+      },
       "UadpNetworkMessageContentMask": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.UadpNetworkMessageContentMask",
@@ -34591,38 +34623,6 @@
             "type": "integer"
           },
           "PromotedFields": {
-            "type": "integer"
-          }
-        }
-      },
-      "UadpDataSetMessageContentMask": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UadpDataSetMessageContentMask",
-        "const": {
-          "Timestamp": 0,
-          "PicoSeconds": 1,
-          "Status": 2,
-          "MajorVersion": 3,
-          "MinorVersion": 4,
-          "SequenceNumber": 5
-        },
-        "properties": {
-          "Timestamp": {
-            "type": "integer"
-          },
-          "PicoSeconds": {
-            "type": "integer"
-          },
-          "Status": {
-            "type": "integer"
-          },
-          "MajorVersion": {
-            "type": "integer"
-          },
-          "MinorVersion": {
-            "type": "integer"
-          },
-          "SequenceNumber": {
             "type": "integer"
           }
         }
@@ -34968,42 +34968,6 @@
       }
     ],
     "schemaDefinitions": {
-      "JsonNetworkMessageContentMask": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.JsonNetworkMessageContentMask",
-        "const": {
-          "NetworkMessageHeader": 0,
-          "DataSetMessageHeader": 1,
-          "SingleDataSetMessage": 2,
-          "PublisherId": 3,
-          "DataSetClassId": 4,
-          "ReplyTo": 5,
-          "WriterGroupName": 6
-        },
-        "properties": {
-          "NetworkMessageHeader": {
-            "type": "integer"
-          },
-          "DataSetMessageHeader": {
-            "type": "integer"
-          },
-          "SingleDataSetMessage": {
-            "type": "integer"
-          },
-          "PublisherId": {
-            "type": "integer"
-          },
-          "DataSetClassId": {
-            "type": "integer"
-          },
-          "ReplyTo": {
-            "type": "integer"
-          },
-          "WriterGroupName": {
-            "type": "integer"
-          }
-        }
-      },
       "JsonDataSetMessageContentMask": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.JsonDataSetMessageContentMask",
@@ -35056,6 +35020,42 @@
             "type": "integer"
           },
           "FieldEncoding2": {
+            "type": "integer"
+          }
+        }
+      },
+      "JsonNetworkMessageContentMask": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.JsonNetworkMessageContentMask",
+        "const": {
+          "NetworkMessageHeader": 0,
+          "DataSetMessageHeader": 1,
+          "SingleDataSetMessage": 2,
+          "PublisherId": 3,
+          "DataSetClassId": 4,
+          "ReplyTo": 5,
+          "WriterGroupName": 6
+        },
+        "properties": {
+          "NetworkMessageHeader": {
+            "type": "integer"
+          },
+          "DataSetMessageHeader": {
+            "type": "integer"
+          },
+          "SingleDataSetMessage": {
+            "type": "integer"
+          },
+          "PublisherId": {
+            "type": "integer"
+          },
+          "DataSetClassId": {
+            "type": "integer"
+          },
+          "ReplyTo": {
+            "type": "integer"
+          },
+          "WriterGroupName": {
             "type": "integer"
           }
         }
@@ -36242,34 +36242,6 @@
       }
     ],
     "schemaDefinitions": {
-      "UserConfigurationMask": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
-        "const": {
-          "NoDelete": 0,
-          "Disabled": 1,
-          "NoChangeByUser": 2,
-          "MustChangePassword": 3
-        },
-        "properties": {
-          "NoDelete": {
-            "description": "The user cannot be deleted.",
-            "type": "integer"
-          },
-          "Disabled": {
-            "description": "The user is disabled.",
-            "type": "integer"
-          },
-          "NoChangeByUser": {
-            "description": "The user cannot change the password.",
-            "type": "integer"
-          },
-          "MustChangePassword": {
-            "description": "The user must change the password to get the assigned roles. If the password is not changed, the user has only the Role Anonymous.",
-            "type": "integer"
-          }
-        }
-      },
       "PasswordOptionsMask": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PasswordOptionsMask",
@@ -36319,6 +36291,34 @@
           },
           "RequiresSpecialCharacters": {
             "description": "Indicates if a special character is required in a password.",
+            "type": "integer"
+          }
+        }
+      },
+      "UserConfigurationMask": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+        "const": {
+          "NoDelete": 0,
+          "Disabled": 1,
+          "NoChangeByUser": 2,
+          "MustChangePassword": 3
+        },
+        "properties": {
+          "NoDelete": {
+            "description": "The user cannot be deleted.",
+            "type": "integer"
+          },
+          "Disabled": {
+            "description": "The user is disabled.",
+            "type": "integer"
+          },
+          "NoChangeByUser": {
+            "description": "The user cannot change the password.",
+            "type": "integer"
+          },
+          "MustChangePassword": {
+            "description": "The user must change the password to get the assigned roles. If the password is not changed, the user has only the Role Anonymous.",
             "type": "integer"
           }
         }
@@ -37787,57 +37787,6 @@
       }
     ],
     "schemaDefinitions": {
-      "TsnTalkerStatus": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
-        "const": {
-          "None": 0,
-          "Ready": 1,
-          "Failed": 2
-        },
-        "properties": {
-          "None": {
-            "description": "No Talker detected.",
-            "type": "integer"
-          },
-          "Ready": {
-            "description": "Talker ready (configured).",
-            "type": "integer"
-          },
-          "Failed": {
-            "description": "Talker failed.",
-            "type": "integer"
-          }
-        }
-      },
-      "TsnListenerStatus": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
-        "const": {
-          "None": 0,
-          "Ready": 1,
-          "PartialFailed": 2,
-          "Failed": 3
-        },
-        "properties": {
-          "None": {
-            "description": "No Listener detected.",
-            "type": "integer"
-          },
-          "Ready": {
-            "description": "Listener ready (configured).",
-            "type": "integer"
-          },
-          "PartialFailed": {
-            "description": "One or more Listeners ready, and one or more Listeners failed.",
-            "type": "integer"
-          },
-          "Failed": {
-            "description": "Listener failed.",
-            "type": "integer"
-          }
-        }
-      },
       "TsnFailureCode": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.TsnFailureCode",
@@ -37972,6 +37921,57 @@
           },
           "FeatureNotSupported": {
             "description": "Enhanced feature cannot be supported without a CNC",
+            "type": "integer"
+          }
+        }
+      },
+      "TsnListenerStatus": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
+        "const": {
+          "None": 0,
+          "Ready": 1,
+          "PartialFailed": 2,
+          "Failed": 3
+        },
+        "properties": {
+          "None": {
+            "description": "No Listener detected.",
+            "type": "integer"
+          },
+          "Ready": {
+            "description": "Listener ready (configured).",
+            "type": "integer"
+          },
+          "PartialFailed": {
+            "description": "One or more Listeners ready, and one or more Listeners failed.",
+            "type": "integer"
+          },
+          "Failed": {
+            "description": "Listener failed.",
+            "type": "integer"
+          }
+        }
+      },
+      "TsnTalkerStatus": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
+        "const": {
+          "None": 0,
+          "Ready": 1,
+          "Failed": 2
+        },
+        "properties": {
+          "None": {
+            "description": "No Talker detected.",
+            "type": "integer"
+          },
+          "Ready": {
+            "description": "Talker ready (configured).",
+            "type": "integer"
+          },
+          "Failed": {
+            "description": "Talker failed.",
             "type": "integer"
           }
         }
@@ -39514,6 +39514,34 @@
       }
     ],
     "schemaDefinitions": {
+      "ManAddrIfSubtype": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+        "const": {
+          "None": 0,
+          "Unknown": 1,
+          "PortRef": 2,
+          "SystemPortNumber": 3
+        },
+        "properties": {
+          "None": {
+            "description": "Optional variable is not set.",
+            "type": "integer"
+          },
+          "Unknown": {
+            "description": "Interface is not known.",
+            "type": "integer"
+          },
+          "PortRef": {
+            "description": "Interface based on the port-ref MIB object.",
+            "type": "integer"
+          },
+          "SystemPortNumber": {
+            "description": "Interface based on the system port number.",
+            "type": "integer"
+          }
+        }
+      },
       "PortIdSubtype": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
@@ -39553,34 +39581,6 @@
           },
           "Local": {
             "description": "Represents a port identifier based on a value locally assigned.",
-            "type": "integer"
-          }
-        }
-      },
-      "ManAddrIfSubtype": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
-        "const": {
-          "None": 0,
-          "Unknown": 1,
-          "PortRef": 2,
-          "SystemPortNumber": 3
-        },
-        "properties": {
-          "None": {
-            "description": "Optional variable is not set.",
-            "type": "integer"
-          },
-          "Unknown": {
-            "description": "Interface is not known.",
-            "type": "integer"
-          },
-          "PortRef": {
-            "description": "Interface based on the port-ref MIB object.",
-            "type": "integer"
-          },
-          "SystemPortNumber": {
-            "description": "Interface based on the system port number.",
             "type": "integer"
           }
         }
@@ -39776,49 +39776,6 @@
           }
         }
       },
-      "PortIdSubtype": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
-        "const": {
-          "InterfaceAlias": 1,
-          "PortComponent": 2,
-          "MacAddress": 3,
-          "NetworkAddress": 4,
-          "InterfaceName": 5,
-          "AgentCircuitId": 6,
-          "Local": 7
-        },
-        "properties": {
-          "InterfaceAlias": {
-            "description": "Represents a port identifier based on the ifAlias MIB object defined in IETF RFC 2863.",
-            "type": "integer"
-          },
-          "PortComponent": {
-            "description": "Represents a port identifier based on the value of entPhysicalAlias (defined in IETF RFC 2737) for a port component (i.e., entPhysicalClass value of port(10) or backplane(4)), within the containing chassis.",
-            "type": "integer"
-          },
-          "MacAddress": {
-            "description": "Represents a port identifier based on a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) which has been detected by the agent and associated with a particular port (IEEE Std 802-2014).",
-            "type": "integer"
-          },
-          "NetworkAddress": {
-            "description": "Represents a port identifier based on a network address, detected by the agent and associated with a particular port.",
-            "type": "integer"
-          },
-          "InterfaceName": {
-            "description": "Represents a port identifier based on the ifName MIB object, defined in IETF RFC 2863.",
-            "type": "integer"
-          },
-          "AgentCircuitId": {
-            "description": "Represents a port identifier based on the agent-local identifier of the circuit (defined in IETF RFC 3046), detected by the agent and associated with a particular port.",
-            "type": "integer"
-          },
-          "Local": {
-            "description": "Represents a port identifier based on a value locally assigned.",
-            "type": "integer"
-          }
-        }
-      },
       "LldpSystemCapabilitiesMap": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.LldpSystemCapabilitiesMap",
@@ -39906,6 +39863,49 @@
           },
           "SystemPortNumber": {
             "description": "Interface based on the system port number.",
+            "type": "integer"
+          }
+        }
+      },
+      "PortIdSubtype": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+        "const": {
+          "InterfaceAlias": 1,
+          "PortComponent": 2,
+          "MacAddress": 3,
+          "NetworkAddress": 4,
+          "InterfaceName": 5,
+          "AgentCircuitId": 6,
+          "Local": 7
+        },
+        "properties": {
+          "InterfaceAlias": {
+            "description": "Represents a port identifier based on the ifAlias MIB object defined in IETF RFC 2863.",
+            "type": "integer"
+          },
+          "PortComponent": {
+            "description": "Represents a port identifier based on the value of entPhysicalAlias (defined in IETF RFC 2737) for a port component (i.e., entPhysicalClass value of port(10) or backplane(4)), within the containing chassis.",
+            "type": "integer"
+          },
+          "MacAddress": {
+            "description": "Represents a port identifier based on a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) which has been detected by the agent and associated with a particular port (IEEE Std 802-2014).",
+            "type": "integer"
+          },
+          "NetworkAddress": {
+            "description": "Represents a port identifier based on a network address, detected by the agent and associated with a particular port.",
+            "type": "integer"
+          },
+          "InterfaceName": {
+            "description": "Represents a port identifier based on the ifName MIB object, defined in IETF RFC 2863.",
+            "type": "integer"
+          },
+          "AgentCircuitId": {
+            "description": "Represents a port identifier based on the agent-local identifier of the circuit (defined in IETF RFC 3046), detected by the agent and associated with a particular port.",
+            "type": "integer"
+          },
+          "Local": {
+            "description": "Represents a port identifier based on a value locally assigned.",
             "type": "integer"
           }
         }

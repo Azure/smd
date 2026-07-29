@@ -1713,6 +1713,11 @@
       }
     ],
     "schemaDefinitions": {
+      "UIElementType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.DI.UIElementType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -1735,8 +1740,7 @@
     "properties": {
       "UIElement": {
         "dov:namespace": "http://opcfoundation.org/UA/DI/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/UIElementType",
         "readOnly": true,
         "forms": [
           {
@@ -1751,8 +1755,7 @@
       "UIElement": {
         "dov:namespace": "http://opcfoundation.org/UA/DI/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/UIElementType"
         },
         "forms": [
           {
@@ -4057,6 +4060,36 @@
             "type": "integer"
           }
         }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "DI_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "LifetimeVariableType": {
+        "description": "Remaining lifetime",
+        "dov:typeRef": "org.opcfoundation.UA.DI.LifetimeVariableType",
+        "type": "number"
+      },
+      "UIElementType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.DI.UIElementType",
+        "type": "string"
       }
     },
     "actions": {

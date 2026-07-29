@@ -978,6 +978,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -1163,8 +1167,7 @@
       },
       "TargetWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the preset of the volume to be processed.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1285,8 +1288,7 @@
       "TargetWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the preset of the volume to be processed.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -1328,6 +1330,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -1501,7 +1507,7 @@
       },
       "TargetThroughput": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1563,7 +1569,7 @@
       "TargetThroughput": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -1684,6 +1690,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -1747,8 +1757,7 @@
       },
       "NominalWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the nominal (printed) weight of the product.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1794,8 +1803,7 @@
       "NominalWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the nominal (printed) weight of the product.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -1825,6 +1833,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -1874,8 +1886,7 @@
       },
       "TargetFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines a preset of flowrate that needs to be conveyed. This value defines the setpoint for the FlowRate control loop.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1892,8 +1903,7 @@
       },
       "TargetWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines a preset of the volume to be processed.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1927,8 +1937,7 @@
       "TargetFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines a preset of flowrate that needs to be conveyed. This value defines the setpoint for the FlowRate control loop.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -1941,8 +1950,7 @@
       "TargetWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines a preset of the volume to be processed.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -1972,6 +1980,33 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      },
+      "WeightItemType": {
+        "title": "WeightType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+        "required": [ "Gross", "Net", "Tare" ],
+        "properties": {
+          "Gross": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Net": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tare": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -2324,6 +2359,7 @@
       "TargetPieceCount": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines the number of pieces that need to be counted.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
         "type": "integer",
         "minimum": 0,
         "readOnly": false,
@@ -2361,28 +2397,7 @@
       },
       "TotalizedWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "description": "Defines the summed up number of weight. Will be reset either triggered by the user or a different product selection.",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -2593,6 +2608,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines the number of pieces that need to be counted.",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
           "type": "integer",
           "minimum": 0
         },
@@ -2622,28 +2638,7 @@
       "TotalizedWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "description": "Defines the summed up number of weight. Will be reset either triggered by the user or a different product selection.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -2911,6 +2906,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -2957,8 +2956,7 @@
       },
       "VolumeTargetValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the preset of the volume to be processed.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -2993,8 +2991,7 @@
       "VolumeTargetValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the preset of the volume to be processed.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -3030,6 +3027,29 @@
       }
     ],
     "schemaDefinitions": {
+      "WeightItemType": {
+        "title": "WeightType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+        "required": [ "Gross", "Net", "Tare" ],
+        "properties": {
+          "Gross": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Net": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tare": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -3143,27 +3163,7 @@
       },
       "DeltaWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -3248,27 +3248,7 @@
       },
       "InboundWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -3302,27 +3282,7 @@
       },
       "OutboundWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -3483,27 +3443,7 @@
       "DeltaWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -3516,27 +3456,7 @@
       "InboundWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -3549,27 +3469,7 @@
       "OutboundWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -3951,6 +3851,10 @@
             "type": "integer"
           }
         }
+      },
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
       }
     },
     "forms": [
@@ -3997,8 +3901,7 @@
       },
       "TargetThresholdValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "The target value with which the threshold value is compared.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -4018,8 +3921,7 @@
       "TargetThresholdValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "The target value with which the threshold value is compared.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -4362,6 +4264,10 @@
       }
     ],
     "schemaDefinitions": {
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -4385,8 +4291,7 @@
     "properties": {
       "TargetWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the preset of the volume to be processed.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": false,
         "forms": [
           {
@@ -4424,8 +4329,7 @@
       "TargetWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the preset of the volume to be processed.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -5110,6 +5014,15 @@
       }
     ],
     "schemaDefinitions": {
+      "MeasuredItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "type": "string"
+      },
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -5186,6 +5099,7 @@
       "FeederLoad": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines the current loaded weight on the feeder system.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
         "type": "number",
         "readOnly": true,
         "forms": [
@@ -5211,8 +5125,7 @@
       },
       "FeederSpeed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the current speed of a feeder system. The unit of the FeederSpeed depends on the construction system.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/TargetItemType",
         "readOnly": true,
         "forms": [
           {
@@ -5254,6 +5167,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines the current loaded weight on the feeder system.",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
           "type": "number"
         },
         "forms": [
@@ -5267,8 +5181,7 @@
       "FeederSpeed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the current speed of a feeder system. The unit of the FeederSpeed depends on the construction system.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/TargetItemType"
         },
         "forms": [
           {
@@ -5589,6 +5502,29 @@
       }
     ],
     "schemaDefinitions": {
+      "WeightItemType": {
+        "title": "WeightType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+        "required": [ "Gross", "Net", "Tare" ],
+        "properties": {
+          "Gross": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Net": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tare": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -5751,28 +5687,7 @@
       },
       "CurrentWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "description": "Defines the current value that is measured at the sensor at the current timestamp. Might be a highly fluctuating value.",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -5880,28 +5795,7 @@
       },
       "RegisteredWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "description": "Defines the last valid measurement that was recorded and will be used for further processing. This is the legal registered value of the scale.",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -5921,28 +5815,7 @@
       "CurrentWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "description": "Defines the current value that is measured at the sensor at the current timestamp. Might be a highly fluctuating value.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -5968,28 +5841,7 @@
       "RegisteredWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "description": "Defines the last valid measurement that was recorded and will be used for further processing. This is the legal registered value of the scale.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -6338,6 +6190,11 @@
             "type": "integer"
           }
         }
+      },
+      "MeasuredItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "type": "string"
       }
     },
     "forms": [
@@ -6395,8 +6252,7 @@
       },
       "FlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the conveying capacity in volume per time.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/MeasuredItemType",
         "readOnly": false,
         "forms": [
           {
@@ -6537,8 +6393,7 @@
       "FlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the conveying capacity in volume per time.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/MeasuredItemType"
         },
         "forms": [
           {
@@ -6653,6 +6508,11 @@
       }
     ],
     "schemaDefinitions": {
+      "MeasuredItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -6724,8 +6584,7 @@
     "properties": {
       "BinWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/MeasuredItemType",
         "readOnly": false,
         "forms": [
           {
@@ -6777,8 +6636,7 @@
       },
       "HopperWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/MeasuredItemType",
         "readOnly": false,
         "forms": [
           {
@@ -6815,8 +6673,7 @@
       "BinWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/MeasuredItemType"
         },
         "forms": [
           {
@@ -6842,8 +6699,7 @@
       "HopperWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/MeasuredItemType"
         },
         "forms": [
           {
@@ -6880,6 +6736,11 @@
       }
     ],
     "schemaDefinitions": {
+      "MeasuredItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -6999,6 +6860,7 @@
       "CurrentPieceCount": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines the number of pieces that are currently measured related to the ReferencePieceWeight.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
         "type": "number",
         "readOnly": false,
         "forms": [
@@ -7038,6 +6900,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines the number of pieces that are currently measured related to the ReferencePieceWeight.",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
           "type": "number"
         },
         "forms": [
@@ -8206,6 +8069,11 @@
       }
     ],
     "schemaDefinitions": {
+      "MeasuredItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -8239,6 +8107,7 @@
       "TotalizedValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines a summed up/totalized volume within a period of time.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
         "type": "string",
         "readOnly": true,
         "forms": [
@@ -8255,6 +8124,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines a summed up/totalized volume within a period of time.",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
           "type": "string"
         },
         "forms": [
@@ -8285,6 +8155,29 @@
       }
     ],
     "schemaDefinitions": {
+      "WeightItemType": {
+        "title": "WeightType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+        "required": [ "Gross", "Net", "Tare" ],
+        "properties": {
+          "Gross": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Net": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tare": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -8392,28 +8285,7 @@
       },
       "MeasuredWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "title": "WeightType",
-        "description": "Defines the registered weight that may be unmistakeable referenced to one item.",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-        "required": [ "Gross", "Net", "Tare" ],
-        "properties": {
-          "Gross": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Net": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Tare": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/WeightItemType",
         "readOnly": false,
         "forms": [
           {
@@ -8510,28 +8382,7 @@
       "MeasuredWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "title": "WeightType",
-          "description": "Defines the registered weight that may be unmistakeable referenced to one item.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
-          "required": [ "Gross", "Net", "Tare" ],
-          "properties": {
-            "Gross": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Net": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Tare": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/WeightItemType"
         },
         "forms": [
           {
@@ -9179,6 +9030,58 @@
       "WeightType": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
+        "required": [ "Gross", "Net", "Tare" ],
+        "properties": {
+          "Gross": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Net": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tare": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "Scales_V2_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "MeasuredItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "type": "string"
+      },
+      "TargetItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+        "type": "number"
+      },
+      "WeightItemType": {
+        "title": "WeightType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
         "required": [ "Gross", "Net", "Tare" ],
         "properties": {
           "Gross": {

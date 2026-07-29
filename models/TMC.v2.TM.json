@@ -2971,6 +2971,25 @@
       }
     ],
     "schemaDefinitions": {
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialSublotVariableType": {
+        "description": "The MaterialSublotVariableType is a subtype of the MaterialQuantityVariableType. It is used to   provide the quantity for a material sublot.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialSublotVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
     },
     "forms": [
       {
@@ -2989,10 +3008,7 @@
     "properties": {
       "ConsumedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The last material sublot consumed.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType",
         "readOnly": true,
         "dov:contains": [ "ConsumedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3006,6 +3022,7 @@
       "ConsumedMaterial_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3021,10 +3038,7 @@
       },
       "ConsumedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total consumed material.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "ConsumedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3038,6 +3052,7 @@
       "ConsumedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3056,10 +3071,7 @@
       "ConsumedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The last material sublot consumed.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType"
         },
         "dov:contains": [ "ConsumedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3074,6 +3086,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3090,10 +3103,7 @@
       "ConsumedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total consumed material.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "ConsumedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3108,6 +3118,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3142,6 +3153,25 @@
       }
     ],
     "schemaDefinitions": {
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialSublotVariableType": {
+        "description": "The MaterialSublotVariableType is a subtype of the MaterialQuantityVariableType. It is used to   provide the quantity for a material sublot.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialSublotVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
     },
     "forms": [
       {
@@ -3160,10 +3190,7 @@
     "properties": {
       "DispensedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The material dispensed from the last consumed sublot.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType",
         "readOnly": true,
         "dov:contains": [ "DispensedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3177,6 +3204,7 @@
       "DispensedMaterial_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3192,10 +3220,7 @@
       },
       "DispensedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total dispensed material.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "DispensedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3209,6 +3234,7 @@
       "DispensedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3227,10 +3253,7 @@
       "DispensedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The material dispensed from the last consumed sublot.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType"
         },
         "dov:contains": [ "DispensedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3245,6 +3268,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3261,10 +3285,7 @@
       "DispensedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total dispensed material.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "DispensedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3279,6 +3300,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3313,6 +3335,25 @@
       }
     ],
     "schemaDefinitions": {
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialSublotVariableType": {
+        "description": "The MaterialSublotVariableType is a subtype of the MaterialQuantityVariableType. It is used to   provide the quantity for a material sublot.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialSublotVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
     },
     "forms": [
       {
@@ -3331,10 +3372,7 @@
     "properties": {
       "ProducedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The material quantity last produced i.e. produced since the previous event of the same type.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType",
         "readOnly": true,
         "dov:contains": [ "ProducedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3348,6 +3386,7 @@
       "ProducedMaterial_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3363,10 +3402,7 @@
       },
       "ProducedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total material quantity.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "ProducedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3380,6 +3416,7 @@
       "ProducedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3398,10 +3435,7 @@
       "ProducedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The material quantity last produced i.e. produced since the previous event of the same type.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType"
         },
         "dov:contains": [ "ProducedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3416,6 +3450,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3432,10 +3467,7 @@
       "ProducedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total material quantity.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "ProducedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3450,6 +3482,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3484,6 +3517,18 @@
       }
     ],
     "schemaDefinitions": {
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
     },
     "forms": [
       {
@@ -3502,10 +3547,7 @@
     "properties": {
       "RejectedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The material quantity last rejected, i.e. rejected since the previous event of the same type.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "RejectedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3519,6 +3561,7 @@
       "RejectedMaterial_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3534,10 +3577,7 @@
       },
       "RejectedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total material quantity rejected.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "RejectedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3551,6 +3591,7 @@
       "RejectedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -3569,10 +3610,7 @@
       "RejectedMaterial": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The material quantity last rejected, i.e. rejected since the previous event of the same type.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "RejectedMaterial_ValueInBUoM" ],
         "forms": [
@@ -3587,6 +3625,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -3603,10 +3642,7 @@
       "RejectedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total material quantity rejected.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "RejectedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -3621,6 +3657,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -7244,6 +7281,60 @@
       }
     ],
     "schemaDefinitions": {
+      "CommandEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
+        "const": {
+          "Abort": 0,
+          "Start": 1,
+          "Stop": 2,
+          "Reset": 3,
+          "Hold": 4,
+          "Unhold": 5,
+          "Clear": 6,
+          "Suspend": 7,
+          "Unsuspend": 8
+        },
+        "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
+        "properties": {
+          "Abort": {
+            "description": "The Abort command.",
+            "type": "integer"
+          },
+          "Start": {
+            "description": "The Start command.",
+            "type": "integer"
+          },
+          "Stop": {
+            "description": "The Stop command.",
+            "type": "integer"
+          },
+          "Reset": {
+            "description": "The Reset command.",
+            "type": "integer"
+          },
+          "Hold": {
+            "description": "The Hold command.",
+            "type": "integer"
+          },
+          "Unhold": {
+            "description": "The Unhold command.",
+            "type": "integer"
+          },
+          "Clear": {
+            "description": "The Clear command.",
+            "type": "integer"
+          },
+          "Suspend": {
+            "description": "The Suspend command.",
+            "type": "integer"
+          },
+          "Unsuspend": {
+            "description": "The Unsuspend command.",
+            "type": "integer"
+          }
+        }
+      },
       "ControlModeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
@@ -7388,60 +7479,6 @@
           },
           "Unholding": {
             "description": "The state of the machine module is unholding.",
-            "type": "integer"
-          }
-        }
-      },
-      "CommandEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
-        "const": {
-          "Abort": 0,
-          "Start": 1,
-          "Stop": 2,
-          "Reset": 3,
-          "Hold": 4,
-          "Unhold": 5,
-          "Clear": 6,
-          "Suspend": 7,
-          "Unsuspend": 8
-        },
-        "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
-        "properties": {
-          "Abort": {
-            "description": "The Abort command.",
-            "type": "integer"
-          },
-          "Start": {
-            "description": "The Start command.",
-            "type": "integer"
-          },
-          "Stop": {
-            "description": "The Stop command.",
-            "type": "integer"
-          },
-          "Reset": {
-            "description": "The Reset command.",
-            "type": "integer"
-          },
-          "Hold": {
-            "description": "The Hold command.",
-            "type": "integer"
-          },
-          "Unhold": {
-            "description": "The Unhold command.",
-            "type": "integer"
-          },
-          "Clear": {
-            "description": "The Clear command.",
-            "type": "integer"
-          },
-          "Suspend": {
-            "description": "The Suspend command.",
-            "type": "integer"
-          },
-          "Unsuspend": {
-            "description": "The Unsuspend command.",
             "type": "integer"
           }
         }
@@ -8436,6 +8473,60 @@
       }
     ],
     "schemaDefinitions": {
+      "CommandEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
+        "const": {
+          "Abort": 0,
+          "Start": 1,
+          "Stop": 2,
+          "Reset": 3,
+          "Hold": 4,
+          "Unhold": 5,
+          "Clear": 6,
+          "Suspend": 7,
+          "Unsuspend": 8
+        },
+        "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
+        "properties": {
+          "Abort": {
+            "description": "The Abort command.",
+            "type": "integer"
+          },
+          "Start": {
+            "description": "The Start command.",
+            "type": "integer"
+          },
+          "Stop": {
+            "description": "The Stop command.",
+            "type": "integer"
+          },
+          "Reset": {
+            "description": "The Reset command.",
+            "type": "integer"
+          },
+          "Hold": {
+            "description": "The Hold command.",
+            "type": "integer"
+          },
+          "Unhold": {
+            "description": "The Unhold command.",
+            "type": "integer"
+          },
+          "Clear": {
+            "description": "The Clear command.",
+            "type": "integer"
+          },
+          "Suspend": {
+            "description": "The Suspend command.",
+            "type": "integer"
+          },
+          "Unsuspend": {
+            "description": "The Unsuspend command.",
+            "type": "integer"
+          }
+        }
+      },
       "ControlModeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
@@ -8580,60 +8671,6 @@
           },
           "Unholding": {
             "description": "The state of the machine module is unholding.",
-            "type": "integer"
-          }
-        }
-      },
-      "CommandEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
-        "const": {
-          "Abort": 0,
-          "Start": 1,
-          "Stop": 2,
-          "Reset": 3,
-          "Hold": 4,
-          "Unhold": 5,
-          "Clear": 6,
-          "Suspend": 7,
-          "Unsuspend": 8
-        },
-        "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
-        "properties": {
-          "Abort": {
-            "description": "The Abort command.",
-            "type": "integer"
-          },
-          "Start": {
-            "description": "The Start command.",
-            "type": "integer"
-          },
-          "Stop": {
-            "description": "The Stop command.",
-            "type": "integer"
-          },
-          "Reset": {
-            "description": "The Reset command.",
-            "type": "integer"
-          },
-          "Hold": {
-            "description": "The Hold command.",
-            "type": "integer"
-          },
-          "Unhold": {
-            "description": "The Unhold command.",
-            "type": "integer"
-          },
-          "Clear": {
-            "description": "The Clear command.",
-            "type": "integer"
-          },
-          "Suspend": {
-            "description": "The Suspend command.",
-            "type": "integer"
-          },
-          "Unsuspend": {
-            "description": "The Unsuspend command.",
             "type": "integer"
           }
         }
@@ -10023,6 +10060,60 @@
       }
     ],
     "schemaDefinitions": {
+      "CommandEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
+        "const": {
+          "Abort": 0,
+          "Start": 1,
+          "Stop": 2,
+          "Reset": 3,
+          "Hold": 4,
+          "Unhold": 5,
+          "Clear": 6,
+          "Suspend": 7,
+          "Unsuspend": 8
+        },
+        "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
+        "properties": {
+          "Abort": {
+            "description": "The Abort command.",
+            "type": "integer"
+          },
+          "Start": {
+            "description": "The Start command.",
+            "type": "integer"
+          },
+          "Stop": {
+            "description": "The Stop command.",
+            "type": "integer"
+          },
+          "Reset": {
+            "description": "The Reset command.",
+            "type": "integer"
+          },
+          "Hold": {
+            "description": "The Hold command.",
+            "type": "integer"
+          },
+          "Unhold": {
+            "description": "The Unhold command.",
+            "type": "integer"
+          },
+          "Clear": {
+            "description": "The Clear command.",
+            "type": "integer"
+          },
+          "Suspend": {
+            "description": "The Suspend command.",
+            "type": "integer"
+          },
+          "Unsuspend": {
+            "description": "The Unsuspend command.",
+            "type": "integer"
+          }
+        }
+      },
       "ControlModeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
@@ -10167,60 +10258,6 @@
           },
           "Unholding": {
             "description": "The state of the machine module is unholding.",
-            "type": "integer"
-          }
-        }
-      },
-      "CommandEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
-        "const": {
-          "Abort": 0,
-          "Start": 1,
-          "Stop": 2,
-          "Reset": 3,
-          "Hold": 4,
-          "Unhold": 5,
-          "Clear": 6,
-          "Suspend": 7,
-          "Unsuspend": 8
-        },
-        "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
-        "properties": {
-          "Abort": {
-            "description": "The Abort command.",
-            "type": "integer"
-          },
-          "Start": {
-            "description": "The Start command.",
-            "type": "integer"
-          },
-          "Stop": {
-            "description": "The Stop command.",
-            "type": "integer"
-          },
-          "Reset": {
-            "description": "The Reset command.",
-            "type": "integer"
-          },
-          "Hold": {
-            "description": "The Hold command.",
-            "type": "integer"
-          },
-          "Unhold": {
-            "description": "The Unhold command.",
-            "type": "integer"
-          },
-          "Clear": {
-            "description": "The Clear command.",
-            "type": "integer"
-          },
-          "Suspend": {
-            "description": "The Suspend command.",
-            "type": "integer"
-          },
-          "Unsuspend": {
-            "description": "The Unsuspend command.",
             "type": "integer"
           }
         }
@@ -18226,6 +18263,11 @@
       }
     ],
     "schemaDefinitions": {
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -18431,6 +18473,7 @@
       "Value": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "Value represents the current value measured by the sensor.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -18545,6 +18588,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "Value represents the current value measured by the sensor.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -19107,6 +19151,10 @@
       }
     ],
     "schemaDefinitions": {
+      "BooleanGuardVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -19125,7 +19173,7 @@
     "properties": {
       "AbortedToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19137,7 +19185,7 @@
       },
       "AbortingToAbortedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19149,7 +19197,7 @@
       },
       "AssignedToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19161,7 +19209,7 @@
       },
       "AssignedToStartingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19173,7 +19221,7 @@
       },
       "CompleteToAssignedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19185,7 +19233,7 @@
       },
       "CompletingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19197,7 +19245,7 @@
       },
       "CompletingToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19209,7 +19257,7 @@
       },
       "ExecuteToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19221,7 +19269,7 @@
       },
       "ExecuteToCompletingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19244,7 +19292,7 @@
       },
       "StartingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19256,7 +19304,7 @@
       },
       "StartingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -19271,7 +19319,7 @@
       "AbortedToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19284,7 +19332,7 @@
       "AbortingToAbortedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19297,7 +19345,7 @@
       "AssignedToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19310,7 +19358,7 @@
       "AssignedToStartingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19323,7 +19371,7 @@
       "CompleteToAssignedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19336,7 +19384,7 @@
       "CompletingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19349,7 +19397,7 @@
       "CompletingToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19362,7 +19410,7 @@
       "ExecuteToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19375,7 +19423,7 @@
       "ExecuteToCompletingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19400,7 +19448,7 @@
       "StartingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19413,7 +19461,7 @@
       "StartingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19491,6 +19539,10 @@
       }
     ],
     "schemaDefinitions": {
+      "BooleanGuardVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -19538,7 +19590,7 @@
     "properties": {
       "AbortedToClearedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -19555,7 +19607,7 @@
       },
       "AbortingToAbortedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -19572,7 +19624,7 @@
       },
       "ClearedToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -19603,7 +19655,7 @@
       "AbortedToClearedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19616,7 +19668,7 @@
       "AbortingToAbortedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19629,7 +19681,7 @@
       "ClearedToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -19875,6 +19927,10 @@
       }
     ],
     "schemaDefinitions": {
+      "BooleanGuardVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -20062,7 +20118,7 @@
     "properties": {
       "CompleteToResettingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20074,7 +20130,7 @@
       },
       "CompletingToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20086,7 +20142,7 @@
       },
       "ExecuteToCompletingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20098,7 +20154,7 @@
       },
       "ExecuteToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20110,7 +20166,7 @@
       },
       "ExecuteToSuspendingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20122,7 +20178,7 @@
       },
       "HeldToUnholdingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20134,7 +20190,7 @@
       },
       "HoldingToHeldGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20146,7 +20202,7 @@
       },
       "IdleToStartingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20169,7 +20225,7 @@
       },
       "ResettingToIdleGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20181,7 +20237,7 @@
       },
       "StartingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20193,7 +20249,7 @@
       },
       "StartingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20205,7 +20261,7 @@
       },
       "SuspendedToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20217,7 +20273,7 @@
       },
       "SuspendedToUnsuspendingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20229,7 +20285,7 @@
       },
       "SuspendingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20241,7 +20297,7 @@
       },
       "SuspendingToSuspendedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20253,7 +20309,7 @@
       },
       "UnholdingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20265,7 +20321,7 @@
       },
       "UnholdingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20277,7 +20333,7 @@
       },
       "UnsuspendingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20289,7 +20345,7 @@
       },
       "UnsuspendingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20304,7 +20360,7 @@
       "CompleteToResettingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20317,7 +20373,7 @@
       "CompletingToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20330,7 +20386,7 @@
       "ExecuteToCompletingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20343,7 +20399,7 @@
       "ExecuteToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20356,7 +20412,7 @@
       "ExecuteToSuspendingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20369,7 +20425,7 @@
       "HeldToUnholdingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20382,7 +20438,7 @@
       "HoldingToHeldGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20395,7 +20451,7 @@
       "IdleToStartingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20420,7 +20476,7 @@
       "ResettingToIdleGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20433,7 +20489,7 @@
       "StartingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20446,7 +20502,7 @@
       "StartingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20459,7 +20515,7 @@
       "SuspendedToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20472,7 +20528,7 @@
       "SuspendedToUnsuspendingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20485,7 +20541,7 @@
       "SuspendingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20498,7 +20554,7 @@
       "SuspendingToSuspendedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20511,7 +20567,7 @@
       "UnholdingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20524,7 +20580,7 @@
       "UnholdingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20537,7 +20593,7 @@
       "UnsuspendingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20550,7 +20606,7 @@
       "UnsuspendingToHoldingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20640,6 +20696,10 @@
       }
     ],
     "schemaDefinitions": {
+      "BooleanGuardVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -20682,7 +20742,7 @@
     "properties": {
       "ClearingToStoppedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20705,7 +20765,7 @@
       },
       "RunningToStoppingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20717,7 +20777,7 @@
       },
       "StoppedToRunningGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20729,7 +20789,7 @@
       },
       "StoppingToStoppedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -20744,7 +20804,7 @@
       "ClearingToStoppedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20769,7 +20829,7 @@
       "RunningToStoppingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20782,7 +20842,7 @@
       "StoppedToRunningGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -20795,7 +20855,7 @@
       "StoppingToStoppedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21017,6 +21077,10 @@
       }
     ],
     "schemaDefinitions": {
+      "BooleanGuardVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -21035,7 +21099,7 @@
     "properties": {
       "AbortingToAbortedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21047,7 +21111,7 @@
       },
       "AssignedToStartingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21059,7 +21123,7 @@
       },
       "AssignedToUnassigningGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21071,7 +21135,7 @@
       },
       "AssignedToUnreleasingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21083,7 +21147,7 @@
       },
       "AssigningToAssignedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21095,7 +21159,7 @@
       },
       "CompletingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21107,7 +21171,7 @@
       },
       "CompletingToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21119,7 +21183,7 @@
       },
       "ExecuteToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21131,7 +21195,7 @@
       },
       "ExecuteToCompletingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21299,7 +21363,7 @@
       },
       "ReleasedToAssigningGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21311,7 +21375,7 @@
       },
       "ReleasedToUnreleasingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21323,7 +21387,7 @@
       },
       "ReleasingToReleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21335,7 +21399,7 @@
       },
       "ReleasingToUnreleasingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21347,7 +21411,7 @@
       },
       "StartingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21359,7 +21423,7 @@
       },
       "StartingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21371,7 +21435,7 @@
       },
       "UnassigningToReleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21383,7 +21447,7 @@
       },
       "UnreleasedToReleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21395,7 +21459,7 @@
       },
       "UnreleasingToUnreleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -21410,7 +21474,7 @@
       "AbortingToAbortedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21423,7 +21487,7 @@
       "AssignedToStartingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21436,7 +21500,7 @@
       "AssignedToUnassigningGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21449,7 +21513,7 @@
       "AssignedToUnreleasingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21462,7 +21526,7 @@
       "AssigningToAssignedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21475,7 +21539,7 @@
       "CompletingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21488,7 +21552,7 @@
       "CompletingToCompleteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21501,7 +21565,7 @@
       "ExecuteToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21514,7 +21578,7 @@
       "ExecuteToCompletingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21539,7 +21603,7 @@
       "ReleasedToAssigningGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21552,7 +21616,7 @@
       "ReleasedToUnreleasingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21565,7 +21629,7 @@
       "ReleasingToReleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21578,7 +21642,7 @@
       "ReleasingToUnreleasingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21591,7 +21655,7 @@
       "StartingToAbortingGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21604,7 +21668,7 @@
       "StartingToExecuteGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21617,7 +21681,7 @@
       "UnassigningToReleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21630,7 +21694,7 @@
       "UnreleasedToReleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -21643,7 +21707,7 @@
       "UnreleasingToUnreleasedGuard": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
         },
         "forms": [
           {
@@ -22448,6 +22512,30 @@
       }
     ],
     "schemaDefinitions": {
+      "MaterialIntegrityAgentEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialIntegrityAgentEnumeration",
+        "const": {
+          "None": 0,
+          "Local": 1,
+          "External": 2
+        },
+        "description": "The MaterialIntegrityAgentEnumeration identifies the possible agents responsible for material integrity checking.",
+        "properties": {
+          "None": {
+            "description": "The material validation is not requested.",
+            "type": "integer"
+          },
+          "Local": {
+            "description": "The underlying system performs the material validation.",
+            "type": "integer"
+          },
+          "External": {
+            "description": "An external system performs the material validation.",
+            "type": "integer"
+          }
+        }
+      },
       "MaterialStockStatusEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStockStatusEnumeration",
@@ -22501,29 +22589,24 @@
           }
         }
       },
-      "MaterialIntegrityAgentEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialIntegrityAgentEnumeration",
-        "const": {
-          "None": 0,
-          "Local": 1,
-          "External": 2
-        },
-        "description": "The MaterialIntegrityAgentEnumeration identifies the possible agents responsible for material integrity checking.",
-        "properties": {
-          "None": {
-            "description": "The material validation is not requested.",
-            "type": "integer"
-          },
-          "Local": {
-            "description": "The underlying system performs the material validation.",
-            "type": "integer"
-          },
-          "External": {
-            "description": "An external system performs the material validation.",
-            "type": "integer"
-          }
-        }
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialRateType": {
+        "description": "The MaterialRateType is a subtype of the MaterialQuantityVariableType. It is used to provide   the rate for a material flow rate.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialRateType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
       }
     },
     "forms": [
@@ -22615,10 +22698,7 @@
     "properties": {
       "ActualDispensingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The actual rate at which the input material is being dispensed.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "ActualDispensingRate_ValueInBUoM" ],
         "forms": [
@@ -22632,6 +22712,7 @@
       "ActualDispensingRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -22665,10 +22746,7 @@
       },
       "ConsumedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total quantity of material that entered the machine loading point. This total is never reset.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "ConsumedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -22682,6 +22760,7 @@
       "ConsumedMaterialMasterTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -22697,10 +22776,7 @@
       },
       "ConsumedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total quantity of material that entered the machine loading point.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "ConsumedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -22714,6 +22790,7 @@
       "ConsumedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -22729,10 +22806,7 @@
       },
       "DispensedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total quantity of material dispensed at the machine after loading at the loading point. This   total is never reset.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "DispensedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -22746,6 +22820,7 @@
       "DispensedMaterialMasterTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -22761,10 +22836,7 @@
       },
       "DispensedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total quantity of material dispensed at the machine after loading at the loading point. The   quantity is reset by the successful execution of the ResetMachineTotals method, only.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "DispensedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -22778,6 +22850,7 @@
       "DispensedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -23393,10 +23466,7 @@
       },
       "NominalDispensingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The nominal rate at which the input material is dispensed when the machine runs at design   speed.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "NominalDispensingRate_ValueInBUoM" ],
         "forms": [
@@ -23410,6 +23480,7 @@
       "NominalDispensingRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -23670,10 +23741,7 @@
       "ActualDispensingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The actual rate at which the input material is being dispensed.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "ActualDispensingRate_ValueInBUoM" ],
         "forms": [
@@ -23688,6 +23756,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -23704,10 +23773,7 @@
       "ConsumedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total quantity of material that entered the machine loading point. This total is never reset.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "ConsumedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -23722,6 +23788,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -23738,10 +23805,7 @@
       "ConsumedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total quantity of material that entered the machine loading point.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "ConsumedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -23756,6 +23820,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -23772,10 +23837,7 @@
       "DispensedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total quantity of material dispensed at the machine after loading at the loading point. This   total is never reset.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "DispensedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -23790,6 +23852,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -23806,10 +23869,7 @@
       "DispensedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total quantity of material dispensed at the machine after loading at the loading point. The   quantity is reset by the successful execution of the ResetMachineTotals method, only.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "DispensedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -23824,6 +23884,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -24066,10 +24127,7 @@
       "NominalDispensingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The nominal rate at which the input material is dispensed when the machine runs at design   speed.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "NominalDispensingRate_ValueInBUoM" ],
         "forms": [
@@ -24084,6 +24142,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -24366,6 +24425,25 @@
             "type": "integer"
           }
         }
+      },
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialRateType": {
+        "description": "The MaterialRateType is a subtype of the MaterialQuantityVariableType. It is used to provide   the rate for a material flow rate.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialRateType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
       }
     },
     "forms": [
@@ -24390,10 +24468,7 @@
     "properties": {
       "ActualProductionRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The actual rate at which the output is being produced.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "ActualProductionRate_ValueInBUoM" ],
         "forms": [
@@ -24407,6 +24482,7 @@
       "ActualProductionRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -24674,10 +24750,7 @@
       },
       "NominalProductionRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The nominal rate at which the output is produced, a.k.a. the machine design speed.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "NominalProductionRate_ValueInBUoM" ],
         "forms": [
@@ -24691,6 +24764,7 @@
       "NominalProductionRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -24913,10 +24987,7 @@
       },
       "ProducedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total quantity of complete sublots created at the machine material output. The value is   never reset.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "ProducedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -24930,6 +25001,7 @@
       "ProducedMaterialMasterTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -24945,10 +25017,7 @@
       },
       "ProducedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total quantity of complete sublots created at the machine material output.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "ProducedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -24962,6 +25031,7 @@
       "ProducedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -24993,10 +25063,7 @@
       "ActualProductionRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The actual rate at which the output is being produced.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "ActualProductionRate_ValueInBUoM" ],
         "forms": [
@@ -25011,6 +25078,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -25027,10 +25095,7 @@
       "NominalProductionRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The nominal rate at which the output is produced, a.k.a. the machine design speed.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "NominalProductionRate_ValueInBUoM" ],
         "forms": [
@@ -25045,6 +25110,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -25269,10 +25335,7 @@
       "ProducedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total quantity of complete sublots created at the machine material output. The value is   never reset.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "ProducedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -25287,6 +25350,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -25303,10 +25367,7 @@
       "ProducedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total quantity of complete sublots created at the machine material output.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "ProducedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -25321,6 +25382,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -25368,6 +25430,18 @@
       }
     ],
     "schemaDefinitions": {
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
     },
     "forms": [
       {
@@ -25696,10 +25770,7 @@
       },
       "RejectedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total material quantity rejected at the rejection trap. The total is never reset to zero.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "RejectedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -25713,6 +25784,7 @@
       "RejectedMaterialMasterTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -25743,10 +25815,7 @@
       },
       "RejectedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The total material quantity rejected at the rejection trap. The total is reset to zero only  when the ResetRejecitonTotals is invoked.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
         "readOnly": true,
         "dov:contains": [ "RejectedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -25760,6 +25829,7 @@
       "RejectedMaterialTotal_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -25841,10 +25911,7 @@
       "RejectedMaterialMasterTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total material quantity rejected at the rejection trap. The total is never reset to zero.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "RejectedMaterialMasterTotal_ValueInBUoM" ],
         "forms": [
@@ -25859,6 +25926,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -25891,10 +25959,7 @@
       "RejectedMaterialTotal": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The total material quantity rejected at the rejection trap. The total is reset to zero only  when the ResetRejecitonTotals is invoked.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
         },
         "dov:contains": [ "RejectedMaterialTotal_ValueInBUoM" ],
         "forms": [
@@ -25909,6 +25974,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -26042,6 +26108,25 @@
             "type": "integer"
           }
         }
+      },
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialLotVariableType": {
+        "description": "The MaterialLotVariableType is a subtype of the MaterialQuantityVariableType. It is used to   provide the quantity for a material lot.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialLotVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialRateType": {
+        "description": "The MaterialRateType is a subtype of the MaterialQuantityVariableType. It is used to provide   the rate for a material flow rate.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialRateType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
       }
     },
     "forms": [
@@ -26066,10 +26151,7 @@
     "properties": {
       "ActualLoadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The rate at which the material is loaded onto the material storage buffer. The variable LoadingRate indicates   the quantity of the material consumed in 60 seconds.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "ActualLoadingRate_ValueInBUoM" ],
         "forms": [
@@ -26083,6 +26165,7 @@
       "ActualLoadingRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -26098,10 +26181,7 @@
       },
       "ActualUnloadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The rate at which the material is unloaded from the material storage buffer. The variable UnloadingRate   indicates the quantity of the material consumed in 60 seconds.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "ActualUnloadingRate_ValueInBUoM" ],
         "forms": [
@@ -26115,6 +26195,7 @@
       "ActualUnloadingRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -26337,9 +26418,7 @@
       },
       "NominalLoadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "NominalLoadingRate_ValueInBUoM" ],
         "forms": [
@@ -26353,6 +26432,7 @@
       "NominalLoadingRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -26368,9 +26448,7 @@
       },
       "NominalUnloadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialRateType",
         "readOnly": true,
         "dov:contains": [ "NominalUnloadingRate_ValueInBUoM" ],
         "forms": [
@@ -26384,6 +26462,7 @@
       "NominalUnloadingRate_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -26416,10 +26495,7 @@
       },
       "StoredLot": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
-        "description": "The material stored in the material storage buffer.",
-        "type": "number",
-        "minimum": -1.80e+308,
-        "maximum": 1.80e+308,
+        "tm:ref": "#/schemaDefinitions/MaterialLotVariableType",
         "readOnly": true,
         "dov:contains": [ "StoredLot_ValueInBUoM" ],
         "forms": [
@@ -26433,6 +26509,7 @@
       "StoredLot_ValueInBUoM": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "description": "The material quantity in base unit of measure.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
         "type": "number",
         "minimum": -1.80e+308,
         "maximum": 1.80e+308,
@@ -26484,10 +26561,7 @@
       "ActualLoadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The rate at which the material is loaded onto the material storage buffer. The variable LoadingRate indicates   the quantity of the material consumed in 60 seconds.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "ActualLoadingRate_ValueInBUoM" ],
         "forms": [
@@ -26502,6 +26576,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -26518,10 +26593,7 @@
       "ActualUnloadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The rate at which the material is unloaded from the material storage buffer. The variable UnloadingRate   indicates the quantity of the material consumed in 60 seconds.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "ActualUnloadingRate_ValueInBUoM" ],
         "forms": [
@@ -26536,6 +26608,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -26566,9 +26639,7 @@
       "NominalLoadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "NominalLoadingRate_ValueInBUoM" ],
         "forms": [
@@ -26583,6 +26654,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -26599,9 +26671,7 @@
       "NominalUnloadingRate": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialRateType"
         },
         "dov:contains": [ "NominalUnloadingRate_ValueInBUoM" ],
         "forms": [
@@ -26616,6 +26686,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -26632,10 +26703,7 @@
       "StoredLot": {
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
-          "description": "The material stored in the material storage buffer.",
-          "type": "number",
-          "minimum": -1.80e+308,
-          "maximum": 1.80e+308
+          "tm:ref": "#/schemaDefinitions/MaterialLotVariableType"
         },
         "dov:contains": [ "StoredLot_ValueInBUoM" ],
         "forms": [
@@ -26650,6 +26718,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
         "data": {
           "description": "The material quantity in base unit of measure.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
           "type": "number",
           "minimum": -1.80e+308,
           "maximum": 1.80e+308
@@ -34812,6 +34881,67 @@
             "type": "integer"
           }
         }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "TMC_v2_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "BooleanGuardVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+        "type": "string"
+      },
+      "DisplayAnalogUnitType": {
+        "description": "The DisplayAnalogUnitType is a subtype of the AnalogUnitType. It is used to provide an analog   signal as well as its display format.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DisplayAnalogUnitType",
+        "type": "number"
+      },
+      "MaterialLotVariableType": {
+        "description": "The MaterialLotVariableType is a subtype of the MaterialQuantityVariableType. It is used to   provide the quantity for a material lot.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialLotVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialPointVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointVariableType",
+        "type": "string"
+      },
+      "MaterialQuantityVariableType": {
+        "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to   provide a material quantity.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialRateType": {
+        "description": "The MaterialRateType is a subtype of the MaterialQuantityVariableType. It is used to provide   the rate for a material flow rate.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialRateType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "MaterialSublotVariableType": {
+        "description": "The MaterialSublotVariableType is a subtype of the MaterialQuantityVariableType. It is used to   provide the quantity for a material sublot.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialSublotVariableType",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
       }
     },
     "actions": {

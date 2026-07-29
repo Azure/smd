@@ -77,6 +77,12 @@
       }
     ],
     "schemaDefinitions": {
+      "AxisTypeVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PDRV.AxisTypeVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      }
     },
     "forms": [
       {
@@ -126,9 +132,7 @@
       },
       "AxisType": {
         "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
-        "type": "integer",
-        "minimum": 0,
-        "maximum": 255,
+        "tm:ref": "#/schemaDefinitions/AxisTypeVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1501,6 +1505,50 @@
           }
         ]
       }
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PDRV_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "AxisTypeVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PDRV.AxisTypeVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "HomingDirectionType": {
+        "dov:typeRef": "org.opcfoundation.UA.PDRV.HomingDirectionType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "HomingModeType": {
+        "dov:typeRef": "org.opcfoundation.UA.PDRV.HomingModeType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "TemperatureVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PDRV.TemperatureVariableType",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "actions": {
+    },
+    "properties": {
     },
     "events": {
     }

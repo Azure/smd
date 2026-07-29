@@ -746,6 +746,24 @@
             "type": "integer"
           }
         }
+      },
+      "RioBitFieldVariableType": {
+        "title": "RioBitFieldDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioBitFieldVariableType",
+        "required": [ "BitData", "BitUsed" ],
+        "properties": {
+          "BitData": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "BitUsed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
       }
     },
     "forms": [
@@ -842,22 +860,7 @@
       },
       "FaDigitalSubstituteValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioBitFieldDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioBitFieldDataType",
-        "required": [ "BitData", "BitUsed" ],
-        "properties": {
-          "BitData": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          },
-          "BitUsed": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioBitFieldVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1019,22 +1022,7 @@
       },
       "PaDigitalSubstituteValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioBitFieldDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioBitFieldDataType",
-        "required": [ "BitData", "BitUsed" ],
-        "properties": {
-          "BitData": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          },
-          "BitUsed": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioBitFieldVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1131,22 +1119,7 @@
       "FaDigitalSubstituteValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioBitFieldDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioBitFieldDataType",
-          "required": [ "BitData", "BitUsed" ],
-          "properties": {
-            "BitData": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            },
-            "BitUsed": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioBitFieldVariableType"
         },
         "forms": [
           {
@@ -1159,22 +1132,7 @@
       "PaDigitalSubstituteValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioBitFieldDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioBitFieldDataType",
-          "required": [ "BitData", "BitUsed" ],
-          "properties": {
-            "BitData": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            },
-            "BitUsed": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioBitFieldVariableType"
         },
         "forms": [
           {
@@ -1955,34 +1913,11 @@
             "type": "integer"
           }
         }
-      }
-    },
-    "forms": [
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogInputChannelType/events/{senderId}",
-        "op": "subscribeallevents"
       },
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogInputChannelType/properties/read",
-        "op": "readallproperties"
-      }
-    ],
-    "tm:optional": [
-      "/properties/ProcessValue_QualifierValue",
-      "/properties/SignalValue",
-      "/events/ProcessValue_QualifierValue",
-      "/events/SignalValue"
-    ],
-    "actions": {
-    },
-    "properties": {
-      "Config": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaAnalogInputConfigVariableType": {
         "title": "RioFaAnalogInputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogInputConfigDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogInputConfigVariableType",
         "required": [ "Damping", "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue" ],
         "properties": {
           "Damping": {
@@ -2042,21 +1977,12 @@
               }
             }
           }
-        },
-        "readOnly": true,
-        "forms": [
-          {
-            "contentType": "application/json",
-            "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogInputChannelType/property/Config/read",
-            "op": "readproperty"
-          }
-        ]
+        }
       },
-      "ProcessValue": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaAnalogProcessValueVariableType": {
         "title": "RioFaAnalogProcessValueDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueVariableType",
         "required": [ "Value", "Qualifier", "Quality" ],
         "properties": {
           "Value": {
@@ -2102,7 +2028,49 @@
             "minimum": 0,
             "maximum": 255
           }
-        },
+        }
+      },
+      "RioFaProcessValueQualifierVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaProcessValueQualifierVariableType",
+        "type": "boolean"
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogInputChannelType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogInputChannelType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/ProcessValue_QualifierValue",
+      "/properties/SignalValue",
+      "/events/ProcessValue_QualifierValue",
+      "/events/SignalValue"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "Config": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaAnalogInputConfigVariableType",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogInputChannelType/property/Config/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ProcessValue": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaAnalogProcessValueVariableType",
         "readOnly": true,
         "dov:contains": [ "ProcessValue_QualifierValue" ],
         "forms": [
@@ -2115,7 +2083,7 @@
       },
       "ProcessValue_QualifierValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/RioFaProcessValueQualifierVariableType",
         "readOnly": true,
         "dov:containedIn": "ProcessValue",
         "forms": [
@@ -2145,69 +2113,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaAnalogInputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogInputConfigDataType",
-          "required": [ "Damping", "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue" ],
-          "properties": {
-            "Damping": {
-              "type": "number",
-              "minimum": -3.40e+38,
-              "maximum": 3.40e+38
-            },
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "SupplyVoltageCheckEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "title": "RioAnalogDataType",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaAnalogInputConfigVariableType"
         },
         "forms": [
           {
@@ -2220,55 +2126,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaAnalogProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality" ],
-          "properties": {
-            "Value": {
-              "title": "RioAnalogDataType",
-              "description": "Current value.",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "boolean"
-            },
-            "Quality": {
-              "description": "Value of RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaAnalogProcessValueVariableType"
         },
         "dov:contains": [ "ProcessValue_QualifierValue" ],
         "forms": [
@@ -2282,7 +2140,7 @@
       "ProcessValue_QualifierValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/RioFaProcessValueQualifierVariableType"
         },
         "dov:containedIn": "ProcessValue",
         "forms": [
@@ -2404,40 +2262,11 @@
             "type": "integer"
           }
         }
-      }
-    },
-    "forms": [
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogOutputChannelType/events/{senderId}",
-        "op": "subscribeallevents"
       },
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogOutputChannelType/properties/read",
-        "op": "readallproperties"
-      }
-    ],
-    "tm:optional": [
-      "/properties/ProcessValue_QualifierValue",
-      "/properties/ProcessValueReadback",
-      "/properties/ProcessValueReadback_QualifierValue",
-      "/properties/SignalValue",
-      "/properties/SignalValueReadback",
-      "/events/ProcessValue_QualifierValue",
-      "/events/ProcessValueReadback",
-      "/events/ProcessValueReadback_QualifierValue",
-      "/events/SignalValue",
-      "/events/SignalValueReadback"
-    ],
-    "actions": {
-    },
-    "properties": {
-      "Config": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaAnalogOutputConfigVariableType": {
         "title": "RioFaAnalogOutputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogOutputConfigDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogOutputConfigVariableType",
         "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "LoadVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
         "properties": {
           "SignalType": {
@@ -2500,21 +2329,12 @@
             "minimum": -3.40e+38,
             "maximum": 3.40e+38
           }
-        },
-        "readOnly": true,
-        "forms": [
-          {
-            "contentType": "application/json",
-            "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogOutputChannelType/property/Config/read",
-            "op": "readproperty"
-          }
-        ]
+        }
       },
-      "ProcessValue": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaAnalogProcessValueVariableType": {
         "title": "RioFaAnalogProcessValueDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueVariableType",
         "required": [ "Value", "Qualifier", "Quality" ],
         "properties": {
           "Value": {
@@ -2560,7 +2380,55 @@
             "minimum": 0,
             "maximum": 255
           }
-        },
+        }
+      },
+      "RioFaProcessValueQualifierVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaProcessValueQualifierVariableType",
+        "type": "boolean"
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogOutputChannelType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogOutputChannelType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/ProcessValue_QualifierValue",
+      "/properties/ProcessValueReadback",
+      "/properties/ProcessValueReadback_QualifierValue",
+      "/properties/SignalValue",
+      "/properties/SignalValueReadback",
+      "/events/ProcessValue_QualifierValue",
+      "/events/ProcessValueReadback",
+      "/events/ProcessValueReadback_QualifierValue",
+      "/events/SignalValue",
+      "/events/SignalValueReadback"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "Config": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaAnalogOutputConfigVariableType",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PNRIO/PNRIO_RioFaAnalogOutputChannelType/property/Config/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ProcessValue": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaAnalogProcessValueVariableType",
         "readOnly": true,
         "dov:contains": [ "ProcessValue_QualifierValue" ],
         "forms": [
@@ -2573,7 +2441,7 @@
       },
       "ProcessValue_QualifierValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/RioFaProcessValueQualifierVariableType",
         "readOnly": true,
         "dov:containedIn": "ProcessValue",
         "forms": [
@@ -2586,55 +2454,7 @@
       },
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioFaAnalogProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality" ],
-        "properties": {
-          "Value": {
-            "title": "RioAnalogDataType",
-            "description": "Current value.",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "boolean"
-          },
-          "Quality": {
-            "description": "Value of RioQualityEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioFaAnalogProcessValueVariableType",
         "readOnly": true,
         "dov:contains": [ "ProcessValueReadback_QualifierValue" ],
         "forms": [
@@ -2647,7 +2467,7 @@
       },
       "ProcessValueReadback_QualifierValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/RioFaProcessValueQualifierVariableType",
         "readOnly": true,
         "dov:containedIn": "ProcessValueReadback",
         "forms": [
@@ -2691,72 +2511,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaAnalogOutputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogOutputConfigDataType",
-          "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "LoadVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
-          "properties": {
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "SupplyVoltageCheckEnabled": {
-              "type": "boolean"
-            },
-            "LoadVoltageCheckEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "title": "RioAnalogDataType",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "SubstituteTime": {
-              "type": "number",
-              "minimum": -3.40e+38,
-              "maximum": 3.40e+38
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaAnalogOutputConfigVariableType"
         },
         "forms": [
           {
@@ -2769,55 +2524,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaAnalogProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality" ],
-          "properties": {
-            "Value": {
-              "title": "RioAnalogDataType",
-              "description": "Current value.",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "boolean"
-            },
-            "Quality": {
-              "description": "Value of RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaAnalogProcessValueVariableType"
         },
         "dov:contains": [ "ProcessValue_QualifierValue" ],
         "forms": [
@@ -2831,7 +2538,7 @@
       "ProcessValue_QualifierValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/RioFaProcessValueQualifierVariableType"
         },
         "dov:containedIn": "ProcessValue",
         "forms": [
@@ -2845,55 +2552,7 @@
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaAnalogProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality" ],
-          "properties": {
-            "Value": {
-              "title": "RioAnalogDataType",
-              "description": "Current value.",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "boolean"
-            },
-            "Quality": {
-              "description": "Value of RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaAnalogProcessValueVariableType"
         },
         "dov:contains": [ "ProcessValueReadback_QualifierValue" ],
         "forms": [
@@ -2907,7 +2566,7 @@
       "ProcessValueReadback_QualifierValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/RioFaProcessValueQualifierVariableType"
         },
         "dov:containedIn": "ProcessValueReadback",
         "forms": [
@@ -3044,32 +2703,11 @@
             "type": "integer"
           }
         }
-      }
-    },
-    "forms": [
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalInputChannelType/events/{senderId}",
-        "op": "subscribeallevents"
       },
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalInputChannelType/properties/read",
-        "op": "readallproperties"
-      }
-    ],
-    "tm:optional": [
-      "/properties/SignalValue",
-      "/events/SignalValue"
-    ],
-    "actions": {
-    },
-    "properties": {
-      "Config": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaDigitalInputConfigVariableType": {
         "title": "RioFaDigitalInputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalInputConfigDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalInputConfigVariableType",
         "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue" ],
         "properties": {
           "SignalType": {
@@ -3095,21 +2733,12 @@
           "SubstituteValue": {
             "type": "boolean"
           }
-        },
-        "readOnly": true,
-        "forms": [
-          {
-            "contentType": "application/json",
-            "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalInputChannelType/property/Config/read",
-            "op": "readproperty"
-          }
-        ]
+        }
       },
-      "ProcessValue": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaDigitalProcessValueVariableType": {
         "title": "RioFaDigitalProcessValueDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueVariableType",
         "required": [ "Value", "Qualifier", "Quality" ],
         "properties": {
           "Value": {
@@ -3126,7 +2755,43 @@
             "minimum": 0,
             "maximum": 255
           }
-        },
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalInputChannelType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalInputChannelType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/SignalValue",
+      "/events/SignalValue"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "Config": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaDigitalInputConfigVariableType",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalInputChannelType/property/Config/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ProcessValue": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaDigitalProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -3155,35 +2820,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaDigitalInputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalInputConfigDataType",
-          "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue" ],
-          "properties": {
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "SupplyVoltageCheckEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "type": "boolean"
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaDigitalInputConfigVariableType"
         },
         "forms": [
           {
@@ -3196,26 +2833,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaDigitalProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality" ],
-          "properties": {
-            "Value": {
-              "description": "Current value.",
-              "type": "boolean"
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "boolean"
-            },
-            "Quality": {
-              "description": "Value of RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaDigitalProcessValueVariableType"
         },
         "forms": [
           {
@@ -3336,36 +2954,11 @@
             "type": "integer"
           }
         }
-      }
-    },
-    "forms": [
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalOutputChannelType/events/{senderId}",
-        "op": "subscribeallevents"
       },
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalOutputChannelType/properties/read",
-        "op": "readallproperties"
-      }
-    ],
-    "tm:optional": [
-      "/properties/ProcessValueReadback",
-      "/properties/SignalValue",
-      "/properties/SignalValueReadback",
-      "/events/ProcessValueReadback",
-      "/events/SignalValue",
-      "/events/SignalValueReadback"
-    ],
-    "actions": {
-    },
-    "properties": {
-      "Config": {
-        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "RioFaDigitalOutputConfigVariableType": {
         "title": "RioFaDigitalOutputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalOutputConfigDataType",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalOutputConfigVariableType",
         "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "LoadVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
         "properties": {
           "SignalType": {
@@ -3399,7 +2992,57 @@
             "minimum": -3.40e+38,
             "maximum": 3.40e+38
           }
-        },
+        }
+      },
+      "RioFaDigitalProcessValueVariableType": {
+        "title": "RioFaDigitalProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality" ],
+        "properties": {
+          "Value": {
+            "description": "Current value.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "boolean"
+          },
+          "Quality": {
+            "description": "Value of RioQualityEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalOutputChannelType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PNRIO/PNRIO_RioFaDigitalOutputChannelType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/ProcessValueReadback",
+      "/properties/SignalValue",
+      "/properties/SignalValueReadback",
+      "/events/ProcessValueReadback",
+      "/events/SignalValue",
+      "/events/SignalValueReadback"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "Config": {
+        "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+        "tm:ref": "#/schemaDefinitions/RioFaDigitalOutputConfigVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -3411,26 +3054,7 @@
       },
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioFaDigitalProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality" ],
-        "properties": {
-          "Value": {
-            "description": "Current value.",
-            "type": "boolean"
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "boolean"
-          },
-          "Quality": {
-            "description": "Value of RioQualityEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioFaDigitalProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -3442,26 +3066,7 @@
       },
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioFaDigitalProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality" ],
-        "properties": {
-          "Value": {
-            "description": "Current value.",
-            "type": "boolean"
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "boolean"
-          },
-          "Quality": {
-            "description": "Value of RioQualityEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioFaDigitalProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -3504,43 +3109,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaDigitalOutputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalOutputConfigDataType",
-          "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "LoadVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
-          "properties": {
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "SupplyVoltageCheckEnabled": {
-              "type": "boolean"
-            },
-            "LoadVoltageCheckEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "type": "boolean"
-            },
-            "SubstituteTime": {
-              "type": "number",
-              "minimum": -3.40e+38,
-              "maximum": 3.40e+38
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaDigitalOutputConfigVariableType"
         },
         "forms": [
           {
@@ -3553,26 +3122,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaDigitalProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality" ],
-          "properties": {
-            "Value": {
-              "description": "Current value.",
-              "type": "boolean"
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "boolean"
-            },
-            "Quality": {
-              "description": "Value of RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaDigitalProcessValueVariableType"
         },
         "forms": [
           {
@@ -3585,26 +3135,7 @@
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioFaDigitalProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality" ],
-          "properties": {
-            "Value": {
-              "description": "Current value.",
-              "type": "boolean"
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "boolean"
-            },
-            "Quality": {
-              "description": "Value of RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioFaDigitalProcessValueVariableType"
         },
         "forms": [
           {
@@ -3665,6 +3196,29 @@
       }
     ],
     "schemaDefinitions": {
+      "RioChannelModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
+        "const": {
+          "AUTO": 0,
+          "MANUAL": 1,
+          "OUT_OF_SERVICE": 2
+        },
+        "properties": {
+          "AUTO": {
+            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "MANUAL": {
+            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "OUT_OF_SERVICE": {
+            "description": "The RIO Channel is out of service.",
+            "type": "integer"
+          }
+        }
+      },
       "RioSignalTypeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
@@ -3741,26 +3295,194 @@
           }
         }
       },
-      "RioChannelModeEnumeration": {
+      "RioPaAnalogInputConfigVariableType": {
+        "title": "RioPaAnalogInputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
-        "const": {
-          "AUTO": 0,
-          "MANUAL": 1,
-          "OUT_OF_SERVICE": 2
-        },
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogInputConfigVariableType",
+        "required": [ "Damping", "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "HighLimit", "LowLimit" ],
         "properties": {
-          "AUTO": {
-            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "Damping": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
           },
-          "MANUAL": {
-            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           },
-          "OUT_OF_SERVICE": {
-            "description": "The RIO Channel is out of service.",
-            "type": "integer"
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "HighLimit": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "LowLimit": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        }
+      },
+      "RioPaAnalogProcessValueVariableType": {
+        "title": "RioPaAnalogProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
+        "properties": {
+          "Value": {
+            "title": "RioAnalogDataType",
+            "description": "Current value.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Quality": {
+            "description": "Status information encoded as RioQualityEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "NE_107": {
+            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status_full": {
+            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
           }
         }
       }
@@ -3946,130 +3668,7 @@
     "properties": {
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaAnalogInputConfigDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogInputConfigDataType",
-        "required": [ "Damping", "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "HighLimit", "LowLimit" ],
-        "properties": {
-          "Damping": {
-            "type": "number",
-            "minimum": -3.40e+38,
-            "maximum": 3.40e+38
-          },
-          "SignalType": {
-            "title": "RioSignalTypeEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "WireCheckEnabled": {
-            "type": "boolean"
-          },
-          "SubstitutePolicy": {
-            "title": "RioSubstitutePolicyEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "SubstituteValue": {
-            "title": "RioAnalogDataType",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "HighLimit": {
-            "title": "RioAnalogDataType",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "LowLimit": {
-            "title": "RioAnalogDataType",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaAnalogInputConfigVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -4138,69 +3737,7 @@
       },
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaAnalogProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-        "properties": {
-          "Value": {
-            "title": "RioAnalogDataType",
-            "description": "Current value.",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Quality": {
-            "description": "Status information encoded as RioQualityEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "NE_107": {
-            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Status_full": {
-            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaAnalogProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -4297,130 +3834,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaAnalogInputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogInputConfigDataType",
-          "required": [ "Damping", "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "HighLimit", "LowLimit" ],
-          "properties": {
-            "Damping": {
-              "type": "number",
-              "minimum": -3.40e+38,
-              "maximum": 3.40e+38
-            },
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "title": "RioAnalogDataType",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "HighLimit": {
-              "title": "RioAnalogDataType",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "LowLimit": {
-              "title": "RioAnalogDataType",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaAnalogInputConfigVariableType"
         },
         "forms": [
           {
@@ -4492,69 +3906,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaAnalogProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-          "properties": {
-            "Value": {
-              "title": "RioAnalogDataType",
-              "description": "Current value.",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Quality": {
-              "description": "Status information encoded as RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "NE_107": {
-              "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Status_full": {
-              "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaAnalogProcessValueVariableType"
         },
         "forms": [
           {
@@ -4670,6 +4022,29 @@
       }
     ],
     "schemaDefinitions": {
+      "RioChannelModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
+        "const": {
+          "AUTO": 0,
+          "MANUAL": 1,
+          "OUT_OF_SERVICE": 2
+        },
+        "properties": {
+          "AUTO": {
+            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "MANUAL": {
+            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "OUT_OF_SERVICE": {
+            "description": "The RIO Channel is out of service.",
+            "type": "integer"
+          }
+        }
+      },
       "RioSignalTypeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
@@ -4746,26 +4121,130 @@
           }
         }
       },
-      "RioChannelModeEnumeration": {
+      "RioPaAnalogOutputConfigVariableType": {
+        "title": "RioPaAnalogOutputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
-        "const": {
-          "AUTO": 0,
-          "MANUAL": 1,
-          "OUT_OF_SERVICE": 2
-        },
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogOutputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
         "properties": {
-          "AUTO": {
-            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           },
-          "MANUAL": {
-            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "WireCheckEnabled": {
+            "type": "boolean"
           },
-          "OUT_OF_SERVICE": {
-            "description": "The RIO Channel is out of service.",
-            "type": "integer"
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "SubstituteTime": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "RioPaAnalogProcessValueVariableType": {
+        "title": "RioPaAnalogProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
+        "properties": {
+          "Value": {
+            "title": "RioAnalogDataType",
+            "description": "Current value.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Quality": {
+            "description": "Status information encoded as RioQualityEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "NE_107": {
+            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status_full": {
+            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
           }
         }
       }
@@ -4955,66 +4434,7 @@
     "properties": {
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaAnalogOutputConfigDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogOutputConfigDataType",
-        "required": [ "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
-        "properties": {
-          "SignalType": {
-            "title": "RioSignalTypeEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "WireCheckEnabled": {
-            "type": "boolean"
-          },
-          "SubstitutePolicy": {
-            "title": "RioSubstitutePolicyEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "SubstituteValue": {
-            "title": "RioAnalogDataType",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "SubstituteTime": {
-            "type": "number",
-            "minimum": -3.40e+38,
-            "maximum": 3.40e+38
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaAnalogOutputConfigVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -5083,69 +4503,7 @@
       },
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaAnalogProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-        "properties": {
-          "Value": {
-            "title": "RioAnalogDataType",
-            "description": "Current value.",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Quality": {
-            "description": "Status information encoded as RioQualityEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "NE_107": {
-            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Status_full": {
-            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaAnalogProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -5157,69 +4515,7 @@
       },
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaAnalogProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-        "properties": {
-          "Value": {
-            "title": "RioAnalogDataType",
-            "description": "Current value.",
-            "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-            "properties": {
-              "Float_32": {
-                "type": "number",
-                "minimum": -3.40e+38,
-                "maximum": 3.40e+38
-              },
-              "Int_16": {
-                "type": "integer",
-                "minimum": -32768,
-                "maximum": 32767
-              },
-              "Int_32": {
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "UInt_16": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 65535
-              },
-              "UInt_32": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 4294967295
-              }
-            }
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Quality": {
-            "description": "Status information encoded as RioQualityEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "NE_107": {
-            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Status_full": {
-            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaAnalogProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -5330,66 +4626,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaAnalogOutputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogOutputConfigDataType",
-          "required": [ "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
-          "properties": {
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "title": "RioAnalogDataType",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "SubstituteTime": {
-              "type": "number",
-              "minimum": -3.40e+38,
-              "maximum": 3.40e+38
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaAnalogOutputConfigVariableType"
         },
         "forms": [
           {
@@ -5461,69 +4698,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaAnalogProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-          "properties": {
-            "Value": {
-              "title": "RioAnalogDataType",
-              "description": "Current value.",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Quality": {
-              "description": "Status information encoded as RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "NE_107": {
-              "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Status_full": {
-              "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaAnalogProcessValueVariableType"
         },
         "forms": [
           {
@@ -5536,69 +4711,7 @@
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaAnalogProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-          "properties": {
-            "Value": {
-              "title": "RioAnalogDataType",
-              "description": "Current value.",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
-              "properties": {
-                "Float_32": {
-                  "type": "number",
-                  "minimum": -3.40e+38,
-                  "maximum": 3.40e+38
-                },
-                "Int_16": {
-                  "type": "integer",
-                  "minimum": -32768,
-                  "maximum": 32767
-                },
-                "Int_32": {
-                  "type": "integer",
-                  "minimum": -2147483648,
-                  "maximum": 2147483647
-                },
-                "UInt_16": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 65535
-                },
-                "UInt_32": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "maximum": 4294967295
-                }
-              }
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Quality": {
-              "description": "Status information encoded as RioQualityEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "NE_107": {
-              "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Status_full": {
-              "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaAnalogProcessValueVariableType"
         },
         "forms": [
           {
@@ -5729,6 +4842,29 @@
       }
     ],
     "schemaDefinitions": {
+      "RioChannelModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
+        "const": {
+          "AUTO": 0,
+          "MANUAL": 1,
+          "OUT_OF_SERVICE": 2
+        },
+        "properties": {
+          "AUTO": {
+            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "MANUAL": {
+            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "OUT_OF_SERVICE": {
+            "description": "The RIO Channel is out of service.",
+            "type": "integer"
+          }
+        }
+      },
       "RioSignalTypeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
@@ -5805,26 +4941,70 @@
           }
         }
       },
-      "RioChannelModeEnumeration": {
+      "RioPaDigitalInputConfigVariableType": {
+        "title": "RioPaDigitalInputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
-        "const": {
-          "AUTO": 0,
-          "MANUAL": 1,
-          "OUT_OF_SERVICE": 2
-        },
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalInputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue" ],
         "properties": {
-          "AUTO": {
-            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           },
-          "MANUAL": {
-            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "WireCheckEnabled": {
+            "type": "boolean"
           },
-          "OUT_OF_SERVICE": {
-            "description": "The RIO Channel is out of service.",
-            "type": "integer"
+          "InversionEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RioPaDigitalProcessValueVariableType": {
+        "title": "RioPaDigitalProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
+        "properties": {
+          "Value": {
+            "description": "Current value.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Quality": {
+            "description": "Status information encoded as RioQualityEnumeration",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "NE_107": {
+            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status_full": {
+            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
           }
         }
       }
@@ -5952,35 +5132,7 @@
     "properties": {
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaDigitalInputConfigDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalInputConfigDataType",
-        "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue" ],
-        "properties": {
-          "SignalType": {
-            "title": "RioSignalTypeEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "WireCheckEnabled": {
-            "type": "boolean"
-          },
-          "InversionEnabled": {
-            "type": "boolean"
-          },
-          "SubstitutePolicy": {
-            "title": "RioSubstitutePolicyEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "SubstituteValue": {
-            "type": "boolean"
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaDigitalInputConfigVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -6020,40 +5172,7 @@
       },
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaDigitalProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-        "properties": {
-          "Value": {
-            "description": "Current value.",
-            "type": "boolean"
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Quality": {
-            "description": "Status information encoded as RioQualityEnumeration",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "NE_107": {
-            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Status_full": {
-            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaDigitalProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -6121,35 +5240,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaDigitalInputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalInputConfigDataType",
-          "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue" ],
-          "properties": {
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "InversionEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "type": "boolean"
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaDigitalInputConfigVariableType"
         },
         "forms": [
           {
@@ -6192,40 +5283,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaDigitalProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-          "properties": {
-            "Value": {
-              "description": "Current value.",
-              "type": "boolean"
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Quality": {
-              "description": "Status information encoded as RioQualityEnumeration",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "NE_107": {
-              "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Status_full": {
-              "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaDigitalProcessValueVariableType"
         },
         "forms": [
           {
@@ -6312,6 +5370,29 @@
       }
     ],
     "schemaDefinitions": {
+      "RioChannelModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
+        "const": {
+          "AUTO": 0,
+          "MANUAL": 1,
+          "OUT_OF_SERVICE": 2
+        },
+        "properties": {
+          "AUTO": {
+            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "MANUAL": {
+            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
+            "type": "integer"
+          },
+          "OUT_OF_SERVICE": {
+            "description": "The RIO Channel is out of service.",
+            "type": "integer"
+          }
+        }
+      },
       "RioSignalTypeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
@@ -6388,26 +5469,75 @@
           }
         }
       },
-      "RioChannelModeEnumeration": {
+      "RioPaDigitalOutputConfigVariableType": {
+        "title": "RioPaDigitalOutputConfigDataType",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelModeEnumeration",
-        "const": {
-          "AUTO": 0,
-          "MANUAL": 1,
-          "OUT_OF_SERVICE": 2
-        },
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalOutputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
         "properties": {
-          "AUTO": {
-            "description": "Do not use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
           },
-          "MANUAL": {
-            "description": "Use the value of the ManualProcessValue variable as Process Value of the RIO Channel.",
-            "type": "integer"
+          "WireCheckEnabled": {
+            "type": "boolean"
           },
-          "OUT_OF_SERVICE": {
-            "description": "The RIO Channel is out of service.",
-            "type": "integer"
+          "InversionEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "type": "boolean"
+          },
+          "SubstituteTime": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "RioPaDigitalProcessValueVariableType": {
+        "title": "RioPaDigitalProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
+        "properties": {
+          "Value": {
+            "description": "Current value.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Quality": {
+            "description": "Status information encoded as RioQualityEnumeration",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "NE_107": {
+            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status_full": {
+            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
           }
         }
       }
@@ -6539,40 +5669,7 @@
     "properties": {
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaDigitalOutputConfigDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalOutputConfigDataType",
-        "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
-        "properties": {
-          "SignalType": {
-            "title": "RioSignalTypeEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "WireCheckEnabled": {
-            "type": "boolean"
-          },
-          "InversionEnabled": {
-            "type": "boolean"
-          },
-          "SubstitutePolicy": {
-            "title": "RioSubstitutePolicyEnumeration",
-            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "SubstituteValue": {
-            "type": "boolean"
-          },
-          "SubstituteTime": {
-            "type": "number",
-            "minimum": -3.40e+38,
-            "maximum": 3.40e+38
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaDigitalOutputConfigVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -6612,40 +5709,7 @@
       },
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaDigitalProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-        "properties": {
-          "Value": {
-            "description": "Current value.",
-            "type": "boolean"
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Quality": {
-            "description": "Status information encoded as RioQualityEnumeration",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "NE_107": {
-            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Status_full": {
-            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaDigitalProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -6657,40 +5721,7 @@
       },
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
-        "title": "RioPaDigitalProcessValueDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueDataType",
-        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-        "properties": {
-          "Value": {
-            "description": "Current value.",
-            "type": "boolean"
-          },
-          "Qualifier": {
-            "description": "Current status.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Quality": {
-            "description": "Status information encoded as RioQualityEnumeration",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "NE_107": {
-            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Status_full": {
-            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RioPaDigitalProcessValueVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -6772,40 +5803,7 @@
       "Config": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaDigitalOutputConfigDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalOutputConfigDataType",
-          "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
-          "properties": {
-            "SignalType": {
-              "title": "RioSignalTypeEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "WireCheckEnabled": {
-              "type": "boolean"
-            },
-            "InversionEnabled": {
-              "type": "boolean"
-            },
-            "SubstitutePolicy": {
-              "title": "RioSubstitutePolicyEnumeration",
-              "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "SubstituteValue": {
-              "type": "boolean"
-            },
-            "SubstituteTime": {
-              "type": "number",
-              "minimum": -3.40e+38,
-              "maximum": 3.40e+38
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaDigitalOutputConfigVariableType"
         },
         "forms": [
           {
@@ -6848,40 +5846,7 @@
       "ProcessValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaDigitalProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-          "properties": {
-            "Value": {
-              "description": "Current value.",
-              "type": "boolean"
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Quality": {
-              "description": "Status information encoded as RioQualityEnumeration",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "NE_107": {
-              "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Status_full": {
-              "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaDigitalProcessValueVariableType"
         },
         "forms": [
           {
@@ -6894,40 +5859,7 @@
       "ProcessValueReadback": {
         "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
         "data": {
-          "title": "RioPaDigitalProcessValueDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueDataType",
-          "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
-          "properties": {
-            "Value": {
-              "description": "Current value.",
-              "type": "boolean"
-            },
-            "Qualifier": {
-              "description": "Current status.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Quality": {
-              "description": "Status information encoded as RioQualityEnumeration",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "NE_107": {
-              "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Status_full": {
-              "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RioPaDigitalProcessValueVariableType"
         },
         "forms": [
           {
@@ -8248,6 +7180,686 @@
             "type": "integer"
           }
         }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PNRIO_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "RioBitFieldVariableType": {
+        "title": "RioBitFieldDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioBitFieldVariableType",
+        "required": [ "BitData", "BitUsed" ],
+        "properties": {
+          "BitData": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "BitUsed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "RioFaAnalogInputConfigVariableType": {
+        "title": "RioFaAnalogInputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogInputConfigVariableType",
+        "required": [ "Damping", "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue" ],
+        "properties": {
+          "Damping": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SupplyVoltageCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        }
+      },
+      "RioFaAnalogOutputConfigVariableType": {
+        "title": "RioFaAnalogOutputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogOutputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "LoadVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
+        "properties": {
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SupplyVoltageCheckEnabled": {
+            "type": "boolean"
+          },
+          "LoadVoltageCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "SubstituteTime": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "RioFaAnalogProcessValueVariableType": {
+        "title": "RioFaAnalogProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality" ],
+        "properties": {
+          "Value": {
+            "title": "RioAnalogDataType",
+            "description": "Current value.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "boolean"
+          },
+          "Quality": {
+            "description": "Value of RioQualityEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "RioFaDigitalInputConfigVariableType": {
+        "title": "RioFaDigitalInputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalInputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue" ],
+        "properties": {
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SupplyVoltageCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RioFaDigitalOutputConfigVariableType": {
+        "title": "RioFaDigitalOutputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalOutputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "SupplyVoltageCheckEnabled", "LoadVoltageCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
+        "properties": {
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SupplyVoltageCheckEnabled": {
+            "type": "boolean"
+          },
+          "LoadVoltageCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "type": "boolean"
+          },
+          "SubstituteTime": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "RioFaDigitalProcessValueVariableType": {
+        "title": "RioFaDigitalProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality" ],
+        "properties": {
+          "Value": {
+            "description": "Current value.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "boolean"
+          },
+          "Quality": {
+            "description": "Value of RioQualityEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "RioFaProcessValueQualifierVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaProcessValueQualifierVariableType",
+        "type": "boolean"
+      },
+      "RioPaAnalogInputConfigVariableType": {
+        "title": "RioPaAnalogInputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogInputConfigVariableType",
+        "required": [ "Damping", "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "HighLimit", "LowLimit" ],
+        "properties": {
+          "Damping": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "HighLimit": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "LowLimit": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        }
+      },
+      "RioPaAnalogOutputConfigVariableType": {
+        "title": "RioPaAnalogOutputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogOutputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
+        "properties": {
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "title": "RioAnalogDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "SubstituteTime": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "RioPaAnalogProcessValueVariableType": {
+        "title": "RioPaAnalogProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
+        "properties": {
+          "Value": {
+            "title": "RioAnalogDataType",
+            "description": "Current value.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+            "properties": {
+              "Float_32": {
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "Int_16": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int_32": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UInt_16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt_32": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Quality": {
+            "description": "Status information encoded as RioQualityEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "NE_107": {
+            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status_full": {
+            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "RioPaDigitalInputConfigVariableType": {
+        "title": "RioPaDigitalInputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalInputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue" ],
+        "properties": {
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "InversionEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RioPaDigitalOutputConfigVariableType": {
+        "title": "RioPaDigitalOutputConfigDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalOutputConfigVariableType",
+        "required": [ "SignalType", "WireCheckEnabled", "InversionEnabled", "SubstitutePolicy", "SubstituteValue", "SubstituteTime" ],
+        "properties": {
+          "SignalType": {
+            "title": "RioSignalTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "WireCheckEnabled": {
+            "type": "boolean"
+          },
+          "InversionEnabled": {
+            "type": "boolean"
+          },
+          "SubstitutePolicy": {
+            "title": "RioSubstitutePolicyEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SubstituteValue": {
+            "type": "boolean"
+          },
+          "SubstituteTime": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "RioPaDigitalProcessValueVariableType": {
+        "title": "RioPaDigitalProcessValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueVariableType",
+        "required": [ "Value", "Qualifier", "Quality", "NE_107", "Status_full" ],
+        "properties": {
+          "Value": {
+            "description": "Current value.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Quality": {
+            "description": "Status information encoded as RioQualityEnumeration",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "NE_107": {
+            "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status_full": {
+            "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "RioPaProcessValueQualifierVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaProcessValueQualifierVariableType",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
       }
     },
     "actions": {

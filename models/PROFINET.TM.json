@@ -646,54 +646,6 @@
       }
     ],
     "schemaDefinitions": {
-      "PnChannelTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
-        "const": {
-          "UNSPECIFIC": 0,
-          "S1BIT": 1,
-          "S2BIT": 2,
-          "S4BIT": 3,
-          "S8BIT": 4,
-          "S16BIT": 5,
-          "S32BIT": 6,
-          "S64BIT": 7
-        },
-        "properties": {
-          "UNSPECIFIC": {
-            "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule)  Furthermore, it shall be used if none of the below defined types are appropriate.  ",
-            "type": "integer"
-          },
-          "S1BIT": {
-            "description": "The data length of this channel is 1 Bit.",
-            "type": "integer"
-          },
-          "S2BIT": {
-            "description": "The data length of this channel is 2 Bit.",
-            "type": "integer"
-          },
-          "S4BIT": {
-            "description": "The data length of this channel is 4 Bit.",
-            "type": "integer"
-          },
-          "S8BIT": {
-            "description": "The data length of this channel is 8 Bit.",
-            "type": "integer"
-          },
-          "S16BIT": {
-            "description": "The data length of this channel is 16 Bit.",
-            "type": "integer"
-          },
-          "S32BIT": {
-            "description": "The data length of this channel is 32 Bit.",
-            "type": "integer"
-          },
-          "S64BIT": {
-            "description": "The data length of this channel is 64 Bit.",
-            "type": "integer"
-          }
-        }
-      },
       "PnChannelAccumulativeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelAccumulativeEnumeration",
@@ -708,6 +660,34 @@
           },
           "ACCUMULATIVE": {
             "description": "Multiple channel   Accumulative diagnosis from more than one channel  ",
+            "type": "integer"
+          }
+        }
+      },
+      "PnChannelDirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+        "const": {
+          "MANUFACTURER_SPECIFIC": 0,
+          "INPUT_CHANNEL": 8192,
+          "OUTPUT_CHANNEL": 16384,
+          "BIDIRECTIONAL_CHANNEL": 24576
+        },
+        "properties": {
+          "MANUFACTURER_SPECIFIC": {
+            "description": "Manufacturer specific",
+            "type": "integer"
+          },
+          "INPUT_CHANNEL": {
+            "description": "Input",
+            "type": "integer"
+          },
+          "OUTPUT_CHANNEL": {
+            "description": "Output",
+            "type": "integer"
+          },
+          "BIDIRECTIONAL_CHANNEL": {
+            "description": "Input/Output",
             "type": "integer"
           }
         }
@@ -768,30 +748,50 @@
           }
         }
       },
-      "PnChannelDirectionEnumeration": {
+      "PnChannelTypeEnumeration": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
         "const": {
-          "MANUFACTURER_SPECIFIC": 0,
-          "INPUT_CHANNEL": 8192,
-          "OUTPUT_CHANNEL": 16384,
-          "BIDIRECTIONAL_CHANNEL": 24576
+          "UNSPECIFIC": 0,
+          "S1BIT": 1,
+          "S2BIT": 2,
+          "S4BIT": 3,
+          "S8BIT": 4,
+          "S16BIT": 5,
+          "S32BIT": 6,
+          "S64BIT": 7
         },
         "properties": {
-          "MANUFACTURER_SPECIFIC": {
-            "description": "Manufacturer specific",
+          "UNSPECIFIC": {
+            "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule)  Furthermore, it shall be used if none of the below defined types are appropriate.  ",
             "type": "integer"
           },
-          "INPUT_CHANNEL": {
-            "description": "Input",
+          "S1BIT": {
+            "description": "The data length of this channel is 1 Bit.",
             "type": "integer"
           },
-          "OUTPUT_CHANNEL": {
-            "description": "Output",
+          "S2BIT": {
+            "description": "The data length of this channel is 2 Bit.",
             "type": "integer"
           },
-          "BIDIRECTIONAL_CHANNEL": {
-            "description": "Input/Output",
+          "S4BIT": {
+            "description": "The data length of this channel is 4 Bit.",
+            "type": "integer"
+          },
+          "S8BIT": {
+            "description": "The data length of this channel is 8 Bit.",
+            "type": "integer"
+          },
+          "S16BIT": {
+            "description": "The data length of this channel is 16 Bit.",
+            "type": "integer"
+          },
+          "S32BIT": {
+            "description": "The data length of this channel is 32 Bit.",
+            "type": "integer"
+          },
+          "S64BIT": {
+            "description": "The data length of this channel is 64 Bit.",
             "type": "integer"
           }
         }
@@ -1677,54 +1677,6 @@
       }
     ],
     "schemaDefinitions": {
-      "PnChannelTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
-        "const": {
-          "UNSPECIFIC": 0,
-          "S1BIT": 1,
-          "S2BIT": 2,
-          "S4BIT": 3,
-          "S8BIT": 4,
-          "S16BIT": 5,
-          "S32BIT": 6,
-          "S64BIT": 7
-        },
-        "properties": {
-          "UNSPECIFIC": {
-            "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule)  Furthermore, it shall be used if none of the below defined types are appropriate.  ",
-            "type": "integer"
-          },
-          "S1BIT": {
-            "description": "The data length of this channel is 1 Bit.",
-            "type": "integer"
-          },
-          "S2BIT": {
-            "description": "The data length of this channel is 2 Bit.",
-            "type": "integer"
-          },
-          "S4BIT": {
-            "description": "The data length of this channel is 4 Bit.",
-            "type": "integer"
-          },
-          "S8BIT": {
-            "description": "The data length of this channel is 8 Bit.",
-            "type": "integer"
-          },
-          "S16BIT": {
-            "description": "The data length of this channel is 16 Bit.",
-            "type": "integer"
-          },
-          "S32BIT": {
-            "description": "The data length of this channel is 32 Bit.",
-            "type": "integer"
-          },
-          "S64BIT": {
-            "description": "The data length of this channel is 64 Bit.",
-            "type": "integer"
-          }
-        }
-      },
       "PnChannelAccumulativeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelAccumulativeEnumeration",
@@ -1739,6 +1691,34 @@
           },
           "ACCUMULATIVE": {
             "description": "Multiple channel   Accumulative diagnosis from more than one channel  ",
+            "type": "integer"
+          }
+        }
+      },
+      "PnChannelDirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+        "const": {
+          "MANUFACTURER_SPECIFIC": 0,
+          "INPUT_CHANNEL": 8192,
+          "OUTPUT_CHANNEL": 16384,
+          "BIDIRECTIONAL_CHANNEL": 24576
+        },
+        "properties": {
+          "MANUFACTURER_SPECIFIC": {
+            "description": "Manufacturer specific",
+            "type": "integer"
+          },
+          "INPUT_CHANNEL": {
+            "description": "Input",
+            "type": "integer"
+          },
+          "OUTPUT_CHANNEL": {
+            "description": "Output",
+            "type": "integer"
+          },
+          "BIDIRECTIONAL_CHANNEL": {
+            "description": "Input/Output",
             "type": "integer"
           }
         }
@@ -1799,30 +1779,50 @@
           }
         }
       },
-      "PnChannelDirectionEnumeration": {
+      "PnChannelTypeEnumeration": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
         "const": {
-          "MANUFACTURER_SPECIFIC": 0,
-          "INPUT_CHANNEL": 8192,
-          "OUTPUT_CHANNEL": 16384,
-          "BIDIRECTIONAL_CHANNEL": 24576
+          "UNSPECIFIC": 0,
+          "S1BIT": 1,
+          "S2BIT": 2,
+          "S4BIT": 3,
+          "S8BIT": 4,
+          "S16BIT": 5,
+          "S32BIT": 6,
+          "S64BIT": 7
         },
         "properties": {
-          "MANUFACTURER_SPECIFIC": {
-            "description": "Manufacturer specific",
+          "UNSPECIFIC": {
+            "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule)  Furthermore, it shall be used if none of the below defined types are appropriate.  ",
             "type": "integer"
           },
-          "INPUT_CHANNEL": {
-            "description": "Input",
+          "S1BIT": {
+            "description": "The data length of this channel is 1 Bit.",
             "type": "integer"
           },
-          "OUTPUT_CHANNEL": {
-            "description": "Output",
+          "S2BIT": {
+            "description": "The data length of this channel is 2 Bit.",
             "type": "integer"
           },
-          "BIDIRECTIONAL_CHANNEL": {
-            "description": "Input/Output",
+          "S4BIT": {
+            "description": "The data length of this channel is 4 Bit.",
+            "type": "integer"
+          },
+          "S8BIT": {
+            "description": "The data length of this channel is 8 Bit.",
+            "type": "integer"
+          },
+          "S16BIT": {
+            "description": "The data length of this channel is 16 Bit.",
+            "type": "integer"
+          },
+          "S32BIT": {
+            "description": "The data length of this channel is 32 Bit.",
+            "type": "integer"
+          },
+          "S64BIT": {
+            "description": "The data length of this channel is 64 Bit.",
             "type": "integer"
           }
         }
@@ -2243,54 +2243,6 @@
       }
     ],
     "schemaDefinitions": {
-      "PnChannelTypeEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
-        "const": {
-          "UNSPECIFIC": 0,
-          "S1BIT": 1,
-          "S2BIT": 2,
-          "S4BIT": 3,
-          "S8BIT": 4,
-          "S16BIT": 5,
-          "S32BIT": 6,
-          "S64BIT": 7
-        },
-        "properties": {
-          "UNSPECIFIC": {
-            "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule)  Furthermore, it shall be used if none of the below defined types are appropriate.  ",
-            "type": "integer"
-          },
-          "S1BIT": {
-            "description": "The data length of this channel is 1 Bit.",
-            "type": "integer"
-          },
-          "S2BIT": {
-            "description": "The data length of this channel is 2 Bit.",
-            "type": "integer"
-          },
-          "S4BIT": {
-            "description": "The data length of this channel is 4 Bit.",
-            "type": "integer"
-          },
-          "S8BIT": {
-            "description": "The data length of this channel is 8 Bit.",
-            "type": "integer"
-          },
-          "S16BIT": {
-            "description": "The data length of this channel is 16 Bit.",
-            "type": "integer"
-          },
-          "S32BIT": {
-            "description": "The data length of this channel is 32 Bit.",
-            "type": "integer"
-          },
-          "S64BIT": {
-            "description": "The data length of this channel is 64 Bit.",
-            "type": "integer"
-          }
-        }
-      },
       "PnChannelAccumulativeEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelAccumulativeEnumeration",
@@ -2305,6 +2257,34 @@
           },
           "ACCUMULATIVE": {
             "description": "Multiple channel   Accumulative diagnosis from more than one channel  ",
+            "type": "integer"
+          }
+        }
+      },
+      "PnChannelDirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+        "const": {
+          "MANUFACTURER_SPECIFIC": 0,
+          "INPUT_CHANNEL": 8192,
+          "OUTPUT_CHANNEL": 16384,
+          "BIDIRECTIONAL_CHANNEL": 24576
+        },
+        "properties": {
+          "MANUFACTURER_SPECIFIC": {
+            "description": "Manufacturer specific",
+            "type": "integer"
+          },
+          "INPUT_CHANNEL": {
+            "description": "Input",
+            "type": "integer"
+          },
+          "OUTPUT_CHANNEL": {
+            "description": "Output",
+            "type": "integer"
+          },
+          "BIDIRECTIONAL_CHANNEL": {
+            "description": "Input/Output",
             "type": "integer"
           }
         }
@@ -2365,30 +2345,50 @@
           }
         }
       },
-      "PnChannelDirectionEnumeration": {
+      "PnChannelTypeEnumeration": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
         "const": {
-          "MANUFACTURER_SPECIFIC": 0,
-          "INPUT_CHANNEL": 8192,
-          "OUTPUT_CHANNEL": 16384,
-          "BIDIRECTIONAL_CHANNEL": 24576
+          "UNSPECIFIC": 0,
+          "S1BIT": 1,
+          "S2BIT": 2,
+          "S4BIT": 3,
+          "S8BIT": 4,
+          "S16BIT": 5,
+          "S32BIT": 6,
+          "S64BIT": 7
         },
         "properties": {
-          "MANUFACTURER_SPECIFIC": {
-            "description": "Manufacturer specific",
+          "UNSPECIFIC": {
+            "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule)  Furthermore, it shall be used if none of the below defined types are appropriate.  ",
             "type": "integer"
           },
-          "INPUT_CHANNEL": {
-            "description": "Input",
+          "S1BIT": {
+            "description": "The data length of this channel is 1 Bit.",
             "type": "integer"
           },
-          "OUTPUT_CHANNEL": {
-            "description": "Output",
+          "S2BIT": {
+            "description": "The data length of this channel is 2 Bit.",
             "type": "integer"
           },
-          "BIDIRECTIONAL_CHANNEL": {
-            "description": "Input/Output",
+          "S4BIT": {
+            "description": "The data length of this channel is 4 Bit.",
+            "type": "integer"
+          },
+          "S8BIT": {
+            "description": "The data length of this channel is 8 Bit.",
+            "type": "integer"
+          },
+          "S16BIT": {
+            "description": "The data length of this channel is 16 Bit.",
+            "type": "integer"
+          },
+          "S32BIT": {
+            "description": "The data length of this channel is 32 Bit.",
+            "type": "integer"
+          },
+          "S64BIT": {
+            "description": "The data length of this channel is 64 Bit.",
             "type": "integer"
           }
         }
@@ -4745,23 +4745,6 @@
       }
     ],
     "schemaDefinitions": {
-      "PnSubmoduleAddInfoEnumeration": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleAddInfoEnumeration",
-        "const": {
-          "NO_ADD_INFO": 0,
-          "TAKEOVER_NOT_ALLOWED": 1
-        },
-        "properties": {
-          "NO_ADD_INFO": {
-            "type": "integer"
-          },
-          "TAKEOVER_NOT_ALLOWED": {
-            "description": "This Submodule is not available for takeover by IOSAR.",
-            "type": "integer"
-          }
-        }
-      },
       "PnSubmoduleARInfoEnumeration": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleARInfoEnumeration",
@@ -4791,6 +4774,23 @@
           },
           "LOCKED_BY_IO_SUPERVISOR": {
             "description": "This AR is not owner of the submodule. It is owned by another IOSAR",
+            "type": "integer"
+          }
+        }
+      },
+      "PnSubmoduleAddInfoEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleAddInfoEnumeration",
+        "const": {
+          "NO_ADD_INFO": 0,
+          "TAKEOVER_NOT_ALLOWED": 1
+        },
+        "properties": {
+          "NO_ADD_INFO": {
+            "type": "integer"
+          },
+          "TAKEOVER_NOT_ALLOWED": {
+            "description": "This Submodule is not available for takeover by IOSAR.",
             "type": "integer"
           }
         }

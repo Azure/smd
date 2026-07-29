@@ -350,6 +350,24 @@
       }
     ],
     "schemaDefinitions": {
+      "ChokeCommandEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeCommandEnum",
+        "const": {
+          "Close": 1,
+          "Open": 2
+        },
+        "properties": {
+          "Close": {
+            "description": "The command to the Choke is Close",
+            "type": "integer"
+          },
+          "Open": {
+            "description": "The command to the Choke is Open",
+            "type": "integer"
+          }
+        }
+      },
       "ChokeMoveEnum": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeMoveEnum",
@@ -364,6 +382,29 @@
           },
           "Stopped": {
             "description": "The move has stopped",
+            "type": "integer"
+          }
+        }
+      },
+      "SEMEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+        "const": {
+          "SEM_A": 1,
+          "SEM_B": 2,
+          "Auto": 4
+        },
+        "properties": {
+          "SEM_A": {
+            "description": "Valve move command selection SEM A",
+            "type": "integer"
+          },
+          "SEM_B": {
+            "description": "Valve move command selection SEM B",
+            "type": "integer"
+          },
+          "Auto": {
+            "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
             "type": "integer"
           }
         }
@@ -392,47 +433,6 @@
           },
           "Fault": {
             "description": "command fault",
-            "type": "integer"
-          }
-        }
-      },
-      "SEMEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
-        "const": {
-          "SEM_A": 1,
-          "SEM_B": 2,
-          "Auto": 4
-        },
-        "properties": {
-          "SEM_A": {
-            "description": "Valve move command selection SEM A",
-            "type": "integer"
-          },
-          "SEM_B": {
-            "description": "Valve move command selection SEM B",
-            "type": "integer"
-          },
-          "Auto": {
-            "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
-            "type": "integer"
-          }
-        }
-      },
-      "ChokeCommandEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeCommandEnum",
-        "const": {
-          "Close": 1,
-          "Open": 2
-        },
-        "properties": {
-          "Close": {
-            "description": "The command to the Choke is Close",
-            "type": "integer"
-          },
-          "Open": {
-            "description": "The command to the Choke is Open",
             "type": "integer"
           }
         }
@@ -3452,30 +3452,25 @@
           }
         }
       },
-      "ValvePositionEnum": {
+      "SEMEnum": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
         "const": {
-          "Closed": 1,
-          "Open": 2,
-          "Moving": 4,
-          "Unknown": 8
+          "SEM_A": 1,
+          "SEM_B": 2,
+          "Auto": 4
         },
         "properties": {
-          "Closed": {
-            "description": "The Valve is Closed",
+          "SEM_A": {
+            "description": "Valve move command selection SEM A",
             "type": "integer"
           },
-          "Open": {
-            "description": "The Valve is Open",
+          "SEM_B": {
+            "description": "Valve move command selection SEM B",
             "type": "integer"
           },
-          "Moving": {
-            "description": "The Valve is Moving",
-            "type": "integer"
-          },
-          "Unknown": {
-            "description": "The Valve is in an unknown state. This value can be used when a subsea vendor does not have any last command information and does not know the state of the valve.",
+          "Auto": {
+            "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
             "type": "integer"
           }
         }
@@ -3503,25 +3498,30 @@
           }
         }
       },
-      "SEMEnum": {
+      "ValvePositionEnum": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
         "const": {
-          "SEM_A": 1,
-          "SEM_B": 2,
-          "Auto": 4
+          "Closed": 1,
+          "Open": 2,
+          "Moving": 4,
+          "Unknown": 8
         },
         "properties": {
-          "SEM_A": {
-            "description": "Valve move command selection SEM A",
+          "Closed": {
+            "description": "The Valve is Closed",
             "type": "integer"
           },
-          "SEM_B": {
-            "description": "Valve move command selection SEM B",
+          "Open": {
+            "description": "The Valve is Open",
             "type": "integer"
           },
-          "Auto": {
-            "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
+          "Moving": {
+            "description": "The Valve is Moving",
+            "type": "integer"
+          },
+          "Unknown": {
+            "description": "The Valve is in an unknown state. This value can be used when a subsea vendor does not have any last command information and does not know the state of the valve.",
             "type": "integer"
           }
         }
@@ -3976,6 +3976,30 @@
       }
     ],
     "schemaDefinitions": {
+      "MDISVersionVariableType": {
+        "title": "MDISVersionDataType",
+        "description": "The standard representation of the version information that is related the MDIS Specification",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionVariableType",
+        "required": [ "MajorVersion", "MinorVersion", "Build" ],
+        "properties": {
+          "MajorVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "MinorVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Build": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -3994,27 +4018,7 @@
     "properties": {
       "MDISVersion": {
         "dov:namespace": "http://opcfoundation.org/UA/MDIS",
-        "title": "MDISVersionDataType",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionDataType",
-        "required": [ "MajorVersion", "MinorVersion", "Build" ],
-        "properties": {
-          "MajorVersion": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "MinorVersion": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          },
-          "Build": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 255
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/MDISVersionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -4029,27 +4033,7 @@
       "MDISVersion": {
         "dov:namespace": "http://opcfoundation.org/UA/MDIS",
         "data": {
-          "title": "MDISVersionDataType",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionDataType",
-          "required": [ "MajorVersion", "MinorVersion", "Build" ],
-          "properties": {
-            "MajorVersion": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "MinorVersion": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            },
-            "Build": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 255
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/MDISVersionVariableType"
         },
         "forms": [
           {
@@ -4431,6 +4415,55 @@
           "Unknown": {
             "description": "The Valve is in an unknown state. This value can be used when a subsea vendor does not have any last command information and does not know the state of the valve.",
             "type": "integer"
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "MDIS_VariableTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "InterlockVariableType": {
+        "description": "This Variable type returns a Boolean indicating if the interlock is active, it shall also contain an InterlockFor reference",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.InterlockVariableType",
+        "type": "boolean"
+      },
+      "MDISVersionVariableType": {
+        "title": "MDISVersionDataType",
+        "description": "The standard representation of the version information that is related the MDIS Specification",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionVariableType",
+        "required": [ "MajorVersion", "MinorVersion", "Build" ],
+        "properties": {
+          "MajorVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "MinorVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Build": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
           }
         }
       }

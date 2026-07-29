@@ -2451,50 +2451,6 @@
       }
     ],
     "schemaDefinitions": {
-      "FilterTypeEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.CAS.FilterTypeEnum",
-        "const": {
-          "Other": 0,
-          "ActivatedCarbonFilter": 1,
-          "AdsorptionFilter": 2,
-          "CoalescingFilter": 3,
-          "ParticulateFilter": 4,
-          "FabricFilter": 5,
-          "SterileFilter": 6
-        },
-        "description": "possible filter types",
-        "properties": {
-          "Other": {
-            "description": "Not specified in this enumeration",
-            "type": "integer"
-          },
-          "ActivatedCarbonFilter": {
-            "description": "Activated carbon filter",
-            "type": "integer"
-          },
-          "AdsorptionFilter": {
-            "description": "Adsorption filter",
-            "type": "integer"
-          },
-          "CoalescingFilter": {
-            "description": "Coalescing filter",
-            "type": "integer"
-          },
-          "ParticulateFilter": {
-            "description": "Particulate filter",
-            "type": "integer"
-          },
-          "FabricFilter": {
-            "description": "Fabric filter",
-            "type": "integer"
-          },
-          "SterileFilter": {
-            "description": "Sterile filter",
-            "type": "integer"
-          }
-        }
-      },
       "FilterClassEnum": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.CAS.FilterClassEnum",
@@ -2555,6 +2511,50 @@
           },
           "X": {
             "description": "Particles: By Mass: > 10 mg/m3;  Water: Liquid: > 10 g/m3;  Oil: Liquid, Aerosol, & Vapor: > 5 mg/m3;",
+            "type": "integer"
+          }
+        }
+      },
+      "FilterTypeEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.FilterTypeEnum",
+        "const": {
+          "Other": 0,
+          "ActivatedCarbonFilter": 1,
+          "AdsorptionFilter": 2,
+          "CoalescingFilter": 3,
+          "ParticulateFilter": 4,
+          "FabricFilter": 5,
+          "SterileFilter": 6
+        },
+        "description": "possible filter types",
+        "properties": {
+          "Other": {
+            "description": "Not specified in this enumeration",
+            "type": "integer"
+          },
+          "ActivatedCarbonFilter": {
+            "description": "Activated carbon filter",
+            "type": "integer"
+          },
+          "AdsorptionFilter": {
+            "description": "Adsorption filter",
+            "type": "integer"
+          },
+          "CoalescingFilter": {
+            "description": "Coalescing filter",
+            "type": "integer"
+          },
+          "ParticulateFilter": {
+            "description": "Particulate filter",
+            "type": "integer"
+          },
+          "FabricFilter": {
+            "description": "Fabric filter",
+            "type": "integer"
+          },
+          "SterileFilter": {
+            "description": "Sterile filter",
             "type": "integer"
           }
         }
@@ -2857,6 +2857,75 @@
       }
     ],
     "schemaDefinitions": {
+      "SensorTechnologyOptionSet": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.SensorTechnologyOptionSet",
+        "const": {
+          "CapacitiveSensor": 0,
+          "ElectronTube": 1,
+          "InductiveSensor": 2,
+          "IonizationSensor": 3,
+          "Magnetometer": 4,
+          "OpticalSensor": 5,
+          "PiezoelectricSensor": 6,
+          "ResistiveSensor": 7,
+          "ResonantSensor": 8,
+          "TemperatureSensor": 9,
+          "ThermalSensor": 10,
+          "UltrasoundSensor": 11
+        },
+        "description": "flags for the used sensor technologies for a sensor",
+        "properties": {
+          "CapacitiveSensor": {
+            "description": "Capacitive sensor capabilities",
+            "type": "integer"
+          },
+          "ElectronTube": {
+            "description": "Electron tube capabilities",
+            "type": "integer"
+          },
+          "InductiveSensor": {
+            "description": "Inductive sensor capabilities",
+            "type": "integer"
+          },
+          "IonizationSensor": {
+            "description": "Ionization sensor capabilities",
+            "type": "integer"
+          },
+          "Magnetometer": {
+            "description": "Magnetometer capabilities",
+            "type": "integer"
+          },
+          "OpticalSensor": {
+            "description": "Optical sensor capabilities",
+            "type": "integer"
+          },
+          "PiezoelectricSensor": {
+            "description": "Piezoelectric sensor capabilities",
+            "type": "integer"
+          },
+          "ResistiveSensor": {
+            "description": "Resistive sensor capabilities",
+            "type": "integer"
+          },
+          "ResonantSensor": {
+            "description": "Resonant sensor capabilities",
+            "type": "integer"
+          },
+          "TemperatureSensor": {
+            "description": "Temperature sensor capabilities",
+            "type": "integer"
+          },
+          "ThermalSensor": {
+            "description": "Thermal sensor capabilities",
+            "type": "integer"
+          },
+          "UltrasoundSensor": {
+            "description": "Ultrasound sensor capabilities",
+            "type": "integer"
+          }
+        }
+      },
       "SensorTypeEnum": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.CAS.SensorTypeEnum",
@@ -2927,75 +2996,6 @@
           },
           "Wattmeter": {
             "description": "Wattmeter",
-            "type": "integer"
-          }
-        }
-      },
-      "SensorTechnologyOptionSet": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.CAS.SensorTechnologyOptionSet",
-        "const": {
-          "CapacitiveSensor": 0,
-          "ElectronTube": 1,
-          "InductiveSensor": 2,
-          "IonizationSensor": 3,
-          "Magnetometer": 4,
-          "OpticalSensor": 5,
-          "PiezoelectricSensor": 6,
-          "ResistiveSensor": 7,
-          "ResonantSensor": 8,
-          "TemperatureSensor": 9,
-          "ThermalSensor": 10,
-          "UltrasoundSensor": 11
-        },
-        "description": "flags for the used sensor technologies for a sensor",
-        "properties": {
-          "CapacitiveSensor": {
-            "description": "Capacitive sensor capabilities",
-            "type": "integer"
-          },
-          "ElectronTube": {
-            "description": "Electron tube capabilities",
-            "type": "integer"
-          },
-          "InductiveSensor": {
-            "description": "Inductive sensor capabilities",
-            "type": "integer"
-          },
-          "IonizationSensor": {
-            "description": "Ionization sensor capabilities",
-            "type": "integer"
-          },
-          "Magnetometer": {
-            "description": "Magnetometer capabilities",
-            "type": "integer"
-          },
-          "OpticalSensor": {
-            "description": "Optical sensor capabilities",
-            "type": "integer"
-          },
-          "PiezoelectricSensor": {
-            "description": "Piezoelectric sensor capabilities",
-            "type": "integer"
-          },
-          "ResistiveSensor": {
-            "description": "Resistive sensor capabilities",
-            "type": "integer"
-          },
-          "ResonantSensor": {
-            "description": "Resonant sensor capabilities",
-            "type": "integer"
-          },
-          "TemperatureSensor": {
-            "description": "Temperature sensor capabilities",
-            "type": "integer"
-          },
-          "ThermalSensor": {
-            "description": "Thermal sensor capabilities",
-            "type": "integer"
-          },
-          "UltrasoundSensor": {
-            "description": "Ultrasound sensor capabilities",
             "type": "integer"
           }
         }
