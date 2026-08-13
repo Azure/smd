@@ -293,6 +293,11 @@
             "type": "integer"
           }
         }
+      },
+      "MultiStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+        "type": "integer",
+        "minimum": 0
       }
     },
     "forms": [
@@ -408,8 +413,7 @@
       },
       "Class": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
-        "type": "integer",
-        "minimum": 0,
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -560,8 +564,7 @@
       "Class": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
         "data": {
-          "type": "integer",
-          "minimum": 0
+          "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
         },
         "forms": [
           {
@@ -1164,6 +1167,15 @@
       }
     ],
     "schemaDefinitions": {
+      "MultiStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+        "type": "integer",
+        "minimum": 0
+      },
+      "TwoStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+        "type": "boolean"
+      }
     },
     "forms": [
       {
@@ -1191,7 +1203,7 @@
     "properties": {
       "IsInLoadingPosition": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -1208,8 +1220,7 @@
       },
       "LoadStatus": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
-        "type": "integer",
-        "minimum": 0,
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -1229,7 +1240,7 @@
       "IsInLoadingPosition": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
         },
         "forms": [
           {
@@ -1242,8 +1253,7 @@
       "LoadStatus": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
         "data": {
-          "type": "integer",
-          "minimum": 0
+          "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
         },
         "forms": [
           {
@@ -1417,6 +1427,7 @@
       },
       "Workspace": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+        "dov:typeRef": "org.opcfoundation.UA.GMS.WorkspaceType",
         "type": "string",
         "readOnly": true,
         "forms": [
@@ -1846,7 +1857,6 @@
       },
       "ProcessParameter": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
-        "dov:typeRef": "org.opcfoundation.UA.GMS.CatalogType",
         "type": "array",
         "items": {
           "type": "number"
@@ -1939,7 +1949,6 @@
       "ProcessParameter": {
         "dov:namespace": "http://opcfoundation.org/UA/GMS/",
         "data": {
-          "dov:typeRef": "org.opcfoundation.UA.GMS.CatalogType",
           "type": "array",
           "items": {
             "type": "number"

@@ -1,0 +1,2656 @@
+[
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_MaintenanceAlarmType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MaintenanceAlarmType",
+    "dov:isEvent": true,
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_HelpOffNormalAlarmType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "MaintenanceStatusEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MaintenanceStatusEnumeration",
+        "const": {
+          "NOT_DUE": 0,
+          "WARNING": 1,
+          "DUE": 2
+        },
+        "description": "Maintenance status of a machine/device/component",
+        "properties": {
+          "NOT_DUE": {
+            "description": "Maintenance of the device/component is not due",
+            "type": "integer"
+          },
+          "WARNING": {
+            "description": "Maintenance of the device/component is due in the near future",
+            "type": "integer"
+          },
+          "DUE": {
+            "description": "Maintenance of the device/component is due",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/RemainingInterval",
+      "/events/RemainingInterval"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "Id": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Unique Id of the maintenance activity.",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/property/Id/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/property/Id/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "RemainingInterval": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Interval before next maintenance is due.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/property/RemainingInterval/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/property/RemainingInterval/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Status": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "MaintenanceStatusEnumeration",
+        "description": "Maintenance status of the respective maintenance activity. ",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MaintenanceStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/property/Status/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/property/Status/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "RemainingInterval": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Interval before next maintenance is due.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/event/RemainingInterval/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "Status": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "MaintenanceStatusEnumeration",
+          "description": "Maintenance status of the respective maintenance activity. ",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MaintenanceStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceAlarmType/event/Status/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_BinsType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.BinsType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "Bin_Nr",
+        "href": "#title=PlasticsRubber_GDD_BinType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_BinType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.BinType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "AirFlow",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "AmbientAirTemperature",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "ConeTemperature",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "CylinderTemperature",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "DryAirTemperature",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Temperature",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TopTemperature",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TotalEnergy",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_EnergyType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "AirFlowModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+        "const": {
+          "CONTINUOUS": 0,
+          "INTERVAL": 1,
+          "OPTIMIZED": 2
+        },
+        "description": "Determines the air flow, either from a fan or from compressed air. ",
+        "properties": {
+          "CONTINUOUS": {
+            "description": "constant flow",
+            "type": "integer"
+          },
+          "INTERVAL": {
+            "description": "changing cyclic between low or no and high or normal flow  ",
+            "type": "integer"
+          },
+          "OPTIMIZED": {
+            "description": "Energy optimized mode (depending e.g. on throughput / humidity…)",
+            "type": "integer"
+          }
+        }
+      },
+      "AirSourceEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+        "const": {
+          "FRESH_AIR": 0,
+          "RETURN_AIR": 1
+        },
+        "description": "Determines the source of the air.",
+        "properties": {
+          "FRESH_AIR": {
+            "description": "The dryer is working with fresh air",
+            "type": "integer"
+          },
+          "RETURN_AIR": {
+            "description": "The dryer is working with return air, closed loop",
+            "type": "integer"
+          }
+        }
+      },
+      "DryingLevelEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+        "const": {
+          "LOW": 0,
+          "MEDIUM": 1,
+          "HIGH": 2
+        },
+        "description": "Indicates how much drying is required.",
+        "properties": {
+          "LOW": {
+            "description": "The granulate requires a low level drying.",
+            "type": "integer"
+          },
+          "MEDIUM": {
+            "description": "The granulate requires a medium level drying.",
+            "type": "integer"
+          },
+          "HIGH": {
+            "description": "The granulate requires a high level drying.",
+            "type": "integer"
+          }
+        }
+      },
+      "DryingModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+        "const": {
+          "BATCH": 0,
+          "CONTINUOUS": 1,
+          "COMBINED": 2
+        },
+        "description": "The drying mode determines the drying process.",
+        "properties": {
+          "BATCH": {
+            "description": "The granulate in the dryer is dried for a certain period of time and then switched to drying protection.",
+            "type": "integer"
+          },
+          "CONTINUOUS": {
+            "description": "The granulate in the dryer is dried continuously.",
+            "type": "integer"
+          },
+          "COMBINED": {
+            "description": "The very wet granulate in the dryer is dried for a certain period of time, after which it is dried continuously.",
+            "type": "integer"
+          }
+        }
+      },
+      "FunctionStatusEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "const": {
+          "OFF": 0,
+          "ON": 1,
+          "REQUESTED_OFF": 2,
+          "REQUESTED_ON": 3
+        },
+        "description": "Provides information about the current operation state of a function.",
+        "properties": {
+          "OFF": {
+            "description": "Function is switched off",
+            "type": "integer"
+          },
+          "ON": {
+            "description": "Function is switched on",
+            "type": "integer"
+          },
+          "REQUESTED_OFF": {
+            "description": "Function is switched on AND requested to be switched off by the client",
+            "type": "integer"
+          },
+          "REQUESTED_ON": {
+            "description": "Function is switched off AND requested to be switched on by the client",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/actions/ActivateAllFeeders",
+      "/actions/ActivateDryingProtection",
+      "/actions/ActivateDryingProtectionAirVolumeFlowReduction",
+      "/actions/ActivateMaterialFeederDryer",
+      "/actions/ActivateMaterialFeederMachine",
+      "/actions/ActivateTemperatureController",
+      "/actions/DeactivateAllFeeders",
+      "/actions/DeactivateDryingProtection",
+      "/actions/DeactivateDryingProtectionAirVolumeFlowReduction",
+      "/actions/DeactivateMaterialFeederDryer",
+      "/actions/DeactivateMaterialFeederMachine",
+      "/actions/DeactivateTemperatureController",
+      "/actions/ResetDryingTime",
+      "/properties/AirFlowMode",
+      "/properties/AirSource",
+      "/properties/AllFeedersStatus",
+      "/properties/BatchNumber",
+      "/properties/DewPoint",
+      "/properties/DryingLevel",
+      "/properties/DryingProtectionAirVolumeFlowMode",
+      "/properties/DryingProtectionStatus",
+      "/properties/DustRemovalPulses",
+      "/properties/EnergyConsumptionResettable",
+      "/properties/ExpiredDryingTime",
+      "/properties/InitialFillingActive",
+      "/properties/IntervalTimeOff",
+      "/properties/IntervalTimeOn",
+      "/properties/LooseningAid",
+      "/properties/MaterialAvailableDryer",
+      "/properties/MaterialAvailableMachine",
+      "/properties/MaterialDryingTime",
+      "/properties/MaterialFeederDryerStatus",
+      "/properties/MaterialFeederMachineStatus",
+      "/properties/MaterialIdentification",
+      "/properties/RemainingMaterialDryingTime",
+      "/properties/ResetDryingTimeResponseStatus",
+      "/properties/TemperatureControllerStatus",
+      "/properties/TemperatureReduction",
+      "/properties/TotalAirConsumption",
+      "/events/AirFlowMode",
+      "/events/AirSource",
+      "/events/AllFeedersStatus",
+      "/events/DewPoint",
+      "/events/DryingLevel",
+      "/events/DryingProtectionAirVolumeFlowMode",
+      "/events/DryingProtectionStatus",
+      "/events/DustRemovalPulses",
+      "/events/EnergyConsumptionResettable",
+      "/events/ExpiredDryingTime",
+      "/events/InitialFillingActive",
+      "/events/IntervalTimeOff",
+      "/events/IntervalTimeOn",
+      "/events/LooseningAid",
+      "/events/MaterialAvailableDryer",
+      "/events/MaterialAvailableMachine",
+      "/events/MaterialFeederDryerStatus",
+      "/events/MaterialFeederMachineStatus",
+      "/events/RemainingMaterialDryingTime",
+      "/events/ResetDryingTimeResponseStatus",
+      "/events/TemperatureControllerStatus",
+      "/events/TemperatureReduction",
+      "/events/TotalAirConsumption"
+    ],
+    "actions": {
+      "ActivateAllFeeders": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to activate all feeders at once.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ActivateAllFeeders",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ActivateDryingProtection": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to activate the drying protection.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ActivateDryingProtection",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ActivateDryingProtectionAirVolumeFlowReduction": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Request to reduce the (compressed) air flow during drying protection or storage reduction.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ActivateDryingProtectionAirVolumeFlowReduction",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ActivateMaterialFeederDryer": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to activate the material feeder of the dryer.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ActivateMaterialFeederDryer",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ActivateMaterialFeederMachine": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to activate the material feeder of the machine.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ActivateMaterialFeederMachine",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ActivateTemperatureController": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to request the activation of the temperature controller of the bin.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ActivateTemperatureController",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateAllFeeders": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to deactivate all feeders at once.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/DeactivateAllFeeders",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateDryingProtection": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to deactivate the drying protection.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/DeactivateDryingProtection",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateDryingProtectionAirVolumeFlowReduction": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Request to deactivate the use of reduced air flow during drying protection or storage reduction.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/DeactivateDryingProtectionAirVolumeFlowReduction",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateMaterialFeederDryer": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to deactivate the material feeder of the dryer.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/DeactivateMaterialFeederDryer",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateMaterialFeederMachine": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to deactivate the material feeder of the machine.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/DeactivateMaterialFeederMachine",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateTemperatureController": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to request the deactivation of the temperature controller of the bin.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/DeactivateTemperatureController",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ResetDryingTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/action/ResetDryingTime",
+            "op": "invokeaction"
+          }
+        ]
+      }
+    },
+    "properties": {
+      "AirFlowMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "AirFlowModeEnumeration",
+        "description": "The AirFlowMode determines the air flow, either from a fan or from compressed air.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/AirFlowMode/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/AirFlowMode/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "AirSource": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "AirSourceEnumeration",
+        "description": "Determines the source of the air.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/AirSource/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/AirSource/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "AllFeedersStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current activation state of all feeders of the machine.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/AllFeedersStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "BatchNumber": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "A number for the specific production line and time.",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/BatchNumber/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/BatchNumber/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DewPoint": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Dew point of the air used to dry the granulate.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DewPoint/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DryingLevel": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "DryingLevelEnumeration",
+        "description": "The drying level indicates how much drying is required.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DryingLevel/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DryingLevel/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DryingMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "DryingModeEnumeration",
+        "description": "The drying mode determines the drying process.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DryingMode/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DryingMode/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DryingProtectionAirVolumeFlowMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "description": "Response to the ActivateDryingProtectionAirVolumeFlowReduction Method.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DryingProtectionAirVolumeFlowMode/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DryingProtectionStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current activation state of the drying protection.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DryingProtectionStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DustRemovalPulses": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Number of dust removal pulses, automatically triggered after filling.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DustRemovalPulses/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/DustRemovalPulses/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "EnergyConsumptionResettable": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Consumption of the Bin since the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/EnergyConsumptionResettable/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ExpiredDryingTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Elapsed drying time, useful for a continuous drying process.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/ExpiredDryingTime/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "InitialFillingActive": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "True, while the initial filling process is active (e.g. to prevent conveyor timeout error).",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/InitialFillingActive/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "IntervalTimeOff": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for no or low rotation.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/IntervalTimeOff/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/IntervalTimeOff/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "IntervalTimeOn": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for normal or high rotation.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/IntervalTimeOn/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/IntervalTimeOn/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "LooseningAid": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Number of air impulses as loosening aid at outlet of granulate dryer.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/LooseningAid/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/LooseningAid/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MaterialAvailableDryer": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Provides information, if material is available to fill the dryer.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialAvailableDryer/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MaterialAvailableMachine": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Feedback from the dryer about the fill level of the conveyor for removal from the dryer to the injection molding machine (only if controlled via dryer).",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialAvailableMachine/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MaterialDryingTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Material manufacturer time value as setpoint to dry the material until ready for production.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialDryingTime/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialDryingTime/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MaterialFeederDryerStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current activation state of the material feeder of the dryer.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialFeederDryerStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MaterialFeederMachineStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialFeederMachineStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MaterialIdentification": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialIdentification/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/MaterialIdentification/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "RemainingMaterialDryingTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/RemainingMaterialDryingTime/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ResetDryingTimeResponseStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "type": "string",
+        "format": "time",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/ResetDryingTimeResponseStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "TemperatureControllerStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/TemperatureControllerStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "TemperatureReduction": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/TemperatureReduction/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/TemperatureReduction/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "TotalAirConsumption": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/property/TotalAirConsumption/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "AirFlowMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "AirFlowModeEnumeration",
+          "description": "The AirFlowMode determines the air flow, either from a fan or from compressed air.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/AirFlowMode/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "AirSource": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "AirSourceEnumeration",
+          "description": "Determines the source of the air.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/AirSource/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "AllFeedersStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "description": "Provides information about the current activation state of all feeders of the machine.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/AllFeedersStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DewPoint": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Dew point of the air used to dry the granulate.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/DewPoint/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DryingLevel": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "DryingLevelEnumeration",
+          "description": "The drying level indicates how much drying is required.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/DryingLevel/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DryingMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "DryingModeEnumeration",
+          "description": "The drying mode determines the drying process.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/DryingMode/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DryingProtectionAirVolumeFlowMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "description": "Response to the ActivateDryingProtectionAirVolumeFlowReduction Method.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/DryingProtectionAirVolumeFlowMode/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DryingProtectionStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "description": "Provides information about the current activation state of the drying protection.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/DryingProtectionStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DustRemovalPulses": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Number of dust removal pulses, automatically triggered after filling.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/DustRemovalPulses/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "EnergyConsumptionResettable": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Consumption of the Bin since the last reset.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/EnergyConsumptionResettable/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "ExpiredDryingTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Elapsed drying time, useful for a continuous drying process.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/ExpiredDryingTime/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "InitialFillingActive": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "True, while the initial filling process is active (e.g. to prevent conveyor timeout error).",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/InitialFillingActive/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "IntervalTimeOff": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for no or low rotation.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/IntervalTimeOff/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "IntervalTimeOn": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for normal or high rotation.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/IntervalTimeOn/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "LooseningAid": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Number of air impulses as loosening aid at outlet of granulate dryer.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/LooseningAid/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "MaterialAvailableDryer": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Provides information, if material is available to fill the dryer.",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/MaterialAvailableDryer/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "MaterialAvailableMachine": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Feedback from the dryer about the fill level of the conveyor for removal from the dryer to the injection molding machine (only if controlled via dryer).",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/MaterialAvailableMachine/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "MaterialFeederDryerStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "description": "Provides information about the current activation state of the material feeder of the dryer.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/MaterialFeederDryerStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "MaterialFeederMachineStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/MaterialFeederMachineStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "RemainingMaterialDryingTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/RemainingMaterialDryingTime/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "ResetDryingTimeResponseStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "type": "string",
+          "format": "time"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/ResetDryingTimeResponseStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "TemperatureControllerStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/TemperatureControllerStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "TemperatureReduction": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/TemperatureReduction/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "TotalAirConsumption": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_BinType/event/TotalAirConsumption/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_DesiccantBedsType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DesiccantBedsType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "DesiccantBed_Nr",
+        "href": "#title=PlasticsRubber_GDD_DesiccantBedType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_DesiccantBedType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DesiccantBedType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "AirFlow",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_ControlledParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "DewPoint",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TemperatureBackToDesiccantBed",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TemperatureDesiccantBedOut",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MonitoredParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TemperatureOfDesiccantBed",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_ControlledParameterType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TotalEnergy",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_EnergyType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "FunctionStatusEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "const": {
+          "OFF": 0,
+          "ON": 1,
+          "REQUESTED_OFF": 2,
+          "REQUESTED_ON": 3
+        },
+        "description": "Provides information about the current operation state of a function.",
+        "properties": {
+          "OFF": {
+            "description": "Function is switched off",
+            "type": "integer"
+          },
+          "ON": {
+            "description": "Function is switched on",
+            "type": "integer"
+          },
+          "REQUESTED_OFF": {
+            "description": "Function is switched on AND requested to be switched off by the client",
+            "type": "integer"
+          },
+          "REQUESTED_ON": {
+            "description": "Function is switched off AND requested to be switched on by the client",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/actions/ActivateDesiccantBedController",
+      "/actions/DeactivateDesiccantBedController",
+      "/properties/DesiccantBedControllerStatus",
+      "/properties/EnergyConsumptionResettable",
+      "/events/DesiccantBedControllerStatus",
+      "/events/EnergyConsumptionResettable"
+    ],
+    "actions": {
+      "ActivateDesiccantBedController": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to request the desiccant bed controller to be switched on.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/action/ActivateDesiccantBedController",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "DeactivateDesiccantBedController": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to request the desiccant bed controller to be switched off.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/action/DeactivateDesiccantBedController",
+            "op": "invokeaction"
+          }
+        ]
+      }
+    },
+    "properties": {
+      "DesiccantBedControllerStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current operation state of the desiccant bed controller.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/property/DesiccantBedControllerStatus/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "EnergyConsumptionResettable": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Monitored energy consumption of the heater in the desiccant bed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/property/EnergyConsumptionResettable/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "DesiccantBedControllerStatus": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "FunctionStatusEnumeration",
+          "description": "Provides information about the current operation state of the desiccant bed controller.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/event/DesiccantBedControllerStatus/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "EnergyConsumptionResettable": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Monitored energy consumption of the heater in the desiccant bed.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_DesiccantBedType/event/EnergyConsumptionResettable/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_DryerType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryerType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Bins",
+        "href": "#title=PlasticsRubber_GDD_BinsType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "DesiccantBeds",
+        "href": "#title=PlasticsRubber_GDD_DesiccantBedsType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_GranulateDryingDeviceType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.GranulateDryingDeviceType",
+    "dov:isComposite": true,
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Dryer",
+        "href": "#title=PlasticsRubber_GDD_DryerType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Identification",
+        "href": "./Machinery.TM.json#title=Machinery_MachineIdentificationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "MachineConfiguration",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MachineConfigurationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "MachineryBuildingBlocks",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Operation",
+        "href": "#title=PlasticsRubber_GDD_OperationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "UserLogin",
+        "href": "#title=PlasticsRubber_GDD_UserLoginType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GranulateDryingDeviceType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GranulateDryingDeviceType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GranulateDryingDeviceType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/DisplayLanguage",
+      "/events/DisplayLanguage"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "DisplayLanguage": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "With the DisplayLanguage Variable the client can set the desired language on the user interface at the GDD.",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GranulateDryingDeviceType/property/DisplayLanguage/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GranulateDryingDeviceType/property/DisplayLanguage/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "DisplayLanguage": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "With the DisplayLanguage Variable the client can set the desired language on the user interface at the GDD.",
+          "type": "string"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GranulateDryingDeviceType/event/DisplayLanguage/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_MaintenanceInformationType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MaintenanceInformationType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "Maintenance_Nr",
+        "href": "#title=PlasticsRubber_GDD_GDDMaintenanceType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceInformationType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "NodeVersion": {
+        "type": "string",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_MaintenanceInformationType/property/NodeVersion/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_GDDMaintenanceType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.GDDMaintenanceType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MaintenanceType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "MaintenanceInstructions",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FileType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GDDMaintenanceType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+      "GDDMaintenanceReset": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "input": {
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+          "required": [ "OperatorName", "MachineManufacturer", "MachineSerialNumber" ],
+          "properties": {
+            "OperatorName": {
+              "type": "string"
+            },
+            "MachineManufacturer": {
+              "type": "string"
+            },
+            "MachineSerialNumber": {
+              "type": "string"
+            }
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GDDMaintenanceType/action/GDDMaintenanceReset",
+            "op": "invokeaction"
+          }
+        ]
+      }
+    },
+    "properties": {
+      "Id": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "type": "string",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_GDDMaintenanceType/property/Id/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_OperationType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.OperationType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "MaintenanceInformation",
+        "href": "#title=PlasticsRubber_GDD_MaintenanceInformationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "TotalEnergy",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_EnergyType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "MainFailureBehaviourEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+        "const": {
+          "STANDBY": 0,
+          "CONTINUE": 1
+        },
+        "description": "Determines how the dryer should react after a power failure, for example.",
+        "properties": {
+          "STANDBY": {
+            "description": "The dryer starts in standby.",
+            "type": "integer"
+          },
+          "CONTINUE": {
+            "description": "The dryer starts in last position.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/actions/IdentifyDevice",
+      "/actions/ResetAllErrors",
+      "/actions/ResetEnergyMeasurement",
+      "/actions/ResetErrorById",
+      "/properties/EnergyConsumptionLimit",
+      "/properties/EnergyConsumptionResettable",
+      "/properties/MainFailureBehaviour",
+      "/events/EnergyConsumptionLimit",
+      "/events/EnergyConsumptionResettable",
+      "/events/MainFailureBehaviour"
+    ],
+    "actions": {
+      "IdentifyDevice": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "The peripheral device on which this method is called shows itself by e.g. activation of a LED or by Message on the UI of the device.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/action/IdentifyDevice",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ResetAllErrors": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to reset all errors of the device.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/action/ResetAllErrors",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ResetEnergyMeasurement": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to reset the EnergyConsumptionResettable Variable of the device and all components (e.g. bins, desiccant bed).",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/action/ResetEnergyMeasurement",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "ResetErrorById": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Method to reset one error of the device.",
+        "input": {
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+          "required": [ "Id" ],
+          "properties": {
+            "Id": {
+              "type": "string"
+            }
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/action/ResetErrorById",
+            "op": "invokeaction"
+          }
+        ]
+      }
+    },
+    "properties": {
+      "ActiveErrors": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "List of the active errors of the device.",
+        "type": "array",
+        "items": {
+          "title": "ClassifiedActiveErrorDataType",
+          "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+          "required": [ "Id", "Severity", "Message", "SourceNodes", "Classification" ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            },
+            "SourceNodes": {
+              "description": "NodeIds of the Nodes which cause the error",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "Classification": {
+              "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        },
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/ActiveErrors/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DeviceMappingNumber": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Unique identifier/address/number for devices of the same DeviceType within a local network.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/DeviceMappingNumber/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/DeviceMappingNumber/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "EnergyConsumptionLimit": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "This variable limits the energy consumed by the device relative to a user-defined default state (100%).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/EnergyConsumptionLimit/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/EnergyConsumptionLimit/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "EnergyConsumptionResettable": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Consumption of the granulate drying device in kWh since the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/EnergyConsumptionResettable/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "HighestActiveAlarmSeverity": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Indication of the severity of the highest active alarm.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/HighestActiveAlarmSeverity/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "MainFailureBehaviour": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "title": "MainFailureBehaviourEnumeration",
+        "description": "Determines how the dryer should react after a power failure, for example.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/MainFailureBehaviour/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/MainFailureBehaviour/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "RemoteControlOpcUa": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "Variable to read the actual remote control state of the server instance.  If RemoteControlOpcUa is FALSE, the interface is read-only (Variables not writeable, methods not executable).  The value shall be stored persistently. ",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/property/RemoteControlOpcUa/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "ActiveErrors": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "List of the active errors of the device.",
+          "type": "array",
+          "items": {
+            "title": "ClassifiedActiveErrorDataType",
+            "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+            "required": [ "Id", "Severity", "Message", "SourceNodes", "Classification" ],
+            "properties": {
+              "Id": {
+                "description": "Unique identifier defined by manufacturer",
+                "type": "string"
+              },
+              "Severity": {
+                "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "Message": {
+                "description": "Message giving information about the error",
+                "type": "string"
+              },
+              "SourceNodes": {
+                "description": "NodeIds of the Nodes which cause the error",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "Classification": {
+                "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              }
+            }
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/ActiveErrors/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DeviceMappingNumber": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Unique identifier/address/number for devices of the same DeviceType within a local network.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/DeviceMappingNumber/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "EnergyConsumptionLimit": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "This variable limits the energy consumed by the device relative to a user-defined default state (100%).",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/EnergyConsumptionLimit/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "EnergyConsumptionResettable": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Consumption of the granulate drying device in kWh since the last reset.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/EnergyConsumptionResettable/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "HighestActiveAlarmSeverity": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Indication of the severity of the highest active alarm.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/HighestActiveAlarmSeverity/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "MainFailureBehaviour": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "title": "MainFailureBehaviourEnumeration",
+          "description": "Determines how the dryer should react after a power failure, for example.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/MainFailureBehaviour/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "RemoteControlOpcUa": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "data": {
+          "description": "Variable to read the actual remote control state of the server instance.  If RemoteControlOpcUa is FALSE, the interface is read-only (Variables not writeable, methods not executable).  The value shall be stored persistently. ",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_OperationType/event/RemoteControlOpcUa/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_UserLoginType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.UserLoginType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "ActualUser",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_UserType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "actions": {
+      "LoginMachineUser": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "When the Method LoginMachineUser from the GDD is called by the machine, the requested user can be logged in to the device system.",
+        "input": {
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+          "required": [ "Id", "Name", "CardUid", "UserLevel", "UserRole", "Language" ],
+          "properties": {
+            "Id": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            },
+            "CardUid": {
+              "type": "string"
+            },
+            "UserLevel": {
+              "type": "string"
+            },
+            "UserRole": {
+              "type": "string"
+            },
+            "Language": {
+              "type": "string"
+            }
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_UserLoginType/action/LoginMachineUser",
+            "op": "invokeaction"
+          }
+        ]
+      },
+      "LogoutMachineUser": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+        "description": "The machine shall report to the device via the Method LogoutMachineUser when a user is logged out. The IsPresent property of the ActualUser then becomes false again.",
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.GDD/PlasticsRubber_GDD_UserLoginType/action/LogoutMachineUser",
+            "op": "invokeaction"
+          }
+        ]
+      }
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_GDD_DataTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "AirFlowModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+        "const": {
+          "CONTINUOUS": 0,
+          "INTERVAL": 1,
+          "OPTIMIZED": 2
+        },
+        "description": "Determines the air flow, either from a fan or from compressed air. ",
+        "properties": {
+          "CONTINUOUS": {
+            "description": "constant flow",
+            "type": "integer"
+          },
+          "INTERVAL": {
+            "description": "changing cyclic between low or no and high or normal flow  ",
+            "type": "integer"
+          },
+          "OPTIMIZED": {
+            "description": "Energy optimized mode (depending e.g. on throughput / humidity…)",
+            "type": "integer"
+          }
+        }
+      },
+      "AirSourceEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+        "const": {
+          "FRESH_AIR": 0,
+          "RETURN_AIR": 1
+        },
+        "description": "Determines the source of the air.",
+        "properties": {
+          "FRESH_AIR": {
+            "description": "The dryer is working with fresh air",
+            "type": "integer"
+          },
+          "RETURN_AIR": {
+            "description": "The dryer is working with return air, closed loop",
+            "type": "integer"
+          }
+        }
+      },
+      "DryingLevelEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+        "const": {
+          "LOW": 0,
+          "MEDIUM": 1,
+          "HIGH": 2
+        },
+        "description": "Indicates how much drying is required.",
+        "properties": {
+          "LOW": {
+            "description": "The granulate requires a low level drying.",
+            "type": "integer"
+          },
+          "MEDIUM": {
+            "description": "The granulate requires a medium level drying.",
+            "type": "integer"
+          },
+          "HIGH": {
+            "description": "The granulate requires a high level drying.",
+            "type": "integer"
+          }
+        }
+      },
+      "DryingModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+        "const": {
+          "BATCH": 0,
+          "CONTINUOUS": 1,
+          "COMBINED": 2
+        },
+        "description": "The drying mode determines the drying process.",
+        "properties": {
+          "BATCH": {
+            "description": "The granulate in the dryer is dried for a certain period of time and then switched to drying protection.",
+            "type": "integer"
+          },
+          "CONTINUOUS": {
+            "description": "The granulate in the dryer is dried continuously.",
+            "type": "integer"
+          },
+          "COMBINED": {
+            "description": "The very wet granulate in the dryer is dried for a certain period of time, after which it is dried continuously.",
+            "type": "integer"
+          }
+        }
+      },
+      "FunctionStatusEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "const": {
+          "OFF": 0,
+          "ON": 1,
+          "REQUESTED_OFF": 2,
+          "REQUESTED_ON": 3
+        },
+        "description": "Provides information about the current operation state of a function.",
+        "properties": {
+          "OFF": {
+            "description": "Function is switched off",
+            "type": "integer"
+          },
+          "ON": {
+            "description": "Function is switched on",
+            "type": "integer"
+          },
+          "REQUESTED_OFF": {
+            "description": "Function is switched on AND requested to be switched off by the client",
+            "type": "integer"
+          },
+          "REQUESTED_ON": {
+            "description": "Function is switched off AND requested to be switched on by the client",
+            "type": "integer"
+          }
+        }
+      },
+      "MainFailureBehaviourEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+        "const": {
+          "STANDBY": 0,
+          "CONTINUE": 1
+        },
+        "description": "Determines how the dryer should react after a power failure, for example.",
+        "properties": {
+          "STANDBY": {
+            "description": "The dryer starts in standby.",
+            "type": "integer"
+          },
+          "CONTINUE": {
+            "description": "The dryer starts in last position.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  }
+]

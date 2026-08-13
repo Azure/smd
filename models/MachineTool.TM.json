@@ -5048,6 +5048,14 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteStateVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteStateVariableType",
+        "type": "string"
+      },
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -5069,7 +5077,7 @@
     },
     "properties": {
       "CurrentState": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteStateVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -5080,7 +5088,7 @@
         ]
       },
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -5094,7 +5102,7 @@
     "events": {
       "CurrentState": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteStateVariableType"
         },
         "forms": [
           {
@@ -5106,7 +5114,7 @@
       },
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {

@@ -2190,6 +2190,11 @@
           }
         }
       },
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
+      },
       "LocationVariableType": {
         "title": "Location",
         "type": "object",
@@ -2861,8 +2866,7 @@
       },
       "LastScanData": {
         "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
-        "description": "The last scanned AutoID Identifier.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -2949,8 +2953,7 @@
       "LastScanData": {
         "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
         "data": {
-          "description": "The last scanned AutoID Identifier.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
         },
         "forms": [
           {
