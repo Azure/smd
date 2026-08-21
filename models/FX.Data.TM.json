@@ -675,6 +675,65 @@
           }
         }
       },
+      "FxTimeUnitsEnum": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+        "const": {
+          "Nanosecond": 0,
+          "Microsecond": 1,
+          "Millisecond": 2,
+          "Second": 3
+        },
+        "description": "This enumeration describes the support units of time",
+        "properties": {
+          "Nanosecond": {
+            "type": "integer"
+          },
+          "Microsecond": {
+            "type": "integer"
+          },
+          "Millisecond": {
+            "type": "integer"
+          },
+          "Second": {
+            "type": "integer"
+          }
+        }
+      },
+      "IntervalRange": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+        "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
+        "properties": {
+          "Min": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Max": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Increment": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Multiplier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Unit": {
+            "title": "FxTimeUnitsEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
       "NodeIdArray": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
@@ -3061,15 +3120,15 @@
         },
         "properties": {
           "PublisherSubscriber": {
-            "description": "Reference to DataSetReader and DataSetWriter required.",
+            "description": "reference to DataSetReader and DataSetWriter required.",
             "type": "integer"
           },
           "Publisher": {
-            "description": "Reference to DataSetWriter is required.",
+            "description": "reference to DataSetWriter is required.",
             "type": "integer"
           },
           "Subscriber": {
-            "description": "Reference to DataSetReader is required.",
+            "description": "reference to DataSetReader is required.",
             "type": "integer"
           }
         }

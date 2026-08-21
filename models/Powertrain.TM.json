@@ -10299,17 +10299,14 @@
         "input": {
           "type": "object",
           "dov:typeRef": "org.opcfoundation.UA.InputArguments",
-          "required": [ "VerificationMode", "ExpectedVerificationVariables" ],
+          "required": [ "VerificationMode", "ExpectedVerificationVariables", "ExpectedAdditionalVerificationVariables" ],
           "properties": {
             "VerificationMode": {
-              "type": "array",
-              "items": {
-                "title": "AssetVerificationModeEnum",
-                "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              }
+              "title": "AssetVerificationModeEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
             },
             "ExpectedVerificationVariables": {
               "type": "array",
@@ -10328,13 +10325,47 @@
                   }
                 }
               }
+            },
+            "ExpectedAdditionalVerificationVariables": {
+              "type": "array",
+              "items": {
+                "title": "NodeIdValuePair",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+                "required": [ "Key", "Value" ],
+                "properties": {
+                  "Key": {
+                    "title": "NodeIdArray",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                    "required": [ "Node", "ArrayIndex" ],
+                    "properties": {
+                      "Node": {
+                        "type": "string"
+                      },
+                      "ArrayIndex": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 4294967295
+                        }
+                      }
+                    }
+                  },
+                  "Value": {
+                    "description": "Stand-in for an unspecified data type.",
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         },
         "output": {
           "type": "object",
           "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
-          "required": [ "VerificationResult", "VerificationVariablesErrors" ],
+          "required": [ "VerificationResult", "VerificationVariablesErrors", "VerificationAdditionalVariablesErrors" ],
           "properties": {
             "VerificationResult": {
               "title": "AssetVerificationResultEnum",
@@ -10344,6 +10375,12 @@
               "maximum": 2147483647
             },
             "VerificationVariablesErrors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "VerificationAdditionalVariablesErrors": {
               "type": "array",
               "items": {
                 "type": "string"

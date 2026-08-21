@@ -154,34 +154,33 @@
       }
     ],
     "schemaDefinitions": {
-    },
-    "forms": [
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/Robotics/Robotics_LoadType/events/{senderId}",
-        "op": "subscribeallevents"
-      },
-      {
-        "contentType": "application/json",
-        "dov:topic": "opcua/Robotics/Robotics_LoadType/properties/read",
-        "op": "readallproperties"
-      }
-    ],
-    "tm:optional": [
-      "/properties/CenterOfMass",
-      "/properties/Inertia",
-      "/events/CenterOfMass",
-      "/events/Inertia"
-    ],
-    "actions": {
-    },
-    "properties": {
-      "CenterOfMass": {
-        "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
-        "title": "ThreeDFrame",
-        "description": "The position and orientation of the center of the mass related to the mounting point using a FrameType. X, Y, Z define the position of the center of gravity relative to the mounting point coordinate system. A, B, C define the orientation of the principal axes of inertia relative to the mounting point coordinate system. Orientation A, B, C can be '0' for systems which do not need these  values.",
+      "ThreeDCartesianCoordinatesType": {
+        "title": "ThreeDCartesianCoordinates",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ThreeDFrame",
+        "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinatesType",
+        "required": [ "X", "Y", "Z" ],
+        "properties": {
+          "X": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Y": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Z": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "ThreeDFrameType": {
+        "title": "ThreeDFrame",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.ThreeDFrameType",
         "required": [ "CartesianCoordinates", "Orientation" ],
         "properties": {
           "CartesianCoordinates": {
@@ -230,21 +229,35 @@
               }
             }
           }
-        },
-        "readOnly": true,
-        "dov:contains": [ "CenterOfMass_CartesianCoordinates", "CenterOfMass_Orientation" ],
-        "forms": [
-          {
-            "contentType": "application/json",
-            "dov:topic": "opcua/Robotics/Robotics_LoadType/property/CenterOfMass/read",
-            "op": "readproperty"
-          }
-        ]
+        }
       },
-      "CenterOfMass_CartesianCoordinates": {
-        "title": "ThreeDCartesianCoordinates",
+      "ThreeDOrientationType": {
+        "title": "ThreeDOrientation",
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinates",
+        "dov:typeRef": "org.opcfoundation.UA.ThreeDOrientationType",
+        "required": [ "A", "B", "C" ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "B": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "C": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "ThreeDVectorType": {
+        "title": "ThreeDVector",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.ThreeDVectorType",
         "required": [ "X", "Y", "Z" ],
         "properties": {
           "X": {
@@ -262,7 +275,45 @@
             "minimum": -1.80e+308,
             "maximum": 1.80e+308
           }
-        },
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/Robotics/Robotics_LoadType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/Robotics/Robotics_LoadType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/CenterOfMass",
+      "/properties/Inertia",
+      "/events/CenterOfMass",
+      "/events/Inertia"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "CenterOfMass": {
+        "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+        "tm:ref": "#/schemaDefinitions/ThreeDFrameType",
+        "readOnly": true,
+        "dov:contains": [ "CenterOfMass_CartesianCoordinates", "CenterOfMass_Orientation" ],
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/Robotics/Robotics_LoadType/property/CenterOfMass/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "CenterOfMass_CartesianCoordinates": {
+        "tm:ref": "#/schemaDefinitions/ThreeDCartesianCoordinatesType",
         "readOnly": true,
         "dov:containedIn": "CenterOfMass",
         "dov:contains": [ "CenterOfMass_CartesianCoordinates_X", "CenterOfMass_CartesianCoordinates_Y", "CenterOfMass_CartesianCoordinates_Z" ],
@@ -317,27 +368,7 @@
         ]
       },
       "CenterOfMass_Orientation": {
-        "title": "ThreeDOrientation",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ThreeDOrientation",
-        "required": [ "A", "B", "C" ],
-        "properties": {
-          "A": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "B": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "C": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/ThreeDOrientationType",
         "readOnly": true,
         "dov:containedIn": "CenterOfMass",
         "dov:contains": [ "CenterOfMass_Orientation_A", "CenterOfMass_Orientation_B", "CenterOfMass_Orientation_C" ],
@@ -393,28 +424,7 @@
       },
       "Inertia": {
         "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
-        "title": "ThreeDVector",
-        "description": "The Inertia uses the VectorType to describe the three values of the principal moments of inertia with respect to the mounting point coordinate system. If inertia values are provided for rotary axis the CenterOfMass shall be completely filled as well.",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.ThreeDVector",
-        "required": [ "X", "Y", "Z" ],
-        "properties": {
-          "X": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Y": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          },
-          "Z": {
-            "type": "number",
-            "minimum": -1.80e+308,
-            "maximum": 1.80e+308
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/ThreeDVectorType",
         "readOnly": true,
         "dov:contains": [ "Inertia_X", "Inertia_Y", "Inertia_Z" ],
         "forms": [
@@ -487,59 +497,7 @@
       "CenterOfMass": {
         "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
         "data": {
-          "title": "ThreeDFrame",
-          "description": "The position and orientation of the center of the mass related to the mounting point using a FrameType. X, Y, Z define the position of the center of gravity relative to the mounting point coordinate system. A, B, C define the orientation of the principal axes of inertia relative to the mounting point coordinate system. Orientation A, B, C can be '0' for systems which do not need these  values.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.ThreeDFrame",
-          "required": [ "CartesianCoordinates", "Orientation" ],
-          "properties": {
-            "CartesianCoordinates": {
-              "title": "ThreeDCartesianCoordinates",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinates",
-              "required": [ "X", "Y", "Z" ],
-              "properties": {
-                "X": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Y": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "Z": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                }
-              }
-            },
-            "Orientation": {
-              "title": "ThreeDOrientation",
-              "type": "object",
-              "dov:typeRef": "org.opcfoundation.UA.ThreeDOrientation",
-              "required": [ "A", "B", "C" ],
-              "properties": {
-                "A": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "B": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                },
-                "C": {
-                  "type": "number",
-                  "minimum": -1.80e+308,
-                  "maximum": 1.80e+308
-                }
-              }
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/ThreeDFrameType"
         },
         "dov:contains": [ "CenterOfMass_CartesianCoordinates", "CenterOfMass_Orientation" ],
         "forms": [
@@ -552,27 +510,7 @@
       },
       "CenterOfMass_CartesianCoordinates": {
         "data": {
-          "title": "ThreeDCartesianCoordinates",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinates",
-          "required": [ "X", "Y", "Z" ],
-          "properties": {
-            "X": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Y": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Z": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/ThreeDCartesianCoordinatesType"
         },
         "dov:containedIn": "CenterOfMass",
         "dov:contains": [ "CenterOfMass_CartesianCoordinates_X", "CenterOfMass_CartesianCoordinates_Y", "CenterOfMass_CartesianCoordinates_Z" ],
@@ -631,27 +569,7 @@
       },
       "CenterOfMass_Orientation": {
         "data": {
-          "title": "ThreeDOrientation",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.ThreeDOrientation",
-          "required": [ "A", "B", "C" ],
-          "properties": {
-            "A": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "B": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "C": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/ThreeDOrientationType"
         },
         "dov:containedIn": "CenterOfMass",
         "dov:contains": [ "CenterOfMass_Orientation_A", "CenterOfMass_Orientation_B", "CenterOfMass_Orientation_C" ],
@@ -711,28 +629,7 @@
       "Inertia": {
         "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
         "data": {
-          "title": "ThreeDVector",
-          "description": "The Inertia uses the VectorType to describe the three values of the principal moments of inertia with respect to the mounting point coordinate system. If inertia values are provided for rotary axis the CenterOfMass shall be completely filled as well.",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.ThreeDVector",
-          "required": [ "X", "Y", "Z" ],
-          "properties": {
-            "X": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Y": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            },
-            "Z": {
-              "type": "number",
-              "minimum": -1.80e+308,
-              "maximum": 1.80e+308
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/ThreeDVectorType"
         },
         "dov:contains": [ "Inertia_X", "Inertia_Y", "Inertia_Z" ],
         "forms": [
@@ -947,6 +844,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -969,7 +870,7 @@
     },
     "properties": {
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1002,7 +903,7 @@
     "events": {
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {
@@ -1071,6 +972,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -1093,7 +998,7 @@
     },
     "properties": {
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1126,7 +1031,7 @@
     "events": {
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {
@@ -1225,6 +1130,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -1333,7 +1242,7 @@
         ]
       },
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1417,7 +1326,7 @@
       },
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {
@@ -1560,6 +1469,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -1716,7 +1629,7 @@
         ]
       },
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -1800,7 +1713,7 @@
       },
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {
@@ -1937,6 +1850,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -2207,7 +2124,7 @@
         ]
       },
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -2291,7 +2208,7 @@
       },
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {
@@ -2392,6 +2309,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -2440,7 +2361,7 @@
     },
     "properties": {
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -2473,7 +2394,7 @@
     "events": {
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {
@@ -3178,6 +3099,24 @@
       }
     ],
     "schemaDefinitions": {
+      "RationalNumberType": {
+        "title": "RationalNumber",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RationalNumberType",
+        "required": [ "Numerator", "Denominator" ],
+        "properties": {
+          "Numerator": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Denominator": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
     },
     "forms": [
       {
@@ -3213,23 +3152,7 @@
       },
       "GearRatio": {
         "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
-        "title": "RationalNumber",
-        "description": "The transmission ratio of the gear expressed as a fraction as input velocity (motor side) by output velocity (load side).",
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.RationalNumber",
-        "required": [ "Numerator", "Denominator" ],
-        "properties": {
-          "Numerator": {
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
-          },
-          "Denominator": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          }
-        },
+        "tm:ref": "#/schemaDefinitions/RationalNumberType",
         "readOnly": true,
         "dov:contains": [ "GearRatio_Denominator", "GearRatio_Numerator" ],
         "forms": [
@@ -3336,23 +3259,7 @@
       "GearRatio": {
         "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
         "data": {
-          "title": "RationalNumber",
-          "description": "The transmission ratio of the gear expressed as a fraction as input velocity (motor side) by output velocity (load side).",
-          "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.RationalNumber",
-          "required": [ "Numerator", "Denominator" ],
-          "properties": {
-            "Numerator": {
-              "type": "integer",
-              "minimum": -2147483648,
-              "maximum": 2147483647
-            },
-            "Denominator": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 4294967295
-            }
-          }
+          "tm:ref": "#/schemaDefinitions/RationalNumberType"
         },
         "dov:contains": [ "GearRatio_Denominator", "GearRatio_Numerator" ],
         "forms": [

@@ -1843,6 +1843,11 @@
       }
     ],
     "schemaDefinitions": {
+      "PropertyType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -1860,8 +1865,7 @@
     "properties": {
       "NewValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
-        "description": "New value of the changed parameter",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/PropertyType",
         "readOnly": true,
         "forms": [
           {
@@ -1905,8 +1909,7 @@
       },
       "OldValue": {
         "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
-        "description": "Old value of the changed parameter",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/PropertyType",
         "readOnly": true,
         "forms": [
           {

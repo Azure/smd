@@ -9,7 +9,6 @@
     "@type": "tm:ThingModel",
     "title": "FX_AC_AcDescriptorType",
     "dov:typeRef": "org.opcfoundation.UA.FX.AC.AcDescriptorType",
-    "dov:isComposite": true,
     "links": [
       {
         "rel": "tm:extends",
@@ -1698,17 +1697,14 @@
         "input": {
           "type": "object",
           "dov:typeRef": "org.opcfoundation.UA.InputArguments",
-          "required": [ "VerificationMode", "ExpectedVerificationVariables" ],
+          "required": [ "VerificationMode", "ExpectedVerificationVariables", "ExpectedAdditionalVerificationVariables" ],
           "properties": {
             "VerificationMode": {
-              "type": "array",
-              "items": {
-                "title": "AssetVerificationModeEnum",
-                "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
-                "type": "integer",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              }
+              "title": "AssetVerificationModeEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
             },
             "ExpectedVerificationVariables": {
               "type": "array",
@@ -1727,13 +1723,47 @@
                   }
                 }
               }
+            },
+            "ExpectedAdditionalVerificationVariables": {
+              "type": "array",
+              "items": {
+                "title": "NodeIdValuePair",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+                "required": [ "Key", "Value" ],
+                "properties": {
+                  "Key": {
+                    "title": "NodeIdArray",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                    "required": [ "Node", "ArrayIndex" ],
+                    "properties": {
+                      "Node": {
+                        "type": "string"
+                      },
+                      "ArrayIndex": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 4294967295
+                        }
+                      }
+                    }
+                  },
+                  "Value": {
+                    "description": "Stand-in for an unspecified data type.",
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         },
         "output": {
           "type": "object",
           "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
-          "required": [ "VerificationResult", "VerificationVariablesErrors" ],
+          "required": [ "VerificationResult", "VerificationVariablesErrors", "VerificationAdditionalVariablesErrors" ],
           "properties": {
             "VerificationResult": {
               "title": "AssetVerificationResultEnum",
@@ -1743,6 +1773,12 @@
               "maximum": 2147483647
             },
             "VerificationVariablesErrors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "VerificationAdditionalVariablesErrors": {
               "type": "array",
               "items": {
                 "type": "string"
@@ -2636,6 +2672,20 @@
         "rel": "tm:extends",
         "href": "#title=FX_AC_ConnectionEndpointType",
         "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:typedReference",
+        "dov:refName": "DataSetReaderName_Placeholder",
+        "dov:refType": "ToDataSetReader",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_DataSetReaderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:typedReference",
+        "dov:refName": "DataSetWriterName_Placeholder",
+        "dov:refType": "ToDataSetWriter",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_DataSetWriterType",
+        "type": "application/tm+json"
       }
     ],
     "schemaDefinitions": {
@@ -2649,15 +2699,15 @@
         },
         "properties": {
           "PublisherSubscriber": {
-            "description": "Reference to DataSetReader and DataSetWriter required.",
+            "description": "reference to DataSetReader and DataSetWriter required.",
             "type": "integer"
           },
           "Publisher": {
-            "description": "Reference to DataSetWriter is required.",
+            "description": "reference to DataSetWriter is required.",
             "type": "integer"
           },
           "Subscriber": {
-            "description": "Reference to DataSetReader is required.",
+            "description": "reference to DataSetReader is required.",
             "type": "integer"
           }
         }
@@ -2680,9 +2730,55 @@
         "op": "readallproperties"
       }
     ],
+    "tm:optional": [
+      "/properties/DataSetReaderPath",
+      "/properties/DataSetWriterPath",
+      "/events/DataSetReaderPath",
+      "/events/DataSetWriterPath"
+    ],
     "actions": {
     },
     "properties": {
+      "DataSetReaderPath": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PubSubConnectionEndpointType/property/DataSetReaderPath/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PubSubConnectionEndpointType/property/DataSetReaderPath/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "DataSetWriterPath": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PubSubConnectionEndpointType/property/DataSetWriterPath/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PubSubConnectionEndpointType/property/DataSetWriterPath/read",
+            "op": "readproperty"
+          }
+        ]
+      },
       "Mode": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
         "title": "PubSubConnectionEndpointModeEnum",
@@ -2706,6 +2802,38 @@
       }
     },
     "events": {
+      "DataSetReaderPath": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PubSubConnectionEndpointType/event/DataSetReaderPath/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "DataSetWriterPath": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PubSubConnectionEndpointType/event/DataSetWriterPath/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
       "Mode": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
         "data": {
@@ -3091,11 +3219,35 @@
       }
     ],
     "schemaDefinitions": {
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
+      }
     },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_ConfigurationDataFolderType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_ConfigurationDataFolderType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_ConfigurationDataFolderType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
     "tm:optional": [
       "/actions/ClearStoredVariables",
       "/actions/ListStoredVariables",
-      "/actions/SetStoredVariables"
+      "/actions/SetStoredVariables",
+      "/properties/ConfigurationVariable1",
+      "/events/ConfigurationVariable1"
     ],
     "actions": {
       "ClearStoredVariables": {
@@ -3223,8 +3375,40 @@
       }
     },
     "properties": {
+      "ConfigurationVariable1": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
+        "readOnly": false,
+        "dov:placeholder": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_ConfigurationDataFolderType/property/ConfigurationVariable1/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_ConfigurationDataFolderType/property/ConfigurationVariable1/read",
+            "op": "readproperty"
+          }
+        ]
+      }
     },
     "events": {
+      "ConfigurationVariable1": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
+        },
+        "dov:placeholder": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_ConfigurationDataFolderType/event/ConfigurationVariable1/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
     }
   },
   {
@@ -3323,12 +3507,70 @@
       }
     ],
     "schemaDefinitions": {
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
+      }
     },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_InputsFolderType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_InputsFolderType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_InputsFolderType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/InputVariable1",
+      "/events/InputVariable1"
+    ],
     "actions": {
     },
     "properties": {
+      "InputVariable1": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
+        "readOnly": false,
+        "dov:placeholder": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_InputsFolderType/property/InputVariable1/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_InputsFolderType/property/InputVariable1/read",
+            "op": "readproperty"
+          }
+        ]
+      }
     },
     "events": {
+      "InputVariable1": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
+        },
+        "dov:placeholder": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_InputsFolderType/event/InputVariable1/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
     }
   },
   {
@@ -3362,12 +3604,70 @@
       }
     ],
     "schemaDefinitions": {
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
+      }
     },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_OutputsFolderType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_OutputsFolderType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.AC/FX_AC_OutputsFolderType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/OutputVariable1",
+      "/events/OutputVariable1"
+    ],
     "actions": {
     },
     "properties": {
+      "OutputVariable1": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
+        "readOnly": false,
+        "dov:placeholder": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_OutputsFolderType/property/OutputVariable1/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_OutputsFolderType/property/OutputVariable1/read",
+            "op": "readproperty"
+          }
+        ]
+      }
     },
     "events": {
+      "OutputVariable1": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
+        },
+        "dov:placeholder": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_OutputsFolderType/event/OutputVariable1/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
     }
   },
   {
@@ -4433,7 +4733,7 @@
     "schemaDefinitions": {
       "FxTimeUnitsEnum": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
         "const": {
           "Nanosecond": 0,
           "Microsecond": 1,
@@ -4473,6 +4773,18 @@
         "dov:topic": "opcua/FX.AC/FX_AC_PublisherCapabilitiesType/properties/read",
         "op": "readallproperties"
       }
+    ],
+    "tm:optional": [
+      "/properties/PreconfiguredDataSetOnly",
+      "/properties/PreconfiguredPublishedDataSets",
+      "/properties/SupportedPublishingIntervals",
+      "/properties/SupportedQos",
+      "/properties/SupportedTransportProtocolMappings",
+      "/events/PreconfiguredDataSetOnly",
+      "/events/PreconfiguredPublishedDataSets",
+      "/events/SupportedPublishingIntervals",
+      "/events/SupportedQos",
+      "/events/SupportedTransportProtocolMappings"
     ],
     "actions": {
     },
@@ -4520,7 +4832,7 @@
         "items": {
           "title": "IntervalRange",
           "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
           "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
           "properties": {
             "Min": {
@@ -4545,7 +4857,7 @@
             },
             "Unit": {
               "title": "FxTimeUnitsEnum",
-              "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
               "type": "integer",
               "minimum": -2147483648,
               "maximum": 2147483647
@@ -4599,6 +4911,26 @@
             "op": "readproperty"
           }
         ]
+      },
+      "SupportedTransportProtocolMappings": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PublisherCapabilitiesType/property/SupportedTransportProtocolMappings/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PublisherCapabilitiesType/property/SupportedTransportProtocolMappings/read",
+            "op": "readproperty"
+          }
+        ]
       }
     },
     "events": {
@@ -4638,7 +4970,7 @@
           "items": {
             "title": "IntervalRange",
             "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
             "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
             "properties": {
               "Min": {
@@ -4663,7 +4995,7 @@
               },
               "Unit": {
                 "title": "FxTimeUnitsEnum",
-                "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
                 "type": "integer",
                 "minimum": -2147483648,
                 "maximum": 2147483647
@@ -4708,6 +5040,22 @@
             "op": "subscribeevent"
           }
         ]
+      },
+      "SupportedTransportProtocolMappings": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_PublisherCapabilitiesType/event/SupportedTransportProtocolMappings/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
       }
     }
   },
@@ -4731,7 +5079,7 @@
     "schemaDefinitions": {
       "FxTimeUnitsEnum": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
         "const": {
           "Nanosecond": 0,
           "Microsecond": 1,
@@ -4771,6 +5119,20 @@
         "dov:topic": "opcua/FX.AC/FX_AC_SubscriberCapabilitiesType/properties/read",
         "op": "readallproperties"
       }
+    ],
+    "tm:optional": [
+      "/properties/PreconfiguredDataSetOnly",
+      "/properties/PreconfiguredSubscribedDataSets",
+      "/properties/SupportedMessageReceiveTimeouts",
+      "/properties/SupportedPublishingIntervals",
+      "/properties/SupportedQos",
+      "/properties/SupportedTransportProtocolMappings",
+      "/events/PreconfiguredDataSetOnly",
+      "/events/PreconfiguredSubscribedDataSets",
+      "/events/SupportedMessageReceiveTimeouts",
+      "/events/SupportedPublishingIntervals",
+      "/events/SupportedQos",
+      "/events/SupportedTransportProtocolMappings"
     ],
     "actions": {
     },
@@ -4818,7 +5180,7 @@
         "items": {
           "title": "IntervalRange",
           "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
           "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
           "properties": {
             "Min": {
@@ -4843,7 +5205,7 @@
             },
             "Unit": {
               "title": "FxTimeUnitsEnum",
-              "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
               "type": "integer",
               "minimum": -2147483648,
               "maximum": 2147483647
@@ -4870,7 +5232,7 @@
         "items": {
           "title": "IntervalRange",
           "type": "object",
-          "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
           "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
           "properties": {
             "Min": {
@@ -4895,7 +5257,7 @@
             },
             "Unit": {
               "title": "FxTimeUnitsEnum",
-              "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
               "type": "integer",
               "minimum": -2147483648,
               "maximum": 2147483647
@@ -4949,6 +5311,26 @@
             "op": "readproperty"
           }
         ]
+      },
+      "SupportedTransportProtocolMappings": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_SubscriberCapabilitiesType/property/SupportedTransportProtocolMappings/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_SubscriberCapabilitiesType/property/SupportedTransportProtocolMappings/read",
+            "op": "readproperty"
+          }
+        ]
       }
     },
     "events": {
@@ -4988,7 +5370,7 @@
           "items": {
             "title": "IntervalRange",
             "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
             "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
             "properties": {
               "Min": {
@@ -5013,7 +5395,7 @@
               },
               "Unit": {
                 "title": "FxTimeUnitsEnum",
-                "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
                 "type": "integer",
                 "minimum": -2147483648,
                 "maximum": 2147483647
@@ -5036,7 +5418,7 @@
           "items": {
             "title": "IntervalRange",
             "type": "object",
-            "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
             "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
             "properties": {
               "Min": {
@@ -5061,7 +5443,7 @@
               },
               "Unit": {
                 "title": "FxTimeUnitsEnum",
-                "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
                 "type": "integer",
                 "minimum": -2147483648,
                 "maximum": 2147483647
@@ -5103,6 +5485,22 @@
           {
             "contentType": "application/json",
             "dov:topic": "opcua/FX.AC/FX_AC_SubscriberCapabilitiesType/event/SupportedQos/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "SupportedTransportProtocolMappings": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.AC/FX_AC_SubscriberCapabilitiesType/event/SupportedTransportProtocolMappings/{senderId}",
             "op": "subscribeevent"
           }
         ]
@@ -5300,31 +5698,6 @@
           }
         }
       },
-      "FxTimeUnitsEnum": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
-        "const": {
-          "Nanosecond": 0,
-          "Microsecond": 1,
-          "Millisecond": 2,
-          "Second": 3
-        },
-        "description": "This enumeration describes the support units of time",
-        "properties": {
-          "Nanosecond": {
-            "type": "integer"
-          },
-          "Microsecond": {
-            "type": "integer"
-          },
-          "Millisecond": {
-            "type": "integer"
-          },
-          "Second": {
-            "type": "integer"
-          }
-        }
-      },
       "FxVersion": {
         "type": "object",
         "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxVersion",
@@ -5349,40 +5722,6 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 65535
-          }
-        }
-      },
-      "IntervalRange": {
-        "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.FX.AC.IntervalRange",
-        "required": [ "Min", "Max", "Increment", "Multiplier", "Unit" ],
-        "properties": {
-          "Min": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          },
-          "Max": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 4294967295
-          },
-          "Increment": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 65535
-          },
-          "Multiplier": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 65535
-          },
-          "Unit": {
-            "title": "FxTimeUnitsEnum",
-            "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxTimeUnitsEnum",
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647
           }
         }
       },

@@ -1186,6 +1186,11 @@
       }
     ],
     "schemaDefinitions": {
+      "MultiStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+        "type": "integer",
+        "minimum": 0
+      }
     },
     "forms": [
       {
@@ -1351,9 +1356,7 @@
       },
       "ServiceClass": {
         "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
-        "description": "provides information that an item is classified as a wear and tear part, whether it is a line replaceable unit (LRU), shop replaceable unit (SRU), wear and tear part (WTP), infrastructural unit (ISU), infrastructural equipment (ISE), etc",
-        "type": "integer",
-        "minimum": 0,
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -1392,9 +1395,7 @@
       "ServiceClass": {
         "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
         "data": {
-          "description": "provides information that an item is classified as a wear and tear part, whether it is a line replaceable unit (LRU), shop replaceable unit (SRU), wear and tear part (WTP), infrastructural unit (ISU), infrastructural equipment (ISE), etc",
-          "type": "integer",
-          "minimum": 0
+          "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
         },
         "forms": [
           {

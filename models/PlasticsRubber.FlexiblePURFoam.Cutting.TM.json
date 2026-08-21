@@ -1,0 +1,1956 @@
+[
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.FoamCuttingCycleInformationEventType",
+    "dov:isEvent": true,
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseEventType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/CycleTime",
+      "/properties/FinishedParts",
+      "/properties/JobName",
+      "/properties/StartTime",
+      "/events/CycleTime",
+      "/events/FinishedParts",
+      "/events/JobName",
+      "/events/StartTime"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "CycleTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Duration of the cycle.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/CycleTime/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/CycleTime/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "FinishedParts": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Number of finished parts in the period under review.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295,
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/FinishedParts/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/FinishedParts/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "JobName": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides the name of the job.",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/JobName/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/JobName/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "StartTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Start time of the cycle.",
+        "type": "string",
+        "format": "time",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/StartTime/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/property/StartTime/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "CycleTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Duration of the cycle.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/event/CycleTime/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "FinishedParts": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Number of finished parts in the period under review.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/event/FinishedParts/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "JobName": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Provides the name of the job.",
+          "type": "string"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/event/JobName/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "StartTime": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Start time of the cycle.",
+          "type": "string",
+          "format": "time"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType/event/StartTime/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorConfigurationType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "ConveyorCategoryEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorCategoryEnumeration",
+        "const": {
+          "Loading": 0,
+          "Unloading": 1,
+          "Transportation": 2
+        },
+        "description": "This property provides information, if this conveyor is used for unloading, loading or transportation of material.",
+        "properties": {
+          "Loading": {
+            "description": "Loading of material for processing.",
+            "type": "integer"
+          },
+          "Unloading": {
+            "description": "Unloading of material after processing.",
+            "type": "integer"
+          },
+          "Transportation": {
+            "description": "Transportation of material during processing.",
+            "type": "integer"
+          }
+        }
+      },
+      "ConveyorSubCategoryEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorSubCategoryEnumeration",
+        "const": {
+          "None": 0,
+          "AlignmentBelt": 1,
+          "Turntable": 2,
+          "Seperator": 3,
+          "Stacker": 4,
+          "Destacker": 5,
+          "PopUp": 6,
+          "ScissorTable": 7,
+          "CrossConveyor": 8
+        },
+        "description": "This property provides information on what type of conveyor this instance is.",
+        "properties": {
+          "None": {
+            "description": "None of the other categories fit.",
+            "type": "integer"
+          },
+          "AlignmentBelt": {
+            "description": "The conveyor is an alignment belt.",
+            "type": "integer"
+          },
+          "Turntable": {
+            "description": "The conveyor is a turntable.",
+            "type": "integer"
+          },
+          "Seperator": {
+            "description": "The conveyor is a separator.",
+            "type": "integer"
+          },
+          "Stacker": {
+            "description": "The conveyor is a stacker.",
+            "type": "integer"
+          },
+          "Destacker": {
+            "description": "The conveyor is a destacker.",
+            "type": "integer"
+          },
+          "PopUp": {
+            "description": "The conveyor is a pop-up conveyor.",
+            "type": "integer"
+          },
+          "ScissorTable": {
+            "description": "The conveyor is a scissor table.",
+            "type": "integer"
+          },
+          "CrossConveyor": {
+            "description": "The conveyor is a cross-conveyor.",
+            "type": "integer"
+          }
+        }
+      },
+      "LightBarrierEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.LightBarrierEnumeration",
+        "const": {
+          "None": 0,
+          "Infeed": 1,
+          "Outfeed": 2,
+          "Safety": 3,
+          "Other": 4
+        },
+        "description": "Provides information about the positions of light barriers on this instance of conveyor.",
+        "properties": {
+          "None": {
+            "description": "No light barrier.",
+            "type": "integer"
+          },
+          "Infeed": {
+            "description": "Light barrier is positioned infeed.",
+            "type": "integer"
+          },
+          "Outfeed": {
+            "description": "Light barrier is positioned outfeed.",
+            "type": "integer"
+          },
+          "Safety": {
+            "description": "Light barrier is a safety device.",
+            "type": "integer"
+          },
+          "Other": {
+            "description": "None of the other values fit.",
+            "type": "integer"
+          }
+        }
+      },
+      "PossibleDirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.PossibleDirectionEnumeration",
+        "const": {
+          "Forwards": 0,
+          "Backwards": 1,
+          "Reversible": 2,
+          "Sidewards": 3,
+          "Any": 4
+        },
+        "description": "Provides information about the possible working directions of the conveyor.",
+        "properties": {
+          "Forwards": {
+            "description": "The conveyor’s working direction is forwards.",
+            "type": "integer"
+          },
+          "Backwards": {
+            "description": "The conveyor’s working direction is backwards.",
+            "type": "integer"
+          },
+          "Reversible": {
+            "description": "The conveyor’s working direction is reversible.",
+            "type": "integer"
+          },
+          "Sidewards": {
+            "description": "The conveyor’s working direction is sidewards.",
+            "type": "integer"
+          },
+          "Any": {
+            "description": "Any conveyor direction is possible.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "ConveyorCategory": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "ConveyorCategoryEnumeration",
+        "description": "This property provides information, if this conveyor is used for unloading, loading or transportation of material.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorCategoryEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/ConveyorCategory/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ConveyorSpeed": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "This Variable provides information about the speed settings of the conveyor. If FixedSpeedConveyor is true, this Variable provides the set value. If FixedSpeedConveyor is false, this Variable provides the speed range of the conveyor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/ConveyorSpeed/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ConveyorSubCategory": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "ConveyorSubCategoryEnumeration",
+        "description": "This property provides information on what type of conveyor this instance is.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorSubCategoryEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/ConveyorSubCategory/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Description": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides a user-defined textual description or identifier to distinguish and locate the conveyor within the machine or system.",
+        "type": "string",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/Description/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "FixedSpeedConveyor": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "This Property provides information, if the conveyor has a fixed speed.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/FixedSpeedConveyor/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "IsPresent": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "The IsPresent Property provides information, if an instance of the conveyor is present in the current configuration of the machine.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/IsPresent/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Length": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Length of the conveyor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/Length/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "LightBarriers": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides information about the positions of light barriers on this instance of conveyor.  Each array entry represents one light barrier.",
+        "type": "array",
+        "items": {
+          "title": "LightBarrierEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.LightBarrierEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/LightBarriers/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "NumberOfBelts": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides the number of individual belts on the conveyor.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/NumberOfBelts/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "PossibleDirection": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "PossibleDirectionEnumeration",
+        "description": "Provides information about the possible working directions of the conveyor.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.PossibleDirectionEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/PossibleDirection/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Width": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Width of the conveyor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/property/Width/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "ConveyorSpeed": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "This Variable provides information about the speed settings of the conveyor. If FixedSpeedConveyor is true, this Variable provides the set value. If FixedSpeedConveyor is false, this Variable provides the speed range of the conveyor.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/event/ConveyorSpeed/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "Length": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Length of the conveyor.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/event/Length/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "Width": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Width of the conveyor.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType/event/Width/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorProcessMonitoringType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Drives",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_DrivesType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "DirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+        "const": {
+          "Forward": 0,
+          "Backward": 1,
+          "Sideward": 2
+        },
+        "description": "Provides information about the current transportation direction of the conveyor.",
+        "properties": {
+          "Forward": {
+            "description": "Transportation direction is forward.",
+            "type": "integer"
+          },
+          "Backward": {
+            "description": "Transportation direction is backward.",
+            "type": "integer"
+          },
+          "Sideward": {
+            "description": "Transportation direction is sideward.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "Active": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Indicates if the conveyor is active.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/property/Active/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Description": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides a user-defined textual description or identifier to distinguish and locate the conveyor within the machine or system.",
+        "type": "string",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/property/Description/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Direction": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "DirectionEnumeration",
+        "description": "Provides information about the current transportation direction of the conveyor.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/property/Direction/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Speed": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Linear speed in the direction of material flow. ",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/property/Speed/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "Active": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Indicates if the conveyor is active.",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/event/Active/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "Direction": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "title": "DirectionEnumeration",
+          "description": "Provides information about the current transportation direction of the conveyor.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/event/Direction/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "Speed": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Linear speed in the direction of material flow. ",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType/event/Speed/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ErrorHandlingType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/HighestActiveAlarmSeverity",
+      "/events/HighestActiveAlarmSeverity"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "ActiveErrors": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "List of the active errors of the device.",
+        "type": "array",
+        "items": {
+          "title": "ActiveErrorDataType",
+          "description": "Iinformation about an active error in a device",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+          "required": [ "Id", "Severity", "Message" ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            }
+          }
+        },
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType/property/ActiveErrors/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "HighestActiveAlarmSeverity": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Indication of the severity of the highest active alarm.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType/property/HighestActiveAlarmSeverity/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "ActiveErrors": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "List of the active errors of the device.",
+          "type": "array",
+          "items": {
+            "title": "ActiveErrorDataType",
+            "description": "Iinformation about an active error in a device",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+            "required": [ "Id", "Severity", "Message" ],
+            "properties": {
+              "Id": {
+                "description": "Unique identifier defined by manufacturer",
+                "type": "string"
+              },
+              "Severity": {
+                "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "Message": {
+                "description": "Message giving information about the error",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType/event/ActiveErrors/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "HighestActiveAlarmSeverity": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Indication of the severity of the highest active alarm.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType/event/HighestActiveAlarmSeverity/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingMachineType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.FoamCuttingMachineType",
+    "dov:isComposite": true,
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "ErrorHandling",
+        "href": "#title=PlasticsRubber_FlexiblePURFoam_Cutting_ErrorHandlingType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Identification",
+        "href": "./Machinery.TM.json#title=Machinery_MachineIdentificationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "MachineConfiguration",
+        "href": "#title=PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "MachineryBuildingBlocks",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "Operation",
+        "href": "#title=PlasticsRubber_FlexiblePURFoam_Cutting_OperationType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "ProcessMonitoring",
+        "href": "#title=PlasticsRubber_FlexiblePURFoam_Cutting_ProcessMonitoringType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.KnifeType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "GrindDrives",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_DrivesType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "KnifeDrives",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_DrivesType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:reference",
+        "dov:refName": "WearStatus",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_MaintenanceType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "GrindingUnitStateEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+        "const": {
+          "Off": 0,
+          "Standby": 1,
+          "Running": 2
+        },
+        "description": "Provides information about the current state of the grinding unit.",
+        "properties": {
+          "Off": {
+            "description": "The grinding unit is switched off.",
+            "type": "integer"
+          },
+          "Standby": {
+            "description": "The grinding unit is in standby mode.",
+            "type": "integer"
+          },
+          "Running": {
+            "description": "The grinding unit is running.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "tm:optional": [
+      "/properties/GrindingUnitState",
+      "/properties/KnifeSpeed",
+      "/properties/Readjustment",
+      "/events/GrindingUnitState",
+      "/events/KnifeSpeed",
+      "/events/Readjustment"
+    ],
+    "actions": {
+    },
+    "properties": {
+      "GrindingUnitState": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "GrindingUnitStateEnumeration",
+        "description": "Provides information about the current state of the grinding unit.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/property/GrindingUnitState/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "KnifeRunning": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Indicates if the knife is switched on (true) or off (false).",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/property/KnifeRunning/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "KnifeSpeed": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides the set value of the knife.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/property/KnifeSpeed/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Readjustment": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides information about the mechanical adjustment in the mounting position of the knife to compensate for wear.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/property/Readjustment/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "GrindingUnitState": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "title": "GrindingUnitStateEnumeration",
+          "description": "Provides information about the current state of the grinding unit.",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/event/GrindingUnitState/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "KnifeRunning": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Indicates if the knife is switched on (true) or off (false).",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/event/KnifeRunning/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "KnifeSpeed": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Provides the set value of the knife.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/event/KnifeSpeed/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "Readjustment": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Provides information about the mechanical adjustment in the mounting position of the knife to compensate for wear.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType/event/Readjustment/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.MachineConfigurationType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "ConveyorConfigurations",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "MaterialSupport",
+        "href": "#title=PlasticsRubber_FlexiblePURFoam_Cutting_MaterialSupportType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "GrindingUnit": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "A property with 0:Boolean data type. Its value is 1 if a grinding unit is physically present in a foam cutting machine.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType/property/GrindingUnit/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Knife": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "A property with 0:Boolean data type. Its value is 1 if is physically present in a foam cutting machine and is used for its normal operation.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType/property/Knife/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_MaterialSupportType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.MaterialSupportType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "Fixture",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "TableDimensions",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "MaterialSupportCategoryEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.MaterialSupportCategoryEnumeration",
+        "const": {
+          "None": 0,
+          "Fixed_Machine_Table": 1,
+          "Sliding_Machine_Table": 2,
+          "Carousel": 3,
+          "Conveyor_Belt": 4,
+          "Turntable_90Degrees": 5
+        },
+        "description": "This Property provides information about the category of the material support system.",
+        "properties": {
+          "None": {
+            "description": "The machine has no material support system, the material must be fed in accordingly.",
+            "type": "integer"
+          },
+          "Fixed_Machine_Table": {
+            "description": "The material support system is a fixed machine table.",
+            "type": "integer"
+          },
+          "Sliding_Machine_Table": {
+            "description": "The material support system is a sliding machine table.",
+            "type": "integer"
+          },
+          "Carousel": {
+            "description": "The material support system is a carousel.",
+            "type": "integer"
+          },
+          "Conveyor_Belt": {
+            "description": "The material support system is a conveyor belt.",
+            "type": "integer"
+          },
+          "Turntable_90Degrees": {
+            "description": "The material support system is a turntable, which can rotate 90 degrees.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_MaterialSupportType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "MaterialSupportCategory": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "MaterialSupportCategoryEnumeration",
+        "description": "This Property provides information about the category of the material support system.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.MaterialSupportCategoryEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_MaterialSupportType/property/MaterialSupportCategory/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "VacuumUnitsQuantity": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "This Property provides information about the total number of vacuum units on the material support system.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_MaterialSupportType/property/VacuumUnitsQuantity/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_OperationType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.OperationType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "JobInformation",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "PeripheralDevices",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+      "ProcessingModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+        "const": {
+          "Manual": 0,
+          "SemiAutomatic": 1,
+          "Automatic": 2
+        },
+        "description": "Provides information about the current processing mode as addition to the MachineOperationMode state Processing.",
+        "properties": {
+          "Manual": {
+            "description": "Machine is in manual mode",
+            "type": "integer"
+          },
+          "SemiAutomatic": {
+            "description": "Machine is in semi-automatic mode",
+            "type": "integer"
+          },
+          "Automatic": {
+            "description": "Machine is in automatic mode",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_OperationType/events/{senderId}",
+        "op": "subscribeallevents"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_OperationType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "ControlVoltageSwitch": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "description": "Provides information, if the control voltage switch is switched on or off. The drives can only be operated with active control voltage.",
+        "type": "boolean",
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_OperationType/property/ControlVoltageSwitch/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "ProcessingMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "title": "ProcessingModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647,
+        "readOnly": true,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_OperationType/property/ProcessingMode/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+      "ControlVoltageSwitch": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "description": "Provides information, if the control voltage switch is switched on or off. The drives can only be operated with active control voltage.",
+          "type": "boolean"
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_OperationType/event/ControlVoltageSwitch/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "ProcessingMode": {
+        "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+        "data": {
+          "title": "ProcessingModeEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/PlasticsRubber.FlexiblePURFoam.Cutting/PlasticsRubber_FlexiblePURFoam_Cutting_OperationType/event/ProcessingMode/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ProcessMonitoringType",
+    "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessMonitoringType",
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_BaseObjectType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "ConveyorProcessMonitoring",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "CuttingSpeedFeed",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "CuttingUnitParameters",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "Knifes",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:capability",
+        "dov:refName": "MainAxisDrives",
+        "href": "./PlasticsRubber.GeneralTypes.TM.json#title=PlasticsRubber_GeneralTypes_DrivesType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "MaterialSupport",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "Supply",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      },
+      {
+        "rel": "dov:component",
+        "dov:refName": "WindingSystem",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_FolderType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
+    "title": "PlasticsRubber_FlexiblePURFoam_Cutting_DataTypes",
+    "links": [
+    ],
+    "schemaDefinitions": {
+      "ActiveVacuumUnitsDataType": {
+        "description": "Provides information about the position of a vacuum unit and the current vacuum power, given as a float value between 0 (off) and 1 (full power).",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ActiveVacuumUnitsDataType",
+        "required": [ "Position", "VacuumPower" ],
+        "properties": {
+          "Position": {
+            "description": "Information about the position (location) of the vacuum unit.",
+            "type": "string"
+          },
+          "VacuumPower": {
+            "description": "Indication about the relative power of the vacuum unit. Range from 0 to 1.",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "BottomFixtureEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.BottomFixtureEnumeration",
+        "const": {
+          "None": 0,
+          "Mechanical_Fixture": 1,
+          "Vacuum_Fixture": 2
+        },
+        "description": "Provides information about the type of material fixture for the material bottom.",
+        "properties": {
+          "None": {
+            "description": "The machine has no bottom fixture.",
+            "type": "integer"
+          },
+          "Mechanical_Fixture": {
+            "description": "The material is fixed to the bottom in a mechanical way.",
+            "type": "integer"
+          },
+          "Vacuum_Fixture": {
+            "description": "The material is fixed to the bottom by vacuum.",
+            "type": "integer"
+          }
+        }
+      },
+      "ConveyorCategoryEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorCategoryEnumeration",
+        "const": {
+          "Loading": 0,
+          "Unloading": 1,
+          "Transportation": 2
+        },
+        "description": "This property provides information, if this conveyor is used for unloading, loading or transportation of material.",
+        "properties": {
+          "Loading": {
+            "description": "Loading of material for processing.",
+            "type": "integer"
+          },
+          "Unloading": {
+            "description": "Unloading of material after processing.",
+            "type": "integer"
+          },
+          "Transportation": {
+            "description": "Transportation of material during processing.",
+            "type": "integer"
+          }
+        }
+      },
+      "ConveyorSubCategoryEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorSubCategoryEnumeration",
+        "const": {
+          "None": 0,
+          "AlignmentBelt": 1,
+          "Turntable": 2,
+          "Seperator": 3,
+          "Stacker": 4,
+          "Destacker": 5,
+          "PopUp": 6,
+          "ScissorTable": 7,
+          "CrossConveyor": 8
+        },
+        "description": "This property provides information on what type of conveyor this instance is.",
+        "properties": {
+          "None": {
+            "description": "None of the other categories fit.",
+            "type": "integer"
+          },
+          "AlignmentBelt": {
+            "description": "The conveyor is an alignment belt.",
+            "type": "integer"
+          },
+          "Turntable": {
+            "description": "The conveyor is a turntable.",
+            "type": "integer"
+          },
+          "Seperator": {
+            "description": "The conveyor is a separator.",
+            "type": "integer"
+          },
+          "Stacker": {
+            "description": "The conveyor is a stacker.",
+            "type": "integer"
+          },
+          "Destacker": {
+            "description": "The conveyor is a destacker.",
+            "type": "integer"
+          },
+          "PopUp": {
+            "description": "The conveyor is a pop-up conveyor.",
+            "type": "integer"
+          },
+          "ScissorTable": {
+            "description": "The conveyor is a scissor table.",
+            "type": "integer"
+          },
+          "CrossConveyor": {
+            "description": "The conveyor is a cross-conveyor.",
+            "type": "integer"
+          }
+        }
+      },
+      "DirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+        "const": {
+          "Forward": 0,
+          "Backward": 1,
+          "Sideward": 2
+        },
+        "description": "Provides information about the current transportation direction of the conveyor.",
+        "properties": {
+          "Forward": {
+            "description": "Transportation direction is forward.",
+            "type": "integer"
+          },
+          "Backward": {
+            "description": "Transportation direction is backward.",
+            "type": "integer"
+          },
+          "Sideward": {
+            "description": "Transportation direction is sideward.",
+            "type": "integer"
+          }
+        }
+      },
+      "GrindingUnitStateEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+        "const": {
+          "Off": 0,
+          "Standby": 1,
+          "Running": 2
+        },
+        "description": "Provides information about the current state of the grinding unit.",
+        "properties": {
+          "Off": {
+            "description": "The grinding unit is switched off.",
+            "type": "integer"
+          },
+          "Standby": {
+            "description": "The grinding unit is in standby mode.",
+            "type": "integer"
+          },
+          "Running": {
+            "description": "The grinding unit is running.",
+            "type": "integer"
+          }
+        }
+      },
+      "LightBarrierEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.LightBarrierEnumeration",
+        "const": {
+          "None": 0,
+          "Infeed": 1,
+          "Outfeed": 2,
+          "Safety": 3,
+          "Other": 4
+        },
+        "description": "Provides information about the positions of light barriers on this instance of conveyor.",
+        "properties": {
+          "None": {
+            "description": "No light barrier.",
+            "type": "integer"
+          },
+          "Infeed": {
+            "description": "Light barrier is positioned infeed.",
+            "type": "integer"
+          },
+          "Outfeed": {
+            "description": "Light barrier is positioned outfeed.",
+            "type": "integer"
+          },
+          "Safety": {
+            "description": "Light barrier is a safety device.",
+            "type": "integer"
+          },
+          "Other": {
+            "description": "None of the other values fit.",
+            "type": "integer"
+          }
+        }
+      },
+      "MaterialSupportCategoryEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.MaterialSupportCategoryEnumeration",
+        "const": {
+          "None": 0,
+          "Fixed_Machine_Table": 1,
+          "Sliding_Machine_Table": 2,
+          "Carousel": 3,
+          "Conveyor_Belt": 4,
+          "Turntable_90Degrees": 5
+        },
+        "description": "This Property provides information about the category of the material support system.",
+        "properties": {
+          "None": {
+            "description": "The machine has no material support system, the material must be fed in accordingly.",
+            "type": "integer"
+          },
+          "Fixed_Machine_Table": {
+            "description": "The material support system is a fixed machine table.",
+            "type": "integer"
+          },
+          "Sliding_Machine_Table": {
+            "description": "The material support system is a sliding machine table.",
+            "type": "integer"
+          },
+          "Carousel": {
+            "description": "The material support system is a carousel.",
+            "type": "integer"
+          },
+          "Conveyor_Belt": {
+            "description": "The material support system is a conveyor belt.",
+            "type": "integer"
+          },
+          "Turntable_90Degrees": {
+            "description": "The material support system is a turntable, which can rotate 90 degrees.",
+            "type": "integer"
+          }
+        }
+      },
+      "PossibleDirectionEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.PossibleDirectionEnumeration",
+        "const": {
+          "Forwards": 0,
+          "Backwards": 1,
+          "Reversible": 2,
+          "Sidewards": 3,
+          "Any": 4
+        },
+        "description": "Provides information about the possible working directions of the conveyor.",
+        "properties": {
+          "Forwards": {
+            "description": "The conveyor’s working direction is forwards.",
+            "type": "integer"
+          },
+          "Backwards": {
+            "description": "The conveyor’s working direction is backwards.",
+            "type": "integer"
+          },
+          "Reversible": {
+            "description": "The conveyor’s working direction is reversible.",
+            "type": "integer"
+          },
+          "Sidewards": {
+            "description": "The conveyor’s working direction is sidewards.",
+            "type": "integer"
+          },
+          "Any": {
+            "description": "Any conveyor direction is possible.",
+            "type": "integer"
+          }
+        }
+      },
+      "ProcessingModeEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+        "const": {
+          "Manual": 0,
+          "SemiAutomatic": 1,
+          "Automatic": 2
+        },
+        "description": "Provides information about the current processing mode as addition to the MachineOperationMode state Processing.",
+        "properties": {
+          "Manual": {
+            "description": "Machine is in manual mode",
+            "type": "integer"
+          },
+          "SemiAutomatic": {
+            "description": "Machine is in semi-automatic mode",
+            "type": "integer"
+          },
+          "Automatic": {
+            "description": "Machine is in automatic mode",
+            "type": "integer"
+          }
+        }
+      },
+      "SideFixtureEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.SideFixtureEnumeration",
+        "const": {
+          "None": 0,
+          "Right": 1,
+          "Left": 2,
+          "Both": 3
+        },
+        "description": "Provides information about the type of material fixture for the material side.",
+        "properties": {
+          "None": {
+            "description": "The machine has no side fixture.",
+            "type": "integer"
+          },
+          "Right": {
+            "description": "The material is fixed on the right side.",
+            "type": "integer"
+          },
+          "Left": {
+            "description": "The material is fixed on the left side.",
+            "type": "integer"
+          },
+          "Both": {
+            "description": "The material is fixed on both sides.",
+            "type": "integer"
+          }
+        }
+      },
+      "TopFixtureEnumeration": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.TopFixtureEnumeration",
+        "const": {
+          "None": 0,
+          "Pressure_Pad": 1,
+          "Pressure_Roller": 2
+        },
+        "description": "Provides information about the type of material fixture for the material top.",
+        "properties": {
+          "None": {
+            "description": "The machine has no top fixture.",
+            "type": "integer"
+          },
+          "Pressure_Pad": {
+            "description": "The top fixture is a pressure pad.",
+            "type": "integer"
+          },
+          "Pressure_Roller": {
+            "description": "The top fixture is a pressure roller.",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "actions": {
+    },
+    "properties": {
+    },
+    "events": {
+    }
+  }
+]

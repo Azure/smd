@@ -1037,6 +1037,79 @@
       }
     ],
     "@type": "tm:ThingModel",
+    "title": "FX_CM_AuditUpdateConnectionConfigurationSetEventType",
+    "dov:typeRef": "org.opcfoundation.UA.FX.CM.AuditUpdateConnectionConfigurationSetEventType",
+    "dov:isEvent": true,
+    "links": [
+      {
+        "rel": "tm:extends",
+        "href": "./OpcUaCore.TM.json#title=OpcUaCore_AuditWriteUpdateEventType",
+        "type": "application/tm+json"
+      }
+    ],
+    "schemaDefinitions": {
+    },
+    "forms": [
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.CM/FX_CM_AuditUpdateConnectionConfigurationSetEventType/properties/write",
+        "op": "writemultipleproperties"
+      },
+      {
+        "contentType": "application/json",
+        "dov:topic": "opcua/FX.CM/FX_CM_AuditUpdateConnectionConfigurationSetEventType/properties/read",
+        "op": "readallproperties"
+      }
+    ],
+    "actions": {
+    },
+    "properties": {
+      "ConnectionConfigurationSetNode": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_AuditUpdateConnectionConfigurationSetEventType/property/ConnectionConfigurationSetNode/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_AuditUpdateConnectionConfigurationSetEventType/property/ConnectionConfigurationSetNode/read",
+            "op": "readproperty"
+          }
+        ]
+      },
+      "Name": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+        "type": "string",
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_AuditUpdateConnectionConfigurationSetEventType/property/Name/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_AuditUpdateConnectionConfigurationSetEventType/property/Name/read",
+            "op": "readproperty"
+          }
+        ]
+      }
+    },
+    "events": {
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/2022/wot/td/v1.1",
+      {
+        "dov": "http://azure.com/DigitalOperations/vocab#"
+      }
+    ],
+    "@type": "tm:ThingModel",
     "title": "FX_CM_CloseConnectionErrorEventType",
     "dov:typeRef": "org.opcfoundation.UA.FX.CM.CloseConnectionErrorEventType",
     "dov:isEvent": true,
@@ -8849,6 +8922,7 @@
       },
       "CommunicationLinks": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.CommunicationLinkConfigurationDataType",
         "type": "string",
         "readOnly": false,
         "forms": [
@@ -9184,6 +9258,7 @@
       "CommunicationLinks": {
         "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
         "data": {
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.CommunicationLinkConfigurationDataType",
           "type": "string"
         },
         "forms": [
@@ -9596,7 +9671,9 @@
       "/actions/EditConnectionConfigurationSets",
       "/actions/ProcessConnectionConfigurationSets",
       "/properties/AggregatedCurrentState",
-      "/events/AggregatedCurrentState"
+      "/properties/GlobalDiscoveryServers",
+      "/events/AggregatedCurrentState",
+      "/events/GlobalDiscoveryServers"
     ],
     "actions": {
       "EditConnectionConfigurationSets": {
@@ -9703,6 +9780,26 @@
             "op": "readproperty"
           }
         ]
+      },
+      "GlobalDiscoveryServers": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "readOnly": false,
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_ConnectionManagerType/property/GlobalDiscoveryServers/write",
+            "op": "writeproperty"
+          },
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_ConnectionManagerType/property/GlobalDiscoveryServers/read",
+            "op": "readproperty"
+          }
+        ]
       }
     },
     "events": {
@@ -9715,6 +9812,22 @@
           {
             "contentType": "application/json",
             "dov:topic": "opcua/FX.CM/FX_CM_ConnectionManagerType/event/AggregatedCurrentState/{senderId}",
+            "op": "subscribeevent"
+          }
+        ]
+      },
+      "GlobalDiscoveryServers": {
+        "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forms": [
+          {
+            "contentType": "application/json",
+            "dov:topic": "opcua/FX.CM/FX_CM_ConnectionManagerType/event/GlobalDiscoveryServers/{senderId}",
             "op": "subscribeevent"
           }
         ]
@@ -9913,6 +10026,10 @@
       }
     ],
     "schemaDefinitions": {
+      "FiniteTransitionVariableType": {
+        "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -9930,7 +10047,7 @@
     },
     "properties": {
       "LastTransition": {
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
         "readOnly": true,
         "forms": [
           {
@@ -9944,7 +10061,7 @@
     "events": {
       "LastTransition": {
         "data": {
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
         },
         "forms": [
           {

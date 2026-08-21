@@ -3876,6 +3876,11 @@
       }
     ],
     "schemaDefinitions": {
+      "PropertyType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -3894,8 +3899,7 @@
     "properties": {
       "AlarmValues": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/PropertyType",
         "readOnly": false,
         "forms": [
           {
@@ -12796,6 +12800,7 @@
     "properties": {
       "Object_Identifier": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+        "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetObjectIdentifier",
         "type": "integer",
         "minimum": 0,
         "maximum": 4294967295,
@@ -13389,6 +13394,10 @@
             "type": "integer"
           }
         }
+      },
+      "TwoStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+        "type": "boolean"
       }
     },
     "forms": [
@@ -13430,7 +13439,7 @@
       },
       "Present_Value": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -13471,7 +13480,7 @@
       "Present_Value": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
         },
         "forms": [
           {
@@ -25601,6 +25610,11 @@
             "type": "integer"
           }
         }
+      },
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
       }
     },
     "forms": [
@@ -25669,8 +25683,7 @@
       },
       "Log_Buffer": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -25734,8 +25747,7 @@
       "Log_Buffer": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
         },
         "forms": [
           {
@@ -28021,6 +28033,11 @@
             "type": "integer"
           }
         }
+      },
+      "MultiStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+        "type": "integer",
+        "minimum": 0
       }
     },
     "forms": [
@@ -28062,8 +28079,7 @@
       },
       "Present_Value": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "type": "integer",
-        "minimum": 0,
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -28104,8 +28120,7 @@
       "Present_Value": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
         "data": {
-          "type": "integer",
-          "minimum": 0
+          "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
         },
         "forms": [
           {
@@ -31021,6 +31036,11 @@
             "type": "integer"
           }
         }
+      },
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
       }
     },
     "forms": [
@@ -31608,8 +31628,7 @@
       },
       "Present_Value": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -31645,8 +31664,7 @@
       },
       "Schedule_Default": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
         "readOnly": false,
         "forms": [
           {
@@ -31802,8 +31820,7 @@
       "Present_Value": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
         },
         "forms": [
           {
@@ -31816,8 +31833,7 @@
       "Schedule_Default": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
         },
         "forms": [
           {
@@ -37470,6 +37486,11 @@
             "type": "integer"
           }
         }
+      },
+      "PropertyType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+        "type": "string"
       }
     },
     "forms": [
@@ -37489,8 +37510,7 @@
     "properties": {
       "CommandValue": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/PropertyType",
         "readOnly": false,
         "forms": [
           {
@@ -37507,8 +37527,7 @@
       },
       "FeedbackValue": {
         "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/PropertyType",
         "readOnly": false,
         "forms": [
           {

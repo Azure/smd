@@ -743,6 +743,14 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
+      "TwoStateDiscreteType": {
+        "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+        "type": "boolean"
+      }
     },
     "forms": [
       {
@@ -848,7 +856,7 @@
       },
       "PresetTare": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -883,7 +891,7 @@
       },
       "ProductMode": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "boolean",
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
         "readOnly": false,
         "forms": [
           {
@@ -921,7 +929,7 @@
       "PresetTare": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -948,7 +956,7 @@
       "ProductMode": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "boolean"
+          "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
         },
         "forms": [
           {
@@ -978,6 +986,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
+        "type": "number"
+      },
       "TargetItemType": {
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
         "type": "number"
@@ -1058,8 +1070,7 @@
       },
       "FineFeedWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the volume to be dosed in fine flow.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1076,8 +1087,7 @@
       },
       "InFlightWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the volume that is behind the valve / in flight after feeding is stopped.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1112,8 +1122,7 @@
       },
       "MinimumDeltaPerFeedRateMeasuringInterval": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the minimum amount of weight data which needs to change within the FeedRateMeasuringInterval.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": false,
         "forms": [
           {
@@ -1217,8 +1226,7 @@
       "FineFeedWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the volume to be dosed in fine flow.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -1231,8 +1239,7 @@
       "InFlightWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the volume that is behind the valve / in flight after feeding is stopped.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -1259,8 +1266,7 @@
       "MinimumDeltaPerFeedRateMeasuringInterval": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the minimum amount of weight data which needs to change within the FeedRateMeasuringInterval.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -1330,6 +1336,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "TargetItemType": {
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
         "type": "number"
@@ -1453,8 +1463,7 @@
     "properties": {
       "PresetHeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the predefined height (in direction of global gravity) of the measured item. The value must be write before the item is measured.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -1471,8 +1480,7 @@
       },
       "PresetLength": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the predefined length (in direction of travel) of the measured item. The value must be written before the item is measured.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -1489,8 +1497,7 @@
       },
       "PresetWidth": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the predefined width (in third possible orthogonal direction to height and length) of the measured item. The value must be write before the item is measured.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -1527,8 +1534,7 @@
       "PresetHeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the predefined height (in direction of global gravity) of the measured item. The value must be write before the item is measured.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -1541,8 +1547,7 @@
       "PresetLength": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the predefined length (in direction of travel) of the measured item. The value must be written before the item is measured.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -1555,8 +1560,7 @@
       "PresetWidth": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the predefined width (in third possible orthogonal direction to height and length) of the measured item. The value must be write before the item is measured.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -1690,6 +1694,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "TargetItemType": {
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
         "type": "number"
@@ -1723,7 +1731,7 @@
     "properties": {
       "LowerToleranceLimit1": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -1740,7 +1748,7 @@
       },
       "LowerToleranceLimit2": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -1777,7 +1785,7 @@
       "LowerToleranceLimit1": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -1790,7 +1798,7 @@
       "LowerToleranceLimit2": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -1833,6 +1841,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "TargetItemType": {
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
         "type": "number"
@@ -1868,8 +1880,7 @@
     "properties": {
       "MaterialDensity": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the density of the used material.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -1923,8 +1934,7 @@
       "MaterialDensity": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the density of the used material.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -1980,8 +1990,8 @@
       }
     ],
     "schemaDefinitions": {
-      "TargetItemType": {
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+      "AnalogItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
         "type": "number"
       },
       "WeightItemType": {
@@ -2228,8 +2238,7 @@
       },
       "MinimumDeltaPerFeedRateMeasuringInterval": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the minimum amount of weight that needs to change within the FeedRateMeasuringInterval. Otherwise the filling procedure is not valid.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": false,
         "forms": [
           {
@@ -2265,8 +2274,7 @@
       },
       "ReferencePieceWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the reference weight of a piece.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": false,
         "forms": [
           {
@@ -2359,7 +2367,6 @@
       "TargetPieceCount": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines the number of pieces that need to be counted.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
         "type": "integer",
         "minimum": 0,
         "readOnly": false,
@@ -2505,8 +2512,7 @@
       "MinimumDeltaPerFeedRateMeasuringInterval": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the minimum amount of weight that needs to change within the FeedRateMeasuringInterval. Otherwise the filling procedure is not valid.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -2534,8 +2540,7 @@
       "ReferencePieceWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the reference weight of a piece.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -2608,7 +2613,6 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines the number of pieces that need to be counted.",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
           "type": "integer",
           "minimum": 0
         },
@@ -3526,6 +3530,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -3552,8 +3560,7 @@
     "properties": {
       "TargetValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the value to be reached of the TargetValue of an aggregate that is referenced by TargetValueId.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -3608,8 +3615,7 @@
       "TargetValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the value to be reached of the TargetValue of an aggregate that is referenced by TargetValueId.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -3639,6 +3645,11 @@
       }
     ],
     "schemaDefinitions": {
+      "DataItemType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.DataItemType",
+        "type": "string"
+      }
     },
     "forms": [
       {
@@ -3668,8 +3679,7 @@
     "properties": {
       "TargetThresholdValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "The target value with which the threshold value is compared.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/DataItemType",
         "readOnly": false,
         "forms": [
           {
@@ -3744,8 +3754,7 @@
       "TargetThresholdValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "The target value with which the threshold value is compared.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/DataItemType"
         },
         "forms": [
           {
@@ -5014,10 +5023,9 @@
       }
     ],
     "schemaDefinitions": {
-      "MeasuredItemType": {
-        "description": "Stand-in for an unspecified data type.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
-        "type": "string"
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
       },
       "TargetItemType": {
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
@@ -5099,7 +5107,6 @@
       "FeederLoad": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines the current loaded weight on the feeder system.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
         "type": "number",
         "readOnly": true,
         "forms": [
@@ -5137,8 +5144,7 @@
       },
       "MaximumFeederSpeed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the maximal possible speed of the feeder.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": true,
         "forms": [
           {
@@ -5150,8 +5156,7 @@
       },
       "MinimalFeederSpeed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the minimal possible speed of the feeder.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": true,
         "forms": [
           {
@@ -5167,7 +5172,6 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines the current loaded weight on the feeder system.",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
           "type": "number"
         },
         "forms": [
@@ -5194,8 +5198,7 @@
       "MaximumFeederSpeed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the maximal possible speed of the feeder.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -5208,8 +5211,7 @@
       "MinimalFeederSpeed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the minimal possible speed of the feeder.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -5263,6 +5265,14 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
+        "type": "number"
+      },
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -5293,8 +5303,7 @@
     "properties": {
       "LabelLength": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the length of the labels in stock.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": true,
         "forms": [
           {
@@ -5306,8 +5315,7 @@
       },
       "LabelStock": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Indicates the level of labels in stock in percent.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": true,
         "forms": [
           {
@@ -5332,8 +5340,7 @@
       },
       "LabelWidth": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the width of the labels in stock.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": true,
         "forms": [
           {
@@ -5345,8 +5352,7 @@
       },
       "PrintMediaStock": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the level of the print media in percent (e.g. ink, wear of thermal element, etc)",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": true,
         "forms": [
           {
@@ -5361,8 +5367,7 @@
       "LabelLength": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the length of the labels in stock.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -5375,8 +5380,7 @@
       "LabelStock": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Indicates the level of labels in stock in percent.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -5403,8 +5407,7 @@
       "LabelWidth": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the width of the labels in stock.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -5417,8 +5420,7 @@
       "PrintMediaStock": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the level of the print media in percent (e.g. ink, wear of thermal element, etc)",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -5502,6 +5504,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "WeightItemType": {
         "title": "WeightType",
         "type": "object",
@@ -5722,7 +5728,7 @@
       },
       "MinimalWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -5828,7 +5834,7 @@
       "MinimalWeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -5901,6 +5907,10 @@
             "type": "integer"
           }
         }
+      },
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
       }
     },
     "forms": [
@@ -5930,8 +5940,7 @@
     "properties": {
       "Deviation": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the relative amount of over (positive value) or under (negative value) dosed value in relation of the TargetWeight.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -5973,8 +5982,7 @@
       "Deviation": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the relative amount of over (positive value) or under (negative value) dosed value in relation of the TargetWeight.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6191,6 +6199,10 @@
           }
         }
       },
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "MeasuredItemType": {
         "description": "Stand-in for an unspecified data type.",
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
@@ -6235,7 +6247,7 @@
     "properties": {
       "ControlMagnitude": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6269,7 +6281,7 @@
       },
       "Load": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6286,8 +6298,7 @@
       },
       "MaxFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the maximum volume that may be conveyed. Largest volume per time.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6304,8 +6315,7 @@
       },
       "MinFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the minimum volume that can be conveyed. Smallest volume per time.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6343,7 +6353,7 @@
       },
       "Speed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6360,7 +6370,7 @@
       },
       "TargetFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6380,7 +6390,7 @@
       "ControlMagnitude": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6406,7 +6416,7 @@
       "Load": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6419,8 +6429,7 @@
       "MaxFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the maximum volume that may be conveyed. Largest volume per time.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6433,8 +6442,7 @@
       "MinFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the minimum volume that can be conveyed. Smallest volume per time.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6464,7 +6472,7 @@
       "Speed": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6477,7 +6485,7 @@
       "TargetFlowRate": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6508,6 +6516,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "MeasuredItemType": {
         "description": "Stand-in for an unspecified data type.",
         "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
@@ -6619,7 +6631,7 @@
       },
       "HopperFillLevel": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -6686,7 +6698,7 @@
       "HopperFillLevel": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -6736,10 +6748,9 @@
       }
     ],
     "schemaDefinitions": {
-      "MeasuredItemType": {
-        "description": "Stand-in for an unspecified data type.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
-        "type": "string"
+      "AnalogItemType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
+        "type": "number"
       }
     },
     "forms": [
@@ -6860,7 +6871,6 @@
       "CurrentPieceCount": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines the number of pieces that are currently measured related to the ReferencePieceWeight.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
         "type": "number",
         "readOnly": false,
         "forms": [
@@ -6878,8 +6888,7 @@
       },
       "ReferenceOptimisationRange": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the tolerance range within the scale may optimize the ReferencePieceWeight.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogItemType",
         "readOnly": false,
         "forms": [
           {
@@ -6900,7 +6909,6 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines the number of pieces that are currently measured related to the ReferencePieceWeight.",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
           "type": "number"
         },
         "forms": [
@@ -6914,8 +6922,7 @@
       "ReferenceOptimisationRange": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the tolerance range within the scale may optimize the ReferencePieceWeight.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogItemType"
         },
         "forms": [
           {
@@ -7292,6 +7299,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -7322,8 +7333,7 @@
     "properties": {
       "LevelMax": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines a the maximum fill level where a action is necessary.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -7340,8 +7350,7 @@
       },
       "LevelMin": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines a the minimum fill level where a action is necessary.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -7416,8 +7425,7 @@
       "LevelMax": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines a the maximum fill level where a action is necessary.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -7430,8 +7438,7 @@
       "LevelMin": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines a the minimum fill level where a action is necessary.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -8069,11 +8076,6 @@
       }
     ],
     "schemaDefinitions": {
-      "MeasuredItemType": {
-        "description": "Stand-in for an unspecified data type.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
-        "type": "string"
-      }
     },
     "forms": [
       {
@@ -8107,7 +8109,7 @@
       "TotalizedValue": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "description": "Defines a summed up/totalized volume within a period of time.",
-        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AbstractWeightType",
         "type": "string",
         "readOnly": true,
         "forms": [
@@ -8124,7 +8126,7 @@
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
           "description": "Defines a summed up/totalized volume within a period of time.",
-          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AbstractWeightType",
           "type": "string"
         },
         "forms": [
@@ -8155,6 +8157,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
       "WeightItemType": {
         "title": "WeightType",
         "type": "object",
@@ -8231,8 +8237,7 @@
       },
       "MeasuredHeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the maximum height (in direction of travel) of the measured item.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -8249,8 +8254,7 @@
       },
       "MeasuredLength": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the maximum measured length (in direction of travel) of the measured item.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -8267,8 +8271,7 @@
       },
       "MeasuredVolume": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the volume of the item.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -8302,8 +8305,7 @@
       },
       "MeasuredWidth": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the maximum width (in third possible orthogonal direction to height and length) of the measured item.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -8340,8 +8342,7 @@
       "MeasuredHeight": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the maximum height (in direction of travel) of the measured item.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -8354,8 +8355,7 @@
       "MeasuredLength": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the maximum measured length (in direction of travel) of the measured item.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -8368,8 +8368,7 @@
       "MeasuredVolume": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the volume of the item.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -8395,8 +8394,7 @@
       "MeasuredWidth": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the maximum width (in third possible orthogonal direction to height and length) of the measured item.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -8688,6 +8686,10 @@
       }
     ],
     "schemaDefinitions": {
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      }
     },
     "forms": [
       {
@@ -8711,8 +8713,7 @@
     "properties": {
       "LowerLimit": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the lower weight limit of this zone. The lower limit is prior to the upper limit if two zones are beside each other.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -8747,8 +8748,7 @@
       },
       "UpperLimit": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
-        "description": "Defines the upper weight limit of this zone.",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": false,
         "forms": [
           {
@@ -8768,8 +8768,7 @@
       "LowerLimit": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the lower weight limit of this zone. The lower limit is prior to the upper limit if two zones are beside each other.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {
@@ -8796,8 +8795,7 @@
       "UpperLimit": {
         "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
         "data": {
-          "description": "Defines the upper weight limit of this zone.",
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "forms": [
           {

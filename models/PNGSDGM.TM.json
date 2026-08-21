@@ -785,6 +785,29 @@
             "type": "integer"
           }
         }
+      },
+      "AnalogUnitRangeType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitRangeType",
+        "type": "number"
+      },
+      "AnalogUnitType": {
+        "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+        "type": "number"
+      },
+      "BaseDataVariableType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+        "type": "string"
+      },
+      "OptionSetType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.OptionSetType",
+        "type": "string"
+      },
+      "PropertyType": {
+        "description": "Stand-in for an unspecified data type.",
+        "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+        "type": "string"
       }
     },
     "forms": [
@@ -923,8 +946,7 @@
       },
       "OptionSetVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/OptionSetType",
         "readOnly": true,
         "dov:placeholder": true,
         "forms": [
@@ -937,7 +959,7 @@
       },
       "UnitRangeVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitRangeType",
         "readOnly": true,
         "dov:placeholder": true,
         "forms": [
@@ -950,7 +972,7 @@
       },
       "UnitVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
-        "type": "number",
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType",
         "readOnly": true,
         "dov:placeholder": true,
         "forms": [
@@ -963,8 +985,7 @@
       },
       "ValueProperty": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/PropertyType",
         "readOnly": true,
         "dov:placeholder": true,
         "forms": [
@@ -977,8 +998,7 @@
       },
       "ValueVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
-        "description": "Stand-in for an unspecified data type.",
-        "type": "string",
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
         "readOnly": true,
         "dov:placeholder": true,
         "forms": [
@@ -1008,8 +1028,7 @@
       "OptionSetVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/OptionSetType"
         },
         "dov:placeholder": true,
         "forms": [
@@ -1023,7 +1042,7 @@
       "UnitRangeVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitRangeType"
         },
         "dov:placeholder": true,
         "forms": [
@@ -1037,7 +1056,7 @@
       "UnitVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
         "data": {
-          "type": "number"
+          "tm:ref": "#/schemaDefinitions/AnalogUnitType"
         },
         "dov:placeholder": true,
         "forms": [
@@ -1051,8 +1070,7 @@
       "ValueVariable": {
         "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
         "data": {
-          "description": "Stand-in for an unspecified data type.",
-          "type": "string"
+          "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
         },
         "dov:placeholder": true,
         "forms": [
