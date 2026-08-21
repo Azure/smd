@@ -1,0 +1,270 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenSubmoduleApplicationType",
+  "title": "PNGSDGM_GsdGenSubmoduleApplicationType",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenSubmoduleApplicationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ArrayFolder",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FolderName",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Configuration",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Input",
+      "href": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoDataType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Output",
+      "href": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoDataType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "GsdGenIoCommunicationStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoCommunicationStatusEnumeration",
+      "const": {
+        "INDATA": 0,
+        "OFFLINE": 1
+      },
+      "properties": {
+        "INDATA": {
+          "description": "The Submodule is part of an active AR and exchanging IO Data with a Controller",
+          "type": "integer"
+        },
+        "OFFLINE": {
+          "description": "The Submodule is not part of an active AR but may allow reading data values",
+          "type": "integer"
+        }
+      }
+    },
+    "GsdGenIoConfigurationStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoConfigurationStatusEnumeration",
+      "const": {
+        "OK": 0,
+        "SUBSTITUTE": 1,
+        "WRONG": 2,
+        "UNKNOWN": 3
+      },
+      "properties": {
+        "OK": {
+          "description": "Proper Submodule which works as configured",
+          "type": "integer"
+        },
+        "SUBSTITUTE": {
+          "description": "Substitute Submodule which works",
+          "type": "integer"
+        },
+        "WRONG": {
+          "description": "Wrong Submodule which does not work",
+          "type": "integer"
+        },
+        "UNKNOWN": {
+          "description": "Unknown Submodule which is plugged at Subslot not found in expected configuration",
+          "type": "integer"
+        }
+      }
+    },
+    "AnalogUnitRangeType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitRangeType",
+      "type": "number"
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "BaseDataVariableType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+      "type": "string"
+    },
+    "OptionSetType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.OptionSetType",
+      "type": "string"
+    },
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/SetApplicationTag",
+    "/properties/ApplicationTag",
+    "/properties/ARIdentifier",
+    "/properties/ControllerName",
+    "/properties/EnumerationVariable",
+    "/properties/OptionSetVariable",
+    "/properties/UnitRangeVariable",
+    "/properties/UnitVariable",
+    "/properties/ValueProperty",
+    "/properties/ValueVariable",
+    "/events/EnumerationVariable",
+    "/events/OptionSetVariable",
+    "/events/UnitRangeVariable",
+    "/events/UnitVariable",
+    "/events/ValueVariable"
+  ],
+  "actions": {
+    "SetApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationTag"
+        ],
+        "properties": {
+          "ApplicationTag": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ARIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "CommunicationStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "title": "GsdGenIoCommunicationStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoCommunicationStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ConfigurationStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "title": "GsdGenIoConfigurationStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoConfigurationStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ControllerName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "type": "string",
+      "readOnly": true
+    },
+    "EnumerationVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "type": "string",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "OptionSetVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "tm:ref": "#/schemaDefinitions/OptionSetType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "UnitRangeVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitRangeType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "UnitVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "ValueProperty": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "ValueVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
+      "readOnly": true,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "EnumerationVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "data": {
+        "type": "string"
+      },
+      "dov:placeholder": true
+    },
+    "OptionSetVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/OptionSetType"
+      },
+      "dov:placeholder": true
+    },
+    "UnitRangeVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitRangeType"
+      },
+      "dov:placeholder": true
+    },
+    "UnitVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      },
+      "dov:placeholder": true
+    },
+    "ValueVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

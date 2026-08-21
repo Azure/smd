@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_AirEjectorType",
+  "title": "DEXPI_AirEjectorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.AirEjectorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_CompressorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Impeller>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ImpellerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignCapacityMotiveFluid",
+    "/events/DesignCapacityMotiveFluid"
+  ],
+  "properties": {
+    "DesignCapacityMotiveFluid": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design capacity for the motive fluid of the AirEjector.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignCapacityMotiveFluid": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design capacity for the motive fluid of the AirEjector.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

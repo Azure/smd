@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISDiscreteArbitrationObjectType",
+  "title": "MDIS_MDISDiscreteArbitrationObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISDiscreteArbitrationObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISDiscreteInstrumentObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ArbitrationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ArbitrationModeEnum",
+      "const": {
+        "Average": 1,
+        "DefaultA": 2,
+        "DefaultB": 4,
+        "ForceA": 8,
+        "ForceB": 16,
+        "High": 32,
+        "Low": 64
+      },
+      "properties": {
+        "Average": {
+          "description": "Build the average of both values (if both available)",
+          "type": "integer"
+        },
+        "DefaultA": {
+          "description": "Select SourceA (if available), else SourceB",
+          "type": "integer"
+        },
+        "DefaultB": {
+          "description": "Select SourceB (if available), else SourceA",
+          "type": "integer"
+        },
+        "ForceA": {
+          "description": "Always select SourceA",
+          "type": "integer"
+        },
+        "ForceB": {
+          "description": "Always select SourceB",
+          "type": "integer"
+        },
+        "High": {
+          "description": "Highest Value (for digital this is an OR operation)",
+          "type": "integer"
+        },
+        "Low": {
+          "description": "Lowest Value (for digital this is an AND operation)",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetArbitrationMode"
+  ],
+  "actions": {
+    "SetArbitrationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ArbitrationMode"
+        ],
+        "properties": {
+          "ArbitrationMode": {
+            "title": "ArbitrationModeEnum",
+            "description": "ArbitrationMode enumeration value Variable, that defines the new arbitration mode",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.ArbitrationModeEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ArbitrationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "ArbitrationModeEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ArbitrationModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SourceA": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "SourceB": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ArbitrationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "ArbitrationModeEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.ArbitrationModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SourceA": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "SourceB": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

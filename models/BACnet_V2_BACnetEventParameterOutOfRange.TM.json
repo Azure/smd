@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventParameterOutOfRange",
+  "title": "BACnet_V2_BACnetEventParameterOutOfRange",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterOutOfRange",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventParameterOutOfRange": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterOutOfRange",
+      "required": [
+        "Time-delay",
+        "Low-limit",
+        "High-limit",
+        "Deadband"
+      ],
+      "properties": {
+        "Time-delay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Low-limit": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High-limit": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Deadband": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  }
+}

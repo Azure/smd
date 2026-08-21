@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_PackageLoadingType",
+  "title": "DI_PackageLoadingType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.PackageLoadingType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_SoftwareLoadingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "CurrentVersion",
+      "href": "http://opcfoundation.org/UA/DI/#DI_SoftwareVersionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "FileTransfer",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TemporaryFileTransferType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/WriteBlockSize"
+  ],
+  "properties": {
+    "ErrorMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "WriteBlockSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ErrorMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

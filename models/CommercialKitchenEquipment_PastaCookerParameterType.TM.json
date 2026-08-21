@@ -1,0 +1,241 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_PastaCookerParameterType",
+  "title": "CommercialKitchenEquipment_PastaCookerParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PastaCookerParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PastaCookerModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PastaCookerModeEnumeration",
+      "const": {
+        "Off": 0,
+        "Preheat": 1,
+        "SoftCook": 2,
+        "Cook": 3,
+        "CookSlow": 4,
+        "KeepWarming": 5,
+        "PresetStart": 6,
+        "Error": 7
+      },
+      "properties": {
+        "Off": {
+          "type": "integer"
+        },
+        "Preheat": {
+          "type": "integer"
+        },
+        "SoftCook": {
+          "type": "integer"
+        },
+        "Cook": {
+          "type": "integer"
+        },
+        "CookSlow": {
+          "type": "integer"
+        },
+        "KeepWarming": {
+          "type": "integer"
+        },
+        "PresetStart": {
+          "type": "integer"
+        },
+        "Error": {
+          "type": "integer"
+        }
+      }
+    },
+    "SignalModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.SignalModeEnumeration",
+      "const": {
+        "SignalOff": 0,
+        "SignalOn": 1,
+        "SignalAck": 2
+      },
+      "properties": {
+        "SignalOff": {
+          "type": "integer"
+        },
+        "SignalOn": {
+          "type": "integer"
+        },
+        "SignalAck": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActualTemperature_EngineeringUnits",
+    "/properties/SetProcessTime_EngineeringUnits",
+    "/properties/SetTemperature_EngineeringUnits",
+    "/properties/TimeRemaining_EngineeringUnits"
+  ],
+  "properties": {
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperature_EngineeringUnits"
+    },
+    "CookingLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ProgramMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "PastaCookerModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PastaCookerModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SetProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTime_EngineeringUnits"
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "SignalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "SignalModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.SignalModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "TimeRemaining": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeRemaining_EngineeringUnits"
+    },
+    "ActualTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetProcessTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetProcessTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeRemaining_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TimeRemaining, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperature_EngineeringUnits"
+    },
+    "CookingLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ProgramMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "PastaCookerModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PastaCookerModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SetProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTime_EngineeringUnits"
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "SignalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "SignalModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.SignalModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "TimeRemaining": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeRemaining_EngineeringUnits"
+    }
+  }
+}

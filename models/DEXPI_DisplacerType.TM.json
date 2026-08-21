@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_DisplacerType",
+  "title": "DEXPI_DisplacerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.DisplacerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaterialOfConstructionCodeAssignmentClass",
+    "/properties/StageIdentifierAssignmentClass",
+    "/properties/VolumePerStroke",
+    "/events/MaterialOfConstructionCodeAssignmentClass",
+    "/events/StageIdentifierAssignmentClass",
+    "/events/VolumePerStroke"
+  ],
+  "properties": {
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A code that gives the material of construction of the Displacer.",
+      "type": "string",
+      "readOnly": false
+    },
+    "StageIdentifierAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The stage identfifier of of the Displacer.",
+      "type": "string",
+      "readOnly": false
+    },
+    "VolumePerStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The volume per stroke of the Displacer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A code that gives the material of construction of the Displacer.",
+        "type": "string"
+      }
+    },
+    "StageIdentifierAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The stage identfifier of of the Displacer.",
+        "type": "string"
+      }
+    },
+    "VolumePerStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The volume per stroke of the Displacer.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

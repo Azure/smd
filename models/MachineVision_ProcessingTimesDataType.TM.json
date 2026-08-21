@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_ProcessingTimesDataType",
+  "title": "MachineVision_ProcessingTimesDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.ProcessingTimesDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProcessingTimesDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.ProcessingTimesDataType",
+      "required": [
+        "StartTime",
+        "EndTime"
+      ],
+      "properties": {
+        "StartTime": {
+          "description": "Contains the time when the vision system started execution of the recipe.",
+          "type": "string",
+          "format": "time"
+        },
+        "EndTime": {
+          "description": "Contains the time when the vision system finished (or stopped/aborted) execution of the recipe.",
+          "type": "string",
+          "format": "time"
+        },
+        "AcquisitionDuration": {
+          "description": "Time spent by the vision system acquiring images.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "ProcessingDuration": {
+          "description": "Time spent by the vision system processing data.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        }
+      }
+    }
+  }
+}

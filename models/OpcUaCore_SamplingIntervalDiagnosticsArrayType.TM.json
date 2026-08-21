@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SamplingIntervalDiagnosticsArrayType",
+  "title": "OpcUaCore_SamplingIntervalDiagnosticsArrayType",
+  "dov:typeRef": "org.opcfoundation.UA.SamplingIntervalDiagnosticsArrayType",
+  "links": [],
+  "schemaDefinitions": {
+    "SamplingIntervalDiagnosticsArrayType": {
+      "dov:typeRef": "org.opcfoundation.UA.SamplingIntervalDiagnosticsArrayType",
+      "type": "array",
+      "items": {
+        "title": "SamplingIntervalDiagnosticsDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SamplingIntervalDiagnosticsDataType",
+        "required": [
+          "SamplingInterval",
+          "MonitoredItemCount",
+          "MaxMonitoredItemCount",
+          "DisabledMonitoredItemCount"
+        ],
+        "properties": {
+          "SamplingInterval": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "MonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxMonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DisabledMonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  }
+}

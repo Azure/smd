@@ -1,0 +1,169 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_FeederModuleType",
+  "title": "Scales_V2_FeederModuleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.FeederModuleType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryOperationMode",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryOperationModeStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "TargetItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/actions/SetFeederSpeed",
+    "/properties/FeederLoad",
+    "/properties/FeederRunning",
+    "/properties/FeederSpeed",
+    "/properties/MaximumFeederSpeed",
+    "/properties/MinimalFeederSpeed",
+    "/events/FeederLoad",
+    "/events/FeederSpeed",
+    "/events/MaximumFeederSpeed",
+    "/events/MinimalFeederSpeed"
+  ],
+  "actions": {
+    "SetFeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Allows to set a new value for the speed of the feeder system. The OPC UA server must check if the value is between the minimal and maximum allowed speed and if the unit is allowed.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FeederSpeed",
+          "EngineeringUnits"
+        ],
+        "properties": {
+          "FeederSpeed": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "EngineeringUnits": {
+            "title": "EUInformation",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "FeederLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the current loaded weight on the feeder system.",
+      "type": "number",
+      "readOnly": true
+    },
+    "FeederRunning": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Indicates that the feeder system is running.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "FeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/TargetItemType",
+      "readOnly": true
+    },
+    "MaximumFeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    },
+    "MinimalFeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "FeederLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the current loaded weight on the feeder system.",
+        "type": "number"
+      }
+    },
+    "FeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TargetItemType"
+      }
+    },
+    "MaximumFeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "MinimalFeederSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

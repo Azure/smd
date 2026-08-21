@@ -1,0 +1,152 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionDeviceType",
+  "title": "PlasticsRubber_Extrusion_GeneralTypes_ExtrusionDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.GeneralTypes.ExtrusionDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AdditionalMeasuringDevices",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ElectricalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FluidEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MachineConfiguration",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineInformation",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineInformationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Maintenance",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaintenanceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureAir",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionDatasetManagement",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartDevice",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StartDeviceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ComponentStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.GeneralTypes.ComponentStatusEnumeration",
+      "const": {
+        "OFFLINE": 0,
+        "IDLE": 1,
+        "PREPARING": 2,
+        "READY_TO_RUN": 3,
+        "MANUAL_RUN": 4,
+        "CONTROLLED_RUN": 5,
+        "MALFUNCTION": 6,
+        "MAINTENANCE": 7
+      },
+      "properties": {
+        "OFFLINE": {
+          "type": "integer"
+        },
+        "IDLE": {
+          "type": "integer"
+        },
+        "PREPARING": {
+          "type": "integer"
+        },
+        "READY_TO_RUN": {
+          "type": "integer"
+        },
+        "MANUAL_RUN": {
+          "type": "integer"
+        },
+        "CONTROLLED_RUN": {
+          "type": "integer"
+        },
+        "MALFUNCTION": {
+          "type": "integer"
+        },
+        "MAINTENANCE": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Strand",
+    "/properties/Target"
+  ],
+  "properties": {
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "LineId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "title": "ComponentStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.GeneralTypes.ComponentStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Strand": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Target": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

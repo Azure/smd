@@ -1,0 +1,154 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+  "title": "Scales_V2_ProductionPresetType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ProductionPresetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Products",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddProduct",
+    "/actions/DeselectProduct",
+    "/actions/RemoveProduct",
+    "/actions/SelectProduct",
+    "/actions/SwitchProduct",
+    "/properties/CurrentProducts",
+    "/events/CurrentProducts"
+  ],
+  "actions": {
+    "AddProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Creates an object with the JobType from the address space.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductName",
+          "ProductId",
+          "ProductType"
+        ],
+        "properties": {
+          "ProductName": {
+            "type": "string"
+          },
+          "ProductId": {
+            "type": "string"
+          },
+          "ProductType": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ProductNodeId"
+        ],
+        "properties": {
+          "ProductNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeselectProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductId"
+        ],
+        "properties": {
+          "ProductId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Removes an object with the JobType from the address space.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductId"
+        ],
+        "properties": {
+          "ProductId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SelectProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductId"
+        ],
+        "properties": {
+          "ProductId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SwitchProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductId"
+        ],
+        "properties": {
+          "ProductId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CurrentProducts": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CurrentProducts": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

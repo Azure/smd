@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_AnalyticalSignalType",
+  "title": "PADIM_AnalyticalSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalyticalSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_AnalogSignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PatMeasurementVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.PatMeasurementVariableType",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38
+    }
+  },
+  "properties": {
+    "AnalogSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/PatMeasurementVariableType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AnalogSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/PatMeasurementVariableType"
+      }
+    }
+  }
+}

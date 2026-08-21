@@ -1,0 +1,150 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_VendingBasketAuditEventType",
+  "title": "UnattendedRetail_VendingBasketAuditEventType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.VendingBasketAuditEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_VendingAuditEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BasketContent",
+    "/properties/MonetaryValuePerBasketContent",
+    "/properties/PartialSuccessful"
+  ],
+  "properties": {
+    "BasketContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "SelectionDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.SelectionDataType",
+        "required": [
+          "MachineEngineProductInstanceUri",
+          "SelectionListVersion",
+          "SelectionId",
+          "Options"
+        ],
+        "properties": {
+          "MachineEngineProductInstanceUri": {
+            "type": "string"
+          },
+          "SelectionListVersion": {
+            "type": "string"
+          },
+          "SelectionId": {
+            "type": "string"
+          },
+          "Options": {
+            "type": "array",
+            "items": {
+              "title": "OptionSelectionDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionSelectionDataType",
+              "required": [
+                "OptionId",
+                "Value"
+              ],
+              "properties": {
+                "OptionId": {
+                  "type": "string"
+                },
+                "Value": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "MonetaryValuePerBasketContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "PriceAndContextDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceAndContextDataType",
+        "required": [
+          "Amount",
+          "Currency",
+          "PriceListId",
+          "Tax",
+          "DiscountSurcharge"
+        ],
+        "properties": {
+          "Amount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Currency": {
+            "title": "CurrencyUnitType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+            "required": [
+              "NumericCode",
+              "Exponent",
+              "AlphabeticCode",
+              "Currency"
+            ],
+            "properties": {
+              "NumericCode": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Exponent": {
+                "type": "integer",
+                "minimum": -128,
+                "maximum": 127
+              },
+              "AlphabeticCode": {
+                "type": "string"
+              },
+              "Currency": {
+                "type": "string"
+              }
+            }
+          },
+          "PriceListId": {
+            "type": "string"
+          },
+          "Tax": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "DiscountSurcharge": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "PartialSuccessful": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "type": "boolean"
+      },
+      "readOnly": true
+    }
+  }
+}

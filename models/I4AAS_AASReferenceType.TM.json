@@ -1,0 +1,235 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASReferenceType",
+  "title": "I4AAS_AASReferenceType",
+  "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASReferenceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Referable",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "Referable",
+      "dov:refType": "AASReference",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AASKeyElementsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASKeyElementsDataType",
+      "const": {
+        "AccessPermissionRule": 0,
+        "AnnotatedRelationshipElement": 1,
+        "Asset": 2,
+        "AssetAdministrationShell": 3,
+        "Blob": 4,
+        "Capability": 5,
+        "ConceptDescription": 6,
+        "ConceptDictionary": 7,
+        "DataElement": 8,
+        "Entity": 9,
+        "Event": 10,
+        "File": 11,
+        "FragmentReference": 12,
+        "GlobalReference": 13,
+        "MultiLanguageProperty": 14,
+        "Operation": 15,
+        "Property": 16,
+        "Range": 17,
+        "ReferenceElement": 18,
+        "RelationshipElement": 19,
+        "Submodel": 20,
+        "SubmodelElement": 21,
+        "SubmodelElementCollection": 22,
+        "View": 23
+      },
+      "properties": {
+        "AccessPermissionRule": {
+          "description": "'AccessPermissionRule'",
+          "type": "integer"
+        },
+        "AnnotatedRelationshipElement": {
+          "description": "“AnnotatedRelationshipElement”",
+          "type": "integer"
+        },
+        "Asset": {
+          "description": "'Asset'",
+          "type": "integer"
+        },
+        "AssetAdministrationShell": {
+          "description": "'AssetAdministrationShell'",
+          "type": "integer"
+        },
+        "Blob": {
+          "description": "'Blob'",
+          "type": "integer"
+        },
+        "Capability": {
+          "description": "'Capability'",
+          "type": "integer"
+        },
+        "ConceptDescription": {
+          "description": "'ConceptDescription'",
+          "type": "integer"
+        },
+        "ConceptDictionary": {
+          "description": "'ConceptDictionary'",
+          "type": "integer"
+        },
+        "DataElement": {
+          "description": "'DataElement'",
+          "type": "integer"
+        },
+        "Entity": {
+          "description": "'Entity'",
+          "type": "integer"
+        },
+        "Event": {
+          "description": "'Event'",
+          "type": "integer"
+        },
+        "File": {
+          "description": "'File'",
+          "type": "integer"
+        },
+        "FragmentReference": {
+          "description": "'FragmentReference'",
+          "type": "integer"
+        },
+        "GlobalReference": {
+          "description": "'GlobalReference'",
+          "type": "integer"
+        },
+        "MultiLanguageProperty": {
+          "description": "'MultiLanguageProperty'",
+          "type": "integer"
+        },
+        "Operation": {
+          "description": "'Operation'",
+          "type": "integer"
+        },
+        "Property": {
+          "description": "'Property'",
+          "type": "integer"
+        },
+        "Range": {
+          "description": "'Range'",
+          "type": "integer"
+        },
+        "ReferenceElement": {
+          "description": "'ReferenceElement'",
+          "type": "integer"
+        },
+        "RelationshipElement": {
+          "description": "'RelationshipElement'",
+          "type": "integer"
+        },
+        "Submodel": {
+          "description": "'Submodel'",
+          "type": "integer"
+        },
+        "SubmodelElement": {
+          "description": "'SubmodelElement'",
+          "type": "integer"
+        },
+        "SubmodelElementCollection": {
+          "description": "'SubmodelElementCollection'",
+          "type": "integer"
+        },
+        "View": {
+          "description": "'View'",
+          "type": "integer"
+        }
+      }
+    },
+    "AASKeyTypeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASKeyTypeDataType",
+      "const": {
+        "IdShort": 0,
+        "FragmentId": 1,
+        "Custom": 2,
+        "IRDI": 3,
+        "IRI": 4
+      },
+      "properties": {
+        "IdShort": {
+          "description": "...",
+          "type": "integer"
+        },
+        "FragmentId": {
+          "description": "...",
+          "type": "integer"
+        },
+        "Custom": {
+          "description": "...",
+          "type": "integer"
+        },
+        "IRDI": {
+          "description": "...",
+          "type": "integer"
+        },
+        "IRI": {
+          "description": "...",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Keys": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "array",
+      "items": {
+        "title": "AASKeyDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASKeyDataType",
+        "required": [
+          "Type",
+          "Local",
+          "Value",
+          "IdType"
+        ],
+        "properties": {
+          "Type": {
+            "title": "AASKeyElementsDataType",
+            "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASKeyElementsDataType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Local": {
+            "type": "boolean"
+          },
+          "Value": {
+            "type": "string"
+          },
+          "IdType": {
+            "title": "AASKeyTypeDataType",
+            "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASKeyTypeDataType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

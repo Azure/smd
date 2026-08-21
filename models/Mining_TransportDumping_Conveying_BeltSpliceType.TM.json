@@ -1,0 +1,105 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/#Mining_TransportDumping_Conveying_BeltSpliceType",
+  "title": "Mining_TransportDumping_Conveying_BeltSpliceType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.TransportDumping.Conveying.BeltSpliceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MiningEquipmentIdentification",
+      "href": "http://opcfoundation.org/UA/Mining/General/#Mining_General_MiningEquipmentIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BeltSpliceNumber",
+    "/properties/Length",
+    "/properties/NumberOfSteps",
+    "/properties/StatusSplice",
+    "/events/BeltSpliceNumber",
+    "/events/Length",
+    "/events/NumberOfSteps",
+    "/events/StatusSplice"
+  ],
+  "properties": {
+    "BeltSpliceNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "NumberOfSteps": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "StatusSplice": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "BeltSpliceNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "NumberOfSteps": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "StatusSplice": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

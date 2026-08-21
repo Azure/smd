@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_EthernetPortType",
+  "title": "PROFINET_EthernetPortType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.EthernetPortType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_NetworkComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "EthernetPort",
+      "dov:refType": "CommLinkTo",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_EthernetPortType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/PhysAddress",
+    "/events/PhysAddress"
+  ],
+  "properties": {
+    "PhysAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "PhysAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

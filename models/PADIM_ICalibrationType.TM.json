@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_ICalibrationType",
+  "title": "PADIM_ICalibrationType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.ICalibrationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CalibrationPointSet",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_CalibrationPointSetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CalibrationTimestamp",
+    "/properties/TypeOfCalibration",
+    "/events/TypeOfCalibration"
+  ],
+  "properties": {
+    "CalibrationTimestamp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "TypeOfCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TypeOfCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditWriteUpdateEventType",
+  "title": "OpcUaCore_AuditWriteUpdateEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditWriteUpdateEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditUpdateEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "AttributeId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "IndexRange": {
+      "type": "string",
+      "readOnly": true
+    },
+    "NewValue": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    },
+    "OldValue": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    }
+  }
+}

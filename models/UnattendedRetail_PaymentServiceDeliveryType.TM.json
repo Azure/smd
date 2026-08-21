@@ -1,0 +1,469 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_PaymentServiceDeliveryType",
+  "title": "UnattendedRetail_PaymentServiceDeliveryType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentServiceDeliveryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DeliveryAndPaymentStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryAndPaymentStatusEnum",
+      "const": {
+        "DeliveryRequestReceived": 0,
+        "PaymentInExecution": 1,
+        "PaymentFinished": 2,
+        "PaymentFailed": 3,
+        "PaymentCancelledByUser": 4,
+        "PaymentFailedWrongPrice": 5,
+        "DeliveryInExecution": 6,
+        "DeliveryAndPaymentSuccess": 7,
+        "DeliveryFailRefundInExecution": 8,
+        "DeliveryFailRefundSuccess": 9,
+        "DeliveryAndRefundFailed": 10,
+        "DeliveryMixResultRefundInExecution": 11,
+        "DeliveryMixResultRefundSuccess": 12,
+        "DeliveryMixResultRefundFailed": 13,
+        "CancelledByUserRefundInExcecution": 14,
+        "CancelledByUserRefundSuccess": 15,
+        "CancelledByUserRefundFailed": 16
+      },
+      "properties": {
+        "DeliveryRequestReceived": {
+          "type": "integer"
+        },
+        "PaymentInExecution": {
+          "type": "integer"
+        },
+        "PaymentFinished": {
+          "type": "integer"
+        },
+        "PaymentFailed": {
+          "type": "integer"
+        },
+        "PaymentCancelledByUser": {
+          "type": "integer"
+        },
+        "PaymentFailedWrongPrice": {
+          "type": "integer"
+        },
+        "DeliveryInExecution": {
+          "type": "integer"
+        },
+        "DeliveryAndPaymentSuccess": {
+          "type": "integer"
+        },
+        "DeliveryFailRefundInExecution": {
+          "type": "integer"
+        },
+        "DeliveryFailRefundSuccess": {
+          "type": "integer"
+        },
+        "DeliveryAndRefundFailed": {
+          "type": "integer"
+        },
+        "DeliveryMixResultRefundInExecution": {
+          "type": "integer"
+        },
+        "DeliveryMixResultRefundSuccess": {
+          "type": "integer"
+        },
+        "DeliveryMixResultRefundFailed": {
+          "type": "integer"
+        },
+        "CancelledByUserRefundInExcecution": {
+          "type": "integer"
+        },
+        "CancelledByUserRefundSuccess": {
+          "type": "integer"
+        },
+        "CancelledByUserRefundFailed": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "CancelDeliverRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TransactionId"
+        ],
+        "properties": {
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "DeliverRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "UserId",
+          "PaymentMode",
+          "Selection",
+          "Price"
+        ],
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "PaymentMode": {
+            "type": "string"
+          },
+          "Selection": {
+            "title": "SelectionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.SelectionDataType",
+            "required": [
+              "MachineEngineProductInstanceUri",
+              "SelectionListVersion",
+              "SelectionId",
+              "Options"
+            ],
+            "properties": {
+              "MachineEngineProductInstanceUri": {
+                "type": "string"
+              },
+              "SelectionListVersion": {
+                "type": "string"
+              },
+              "SelectionId": {
+                "type": "string"
+              },
+              "Options": {
+                "type": "array",
+                "items": {
+                  "title": "OptionSelectionDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionSelectionDataType",
+                  "required": [
+                    "OptionId",
+                    "Value"
+                  ],
+                  "properties": {
+                    "OptionId": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Price": {
+            "title": "PriceDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+            "required": [
+              "Amount",
+              "Currency"
+            ],
+            "properties": {
+              "Amount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Currency": {
+                "title": "CurrencyUnitType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+                "required": [
+                  "NumericCode",
+                  "Exponent",
+                  "AlphabeticCode",
+                  "Currency"
+                ],
+                "properties": {
+                  "NumericCode": {
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "Exponent": {
+                    "type": "integer",
+                    "minimum": -128,
+                    "maximum": 127
+                  },
+                  "AlphabeticCode": {
+                    "type": "string"
+                  },
+                  "Currency": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "TransactionId",
+          "Status"
+        ],
+        "properties": {
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "TransactionProgress": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "TransactionProgressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.TransactionProgressDataType",
+        "required": [
+          "TransactionId",
+          "Status",
+          "TransactionFinished",
+          "PaymentMode",
+          "UserId",
+          "UsedPrice"
+        ],
+        "properties": {
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "Status": {
+            "title": "DeliveryAndPaymentStatusEnum",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryAndPaymentStatusEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "TransactionFinished": {
+            "type": "boolean"
+          },
+          "PaymentMode": {
+            "type": "string"
+          },
+          "UserId": {
+            "type": "string"
+          },
+          "UsedPrice": {
+            "title": "PriceAndContextDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceAndContextDataType",
+            "required": [
+              "Amount",
+              "Currency",
+              "PriceListId",
+              "Tax",
+              "DiscountSurcharge"
+            ],
+            "properties": {
+              "Amount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Currency": {
+                "title": "CurrencyUnitType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+                "required": [
+                  "NumericCode",
+                  "Exponent",
+                  "AlphabeticCode",
+                  "Currency"
+                ],
+                "properties": {
+                  "NumericCode": {
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "Exponent": {
+                    "type": "integer",
+                    "minimum": -128,
+                    "maximum": 127
+                  },
+                  "AlphabeticCode": {
+                    "type": "string"
+                  },
+                  "Currency": {
+                    "type": "string"
+                  }
+                }
+              },
+              "PriceListId": {
+                "type": "string"
+              },
+              "Tax": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "DiscountSurcharge": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "TransactionProgress": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "TransactionProgressDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.TransactionProgressDataType",
+          "required": [
+            "TransactionId",
+            "Status",
+            "TransactionFinished",
+            "PaymentMode",
+            "UserId",
+            "UsedPrice"
+          ],
+          "properties": {
+            "TransactionId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            "Status": {
+              "title": "DeliveryAndPaymentStatusEnum",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryAndPaymentStatusEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "TransactionFinished": {
+              "type": "boolean"
+            },
+            "PaymentMode": {
+              "type": "string"
+            },
+            "UserId": {
+              "type": "string"
+            },
+            "UsedPrice": {
+              "title": "PriceAndContextDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceAndContextDataType",
+              "required": [
+                "Amount",
+                "Currency",
+                "PriceListId",
+                "Tax",
+                "DiscountSurcharge"
+              ],
+              "properties": {
+                "Amount": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Currency": {
+                  "title": "CurrencyUnitType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+                  "required": [
+                    "NumericCode",
+                    "Exponent",
+                    "AlphabeticCode",
+                    "Currency"
+                  ],
+                  "properties": {
+                    "NumericCode": {
+                      "type": "integer",
+                      "minimum": -32768,
+                      "maximum": 32767
+                    },
+                    "Exponent": {
+                      "type": "integer",
+                      "minimum": -128,
+                      "maximum": 127
+                    },
+                    "AlphabeticCode": {
+                      "type": "string"
+                    },
+                    "Currency": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "PriceListId": {
+                  "type": "string"
+                },
+                "Tax": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "DiscountSurcharge": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

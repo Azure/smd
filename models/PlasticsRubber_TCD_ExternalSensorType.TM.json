@@ -1,0 +1,103 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_ExternalSensorType",
+  "title": "PlasticsRubber_TCD_ExternalSensorType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.ExternalSensorType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ClosedLoopControl",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ClosedLoopControlType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AutomaticModeSwitch"
+  ],
+  "actions": {
+    "ExternalSensorModeOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Deactivate the mode where the external temperature sensor is used for temperature control"
+    },
+    "ExternalSensorModeOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Activate the mode where the external temperature sensor is used for temperature control"
+    }
+  },
+  "properties": {
+    "ActualValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual value of external temperature sensor",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "AutomaticModeSwitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Setting whether switching to external sensor is performed automatically (TRUE) or manually (FALSE)",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "CommunicationProtocolType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "ThermocoupleType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Type of connected external temperature sensor",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Used": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Return whether an external temperature sensor is used for control",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual value of external temperature sensor",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CommunicationProtocolType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ThermocoupleType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Type of connected external temperature sensor",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

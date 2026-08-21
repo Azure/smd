@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ParameterDependencyEnumeration",
+  "title": "TMC_v2_ParameterDependencyEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ParameterDependencyEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+      "const": {
+        "Machine": 0,
+        "Brand": 1,
+        "Machine_and_Brand": 2
+      },
+      "description": "The ParameterDependencyEnumeration contains what a parameter is depending upon.",
+      "properties": {
+        "Machine": {
+          "description": "The parameter depends solely from the machine and does not vary with the brand.",
+          "type": "integer"
+        },
+        "Brand": {
+          "description": "The parameter depends solely from the brand being produced and does not vary with the machine.",
+          "type": "integer"
+        },
+        "Machine_and_Brand": {
+          "description": "The parameter depends both from the machine and the brand being produced.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

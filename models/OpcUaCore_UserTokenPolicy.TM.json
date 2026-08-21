@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UserTokenPolicy",
+  "title": "OpcUaCore_UserTokenPolicy",
+  "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+  "links": [],
+  "schemaDefinitions": {
+    "UserTokenPolicy": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+      "required": [
+        "PolicyId",
+        "TokenType",
+        "IssuedTokenType",
+        "IssuerEndpointUrl",
+        "SecurityPolicyUri"
+      ],
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        },
+        "TokenType": {
+          "title": "UserTokenType",
+          "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "IssuedTokenType": {
+          "type": "string"
+        },
+        "IssuerEndpointUrl": {
+          "type": "string"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

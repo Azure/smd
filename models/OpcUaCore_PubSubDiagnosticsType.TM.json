@@ -1,0 +1,118 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubDiagnosticsType",
+  "title": "OpcUaCore_PubSubDiagnosticsType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubDiagnosticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Counters",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "LiveValues",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DiagnosticsLevel": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DiagnosticsLevel",
+      "const": {
+        "Basic": 0,
+        "Advanced": 1,
+        "Info": 2,
+        "Log": 3,
+        "Debug": 4
+      },
+      "properties": {
+        "Basic": {
+          "type": "integer"
+        },
+        "Advanced": {
+          "type": "integer"
+        },
+        "Info": {
+          "type": "integer"
+        },
+        "Log": {
+          "type": "integer"
+        },
+        "Debug": {
+          "type": "integer"
+        }
+      }
+    },
+    "PubSubDiagnosticsCounterType": {
+      "dov:typeRef": "org.opcfoundation.UA.PubSubDiagnosticsCounterType",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    }
+  },
+  "actions": {
+    "Reset": {}
+  },
+  "properties": {
+    "DiagnosticsLevel": {
+      "title": "DiagnosticsLevel",
+      "dov:typeRef": "org.opcfoundation.UA.DiagnosticsLevel",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SubError": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "TotalError": {
+      "tm:ref": "#/schemaDefinitions/PubSubDiagnosticsCounterType",
+      "readOnly": true
+    },
+    "TotalInformation": {
+      "tm:ref": "#/schemaDefinitions/PubSubDiagnosticsCounterType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DiagnosticsLevel": {
+      "data": {
+        "title": "DiagnosticsLevel",
+        "dov:typeRef": "org.opcfoundation.UA.DiagnosticsLevel",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SubError": {
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "TotalError": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/PubSubDiagnosticsCounterType"
+      }
+    },
+    "TotalInformation": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/PubSubDiagnosticsCounterType"
+      }
+    }
+  }
+}

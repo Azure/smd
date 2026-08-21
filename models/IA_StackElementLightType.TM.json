@@ -1,0 +1,256 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_StackElementLightType",
+  "title": "IA_StackElementLightType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.StackElementLightType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/IA/#IA_StackElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ControlChannel",
+      "href": "http://opcfoundation.org/UA/IA/#IA_ControlChannelType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SignalColor": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalColor",
+      "const": {
+        "Off": 0,
+        "Red": 1,
+        "Green": 2,
+        "Blue": 3,
+        "Yellow": 4,
+        "Purple": 5,
+        "Cyan": 6,
+        "White": 7
+      },
+      "description": "Holds the possible colour values for stacklight lamps.",
+      "properties": {
+        "Off": {
+          "description": "Element is disabled.",
+          "type": "integer"
+        },
+        "Red": {
+          "description": "This value indicates a red lamp colour.",
+          "type": "integer"
+        },
+        "Green": {
+          "description": "This value indicates a green lamp colour.",
+          "type": "integer"
+        },
+        "Blue": {
+          "description": "This value indicates a blue lamp colour.",
+          "type": "integer"
+        },
+        "Yellow": {
+          "description": "This value indicates a yellow lamp colour (R+G).",
+          "type": "integer"
+        },
+        "Purple": {
+          "description": "This value indicates a purple lamp colour (R+B).",
+          "type": "integer"
+        },
+        "Cyan": {
+          "description": "This value indicates a cyan lamp colour (G+B).",
+          "type": "integer"
+        },
+        "White": {
+          "description": "This value indicates a white lamp colour (R+G+B).",
+          "type": "integer"
+        }
+      }
+    },
+    "SignalModeLight": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalModeLight",
+      "const": {
+        "Continuous": 0,
+        "Blinking": 1,
+        "Flashing": 2,
+        "Other": 3
+      },
+      "description": "Contains the values used to indicate in what way a lamp behaves when switched on.",
+      "properties": {
+        "Continuous": {
+          "description": "This value indicates a continuous light.",
+          "type": "integer"
+        },
+        "Blinking": {
+          "description": "This value indicates a blinking light (blinking in regular intervals with equally long on and off times).",
+          "type": "integer"
+        },
+        "Flashing": {
+          "description": "This value indicates a flashing light (blinking in intervals with longer off times than on times, per interval multiple on times are possible).",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "The light is handled in a way not defined in this version of the specification.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Intensity",
+    "/properties/SignalColor",
+    "/properties/SignalMode",
+    "/properties/SignalRGBWValue",
+    "/events/Intensity",
+    "/events/SignalColor",
+    "/events/SignalMode",
+    "/events/SignalRGBWValue"
+  ],
+  "properties": {
+    "Intensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Intensity of the lamp, thus its brightness. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "SignalColor": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "title": "SignalColor",
+      "description": "Indicates the colour the lamp element has when switched on.",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalColor",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SignalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "title": "SignalModeLight",
+      "description": "Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalModeLight",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SignalRGBWValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "title": "RGBWDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.RGBWDataType",
+      "required": [
+        "Red",
+        "Green",
+        "Blue"
+      ],
+      "properties": {
+        "Red": {
+          "description": "Defines the intensity of the colour red",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Green": {
+          "description": "Defines the intensity of the colour green",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Blue": {
+          "description": "Defines the intensity of the colour blue",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "White": {
+          "description": "Defines the intensity of an additional white component. Shall be not provided when using RGB.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Intensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "description": "Intensity of the lamp, thus its brightness. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "SignalColor": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "title": "SignalColor",
+        "description": "Indicates the colour the lamp element has when switched on.",
+        "dov:typeRef": "org.opcfoundation.UA.IA.SignalColor",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SignalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "title": "SignalModeLight",
+        "description": "Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.",
+        "dov:typeRef": "org.opcfoundation.UA.IA.SignalModeLight",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SignalRGBWValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "title": "RGBWDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.IA.RGBWDataType",
+        "required": [
+          "Red",
+          "Green",
+          "Blue"
+        ],
+        "properties": {
+          "Red": {
+            "description": "Defines the intensity of the colour red",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Green": {
+            "description": "Defines the intensity of the colour green",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Blue": {
+            "description": "Defines the intensity of the colour blue",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "White": {
+            "description": "Defines the intensity of an additional white component. Shall be not provided when using RGB.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      }
+    }
+  }
+}

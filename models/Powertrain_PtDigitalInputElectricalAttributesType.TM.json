@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtDigitalInputElectricalAttributesType",
+  "title": "Powertrain_PtDigitalInputElectricalAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtDigitalInputElectricalAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/DigitalInputElectricalType",
+    "/properties/NumberOfChannels",
+    "/properties/SafetyPropertySupported",
+    "/events/DigitalInputElectricalType"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "DigitalInputElectricalType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "NumberOfChannels": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SafetyPropertySupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DigitalInputElectricalType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_DesignType",
+  "title": "CAS_DesignType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.DesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ComponentClass",
+    "/events/ComponentClass"
+  ],
+  "properties": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Enumeration of possible types of the component’s device class.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Enumeration of possible types of the component’s device class.",
+        "type": "string"
+      }
+    }
+  }
+}

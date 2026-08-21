@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_CertificateExpirationAlarmType",
+  "title": "OpcUaCore_CertificateExpirationAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.CertificateExpirationAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SystemOffNormalAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ExpirationLimit"
+  ],
+  "properties": {
+    "Certificate": {
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "CertificateType": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ExpirationDate": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "ExpirationLimit": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_LiquidFilterType",
+  "title": "DEXPI_LiquidFilterType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.LiquidFilterType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_FilterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<FilterUnit>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_FilterUnitType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Capacity_VolumeFlowRate",
+    "/properties/DesignRotationalSpeed",
+    "/properties/DesignShaftPower",
+    "/properties/UpperLimitAllowableDesignPressureDrop",
+    "/events/Capacity_VolumeFlowRate",
+    "/events/DesignRotationalSpeed",
+    "/events/DesignShaftPower",
+    "/events/UpperLimitAllowableDesignPressureDrop"
+  ],
+  "properties": {
+    "Capacity_VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The handling flow rate for which the LiquidFilter is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design rotational speed of the LiquidFilter.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design shaft power of the LiquidFilter.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UpperLimitAllowableDesignPressureDrop": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The maximum allowable design pressure drop of the LiquidFilter.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Capacity_VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The handling flow rate for which the LiquidFilter is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design rotational speed of the LiquidFilter.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design shaft power of the LiquidFilter.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperLimitAllowableDesignPressureDrop": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The maximum allowable design pressure drop of the LiquidFilter.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

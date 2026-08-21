@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_ScanSettings",
+  "title": "AutoID_ScanSettings",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanSettings",
+  "links": [],
+  "schemaDefinitions": {
+    "ScanSettings": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanSettings",
+      "required": [
+        "Duration",
+        "Cycles",
+        "DataAvailable"
+      ],
+      "properties": {
+        "Duration": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "Cycles": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "DataAvailable": {
+          "type": "boolean"
+        },
+        "LocationType": {
+          "title": "LocationTypeEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.LocationTypeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

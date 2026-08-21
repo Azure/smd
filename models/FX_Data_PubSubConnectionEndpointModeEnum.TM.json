@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_PubSubConnectionEndpointModeEnum",
+  "title": "FX_Data_PubSubConnectionEndpointModeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubConnectionEndpointModeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "PubSubConnectionEndpointModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubConnectionEndpointModeEnum",
+      "const": {
+        "PublisherSubscriber": 1,
+        "Publisher": 2,
+        "Subscriber": 3
+      },
+      "properties": {
+        "PublisherSubscriber": {
+          "description": "reference to DataSetReader and DataSetWriter required.",
+          "type": "integer"
+        },
+        "Publisher": {
+          "description": "reference to DataSetWriter is required.",
+          "type": "integer"
+        },
+        "Subscriber": {
+          "description": "reference to DataSetReader is required.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

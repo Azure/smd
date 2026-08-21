@@ -1,0 +1,92 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_PluggableTerminalRole",
+  "title": "WireHarness_VEC_PluggableTerminalRole",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PluggableTerminalRole",
+  "links": [],
+  "schemaDefinitions": {
+    "PluggableTerminalRole": {
+      "title": "TerminalRole",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.TerminalRole",
+      "required": [
+        "id",
+        "Identification",
+        "TerminalSpecification",
+        "WireReceptionReference"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the Role. The identification is guaranteed to be unique within the OccurrenceOrUsage.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "TerminalSpecification": {
+          "title": "TerminalSpecificationIdDataType",
+          "description": "<p> References the<i>TerminalSpecification</i>that is instanced by this<i>TerminalRole.</i></p>",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.TerminalSpecificationIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "WireReceptionReference": {
+          "description": "<p>Specifies the<i>WireReceptionReferences</i>of this<i>TerminalRole.</i></p>",
+          "type": "array",
+          "items": {
+            "title": "WireReceptionReference",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireReceptionReference",
+            "required": [
+              "id",
+              "Identification",
+              "WireReception"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Identification": {
+                "description": "<p>Specifies a unique<i>identification</i>of the<i>WireReceptionReference</i>. The<i>identification</i>is guaranteed to be unique within the<i>TerminalRole</i>(this might be for example a reception number).</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "WireReception": {
+                "title": "WireReceptionIdDataType",
+                "description": "<p>References the<i>WireReception</i>that is instanced by this<i>WireReceptionReference.</i></p>",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireReceptionIdDataType",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

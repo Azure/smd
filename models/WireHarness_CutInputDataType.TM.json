@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_CutInputDataType",
+  "title": "WireHarness_CutInputDataType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.CutInputDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "CutInputDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.CutInputDataType",
+      "required": [
+        "ToolType",
+        "ProcessDescription",
+        "Id",
+        "ReferencedElement",
+        "VerifyWireLength"
+      ],
+      "properties": {
+        "ToolType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProcessDescription": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Id": {
+          "type": "string"
+        },
+        "ReferencedElement": {
+          "title": "WireElementReferenceIdDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireElementReferenceIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "VerifyWireLength": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

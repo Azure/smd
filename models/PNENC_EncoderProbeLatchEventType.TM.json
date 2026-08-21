@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderProbeLatchEventType",
+  "title": "PNENC_EncoderProbeLatchEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderProbeLatchEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProbeName"
+  ],
+  "properties": {
+    "LastLatchedPos": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "readOnly": true
+    },
+    "LatchActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ProbeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

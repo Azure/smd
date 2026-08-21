@@ -1,0 +1,143 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_KnifeType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.KnifeType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "GrindDrives",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DrivesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "KnifeDrives",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DrivesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "WearStatus",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaintenanceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "GrindingUnitStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+      "const": {
+        "Off": 0,
+        "Standby": 1,
+        "Running": 2
+      },
+      "description": "Provides information about the current state of the grinding unit.",
+      "properties": {
+        "Off": {
+          "description": "The grinding unit is switched off.",
+          "type": "integer"
+        },
+        "Standby": {
+          "description": "The grinding unit is in standby mode.",
+          "type": "integer"
+        },
+        "Running": {
+          "description": "The grinding unit is running.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/GrindingUnitState",
+    "/properties/KnifeSpeed",
+    "/properties/Readjustment",
+    "/events/GrindingUnitState",
+    "/events/KnifeSpeed",
+    "/events/Readjustment"
+  ],
+  "properties": {
+    "GrindingUnitState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "title": "GrindingUnitStateEnumeration",
+      "description": "Provides information about the current state of the grinding unit.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "KnifeRunning": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Indicates if the knife is switched on (true) or off (false).",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "KnifeSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides the set value of the knife.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Readjustment": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides information about the mechanical adjustment in the mounting position of the knife to compensate for wear.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "GrindingUnitState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "title": "GrindingUnitStateEnumeration",
+        "description": "Provides information about the current state of the grinding unit.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.GrindingUnitStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "KnifeRunning": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Indicates if the knife is switched on (true) or off (false).",
+        "type": "boolean"
+      }
+    },
+    "KnifeSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Provides the set value of the knife.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Readjustment": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Provides information about the mechanical adjustment in the mounting position of the knife to compensate for wear.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

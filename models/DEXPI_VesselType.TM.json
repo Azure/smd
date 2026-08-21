@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_VesselType",
+  "title": "DEXPI_VesselType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.VesselType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_EquipmentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/NominalCapacityVolume",
+    "/events/NominalCapacityVolume"
+  ],
+  "properties": {
+    "NominalCapacityVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The nominal volumetric capacity of the Vessel.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "NominalCapacityVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The nominal volumetric capacity of the Vessel.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

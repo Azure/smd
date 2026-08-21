@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BrokerDataSetWriterTransportType",
+  "title": "OpcUaCore_BrokerDataSetWriterTransportType",
+  "dov:typeRef": "org.opcfoundation.UA.BrokerDataSetWriterTransportType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterTransportType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BrokerTransportQualityOfService": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BrokerTransportQualityOfService",
+      "const": {
+        "NotSpecified": 0,
+        "BestEffort": 1,
+        "AtLeastOnce": 2,
+        "AtMostOnce": 3,
+        "ExactlyOnce": 4
+      },
+      "properties": {
+        "NotSpecified": {
+          "type": "integer"
+        },
+        "BestEffort": {
+          "type": "integer"
+        },
+        "AtLeastOnce": {
+          "type": "integer"
+        },
+        "AtMostOnce": {
+          "type": "integer"
+        },
+        "ExactlyOnce": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "AuthenticationProfileUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "MetaDataQueueName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "MetaDataUpdateTime": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "QueueName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "RequestedDeliveryGuarantee": {
+      "title": "BrokerTransportQualityOfService",
+      "dov:typeRef": "org.opcfoundation.UA.BrokerTransportQualityOfService",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ResourceUri": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

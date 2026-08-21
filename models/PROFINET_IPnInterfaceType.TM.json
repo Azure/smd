@@ -1,0 +1,154 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnInterfaceType",
+  "title": "PROFINET_IPnInterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.IPnInterfaceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "EthernetInterface",
+      "dov:refType": "CommLinkTo",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_EthernetInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Ports",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnPortContainerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Statistic",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnPortStatisticType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnDeviceRoleOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceRoleOptionSet",
+      "const": {
+        "IO_DEVICE": 0,
+        "IO_CONTROLLER": 1,
+        "IO_MULTIDEVICE": 2,
+        "IO_SUPERVISOR": 3,
+        "IO_CIM": 4
+      },
+      "properties": {
+        "IO_DEVICE": {
+          "description": "The device contains an IO device interface.",
+          "type": "integer"
+        },
+        "IO_CONTROLLER": {
+          "description": "The device contains an IO controller interface.",
+          "type": "integer"
+        },
+        "IO_MULTIDEVICE": {
+          "description": "The device contains multiple IO device interfaces.",
+          "type": "integer"
+        },
+        "IO_SUPERVISOR": {
+          "description": "The device contains an IO supervisor interface.",
+          "type": "integer"
+        },
+        "IO_CIM": {
+          "description": "The device contains an CIM device interface.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetNameOfStation",
+    "/properties/DeviceInstance",
+    "/properties/DeviceVendor",
+    "/properties/OEMDeviceId",
+    "/properties/OEMVendorId"
+  ],
+  "actions": {
+    "SetNameOfStation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NameOfStation"
+        ],
+        "properties": {
+          "NameOfStation": {
+            "description": "String containing the new NameOfStation to be written remanent to the device. The maximum length shall be limited to 240 characters (See [PN Protocol] for details). ",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DeviceId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DeviceInstance": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DeviceRole": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnDeviceRoleOptionSet",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceRoleOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DeviceVendor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "NameOfStation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "OEMDeviceId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "OEMVendorId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "VendorId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

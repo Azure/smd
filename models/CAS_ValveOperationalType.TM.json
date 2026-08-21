@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_ValveOperationalType",
+  "title": "CAS_ValveOperationalType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.ValveOperationalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_OperationalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ContinuousPosition",
+    "/properties/PortUsed",
+    "/events/ContinuousPosition",
+    "/events/PortUsed"
+  ],
+  "properties": {
+    "ContinuousPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Actual valve stroke.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PortUsed": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Actual port used.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ContinuousPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Actual valve stroke.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PortUsed": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Actual port used.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

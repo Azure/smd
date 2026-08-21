@@ -1,0 +1,251 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TargetVariablesType",
+  "title": "OpcUaCore_TargetVariablesType",
+  "dov:typeRef": "org.opcfoundation.UA.TargetVariablesType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SubscribedDataSetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "OverrideValueHandling": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OverrideValueHandling",
+      "const": {
+        "Disabled": 0,
+        "LastUsableValue": 1,
+        "OverrideValue": 2
+      },
+      "properties": {
+        "Disabled": {
+          "type": "integer"
+        },
+        "LastUsableValue": {
+          "type": "integer"
+        },
+        "OverrideValue": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AddTargetVariables",
+    "/actions/RemoveTargetVariables"
+  ],
+  "actions": {
+    "AddTargetVariables": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ConfigurationVersion",
+          "TargetVariablesToAdd"
+        ],
+        "properties": {
+          "ConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "TargetVariablesToAdd": {
+            "type": "array",
+            "items": {
+              "title": "FieldTargetDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FieldTargetDataType",
+              "required": [
+                "DataSetFieldId",
+                "ReceiverIndexRange",
+                "TargetNodeId",
+                "AttributeId",
+                "WriteIndexRange",
+                "OverrideValueHandling",
+                "OverrideValue"
+              ],
+              "properties": {
+                "DataSetFieldId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "ReceiverIndexRange": {
+                  "type": "string"
+                },
+                "TargetNodeId": {
+                  "type": "string"
+                },
+                "AttributeId": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "WriteIndexRange": {
+                  "type": "string"
+                },
+                "OverrideValueHandling": {
+                  "title": "OverrideValueHandling",
+                  "dov:typeRef": "org.opcfoundation.UA.OverrideValueHandling",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "OverrideValue": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AddResults"
+        ],
+        "properties": {
+          "AddResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "RemoveTargetVariables": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ConfigurationVersion",
+          "TargetsToRemove"
+        ],
+        "properties": {
+          "ConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "TargetsToRemove": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RemoveResults"
+        ],
+        "properties": {
+          "RemoveResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "TargetVariables": {
+      "type": "array",
+      "items": {
+        "title": "FieldTargetDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FieldTargetDataType",
+        "required": [
+          "DataSetFieldId",
+          "ReceiverIndexRange",
+          "TargetNodeId",
+          "AttributeId",
+          "WriteIndexRange",
+          "OverrideValueHandling",
+          "OverrideValue"
+        ],
+        "properties": {
+          "DataSetFieldId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ReceiverIndexRange": {
+            "type": "string"
+          },
+          "TargetNodeId": {
+            "type": "string"
+          },
+          "AttributeId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "WriteIndexRange": {
+            "type": "string"
+          },
+          "OverrideValueHandling": {
+            "title": "OverrideValueHandling",
+            "dov:typeRef": "org.opcfoundation.UA.OverrideValueHandling",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "OverrideValue": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

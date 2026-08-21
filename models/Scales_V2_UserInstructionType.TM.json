@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_UserInstructionType",
+  "title": "Scales_V2_UserInstructionType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.UserInstructionType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeElementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/InstructionId",
+    "/events/InstructionId"
+  ],
+  "properties": {
+    "DisplayText": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines instructions for this RecipeElement that will be displayed to the user.",
+      "type": "string",
+      "readOnly": false
+    },
+    "InstructionId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a unique Id used to identify the instruction that is displayed via DisplayText.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DisplayText": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines instructions for this RecipeElement that will be displayed to the user.",
+        "type": "string"
+      }
+    },
+    "InstructionId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines a unique Id used to identify the instruction that is displayed via DisplayText.",
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

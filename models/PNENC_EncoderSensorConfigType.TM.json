@@ -1,0 +1,183 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderSensorConfigType",
+  "title": "PNENC_EncoderSensorConfigType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderSensorConfigType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EncoderConfigTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderConfigTypeEnumeration",
+      "const": {
+        "STATIC": 0,
+        "DYNAMIC": 1
+      },
+      "properties": {
+        "STATIC": {
+          "description": "Static configuration type",
+          "type": "integer"
+        },
+        "DYNAMIC": {
+          "description": "Dynamic configuration type",
+          "type": "integer"
+        }
+      }
+    },
+    "EncoderSensorAbsoluteTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderSensorAbsoluteTypeEnumeration",
+      "const": {
+        "SINGLETURN": 0,
+        "MULTITURN": 1
+      },
+      "properties": {
+        "SINGLETURN": {
+          "description": "Singleturn sensor absolute type",
+          "type": "integer"
+        },
+        "MULTITURN": {
+          "description": "Multiturn sensor absolute type",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetSensorConfig",
+    "/properties/AbsolutePosDeterminableRevolutions",
+    "/properties/AbsolutePosLinSupported",
+    "/properties/ConfigType",
+    "/properties/SensorAbsoluteType",
+    "/properties/SensorResolutionIncPerRotation",
+    "/properties/SensorResolutionNanometerPerIncrement",
+    "/properties/ShiftFactorXIST1",
+    "/properties/ShiftFactorXIST2"
+  ],
+  "actions": {
+    "SetSensorConfig": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SensorConfigParameters"
+        ],
+        "properties": {
+          "SensorConfigParameters": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "SensorConfigParametersResult"
+        ],
+        "properties": {
+          "SensorConfigParametersResult": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AbsolutePosDeterminableRevolutions": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "readOnly": true
+    },
+    "AbsolutePosLinSupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ConfigType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderConfigTypeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderConfigTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SensorAbsoluteType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderSensorAbsoluteTypeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderSensorAbsoluteTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SensorResolutionIncPerRotation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "readOnly": true
+    },
+    "SensorResolutionNanometerPerIncrement": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "readOnly": true
+    },
+    "ShiftFactorXIST1": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "readOnly": true
+    },
+    "ShiftFactorXIST2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "readOnly": true
+    }
+  }
+}

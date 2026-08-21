@@ -1,0 +1,117 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_PeServiceAccessPointType",
+  "title": "PNEM_PeServiceAccessPointType",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.PeServiceAccessPointType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PeClassEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.PeClassEnumeration",
+      "const": {
+        "PE_CLASS1": 0,
+        "PE_CLASS2": 1,
+        "PE_CLASS3": 2
+      },
+      "properties": {
+        "PE_CLASS1": {
+          "description": "The PE Entity supports energy management functionality.",
+          "type": "integer"
+        },
+        "PE_CLASS2": {
+          "description": "The PE Entity supports energy measurement functionality.",
+          "type": "integer"
+        },
+        "PE_CLASS3": {
+          "description": "The PE Entity supports both energy management and energy measurement functionality.",
+          "type": "integer"
+        }
+      }
+    },
+    "PeSubclassEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.PeSubclassEnumeration",
+      "const": {
+        "PE_SUBCLASS1": 0,
+        "PE_SUBCLASS2": 1
+      },
+      "properties": {
+        "PE_SUBCLASS1": {
+          "description": "The PE Entity does not support energy management disabled.",
+          "type": "integer"
+        },
+        "PE_SUBCLASS2": {
+          "description": "The PE Entity supports energy management disabled.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/PeClass",
+    "/properties/PeSubclass",
+    "/properties/PeVersion"
+  ],
+  "properties": {
+    "PeClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "PeClassEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.PeClassEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PeSubclass": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "PeSubclassEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.PeSubclassEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PeVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "PeVersionDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.PeVersionDataType",
+      "required": [
+        "MajorVersion",
+        "MinorVersion",
+        "Revision"
+      ],
+      "properties": {
+        "MajorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "MinorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MotorAggregatesType",
+  "title": "TMC_v2_MotorAggregatesType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MotorAggregatesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleAggregatesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "TotalRunningHours": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The total number of running hours for the motor.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "TotalStartStopCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The total number of times the motor was started and stopped.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "TotalRunningHours": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The total number of running hours for the motor.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "TotalStartStopCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The total number of times the motor was started and stopped.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

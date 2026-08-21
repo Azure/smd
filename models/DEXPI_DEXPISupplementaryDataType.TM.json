@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_DEXPISupplementaryDataType",
+  "title": "DEXPI_DEXPISupplementaryDataType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.DEXPISupplementaryDataType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DEXPIXMIFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ProteusXMLFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DEXPISpecificationVersion",
+    "/properties/DEXPIXMIExternalLink",
+    "/properties/ProteusSchemaVersion",
+    "/properties/ProteusXMLExternalLink"
+  ],
+  "properties": {
+    "DEXPISpecificationVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Variable which holds the version of DEXPI specification",
+      "type": "string",
+      "readOnly": false
+    },
+    "DEXPIXMIExternalLink": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Variable which holds a link to the XMI file of DEXPI specification as UML",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProteusSchemaVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Variable which holds the version of Proteus schema",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProteusXMLExternalLink": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Variable which a link to the XML file of the input P&ID model",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

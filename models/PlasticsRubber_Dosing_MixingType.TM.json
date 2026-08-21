@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_MixingType",
+  "title": "PlasticsRubber_Dosing_MixingType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.MixingType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/IdleMixing",
+    "/properties/MixingDuration",
+    "/properties/MixingInterval",
+    "/events/IdleMixing"
+  ],
+  "properties": {
+    "IdleMixing": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "With idle mixing the mixer of the batch blender rotates once in a while to keep the material in the mixer flowing and material does not get blocked by the mixer blades.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "MixingDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Duration of a mixing process.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "MixingInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Interval between two mixing processes, in number of shots.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "MixingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Can be used to set the required mixing mode. ",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "IdleMixing": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "With idle mixing the mixer of the batch blender rotates once in a while to keep the material in the mixer flowing and material does not get blocked by the mixer blades.",
+        "type": "boolean"
+      }
+    },
+    "MixingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Can be used to set the required mixing mode. ",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

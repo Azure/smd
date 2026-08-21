@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MetalForming/#MetalForming_CyclicEventType",
+  "title": "MetalForming_CyclicEventType",
+  "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "CurrentProcessValue",
+      "href": "http://opcfoundation.org/UA/Machinery/ProcessValues/#Machinery_ProcessValues_ProcessValueType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/PartId",
+    "/events/PartId"
+  ],
+  "properties": {
+    "CycleCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/MetalForming/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "PartId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MetalForming/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CycleCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/MetalForming/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "PartId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MetalForming/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

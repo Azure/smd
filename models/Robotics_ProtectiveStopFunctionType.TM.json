@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_ProtectiveStopFunctionType",
+  "title": "Robotics_ProtectiveStopFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.ProtectiveStopFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Active": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "– The Active variable is TRUE if this particular protective stop function is active, i.e. that a stop is initiated, FALSE otherwise. If Enabled is FALSE then Active shall be FALSE.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Enabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "– The Enabled variable is TRUE if this protective stop function is currently supervising the system, FALSE otherwise. A protective stop function may or may not be enabled at all times, e.g. the protective stop function of the safety doors are typically enabled in automatic operational mode and disabled in manual mode. On the other hand for example, the protective stop function of the teach pendant enabling device is enabled in manual modes and disabled in automatic modes.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "The Name of the ProtectiveStopFunctionType provides a manufacturer-specific protective stop function identifier within the safety system.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Active": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "description": "– The Active variable is TRUE if this particular protective stop function is active, i.e. that a stop is initiated, FALSE otherwise. If Enabled is FALSE then Active shall be FALSE.",
+        "type": "boolean"
+      }
+    },
+    "Enabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "description": "– The Enabled variable is TRUE if this protective stop function is currently supervising the system, FALSE otherwise. A protective stop function may or may not be enabled at all times, e.g. the protective stop function of the safety doors are typically enabled in automatic operational mode and disabled in manual mode. On the other hand for example, the protective stop function of the teach pendant enabling device is enabled in manual modes and disabled in automatic modes.",
+        "type": "boolean"
+      }
+    }
+  }
+}

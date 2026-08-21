@@ -1,0 +1,256 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_OperationType",
+  "title": "PlasticsRubber_TCD_OperationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.OperationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "OperatingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.OperatingModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "READY_TO_OPERATE": 1,
+        "NORMAL_OPERATION": 2,
+        "LEAK_STOPPER": 3,
+        "MOULD_EVACUATION": 4,
+        "PRESSURE_RELIEF": 5,
+        "COOLING": 6,
+        "SAFETY_COOLING": 7,
+        "ECO": 8,
+        "BOOST": 9
+      },
+      "description": "Actual operating mode of the TCD",
+      "properties": {
+        "OTHER": {
+          "description": "Operating mode of the TCD is unknown",
+          "type": "integer"
+        },
+        "READY_TO_OPERATE": {
+          "description": "TCD is ready to operate (heating, pump and cooling are switched off)",
+          "type": "integer"
+        },
+        "NORMAL_OPERATION": {
+          "description": "TCD is running in normal operating mode",
+          "type": "integer"
+        },
+        "LEAK_STOPPER": {
+          "description": "TCD is running in leak stopper operating mode",
+          "type": "integer"
+        },
+        "MOULD_EVACUATION": {
+          "description": "TCD is carrying out a mould evacuation process",
+          "type": "integer"
+        },
+        "PRESSURE_RELIEF": {
+          "description": "TCD is carrying out a pressure relief process",
+          "type": "integer"
+        },
+        "COOLING": {
+          "description": "TCD is cooling down to StandbyTemperature and switch off",
+          "type": "integer"
+        },
+        "SAFETY_COOLING": {
+          "description": "TCD is cooling down to SwitchingOffTemperature and switch off",
+          "type": "integer"
+        },
+        "ECO": {
+          "description": "TCD is running in Eco operating mode (energy is saved via the reduced pump speed)",
+          "type": "integer"
+        },
+        "BOOST": {
+          "description": "TCD is running in Boost operating mode (pump runs at maximum possible speed)",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/IdentifyDevice",
+    "/actions/ReduceToStandByOff",
+    "/actions/ReduceToStandByOn",
+    "/actions/ResetAllErrors",
+    "/actions/ResetErrorById",
+    "/properties/HoursOfOperation",
+    "/properties/HoursOfOperation_EngineeringUnits",
+    "/events/HoursOfOperation"
+  ],
+  "actions": {
+    "IdentifyDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "The TCD on which this method is called shows itself by e.g. activation of a LED"
+    },
+    "ReduceToStandByOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Deactivate the cooling down function on the TCD. If it is already in progress, it will be interrupted and the device changes back to the last selected operating mode."
+    },
+    "ReduceToStandByOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Activate the cooling down function on the TCD followed by switching off"
+    },
+    "ResetAllErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Method to reset all errors of the device"
+    },
+    "ResetErrorById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Id of the error, listed in ActiveErrors, that shall be reset",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SwitchOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Main switch method of the TCD for switching off"
+    },
+    "SwitchOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Main switch method of the TCD for switching on"
+    }
+  },
+  "properties": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "List of the active errors of the device",
+      "type": "array",
+      "items": {
+        "title": "ActiveErrorDataType",
+        "description": "Iinformation about an active error in a device",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+        "required": [
+          "Id",
+          "Severity",
+          "Message"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier defined by manufacturer",
+            "type": "string"
+          },
+          "Severity": {
+            "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Message": {
+            "description": "Message giving information about the error",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DeviceMappingNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Unique identifier/address/number for devices of the same DeviceType within a local network",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "HighestActiveAlarmSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Indication of the severity of the highest active alarm (0 = no active alarm – 1000 = possible error)",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "HoursOfOperation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual hours of operation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/HoursOfOperation_EngineeringUnits"
+    },
+    "OperatingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "title": "OperatingModeEnumeration",
+      "description": "Actual operating mode of the TCD",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.OperatingModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "HoursOfOperation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HoursOfOperation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "List of the active errors of the device",
+        "type": "array",
+        "items": {
+          "title": "ActiveErrorDataType",
+          "description": "Iinformation about an active error in a device",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+          "required": [
+            "Id",
+            "Severity",
+            "Message"
+          ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "HoursOfOperation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual hours of operation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/HoursOfOperation_EngineeringUnits"
+    }
+  }
+}

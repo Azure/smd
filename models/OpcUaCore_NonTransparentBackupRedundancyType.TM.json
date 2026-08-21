@@ -1,0 +1,130 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NonTransparentBackupRedundancyType",
+  "title": "OpcUaCore_NonTransparentBackupRedundancyType",
+  "dov:typeRef": "org.opcfoundation.UA.NonTransparentBackupRedundancyType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NonTransparentRedundancyType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "RedundantServerMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.RedundantServerMode",
+      "const": {
+        "PrimaryWithBackup": 0,
+        "PrimaryOnly": 1,
+        "BackupReady": 2,
+        "BackupNotReady": 3
+      },
+      "properties": {
+        "PrimaryWithBackup": {
+          "type": "integer"
+        },
+        "PrimaryOnly": {
+          "type": "integer"
+        },
+        "BackupReady": {
+          "type": "integer"
+        },
+        "BackupNotReady": {
+          "type": "integer"
+        }
+      }
+    },
+    "ServerState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerState",
+      "const": {
+        "Running": 0,
+        "Failed": 1,
+        "NoConfiguration": 2,
+        "Suspended": 3,
+        "Shutdown": 4,
+        "Test": 5,
+        "CommunicationFault": 6,
+        "Unknown": 7
+      },
+      "properties": {
+        "Running": {
+          "type": "integer"
+        },
+        "Failed": {
+          "type": "integer"
+        },
+        "NoConfiguration": {
+          "type": "integer"
+        },
+        "Suspended": {
+          "type": "integer"
+        },
+        "Shutdown": {
+          "type": "integer"
+        },
+        "Test": {
+          "type": "integer"
+        },
+        "CommunicationFault": {
+          "type": "integer"
+        },
+        "Unknown": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Failover": {}
+  },
+  "properties": {
+    "Mode": {
+      "title": "RedundantServerMode",
+      "dov:typeRef": "org.opcfoundation.UA.RedundantServerMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "RedundantServerArray": {
+      "type": "array",
+      "items": {
+        "title": "RedundantServerDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RedundantServerDataType",
+        "required": [
+          "ServerId",
+          "ServiceLevel",
+          "ServerState"
+        ],
+        "properties": {
+          "ServerId": {
+            "type": "string"
+          },
+          "ServiceLevel": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "ServerState": {
+            "title": "ServerState",
+            "dov:typeRef": "org.opcfoundation.UA.ServerState",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

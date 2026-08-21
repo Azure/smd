@@ -1,0 +1,191 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TrustListType",
+  "title": "OpcUaCore_TrustListType",
+  "dov:typeRef": "org.opcfoundation.UA.TrustListType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TrustListValidationOptions": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TrustListValidationOptions",
+      "const": {
+        "SuppressCertificateExpired": 0,
+        "SuppressHostNameInvalid": 1,
+        "SuppressRevocationStatusUnknown": 2,
+        "SuppressIssuerCertificateExpired": 3,
+        "SuppressIssuerRevocationStatusUnknown": 4,
+        "CheckRevocationStatusOnline": 5,
+        "CheckRevocationStatusOffline": 6
+      },
+      "properties": {
+        "SuppressCertificateExpired": {
+          "description": "Ignore errors related to the validity time of the Certificate.",
+          "type": "integer"
+        },
+        "SuppressHostNameInvalid": {
+          "description": "Ignore mismatches between the host name or ApplicationUri.",
+          "type": "integer"
+        },
+        "SuppressRevocationStatusUnknown": {
+          "description": "Ignore errors if the revocation list cannot be found for the issuer of the Certificate.",
+          "type": "integer"
+        },
+        "SuppressIssuerCertificateExpired": {
+          "description": "Ignore errors if an issuer has an expired Certificate.",
+          "type": "integer"
+        },
+        "SuppressIssuerRevocationStatusUnknown": {
+          "description": "Ignore errors if the revocation list cannot be found for any issuer of issuer Certificates.",
+          "type": "integer"
+        },
+        "CheckRevocationStatusOnline": {
+          "description": "Check the revocation status online.",
+          "type": "integer"
+        },
+        "CheckRevocationStatusOffline": {
+          "description": "Check the revocation status offline.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActivityTimeout",
+    "/properties/DefaultValidationOptions",
+    "/properties/UpdateFrequency"
+  ],
+  "actions": {
+    "AddCertificate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Certificate",
+          "IsTrustedCertificate"
+        ],
+        "properties": {
+          "Certificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "IsTrustedCertificate": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "CloseAndUpdate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileHandle"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ApplyChangesRequired"
+        ],
+        "properties": {
+          "ApplyChangesRequired": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "OpenWithMasks": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Masks"
+        ],
+        "properties": {
+          "Masks": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FileHandle"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "RemoveCertificate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Thumbprint",
+          "IsTrustedCertificate"
+        ],
+        "properties": {
+          "Thumbprint": {
+            "type": "string"
+          },
+          "IsTrustedCertificate": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActivityTimeout": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "DefaultValidationOptions": {
+      "title": "TrustListValidationOptions",
+      "dov:typeRef": "org.opcfoundation.UA.TrustListValidationOptions",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "LastUpdateTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "UpdateFrequency": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

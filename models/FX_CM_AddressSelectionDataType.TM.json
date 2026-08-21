@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_AddressSelectionDataType",
+  "title": "FX_CM_AddressSelectionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.AddressSelectionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AddressSelectionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.AddressSelectionDataType",
+      "required": [
+        "Address",
+        "AddressSelection",
+        "AddressModify"
+      ],
+      "properties": {
+        "Address": {
+          "title": "NetworkAddressDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+          "required": [
+            "NetworkInterface"
+          ],
+          "properties": {
+            "NetworkInterface": {
+              "type": "string"
+            }
+          }
+        },
+        "AddressSelection": {
+          "type": "array",
+          "items": {
+            "title": "NetworkAddressDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+            "required": [
+              "NetworkInterface"
+            ],
+            "properties": {
+              "NetworkInterface": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "AddressModify": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

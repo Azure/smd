@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnDeviceRoleOptionSet",
+  "title": "PROFINET_PnDeviceRoleOptionSet",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceRoleOptionSet",
+  "links": [],
+  "schemaDefinitions": {
+    "PnDeviceRoleOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceRoleOptionSet",
+      "const": {
+        "IO_DEVICE": 0,
+        "IO_CONTROLLER": 1,
+        "IO_MULTIDEVICE": 2,
+        "IO_SUPERVISOR": 3,
+        "IO_CIM": 4
+      },
+      "properties": {
+        "IO_DEVICE": {
+          "description": "The device contains an IO device interface.",
+          "type": "integer"
+        },
+        "IO_CONTROLLER": {
+          "description": "The device contains an IO controller interface.",
+          "type": "integer"
+        },
+        "IO_MULTIDEVICE": {
+          "description": "The device contains multiple IO device interfaces.",
+          "type": "integer"
+        },
+        "IO_SUPERVISOR": {
+          "description": "The device contains an IO supervisor interface.",
+          "type": "integer"
+        },
+        "IO_CIM": {
+          "description": "The device contains an CIM device interface.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

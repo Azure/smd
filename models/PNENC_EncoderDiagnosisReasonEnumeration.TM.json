@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderDiagnosisReasonEnumeration",
+  "title": "PNENC_EncoderDiagnosisReasonEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderDiagnosisReasonEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "EncoderDiagnosisReasonEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderDiagnosisReasonEnumeration",
+      "const": {
+        "ALL_DISAPPEARS": 0,
+        "APPEARS": 1,
+        "DISAPPEARS": 2,
+        "DISAPPEARS_OTHER_REMAIN": 3
+      },
+      "properties": {
+        "ALL_DISAPPEARS": {
+          "description": "No diagnosis condition of any severity is persisting",
+          "type": "integer"
+        },
+        "APPEARS": {
+          "description": "The diagnosis condition indicated arises and/or persists",
+          "type": "integer"
+        },
+        "DISAPPEARS": {
+          "description": "The diagnosis condition indicated does not longer persist. No diagnosis condition of the same severity is persisting for the affected channel",
+          "type": "integer"
+        },
+        "DISAPPEARS_OTHER_REMAIN": {
+          "description": "The diagnosis condition indicated does not longer persist. Other diagnosis conditions of the same severity are persisting",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_UserProfileType",
+  "title": "Glass_Flat_UserProfileType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.UserProfileType",
+  "links": [],
+  "schemaDefinitions": {
+    "UserProfileType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.UserProfileType",
+      "required": [
+        "Name",
+        "LoginTime",
+        "Language",
+        "MeasurementFormat",
+        "AccessLevel",
+        "OpcUaUser"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "LoginTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Language": {
+          "type": "string"
+        },
+        "MeasurementFormat": {
+          "type": "string"
+        },
+        "AccessLevel": {
+          "type": "string"
+        },
+        "OpcUaUser": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

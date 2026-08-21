@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioPaDigitalInputConfigDataType",
+  "title": "PNRIO_RioPaDigitalInputConfigDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalInputConfigDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RioPaDigitalInputConfigDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalInputConfigDataType",
+      "required": [
+        "SignalType",
+        "WireCheckEnabled",
+        "InversionEnabled",
+        "SubstitutePolicy",
+        "SubstituteValue"
+      ],
+      "properties": {
+        "SignalType": {
+          "title": "RioSignalTypeEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "WireCheckEnabled": {
+          "type": "boolean"
+        },
+        "InversionEnabled": {
+          "type": "boolean"
+        },
+        "SubstitutePolicy": {
+          "title": "RioSubstitutePolicyEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SubstituteValue": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

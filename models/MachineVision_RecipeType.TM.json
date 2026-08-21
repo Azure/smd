@@ -1,0 +1,264 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_RecipeType",
+  "title": "MachineVision_RecipeType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.RecipeType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Handle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/LinkProduct",
+    "/actions/UnlinkProduct",
+    "/properties/ExternalId",
+    "/properties/LinkedProducts"
+  ],
+  "actions": {
+    "LinkProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductId"
+        ],
+        "properties": {
+          "ProductId": {
+            "title": "ProductIdDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.MachineVision.ProductIdDataType",
+            "required": [
+              "Id"
+            ],
+            "properties": {
+              "Id": {
+                "description": "Id is a system-wide unique identifier/name for identifying the product.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "Optional short human readable description of the configuration",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Error"
+        ],
+        "properties": {
+          "Error": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Prepare": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "IsCompleted",
+          "Error"
+        ],
+        "properties": {
+          "IsCompleted": {
+            "type": "boolean"
+          },
+          "Error": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "UnlinkProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductId"
+        ],
+        "properties": {
+          "ProductId": {
+            "title": "ProductIdDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.MachineVision.ProductIdDataType",
+            "required": [
+              "Id"
+            ],
+            "properties": {
+              "Id": {
+                "description": "Id is a system-wide unique identifier/name for identifying the product.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "Optional short human readable description of the configuration",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Error"
+        ],
+        "properties": {
+          "Error": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Unprepare": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Error"
+        ],
+        "properties": {
+          "Error": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ExternalId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "BinaryIdBaseDataType",
+      "description": "Recipe ID for identifying the recipe outside the vision system. The ExternalID is only managed by the host system.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.RecipeIdExternalDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique name for identifying the recipe.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Represents an optional version number of the identified recipe. It is recommended to be of the format Major.minor.patch.build or a subset thereof, but the actual format is implementation defined.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Represents an optional hash of the binary content of the actual recipe (as it would be transmitted by the transfer methods). The hash is supposed to be provided by the environment if existing. The environment shall use the same hash function on all recipes so that a difference in the hash indicates a difference in the recipe. It is recommended to use the SHA-256 algorithm for computing the hash, however, the actual algorithm is implementation-defined.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "HashAlgorithm": {
+          "description": "Name of the hash function used. Required if internally and externally computed hashes are to be compared.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "InternalId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "BinaryIdBaseDataType",
+      "description": "System-wide unique ID for identifying a recipe. This ID is assigned by the vision system.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.RecipeIdInternalDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique name for identifying the recipe.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Represents an optional version number of the identified recipe. It is recommended to be of the format Major.minor.patch.build or a subset thereof, but the actual format is implementation defined.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Represents an optional hash of the binary content of the actual recipe (as it would be transmitted by the transfer methods). The hash is supposed to be provided by the environment if existing. The environment shall use the same hash function on all recipes so that a difference in the hash indicates a difference in the recipe. It is recommended to use the SHA-256 algorithm for computing the hash, however, the actual algorithm is implementation-defined.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "HashAlgorithm": {
+          "description": "Name of the hash function used. Required if internally and externally computed hashes are to be compared.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "IsPrepared": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "LastModified": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "description": "The time when this recipe was last modified.",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "LinkedProducts": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "type": "array",
+      "items": {
+        "title": "ProductIdDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.MachineVision.ProductIdDataType",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Id is a system-wide unique identifier/name for identifying the product.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "Optional short human readable description of the configuration",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

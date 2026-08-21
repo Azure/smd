@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionConfigurationSetOperation",
+  "title": "FX_CM_ConnectionConfigurationSetOperation",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionConfigurationSetOperation",
+  "links": [],
+  "schemaDefinitions": {
+    "ConnectionConfigurationSetOperation": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionConfigurationSetOperation",
+      "const": {
+        "ElementAdd": 0,
+        "ElementRemove": 1,
+        "ElementReplace": 2
+      },
+      "properties": {
+        "ElementAdd": {
+          "description": "The ConnectionConfigurationSet is added to the ConnectionManager configuration.",
+          "type": "integer"
+        },
+        "ElementRemove": {
+          "description": "The ConnectionConfigurationSet is removed from the ConnectionManager configuration.",
+          "type": "integer"
+        },
+        "ElementReplace": {
+          "description": "The ConnectionConfigurationSet is replaced in the ConnectionManager configuration.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_JobInformationType",
+  "title": "PlasticsRubber_GeneralTypes_JobInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobInformationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "ContinueAtJobEnd": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if the machine continues the production even if the nominal output has been reached",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "CustomerName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the customer for that the job is produced",
+      "type": "string",
+      "readOnly": true
+    },
+    "JobDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Description of the job",
+      "type": "string",
+      "readOnly": true
+    },
+    "JobName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the job",
+      "type": "string",
+      "readOnly": true
+    },
+    "Material": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Array of material names used for the job",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ProductDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Array of descriptions of the products produced by the job",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ProductionDatasetDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Additional description of the production dataset which is needed for the job",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductionDatasetName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the production dataset which is needed for the job",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Array of product names produced by the job",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

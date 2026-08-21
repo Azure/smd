@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_MachineConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.MachineConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ConveyorConfigurations",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MaterialSupport",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_MaterialSupportType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "GrindingUnit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "A property with 0:Boolean data type. Its value is 1 if a grinding unit is physically present in a foam cutting machine.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Knife": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "A property with 0:Boolean data type. Its value is 1 if is physically present in a foam cutting machine and is used for its normal operation.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

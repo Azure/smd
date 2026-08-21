@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioPaDigitalOutputConfigVariableType",
+  "title": "PNRIO_RioPaDigitalOutputConfigVariableType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalOutputConfigVariableType",
+  "links": [],
+  "schemaDefinitions": {
+    "RioPaDigitalOutputConfigVariableType": {
+      "title": "RioPaDigitalOutputConfigDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalOutputConfigVariableType",
+      "required": [
+        "SignalType",
+        "WireCheckEnabled",
+        "InversionEnabled",
+        "SubstitutePolicy",
+        "SubstituteValue",
+        "SubstituteTime"
+      ],
+      "properties": {
+        "SignalType": {
+          "title": "RioSignalTypeEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "WireCheckEnabled": {
+          "type": "boolean"
+        },
+        "InversionEnabled": {
+          "type": "boolean"
+        },
+        "SubstitutePolicy": {
+          "title": "RioSubstitutePolicyEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SubstituteValue": {
+          "type": "boolean"
+        },
+        "SubstituteTime": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

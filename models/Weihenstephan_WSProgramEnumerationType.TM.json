@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Weihenstephan/#Weihenstephan_WSProgramEnumerationType",
+  "title": "Weihenstephan_WSProgramEnumerationType",
+  "dov:typeRef": "org.opcfoundation.UA.Weihenstephan.WSProgramEnumerationType",
+  "links": [],
+  "schemaDefinitions": {
+    "WSProgramEnumerationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Weihenstephan.WSProgramEnumerationType",
+      "const": {
+        "Undefined__No_Program_": 0,
+        "Production": 1,
+        "Start_Up": 2,
+        "Run_Down": 4,
+        "Clean": 8,
+        "Changeover": 16,
+        "Maintenance": 32,
+        "Break": 64
+      },
+      "description": "The program is a consequent sequence of control instructions for a self-contained application-oriented function (DIN 19237). For bottling machines, bits or documented integer numbers must be used for machine operation with the following programs:",
+      "properties": {
+        "Undefined__No_Program_": {
+          "description": "A machine was turned on, but no program for a special application function has been selected. „Undefined“ may also be used to provide the information that a machine is ready for action, but not required („No Order, No Activity“)",
+          "type": "integer"
+        },
+        "Production": {
+          "description": "The machine is functioning as designed by the manufacturer.",
+          "type": "integer"
+        },
+        "Start_Up": {
+          "description": "Although the machine is functioning as designed by the manufacturer, it is running a start-up pro-gram which ensures full production after a warm-up period as stipulated by regulations or for safe-ty considerations, or in conjunction with container buffering machines.",
+          "type": "integer"
+        },
+        "Run_Down": {
+          "description": "Although the machine is functioning as designed by the manufacturer, it is running a stop program which ensures production stop after a run-down period as stipulated by regulations or for safety considerations, or in conjunction with container buffering machines.",
+          "type": "integer"
+        },
+        "Clean": {
+          "description": "The machine is running the cleaning program. This program can consist of program steps which can be controlled independently of each another, for example the program step “flush” for the filling or closing machine, or the program step “headspace disinfection” for the cleaning machine.",
+          "type": "integer"
+        },
+        "Changeover": {
+          "description": "The machine is running the changeover program in which automatic machine adjustments are made depending on specific parameters.",
+          "type": "integer"
+        },
+        "Maintenance": {
+          "description": "The machine is running the maintenance program in which the maintenance and service work are carried out.",
+          "type": "integer"
+        },
+        "Break": {
+          "description": "The machine is running the break program. This ensures there is start up of the machine in accordance with regulations after a break.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

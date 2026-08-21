@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/#PlasticsRubber_HotRunner_HeatUpType",
+  "title": "PlasticsRubber_HotRunner_HeatUpType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.HeatUpType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/EvenHeatUpEnabled",
+    "/properties/ManualOutputLimitActive",
+    "/properties/RelayHeatingGroup",
+    "/properties/RelayHeatingTime",
+    "/properties/SetValueManualOutputLimit",
+    "/properties/SetValueTemperature",
+    "/events/SetValueManualOutputLimit",
+    "/events/SetValueTemperature"
+  ],
+  "properties": {
+    "EvenHeatUpEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Enables even heat-up process until nominal SetValue of Temperature of ZoneType is reached",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "ManualOutputLimitActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Activates heat-up process with pre-defined SetValueManualOutputLimit until SetValueTemperature is reached",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "RelayHeatingGroup": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Number of the heating group for relay heating",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": false
+    },
+    "RelayHeatingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Time for relay heating of the zone. When RelayHeatingTime of all zones of a heating group have expired, the next group starts heating.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "SetValueManualOutputLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "This pre-defined maximum output (in percent) is valid until the SetValueTemperature is reached.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SetValueTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "If ManualOutputLimitActive is set, SetValueManualOutputLimit is active until this nominal temperature value is reached.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "SetValueManualOutputLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "This pre-defined maximum output (in percent) is valid until the SetValueTemperature is reached.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetValueTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "If ManualOutputLimitActive is set, SetValueManualOutputLimit is active until this nominal temperature value is reached.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

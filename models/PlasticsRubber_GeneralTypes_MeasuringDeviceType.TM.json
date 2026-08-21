@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDeviceType",
+  "title": "PlasticsRubber_GeneralTypes_MeasuringDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MeasuringDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Maintenance",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaintenanceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartDevice",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StartDeviceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ControlModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ControlModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "OFF": 1,
+        "AUTOMATIC": 2,
+        "TUNING": 3,
+        "STANDBY": 4,
+        "OPEN_LOOP": 5,
+        "ONLY_MEASUREMENT": 6
+      },
+      "description": "Indication how the parameter is currently controlled",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "OFF": {
+          "description": "Control is switched off",
+          "type": "integer"
+        },
+        "AUTOMATIC": {
+          "description": "The parameter is controlled automatically",
+          "type": "integer"
+        },
+        "TUNING": {
+          "description": "Optimisation of the control circuit",
+          "type": "integer"
+        },
+        "STANDBY": {
+          "description": "Parameter is controlled to stand by value",
+          "type": "integer"
+        },
+        "OPEN_LOOP": {
+          "description": "Open loop control is used",
+          "type": "integer"
+        },
+        "ONLY_MEASUREMENT": {
+          "description": "The sensors deliver the current value but there is no controlling",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Name",
+    "/properties/Position"
+  ],
+  "properties": {
+    "ControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "ControlModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ControlModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Position": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

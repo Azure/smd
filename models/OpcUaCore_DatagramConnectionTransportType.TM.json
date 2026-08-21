@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DatagramConnectionTransportType",
+  "title": "OpcUaCore_DatagramConnectionTransportType",
+  "dov:typeRef": "org.opcfoundation.UA.DatagramConnectionTransportType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConnectionTransportType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "DiscoveryAddress",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NetworkAddressType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DatagramQos",
+    "/properties/DiscoveryAnnounceRate",
+    "/properties/DiscoveryMaxMessageSize",
+    "/properties/QosCategory"
+  ],
+  "properties": {
+    "DatagramQos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "DiscoveryAnnounceRate": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "DiscoveryMaxMessageSize": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "QosCategory": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

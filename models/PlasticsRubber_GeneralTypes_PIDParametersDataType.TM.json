@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_PIDParametersDataType",
+  "title": "PlasticsRubber_GeneralTypes_PIDParametersDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.PIDParametersDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PIDParametersDataType": {
+      "description": "Structure for storing the parameters of a PID controller",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.PIDParametersDataType",
+      "required": [
+        "P",
+        "I",
+        "D"
+      ],
+      "properties": {
+        "P": {
+          "description": "Propotional gain",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "I": {
+          "description": "Integral gain",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "D": {
+          "description": "Derivative gain",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  }
+}

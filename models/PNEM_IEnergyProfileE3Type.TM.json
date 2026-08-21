@@ -1,0 +1,510 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_IEnergyProfileE3Type",
+  "title": "PNEM_IEnergyProfileE3Type",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.IEnergyProfileE3Type",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AcActiveEnergyTotalExportHp_EngineeringUnits",
+    "/properties/AcActiveEnergyTotalImportHp_EngineeringUnits",
+    "/properties/AcActivePower_EngineeringUnits",
+    "/properties/AcCurrent_EngineeringUnits",
+    "/properties/AcReactivePower_EngineeringUnits",
+    "/properties/AcVoltagePe_EngineeringUnits",
+    "/properties/AcVoltagePp_EngineeringUnits"
+  ],
+  "properties": {
+    "AcActiveEnergyTotalExportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalExportHp_EngineeringUnits"
+    },
+    "AcActiveEnergyTotalImportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalImportHp_EngineeringUnits"
+    },
+    "AcActivePower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "AcPeDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "B": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "C": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/AcActivePower_EngineeringUnits"
+    },
+    "AcCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "AcPeDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "B": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "C": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/AcCurrent_EngineeringUnits"
+    },
+    "AcPowerFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "AcPeDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "B": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "C": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false
+    },
+    "AcReactiveEnergyTotalExportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "AcReactiveEnergyTotalImportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "AcReactivePower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "AcPeDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "B": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "C": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ReactivePower",
+      "dov:withUnit": "properties/AcReactivePower_EngineeringUnits"
+    },
+    "AcVoltagePe": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "AcPeDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "B": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "C": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/AcVoltagePe_EngineeringUnits"
+    },
+    "AcVoltagePp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "AcPpDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPpDataType",
+      "required": [
+        "A_b",
+        "B_c",
+        "C_a"
+      ],
+      "properties": {
+        "A_b": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "B_c": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "C_a": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/AcVoltagePp_EngineeringUnits"
+    },
+    "AcActiveEnergyTotalExportHp_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcActiveEnergyTotalExportHp, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcActiveEnergyTotalImportHp_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcActiveEnergyTotalImportHp, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcActivePower_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcActivePower, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcCurrent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcCurrent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcReactivePower_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcReactivePower, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcVoltagePe_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcVoltagePe, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcVoltagePp_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcVoltagePp, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AcActiveEnergyTotalExportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalExportHp_EngineeringUnits"
+    },
+    "AcActiveEnergyTotalImportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalImportHp_EngineeringUnits"
+    },
+    "AcActivePower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "AcPeDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+        "required": [
+          "A",
+          "B",
+          "C"
+        ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "B": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "C": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/AcActivePower_EngineeringUnits"
+    },
+    "AcCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "AcPeDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+        "required": [
+          "A",
+          "B",
+          "C"
+        ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "B": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "C": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/AcCurrent_EngineeringUnits"
+    },
+    "AcPowerFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "AcPeDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+        "required": [
+          "A",
+          "B",
+          "C"
+        ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "B": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "C": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      }
+    },
+    "AcReactiveEnergyTotalExportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "AcReactiveEnergyTotalImportHp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "AcReactivePower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "AcPeDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+        "required": [
+          "A",
+          "B",
+          "C"
+        ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "B": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "C": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ReactivePower",
+      "dov:withUnit": "properties/AcReactivePower_EngineeringUnits"
+    },
+    "AcVoltagePe": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "AcPeDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPeDataType",
+        "required": [
+          "A",
+          "B",
+          "C"
+        ],
+        "properties": {
+          "A": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "B": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "C": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/AcVoltagePe_EngineeringUnits"
+    },
+    "AcVoltagePp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "AcPpDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.AcPpDataType",
+        "required": [
+          "A_b",
+          "B_c",
+          "C_a"
+        ],
+        "properties": {
+          "A_b": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "B_c": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "C_a": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/AcVoltagePp_EngineeringUnits"
+    }
+  }
+}

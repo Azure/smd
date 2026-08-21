@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PlantTrainType",
+  "title": "DEXPI_PlantTrainType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.PlantTrainType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/PlantTrainIdentificationCodeAssignmentClass",
+    "/properties/PlantTrainNameAssignmentClass",
+    "/events/PlantTrainIdentificationCodeAssignmentClass",
+    "/events/PlantTrainNameAssignmentClass"
+  ],
+  "properties": {
+    "PlantTrainIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code of the PlantTrain.",
+      "type": "string",
+      "readOnly": false
+    },
+    "PlantTrainNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The name of the PlantTrain.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "PlantTrainIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code of the PlantTrain.",
+        "type": "string"
+      }
+    },
+    "PlantTrainNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The name of the PlantTrain.",
+        "type": "string"
+      }
+    }
+  }
+}

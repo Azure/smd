@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UadpDataSetWriterMessageType",
+  "title": "OpcUaCore_UadpDataSetWriterMessageType",
+  "dov:typeRef": "org.opcfoundation.UA.UadpDataSetWriterMessageType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterMessageType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UadpDataSetMessageContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UadpDataSetMessageContentMask",
+      "const": {
+        "Timestamp": 0,
+        "PicoSeconds": 1,
+        "Status": 2,
+        "MajorVersion": 3,
+        "MinorVersion": 4,
+        "SequenceNumber": 5
+      },
+      "properties": {
+        "Timestamp": {
+          "type": "integer"
+        },
+        "PicoSeconds": {
+          "type": "integer"
+        },
+        "Status": {
+          "type": "integer"
+        },
+        "MajorVersion": {
+          "type": "integer"
+        },
+        "MinorVersion": {
+          "type": "integer"
+        },
+        "SequenceNumber": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConfiguredSize": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DataSetMessageContentMask": {
+      "title": "UadpDataSetMessageContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.UadpDataSetMessageContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DataSetOffset": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "NetworkMessageNumber": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

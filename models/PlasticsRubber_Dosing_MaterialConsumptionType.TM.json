@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_MaterialConsumptionType",
+  "title": "PlasticsRubber_Dosing_MaterialConsumptionType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.MaterialConsumptionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Scrap",
+    "/events/Scrap"
+  ],
+  "actions": {
+    "Reset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "The Method Reset resets the two counters TotalConsumption and Scrap."
+    }
+  },
+  "properties": {
+    "Scrap": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Total mass or volume of fed scrap since last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TotalConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Total mass or volume of fed material (good + scrap) since last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Scrap": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Total mass or volume of fed scrap since last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TotalConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Total mass or volume of fed material (good + scrap) since last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

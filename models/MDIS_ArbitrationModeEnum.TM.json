@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_ArbitrationModeEnum",
+  "title": "MDIS_ArbitrationModeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.ArbitrationModeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "ArbitrationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ArbitrationModeEnum",
+      "const": {
+        "Average": 1,
+        "DefaultA": 2,
+        "DefaultB": 4,
+        "ForceA": 8,
+        "ForceB": 16,
+        "High": 32,
+        "Low": 64
+      },
+      "properties": {
+        "Average": {
+          "description": "Build the average of both values (if both available)",
+          "type": "integer"
+        },
+        "DefaultA": {
+          "description": "Select SourceA (if available), else SourceB",
+          "type": "integer"
+        },
+        "DefaultB": {
+          "description": "Select SourceB (if available), else SourceA",
+          "type": "integer"
+        },
+        "ForceA": {
+          "description": "Always select SourceA",
+          "type": "integer"
+        },
+        "ForceB": {
+          "description": "Always select SourceB",
+          "type": "integer"
+        },
+        "High": {
+          "description": "Highest Value (for digital this is an OR operation)",
+          "type": "integer"
+        },
+        "Low": {
+          "description": "Lowest Value (for digital this is an AND operation)",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

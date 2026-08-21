@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnExpectedModuleType",
+  "title": "PROFINET_IPnExpectedModuleType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.IPnExpectedModuleType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnModuleType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Submodules",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnExpectedSubmoduleContainerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnModuleStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnModuleStateEnumeration",
+      "const": {
+        "NO_MODULE": 0,
+        "WRONG_MODULE": 1,
+        "PROPER_MODULE": 2,
+        "SUBSTITUTE": 3,
+        "OK": 4
+      },
+      "properties": {
+        "NO_MODULE": {
+          "description": "For example module not plugged",
+          "type": "integer"
+        },
+        "WRONG_MODULE": {
+          "description": "For example ModuleIdentNumber wrong",
+          "type": "integer"
+        },
+        "PROPER_MODULE": {
+          "description": "Module is okay but at least one submodule is locked, wrong or missing",
+          "type": "integer"
+        },
+        "SUBSTITUTE": {
+          "description": "Module is not the same as requested – but the IO device was able to adapt by its own knowledge",
+          "type": "integer"
+        },
+        "OK": {
+          "description": "Default state",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnModuleStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnModuleStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnModuleStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnModuleStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

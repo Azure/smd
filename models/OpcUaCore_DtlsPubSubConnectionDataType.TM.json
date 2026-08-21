@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DtlsPubSubConnectionDataType",
+  "title": "OpcUaCore_DtlsPubSubConnectionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.DtlsPubSubConnectionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DtlsPubSubConnectionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DtlsPubSubConnectionDataType",
+      "required": [
+        "ClientCipherSuite",
+        "ServerCipherSuites",
+        "ZeroRTT",
+        "CertificateGroupId",
+        "VerifyClientCertificate"
+      ],
+      "properties": {
+        "ClientCipherSuite": {
+          "type": "string"
+        },
+        "ServerCipherSuites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ZeroRTT": {
+          "type": "boolean"
+        },
+        "CertificateGroupId": {
+          "type": "string"
+        },
+        "VerifyClientCertificate": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

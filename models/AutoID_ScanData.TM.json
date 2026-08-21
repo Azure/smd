@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_ScanData",
+  "title": "AutoID_ScanData",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+  "links": [],
+  "schemaDefinitions": {
+    "ScanData": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+      "properties": {
+        "ByteString": {
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "String": {
+          "type": "string"
+        },
+        "Epc": {
+          "title": "ScanDataEpc",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanDataEpc",
+          "required": [
+            "PC",
+            "UId",
+            "XPC_W1",
+            "XPC_W2"
+          ],
+          "properties": {
+            "PC": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "UId": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "XPC_W1": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "XPC_W2": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        },
+        "Custom": {
+          "description": "Stand-in for an unspecified data type.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/OPENSCS-SER/#OPENSCS_SER_OPENSCSLabelDataType",
+  "title": "OPENSCS_SER_OPENSCSLabelDataType",
+  "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSLabelDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "OPENSCSLabelDataType": {
+      "description": "Defines a single serial number and label, which may be associated with an SID, and collection of properties in the form of OPENSCSKeyValueDataType. ",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSLabelDataType",
+      "required": [
+        "ID",
+        "LabelProperties"
+      ],
+      "properties": {
+        "ID": {
+          "description": "The serial number of the label in the SID or EPC format. ",
+          "type": "string"
+        },
+        "LabelProperties": {
+          "description": "An optional array of additional properties in the form of Key/Value pairs",
+          "type": "array",
+          "items": {
+            "title": "OPENSCSKeyValueDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSKeyValueDataType",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "description": "A string defining the key for the pair",
+                "type": "string"
+              },
+              "Value": {
+                "description": "A variant for the value of the pair structure",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

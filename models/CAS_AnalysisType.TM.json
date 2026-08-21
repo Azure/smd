@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_AnalysisType",
+  "title": "CAS_AnalysisType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.AnalysisType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "OutputFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/Trigger"
+  ],
+  "actions": {
+    "Trigger": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Triggers the analysis on the MCS in a compressed air system."
+    }
+  }
+}

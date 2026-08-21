@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IdentityCriteriaType",
+  "title": "OpcUaCore_IdentityCriteriaType",
+  "dov:typeRef": "org.opcfoundation.UA.IdentityCriteriaType",
+  "links": [],
+  "schemaDefinitions": {
+    "IdentityCriteriaType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IdentityCriteriaType",
+      "const": {
+        "UserName": 1,
+        "Thumbprint": 2,
+        "Role": 3,
+        "GroupId": 4,
+        "Anonymous": 5,
+        "AuthenticatedUser": 6,
+        "Application": 7,
+        "X509Subject": 8,
+        "TrustedApplication": 9
+      },
+      "properties": {
+        "UserName": {
+          "description": "The rule specifies a UserName from a UserNameIdentityToken.",
+          "type": "integer"
+        },
+        "Thumbprint": {
+          "description": "The rule specifies the Thumbprint of a user or CA Certificate.",
+          "type": "integer"
+        },
+        "Role": {
+          "description": "The rule is a Role specified in an Access Token.",
+          "type": "integer"
+        },
+        "GroupId": {
+          "description": "The rule is a user group specified in the Access Token.",
+          "type": "integer"
+        },
+        "Anonymous": {
+          "description": "The rule specifies Anonymous UserIdentityToken.",
+          "type": "integer"
+        },
+        "AuthenticatedUser": {
+          "description": "The rule specifies any non Anonymous UserIdentityToken.",
+          "type": "integer"
+        },
+        "Application": {
+          "description": "The rule specifies the combination of an application identity and an Anonymous UserIdentityToken.",
+          "type": "integer"
+        },
+        "X509Subject": {
+          "description": "The rule specifies the X509 subject name of a user or CA Certificate.",
+          "type": "integer"
+        },
+        "TrustedApplication": {
+          "description": "The rule specifies any trusted application that has been authenticated with a trusted ApplicationInstance Certificate.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

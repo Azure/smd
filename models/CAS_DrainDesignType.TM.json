@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_DrainDesignType",
+  "title": "CAS_DrainDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.DrainDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_DesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DrainTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.DrainTypeEnum",
+      "const": {
+        "Other": 0,
+        "CapacitiveDrain": 1,
+        "LevelControlledDrain": 2,
+        "TimedDrain": 3
+      },
+      "description": "possible condensate drain types",
+      "properties": {
+        "Other": {
+          "description": "Not specified in this enumeration",
+          "type": "integer"
+        },
+        "CapacitiveDrain": {
+          "description": "Capacitive drain",
+          "type": "integer"
+        },
+        "LevelControlledDrain": {
+          "description": "Level controlled drain",
+          "type": "integer"
+        },
+        "TimedDrain": {
+          "description": "Timed drain",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ComponentClass",
+    "/events/ComponentClass"
+  ],
+  "properties": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "DrainTypeEnum",
+      "description": "Enumeration of possible condensate drain types.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.DrainTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "DrainTypeEnum",
+        "description": "Enumeration of possible condensate drain types.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.DrainTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

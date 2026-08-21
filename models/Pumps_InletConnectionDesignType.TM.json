@@ -1,0 +1,258 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_InletConnectionDesignType",
+  "title": "Pumps_InletConnectionDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.InletConnectionDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_ConnectionDesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CriticalBackingPressure",
+    "/properties/InletAreaOfThePump",
+    "/properties/MaximumAllowableInletPressure",
+    "/properties/MaximumTolerableWaterVaporInletPressure",
+    "/properties/MaximumWorkingPressure",
+    "/properties/MinimumAllowableInletPressure",
+    "/properties/NetPositiveInletPressureRequired",
+    "/properties/WaterVaporCapacity",
+    "/properties/CriticalBackingPressure_EngineeringUnits",
+    "/properties/InletAreaOfThePump_EngineeringUnits",
+    "/properties/MaximumAllowableInletPressure_EngineeringUnits",
+    "/properties/MaximumTolerableWaterVaporInletPressure_EngineeringUnits",
+    "/properties/MaximumWorkingPressure_EngineeringUnits",
+    "/properties/MinimumAllowableInletPressure_EngineeringUnits",
+    "/properties/NetPositiveInletPressureRequired_EngineeringUnits",
+    "/properties/WaterVaporCapacity_EngineeringUnits",
+    "/events/CriticalBackingPressure",
+    "/events/InletAreaOfThePump",
+    "/events/MaximumAllowableInletPressure",
+    "/events/MaximumTolerableWaterVaporInletPressure",
+    "/events/MaximumWorkingPressure",
+    "/events/MinimumAllowableInletPressure",
+    "/events/NetPositiveInletPressureRequired",
+    "/events/WaterVaporCapacity"
+  ],
+  "properties": {
+    "CriticalBackingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Maximum backing pressure for which the conditions are defined in the instruction manual or in a specific standard for the particular vacuum pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/CriticalBackingPressure_EngineeringUnits"
+    },
+    "InletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Free cross-sectional area of the entry opening in the inlet connection of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Area",
+      "dov:withUnit": "properties/InletAreaOfThePump_EngineeringUnits"
+    },
+    "MaximumAllowableInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest value of inlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableInletPressure_EngineeringUnits"
+    },
+    "MaximumTolerableWaterVaporInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The highest water vapor inlet pressure at which a gas ballast pump, under normal ambient conditions, can pump and exhaust pure water vapor in continuous Operation.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumTolerableWaterVaporInletPressure_EngineeringUnits"
+    },
+    "MaximumWorkingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "instantaneous inlet pressure with adequate margin above the minimum liquid vapor pressure expected.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumWorkingPressure_EngineeringUnits"
+    },
+    "MinimumAllowableInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest value of inlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumAllowableInletPressure_EngineeringUnits"
+    },
+    "NetPositiveInletPressureRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Total inlet pressure required to ensure there is enough margin to maintain the minimum.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/NetPositiveInletPressureRequired_EngineeringUnits"
+    },
+    "WaterVaporCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Mass of water which can be conveyed by the pump without condensation per time.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MassFlowRate",
+      "dov:withUnit": "properties/WaterVaporCapacity_EngineeringUnits"
+    },
+    "CriticalBackingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name CriticalBackingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "InletAreaOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name InletAreaOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableInletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableInletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumTolerableWaterVaporInletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumTolerableWaterVaporInletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumWorkingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumWorkingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableInletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableInletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NetPositiveInletPressureRequired_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NetPositiveInletPressureRequired, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "WaterVaporCapacity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name WaterVaporCapacity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CriticalBackingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Maximum backing pressure for which the conditions are defined in the instruction manual or in a specific standard for the particular vacuum pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/CriticalBackingPressure_EngineeringUnits"
+    },
+    "InletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Free cross-sectional area of the entry opening in the inlet connection of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Area",
+      "dov:withUnit": "properties/InletAreaOfThePump_EngineeringUnits"
+    },
+    "MaximumAllowableInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest value of inlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableInletPressure_EngineeringUnits"
+    },
+    "MaximumTolerableWaterVaporInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The highest water vapor inlet pressure at which a gas ballast pump, under normal ambient conditions, can pump and exhaust pure water vapor in continuous Operation.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumTolerableWaterVaporInletPressure_EngineeringUnits"
+    },
+    "MaximumWorkingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "instantaneous inlet pressure with adequate margin above the minimum liquid vapor pressure expected.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumWorkingPressure_EngineeringUnits"
+    },
+    "MinimumAllowableInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest value of inlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumAllowableInletPressure_EngineeringUnits"
+    },
+    "NetPositiveInletPressureRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Total inlet pressure required to ensure there is enough margin to maintain the minimum.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/NetPositiveInletPressureRequired_EngineeringUnits"
+    },
+    "WaterVaporCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Mass of water which can be conveyed by the pump without condensation per time.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MassFlowRate",
+      "dov:withUnit": "properties/WaterVaporCapacity_EngineeringUnits"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnSubmoduleStateType",
+  "title": "PROFINET_PnSubmoduleStateType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleStateType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnSubmoduleARInfoEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleARInfoEnumeration",
+      "const": {
+        "OWN": 0,
+        "APPLICATION_READY_PENDING": 128,
+        "SUPERORDINATED_LOCKED": 256,
+        "LOCKED_BY_IO_CONTROLLER": 384,
+        "LOCKED_BY_IO_SUPERVISOR": 512
+      },
+      "properties": {
+        "OWN": {
+          "description": "This AR is owner of the submodule",
+          "type": "integer"
+        },
+        "APPLICATION_READY_PENDING": {
+          "description": "This AR is owner of the submodule but it is blocked. For example parameter checking pending",
+          "type": "integer"
+        },
+        "SUPERORDINATED_LOCKED": {
+          "description": "This AR is not owner of the submodule. It is blocked by superordinated means",
+          "type": "integer"
+        },
+        "LOCKED_BY_IO_CONTROLLER": {
+          "description": "This AR is not owner of the submodule. It is owned by another IOAR",
+          "type": "integer"
+        },
+        "LOCKED_BY_IO_SUPERVISOR": {
+          "description": "This AR is not owner of the submodule. It is owned by another IOSAR",
+          "type": "integer"
+        }
+      }
+    },
+    "PnSubmoduleAddInfoEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleAddInfoEnumeration",
+      "const": {
+        "NO_ADD_INFO": 0,
+        "TAKEOVER_NOT_ALLOWED": 1
+      },
+      "properties": {
+        "NO_ADD_INFO": {
+          "type": "integer"
+        },
+        "TAKEOVER_NOT_ALLOWED": {
+          "description": "This Submodule is not available for takeover by IOSAR.",
+          "type": "integer"
+        }
+      }
+    },
+    "PnSubmoduleIdentInfoEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleIdentInfoEnumeration",
+      "const": {
+        "OK": 0,
+        "SUBSTITUTE": 2048,
+        "WRONG": 4096,
+        "NO_SUBMODULE": 6144
+      },
+      "properties": {
+        "OK": {
+          "description": "OK",
+          "type": "integer"
+        },
+        "SUBSTITUTE": {
+          "description": "Substitute (SU)",
+          "type": "integer"
+        },
+        "WRONG": {
+          "description": "Wrong (WR)",
+          "type": "integer"
+        },
+        "NO_SUBMODULE": {
+          "description": "NoSubmodule (NO)",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/AddInfo",
+    "/properties/ARInfo",
+    "/properties/DiagInfo",
+    "/properties/IdentInfo",
+    "/properties/MaintenanceDemanded",
+    "/properties/MaintenanceRequired",
+    "/properties/QualifiedInfo",
+    "/events/AddInfo",
+    "/events/ARInfo",
+    "/events/DiagInfo",
+    "/events/IdentInfo",
+    "/events/MaintenanceDemanded",
+    "/events/MaintenanceRequired",
+    "/events/QualifiedInfo"
+  ],
+  "properties": {
+    "AddInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnSubmoduleAddInfoEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleAddInfoEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ARInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnSubmoduleARInfoEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleARInfoEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DiagInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IdentInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnSubmoduleIdentInfoEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleIdentInfoEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaintenanceDemanded": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaintenanceRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "QualifiedInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AddInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnSubmoduleAddInfoEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleAddInfoEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ARInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnSubmoduleARInfoEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleARInfoEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DiagInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IdentInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnSubmoduleIdentInfoEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleIdentInfoEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "MaintenanceDemanded": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "MaintenanceRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "QualifiedInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

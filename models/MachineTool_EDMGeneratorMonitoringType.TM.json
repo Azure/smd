@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_EDMGeneratorMonitoringType",
+  "title": "MachineTool_EDMGeneratorMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.EDMGeneratorMonitoringType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_WorkingUnitMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EDMGeneratorState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.EDMGeneratorState",
+      "const": {
+        "Undefined": 0,
+        "Ready": 1,
+        "Active_Low_Voltage": 2,
+        "Active_High_Voltage": 3,
+        "Error": 4
+      },
+      "properties": {
+        "Undefined": {
+          "description": "The EDM spark generator state cannot be indicated.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Generator is initialized and can receive a set of technology parameters.",
+          "type": "integer"
+        },
+        "Active_Low_Voltage": {
+          "description": "Generator is switched on and is supplying pulses respecting the low voltage (≤ 25 V AC or ≤ 60 V DC) requirements of safety standard (ISO 28881).",
+          "type": "integer"
+        },
+        "Active_High_Voltage": {
+          "description": "Generator is switched on and is supplying pulse at high voltage (> 25 V AC or > 60 V DC).",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "Generator is in an error state.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "EDMGeneratorState": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "title": "EDMGeneratorState",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.EDMGeneratorState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IsOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "EDMGeneratorState": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "title": "EDMGeneratorState",
+        "dov:typeRef": "org.opcfoundation.UA.MachineTool.EDMGeneratorState",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "IsOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

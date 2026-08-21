@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_LogbookEventType",
+  "title": "PlasticsRubber_GeneralTypes_LogbookEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.LogbookEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "User",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UserType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EventOriginatorEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.EventOriginatorEnumeration",
+      "const": {
+        "OTHER": 0,
+        "MACHINE": 1,
+        "OPERATOR": 2,
+        "MES": 3,
+        "PERIPHERAL_DEVICE": 4
+      },
+      "description": "Originator of an event",
+      "properties": {
+        "OTHER": {
+          "description": "Undefined",
+          "type": "integer"
+        },
+        "MACHINE": {
+          "description": "The machine causes the event (e.g. an alarm)",
+          "type": "integer"
+        },
+        "OPERATOR": {
+          "description": "The operator of the machine causes the event (e.g. a parameter change)",
+          "type": "integer"
+        },
+        "MES": {
+          "description": "The MES causes the event (e.g. a MESMessage)",
+          "type": "integer"
+        },
+        "PERIPHERAL_DEVICE": {
+          "description": "A peripheral device causes the event (e.g. an alarm)",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/JobCycleCounter"
+  ],
+  "properties": {
+    "EventOriginator": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "EventOriginatorEnumeration",
+      "description": "Originator of a logbook event",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.EventOriginatorEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "JobCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Current value of JobCycleCounter in the ActiveJobValues Object when the event is fired. Only to be used for cyclic production",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    }
+  }
+}

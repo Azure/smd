@@ -1,0 +1,287 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_SecurityKeyServerAddressConfDataType",
+  "title": "FX_CM_SecurityKeyServerAddressConfDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.SecurityKeyServerAddressConfDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SecurityKeyServerAddressConfDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.SecurityKeyServerAddressConfDataType",
+      "required": [
+        "Address",
+        "SecurityPolicyUri",
+        "ServerUri",
+        "UsePushModel"
+      ],
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "AddressSelection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AddressModify": {
+          "type": "boolean"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        },
+        "SecurityPolicyUriSelection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SecurityPolicyUriModify": {
+          "type": "boolean"
+        },
+        "ServerUri": {
+          "type": "string"
+        },
+        "ServerUriSelection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ServerUriModify": {
+          "type": "boolean"
+        },
+        "UsePushModel": {
+          "type": "boolean"
+        },
+        "SecurityGroups": {
+          "type": "array",
+          "items": {
+            "title": "SecurityGroupDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SecurityGroupDataType",
+            "required": [
+              "Name",
+              "SecurityGroupFolder",
+              "KeyLifetime",
+              "SecurityPolicyUri",
+              "MaxFutureKeyCount",
+              "MaxPastKeyCount",
+              "SecurityGroupId",
+              "RolePermissions",
+              "GroupProperties"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "SecurityGroupFolder": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "KeyLifetime": {
+                "type": "string",
+                "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+              },
+              "SecurityPolicyUri": {
+                "type": "string"
+              },
+              "MaxFutureKeyCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MaxPastKeyCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "SecurityGroupId": {
+                "type": "string"
+              },
+              "RolePermissions": {
+                "type": "array",
+                "items": {
+                  "title": "RolePermissionType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.RolePermissionType",
+                  "required": [
+                    "RoleId",
+                    "Permissions"
+                  ],
+                  "properties": {
+                    "RoleId": {
+                      "type": "string"
+                    },
+                    "Permissions": {
+                      "title": "PermissionType",
+                      "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    }
+                  }
+                }
+              },
+              "GroupProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "PubSubKeyPushTargets": {
+          "type": "array",
+          "items": {
+            "title": "PubSubKeyPushTargetDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PubSubKeyPushTargetDataType",
+            "required": [
+              "ApplicationUri",
+              "PushTargetFolder",
+              "EndpointUrl",
+              "SecurityPolicyUri",
+              "UserTokenType",
+              "RequestedKeyCount",
+              "RetryInterval",
+              "PushTargetProperties",
+              "SecurityGroups"
+            ],
+            "properties": {
+              "ApplicationUri": {
+                "type": "string"
+              },
+              "PushTargetFolder": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "EndpointUrl": {
+                "type": "string"
+              },
+              "SecurityPolicyUri": {
+                "type": "string"
+              },
+              "UserTokenType": {
+                "title": "UserTokenPolicy",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+                "required": [
+                  "PolicyId",
+                  "TokenType",
+                  "IssuedTokenType",
+                  "IssuerEndpointUrl",
+                  "SecurityPolicyUri"
+                ],
+                "properties": {
+                  "PolicyId": {
+                    "type": "string"
+                  },
+                  "TokenType": {
+                    "title": "UserTokenType",
+                    "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "IssuedTokenType": {
+                    "type": "string"
+                  },
+                  "IssuerEndpointUrl": {
+                    "type": "string"
+                  },
+                  "SecurityPolicyUri": {
+                    "type": "string"
+                  }
+                }
+              },
+              "RequestedKeyCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "RetryInterval": {
+                "type": "string",
+                "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+              },
+              "PushTargetProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "SecurityGroups": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "SksProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

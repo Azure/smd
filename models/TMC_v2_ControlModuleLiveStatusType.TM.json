@@ -1,0 +1,481 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleLiveStatusType",
+  "title": "TMC_v2_ControlModuleLiveStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModuleLiveStatusType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Alarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Data",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Interlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Measurements",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ProcessControlLoops",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "StateMachine",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CommandEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
+      "const": {
+        "Abort": 0,
+        "Start": 1,
+        "Stop": 2,
+        "Reset": 3,
+        "Hold": 4,
+        "Unhold": 5,
+        "Clear": 6,
+        "Suspend": 7,
+        "Unsuspend": 8
+      },
+      "description": "The CommandEnumeration provides standardized commands that can be sent to a state machine.",
+      "properties": {
+        "Abort": {
+          "description": "The Abort command.",
+          "type": "integer"
+        },
+        "Start": {
+          "description": "The Start command.",
+          "type": "integer"
+        },
+        "Stop": {
+          "description": "The Stop command.",
+          "type": "integer"
+        },
+        "Reset": {
+          "description": "The Reset command.",
+          "type": "integer"
+        },
+        "Hold": {
+          "description": "The Hold command.",
+          "type": "integer"
+        },
+        "Unhold": {
+          "description": "The Unhold command.",
+          "type": "integer"
+        },
+        "Clear": {
+          "description": "The Clear command.",
+          "type": "integer"
+        },
+        "Suspend": {
+          "description": "The Suspend command.",
+          "type": "integer"
+        },
+        "Unsuspend": {
+          "description": "The Unsuspend command.",
+          "type": "integer"
+        }
+      }
+    },
+    "ControlModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "PRODUCTION": 1,
+        "MAINTENANCE": 2,
+        "MANUAL": 3,
+        "CHANGE_OVER": 4,
+        "CLEAN": 5,
+        "SET_UP": 6,
+        "EMPTY_OUT": 7,
+        "REMOTE_SERVICE": 8
+      },
+      "description": "The ControlModeEnumeration contains the PackML modes of operation of a machine.",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if no other state below applies.",
+          "type": "integer"
+        },
+        "PRODUCTION": {
+          "description": "Primary Mode used for all production activities, All PackML model states will be utilized. The unit/machine executes relevant logic in response to commands which are mainly coming from External Systems, or entered directly by the operator.",
+          "type": "integer"
+        },
+        "MAINTENANCE": {
+          "description": "Used for routine preventive Maintenance or planned maintenance. Shall be utilized to document planned maintenance occurrence and duration. This mode allows authorized personnel to run the unit/machine independent of other systems. This mode would typically be used for fault finding, machine trials, or testing operational improvements. For example: The cleaning of a print head is maintenance.",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "Used for fault diagnosis of unplanned technical intervention.",
+          "type": "integer"
+        },
+        "CHANGE_OVER": {
+          "description": "Used specifically for format or recipe change over, includes “cleaning” operations.",
+          "type": "integer"
+        },
+        "CLEAN": {
+          "description": "Used for Routine Cleaning requirements example: as specified by factory maintenance procedures.",
+          "type": "integer"
+        },
+        "SET_UP": {
+          "description": "Used for set up or adjustments example: mechanical adjustments and testing.",
+          "type": "integer"
+        },
+        "EMPTY_OUT": {
+          "description": "Used to empty out machine example: end of a block of shifts prior to factory weekend shut down, empty out resident product within the machine that could be sent to finished product and minimize part finished “rework”.",
+          "type": "integer"
+        },
+        "REMOTE_SERVICE": {
+          "description": "Used when the machine is serviced remotely, which is a form of remote maintenance. Remark. The Remote Service mode fulfil the safety requirements of the harmonized norm EN415-10:2011 (Safety of packaging machines).",
+          "type": "integer"
+        }
+      }
+    },
+    "StateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StateEnumeration",
+      "const": {
+        "Stopped": 0,
+        "Resetting": 1,
+        "Idle": 2,
+        "Starting": 3,
+        "Execute": 4,
+        "Completing": 5,
+        "Complete": 6,
+        "Aborting": 7,
+        "Aborted": 8,
+        "Stopping": 9,
+        "Clearing": 10,
+        "Suspending": 11,
+        "Suspended": 12,
+        "Unsuspending": 13,
+        "Holding": 14,
+        "Held": 15,
+        "Unholding": 16
+      },
+      "description": "The StateEnumeration contains the PackML states for a machine.",
+      "properties": {
+        "Stopped": {
+          "description": "The state of the machine module is stopped.",
+          "type": "integer"
+        },
+        "Resetting": {
+          "description": "The state of the machine module is resetting.",
+          "type": "integer"
+        },
+        "Idle": {
+          "description": "The state of the machine module is idle.",
+          "type": "integer"
+        },
+        "Starting": {
+          "description": "The state of the machine module is starting.",
+          "type": "integer"
+        },
+        "Execute": {
+          "description": "The state of the machine module is execute.",
+          "type": "integer"
+        },
+        "Completing": {
+          "description": "The state of the machine module is completing.",
+          "type": "integer"
+        },
+        "Complete": {
+          "description": "The state of the machine module is complete.",
+          "type": "integer"
+        },
+        "Aborting": {
+          "description": "The state of the machine module is aborting.",
+          "type": "integer"
+        },
+        "Aborted": {
+          "description": "The state of the machine module is aborted.",
+          "type": "integer"
+        },
+        "Stopping": {
+          "description": "The state of the machine module is stopping.",
+          "type": "integer"
+        },
+        "Clearing": {
+          "description": "The state of the machine module is clearing.",
+          "type": "integer"
+        },
+        "Suspending": {
+          "description": "The state of the machine module is suspending.",
+          "type": "integer"
+        },
+        "Suspended": {
+          "description": "The state of the machine module is suspended.",
+          "type": "integer"
+        },
+        "Unsuspending": {
+          "description": "The state of the machine module is unsuspending. ",
+          "type": "integer"
+        },
+        "Holding": {
+          "description": "The state of the machine module is holding.",
+          "type": "integer"
+        },
+        "Held": {
+          "description": "The state of the machine module is held.",
+          "type": "integer"
+        },
+        "Unholding": {
+          "description": "The state of the machine module is unholding.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AcknowledgeAlarms",
+    "/actions/SendCommand",
+    "/actions/SetControlMode"
+  ],
+  "actions": {
+    "AcknowledgeAlarms": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The AcknowledgeAlarms Method acknowledges the alarms of the control module.",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SendCommand": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Method SendCommand sends a command to change the state of the control module state  machine remotely.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Command"
+        ],
+        "properties": {
+          "Command": {
+            "title": "CommandEnumeration",
+            "description": "The command to be sent to the machine module.",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.CommandEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The SetControlMode Method sets the control mode of the control module.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ControlMode"
+        ],
+        "properties": {
+          "ControlMode": {
+            "title": "ControlModeEnumeration",
+            "description": "The control mode to be set to the machine module.",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "ControlModeEnumeration",
+      "description": "The ControlMode describes the current control mode of the equipment module.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "StateEnumeration",
+      "description": "The State Property describes the status of the state machine controlling the control module. State provides  a subset of the information of the state machine, when the latter is implemented.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

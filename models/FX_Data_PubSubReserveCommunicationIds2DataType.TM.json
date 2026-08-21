@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_PubSubReserveCommunicationIds2DataType",
+  "title": "FX_Data_PubSubReserveCommunicationIds2DataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubReserveCommunicationIds2DataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PubSubReserveCommunicationIds2DataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubReserveCommunicationIds2DataType",
+      "required": [
+        "TransportProfileUri",
+        "NumReqWriterGroupIds",
+        "NumReqDataSetWriterIds",
+        "RequestTransportSpecificInfo"
+      ],
+      "properties": {
+        "TransportProfileUri": {
+          "type": "string"
+        },
+        "NumReqWriterGroupIds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "NumReqDataSetWriterIds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "RequestTransportSpecificInfo": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

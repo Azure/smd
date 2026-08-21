@@ -1,0 +1,625 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_DishWashingMachineProgramParameterType",
+  "title": "CommercialKitchenEquipment_DishWashingMachineProgramParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.DishWashingMachineProgramParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "HygieneModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.HygieneModeEnumeration",
+      "const": {
+        "HygieneOperationOFF": 0,
+        "HygieneA0": 1,
+        "HygieneHUE": 2,
+        "HygieneMU": 3,
+        "HygieneThermolable": 4,
+        "HygieneA0_TD": 5
+      },
+      "properties": {
+        "HygieneOperationOFF": {
+          "type": "integer"
+        },
+        "HygieneA0": {
+          "type": "integer"
+        },
+        "HygieneHUE": {
+          "type": "integer"
+        },
+        "HygieneMU": {
+          "type": "integer"
+        },
+        "HygieneThermolable": {
+          "type": "integer"
+        },
+        "HygieneA0_TD": {
+          "type": "integer"
+        }
+      }
+    },
+    "OperationModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.OperationModeEnumeration",
+      "const": {
+        "Init": 0,
+        "MachineOff": 1,
+        "Filling": 2,
+        "FillingHeating": 3,
+        "Heating": 4,
+        "EnableOperation": 5,
+        "ReadyForOperation": 6,
+        "Operation": 7,
+        "Cycle_pause": 8,
+        "NotDefined1": 9,
+        "SelfCleaning": 10,
+        "NotDefined2": 11,
+        "RemoteControl": 12,
+        "ControllingOutputs": 13,
+        "NotDefined3": 14,
+        "Error": 15
+      },
+      "properties": {
+        "Init": {
+          "type": "integer"
+        },
+        "MachineOff": {
+          "type": "integer"
+        },
+        "Filling": {
+          "type": "integer"
+        },
+        "FillingHeating": {
+          "type": "integer"
+        },
+        "Heating": {
+          "type": "integer"
+        },
+        "EnableOperation": {
+          "type": "integer"
+        },
+        "ReadyForOperation": {
+          "type": "integer"
+        },
+        "Operation": {
+          "type": "integer"
+        },
+        "Cycle_pause": {
+          "type": "integer"
+        },
+        "NotDefined1": {
+          "type": "integer"
+        },
+        "SelfCleaning": {
+          "type": "integer"
+        },
+        "NotDefined2": {
+          "type": "integer"
+        },
+        "RemoteControl": {
+          "type": "integer"
+        },
+        "ControllingOutputs": {
+          "type": "integer"
+        },
+        "NotDefined3": {
+          "type": "integer"
+        },
+        "Error": {
+          "type": "integer"
+        }
+      }
+    },
+    "ProgramModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.ProgramModeEnumeration",
+      "const": {
+        "OperationOFF": 0,
+        "PreWash": 1,
+        "Cleaning1": 2,
+        "WashTimeIncreased": 3,
+        "Cleaning2": 4,
+        "DrainingPause": 5,
+        "Draining": 6,
+        "FinalRinse": 7,
+        "WaitingTime": 8,
+        "HeatRecovery": 9
+      },
+      "properties": {
+        "OperationOFF": {
+          "type": "integer"
+        },
+        "PreWash": {
+          "type": "integer"
+        },
+        "Cleaning1": {
+          "type": "integer"
+        },
+        "WashTimeIncreased": {
+          "type": "integer"
+        },
+        "Cleaning2": {
+          "type": "integer"
+        },
+        "DrainingPause": {
+          "type": "integer"
+        },
+        "Draining": {
+          "type": "integer"
+        },
+        "FinalRinse": {
+          "type": "integer"
+        },
+        "WaitingTime": {
+          "type": "integer"
+        },
+        "HeatRecovery": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActualHygieneValue",
+    "/properties/HygieneMode",
+    "/properties/HygieneSetpoint",
+    "/properties/ProductGroup",
+    "/properties/ProductType",
+    "/properties/ProgramMode",
+    "/properties/ActualFinalRinseTemperature_No__EngineeringUnits",
+    "/properties/ActualMainTankTemperature_No__EngineeringUnits",
+    "/properties/ActualPreTankTemperature_No__EngineeringUnits",
+    "/properties/ActualPumpedFinalRinseTemperature_No__EngineeringUnits",
+    "/properties/FinalRinseTemperatureSetpoint_No__EngineeringUnits",
+    "/properties/MainTankTemperatureSetpoint_No__EngineeringUnits",
+    "/properties/PreTankTemperatureSetpoint_No__EngineeringUnits",
+    "/properties/PumpedFinalRinseTemperatureSetpoint_No__EngineeringUnits",
+    "/events/ActualHygieneValue",
+    "/events/HygieneMode",
+    "/events/HygieneSetpoint",
+    "/events/ProgramMode"
+  ],
+  "properties": {
+    "ActualFinalRinseTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualFinalRinseTemperature_No__EngineeringUnits"
+    },
+    "ActualFinalRinseTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ActualHygieneValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ActualMainTankTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualMainTankTemperature_No__EngineeringUnits"
+    },
+    "ActualMainTankTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ActualPreTankTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualPreTankTemperature_No__EngineeringUnits"
+    },
+    "ActualPreTankTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ActualPumpedFinalRinseTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualPumpedFinalRinseTemperature_No__EngineeringUnits"
+    },
+    "ActualPumpedFinalRinseTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "FinalRinseTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/FinalRinseTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "FinalRinseTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "HygieneMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "HygieneModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.HygieneModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "HygieneSetpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MainTankTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MainTankTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "MainTankTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "OperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "OperationModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.OperationModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PreTankTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/PreTankTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "PreTankTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ProductGroup": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductType": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "ProgramMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "ProgramModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.ProgramModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PumpedFinalRinseTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/PumpedFinalRinseTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "PumpedFinalRinseTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ActualFinalRinseTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualFinalRinseTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualMainTankTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualMainTankTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualPreTankTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualPreTankTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualPumpedFinalRinseTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualPumpedFinalRinseTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "FinalRinseTemperatureSetpoint_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name FinalRinseTemperatureSetpoint_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MainTankTemperatureSetpoint_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name MainTankTemperatureSetpoint_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PreTankTemperatureSetpoint_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name PreTankTemperatureSetpoint_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PumpedFinalRinseTemperatureSetpoint_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpedFinalRinseTemperatureSetpoint_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualFinalRinseTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualFinalRinseTemperature_No__EngineeringUnits"
+    },
+    "ActualFinalRinseTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ActualHygieneValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ActualMainTankTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualMainTankTemperature_No__EngineeringUnits"
+    },
+    "ActualMainTankTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ActualPreTankTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualPreTankTemperature_No__EngineeringUnits"
+    },
+    "ActualPreTankTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ActualPumpedFinalRinseTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualPumpedFinalRinseTemperature_No__EngineeringUnits"
+    },
+    "ActualPumpedFinalRinseTemperatureNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "FinalRinseTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/FinalRinseTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "FinalRinseTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "HygieneMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "HygieneModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.HygieneModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "HygieneSetpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "MainTankTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MainTankTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "MainTankTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "OperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "OperationModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.OperationModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PreTankTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/PreTankTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "PreTankTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ProgramMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "ProgramModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.ProgramModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PumpedFinalRinseTemperatureSetpoint_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/PumpedFinalRinseTemperatureSetpoint_No__EngineeringUnits"
+    },
+    "PumpedFinalRinseTemperatureSetpointNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

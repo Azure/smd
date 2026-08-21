@@ -1,0 +1,154 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ProgramDiagnostic2DataType",
+  "title": "OpcUaCore_ProgramDiagnostic2DataType",
+  "dov:typeRef": "org.opcfoundation.UA.ProgramDiagnostic2DataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProgramDiagnostic2DataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ProgramDiagnostic2DataType",
+      "required": [
+        "CreateSessionId",
+        "CreateClientName",
+        "InvocationCreationTime",
+        "LastTransitionTime",
+        "LastMethodCall",
+        "LastMethodSessionId",
+        "LastMethodInputArguments",
+        "LastMethodOutputArguments",
+        "LastMethodInputValues",
+        "LastMethodOutputValues",
+        "LastMethodCallTime",
+        "LastMethodReturnStatus"
+      ],
+      "properties": {
+        "CreateSessionId": {
+          "type": "string"
+        },
+        "CreateClientName": {
+          "type": "string"
+        },
+        "InvocationCreationTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "LastTransitionTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "LastMethodCall": {
+          "type": "string"
+        },
+        "LastMethodSessionId": {
+          "type": "string"
+        },
+        "LastMethodInputArguments": {
+          "type": "array",
+          "items": {
+            "title": "Argument",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Argument",
+            "required": [
+              "Name",
+              "DataType",
+              "ValueRank",
+              "ArrayDimensions",
+              "Description"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "DataType": {
+                "type": "string"
+              },
+              "ValueRank": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ArrayDimensions": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "LastMethodOutputArguments": {
+          "type": "array",
+          "items": {
+            "title": "Argument",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Argument",
+            "required": [
+              "Name",
+              "DataType",
+              "ValueRank",
+              "ArrayDimensions",
+              "Description"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "DataType": {
+                "type": "string"
+              },
+              "ValueRank": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ArrayDimensions": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "LastMethodInputValues": {
+          "type": "array",
+          "items": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        },
+        "LastMethodOutputValues": {
+          "type": "array",
+          "items": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        },
+        "LastMethodCallTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "LastMethodReturnStatus": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

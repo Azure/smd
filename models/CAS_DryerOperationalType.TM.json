@@ -1,0 +1,159 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_DryerOperationalType",
+  "title": "CAS_DryerOperationalType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.DryerOperationalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_OperationalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DryerOperatingStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.DryerOperatingStateEnum",
+      "const": {
+        "Other": 0,
+        "Stopped": 1,
+        "Running": 2,
+        "RefrigerantCompressorStopped": 3,
+        "RefrigerantCompressorRunning": 4,
+        "PurgeValveClosed": 5,
+        "PurgeValveOpen": 6,
+        "ParallelModeOfBothVessels": 7,
+        "Depressurizing": 8,
+        "Desorbing": 9,
+        "Cooling": 10,
+        "Pressurizing": 11,
+        "RegeneratedVesselInStand_by": 12
+      },
+      "properties": {
+        "Other": {
+          "description": "The dryer is in a state not specified by this enumeration.",
+          "type": "integer"
+        },
+        "Stopped": {
+          "description": "The dryer is stopped. This state is applicable to all adsorption dryers.",
+          "type": "integer"
+        },
+        "Running": {
+          "description": "The dryer is running. This state is applicable to all dryers.",
+          "type": "integer"
+        },
+        "RefrigerantCompressorStopped": {
+          "description": "The compressor of the refrigerant circuit is standing still, and the refrigerant dryer is operating using the stored cold. This state is applicable to refrigerant dryers.",
+          "type": "integer"
+        },
+        "RefrigerantCompressorRunning": {
+          "description": "The compressor of the refrigerant circuit is running and compressing refrigerant, creating cold. This state is applicable to refrigerant dryers.",
+          "type": "integer"
+        },
+        "PurgeValveClosed": {
+          "description": "Purge valve is closed, and no purge air is consumed, no purge of the humidity from membranes dryer. This state is applicable to membrane dryers.",
+          "type": "integer"
+        },
+        "PurgeValveOpen": {
+          "description": "Purge air can flow to purge the humidity out of the membrane dryer. This state is applicable to membrane dryers.",
+          "type": "integer"
+        },
+        "ParallelModeOfBothVessels": {
+          "description": "Both vessels of the adsorption dryer are used in parallel for adsorption. This state is applicable to all adsorption dryers.",
+          "type": "integer"
+        },
+        "Depressurizing": {
+          "description": "One vessel of the adsorption dryer is depressurized for regeneration. This state is applicable to heatless and heated adsorption dryers, not HOC.",
+          "type": "integer"
+        },
+        "Desorbing": {
+          "description": "One vessel of the adsorption dryer is in desorption phase, using purge or ambient air, heated or not heated. This state is applicable to all adsorption dryers.",
+          "type": "integer"
+        },
+        "Cooling": {
+          "description": "One vessel of the adsorption dryer is being cooled after being heated in the previous desorption phase. This state is applicable to heated adsorption dryers and HOC.",
+          "type": "integer"
+        },
+        "Pressurizing": {
+          "description": "The depressurized vessel is pressurized again. This state is applicable to heatless and heated adsorption dryers, not HOC.",
+          "type": "integer"
+        },
+        "RegeneratedVesselInStand_by": {
+          "description": "The regenerated vessel is in standby and ready for adsorption phase. This state is applicable to all adsorption dryers.",
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/OnOff",
+    "/properties/OperatingState",
+    "/properties/PressureDewPoint",
+    "/events/OnOff",
+    "/events/OperatingState",
+    "/events/PressureDewPoint"
+  ],
+  "properties": {
+    "OnOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "DryerOperatingStateEnum",
+      "description": "Actual operating state of the dryer.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.DryerOperatingStateEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PressureDewPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual pressure dew point of the process fluid at a dryer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "OnOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "DryerOperatingStateEnum",
+        "description": "Actual operating state of the dryer.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.DryerOperatingStateEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PressureDewPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual pressure dew point of the process fluid at a dryer.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

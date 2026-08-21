@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/POWERLINK/#POWERLINK_ErrorRegisterBits",
+  "title": "POWERLINK_ErrorRegisterBits",
+  "dov:typeRef": "org.opcfoundation.UA.POWERLINK.ErrorRegisterBits",
+  "links": [],
+  "schemaDefinitions": {
+    "ErrorRegisterBits": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.POWERLINK.ErrorRegisterBits",
+      "const": {
+        "Generic_error": 0,
+        "Current": 1,
+        "Voltage": 2,
+        "Temperature": 3,
+        "Communication_error": 4,
+        "Device_profile_specific": 5,
+        "Reserved": 6,
+        "Manufacturer_specific": 7
+      },
+      "description": "Represents the values of the POWERLINK ErrorRegister ",
+      "properties": {
+        "Generic_error": {
+          "description": "This bit shall be set if any error is present. Additionally to this bit, the following bits may be used to signal more detailed error information. ",
+          "type": "integer"
+        },
+        "Current": {
+          "type": "integer"
+        },
+        "Voltage": {
+          "type": "integer"
+        },
+        "Temperature": {
+          "type": "integer"
+        },
+        "Communication_error": {
+          "type": "integer"
+        },
+        "Device_profile_specific": {
+          "type": "integer"
+        },
+        "Reserved": {
+          "description": "always 0",
+          "type": "integer"
+        },
+        "Manufacturer_specific": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

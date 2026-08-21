@@ -1,0 +1,123 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_PumpKickObjectType",
+  "title": "Pumps_PumpKickObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpKickObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PumpKickModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpKickModeEnum",
+      "const": {
+        "ManufacturerSpecific": 0,
+        "Disabled": 1,
+        "OperatorSpecific": 2
+      },
+      "description": "describes the pump kick mode of the pump",
+      "properties": {
+        "ManufacturerSpecific": {
+          "description": "Manufacturer specific pump kick mode",
+          "type": "integer"
+        },
+        "Disabled": {
+          "description": "Pump kick mode disabled",
+          "type": "integer"
+        },
+        "OperatorSpecific": {
+          "description": "Operator specific pump kick mode",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/PumpKickMode",
+    "/properties/PumpKickTime",
+    "/properties/PumpKickTimeDifference",
+    "/properties/PumpKickTimeDifference_EngineeringUnits",
+    "/events/PumpKickMode",
+    "/events/PumpKickTime",
+    "/events/PumpKickTimeDifference"
+  ],
+  "properties": {
+    "PumpKickMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "PumpKickModeEnum",
+      "description": "This property describes the pump kick mode of the pump.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpKickModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PumpKickTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property determines the absolute time of a pump kick, if Pump Kick Mode is operator specific. The time for the next pump kick results of the sum of Pump Kick Time and Pump Kick Time Difference",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PumpKickTimeDifference": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property determines the interval time of a pump kick, if Pump Kick Mode is operator specific. The time for the next pump kick results of the sum of Pump Kick Time and Pump Kick Time Difference",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/PumpKickTimeDifference_EngineeringUnits"
+    },
+    "PumpKickTimeDifference_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpKickTimeDifference, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "PumpKickMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "PumpKickModeEnum",
+        "description": "This property describes the pump kick mode of the pump.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpKickModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PumpKickTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property determines the absolute time of a pump kick, if Pump Kick Mode is operator specific. The time for the next pump kick results of the sum of Pump Kick Time and Pump Kick Time Difference",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PumpKickTimeDifference": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property determines the interval time of a pump kick, if Pump Kick Mode is operator specific. The time for the next pump kick results of the sum of Pump Kick Time and Pump Kick Time Difference",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/PumpKickTimeDifference_EngineeringUnits"
+    }
+  }
+}

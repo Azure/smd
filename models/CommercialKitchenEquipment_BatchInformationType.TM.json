@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_BatchInformationType",
+  "title": "CommercialKitchenEquipment_BatchInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.BatchInformationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/LocalTime"
+  ],
+  "properties": {
+    "BatchId": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "readOnly": false
+    },
+    "LocalTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "TimeZoneDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      },
+      "readOnly": false
+    },
+    "OrderId": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "readOnly": false
+    },
+    "SystemTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    }
+  }
+}

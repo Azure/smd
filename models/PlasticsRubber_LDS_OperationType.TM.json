@@ -1,0 +1,642 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_OperationType",
+  "title": "PlasticsRubber_LDS_OperationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.OperationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Additive__Y_",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_AdditiveType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Component_A",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Component_B",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DeliveryFlowrate",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DeliveryPressure",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaterialBalanceSystemTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.MaterialBalanceSystemTypeEnumeration",
+      "const": {
+        "NOT_AVAILABLE": 0,
+        "ALWAYS_ACTIVE": 1,
+        "SELECTABLE": 2
+      },
+      "properties": {
+        "NOT_AVAILABLE": {
+          "type": "integer"
+        },
+        "ALWAYS_ACTIVE": {
+          "type": "integer"
+        },
+        "SELECTABLE": {
+          "type": "integer"
+        }
+      }
+    },
+    "PurgeStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.PurgeStatusEnumeration",
+      "const": {
+        "OFF": 0,
+        "COMPONENT_A": 1,
+        "COMPONENT_B": 2,
+        "COMPONENT_A_AND_B": 3,
+        "COMPONENT_A_AND_B_CYCLIC": 4
+      },
+      "properties": {
+        "OFF": {
+          "type": "integer"
+        },
+        "COMPONENT_A": {
+          "type": "integer"
+        },
+        "COMPONENT_B": {
+          "type": "integer"
+        },
+        "COMPONENT_A_AND_B": {
+          "type": "integer"
+        },
+        "COMPONENT_A_AND_B_CYCLIC": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/IdentifyDevice",
+    "/actions/ResetAllErrors",
+    "/actions/ResetErrorById",
+    "/actions/SetCycleNumber",
+    "/actions/StartDosing",
+    "/actions/StopDosing",
+    "/properties/ActivateMaterialBalanceSystem",
+    "/properties/ActualDeviationMixingRatio",
+    "/properties/ActualShotWeight",
+    "/properties/DeliveryPressureMeasuringPoint",
+    "/properties/DosingActive",
+    "/properties/MaxDeviationMixingRatio",
+    "/properties/MixingRatioTarget",
+    "/properties/PurgeCyclicActive",
+    "/properties/PurgeCyclicIdleTime",
+    "/properties/PurgeCyclicQuantity",
+    "/properties/PurgeMode",
+    "/properties/PurgeQuantity",
+    "/properties/PurgeStatus",
+    "/properties/PurgeTimeout",
+    "/properties/RemainingMaterialTime",
+    "/properties/SetShotWeight",
+    "/properties/SetValueCompositeDensity",
+    "/properties/TargetDeviationMixingRatio",
+    "/events/ActualDeviationMixingRatio",
+    "/events/ActualShotWeight",
+    "/events/DeliveryPressureMeasuringPoint",
+    "/events/DosingActive",
+    "/events/MaxDeviationMixingRatio",
+    "/events/MixingRatioTarget",
+    "/events/PurgeCyclicActive",
+    "/events/PurgeCyclicIdleTime",
+    "/events/PurgeCyclicQuantity",
+    "/events/PurgeMode",
+    "/events/PurgeQuantity",
+    "/events/PurgeTimeout",
+    "/events/RemainingMaterialTime",
+    "/events/SetShotWeight",
+    "/events/SetValueCompositeDensity",
+    "/events/TargetDeviationMixingRatio"
+  ],
+  "actions": {
+    "IdentifyDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "The peripheral device on which this method is called shows itself by e.g. activation of a LED."
+    },
+    "ResetAllErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Method to reset all errors of the device"
+    },
+    "ResetErrorById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Method to reset one error of the device",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SetCycleNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Method to set the cycle number of the LDS to synchronize it with the cycle number of the injection moulding machine",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CycleNumber"
+        ],
+        "properties": {
+          "CycleNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          }
+        }
+      }
+    },
+    "StartDosing": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "If RemoteControlActivated = 2, this Method (without arguments) is used to start the dosing"
+    },
+    "StopDosing": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/"
+    }
+  },
+  "properties": {
+    "ActivateMaterialBalanceSystem": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "If the value is true, the material balance system is activated",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "ActivateRemoteControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "With this variable the client selects the method of remote control",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "List of the active errors of the device",
+      "type": "array",
+      "items": {
+        "title": "ClassifiedActiveErrorDataType",
+        "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+        "required": [
+          "Id",
+          "Severity",
+          "Message",
+          "SourceNodes",
+          "Classification"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier defined by manufacturer",
+            "type": "string"
+          },
+          "Severity": {
+            "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Message": {
+            "description": "Message giving information about the error",
+            "type": "string"
+          },
+          "SourceNodes": {
+            "description": "NodeIds of the Nodes which cause the error",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Classification": {
+            "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "ActualDeviationMixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Actual deviation of the mixing ratio (in percent)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ActualShotWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Specifies the value determined by the feeder as the shot weight",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DeliveryPressureMeasuringPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Position of the pressure sensor used for the DeliveryPressure",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "DeliveryType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Indication if the dosing system works with delivery pressure or volumetric flow",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "DeviceMappingNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Unique identifier/address/number for devices of the same DeviceType within a local network",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "DosingActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "HighestActiveAlarmSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Indication of the severity of the highest active alarm",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MaterialBalanceSystemType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "title": "MaterialBalanceSystemTypeEnumeration",
+      "description": "Type of the material balance system",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.MaterialBalanceSystemTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaxDeviationMixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Used to limit the maximum deviation in percent",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MixingRatioTarget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Target of the mixing ratio (includes ratio change when MaterialBalanceSystem is active)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PurgeCyclicActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Difference between purging (true) and waiting (false)",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PurgeCyclicIdleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Time until the next purge cycle starts",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "PurgeCyclicQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Amount of material during a purge ccle as the sum of both components",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PurgeMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Depending on this preselected PurgeMode, various purge function can be activated via the dosing signal of the IMM",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "PurgeQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Amount of material during the active purge mode",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PurgeStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "title": "PurgeStatusEnumeration",
+      "description": "Actual status of the purge function",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.PurgeStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PurgeTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Maximum time of the active PurgeMode",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "RemainingMaterialTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Remaining time until first material is empty",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "RemoteControlActivated": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "With this signal, the LDS signalizes, if it is ready to be controlled via this or a separate interface",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SetShotWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Reference value determined by the IMM or defined by the user on the IMM side",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SetValueCompositeDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "The composite set point of density",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TargetDeviationMixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "This deviation (in percent) is set/used by the material balance system",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActivateRemoteControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "With this variable the client selects the method of remote control",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "List of the active errors of the device",
+        "type": "array",
+        "items": {
+          "title": "ClassifiedActiveErrorDataType",
+          "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+          "required": [
+            "Id",
+            "Severity",
+            "Message",
+            "SourceNodes",
+            "Classification"
+          ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            },
+            "SourceNodes": {
+              "description": "NodeIds of the Nodes which cause the error",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "Classification": {
+              "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        }
+      }
+    },
+    "ActualDeviationMixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Actual deviation of the mixing ratio (in percent)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ActualShotWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Specifies the value determined by the feeder as the shot weight",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DeliveryPressureMeasuringPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Position of the pressure sensor used for the DeliveryPressure",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "DeliveryType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Indication if the dosing system works with delivery pressure or volumetric flow",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "DosingActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "MaxDeviationMixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Used to limit the maximum deviation in percent",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MixingRatioTarget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Target of the mixing ratio (includes ratio change when MaterialBalanceSystem is active)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PurgeCyclicActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Difference between purging (true) and waiting (false)",
+        "type": "boolean"
+      }
+    },
+    "PurgeCyclicIdleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Time until the next purge cycle starts",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "PurgeCyclicQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Amount of material during a purge ccle as the sum of both components",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PurgeMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Depending on this preselected PurgeMode, various purge function can be activated via the dosing signal of the IMM",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "PurgeQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Amount of material during the active purge mode",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PurgeTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Maximum time of the active PurgeMode",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "RemainingMaterialTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Remaining time until first material is empty",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "RemoteControlActivated": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "With this signal, the LDS signalizes, if it is ready to be controlled via this or a separate interface",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "SetShotWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Reference value determined by the IMM or defined by the user on the IMM side",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetValueCompositeDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "The composite set point of density",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TargetDeviationMixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "This deviation (in percent) is set/used by the material balance system",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

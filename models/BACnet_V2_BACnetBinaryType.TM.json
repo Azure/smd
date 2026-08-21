@@ -1,0 +1,102 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetBinaryType",
+  "title": "BACnet_V2_BACnetBinaryType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetBinaryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ChangeOfState",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetChangeOfStateCountType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ElapsedActiveTime",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetElapsedActiveTimeType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "EventReporting",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventReportingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "FaultEvaluation",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetFaultEvaluationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetStatusFlags": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetStatusFlags",
+      "const": {
+        "InAlarm": 0,
+        "Fault": 1,
+        "Overriden": 2,
+        "OutOfService": 3
+      },
+      "properties": {
+        "InAlarm": {
+          "type": "integer"
+        },
+        "Fault": {
+          "type": "integer"
+        },
+        "Overriden": {
+          "type": "integer"
+        },
+        "OutOfService": {
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "properties": {
+    "Out_Of_Service": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Present_Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "Status_Flags": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetStatusFlags",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetStatusFlags",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Present_Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    }
+  }
+}

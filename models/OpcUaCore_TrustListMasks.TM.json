@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TrustListMasks",
+  "title": "OpcUaCore_TrustListMasks",
+  "dov:typeRef": "org.opcfoundation.UA.TrustListMasks",
+  "links": [],
+  "schemaDefinitions": {
+    "TrustListMasks": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TrustListMasks",
+      "const": {
+        "None": 0,
+        "TrustedCertificates": 1,
+        "TrustedCrls": 2,
+        "IssuerCertificates": 4,
+        "IssuerCrls": 8,
+        "All": 15
+      },
+      "properties": {
+        "None": {
+          "description": "No fields are provided.",
+          "type": "integer"
+        },
+        "TrustedCertificates": {
+          "description": "The TrustedCertificates are provided.",
+          "type": "integer"
+        },
+        "TrustedCrls": {
+          "description": "The TrustedCrls are provided.",
+          "type": "integer"
+        },
+        "IssuerCertificates": {
+          "description": "The IssuerCertificates are provided.",
+          "type": "integer"
+        },
+        "IssuerCrls": {
+          "description": "The IssuerCrls are provided.",
+          "type": "integer"
+        },
+        "All": {
+          "description": "All fields are provided.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_StructureField",
+  "title": "OpcUaCore_StructureField",
+  "dov:typeRef": "org.opcfoundation.UA.StructureField",
+  "links": [],
+  "schemaDefinitions": {
+    "StructureField": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.StructureField",
+      "required": [
+        "Name",
+        "Description",
+        "DataType",
+        "ValueRank",
+        "ArrayDimensions",
+        "MaxStringLength",
+        "IsOptional"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "DataType": {
+          "type": "string"
+        },
+        "ValueRank": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ArrayDimensions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        },
+        "MaxStringLength": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "IsOptional": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

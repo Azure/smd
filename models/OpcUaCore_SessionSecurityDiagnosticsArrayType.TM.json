@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SessionSecurityDiagnosticsArrayType",
+  "title": "OpcUaCore_SessionSecurityDiagnosticsArrayType",
+  "dov:typeRef": "org.opcfoundation.UA.SessionSecurityDiagnosticsArrayType",
+  "links": [],
+  "schemaDefinitions": {
+    "SessionSecurityDiagnosticsArrayType": {
+      "dov:typeRef": "org.opcfoundation.UA.SessionSecurityDiagnosticsArrayType",
+      "type": "array",
+      "items": {
+        "title": "SessionSecurityDiagnosticsDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SessionSecurityDiagnosticsDataType",
+        "required": [
+          "SessionId",
+          "ClientUserIdOfSession",
+          "ClientUserIdHistory",
+          "AuthenticationMechanism",
+          "Encoding",
+          "TransportProtocol",
+          "SecurityMode",
+          "SecurityPolicyUri",
+          "ClientCertificate"
+        ],
+        "properties": {
+          "SessionId": {
+            "type": "string"
+          },
+          "ClientUserIdOfSession": {
+            "type": "string"
+          },
+          "ClientUserIdHistory": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "AuthenticationMechanism": {
+            "type": "string"
+          },
+          "Encoding": {
+            "type": "string"
+          },
+          "TransportProtocol": {
+            "type": "string"
+          },
+          "SecurityMode": {
+            "title": "MessageSecurityMode",
+            "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "ClientCertificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    }
+  }
+}

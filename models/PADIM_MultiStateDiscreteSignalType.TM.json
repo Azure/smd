@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_MultiStateDiscreteSignalType",
+  "title": "PADIM_MultiStateDiscreteSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MultiStateDiscreteSignalVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteSignalVariableType",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    }
+  },
+  "properties": {
+    "MultiStateDiscreteSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/MultiStateDiscreteSignalVariableType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "MultiStateDiscreteSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteSignalVariableType"
+      }
+    }
+  }
+}

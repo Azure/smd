@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AliasNameVerboseDataType",
+  "title": "OpcUaCore_AliasNameVerboseDataType",
+  "dov:typeRef": "org.opcfoundation.UA.AliasNameVerboseDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AliasNameVerboseDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AliasNameVerboseDataType",
+      "required": [
+        "AliasName",
+        "ReferencedNodes",
+        "ServerUris",
+        "AliasNameCategoryId"
+      ],
+      "properties": {
+        "AliasName": {
+          "type": "string"
+        },
+        "ReferencedNodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ServerUris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AliasNameCategoryId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

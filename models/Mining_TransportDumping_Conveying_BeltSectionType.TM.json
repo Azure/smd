@@ -1,0 +1,117 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/#Mining_TransportDumping_Conveying_BeltSectionType",
+  "title": "Mining_TransportDumping_Conveying_BeltSectionType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.TransportDumping.Conveying.BeltSectionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MiningEquipmentIdentification",
+      "href": "http://opcfoundation.org/UA/Mining/General/#Mining_General_MiningEquipmentIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BeltSection",
+    "/properties/BeltSectionLength",
+    "/properties/BeltThickness",
+    "/properties/EmbeddedSensorTag",
+    "/properties/ProductionSite",
+    "/properties/StatusBeltSection",
+    "/events/BeltSection",
+    "/events/BeltSectionLength",
+    "/events/BeltThickness",
+    "/events/StatusBeltSection"
+  ],
+  "properties": {
+    "BeltSection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "BeltSectionLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "BeltThickness": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "EmbeddedSensorTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProductionSite": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "string",
+      "readOnly": false
+    },
+    "StatusBeltSection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "BeltSection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "BeltSectionLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "BeltThickness": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "StatusBeltSection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/TransportDumping/Conveying/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

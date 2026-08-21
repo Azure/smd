@@ -1,0 +1,75 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_RequestProductionDatasetWriteEventType",
+  "title": "PlasticsRubber_GeneralTypes_RequestProductionDatasetWriteEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.RequestProductionDatasetWriteEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "StorageEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StorageEnumeration",
+      "const": {
+        "PRODUCTION": 1,
+        "PREPARATION": 2,
+        "FILE_SYSTEM": 4
+      },
+      "description": "Indication which parts of the production dataset shall be activated in the machine control after writing",
+      "properties": {
+        "PRODUCTION": {
+          "description": "The production dataset is written directly to the (active layer of the) control system of the machine",
+          "type": "integer"
+        },
+        "PREPARATION": {
+          "description": "The production dataset is written to the preparation layer of the control system of the machine (if supported)",
+          "type": "integer"
+        },
+        "FILE_SYSTEM": {
+          "description": "The production dataset is written to the file system of the machine for later activation",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Components": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Array which indicates which parts of the production dataset shall be activated in the machine control after writing",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the production dataset that should be transferred from the client to the server",
+      "type": "string",
+      "readOnly": true
+    },
+    "Storage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "StorageEnumeration",
+      "description": "Indication where the dataset is written to",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StorageEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

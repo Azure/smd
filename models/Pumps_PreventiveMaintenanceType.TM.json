@@ -1,0 +1,169 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_PreventiveMaintenanceType",
+  "title": "Pumps_PreventiveMaintenanceType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.PreventiveMaintenanceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActivePreventiveMaintenanceTime",
+    "/properties/InstallationDate",
+    "/properties/LastInspectionDate",
+    "/properties/LastServicingDate",
+    "/properties/NextInspectionDate",
+    "/properties/NextServicingDate",
+    "/properties/PreventiveMaintenanceTime",
+    "/properties/ActivePreventiveMaintenanceTime_EngineeringUnits",
+    "/properties/PreventiveMaintenanceTime_EngineeringUnits",
+    "/events/ActivePreventiveMaintenanceTime",
+    "/events/InstallationDate",
+    "/events/LastInspectionDate",
+    "/events/LastServicingDate",
+    "/events/NextInspectionDate",
+    "/events/NextServicingDate",
+    "/events/PreventiveMaintenanceTime"
+  ],
+  "properties": {
+    "ActivePreventiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This attribute indicates the date of installation or commissioning of the device.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ActivePreventiveMaintenanceTime_EngineeringUnits"
+    },
+    "InstallationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This attribute identifies the date when the device was last inspected.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LastInspectionDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This attribute identifies the date when the device is scheduled for the next inspection.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LastServicingDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This attribute identifies the date when the device is scheduled for the next servicing.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "NextInspectionDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This attribute identifies the date when the device was last serviced.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "NextServicingDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Part of maintenance time when preventive maintenance is carried out on an item, including technical, logistic and internal administrative delays",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "PreventiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Part of the active maintenance time taken to perform a preventive maintenance",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/PreventiveMaintenanceTime_EngineeringUnits"
+    },
+    "ActivePreventiveMaintenanceTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActivePreventiveMaintenanceTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PreventiveMaintenanceTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PreventiveMaintenanceTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActivePreventiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This attribute indicates the date of installation or commissioning of the device.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ActivePreventiveMaintenanceTime_EngineeringUnits"
+    },
+    "InstallationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This attribute identifies the date when the device was last inspected.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "LastInspectionDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This attribute identifies the date when the device is scheduled for the next inspection.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "LastServicingDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This attribute identifies the date when the device is scheduled for the next servicing.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "NextInspectionDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This attribute identifies the date when the device was last serviced.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "NextServicingDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Part of maintenance time when preventive maintenance is carried out on an item, including technical, logistic and internal administrative delays",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "PreventiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Part of the active maintenance time taken to perform a preventive maintenance",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/PreventiveMaintenanceTime_EngineeringUnits"
+    }
+  }
+}

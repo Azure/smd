@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LaserSystems/#LaserSystems_LaserSystemMaintenancePrognosisType",
+  "title": "LaserSystems_LaserSystemMaintenancePrognosisType",
+  "dov:typeRef": "org.opcfoundation.UA.LaserSystems.LaserSystemMaintenancePrognosisType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_MaintenancePrognosisType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Code"
+  ],
+  "properties": {
+    "Code": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_TransactionProgressDataType",
+  "title": "UnattendedRetail_TransactionProgressDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.TransactionProgressDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TransactionProgressDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.TransactionProgressDataType",
+      "required": [
+        "TransactionId",
+        "Status",
+        "TransactionFinished",
+        "PaymentMode",
+        "UserId",
+        "UsedPrice"
+      ],
+      "properties": {
+        "TransactionId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        "Status": {
+          "title": "DeliveryAndPaymentStatusEnum",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryAndPaymentStatusEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "TransactionFinished": {
+          "type": "boolean"
+        },
+        "PaymentMode": {
+          "type": "string"
+        },
+        "UserId": {
+          "type": "string"
+        },
+        "UsedPrice": {
+          "title": "PriceAndContextDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceAndContextDataType",
+          "required": [
+            "Amount",
+            "Currency",
+            "PriceListId",
+            "Tax",
+            "DiscountSurcharge"
+          ],
+          "properties": {
+            "Amount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Currency": {
+              "title": "CurrencyUnitType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+              "required": [
+                "NumericCode",
+                "Exponent",
+                "AlphabeticCode",
+                "Currency"
+              ],
+              "properties": {
+                "NumericCode": {
+                  "type": "integer",
+                  "minimum": -32768,
+                  "maximum": 32767
+                },
+                "Exponent": {
+                  "type": "integer",
+                  "minimum": -128,
+                  "maximum": 127
+                },
+                "AlphabeticCode": {
+                  "type": "string"
+                },
+                "Currency": {
+                  "type": "string"
+                }
+              }
+            },
+            "PriceListId": {
+              "type": "string"
+            },
+            "Tax": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "DiscountSurcharge": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    }
+  }
+}

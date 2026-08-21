@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubConfigurationValueDataType",
+  "title": "OpcUaCore_PubSubConfigurationValueDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationValueDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PubSubConfigurationValueDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationValueDataType",
+      "required": [
+        "ConfigurationElement",
+        "Name",
+        "Identifier"
+      ],
+      "properties": {
+        "ConfigurationElement": {
+          "title": "PubSubConfigurationRefDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefDataType",
+          "required": [
+            "ConfigurationMask",
+            "ElementIndex",
+            "ConnectionIndex",
+            "GroupIndex"
+          ],
+          "properties": {
+            "ConfigurationMask": {
+              "title": "PubSubConfigurationRefMask",
+              "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefMask",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "ElementIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "ConnectionIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "GroupIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Identifier": {
+          "description": "Stand-in for an unspecified data type.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

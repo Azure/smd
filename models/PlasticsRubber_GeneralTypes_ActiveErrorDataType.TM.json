@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ActiveErrorDataType",
+  "title": "PlasticsRubber_GeneralTypes_ActiveErrorDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ActiveErrorDataType": {
+      "description": "Iinformation about an active error in a device",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+      "required": [
+        "Id",
+        "Severity",
+        "Message"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Unique identifier defined by manufacturer",
+          "type": "string"
+        },
+        "Severity": {
+          "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Message": {
+          "description": "Message giving information about the error",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

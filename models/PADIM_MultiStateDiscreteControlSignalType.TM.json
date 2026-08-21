@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_MultiStateDiscreteControlSignalType",
+  "title": "PADIM_MultiStateDiscreteControlSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteControlSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MultiStateDiscreteControlVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.MultiStateDiscreteControlVariableType",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    }
+  },
+  "properties": {
+    "ControlSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/MultiStateDiscreteControlVariableType",
+      "readOnly": false,
+      "dov:contains": [
+        "ControlSignal_Setpoint"
+      ]
+    },
+    "ControlSignal_Setpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "ControlSignal"
+    }
+  },
+  "events": {
+    "ControlSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteControlVariableType"
+      },
+      "dov:contains": [
+        "ControlSignal_Setpoint"
+      ]
+    },
+    "ControlSignal_Setpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ControlSignal"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditUpdateMethodEventType",
+  "title": "OpcUaCore_AuditUpdateMethodEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditUpdateMethodEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/OutputArguments",
+    "/properties/StatusCodeId"
+  ],
+  "properties": {
+    "InputArguments": {
+      "type": "array",
+      "items": {
+        "description": "Stand-in for an unspecified data type.",
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "MethodId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "OutputArguments": {
+      "type": "array",
+      "items": {
+        "description": "Stand-in for an unspecified data type.",
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "StatusCodeId": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

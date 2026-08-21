@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ExtensionFieldsType",
+  "title": "OpcUaCore_ExtensionFieldsType",
+  "dov:typeRef": "org.opcfoundation.UA.ExtensionFieldsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/ExtensionFieldName_Placeholder"
+  ],
+  "actions": {
+    "AddExtensionField": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FieldName",
+          "FieldValue"
+        ],
+        "properties": {
+          "FieldName": {
+            "type": "string"
+          },
+          "FieldValue": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FieldId"
+        ],
+        "properties": {
+          "FieldId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveExtensionField": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FieldId"
+        ],
+        "properties": {
+          "FieldId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ExtensionFieldName_Placeholder": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true,
+      "dov:placeholder": true
+    }
+  }
+}

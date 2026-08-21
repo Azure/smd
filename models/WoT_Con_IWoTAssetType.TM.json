@@ -1,0 +1,35 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WoT-Con/#WoT_Con_IWoTAssetType",
+  "title": "WoT_Con_IWoTAssetType",
+  "dov:typeRef": "org.opcfoundation.UA.WoT-Con.IWoTAssetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "WoTFile",
+      "href": "http://opcfoundation.org/UA/WoT-Con/#WoT_Con_WoTAssetFileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AssetEndpoint"
+  ],
+  "properties": {
+    "AssetEndpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

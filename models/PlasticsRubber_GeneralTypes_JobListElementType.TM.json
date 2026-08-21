@@ -1,0 +1,101 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_JobListElementType",
+  "title": "PlasticsRubber_GeneralTypes_JobListElementType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobListElementType",
+  "links": [],
+  "schemaDefinitions": {
+    "JobListElementType": {
+      "description": "Description of a job in a job list",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobListElementType",
+      "required": [
+        "JobName",
+        "JobDescription",
+        "JobClassification",
+        "CustomerName",
+        "ProductionDatasetName",
+        "ProductionDatasetDescription",
+        "Material",
+        "ProductName",
+        "ProductDescription",
+        "JobPriority",
+        "PlannedStart",
+        "PlannedProductionTime",
+        "LatestEnd"
+      ],
+      "properties": {
+        "JobName": {
+          "description": "Name of the job",
+          "type": "string"
+        },
+        "JobDescription": {
+          "description": "Description of the job",
+          "type": "string"
+        },
+        "JobClassification": {
+          "description": "Classification of the job",
+          "type": "string"
+        },
+        "CustomerName": {
+          "description": "Name of the cumstomer for that the job is produced",
+          "type": "string"
+        },
+        "ProductionDatasetName": {
+          "description": "Name of the production dataset which is needed for the job",
+          "type": "string"
+        },
+        "ProductionDatasetDescription": {
+          "description": "Additional description of the production dataset which is needed for the job",
+          "type": "string"
+        },
+        "Material": {
+          "description": "Array of material names used for the job",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProductName": {
+          "description": "Array of product names produced by the job",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProductDescription": {
+          "description": "Array of descriptions of the products produced by the job",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "JobPriority": {
+          "description": "Priority of the job",
+          "type": "string"
+        },
+        "PlannedStart": {
+          "description": "Planned start of the job",
+          "type": "string",
+          "format": "date-time"
+        },
+        "PlannedProductionTime": {
+          "description": "Planned production time",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "LatestEnd": {
+          "description": "Latest end of the job",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

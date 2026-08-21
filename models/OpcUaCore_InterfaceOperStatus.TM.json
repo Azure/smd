@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_InterfaceOperStatus",
+  "title": "OpcUaCore_InterfaceOperStatus",
+  "dov:typeRef": "org.opcfoundation.UA.InterfaceOperStatus",
+  "links": [],
+  "schemaDefinitions": {
+    "InterfaceOperStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.InterfaceOperStatus",
+      "const": {
+        "Up": 0,
+        "Down": 1,
+        "Testing": 2,
+        "Unknown": 3,
+        "Dormant": 4,
+        "NotPresent": 5,
+        "LowerLayerDown": 6
+      },
+      "properties": {
+        "Up": {
+          "description": "Ready to pass packets.",
+          "type": "integer"
+        },
+        "Down": {
+          "description": "The interface does not pass any packets.",
+          "type": "integer"
+        },
+        "Testing": {
+          "description": "In some test mode. No operational packets can be passed.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Status cannot be determined for some reason.",
+          "type": "integer"
+        },
+        "Dormant": {
+          "description": "Waiting for some external event.",
+          "type": "integer"
+        },
+        "NotPresent": {
+          "description": "Some component (typically hardware) is missing.",
+          "type": "integer"
+        },
+        "LowerLayerDown": {
+          "description": "Down due to state of lower-layer interface(s).",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

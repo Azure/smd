@@ -1,0 +1,129 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionControlType",
+  "title": "PlasticsRubber_GeneralTypes_ProductionControlType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionControlType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ProductionStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionStatusEnumeration",
+      "const": {
+        "OTHER": 0,
+        "NO_PRODUCTION": 1,
+        "START_UP": 2,
+        "READY_FOR_PRODUCTION": 3,
+        "PRODUCTION": 4,
+        "DRY_RUN": 5
+      },
+      "description": "Production status of the machine",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "NO_PRODUCTION": {
+          "description": "The machine does not produce any parts/products",
+          "type": "integer"
+        },
+        "START_UP": {
+          "description": "The machine is producing parts/products in the start-up phase. So the correct settings of the machines are not reached.",
+          "type": "integer"
+        },
+        "READY_FOR_PRODUCTION": {
+          "description": "The machine is producing parts/products, the correct settings of the machines are reached but the production is not yet released (e.g. waiting for release from quality assurance)",
+          "type": "integer"
+        },
+        "PRODUCTION": {
+          "description": "The machine is producing parts/products. In semi-automatic mode also during waiting time (e.g. for manual loading/unloading of parts) ProductionStatus remains in this state (time out possible if e.g. cycle time exceeds a pre-defined limit)",
+          "type": "integer"
+        },
+        "DRY_RUN": {
+          "description": "The machine is moving without material",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/RequestTestSample",
+    "/actions/ResetWatchDog",
+    "/actions/SetWatchDogTime",
+    "/properties/ProductionOnlyWithMES"
+  ],
+  "actions": {
+    "DisableAutomaticRun": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for disabling the semi-automatic and automatic run of the machine"
+    },
+    "EnableAutomaticRun": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for enabling the semi-automatic and automatic run of the machine"
+    },
+    "RequestTestSample": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "The machine shall separate a test sample (e.g. for quality check). The size of the test sample depends on the product/machine configuration."
+    },
+    "ResetWatchDog": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Setting the watch dog timer to the value set by the last calling of SetWatchDogTime"
+    },
+    "SetWatchDogTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Release of production for a given time",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "WatchDogTime"
+        ],
+        "properties": {
+          "WatchDogTime": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AutomaticRunEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ProductionOnlyWithMES": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "ProductionReleasedByMES": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "ProductionStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "ProductionStatusEnumeration",
+      "description": "Production status when the machine is in automatic or semi-automatic mode",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

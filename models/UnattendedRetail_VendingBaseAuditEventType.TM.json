@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_VendingBaseAuditEventType",
+  "title": "UnattendedRetail_VendingBaseAuditEventType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.VendingBaseAuditEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/EVADTSStatusCode",
+    "/properties/EVADTSStatusIsActive"
+  ],
+  "properties": {
+    "Category": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "string",
+      "readOnly": true
+    },
+    "EVADTSStatusCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "string",
+      "readOnly": true
+    },
+    "EVADTSStatusIsActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "InMaintenanceMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PriorityMappingTableType",
+  "title": "OpcUaCore_PriorityMappingTableType",
+  "dov:typeRef": "org.opcfoundation.UA.PriorityMappingTableType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddPriorityMappingEntry",
+    "/actions/DeletePriorityMappingEntry"
+  ],
+  "actions": {
+    "AddPriorityMappingEntry": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "MappingUri",
+          "PriorityLabel",
+          "PriorityValue_PCP",
+          "PriorityValue_DSCP"
+        ],
+        "properties": {
+          "MappingUri": {
+            "type": "string"
+          },
+          "PriorityLabel": {
+            "type": "string"
+          },
+          "PriorityValue_PCP": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "PriorityValue_DSCP": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "DeletePriorityMappingEntry": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "MappingUri",
+          "PriorityLabel"
+        ],
+        "properties": {
+          "MappingUri": {
+            "type": "string"
+          },
+          "PriorityLabel": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "PriorityMapppingEntries": {
+      "type": "array",
+      "items": {
+        "title": "PriorityMappingEntryType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PriorityMappingEntryType",
+        "required": [
+          "MappingUri",
+          "PriorityLabel",
+          "PriorityValue_PCP",
+          "PriorityValue_DSCP"
+        ],
+        "properties": {
+          "MappingUri": {
+            "type": "string"
+          },
+          "PriorityLabel": {
+            "type": "string"
+          },
+          "PriorityValue_PCP": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "PriorityValue_DSCP": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

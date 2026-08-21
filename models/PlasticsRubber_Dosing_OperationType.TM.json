@@ -1,0 +1,296 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_OperationType",
+  "title": "PlasticsRubber_Dosing_OperationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.OperationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "BatchWeight",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Components",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_ComponentsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ElectricalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Maintenance",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_DosingMaintenanceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Mixing",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_MixingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionDataSetManagement",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ShotWeight",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Throughput",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/FirstFilling",
+    "/actions/IdentifyDevice",
+    "/actions/ResetAllErrors",
+    "/actions/ResetErrorById",
+    "/actions/StartDosingContinuous",
+    "/actions/StartDosingShot",
+    "/actions/StartPurge",
+    "/actions/StopDosing",
+    "/actions/StopDosingAfterCycle",
+    "/properties/DosingDuration",
+    "/properties/IsActive",
+    "/properties/PurgeDuration",
+    "/properties/SetActive",
+    "/events/DosingDuration",
+    "/events/PurgeDuration",
+    "/events/SetActive"
+  ],
+  "actions": {
+    "DisableDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Disables the device, for example deactivate motor drives."
+    },
+    "EnableDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Enables the device, for example activate motor drives. Triggers the transition from MachineryItemState NotAvailable to NotExecuting."
+    },
+    "FirstFilling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to fill the DosingSystem for the first time with the mixture of materials from the current recipe."
+    },
+    "IdentifyDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "The DosingSystem on which this method is called shows itself by e.g. activation of a LED."
+    },
+    "ResetAllErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to reset all errors of the device."
+    },
+    "ResetErrorById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to reset one error of the device.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Id of the error, listed in ActiveErrors, that shall be reset.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartDosingContinuous": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "If EnableDosingOpcUa is TRUE, this method can be used to start dosing continuously."
+    },
+    "StartDosingShot": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "If EnableDosingOpcUa is TRUE, this method can be used to start dosing for one shot with a defined duration specified by DosingDuration."
+    },
+    "StartPurge": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to start the purging function on the dosing system."
+    },
+    "StopDosing": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to stop dosing immediately."
+    },
+    "StopDosingAfterCycle": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to stop dosing after the current dosing cycle (e.g. to get a valid batch mix with batch blending)."
+    }
+  },
+  "properties": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "List of the active errors of the device.",
+      "type": "array",
+      "items": {
+        "title": "ActiveErrorDataType",
+        "description": "Iinformation about an active error in a device",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+        "required": [
+          "Id",
+          "Severity",
+          "Message"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier defined by manufacturer",
+            "type": "string"
+          },
+          "Severity": {
+            "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Message": {
+            "description": "Message giving information about the error",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DosingDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "This parameter defines the duration the dosing shall be active after receiving the StartDosingShot signal.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "EnableDosingOpcUa": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Variable to set and read the actual state how the dosing signal is transferred from the client to the dosing system in addition to RemoteControlOpcUa.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "HighestActiveAlarmSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Indication of the severity of the highest active alarm.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "IsActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "The IsActive Property provides information if the dosing unit is active in the current production.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PurgeDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Duration of the purging function of the dosing system.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "RemoteControlOpcUa": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SetActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Activates the dosing unit for the current production.",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "List of the active errors of the device.",
+        "type": "array",
+        "items": {
+          "title": "ActiveErrorDataType",
+          "description": "Iinformation about an active error in a device",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ActiveErrorDataType",
+          "required": [
+            "Id",
+            "Severity",
+            "Message"
+          ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "DosingDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "This parameter defines the duration the dosing shall be active after receiving the StartDosingShot signal.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "EnableDosingOpcUa": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Variable to set and read the actual state how the dosing signal is transferred from the client to the dosing system in addition to RemoteControlOpcUa.",
+        "type": "boolean"
+      }
+    },
+    "PurgeDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Duration of the purging function of the dosing system.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "RemoteControlOpcUa": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "SetActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Activates the dosing unit for the current production.",
+        "type": "boolean"
+      }
+    }
+  }
+}

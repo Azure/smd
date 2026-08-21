@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_IParamagneticSignalConditionSetType",
+  "title": "PADIM_IParamagneticSignalConditionSetType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.IParamagneticSignalConditionSetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SampleTemperature",
+    "/properties/SensingElementTemperature",
+    "/events/SampleTemperature",
+    "/events/SensingElementTemperature"
+  ],
+  "properties": {
+    "SampleTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "SensingElementTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SampleTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "SensingElementTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

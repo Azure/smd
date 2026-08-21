@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_AirnetIntegratedStateEnum",
+  "title": "CAS_AirnetIntegratedStateEnum",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetIntegratedStateEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "AirnetIntegratedStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetIntegratedStateEnum",
+      "const": {
+        "FullyIntegrated": 0,
+        "PartiallyIntegrated": 1,
+        "FullyIsolated": 2
+      },
+      "properties": {
+        "FullyIntegrated": {
+          "description": "The MCS controls all compressors of this airnet.",
+          "type": "integer"
+        },
+        "PartiallyIntegrated": {
+          "description": "At least one compressor of this airnet is not controlled by the MCS.",
+          "type": "integer"
+        },
+        "FullyIsolated": {
+          "description": "The MCS does not control any compressor of this airnet.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

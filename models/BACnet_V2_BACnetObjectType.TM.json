@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetObjectType",
+  "title": "BACnet_V2_BACnetObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Profile_Name"
+  ],
+  "properties": {
+    "Object_Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetObjectIdentifier",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "Profile_Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

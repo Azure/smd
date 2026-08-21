@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ConnectionEndpointStatusEnum",
+  "title": "FX_AC_ConnectionEndpointStatusEnum",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConnectionEndpointStatusEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "ConnectionEndpointStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConnectionEndpointStatusEnum",
+      "const": {
+        "Initial": 0,
+        "Ready": 1,
+        "PreOperational": 2,
+        "Operational": 3,
+        "Error": 4
+      },
+      "description": "This enumeration defines the values of the FlcConnectionStatus of an FlcConnectionEndpointType. ",
+      "properties": {
+        "Initial": {
+          "description": "Initial status of the logical connection. No communication-model objects referenced.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Logical connection is ready to operate, Communication-model objects are referenced but not enabled.",
+          "type": "integer"
+        },
+        "PreOperational": {
+          "description": "PreOperational status of the logical connection, Data output is active, but no input data received.",
+          "type": "integer"
+        },
+        "Operational": {
+          "description": "Operational status of the logical connection, Data output is active, and input data has been received.",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "The logical connection has encountered an Error.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

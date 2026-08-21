@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_SubscriberConfigurationType",
+  "title": "FX_CM_SubscriberConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.SubscriberConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Address",
+    "/properties/ReceiveQos",
+    "/events/Address",
+    "/events/ReceiveQos"
+  ],
+  "properties": {
+    "Address": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "title": "NetworkAddressDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+      "required": [
+        "NetworkInterface"
+      ],
+      "properties": {
+        "NetworkInterface": {
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "MessageReceiveTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "ReceiveQos": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Address": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "title": "NetworkAddressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+        "required": [
+          "NetworkInterface"
+        ],
+        "properties": {
+          "NetworkInterface": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MessageReceiveTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "ReceiveQos": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

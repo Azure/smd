@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LaserSystems/#LaserSystems_ConsumptionDataMonitoringType",
+  "title": "LaserSystems_ConsumptionDataMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.LaserSystems.ConsumptionDataMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ElementMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/Description",
+    "/events/Description"
+  ],
+  "properties": {
+    "ConsumableIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

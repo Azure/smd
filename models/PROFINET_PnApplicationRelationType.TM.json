@@ -1,0 +1,151 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnApplicationRelationType",
+  "title": "PROFINET_PnApplicationRelationType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnApplicationRelationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Modules",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnExpectedModuleContainerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnARStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARStateEnumeration",
+      "const": {
+        "CONNECTED": 0,
+        "UNCONNECTED": 1,
+        "UNCONNECTED_ERR_DEVICE_NOT_FOUND": 2,
+        "UNCONNECTED_ERR_DUPLICATE_IP": 3,
+        "UNCONNECTED_ERR_DUPLICATE_NOS": 4
+      },
+      "properties": {
+        "CONNECTED": {
+          "description": "The AR connection to the device is established",
+          "type": "integer"
+        },
+        "UNCONNECTED": {
+          "description": "The AR connection to the device is not established",
+          "type": "integer"
+        },
+        "UNCONNECTED_ERR_DEVICE_NOT_FOUND": {
+          "description": "The AR connection to the device is not established because the device is not available in the network",
+          "type": "integer"
+        },
+        "UNCONNECTED_ERR_DUPLICATE_IP": {
+          "description": "The AR connection to the device is not established because the IP address of the device exists multiple times",
+          "type": "integer"
+        },
+        "UNCONNECTED_ERR_DUPLICATE_NOS": {
+          "description": "The AR connection to the device is not established because the Name of Station of the device exists multiple times",
+          "type": "integer"
+        }
+      }
+    },
+    "PnARTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARTypeEnumeration",
+      "const": {
+        "IOCARSingle": 0,
+        "IOSAR": 6,
+        "IOCARSingleUsingRT_CLASS_3": 16,
+        "IOCARSR": 32
+      },
+      "properties": {
+        "IOCARSingle": {
+          "type": "integer"
+        },
+        "IOSAR": {
+          "description": "The supervisor AR is a special form of the IOCARSingle allowing takeover of the ownership of a submodule",
+          "type": "integer"
+        },
+        "IOCARSingleUsingRT_CLASS_3": {
+          "description": "This is a special form of the IOCARSingle indicating RT_CLASS_3 communication",
+          "type": "integer"
+        },
+        "IOCARSR": {
+          "description": "The SR AR is a special form of the IOCARSingle indicating system redundancy or dynamic reconfiguration usage",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DataHoldFactor",
+    "/properties/ReductionRatio",
+    "/properties/SendClockFactor"
+  ],
+  "properties": {
+    "DataHoldFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "ReductionRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SendClockFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnARStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnARTypeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnARStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

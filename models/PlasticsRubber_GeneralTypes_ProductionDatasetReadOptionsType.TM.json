@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetReadOptionsType",
+  "title": "PlasticsRubber_GeneralTypes_ProductionDatasetReadOptionsType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionDatasetReadOptionsType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProductionDatasetReadOptionsType": {
+      "description": "Used as GenerateOptions in the Method GenerateFileForRead in ProductionDatasetTransfer",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionDatasetReadOptionsType",
+      "required": [
+        "Storage",
+        "Name"
+      ],
+      "properties": {
+        "Storage": {
+          "title": "StorageEnumeration",
+          "description": "Indication from where the production dataset is read",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StorageEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Name": {
+          "description": "Name of the production dataset that should be transferred from the server to the client",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

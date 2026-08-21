@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MetalForming/#MetalForming_CyclicProcessValueVariableType",
+  "title": "MetalForming_CyclicProcessValueVariableType",
+  "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueVariableType",
+  "links": [],
+  "schemaDefinitions": {
+    "CyclicProcessValueVariableType": {
+      "title": "CyclicProcessValueDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MetalForming.CyclicProcessValueVariableType",
+      "required": [
+        "AnalogSignal",
+        "Setpoint",
+        "CycleCount",
+        "IsActive"
+      ],
+      "properties": {
+        "AnalogSignal": {
+          "type": "number"
+        },
+        "Setpoint": {
+          "type": "number"
+        },
+        "CycleCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "IsActive": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

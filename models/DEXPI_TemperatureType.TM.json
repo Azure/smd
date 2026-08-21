@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_TemperatureType",
+  "title": "DEXPI_TemperatureType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.TemperatureType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Unit",
+    "/properties/Value",
+    "/events/Unit",
+    "/events/Value"
+  ],
+  "properties": {
+    "Unit": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "",
+      "type": "string",
+      "readOnly": false
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Unit": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "",
+        "type": "string"
+      }
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

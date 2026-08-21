@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UserManagementDataType",
+  "title": "OpcUaCore_UserManagementDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UserManagementDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "UserManagementDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserManagementDataType",
+      "required": [
+        "UserName",
+        "UserConfiguration",
+        "Description"
+      ],
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "UserConfiguration": {
+          "title": "UserConfigurationMask",
+          "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

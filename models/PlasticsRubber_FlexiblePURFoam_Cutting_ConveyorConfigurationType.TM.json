@@ -1,0 +1,291 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ConveyorCategoryEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorCategoryEnumeration",
+      "const": {
+        "Loading": 0,
+        "Unloading": 1,
+        "Transportation": 2
+      },
+      "description": "This property provides information, if this conveyor is used for unloading, loading or transportation of material.",
+      "properties": {
+        "Loading": {
+          "description": "Loading of material for processing.",
+          "type": "integer"
+        },
+        "Unloading": {
+          "description": "Unloading of material after processing.",
+          "type": "integer"
+        },
+        "Transportation": {
+          "description": "Transportation of material during processing.",
+          "type": "integer"
+        }
+      }
+    },
+    "ConveyorSubCategoryEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorSubCategoryEnumeration",
+      "const": {
+        "None": 0,
+        "AlignmentBelt": 1,
+        "Turntable": 2,
+        "Seperator": 3,
+        "Stacker": 4,
+        "Destacker": 5,
+        "PopUp": 6,
+        "ScissorTable": 7,
+        "CrossConveyor": 8
+      },
+      "description": "This property provides information on what type of conveyor this instance is.",
+      "properties": {
+        "None": {
+          "description": "None of the other categories fit.",
+          "type": "integer"
+        },
+        "AlignmentBelt": {
+          "description": "The conveyor is an alignment belt.",
+          "type": "integer"
+        },
+        "Turntable": {
+          "description": "The conveyor is a turntable.",
+          "type": "integer"
+        },
+        "Seperator": {
+          "description": "The conveyor is a separator.",
+          "type": "integer"
+        },
+        "Stacker": {
+          "description": "The conveyor is a stacker.",
+          "type": "integer"
+        },
+        "Destacker": {
+          "description": "The conveyor is a destacker.",
+          "type": "integer"
+        },
+        "PopUp": {
+          "description": "The conveyor is a pop-up conveyor.",
+          "type": "integer"
+        },
+        "ScissorTable": {
+          "description": "The conveyor is a scissor table.",
+          "type": "integer"
+        },
+        "CrossConveyor": {
+          "description": "The conveyor is a cross-conveyor.",
+          "type": "integer"
+        }
+      }
+    },
+    "LightBarrierEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.LightBarrierEnumeration",
+      "const": {
+        "None": 0,
+        "Infeed": 1,
+        "Outfeed": 2,
+        "Safety": 3,
+        "Other": 4
+      },
+      "description": "Provides information about the positions of light barriers on this instance of conveyor.",
+      "properties": {
+        "None": {
+          "description": "No light barrier.",
+          "type": "integer"
+        },
+        "Infeed": {
+          "description": "Light barrier is positioned infeed.",
+          "type": "integer"
+        },
+        "Outfeed": {
+          "description": "Light barrier is positioned outfeed.",
+          "type": "integer"
+        },
+        "Safety": {
+          "description": "Light barrier is a safety device.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "None of the other values fit.",
+          "type": "integer"
+        }
+      }
+    },
+    "PossibleDirectionEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.PossibleDirectionEnumeration",
+      "const": {
+        "Forwards": 0,
+        "Backwards": 1,
+        "Reversible": 2,
+        "Sidewards": 3,
+        "Any": 4
+      },
+      "description": "Provides information about the possible working directions of the conveyor.",
+      "properties": {
+        "Forwards": {
+          "description": "The conveyor’s working direction is forwards.",
+          "type": "integer"
+        },
+        "Backwards": {
+          "description": "The conveyor’s working direction is backwards.",
+          "type": "integer"
+        },
+        "Reversible": {
+          "description": "The conveyor’s working direction is reversible.",
+          "type": "integer"
+        },
+        "Sidewards": {
+          "description": "The conveyor’s working direction is sidewards.",
+          "type": "integer"
+        },
+        "Any": {
+          "description": "Any conveyor direction is possible.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConveyorCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "title": "ConveyorCategoryEnumeration",
+      "description": "This property provides information, if this conveyor is used for unloading, loading or transportation of material.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorCategoryEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ConveyorSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "This Variable provides information about the speed settings of the conveyor. If FixedSpeedConveyor is true, this Variable provides the set value. If FixedSpeedConveyor is false, this Variable provides the speed range of the conveyor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ConveyorSubCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "title": "ConveyorSubCategoryEnumeration",
+      "description": "This property provides information on what type of conveyor this instance is.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorSubCategoryEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides a user-defined textual description or identifier to distinguish and locate the conveyor within the machine or system.",
+      "type": "string",
+      "readOnly": true
+    },
+    "FixedSpeedConveyor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "This Property provides information, if the conveyor has a fixed speed.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "The IsPresent Property provides information, if an instance of the conveyor is present in the current configuration of the machine.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Length of the conveyor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "LightBarriers": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides information about the positions of light barriers on this instance of conveyor. Each array entry represents one light barrier.",
+      "type": "array",
+      "items": {
+        "title": "LightBarrierEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.LightBarrierEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": true
+    },
+    "NumberOfBelts": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides the number of individual belts on the conveyor.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "PossibleDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "title": "PossibleDirectionEnumeration",
+      "description": "Provides information about the possible working directions of the conveyor.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.PossibleDirectionEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Width": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Width of the conveyor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ConveyorSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "This Variable provides information about the speed settings of the conveyor. If FixedSpeedConveyor is true, this Variable provides the set value. If FixedSpeedConveyor is false, this Variable provides the speed range of the conveyor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Length of the conveyor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Width": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Width of the conveyor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

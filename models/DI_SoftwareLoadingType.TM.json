@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_SoftwareLoadingType",
+  "title": "DI_SoftwareLoadingType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareLoadingType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/UpdateKey",
+    "/events/UpdateKey"
+  ],
+  "properties": {
+    "UpdateKey": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "UpdateKey": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

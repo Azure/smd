@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/v2/#Glass_Flat_v2_ManualFolderType",
+  "title": "Glass_Flat_v2_ManualFolderType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.v2.ManualFolderType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "LocalManuals",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ExternalManuals"
+  ],
+  "properties": {
+    "ExternalManuals": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/v2/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

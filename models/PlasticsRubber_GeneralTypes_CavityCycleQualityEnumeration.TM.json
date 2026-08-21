@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_CavityCycleQualityEnumeration",
+  "title": "PlasticsRubber_GeneralTypes_CavityCycleQualityEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CavityCycleQualityEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "CavityCycleQualityEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CavityCycleQualityEnumeration",
+      "const": {
+        "NO_PART": 0,
+        "GOOD_PART": 1,
+        "BAD_PART": 2,
+        "REWORK": 3
+      },
+      "description": "Quality of the cycle for each cavity",
+      "properties": {
+        "NO_PART": {
+          "description": "There is no part in cavity",
+          "type": "integer"
+        },
+        "GOOD_PART": {
+          "description": "The machine has detected no failures during the cycle for this cavity and the part quality is assumed as good",
+          "type": "integer"
+        },
+        "BAD_PART": {
+          "description": "The machine has detected failures during the cycle for the cavity and the part quality is assumed as bad",
+          "type": "integer"
+        },
+        "REWORK": {
+          "description": "The machine has detected failures during the cycle for the cavity which might be fixed by reworking the part",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

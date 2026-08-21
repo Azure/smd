@@ -1,0 +1,146 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ToolType",
+  "title": "MachineTool_ToolType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_BaseToolType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ToolLife",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ToolManagement": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolManagement",
+      "const": {
+        "NumberBased": 0,
+        "GroupBased": 1,
+        "Other": 2
+      },
+      "properties": {
+        "NumberBased": {
+          "description": "The tool is addressed using a single identifier.",
+          "type": "integer"
+        },
+        "GroupBased": {
+          "description": "The tool is addressed using an identifier for the group and a second one for the tool within the group.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "The tool is addressed by a different, custom defined system.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ControlIdentifier2",
+    "/properties/LastUsage",
+    "/properties/PlannedForOperating",
+    "/events/ControlIdentifier2",
+    "/events/LastUsage",
+    "/events/PlannedForOperating"
+  ],
+  "properties": {
+    "ControlIdentifier1": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "ControlIdentifier2": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "ControlIdentifierInterpretation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "title": "ToolManagement",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolManagement",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "LastUsage": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Locked": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PlannedForOperating": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ControlIdentifier1": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "ControlIdentifier2": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "ControlIdentifierInterpretation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "title": "ToolManagement",
+        "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolManagement",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LastUsage": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string",
+        "format": "time"
+      }
+    },
+    "Locked": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "PlannedForOperating": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

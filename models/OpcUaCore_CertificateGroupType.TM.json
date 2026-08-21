@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_CertificateGroupType",
+  "title": "OpcUaCore_CertificateGroupType",
+  "dov:typeRef": "org.opcfoundation.UA.CertificateGroupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "TrustList",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TrustListType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CertificateExpired",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_CertificateExpirationAlarmType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TrustListOutOfDate",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TrustListOutOfDateAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/GetRejectedList",
+    "/properties/Purpose"
+  ],
+  "actions": {
+    "GetRejectedList": {
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Certificates"
+        ],
+        "properties": {
+          "Certificates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CertificateTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "Purpose": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

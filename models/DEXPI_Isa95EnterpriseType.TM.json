@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_Isa95EnterpriseType",
+  "title": "DEXPI_Isa95EnterpriseType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.Isa95EnterpriseType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/EnterpriseIdentificationCodeAssignmentClass",
+    "/properties/EnterpriseNameAssignmentClass",
+    "/events/EnterpriseIdentificationCodeAssignmentClass",
+    "/events/EnterpriseNameAssignmentClass"
+  ],
+  "properties": {
+    "EnterpriseIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code of the Isa95Enterprise.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EnterpriseNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The name of the Isa95Enterprise.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "EnterpriseIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code of the Isa95Enterprise.",
+        "type": "string"
+      }
+    },
+    "EnterpriseNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The name of the Isa95Enterprise.",
+        "type": "string"
+      }
+    }
+  }
+}

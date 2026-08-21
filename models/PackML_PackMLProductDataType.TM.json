@@ -1,0 +1,175 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLProductDataType",
+  "title": "PackML_PackMLProductDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLProductDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PackMLProductDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLProductDataType",
+      "required": [
+        "ProductID",
+        "ProcessVariables",
+        "Ingredients"
+      ],
+      "properties": {
+        "ProductID": {
+          "description": "A unique number assigned to the product.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ProcessVariables": {
+          "description": "The array of Process variables associated with this product",
+          "type": "array",
+          "items": {
+            "title": "PackMLDescriptorDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLDescriptorDataType",
+            "required": [
+              "ID",
+              "Name",
+              "Unit",
+              "Value"
+            ],
+            "properties": {
+              "ID": {
+                "description": "A unique number assigned to the parameter",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "Name": {
+                "description": "The name of the parameter",
+                "type": "string"
+              },
+              "Unit": {
+                "title": "EUInformation",
+                "description": "OPC UA engineering unit information",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "Value": {
+                "description": "This is the numeric value of the parameter",
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              }
+            }
+          }
+        },
+        "Ingredients": {
+          "description": "The array of ingredients associated with this product.",
+          "type": "array",
+          "items": {
+            "title": "PackMLIngredientsDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLIngredientsDataType",
+            "required": [
+              "IngredientID",
+              "Parameter"
+            ],
+            "properties": {
+              "IngredientID": {
+                "description": "A unique number assigned to the ingredient.",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "Parameter": {
+                "description": "The array of Parameters that correspond to the ingredient",
+                "type": "array",
+                "items": {
+                  "title": "PackMLDescriptorDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLDescriptorDataType",
+                  "required": [
+                    "ID",
+                    "Name",
+                    "Unit",
+                    "Value"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "A unique number assigned to the parameter",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "Name": {
+                      "description": "The name of the parameter",
+                      "type": "string"
+                    },
+                    "Unit": {
+                      "title": "EUInformation",
+                      "description": "OPC UA engineering unit information",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                      "required": [
+                        "NamespaceUri",
+                        "UnitId",
+                        "DisplayName",
+                        "Description"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "UnitId": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "Value": {
+                      "description": "This is the numeric value of the parameter",
+                      "type": "number",
+                      "minimum": -3.40e+38,
+                      "maximum": 3.40e+38
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

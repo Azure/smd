@@ -1,0 +1,115 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/#PlasticsRubber_Extrusion_Extruder_Extruder_InterfaceType",
+  "title": "PlasticsRubber_Extrusion_Extruder_Extruder_InterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Extruder.Extruder_InterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AdditionalDrives",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DrivesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Feeders",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/#PlasticsRubber_Extrusion_Extruder_FeedersType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MainDrive",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DriveType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MeltPressureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MeltTemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ScrewTemperatures",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionTemperatureZonesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "TemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionTemperatureZonesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Throughput",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Users",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UsersType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "VacuumZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BarrelId",
+    "/properties/ScrewId",
+    "/properties/SpecificOutput",
+    "/events/SpecificOutput"
+  ],
+  "properties": {
+    "BarrelId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ScrewId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SpecificOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SpecificOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

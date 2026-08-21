@@ -1,0 +1,103 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_DryerDesignType",
+  "title": "CAS_DryerDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.DryerDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_DesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DryerTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.DryerTypeEnum",
+      "const": {
+        "Other": 0,
+        "AbsorptionDryer": 1,
+        "AdsorptionDryer": 2,
+        "MembraneDryer": 3,
+        "RefrigerationDryer": 4
+      },
+      "description": "possible dryer types",
+      "properties": {
+        "Other": {
+          "description": "Not specified in this enumeration",
+          "type": "integer"
+        },
+        "AbsorptionDryer": {
+          "description": "Absorption dryer",
+          "type": "integer"
+        },
+        "AdsorptionDryer": {
+          "description": "Adsorption dryer",
+          "type": "integer"
+        },
+        "MembraneDryer": {
+          "description": "Membrane dryer",
+          "type": "integer"
+        },
+        "RefrigerationDryer": {
+          "description": "Refrigeration dryer",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ComponentClass",
+    "/properties/LowestAmbientTemperature",
+    "/events/ComponentClass",
+    "/events/LowestAmbientTemperature"
+  ],
+  "properties": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "DryerTypeEnum",
+      "description": "Enumeration of possible dryer types.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.DryerTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "LowestAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Lowest allowable ambient temperature for the dryer to work as intended.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "DryerTypeEnum",
+        "description": "Enumeration of possible dryer types.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.DryerTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LowestAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Lowest allowable ambient temperature for the dryer to work as intended.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

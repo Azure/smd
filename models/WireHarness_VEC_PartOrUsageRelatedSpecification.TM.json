@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_PartOrUsageRelatedSpecification",
+  "title": "WireHarness_VEC_PartOrUsageRelatedSpecification",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PartOrUsageRelatedSpecification",
+  "links": [],
+  "schemaDefinitions": {
+    "PartOrUsageRelatedSpecification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PartOrUsageRelatedSpecification",
+      "required": [
+        "id",
+        "Identification",
+        "SpecialPartType",
+        "DescribedPart"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SpecialPartType": {
+          "description": "<p>The specialPartType allows the specification of subclassifications for a PartOrUsageRelatedSpecification (e.g. different types of connector housings).</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DescribedPart": {
+          "description": "References the PartVersion(s) to which the information defined in this specification applies. Example: If the PartOrUsageRelatedSpecification is a GeneralTechnicalPartSpecifcation and it defines that the color is 'green' then all PartVersion referenced by this association are 'green'.",
+          "type": "array",
+          "items": {
+            "title": "PartVersion",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PartVersion",
+            "required": [
+              "id",
+              "CompanyName",
+              "PartNumber"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "CompanyName": {
+                "description": "<p>Defines the publishing company of the ItemVersion. The companyName is part of the main identifier of an ItemVersion together with the corresponding number (partNumber or documentNumber) and version (partVersion or documentVersion).</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "PartNumber": {
+                "description": "<p>The partNumber is the major identifier of a PartVersion. The format is user defined and respectively company specific. For all VEC-documents a PartVersion-instance can be trusted to be identical if the combination of partNumber, partVersion and companyName is identical.</p>",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

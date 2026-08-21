@@ -1,0 +1,596 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionOrderExecutionStateMachineType",
+  "title": "TMC_v2_ProductionOrderExecutionStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProductionOrderExecutionStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Aborted",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Aborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AbortingToAborted",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Assigned",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AssignedToStarting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AssignedToUnassigning",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AssignedToUnreleasing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Assigning",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AssigningToAssigned",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Complete",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Completing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CompletingToAborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CompletingToComplete",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Execute",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecuteToAborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecuteToCompleting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineModuleProductionOrders",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Released",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReleasedToAssigning",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReleasedToUnreleasing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Releasing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_InitialStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReleasingToReleased",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReleasingToUnreleasing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Starting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartingToAborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartingToExecute",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Unassigning",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnassigningToReleased",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Unreleased",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnreleasedToReleased",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Unreleasing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnreleasingToUnreleased",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    },
+    "BooleanGuardVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "AbortingToAbortedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "AssignedToStartingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "AssignedToUnassigningGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "AssignedToUnreleasingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "AssigningToAssignedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "CompletingToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "CompletingToCompleteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ExecuteToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ExecuteToCompletingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    },
+    "ProductionOrderHeader": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "ProductionOrderHeaderType",
+      "description": "The ProductionOrderHeaderType structure contains the header information for a production  order.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProductionOrderHeaderType",
+      "required": [
+        "Number",
+        "ProducedMaterial",
+        "TargetQuantity",
+        "ContinueAtJobEnd",
+        "TargetStartTime",
+        "TargetEndTime",
+        "DataSetID",
+        "DataSetDescription",
+        "MaterialListID",
+        "MaterialListDescription"
+      ],
+      "properties": {
+        "Number": {
+          "description": "The production order number.",
+          "type": "string"
+        },
+        "ProducedMaterial": {
+          "title": "MaterialDefinitionType",
+          "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+          "required": [
+            "ID",
+            "MES_ID",
+            "Description",
+            "BaseUnitOfMeasure",
+            "BatchManaged"
+          ],
+          "properties": {
+            "ID": {
+              "description": "Unique identifier for the material definition.",
+              "type": "string"
+            },
+            "MES_ID": {
+              "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "Description of the material definition.",
+              "type": "string"
+            },
+            "BaseUnitOfMeasure": {
+              "title": "EUInformation",
+              "description": "The base unit of measure for the material definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "BatchManaged": {
+              "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+              "type": "boolean"
+            },
+            "GroupID": {
+              "description": "The material group the material definition belongs to.",
+              "type": "string"
+            },
+            "ParentGroupID": {
+              "description": "The parent group of the material group the material definition belongs to.",
+              "type": "string"
+            },
+            "ShelfLife": {
+              "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Properties": {
+              "description": "An array containing additional properties that can be additionally  required for the material definition.",
+              "type": "array",
+              "items": {
+                "title": "DataDescriptionType",
+                "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                "required": [
+                  "ID",
+                  "MES_ID",
+                  "Description"
+                ],
+                "properties": {
+                  "ID": {
+                    "description": "Unique identifier for the metadata description.",
+                    "type": "string"
+                  },
+                  "MES_ID": {
+                    "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "The metadata description.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "TargetQuantity": {
+          "description": "The quantity of ProducedMaterial that is requested by the production  order.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "ContinueAtJobEnd": {
+          "description": "When ContinueAtJobEnd is True, then the operator may continue  production (overproduction) after fulfilling the required  TargetQuantity.",
+          "type": "boolean"
+        },
+        "TargetStartTime": {
+          "description": "The planned start date and time.",
+          "type": "string",
+          "format": "time"
+        },
+        "TargetEndTime": {
+          "description": "The planned end date and time.",
+          "type": "string",
+          "format": "time"
+        },
+        "DataSetID": {
+          "description": "The identifier of the dataset to be used for the production order,  when the dataset is late-bound. The DatasetID will be NULL when the  dataset is not late-bound.",
+          "type": "string"
+        },
+        "DataSetDescription": {
+          "description": "The description of the dataset.",
+          "type": "string"
+        },
+        "MaterialListID": {
+          "description": "The identifier of the material list to be used for the production order,  when the material list is late-bound. The DatasetID will be NULL when  the dataset is not late-bound.",
+          "type": "string"
+        },
+        "MaterialListDescription": {
+          "description": "The description of the material list.",
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    },
+    "ReleasedToAssigningGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ReleasedToUnreleasingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ReleasingToReleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ReleasingToUnreleasingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "StartingToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "StartingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnassigningToReleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnreleasedToReleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnreleasingToUnreleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AbortingToAbortedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "AssignedToStartingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "AssignedToUnassigningGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "AssignedToUnreleasingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "AssigningToAssignedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "CompletingToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "CompletingToCompleteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ExecuteToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ExecuteToCompletingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    },
+    "ReleasedToAssigningGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ReleasedToUnreleasingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ReleasingToReleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ReleasingToUnreleasingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "StartingToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "StartingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnassigningToReleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnreleasedToReleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnreleasingToUnreleasedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    }
+  }
+}

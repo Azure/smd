@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnARStateEnumeration",
+  "title": "PROFINET_PnARStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnARStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARStateEnumeration",
+      "const": {
+        "CONNECTED": 0,
+        "UNCONNECTED": 1,
+        "UNCONNECTED_ERR_DEVICE_NOT_FOUND": 2,
+        "UNCONNECTED_ERR_DUPLICATE_IP": 3,
+        "UNCONNECTED_ERR_DUPLICATE_NOS": 4
+      },
+      "properties": {
+        "CONNECTED": {
+          "description": "The AR connection to the device is established",
+          "type": "integer"
+        },
+        "UNCONNECTED": {
+          "description": "The AR connection to the device is not established",
+          "type": "integer"
+        },
+        "UNCONNECTED_ERR_DEVICE_NOT_FOUND": {
+          "description": "The AR connection to the device is not established because the device is not available in the network",
+          "type": "integer"
+        },
+        "UNCONNECTED_ERR_DUPLICATE_IP": {
+          "description": "The AR connection to the device is not established because the IP address of the device exists multiple times",
+          "type": "integer"
+        },
+        "UNCONNECTED_ERR_DUPLICATE_NOS": {
+          "description": "The AR connection to the device is not established because the Name of Station of the device exists multiple times",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

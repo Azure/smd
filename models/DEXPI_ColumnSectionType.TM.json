@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ColumnSectionType",
+  "title": "DEXPI_ColumnSectionType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ColumnSectionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Internal>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ColumnInternalsArrangementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Height",
+    "/properties/InsideDiameter",
+    "/events/Height",
+    "/events/InsideDiameter"
+  ],
+  "properties": {
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The height of the ColumnSection.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "InsideDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The inside diameter of the ColumnSection.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The height of the ColumnSection.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InsideDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The inside diameter of the ColumnSection.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

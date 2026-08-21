@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_InstrumentationLoopFunctionType",
+  "title": "DEXPI_InstrumentationLoopFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.InstrumentationLoopFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/InstrumentationLoopFunctionNumberAssignmentClass",
+    "/events/InstrumentationLoopFunctionNumberAssignmentClass"
+  ],
+  "properties": {
+    "InstrumentationLoopFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification number of the InstrumentationLoopFunction.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "InstrumentationLoopFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification number of the InstrumentationLoopFunction.",
+        "type": "string"
+      }
+    }
+  }
+}

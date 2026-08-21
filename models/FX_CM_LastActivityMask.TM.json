@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_LastActivityMask",
+  "title": "FX_CM_LastActivityMask",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.LastActivityMask",
+  "links": [],
+  "schemaDefinitions": {
+    "LastActivityMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.LastActivityMask",
+      "const": {
+        "EstablishEnabled": 0,
+        "EstablishDisabled": 1,
+        "Establish": 2,
+        "Remove": 3,
+        "Enable": 4,
+        "Disable": 5,
+        "Error": 15
+      },
+      "properties": {
+        "EstablishEnabled": {
+          "description": "The last activity of the ConnectionManager was establishing a connection (enabled).",
+          "type": "integer"
+        },
+        "EstablishDisabled": {
+          "description": "The last activity of the ConnectionManager was establishing a connection (disabled).",
+          "type": "integer"
+        },
+        "Establish": {
+          "description": "The last activity of the ConnectionManager was establishing a connection.",
+          "type": "integer"
+        },
+        "Remove": {
+          "description": "The last activity of the ConnectionManager was to remove a connection.",
+          "type": "integer"
+        },
+        "Enable": {
+          "description": "The last activity of the ConnectionManager was to enable a connection.",
+          "type": "integer"
+        },
+        "Disable": {
+          "description": "The last activity of the ConnectionManager was to disable a connection.",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "If this bit is set, then the last activity of the ConnectionManager failed; if this bit is cleared, then the last activity of the ConnectionManager was a success.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

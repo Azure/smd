@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_PowerTrainType",
+  "title": "Robotics_PowerTrainType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.PowerTrainType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "AxisIdentifier",
+      "dov:refType": "Moves",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_AxisType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "GearIdentifier",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_GearType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MotorIdentifier",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_MotorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "PowerTrainIdentifier",
+      "dov:refType": "HasSlave",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_PowerTrainType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ComponentName"
+  ],
+  "properties": {
+    "ComponentName": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

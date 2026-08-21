@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StartDeviceType",
+  "title": "PlasticsRubber_GeneralTypes_StartDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StartDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "StartEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StartEnumeration",
+      "const": {
+        "NOT_READY_TO_START": 0,
+        "START_BLOCKED_BY_CLIENT": 1,
+        "READY_TO_START": 2,
+        "START_REQUESTED": 3,
+        "STARTED": 4,
+        "STOP_REQUESTED": 5
+      },
+      "properties": {
+        "NOT_READY_TO_START": {
+          "type": "integer"
+        },
+        "START_BLOCKED_BY_CLIENT": {
+          "type": "integer"
+        },
+        "READY_TO_START": {
+          "type": "integer"
+        },
+        "START_REQUESTED": {
+          "type": "integer"
+        },
+        "STARTED": {
+          "type": "integer"
+        },
+        "STOP_REQUESTED": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/StartRequest",
+    "/actions/StopRequest",
+    "/properties/StartBlockedByClient"
+  ],
+  "actions": {
+    "StartRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/"
+    },
+    "StopRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/"
+    }
+  },
+  "properties": {
+    "StartBlockedByClient": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "StartEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StartEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

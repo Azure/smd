@@ -1,0 +1,129 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_CommunicationSettingsType",
+  "title": "CAS_CommunicationSettingsType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.CommunicationSettingsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "IpVersionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.IpVersionEnum",
+      "const": {
+        "IPv4": 0,
+        "IPv6": 1
+      },
+      "properties": {
+        "IPv4": {
+          "description": "IP address is in IPv4 format",
+          "type": "integer"
+        },
+        "IPv6": {
+          "description": "IP address is in IPv6 format",
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/DefaultGateway",
+    "/properties/Dhcp",
+    "/properties/DnsServer",
+    "/properties/DomainName",
+    "/properties/Hostname",
+    "/properties/IpVersion",
+    "/properties/MacAddress",
+    "/properties/SubnetMask",
+    "/events/Dhcp",
+    "/events/MacAddress"
+  ],
+  "properties": {
+    "DefaultGateway": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "IP Address of the default gateway used by the MCS.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Dhcp": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "DnsServer": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "IP Address of the DNS server used by the MCS.",
+      "type": "string",
+      "readOnly": true
+    },
+    "DomainName": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Domain name the MCS is assigned to.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Hostname": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Host name of the MCS.",
+      "type": "string",
+      "readOnly": true
+    },
+    "IpAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "IP address of the MCS.",
+      "type": "string",
+      "readOnly": true
+    },
+    "IpVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "IpVersionEnum",
+      "description": "Version of the internet protocol used for the MCS.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.IpVersionEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MacAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "MAC address of the NIC of the MCS.",
+      "type": "string",
+      "readOnly": true
+    },
+    "SubnetMask": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Subnet mask of the MCS.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Dhcp": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "MacAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "MAC address of the NIC of the MCS.",
+        "type": "string"
+      }
+    }
+  }
+}

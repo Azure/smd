@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_IntervalRange",
+  "title": "FX_Data_IntervalRange",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+  "links": [],
+  "schemaDefinitions": {
+    "IntervalRange": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+      "required": [
+        "Min",
+        "Max",
+        "Increment",
+        "Multiplier",
+        "Unit"
+      ],
+      "properties": {
+        "Min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Increment": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Multiplier": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Unit": {
+          "title": "FxTimeUnitsEnum",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

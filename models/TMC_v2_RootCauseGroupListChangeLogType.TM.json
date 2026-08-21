@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_RootCauseGroupListChangeLogType",
+  "title": "TMC_v2_RootCauseGroupListChangeLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseGroupListChangeLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "NewRootCauseGroups": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The root cause groups after the change.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseGroupType",
+        "description": "The RootCauseGroupType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseGroupType",
+        "required": [
+          "ID",
+          "ParentID",
+          "Description"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the root cause group.",
+            "type": "string"
+          },
+          "ParentID": {
+            "description": "The ID of the group containing the root cause group identified by Id. By  means of the ParentID, multiple nested groups are allowed.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "The human-readable description of the root cause group identified by  the unique identifier.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "OldRootCauseGroups": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The root cause groups prior to the change.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseGroupType",
+        "description": "The RootCauseGroupType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseGroupType",
+        "required": [
+          "ID",
+          "ParentID",
+          "Description"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the root cause group.",
+            "type": "string"
+          },
+          "ParentID": {
+            "description": "The ID of the group containing the root cause group identified by Id. By  means of the ParentID, multiple nested groups are allowed.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "The human-readable description of the root cause group identified by  the unique identifier.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_FilterClassDataType",
+  "title": "CAS_FilterClassDataType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.FilterClassDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "FilterClassDataType": {
+      "description": "information about the used filter class according to ISO 8573-1 of a filter",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.FilterClassDataType",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "title": "FilterClassEnum",
+          "description": "Class for particles",
+          "dov:typeRef": "org.opcfoundation.UA.CAS.FilterClassEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "B": {
+          "title": "FilterClassEnum",
+          "description": "Class for water and humidity",
+          "dov:typeRef": "org.opcfoundation.UA.CAS.FilterClassEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "C": {
+          "title": "FilterClassEnum",
+          "description": "Class for oil",
+          "dov:typeRef": "org.opcfoundation.UA.CAS.FilterClassEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

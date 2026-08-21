@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTCoordinateSystemType",
+  "title": "MTConnect_v2_MTCoordinateSystemType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTCoordinateSystemType",
+  "links": [],
+  "schemaDefinitions": {
+    "MTCoordinateSystemType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTCoordinateSystemType",
+      "const": {
+        "MACHINE": 0,
+        "WORK": 1
+      },
+      "description": "       Represents the \\mtmodel{coordinateSystem} attribute of the MTConnect       \\gls{MTDataItem}. It is a reference system that associates a unique set of       n parameters with each point in an n-dimensional space. Ref: ISO       10303-218:2004     ",
+      "properties": {
+        "MACHINE": {
+          "description": "An unchangeable coordinate system that has machine zero as its origin.",
+          "type": "integer"
+        },
+        "WORK": {
+          "description": "           The coordinate system that represents the working area for a           particular workpiece whose origin is shifted within the machine           coordinate system. If the work coordinates are not currently defined           in the piece of equipment, the machine coordinates will be used.         ",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

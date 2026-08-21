@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Onboarding/#Onboarding_DeviceIdentityTicketType",
+  "title": "Onboarding_DeviceIdentityTicketType",
+  "dov:typeRef": "org.opcfoundation.UA.Onboarding.DeviceIdentityTicketType",
+  "links": [],
+  "schemaDefinitions": {
+    "DeviceIdentityTicketType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Onboarding.DeviceIdentityTicketType",
+      "required": [
+        "ManufacturerName",
+        "ModelName",
+        "ModelVersion",
+        "HardwareRevision",
+        "SoftwareRevision",
+        "SerialNumber",
+        "ManufactureDate",
+        "Authorities",
+        "ProductInstanceUri"
+      ],
+      "properties": {
+        "ManufacturerName": {
+          "type": "string"
+        },
+        "ModelName": {
+          "type": "string"
+        },
+        "ModelVersion": {
+          "type": "string"
+        },
+        "HardwareRevision": {
+          "type": "string"
+        },
+        "SoftwareRevision": {
+          "type": "string"
+        },
+        "SerialNumber": {
+          "type": "string"
+        },
+        "ManufactureDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Authorities": {
+          "type": "array",
+          "items": {
+            "title": "CertificateAuthorityType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Onboarding.CertificateAuthorityType",
+            "required": [
+              "AuthorityCertificate",
+              "IssuerCertificates"
+            ],
+            "properties": {
+              "AuthorityCertificate": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "IssuerCertificates": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "contentEncoding": "base64"
+                }
+              }
+            }
+          }
+        },
+        "ProductInstanceUri": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

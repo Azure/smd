@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_SoftwareVersionFileType",
+  "title": "DI_SoftwareVersionFileType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareVersionFileType",
+  "links": [],
+  "schemaDefinitions": {
+    "SoftwareVersionFileType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareVersionFileType",
+      "const": {
+        "Current": 0,
+        "Pending": 1,
+        "Fallback": 2
+      },
+      "properties": {
+        "Current": {
+          "description": "The currently used version of the software identified by the CurrentVersion Object.",
+          "type": "integer"
+        },
+        "Pending": {
+          "description": "The pending version of the software that could be installed identified by the PendingVersion Object.",
+          "type": "integer"
+        },
+        "Fallback": {
+          "description": "The fallback version of the software identified by the FallbackVersion Object.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

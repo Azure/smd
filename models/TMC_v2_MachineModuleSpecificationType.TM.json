@@ -1,0 +1,1608 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineModuleSpecificationType",
+  "title": "TMC_v2_MachineModuleSpecificationType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MachineModuleSpecificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Documentation",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "StorageLogicEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+      "const": {
+        "Other": 0,
+        "FIFO": 1,
+        "LIFO": 2,
+        "FEFO": 3
+      },
+      "description": "The StorageLogicEnumeration describes standard loading and unloading material  configurations.",
+      "properties": {
+        "Other": {
+          "description": "None of the below options.",
+          "type": "integer"
+        },
+        "FIFO": {
+          "description": "First-In, First-Out.",
+          "type": "integer"
+        },
+        "LIFO": {
+          "description": "Last-In, First-Out.",
+          "type": "integer"
+        },
+        "FEFO": {
+          "description": "First-Expired, First-Out.",
+          "type": "integer"
+        }
+      }
+    },
+    "StorageMixingLogicEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+      "const": {
+        "Mixing": 0,
+        "NonMixingByProduct": 1,
+        "NonMixingByBatch": 2
+      },
+      "description": "The StorageMixingLogicEnumeration describes standard ways of mixing material in a material  storage buffer.",
+      "properties": {
+        "Mixing": {
+          "description": "The material storage buffer containing a material accepts any other material.",
+          "type": "integer"
+        },
+        "NonMixingByProduct": {
+          "description": "The material storage buffer containing a material accepts other materials with the same MaterialDefinition.",
+          "type": "integer"
+        },
+        "NonMixingByBatch": {
+          "description": "The material storage buffer containing a material accepts other materials with the same MaterialLot.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "DeleteSpecificationRecord": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The DeleteSpecificationRecord Method deletes a specification record.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SpecificationRecord"
+        ],
+        "properties": {
+          "SpecificationRecord": {
+            "description": "The OPC UA unique node identifier for the specification to be deleted from the underlying system  repository.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "LoadMachineModuleDocumentation": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The LoadMachineModuleDocumentation Method allows to securely load any machine module  documentation to the documentation repository DocumentationRep folder where it can be reached by  applications.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "DocumentToBeLoaded",
+          "DocumentName"
+        ],
+        "properties": {
+          "DocumentToBeLoaded": {
+            "description": "The document, as a byte string, to be transferred to the Documentation folder. ",
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "DocumentName": {
+            "description": "The document name to be associated to the document in the underlying system.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "RemoveMachineModuleDocumentation": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The RemoveMachineModuleDocumentation Method allows to securely remove, i.e. permanently delete, any machine module documentation from the documentation repository Documentation.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "DocumentName"
+        ],
+        "properties": {
+          "DocumentName": {
+            "description": "The document name to be associated to the document in the underlying system.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetNewSpecification": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Method SetNewSpecification saves its arguments as the new specification for the machine module.  Prior to that it saves the previous specification into the PastSpecification Records Object of the same  machine module.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NewMaterialLoadingPoints",
+          "NewMaterialStorageBuffers",
+          "NewMaterialOutputPoints",
+          "NewMaterialRejectionPoints"
+        ],
+        "properties": {
+          "NewMaterialLoadingPoints": {
+            "description": "The information about the material loading points that will be valid after the machine specification is changed. ",
+            "type": "array",
+            "items": {
+              "title": "MaterialPointType",
+              "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+              "required": [
+                "ID",
+                "Description",
+                "MaterialCapability",
+                "ConnectedMaterialPoint",
+                "PropagatesProductionOrder"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material point type.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material point type.",
+                  "type": "string"
+                },
+                "MaterialCapability": {
+                  "description": "The complete set of material definitions that the material point can process.",
+                  "type": "array",
+                  "items": {
+                    "title": "MaterialDefinitionType",
+                    "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description",
+                      "BaseUnitOfMeasure",
+                      "BatchManaged"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the material definition.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "Description of the material definition.",
+                        "type": "string"
+                      },
+                      "BaseUnitOfMeasure": {
+                        "title": "EUInformation",
+                        "description": "The base unit of measure for the material definition.",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                        "required": [
+                          "NamespaceUri",
+                          "UnitId",
+                          "DisplayName",
+                          "Description"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "UnitId": {
+                            "type": "integer",
+                            "minimum": -2147483648,
+                            "maximum": 2147483647
+                          },
+                          "DisplayName": {
+                            "type": "string"
+                          },
+                          "Description": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "BatchManaged": {
+                        "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                        "type": "boolean"
+                      },
+                      "GroupID": {
+                        "description": "The material group the material definition belongs to.",
+                        "type": "string"
+                      },
+                      "ParentGroupID": {
+                        "description": "The parent group of the material group the material definition belongs to.",
+                        "type": "string"
+                      },
+                      "ShelfLife": {
+                        "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      },
+                      "Properties": {
+                        "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                        "type": "array",
+                        "items": {
+                          "title": "DataDescriptionType",
+                          "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                          "required": [
+                            "ID",
+                            "MES_ID",
+                            "Description"
+                          ],
+                          "properties": {
+                            "ID": {
+                              "description": "Unique identifier for the metadata description.",
+                              "type": "string"
+                            },
+                            "MES_ID": {
+                              "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                              "type": "string"
+                            },
+                            "Description": {
+                              "description": "The metadata description.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "ConnectedMaterialPoint": {
+                  "description": "The identifier for the node id of the connected material point.",
+                  "type": "string"
+                },
+                "PropagatesProductionOrder": {
+                  "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "NewMaterialStorageBuffers": {
+            "description": "The information about the storage buffers that will be valid after the machine specification is changed. ",
+            "type": "array",
+            "items": {
+              "title": "MaterialStorageBufferDataType",
+              "description": "The MaterialStorageBufferDataType structure provides the description of the capability of a  material storage buffer.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStorageBufferDataType",
+              "required": [
+                "ID",
+                "StoredMaterial",
+                "EngineeringUnits",
+                "TotalStorageCapacity",
+                "StorageLogic",
+                "MixingLogic"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material storage buffer.",
+                  "type": "string"
+                },
+                "StoredMaterial": {
+                  "title": "MaterialDefinitionType",
+                  "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+                  "required": [
+                    "ID",
+                    "MES_ID",
+                    "Description",
+                    "BaseUnitOfMeasure",
+                    "BatchManaged"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the material definition.",
+                      "type": "string"
+                    },
+                    "MES_ID": {
+                      "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "Description of the material definition.",
+                      "type": "string"
+                    },
+                    "BaseUnitOfMeasure": {
+                      "title": "EUInformation",
+                      "description": "The base unit of measure for the material definition.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                      "required": [
+                        "NamespaceUri",
+                        "UnitId",
+                        "DisplayName",
+                        "Description"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "UnitId": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "BatchManaged": {
+                      "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                      "type": "boolean"
+                    },
+                    "GroupID": {
+                      "description": "The material group the material definition belongs to.",
+                      "type": "string"
+                    },
+                    "ParentGroupID": {
+                      "description": "The parent group of the material group the material definition belongs to.",
+                      "type": "string"
+                    },
+                    "ShelfLife": {
+                      "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 4294967295
+                    },
+                    "Properties": {
+                      "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                      "type": "array",
+                      "items": {
+                        "title": "DataDescriptionType",
+                        "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                        "required": [
+                          "ID",
+                          "MES_ID",
+                          "Description"
+                        ],
+                        "properties": {
+                          "ID": {
+                            "description": "Unique identifier for the metadata description.",
+                            "type": "string"
+                          },
+                          "MES_ID": {
+                            "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                            "type": "string"
+                          },
+                          "Description": {
+                            "description": "The metadata description.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "EngineeringUnits": {
+                  "title": "EUInformation",
+                  "description": "The unit of measure for the material stored in the buffer.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                  "required": [
+                    "NamespaceUri",
+                    "UnitId",
+                    "DisplayName",
+                    "Description"
+                  ],
+                  "properties": {
+                    "NamespaceUri": {
+                      "type": "string"
+                    },
+                    "UnitId": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DisplayName": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "TotalStorageCapacity": {
+                  "description": "The total capacity of the material storage buffer.",
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "StorageLogic": {
+                  "title": "StorageLogicEnumeration",
+                  "description": "The logic by which product is loaded and unloaded from the material storage buffer.",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "MixingLogic": {
+                  "title": "StorageMixingLogicEnumeration",
+                  "description": "How different material loaded into the material storage buffer mix.",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          },
+          "NewMaterialOutputPoints": {
+            "description": "The information about the material output points that will be valid after the machine specification is changed.",
+            "type": "array",
+            "items": {
+              "title": "MaterialPointType",
+              "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+              "required": [
+                "ID",
+                "Description",
+                "MaterialCapability",
+                "ConnectedMaterialPoint",
+                "PropagatesProductionOrder"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material point type.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material point type.",
+                  "type": "string"
+                },
+                "MaterialCapability": {
+                  "description": "The complete set of material definitions that the material point can process.",
+                  "type": "array",
+                  "items": {
+                    "title": "MaterialDefinitionType",
+                    "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description",
+                      "BaseUnitOfMeasure",
+                      "BatchManaged"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the material definition.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "Description of the material definition.",
+                        "type": "string"
+                      },
+                      "BaseUnitOfMeasure": {
+                        "title": "EUInformation",
+                        "description": "The base unit of measure for the material definition.",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                        "required": [
+                          "NamespaceUri",
+                          "UnitId",
+                          "DisplayName",
+                          "Description"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "UnitId": {
+                            "type": "integer",
+                            "minimum": -2147483648,
+                            "maximum": 2147483647
+                          },
+                          "DisplayName": {
+                            "type": "string"
+                          },
+                          "Description": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "BatchManaged": {
+                        "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                        "type": "boolean"
+                      },
+                      "GroupID": {
+                        "description": "The material group the material definition belongs to.",
+                        "type": "string"
+                      },
+                      "ParentGroupID": {
+                        "description": "The parent group of the material group the material definition belongs to.",
+                        "type": "string"
+                      },
+                      "ShelfLife": {
+                        "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      },
+                      "Properties": {
+                        "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                        "type": "array",
+                        "items": {
+                          "title": "DataDescriptionType",
+                          "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                          "required": [
+                            "ID",
+                            "MES_ID",
+                            "Description"
+                          ],
+                          "properties": {
+                            "ID": {
+                              "description": "Unique identifier for the metadata description.",
+                              "type": "string"
+                            },
+                            "MES_ID": {
+                              "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                              "type": "string"
+                            },
+                            "Description": {
+                              "description": "The metadata description.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "ConnectedMaterialPoint": {
+                  "description": "The identifier for the node id of the connected material point.",
+                  "type": "string"
+                },
+                "PropagatesProductionOrder": {
+                  "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "NewMaterialRejectionPoints": {
+            "description": "The information about the material rejection points that will be valid after the machine specification is changed.",
+            "type": "array",
+            "items": {
+              "title": "MaterialPointType",
+              "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+              "required": [
+                "ID",
+                "Description",
+                "MaterialCapability",
+                "ConnectedMaterialPoint",
+                "PropagatesProductionOrder"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material point type.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material point type.",
+                  "type": "string"
+                },
+                "MaterialCapability": {
+                  "description": "The complete set of material definitions that the material point can process.",
+                  "type": "array",
+                  "items": {
+                    "title": "MaterialDefinitionType",
+                    "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description",
+                      "BaseUnitOfMeasure",
+                      "BatchManaged"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the material definition.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "Description of the material definition.",
+                        "type": "string"
+                      },
+                      "BaseUnitOfMeasure": {
+                        "title": "EUInformation",
+                        "description": "The base unit of measure for the material definition.",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                        "required": [
+                          "NamespaceUri",
+                          "UnitId",
+                          "DisplayName",
+                          "Description"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "UnitId": {
+                            "type": "integer",
+                            "minimum": -2147483648,
+                            "maximum": 2147483647
+                          },
+                          "DisplayName": {
+                            "type": "string"
+                          },
+                          "Description": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "BatchManaged": {
+                        "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                        "type": "boolean"
+                      },
+                      "GroupID": {
+                        "description": "The material group the material definition belongs to.",
+                        "type": "string"
+                      },
+                      "ParentGroupID": {
+                        "description": "The parent group of the material group the material definition belongs to.",
+                        "type": "string"
+                      },
+                      "ShelfLife": {
+                        "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      },
+                      "Properties": {
+                        "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                        "type": "array",
+                        "items": {
+                          "title": "DataDescriptionType",
+                          "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                          "required": [
+                            "ID",
+                            "MES_ID",
+                            "Description"
+                          ],
+                          "properties": {
+                            "ID": {
+                              "description": "Unique identifier for the metadata description.",
+                              "type": "string"
+                            },
+                            "MES_ID": {
+                              "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                              "type": "string"
+                            },
+                            "Description": {
+                              "description": "The metadata description.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "ConnectedMaterialPoint": {
+                  "description": "The identifier for the node id of the connected material point.",
+                  "type": "string"
+                },
+                "PropagatesProductionOrder": {
+                  "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "LocationName": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property LocationName of type String contains the location of the machine module within  the user production site.",
+      "type": "string",
+      "readOnly": false
+    },
+    "MaterialLoadingPoints": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property MaterialLoadingPoints identifies the loading points of the machine module and their capability in terms of what materials can be loaded at a loading point. The Property MaterialLoadingPoints is defined as a list of objects of type MaterialPointType.",
+      "type": "array",
+      "items": {
+        "title": "MaterialPointType",
+        "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+        "required": [
+          "ID",
+          "Description",
+          "MaterialCapability",
+          "ConnectedMaterialPoint",
+          "PropagatesProductionOrder"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the material point type.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "Description of the material point type.",
+            "type": "string"
+          },
+          "MaterialCapability": {
+            "description": "The complete set of material definitions that the material point can process.",
+            "type": "array",
+            "items": {
+              "title": "MaterialDefinitionType",
+              "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+              "required": [
+                "ID",
+                "MES_ID",
+                "Description",
+                "BaseUnitOfMeasure",
+                "BatchManaged"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material definition.",
+                  "type": "string"
+                },
+                "MES_ID": {
+                  "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material definition.",
+                  "type": "string"
+                },
+                "BaseUnitOfMeasure": {
+                  "title": "EUInformation",
+                  "description": "The base unit of measure for the material definition.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                  "required": [
+                    "NamespaceUri",
+                    "UnitId",
+                    "DisplayName",
+                    "Description"
+                  ],
+                  "properties": {
+                    "NamespaceUri": {
+                      "type": "string"
+                    },
+                    "UnitId": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DisplayName": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "BatchManaged": {
+                  "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                  "type": "boolean"
+                },
+                "GroupID": {
+                  "description": "The material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ParentGroupID": {
+                  "description": "The parent group of the material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ShelfLife": {
+                  "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Properties": {
+                  "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                  "type": "array",
+                  "items": {
+                    "title": "DataDescriptionType",
+                    "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the metadata description.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "The metadata description.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ConnectedMaterialPoint": {
+            "description": "The identifier for the node id of the connected material point.",
+            "type": "string"
+          },
+          "PropagatesProductionOrder": {
+            "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "MaterialOutputPoints": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property MaterialOutputPoints identifies the output points of the machine module and their capability in terms of what materials can be output The Property MaterialOutputPoints is defined as a list of objects of type MaterialPointType.",
+      "type": "array",
+      "items": {
+        "title": "MaterialPointType",
+        "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+        "required": [
+          "ID",
+          "Description",
+          "MaterialCapability",
+          "ConnectedMaterialPoint",
+          "PropagatesProductionOrder"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the material point type.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "Description of the material point type.",
+            "type": "string"
+          },
+          "MaterialCapability": {
+            "description": "The complete set of material definitions that the material point can process.",
+            "type": "array",
+            "items": {
+              "title": "MaterialDefinitionType",
+              "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+              "required": [
+                "ID",
+                "MES_ID",
+                "Description",
+                "BaseUnitOfMeasure",
+                "BatchManaged"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material definition.",
+                  "type": "string"
+                },
+                "MES_ID": {
+                  "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material definition.",
+                  "type": "string"
+                },
+                "BaseUnitOfMeasure": {
+                  "title": "EUInformation",
+                  "description": "The base unit of measure for the material definition.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                  "required": [
+                    "NamespaceUri",
+                    "UnitId",
+                    "DisplayName",
+                    "Description"
+                  ],
+                  "properties": {
+                    "NamespaceUri": {
+                      "type": "string"
+                    },
+                    "UnitId": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DisplayName": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "BatchManaged": {
+                  "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                  "type": "boolean"
+                },
+                "GroupID": {
+                  "description": "The material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ParentGroupID": {
+                  "description": "The parent group of the material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ShelfLife": {
+                  "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Properties": {
+                  "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                  "type": "array",
+                  "items": {
+                    "title": "DataDescriptionType",
+                    "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the metadata description.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "The metadata description.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ConnectedMaterialPoint": {
+            "description": "The identifier for the node id of the connected material point.",
+            "type": "string"
+          },
+          "PropagatesProductionOrder": {
+            "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "MaterialRejectionPoints": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property MaterialRejectionPoints identifies the rejection points of the machine module and their capability in terms of what materials are rejected The Property MaterialRejectionPoints is defined as a list of objects of type MaterialPointType.",
+      "type": "array",
+      "items": {
+        "title": "MaterialPointType",
+        "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+        "required": [
+          "ID",
+          "Description",
+          "MaterialCapability",
+          "ConnectedMaterialPoint",
+          "PropagatesProductionOrder"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the material point type.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "Description of the material point type.",
+            "type": "string"
+          },
+          "MaterialCapability": {
+            "description": "The complete set of material definitions that the material point can process.",
+            "type": "array",
+            "items": {
+              "title": "MaterialDefinitionType",
+              "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+              "required": [
+                "ID",
+                "MES_ID",
+                "Description",
+                "BaseUnitOfMeasure",
+                "BatchManaged"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material definition.",
+                  "type": "string"
+                },
+                "MES_ID": {
+                  "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material definition.",
+                  "type": "string"
+                },
+                "BaseUnitOfMeasure": {
+                  "title": "EUInformation",
+                  "description": "The base unit of measure for the material definition.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                  "required": [
+                    "NamespaceUri",
+                    "UnitId",
+                    "DisplayName",
+                    "Description"
+                  ],
+                  "properties": {
+                    "NamespaceUri": {
+                      "type": "string"
+                    },
+                    "UnitId": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DisplayName": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "BatchManaged": {
+                  "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                  "type": "boolean"
+                },
+                "GroupID": {
+                  "description": "The material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ParentGroupID": {
+                  "description": "The parent group of the material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ShelfLife": {
+                  "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Properties": {
+                  "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                  "type": "array",
+                  "items": {
+                    "title": "DataDescriptionType",
+                    "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the metadata description.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "The metadata description.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ConnectedMaterialPoint": {
+            "description": "The identifier for the node id of the connected material point.",
+            "type": "string"
+          },
+          "PropagatesProductionOrder": {
+            "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "MaterialStorageBuffers": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property MaterialStorageBuffers describes the buffers inside the machine module and their current status. The Property MaterialStorageBuffers is a list of objects of type MaterialStorageBufferDataType.",
+      "type": "array",
+      "items": {
+        "title": "MaterialStorageBufferDataType",
+        "description": "The MaterialStorageBufferDataType structure provides the description of the capability of a  material storage buffer.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStorageBufferDataType",
+        "required": [
+          "ID",
+          "StoredMaterial",
+          "EngineeringUnits",
+          "TotalStorageCapacity",
+          "StorageLogic",
+          "MixingLogic"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the material storage buffer.",
+            "type": "string"
+          },
+          "StoredMaterial": {
+            "title": "MaterialDefinitionType",
+            "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+            "required": [
+              "ID",
+              "MES_ID",
+              "Description",
+              "BaseUnitOfMeasure",
+              "BatchManaged"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the material definition.",
+                "type": "string"
+              },
+              "MES_ID": {
+                "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "Description of the material definition.",
+                "type": "string"
+              },
+              "BaseUnitOfMeasure": {
+                "title": "EUInformation",
+                "description": "The base unit of measure for the material definition.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "BatchManaged": {
+                "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                "type": "boolean"
+              },
+              "GroupID": {
+                "description": "The material group the material definition belongs to.",
+                "type": "string"
+              },
+              "ParentGroupID": {
+                "description": "The parent group of the material group the material definition belongs to.",
+                "type": "string"
+              },
+              "ShelfLife": {
+                "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Properties": {
+                "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                "type": "array",
+                "items": {
+                  "title": "DataDescriptionType",
+                  "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                  "required": [
+                    "ID",
+                    "MES_ID",
+                    "Description"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the metadata description.",
+                      "type": "string"
+                    },
+                    "MES_ID": {
+                      "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "The metadata description.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "EngineeringUnits": {
+            "title": "EUInformation",
+            "description": "The unit of measure for the material stored in the buffer.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          },
+          "TotalStorageCapacity": {
+            "description": "The total capacity of the material storage buffer.",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "StorageLogic": {
+            "title": "StorageLogicEnumeration",
+            "description": "The logic by which product is loaded and unloaded from the material storage buffer.",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "MixingLogic": {
+            "title": "StorageMixingLogicEnumeration",
+            "description": "How different material loaded into the material storage buffer mix.",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "TimeZone": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "TimeZoneDataType",
+      "description": "The local time zone where the machine operates. It is required to convert UTC times into local  time.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      },
+      "readOnly": false
+    },
+    "TotalRunningHours": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property TotalRunningHours counts the number of hours the machine module has been in operation  since the last time its configuration was changed.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "UserMachineName": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property UserMachineName of type String contains the name used by the user to identify  the machine module. LocationName and UserMachineName uniquely identify the machine  module in the user organization.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ValidSince": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property ValidSince is the date since the configuration was last modified.",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    }
+  }
+}

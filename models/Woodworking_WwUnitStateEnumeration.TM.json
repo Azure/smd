@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Woodworking/#Woodworking_WwUnitStateEnumeration",
+  "title": "Woodworking_WwUnitStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "WwUnitStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitStateEnumeration",
+      "const": {
+        "OFFLINE": 0,
+        "STANDBY": 1,
+        "READY": 2,
+        "WORKING": 3,
+        "ERROR": 4
+      },
+      "description": "This enumeration represents the generalized state of a unit.",
+      "properties": {
+        "OFFLINE": {
+          "description": "The component is offline.",
+          "type": "integer"
+        },
+        "STANDBY": {
+          "description": "The unit is in standby.",
+          "type": "integer"
+        },
+        "READY": {
+          "description": "The unit is ready to start working.",
+          "type": "integer"
+        },
+        "WORKING": {
+          "description": "The unit is working.",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "The unit is not able to start working because there is an error. The cause can be an alarm or error or user intervention.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

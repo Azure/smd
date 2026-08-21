@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_PubSubReserveCommunicationIdsResult2DataType",
+  "title": "FX_Data_PubSubReserveCommunicationIdsResult2DataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubReserveCommunicationIdsResult2DataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PubSubReserveCommunicationIdsResult2DataType": {
+      "title": "PubSubReserveCommunicationIdsResultDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubReserveCommunicationIdsResultDataType",
+      "required": [
+        "Result",
+        "DefaultPublisherId",
+        "WriterGroupIds",
+        "DataSetWriterIds"
+      ],
+      "properties": {
+        "Result": {
+          "type": "string"
+        },
+        "DefaultPublisherId": {
+          "description": "Stand-in for an unspecified data type.",
+          "type": "string"
+        },
+        "WriterGroupIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        },
+        "DataSetWriterIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      }
+    }
+  }
+}

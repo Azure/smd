@@ -1,0 +1,172 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_ControlChannelType",
+  "title": "IA_ControlChannelType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.ControlChannelType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SignalColor": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalColor",
+      "const": {
+        "Off": 0,
+        "Red": 1,
+        "Green": 2,
+        "Blue": 3,
+        "Yellow": 4,
+        "Purple": 5,
+        "Cyan": 6,
+        "White": 7
+      },
+      "description": "Holds the possible colour values for stacklight lamps.",
+      "properties": {
+        "Off": {
+          "description": "Element is disabled.",
+          "type": "integer"
+        },
+        "Red": {
+          "description": "This value indicates a red lamp colour.",
+          "type": "integer"
+        },
+        "Green": {
+          "description": "This value indicates a green lamp colour.",
+          "type": "integer"
+        },
+        "Blue": {
+          "description": "This value indicates a blue lamp colour.",
+          "type": "integer"
+        },
+        "Yellow": {
+          "description": "This value indicates a yellow lamp colour (R+G).",
+          "type": "integer"
+        },
+        "Purple": {
+          "description": "This value indicates a purple lamp colour (R+B).",
+          "type": "integer"
+        },
+        "Cyan": {
+          "description": "This value indicates a cyan lamp colour (G+B).",
+          "type": "integer"
+        },
+        "White": {
+          "description": "This value indicates a white lamp colour (R+G+B).",
+          "type": "integer"
+        }
+      }
+    },
+    "SignalModeLight": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalModeLight",
+      "const": {
+        "Continuous": 0,
+        "Blinking": 1,
+        "Flashing": 2,
+        "Other": 3
+      },
+      "description": "Contains the values used to indicate in what way a lamp behaves when switched on.",
+      "properties": {
+        "Continuous": {
+          "description": "This value indicates a continuous light.",
+          "type": "integer"
+        },
+        "Blinking": {
+          "description": "This value indicates a blinking light (blinking in regular intervals with equally long on and off times).",
+          "type": "integer"
+        },
+        "Flashing": {
+          "description": "This value indicates a flashing light (blinking in intervals with longer off times than on times, per interval multiple on times are possible).",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "The light is handled in a way not defined in this version of the specification.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Intensity",
+    "/events/Intensity"
+  ],
+  "properties": {
+    "ChannelColor": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "title": "SignalColor",
+      "description": "Indicates in what mode (continuously on, blinking, flashing) the channel operates when switched on.",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalColor",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Intensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Shows the channel’s intensity, thus its brightness. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "SignalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "title": "SignalModeLight",
+      "description": "Contains a list of audio signals used by this acoustic stacklight element.",
+      "dov:typeRef": "org.opcfoundation.UA.IA.SignalModeLight",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SignalOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates if the colour is switched on.",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ChannelColor": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "title": "SignalColor",
+        "description": "Indicates in what mode (continuously on, blinking, flashing) the channel operates when switched on.",
+        "dov:typeRef": "org.opcfoundation.UA.IA.SignalColor",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Intensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "description": "Shows the channel’s intensity, thus its brightness. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "SignalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "title": "SignalModeLight",
+        "description": "Contains a list of audio signals used by this acoustic stacklight element.",
+        "dov:typeRef": "org.opcfoundation.UA.IA.SignalModeLight",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

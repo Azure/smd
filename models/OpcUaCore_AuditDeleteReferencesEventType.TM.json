@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditDeleteReferencesEventType",
+  "title": "OpcUaCore_AuditDeleteReferencesEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditDeleteReferencesEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditNodeManagementEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "ReferencesToDelete": {
+      "type": "array",
+      "items": {
+        "title": "DeleteReferencesItem",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.DeleteReferencesItem",
+        "required": [
+          "SourceNodeId",
+          "ReferenceTypeId",
+          "IsForward",
+          "TargetNodeId",
+          "DeleteBidirectional"
+        ],
+        "properties": {
+          "SourceNodeId": {
+            "type": "string"
+          },
+          "ReferenceTypeId": {
+            "type": "string"
+          },
+          "IsForward": {
+            "type": "boolean"
+          },
+          "TargetNodeId": {
+            "type": "string"
+          },
+          "DeleteBidirectional": {
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

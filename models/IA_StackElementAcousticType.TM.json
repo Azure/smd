@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_StackElementAcousticType",
+  "title": "IA_StackElementAcousticType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.StackElementAcousticType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/IA/#IA_StackElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AcousticSignals",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_OrderedListType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Intensity",
+    "/events/Intensity"
+  ],
+  "properties": {
+    "Intensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates the sound pressure level of the acoustic signal when switched on. This value shall only have positive values. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "OperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates what signal of the list of AcousticSignalType nodes is played when the acoustic element is switched on. It shall contain an index into the NumberInList of the respective AcousticSignalType Object of AcousticSignals.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Intensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "description": "Indicates the sound pressure level of the acoustic signal when switched on. This value shall only have positive values. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "OperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "description": "Indicates what signal of the list of AcousticSignalType nodes is played when the acoustic element is switched on. It shall contain an index into the NumberInList of the respective AcousticSignalType Object of AcousticSignals.",
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

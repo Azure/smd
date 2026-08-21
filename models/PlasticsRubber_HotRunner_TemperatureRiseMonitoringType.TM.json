@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/#PlasticsRubber_HotRunner_TemperatureRiseMonitoringType",
+  "title": "PlasticsRubber_HotRunner_TemperatureRiseMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.TemperatureRiseMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SetValueTemperatureChange",
+    "/properties/SupervisionTime",
+    "/events/SetValueTemperatureChange"
+  ],
+  "properties": {
+    "ErrorDetected": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Result of the TemperatureRiseMonitoring",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "SetValueActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "On / Off for the TemperatureRiseMonitoring",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SetValueTemperatureChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Specification of the set value change",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SupervisionTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Specification of the time within the temperature must have changed",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "SetValueTemperatureChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Specification of the set value change",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

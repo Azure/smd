@@ -1,0 +1,147 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_ProductionType",
+  "title": "Glass_Flat_ProductionType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.ProductionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ProductionPlan",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_ProductionPlanType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ChangePositionInList",
+    "/actions/DeleteJob",
+    "/actions/InsertJob",
+    "/properties/CurrentCountOfJobs",
+    "/properties/MaxCountOfJobs",
+    "/properties/SupportedMaterialTypes"
+  ],
+  "actions": {
+    "ChangePositionInList": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Target",
+          "Source",
+          "Before"
+        ],
+        "properties": {
+          "Target": {
+            "type": "string"
+          },
+          "Source": {
+            "type": "string"
+          },
+          "Before": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "DeleteJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Identifier"
+        ],
+        "properties": {
+          "Identifier": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "InsertJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Identifier",
+          "Name",
+          "InputMaterial",
+          "OutputMaterial"
+        ],
+        "properties": {
+          "Identifier": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "InputMaterial": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "OutputMaterial": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JobNodeId"
+        ],
+        "properties": {
+          "JobNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CurrentCountOfJobs": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "JobListIsRecommendation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "MaxCountOfJobs": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "SupportedMaterialTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  }
+}

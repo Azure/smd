@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASSubmodelElementCollectionType",
+  "title": "I4AAS_AASSubmodelElementCollectionType",
+  "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASSubmodelElementCollectionType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASSubmodelElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SubmodelElement",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASSubmodelElementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AllowDuplicates"
+  ],
+  "properties": {
+    "AllowDuplicates": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  }
+}

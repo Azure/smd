@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_PaymentServiceStatusType",
+  "title": "UnattendedRetail_PaymentServiceStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentServiceStatusType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PaymentServiceStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentServiceStatusEnum",
+      "const": {
+        "Available": 0,
+        "Offline": 1,
+        "OutOfOrder": 2,
+        "ExternallyStopped": 3
+      },
+      "properties": {
+        "Available": {
+          "type": "integer"
+        },
+        "Offline": {
+          "type": "integer"
+        },
+        "OutOfOrder": {
+          "type": "integer"
+        },
+        "ExternallyStopped": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "RequestStatusChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RequestedState"
+        ],
+        "properties": {
+          "RequestedState": {
+            "title": "PaymentServiceStatusEnum",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentServiceStatusEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "title": "PaymentServiceStatusEnum",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentServiceStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "title": "PaymentServiceStatusEnum",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentServiceStatusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

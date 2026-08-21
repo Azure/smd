@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetWriteOptionsType",
+  "title": "PlasticsRubber_GeneralTypes_ProductionDatasetWriteOptionsType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionDatasetWriteOptionsType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProductionDatasetWriteOptionsType": {
+      "description": "Used as GenerateOptions in the Method GenerateFileForWrite in ProductionDatasetTransfer",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionDatasetWriteOptionsType",
+      "required": [
+        "Storage",
+        "Name",
+        "Components"
+      ],
+      "properties": {
+        "Storage": {
+          "title": "StorageEnumeration",
+          "description": "Indication where the production dataset is written to",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StorageEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Name": {
+          "description": "Name of the production dataset that should be transferred from the client to the server",
+          "type": "string"
+        },
+        "Components": {
+          "description": "Array which indicates which parts of the production dataset shall be activated in the machine control after writing",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      }
+    }
+  }
+}

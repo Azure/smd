@@ -1,0 +1,267 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NamespaceMetadataType",
+  "title": "OpcUaCore_NamespaceMetadataType",
+  "dov:typeRef": "org.opcfoundation.UA.NamespaceMetadataType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "NamespaceFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AddressSpaceFileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AccessRestrictionType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AccessRestrictionType",
+      "const": {
+        "SigningRequired": 0,
+        "EncryptionRequired": 1,
+        "SessionRequired": 2,
+        "ApplyRestrictionsToBrowse": 3
+      },
+      "properties": {
+        "SigningRequired": {
+          "type": "integer"
+        },
+        "EncryptionRequired": {
+          "type": "integer"
+        },
+        "SessionRequired": {
+          "type": "integer"
+        },
+        "ApplyRestrictionsToBrowse": {
+          "type": "integer"
+        }
+      }
+    },
+    "IdType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IdType",
+      "const": {
+        "Numeric": 0,
+        "String": 1,
+        "Guid": 2,
+        "Opaque": 3
+      },
+      "properties": {
+        "Numeric": {
+          "type": "integer"
+        },
+        "String": {
+          "type": "integer"
+        },
+        "Guid": {
+          "type": "integer"
+        },
+        "Opaque": {
+          "type": "integer"
+        }
+      }
+    },
+    "PermissionType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+      "const": {
+        "Browse": 0,
+        "ReadRolePermissions": 1,
+        "WriteAttribute": 2,
+        "WriteRolePermissions": 3,
+        "WriteHistorizing": 4,
+        "Read": 5,
+        "Write": 6,
+        "ReadHistory": 7,
+        "InsertHistory": 8,
+        "ModifyHistory": 9,
+        "DeleteHistory": 10,
+        "ReceiveEvents": 11,
+        "Call": 12,
+        "AddReference": 13,
+        "RemoveReference": 14,
+        "DeleteNode": 15,
+        "AddNode": 16
+      },
+      "properties": {
+        "Browse": {
+          "type": "integer"
+        },
+        "ReadRolePermissions": {
+          "type": "integer"
+        },
+        "WriteAttribute": {
+          "type": "integer"
+        },
+        "WriteRolePermissions": {
+          "type": "integer"
+        },
+        "WriteHistorizing": {
+          "type": "integer"
+        },
+        "Read": {
+          "type": "integer"
+        },
+        "Write": {
+          "type": "integer"
+        },
+        "ReadHistory": {
+          "type": "integer"
+        },
+        "InsertHistory": {
+          "type": "integer"
+        },
+        "ModifyHistory": {
+          "type": "integer"
+        },
+        "DeleteHistory": {
+          "type": "integer"
+        },
+        "ReceiveEvents": {
+          "type": "integer"
+        },
+        "Call": {
+          "type": "integer"
+        },
+        "AddReference": {
+          "type": "integer"
+        },
+        "RemoveReference": {
+          "type": "integer"
+        },
+        "DeleteNode": {
+          "type": "integer"
+        },
+        "AddNode": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ConfigurationVersion",
+    "/properties/DefaultAccessRestrictions",
+    "/properties/DefaultRolePermissions",
+    "/properties/DefaultUserRolePermissions",
+    "/properties/ModelVersion"
+  ],
+  "properties": {
+    "ConfigurationVersion": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "DefaultAccessRestrictions": {
+      "title": "AccessRestrictionType",
+      "dov:typeRef": "org.opcfoundation.UA.AccessRestrictionType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DefaultRolePermissions": {
+      "type": "array",
+      "items": {
+        "title": "RolePermissionType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RolePermissionType",
+        "required": [
+          "RoleId",
+          "Permissions"
+        ],
+        "properties": {
+          "RoleId": {
+            "type": "string"
+          },
+          "Permissions": {
+            "title": "PermissionType",
+            "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DefaultUserRolePermissions": {
+      "type": "array",
+      "items": {
+        "title": "RolePermissionType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.RolePermissionType",
+        "required": [
+          "RoleId",
+          "Permissions"
+        ],
+        "properties": {
+          "RoleId": {
+            "type": "string"
+          },
+          "Permissions": {
+            "title": "PermissionType",
+            "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "IsNamespaceSubset": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ModelVersion": {
+      "type": "string",
+      "readOnly": true
+    },
+    "NamespacePublicationDate": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "NamespaceUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "NamespaceVersion": {
+      "type": "string",
+      "readOnly": true
+    },
+    "StaticNodeIdTypes": {
+      "type": "array",
+      "items": {
+        "title": "IdType",
+        "dov:typeRef": "org.opcfoundation.UA.IdType",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": true
+    },
+    "StaticNumericNodeIdRange": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "StaticStringNodeIdPattern": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

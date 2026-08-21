@@ -1,0 +1,99 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PublishedEventsDataType",
+  "title": "OpcUaCore_PublishedEventsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PublishedEventsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PublishedEventsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PublishedEventsDataType",
+      "required": [
+        "EventNotifier",
+        "SelectedFields",
+        "Filter"
+      ],
+      "properties": {
+        "EventNotifier": {
+          "type": "string"
+        },
+        "SelectedFields": {
+          "type": "array",
+          "items": {
+            "title": "SimpleAttributeOperand",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SimpleAttributeOperand",
+            "required": [
+              "TypeDefinitionId",
+              "BrowsePath",
+              "AttributeId",
+              "IndexRange"
+            ],
+            "properties": {
+              "TypeDefinitionId": {
+                "type": "string"
+              },
+              "BrowsePath": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "AttributeId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "IndexRange": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Filter": {
+          "title": "ContentFilter",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ContentFilter",
+          "required": [
+            "Elements"
+          ],
+          "properties": {
+            "Elements": {
+              "type": "array",
+              "items": {
+                "title": "ContentFilterElement",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.ContentFilterElement",
+                "required": [
+                  "FilterOperator",
+                  "FilterOperands"
+                ],
+                "properties": {
+                  "FilterOperator": {
+                    "title": "FilterOperator",
+                    "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "FilterOperands": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

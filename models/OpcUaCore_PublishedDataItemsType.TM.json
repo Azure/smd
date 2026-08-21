@@ -1,0 +1,301 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PublishedDataItemsType",
+  "title": "OpcUaCore_PublishedDataItemsType",
+  "dov:typeRef": "org.opcfoundation.UA.PublishedDataItemsType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PublishedDataSetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddVariables",
+    "/actions/RemoveVariables"
+  ],
+  "actions": {
+    "AddVariables": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ConfigurationVersion",
+          "FieldNameAliases",
+          "PromotedFields",
+          "VariablesToAdd"
+        ],
+        "properties": {
+          "ConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "FieldNameAliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "PromotedFields": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            }
+          },
+          "VariablesToAdd": {
+            "type": "array",
+            "items": {
+              "title": "PublishedVariableDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PublishedVariableDataType",
+              "required": [
+                "PublishedVariable",
+                "AttributeId",
+                "SamplingIntervalHint",
+                "DeadbandType",
+                "DeadbandValue",
+                "IndexRange",
+                "SubstituteValue",
+                "MetaDataProperties"
+              ],
+              "properties": {
+                "PublishedVariable": {
+                  "type": "string"
+                },
+                "AttributeId": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "SamplingIntervalHint": {
+                  "type": "string",
+                  "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+                },
+                "DeadbandType": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "DeadbandValue": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "IndexRange": {
+                  "type": "string"
+                },
+                "SubstituteValue": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                },
+                "MetaDataProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "NewConfigurationVersion",
+          "AddResults"
+        ],
+        "properties": {
+          "NewConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "AddResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "RemoveVariables": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ConfigurationVersion",
+          "VariablesToRemove"
+        ],
+        "properties": {
+          "ConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "VariablesToRemove": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "NewConfigurationVersion",
+          "RemoveResults"
+        ],
+        "properties": {
+          "NewConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "RemoveResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "PublishedData": {
+      "type": "array",
+      "items": {
+        "title": "PublishedVariableDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PublishedVariableDataType",
+        "required": [
+          "PublishedVariable",
+          "AttributeId",
+          "SamplingIntervalHint",
+          "DeadbandType",
+          "DeadbandValue",
+          "IndexRange",
+          "SubstituteValue",
+          "MetaDataProperties"
+        ],
+        "properties": {
+          "PublishedVariable": {
+            "type": "string"
+          },
+          "AttributeId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "SamplingIntervalHint": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "DeadbandType": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DeadbandValue": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "IndexRange": {
+            "type": "string"
+          },
+          "SubstituteValue": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          },
+          "MetaDataProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

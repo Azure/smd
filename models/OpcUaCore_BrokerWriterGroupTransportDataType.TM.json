@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BrokerWriterGroupTransportDataType",
+  "title": "OpcUaCore_BrokerWriterGroupTransportDataType",
+  "dov:typeRef": "org.opcfoundation.UA.BrokerWriterGroupTransportDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "BrokerWriterGroupTransportDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BrokerWriterGroupTransportDataType",
+      "required": [
+        "QueueName",
+        "ResourceUri",
+        "AuthenticationProfileUri",
+        "RequestedDeliveryGuarantee"
+      ],
+      "properties": {
+        "QueueName": {
+          "type": "string"
+        },
+        "ResourceUri": {
+          "type": "string"
+        },
+        "AuthenticationProfileUri": {
+          "type": "string"
+        },
+        "RequestedDeliveryGuarantee": {
+          "title": "BrokerTransportQualityOfService",
+          "dov:typeRef": "org.opcfoundation.UA.BrokerTransportQualityOfService",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

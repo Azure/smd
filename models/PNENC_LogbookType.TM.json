@@ -1,0 +1,563 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_LogbookType",
+  "title": "PNENC_LogbookType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.LogbookType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EventTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+      "const": {
+        "FAULT": 0,
+        "WARNING": 1,
+        "UNSPECIFIED": 255
+      },
+      "properties": {
+        "FAULT": {
+          "description": "The log entry indicates a malfunction of the encoder, e.g. position fault",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The log entry is a warning, e.g. for battery status",
+          "type": "integer"
+        },
+        "UNSPECIFIED": {
+          "description": "No information about the type of the event is given.  The intended purpose for the definition is usage by the GetFilteredLogbookEntries Method to specify “don’t care” for the EventType parameter. Must not be used for log entries and encoder diagnosis events as EncoderDiagnosisEventType and LogbookEventType",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/DeleteLogbook",
+    "/actions/GetActiveDiagnosis",
+    "/actions/GetCurrentFaultSituation",
+    "/actions/GetFilteredLogbookEntries",
+    "/actions/GetHistoricFaultSituation"
+  ],
+  "actions": {
+    "DeleteLogbook": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/"
+    },
+    "GetActiveDiagnosis": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ActiveDiagnosis"
+        ],
+        "properties": {
+          "ActiveDiagnosis": {
+            "type": "array",
+            "items": {
+              "title": "LogEntryDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+              "required": [
+                "FaultSituationNumber",
+                "EventNumber",
+                "EventType",
+                "EventCode",
+                "EventText",
+                "EventComing",
+                "EventGoing",
+                "EventAcknowledged"
+              ],
+              "properties": {
+                "FaultSituationNumber": {
+                  "description": "Identification of fault situation. 0 means current fault situation",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "EventNumber": {
+                  "description": "Unique number of log entry, analogous to Fault message counter",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "EventType": {
+                  "title": "EventTypeEnumeration",
+                  "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+                  "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventCode": {
+                  "description": "Fault-code identifying a fault or warning",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventText": {
+                  "description": "Brief description of the fault or warning",
+                  "type": "string"
+                },
+                "EventComing": {
+                  "description": "Time when the event appears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventGoing": {
+                  "description": "Time when the event disappears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventAcknowledged": {
+                  "description": "Time when the event is acknowledged",
+                  "type": "string",
+                  "format": "time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetCurrentFaultSituation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CurrentLogEntries"
+        ],
+        "properties": {
+          "CurrentLogEntries": {
+            "type": "array",
+            "items": {
+              "title": "LogEntryDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+              "required": [
+                "FaultSituationNumber",
+                "EventNumber",
+                "EventType",
+                "EventCode",
+                "EventText",
+                "EventComing",
+                "EventGoing",
+                "EventAcknowledged"
+              ],
+              "properties": {
+                "FaultSituationNumber": {
+                  "description": "Identification of fault situation. 0 means current fault situation",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "EventNumber": {
+                  "description": "Unique number of log entry, analogous to Fault message counter",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "EventType": {
+                  "title": "EventTypeEnumeration",
+                  "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+                  "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventCode": {
+                  "description": "Fault-code identifying a fault or warning",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventText": {
+                  "description": "Brief description of the fault or warning",
+                  "type": "string"
+                },
+                "EventComing": {
+                  "description": "Time when the event appears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventGoing": {
+                  "description": "Time when the event disappears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventAcknowledged": {
+                  "description": "Time when the event is acknowledged",
+                  "type": "string",
+                  "format": "time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetFilteredLogbookEntries": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "LogbookFilterOptions",
+          "FaultSituationNumber",
+          "EventType",
+          "EventCode",
+          "EventAppearanceInterval"
+        ],
+        "properties": {
+          "LogbookFilterOptions": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "FaultSituationNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "EventType": {
+            "title": "EventTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EventCode": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EventAppearanceInterval": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FilteredLogEntries"
+        ],
+        "properties": {
+          "FilteredLogEntries": {
+            "type": "array",
+            "items": {
+              "title": "LogEntryDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+              "required": [
+                "FaultSituationNumber",
+                "EventNumber",
+                "EventType",
+                "EventCode",
+                "EventText",
+                "EventComing",
+                "EventGoing",
+                "EventAcknowledged"
+              ],
+              "properties": {
+                "FaultSituationNumber": {
+                  "description": "Identification of fault situation. 0 means current fault situation",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "EventNumber": {
+                  "description": "Unique number of log entry, analogous to Fault message counter",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "EventType": {
+                  "title": "EventTypeEnumeration",
+                  "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+                  "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventCode": {
+                  "description": "Fault-code identifying a fault or warning",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventText": {
+                  "description": "Brief description of the fault or warning",
+                  "type": "string"
+                },
+                "EventComing": {
+                  "description": "Time when the event appears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventGoing": {
+                  "description": "Time when the event disappears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventAcknowledged": {
+                  "description": "Time when the event is acknowledged",
+                  "type": "string",
+                  "format": "time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetHistoricFaultSituation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FaultSituationNumber"
+        ],
+        "properties": {
+          "FaultSituationNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "HistoricLogEntries"
+        ],
+        "properties": {
+          "HistoricLogEntries": {
+            "type": "array",
+            "items": {
+              "title": "LogEntryDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+              "required": [
+                "FaultSituationNumber",
+                "EventNumber",
+                "EventType",
+                "EventCode",
+                "EventText",
+                "EventComing",
+                "EventGoing",
+                "EventAcknowledged"
+              ],
+              "properties": {
+                "FaultSituationNumber": {
+                  "description": "Identification of fault situation. 0 means current fault situation",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "EventNumber": {
+                  "description": "Unique number of log entry, analogous to Fault message counter",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "EventType": {
+                  "title": "EventTypeEnumeration",
+                  "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+                  "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventCode": {
+                  "description": "Fault-code identifying a fault or warning",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "EventText": {
+                  "description": "Brief description of the fault or warning",
+                  "type": "string"
+                },
+                "EventComing": {
+                  "description": "Time when the event appears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventGoing": {
+                  "description": "Time when the event disappears",
+                  "type": "string",
+                  "format": "time"
+                },
+                "EventAcknowledged": {
+                  "description": "Time when the event is acknowledged",
+                  "type": "string",
+                  "format": "time"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "LogbookSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "LogEntries": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "array",
+      "items": {
+        "title": "LogEntryDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+        "required": [
+          "FaultSituationNumber",
+          "EventNumber",
+          "EventType",
+          "EventCode",
+          "EventText",
+          "EventComing",
+          "EventGoing",
+          "EventAcknowledged"
+        ],
+        "properties": {
+          "FaultSituationNumber": {
+            "description": "Identification of fault situation. 0 means current fault situation",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "EventNumber": {
+            "description": "Unique number of log entry, analogous to Fault message counter",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "EventType": {
+            "title": "EventTypeEnumeration",
+            "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+            "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EventCode": {
+            "description": "Fault-code identifying a fault or warning",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EventText": {
+            "description": "Brief description of the fault or warning",
+            "type": "string"
+          },
+          "EventComing": {
+            "description": "Time when the event appears",
+            "type": "string",
+            "format": "time"
+          },
+          "EventGoing": {
+            "description": "Time when the event disappears",
+            "type": "string",
+            "format": "time"
+          },
+          "EventAcknowledged": {
+            "description": "Time when the event is acknowledged",
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LogEntries": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "LogEntryDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+          "required": [
+            "FaultSituationNumber",
+            "EventNumber",
+            "EventType",
+            "EventCode",
+            "EventText",
+            "EventComing",
+            "EventGoing",
+            "EventAcknowledged"
+          ],
+          "properties": {
+            "FaultSituationNumber": {
+              "description": "Identification of fault situation. 0 means current fault situation",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "EventNumber": {
+              "description": "Unique number of log entry, analogous to Fault message counter",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "EventType": {
+              "title": "EventTypeEnumeration",
+              "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+              "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "EventCode": {
+              "description": "Fault-code identifying a fault or warning",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "EventText": {
+              "description": "Brief description of the fault or warning",
+              "type": "string"
+            },
+            "EventComing": {
+              "description": "Time when the event appears",
+              "type": "string",
+              "format": "time"
+            },
+            "EventGoing": {
+              "description": "Time when the event disappears",
+              "type": "string",
+              "format": "time"
+            },
+            "EventAcknowledged": {
+              "description": "Time when the event is acknowledged",
+              "type": "string",
+              "format": "time"
+            }
+          }
+        }
+      }
+    }
+  }
+}

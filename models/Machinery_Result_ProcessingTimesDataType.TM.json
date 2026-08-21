@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ProcessingTimesDataType",
+  "title": "Machinery_Result_ProcessingTimesDataType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ProcessingTimesDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProcessingTimesDataType": {
+      "description": "Contains measured times that were generated during the execution of a recipe.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ProcessingTimesDataType",
+      "required": [
+        "StartTime",
+        "EndTime"
+      ],
+      "properties": {
+        "StartTime": {
+          "description": "Contains the time when the system started execution of the recipe.",
+          "type": "string",
+          "format": "time"
+        },
+        "EndTime": {
+          "description": "Contains the time when the system finished (or stopped/aborted) execution of the recipe.",
+          "type": "string",
+          "format": "time"
+        },
+        "AcquisitionDuration": {
+          "description": "Time spent by the system acquiring data.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "ProcessingDuration": {
+          "description": "Time spent by the system processing data.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        }
+      }
+    }
+  }
+}

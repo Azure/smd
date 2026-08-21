@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LaserSystems/#LaserSystems_RecipeSettingsAndOverviewType",
+  "title": "LaserSystems_RecipeSettingsAndOverviewType",
+  "dov:typeRef": "org.opcfoundation.UA.LaserSystems.RecipeSettingsAndOverviewType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CreationDate",
+    "/properties/Description",
+    "/properties/RecipeName",
+    "/properties/RecipeRevision",
+    "/events/Description"
+  ],
+  "properties": {
+    "CreationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "LastModification": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "LastUsage": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "RecipeIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "RecipeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "RecipeRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "RunsCompleted": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "RunsCompleted": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    }
+  }
+}

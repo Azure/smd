@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_OpenStateDataType",
+  "title": "MTConnect_v2_OpenStateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.OpenStateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "OpenStateDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.OpenStateDataType",
+      "const": {
+        "CLOSED": 0,
+        "OPEN": 1,
+        "UNLATCHED": 2
+      },
+      "description": "",
+      "properties": {
+        "CLOSED": {
+          "description": "A component is closed to the point of a positive confirmation.",
+          "type": "integer"
+        },
+        "OPEN": {
+          "description": "A component is open to the point of a positive confirmation.",
+          "type": "integer"
+        },
+        "UNLATCHED": {
+          "description": "An intermediate position.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

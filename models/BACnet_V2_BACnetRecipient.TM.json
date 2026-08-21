@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetRecipient",
+  "title": "BACnet_V2_BACnetRecipient",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipient",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetRecipient": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipient",
+      "properties": {
+        "Device": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Address": {
+          "title": "BACnetAddress",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+          "required": [
+            "NetworkNumber",
+            "MacAddress"
+          ],
+          "properties": {
+            "NetworkNumber": {
+              "description": "A value 0 indicates the local network",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "MacAddress": {
+              "description": "A string of length 0 indicates a broadcast",
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLBaseStateMachineType",
+  "title": "PackML_PackMLBaseStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLBaseStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Aborted",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AbortedToCleared",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Aborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AbortingToAborted",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Cleared",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ClearedToAborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineState",
+      "href": "http://opcfoundation.org/UA/PackML/#PackML_PackMLMachineStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/Abort",
+    "/actions/Clear"
+  ],
+  "actions": {
+    "Abort": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Clear": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    }
+  },
+  "properties": {
+    "AvailableStates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "AvailableTransitions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AvailableStates": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "AvailableTransitions": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

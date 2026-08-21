@@ -1,0 +1,395 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Woodworking/#Woodworking_IWwUnitFlagsType",
+  "title": "Woodworking_IWwUnitFlagsType",
+  "dov:typeRef": "org.opcfoundation.UA.Woodworking.IWwUnitFlagsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AirPresent",
+    "/properties/DustChipSuction",
+    "/properties/EnergySaving",
+    "/properties/ExternalEmergency",
+    "/properties/FeedRuns",
+    "/properties/Hold",
+    "/properties/LoadingEnabled",
+    "/properties/MaintenanceRequired",
+    "/properties/ManualActivityRequired",
+    "/properties/Moving",
+    "/properties/RecipeInHold",
+    "/properties/RecipeInSetup",
+    "/properties/Remote",
+    "/properties/Safety",
+    "/properties/WaitLoad",
+    "/properties/WaitUnload",
+    "/properties/WorkpiecePresent",
+    "/events/AirPresent",
+    "/events/DustChipSuction",
+    "/events/EnergySaving",
+    "/events/ExternalEmergency",
+    "/events/FeedRuns",
+    "/events/Hold",
+    "/events/LoadingEnabled",
+    "/events/MaintenanceRequired",
+    "/events/ManualActivityRequired",
+    "/events/Moving",
+    "/events/RecipeInHold",
+    "/events/RecipeInSetup",
+    "/events/Remote",
+    "/events/Safety",
+    "/events/WaitLoad",
+    "/events/WaitUnload",
+    "/events/WorkpiecePresent"
+  ],
+  "properties": {
+    "AirPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The AirPresent Variable is true if the air pressure is present in the machine.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Alarm": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Alarm Variable is true if at least one alarm exists.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Calibrated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Calibrated Variable is true if all devices are calibrated.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DustChipSuction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The DustChipSuction Variable is true if the dust and chip suction is ready.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Emergency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Emergency Variable is true if at least one emergency button is pressed.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "EnergySaving": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The EnergySaving Variable is true if energy saving is activated on the machine.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Error": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Error Variable is true if at least one reason exists which prevents the machine from working.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ExternalEmergency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The ExternalEmergency Variable is true if there is an emergency from the line controller.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "FeedRuns": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The FeedRuns Variable is true if the feed is running on a throughfeed machine.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Hold": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Hold Variable is true if the movements are paused by the operator.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "LoadingEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MachineInitialized": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The MachineInitialized Variable is true if the MachineOn is true, the PLC and the control processes are running. The machine is ready for usage for the operator.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MachineOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The MachineOn Variable is true if the machine is switched on. If the OPC UA Server runs on the machine this value is always true.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaintenanceRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The MaintenanceRequired Variable is true if maintenance is required.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ManualActivityRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The ManualActivityRequired Variable is true if a manual activity by the operator is required. The RecipeInRun is not affected.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Moving": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Moving Variable is true if at least one axis is moving.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PowerPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The PowerPresent Variable is true if 400V are present (the drives are ready to move).",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RecipeInHold": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The RecipeInHold Variable is true if the machine is paused by the program. This is only possible if the RecipeInRun Variable is also true.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RecipeInRun": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The RecipeInRun Variable is true if the machine runs its program. This is only possible if the Error Variable is false. However, if the machine is paused by the program, the machine is considered to still be running its program, i.e. while the RecipeInHold Variable is true, the RecipeInRun cannot be false.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RecipeInSetup": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The RecipeInSetup Variable is true if the RecipeInRun is true and the machine is in the setup phase (example: automatic tool change).",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Remote": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Remote Variable is true if the machine is working with programs sent by the supervisor or other external application.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Safety": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Safety Variable is true if at least one safety device (light curtain, safety mat, …) has intervened.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WaitLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The WaitLoad Variable is true if the machine is waiting for pieces.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WaitUnload": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The WaitUnload Variable is true if the machine is waiting to unload pieces.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Warning": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Warning Variable is true if at least one warning exists.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WorkpiecePresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The WorkpiecePresent Variable is true if at least one piece is inside the machine.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AirPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The AirPresent Variable is true if the air pressure is present in the machine.",
+        "type": "boolean"
+      }
+    },
+    "Alarm": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Alarm Variable is true if at least one alarm exists.",
+        "type": "boolean"
+      }
+    },
+    "Calibrated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Calibrated Variable is true if all devices are calibrated.",
+        "type": "boolean"
+      }
+    },
+    "DustChipSuction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The DustChipSuction Variable is true if the dust and chip suction is ready.",
+        "type": "boolean"
+      }
+    },
+    "Emergency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Emergency Variable is true if at least one emergency button is pressed.",
+        "type": "boolean"
+      }
+    },
+    "EnergySaving": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The EnergySaving Variable is true if energy saving is activated on the machine.",
+        "type": "boolean"
+      }
+    },
+    "Error": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Error Variable is true if at least one reason exists which prevents the machine from working.",
+        "type": "boolean"
+      }
+    },
+    "ExternalEmergency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The ExternalEmergency Variable is true if there is an emergency from the line controller.",
+        "type": "boolean"
+      }
+    },
+    "FeedRuns": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The FeedRuns Variable is true if the feed is running on a throughfeed machine.",
+        "type": "boolean"
+      }
+    },
+    "Hold": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Hold Variable is true if the movements are paused by the operator.",
+        "type": "boolean"
+      }
+    },
+    "LoadingEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "MachineInitialized": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The MachineInitialized Variable is true if the MachineOn is true, the PLC and the control processes are running. The machine is ready for usage for the operator.",
+        "type": "boolean"
+      }
+    },
+    "MachineOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The MachineOn Variable is true if the machine is switched on. If the OPC UA Server runs on the machine this value is always true.",
+        "type": "boolean"
+      }
+    },
+    "MaintenanceRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The MaintenanceRequired Variable is true if maintenance is required.",
+        "type": "boolean"
+      }
+    },
+    "ManualActivityRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The ManualActivityRequired Variable is true if a manual activity by the operator is required. The RecipeInRun is not affected.",
+        "type": "boolean"
+      }
+    },
+    "Moving": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Moving Variable is true if at least one axis is moving.",
+        "type": "boolean"
+      }
+    },
+    "PowerPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The PowerPresent Variable is true if 400V are present (the drives are ready to move).",
+        "type": "boolean"
+      }
+    },
+    "RecipeInHold": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The RecipeInHold Variable is true if the machine is paused by the program. This is only possible if the RecipeInRun Variable is also true.",
+        "type": "boolean"
+      }
+    },
+    "RecipeInRun": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The RecipeInRun Variable is true if the machine runs its program. This is only possible if the Error Variable is false. However, if the machine is paused by the program, the machine is considered to still be running its program, i.e. while the RecipeInHold Variable is true, the RecipeInRun cannot be false.",
+        "type": "boolean"
+      }
+    },
+    "RecipeInSetup": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The RecipeInSetup Variable is true if the RecipeInRun is true and the machine is in the setup phase (example: automatic tool change).",
+        "type": "boolean"
+      }
+    },
+    "Remote": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Remote Variable is true if the machine is working with programs sent by the supervisor or other external application.",
+        "type": "boolean"
+      }
+    },
+    "Safety": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Safety Variable is true if at least one safety device (light curtain, safety mat, …) has intervened.",
+        "type": "boolean"
+      }
+    },
+    "WaitLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The WaitLoad Variable is true if the machine is waiting for pieces.",
+        "type": "boolean"
+      }
+    },
+    "WaitUnload": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The WaitUnload Variable is true if the machine is waiting to unload pieces.",
+        "type": "boolean"
+      }
+    },
+    "Warning": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The Warning Variable is true if at least one warning exists.",
+        "type": "boolean"
+      }
+    },
+    "WorkpiecePresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "description": "The WorkpiecePresent Variable is true if at least one piece is inside the machine.",
+        "type": "boolean"
+      }
+    }
+  }
+}

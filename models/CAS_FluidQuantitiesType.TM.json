@@ -1,0 +1,257 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_FluidQuantitiesType",
+  "title": "CAS_FluidQuantitiesType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.FluidQuantitiesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ParticlesPerSizeRange",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_ParticleType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BaseAnalogType": {
+      "dov:typeRef": "org.opcfoundation.UA.BaseAnalogType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/actions/ResetStatistics",
+    "/properties/AbsolutePressure",
+    "/properties/AccumulatedVolume",
+    "/properties/DewPoint",
+    "/properties/GaugePressure",
+    "/properties/MassFlowRate",
+    "/properties/OilConcentration",
+    "/properties/Quantity",
+    "/properties/RelativeHumidity",
+    "/properties/StartTime",
+    "/properties/Temperature",
+    "/properties/Volume",
+    "/properties/VolumeFlowRate",
+    "/events/AbsolutePressure",
+    "/events/AccumulatedVolume",
+    "/events/DewPoint",
+    "/events/GaugePressure",
+    "/events/MassFlowRate",
+    "/events/OilConcentration",
+    "/events/Quantity",
+    "/events/RelativeHumidity",
+    "/events/Temperature",
+    "/events/Volume",
+    "/events/VolumeFlowRate"
+  ],
+  "actions": {
+    "ResetStatistics": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Restarts all statistical data, including a reset of the StartTime to the current time."
+    }
+  },
+  "properties": {
+    "AbsolutePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual absolute pressure of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "AccumulatedVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated accumulated volume of a fluid since last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DewPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual dew point of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "GaugePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual gauge pressure of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MassFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual mass flow rate of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "OilConcentration": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual oil concentration of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Quantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "tm:ref": "#/schemaDefinitions/BaseAnalogType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "RelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual relative humidity of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates the point in time at which the collection of the statistical data has been started.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual temperature of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Volume": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual volume of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual volume flow rate of a fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AbsolutePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual absolute pressure of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "AccumulatedVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated accumulated volume of a fluid since last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DewPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual dew point of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "GaugePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual gauge pressure of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MassFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual mass flow rate of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "OilConcentration": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual oil concentration of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Quantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BaseAnalogType"
+      },
+      "dov:placeholder": true
+    },
+    "RelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual relative humidity of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual temperature of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Volume": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual volume of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual volume flow rate of a fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

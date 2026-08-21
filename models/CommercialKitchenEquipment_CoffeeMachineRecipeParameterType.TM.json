@@ -1,0 +1,266 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CoffeeMachineRecipeParameterType",
+  "title": "CommercialKitchenEquipment_CoffeeMachineRecipeParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CoffeeMachineRecipeParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BeverageSMLEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.BeverageSMLEnumeration",
+      "const": {
+        "Inactive": 0,
+        "Small": 1,
+        "Large": 2,
+        "ExtraLarge": 3
+      },
+      "properties": {
+        "Inactive": {
+          "type": "integer"
+        },
+        "Small": {
+          "type": "integer"
+        },
+        "Large": {
+          "type": "integer"
+        },
+        "ExtraLarge": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/BeverageSize_EngineeringUnits",
+    "/properties/FoamAmount_EngineeringUnits",
+    "/properties/GroundsAmount_EngineeringUnits",
+    "/properties/GroundsWater_EngineeringUnits",
+    "/properties/MilkAmount_EngineeringUnits",
+    "/properties/PowderAmount_EngineeringUnits"
+  ],
+  "properties": {
+    "BeverageSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/BeverageSize_EngineeringUnits"
+    },
+    "BeverageSML": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "BeverageSMLEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.BeverageSMLEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "CoffeeType": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "Container": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "FoamAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/FoamAmount_EngineeringUnits"
+    },
+    "GroundsAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Mass",
+      "dov:withUnit": "properties/GroundsAmount_EngineeringUnits"
+    },
+    "GroundsWater": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/GroundsWater_EngineeringUnits"
+    },
+    "MilkAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/MilkAmount_EngineeringUnits"
+    },
+    "PowderAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Mass",
+      "dov:withUnit": "properties/PowderAmount_EngineeringUnits"
+    },
+    "RcpType": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "BeverageSize_EngineeringUnits": {
+      "description": "Unit designator for property and event with name BeverageSize, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "FoamAmount_EngineeringUnits": {
+      "description": "Unit designator for property and event with name FoamAmount, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "GroundsAmount_EngineeringUnits": {
+      "description": "Unit designator for property and event with name GroundsAmount, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "GroundsWater_EngineeringUnits": {
+      "description": "Unit designator for property and event with name GroundsWater, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MilkAmount_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MilkAmount, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PowderAmount_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PowderAmount, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "BeverageSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/BeverageSize_EngineeringUnits"
+    },
+    "BeverageSML": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "BeverageSMLEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.BeverageSMLEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "CoffeeType": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "Container": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "FoamAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/FoamAmount_EngineeringUnits"
+    },
+    "GroundsAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Mass",
+      "dov:withUnit": "properties/GroundsAmount_EngineeringUnits"
+    },
+    "GroundsWater": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/GroundsWater_EngineeringUnits"
+    },
+    "MilkAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/MilkAmount_EngineeringUnits"
+    },
+    "PowderAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Mass",
+      "dov:withUnit": "properties/PowderAmount_EngineeringUnits"
+    },
+    "RcpType": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

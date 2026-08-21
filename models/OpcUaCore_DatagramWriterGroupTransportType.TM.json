@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DatagramWriterGroupTransportType",
+  "title": "OpcUaCore_DatagramWriterGroupTransportType",
+  "dov:typeRef": "org.opcfoundation.UA.DatagramWriterGroupTransportType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_WriterGroupTransportType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Address",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NetworkAddressType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DatagramQos",
+    "/properties/DiscoveryAnnounceRate",
+    "/properties/MessageRepeatCount",
+    "/properties/MessageRepeatDelay",
+    "/properties/QosCategory",
+    "/properties/Topic"
+  ],
+  "properties": {
+    "DatagramQos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "DiscoveryAnnounceRate": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MessageRepeatCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "MessageRepeatDelay": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "QosCategory": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Topic": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

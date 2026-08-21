@@ -1,0 +1,351 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_AirnetOperationalType",
+  "title": "CAS_AirnetOperationalType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetOperationalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_OperationalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AirnetHealthStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetHealthStateEnum",
+      "const": {
+        "OK": 0,
+        "Warning": 1,
+        "Error": 2,
+        "Critical": 3
+      },
+      "properties": {
+        "OK": {
+          "description": "All requirements can be fulfilled.",
+          "type": "integer"
+        },
+        "Warning": {
+          "description": "Check required, possibly there is a problem that leads to an Error.",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "Immediate action needed to avoid Critical.",
+          "type": "integer"
+        },
+        "Critical": {
+          "description": "At least one requirement cannot be fulfilled.",
+          "type": "integer"
+        }
+      }
+    },
+    "AirnetIntegratedStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetIntegratedStateEnum",
+      "const": {
+        "FullyIntegrated": 0,
+        "PartiallyIntegrated": 1,
+        "FullyIsolated": 2
+      },
+      "properties": {
+        "FullyIntegrated": {
+          "description": "The MCS controls all compressors of this airnet.",
+          "type": "integer"
+        },
+        "PartiallyIntegrated": {
+          "description": "At least one compressor of this airnet is not controlled by the MCS.",
+          "type": "integer"
+        },
+        "FullyIsolated": {
+          "description": "The MCS does not control any compressor of this airnet.",
+          "type": "integer"
+        }
+      }
+    },
+    "AirnetOperatingStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetOperatingStateEnum",
+      "const": {
+        "Other": 0,
+        "Stopped": 1,
+        "Starting": 2,
+        "Stopping": 3,
+        "Operational": 4
+      },
+      "properties": {
+        "Other": {
+          "description": "The airnet is in a state not specified by this enumeration.",
+          "type": "integer"
+        },
+        "Stopped": {
+          "description": "The requirements shall not be fulfilled.",
+          "type": "integer"
+        },
+        "Starting": {
+          "description": "Transition phase to end in Operational state.",
+          "type": "integer"
+        },
+        "Stopping": {
+          "description": "Transition phase to end in Stopped state.",
+          "type": "integer"
+        },
+        "Operational": {
+          "description": "The requirements should be fulfilled.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/AirDeliveryRate",
+    "/properties/CompressorsIntegrated",
+    "/properties/CompressorsIsolated",
+    "/properties/CompressorsNotAvailable",
+    "/properties/ControlPressure",
+    "/properties/HealthState",
+    "/properties/IntegratedState",
+    "/properties/OperatingState",
+    "/properties/SpecificEnergy",
+    "/properties/SpecificEnergyCost",
+    "/properties/VolumeFlowRateAvailable",
+    "/properties/VolumeFlowRateUnavailable",
+    "/events/AirDeliveryRate",
+    "/events/CompressorsIntegrated",
+    "/events/CompressorsIsolated",
+    "/events/CompressorsNotAvailable",
+    "/events/ControlPressure",
+    "/events/HealthState",
+    "/events/IntegratedState",
+    "/events/OperatingState",
+    "/events/SpecificEnergy",
+    "/events/SpecificEnergyCost",
+    "/events/VolumeFlowRateAvailable",
+    "/events/VolumeFlowRateUnavailable"
+  ],
+  "properties": {
+    "AirDeliveryRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Volume of generated compressed air per time frame.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "CompressorsIntegrated": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Number of integrated compressors in the airnet.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "CompressorsIsolated": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Number of isolated compressors in the airnet.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "CompressorsNotAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Number of unavailable compressors in the airnet.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ControlPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Current pressure in the airnet.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HealthState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "AirnetHealthStateEnum",
+      "description": "Actual health state of the airnet.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetHealthStateEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IntegratedState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "AirnetIntegratedStateEnum",
+      "description": "Actual integrated state of the airnet.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetIntegratedStateEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "AirnetOperatingStateEnum",
+      "description": "Actual operating state of the airnet.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetOperatingStateEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SpecificEnergy": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Electrical energy consumed in the generation of a volume of compressed air.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SpecificEnergyCost": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Costs for generating a volume of compressed air.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeFlowRateAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated available volume flow rate of the process fluid in the airnet.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeFlowRateUnavailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Calculated unavailable volume flow rate of the process fluid in the airnet.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AirDeliveryRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Volume of generated compressed air per time frame.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CompressorsIntegrated": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Number of integrated compressors in the airnet.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "CompressorsIsolated": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Number of isolated compressors in the airnet.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "CompressorsNotAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Number of unavailable compressors in the airnet.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "ControlPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Current pressure in the airnet.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HealthState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "AirnetHealthStateEnum",
+        "description": "Actual health state of the airnet.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetHealthStateEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "IntegratedState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "AirnetIntegratedStateEnum",
+        "description": "Actual integrated state of the airnet.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetIntegratedStateEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "AirnetOperatingStateEnum",
+        "description": "Actual operating state of the airnet.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetOperatingStateEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SpecificEnergy": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Electrical energy consumed in the generation of a volume of compressed air.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SpecificEnergyCost": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Costs for generating a volume of compressed air.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeFlowRateAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated available volume flow rate of the process fluid in the airnet.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeFlowRateUnavailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Calculated unavailable volume flow rate of the process fluid in the airnet.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

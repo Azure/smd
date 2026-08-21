@@ -1,0 +1,149 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionPartTransitionEventType",
+  "title": "MachineTool_ProductionPartTransitionEventType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProductionPartTransitionEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PartQuality": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.PartQuality",
+      "const": {
+        "CapabilityUnavailable": 0,
+        "Good": 1,
+        "Bad": 2,
+        "NotYetMeasured": 3,
+        "WillNotBeMeasured": 4
+      },
+      "properties": {
+        "CapabilityUnavailable": {
+          "description": "The machine tool is not able to give a statement about the part quality.",
+          "type": "integer"
+        },
+        "Good": {
+          "description": "The part quality is determined good.",
+          "type": "integer"
+        },
+        "Bad": {
+          "description": "The part quality is determined bad.",
+          "type": "integer"
+        },
+        "NotYetMeasured": {
+          "description": "The PartQuality will still be determined in the machine tool to be either Good or Bad.",
+          "type": "integer"
+        },
+        "WillNotBeMeasured": {
+          "description": "The machine tool will not give a statement about the part quality.",
+          "type": "integer"
+        }
+      }
+    },
+    "ProcessIrregularity": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProcessIrregularity",
+      "const": {
+        "CapabilityUnavailable": 0,
+        "Detected": 1,
+        "NotDetected": 2,
+        "NotYetDetermined": 3
+      },
+      "properties": {
+        "CapabilityUnavailable": {
+          "description": "The machine tool is not able to give a statement about process irregularities.",
+          "type": "integer"
+        },
+        "Detected": {
+          "description": "A process irregularity has been detected.",
+          "type": "integer"
+        },
+        "NotDetected": {
+          "description": "There was no process irregularity detected.",
+          "type": "integer"
+        },
+        "NotYetDetermined": {
+          "description": "A statement about the process irregularity is to be expected.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/CustomerOrderIdentifier",
+    "/properties/Identifier"
+  ],
+  "properties": {
+    "CustomerOrderIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "JobIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "PartQuality": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "title": "PartQuality",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.PartQuality",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ProcessIrregularity": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "title": "ProcessIrregularity",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProcessIrregularity",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "PartQuality": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "title": "PartQuality",
+        "dov:typeRef": "org.opcfoundation.UA.MachineTool.PartQuality",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ProcessIrregularity": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "title": "ProcessIrregularity",
+        "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProcessIrregularity",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

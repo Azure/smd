@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_ErrorInformationDataType",
+  "title": "IJT_Base_ErrorInformationDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ErrorInformationDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ErrorInformationDataType": {
+      "description": "This structure represents the errors occurred in the system which are outside the boundaries of the given program.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ErrorInformationDataType",
+      "required": [
+        "ErrorType"
+      ],
+      "properties": {
+        "ErrorType": {
+          "description": "It is the classification of type of errors due to external factors. Examples: Tool Trigger Lost is Operator error. Temperature overheat is hardware error, etc.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "ErrorId": {
+          "description": "It is the system-wide unique identifier of the error in the system. This will be useful if system wants to provide an identifier where user can query the system and get more information for troubleshooting. It can also point to the respective EventId reported if available.",
+          "type": "string"
+        },
+        "LegacyError": {
+          "description": "It is the application or system specific error code.",
+          "type": "string"
+        },
+        "ErrorMessage": {
+          "description": "It is user readable text message to describe the error.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

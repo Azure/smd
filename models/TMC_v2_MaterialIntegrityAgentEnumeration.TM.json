@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialIntegrityAgentEnumeration",
+  "title": "TMC_v2_MaterialIntegrityAgentEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialIntegrityAgentEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "MaterialIntegrityAgentEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialIntegrityAgentEnumeration",
+      "const": {
+        "None": 0,
+        "Local": 1,
+        "External": 2
+      },
+      "description": "The MaterialIntegrityAgentEnumeration identifies the possible agents responsible for material integrity checking.",
+      "properties": {
+        "None": {
+          "description": "The material validation is not requested.",
+          "type": "integer"
+        },
+        "Local": {
+          "description": "The underlying system performs the material validation.",
+          "type": "integer"
+        },
+        "External": {
+          "description": "An external system performs the material validation.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

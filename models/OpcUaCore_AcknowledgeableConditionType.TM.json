@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AcknowledgeableConditionType",
+  "title": "OpcUaCore_AcknowledgeableConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.AcknowledgeableConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/Confirm",
+    "/properties/ConfirmedState",
+    "/events/ConfirmedState"
+  ],
+  "actions": {
+    "Acknowledge": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EventId",
+          "Comment"
+        ],
+        "properties": {
+          "EventId": {
+            "description": "The identifier for the event to comment.",
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "Comment": {
+            "description": "The comment to add to the condition.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Confirm": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EventId",
+          "Comment"
+        ],
+        "properties": {
+          "EventId": {
+            "description": "The identifier for the event to comment.",
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "Comment": {
+            "description": "The comment to add to the condition.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AckedState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "ConfirmedState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "EnabledState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AckedState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "ConfirmedState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "EnabledState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    }
+  }
+}

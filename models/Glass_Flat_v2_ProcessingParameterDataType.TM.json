@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/v2/#Glass_Flat_v2_ProcessingParameterDataType",
+  "title": "Glass_Flat_v2_ProcessingParameterDataType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.v2.ProcessingParameterDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProcessingParameterDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.v2.ProcessingParameterDataType",
+      "required": [
+        "Name",
+        "Description",
+        "ValueType",
+        "TypicalValue",
+        "Mandatory",
+        "EClass"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "ValueType": {
+          "title": "ValueDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.v2.ValueDataType",
+          "required": [
+            "Name",
+            "Description",
+            "BaseUnit",
+            "PossibleValue"
+          ],
+          "properties": {
+            "Name": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            },
+            "BaseUnit": {
+              "type": "string"
+            },
+            "PossibleValue": {
+              "type": "string"
+            }
+          }
+        },
+        "TypicalValue": {
+          "type": "string"
+        },
+        "Mandatory": {
+          "type": "boolean"
+        },
+        "EClass": {
+          "title": "EClassTermDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.v2.EClassTermDataType",
+          "required": [
+            "ID",
+            "Description",
+            "EClass"
+          ],
+          "properties": {
+            "ID": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            },
+            "EClass": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

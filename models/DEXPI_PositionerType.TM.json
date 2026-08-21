@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PositionerType",
+  "title": "DEXPI_PositionerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.PositionerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DeviceTypeNameAssignmentClass",
+    "/properties/SubTagNameAssignmentClass",
+    "/events/DeviceTypeNameAssignmentClass",
+    "/events/SubTagNameAssignmentClass"
+  ],
+  "properties": {
+    "DeviceTypeNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The device type of the Positioner.",
+      "type": "string",
+      "readOnly": false
+    },
+    "SubTagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The sub tag name of the Positioner.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DeviceTypeNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The device type of the Positioner.",
+        "type": "string"
+      }
+    },
+    "SubTagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The sub tag name of the Positioner.",
+        "type": "string"
+      }
+    }
+  }
+}

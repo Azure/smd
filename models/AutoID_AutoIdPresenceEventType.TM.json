@@ -1,0 +1,30 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_AutoIdPresenceEventType",
+  "title": "AutoID_AutoIdPresenceEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.AutoIdPresenceEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/AutoID/#AutoID_AutoIdDiagnosticsEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Presence": {
+      "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
+      "description": "Current presence of AutoID Identifier.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

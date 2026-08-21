@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_IEnergyProfileD0Type",
+  "title": "PNEM_IEnergyProfileD0Type",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.IEnergyProfileD0Type",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DcCurrent_EngineeringUnits"
+  ],
+  "properties": {
+    "DcCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/DcCurrent_EngineeringUnits"
+    },
+    "DcCurrent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DcCurrent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DcCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/DcCurrent_EngineeringUnits"
+    }
+  }
+}

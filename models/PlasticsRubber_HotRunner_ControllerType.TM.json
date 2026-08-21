@@ -1,0 +1,252 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/#PlasticsRubber_HotRunner_ControllerType",
+  "title": "PlasticsRubber_HotRunner_ControllerType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.ControllerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "LoadCurrent",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "LoadPower",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ControllerTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.ControllerTypeEnumeration",
+      "const": {
+        "CLOSED_LOOP_CONTROL": 0,
+        "MANUAL": 1,
+        "SYNCHRONOUS_ZONE": 2,
+        "CASCADE": 3,
+        "COOL_ZONE": 4,
+        "MEASURING_ZONE": 5,
+        "NOT_USED": 6
+      },
+      "properties": {
+        "CLOSED_LOOP_CONTROL": {
+          "type": "integer"
+        },
+        "MANUAL": {
+          "type": "integer"
+        },
+        "SYNCHRONOUS_ZONE": {
+          "type": "integer"
+        },
+        "CASCADE": {
+          "type": "integer"
+        },
+        "COOL_ZONE": {
+          "type": "integer"
+        },
+        "MEASURING_ZONE": {
+          "type": "integer"
+        },
+        "NOT_USED": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActualOutput",
+    "/properties/AutomaticReferenceZoneSelection",
+    "/properties/AverageControllerOutput",
+    "/properties/LowerOutput",
+    "/properties/OutputTime",
+    "/properties/ReferenceZone",
+    "/properties/SetValueManualOutput",
+    "/properties/UpperOutput",
+    "/properties/UpperSetValueCascade",
+    "/events/ActualOutput",
+    "/events/AverageControllerOutput",
+    "/events/LowerOutput",
+    "/events/SetValueManualOutput",
+    "/events/UpperOutput",
+    "/events/UpperSetValueCascade"
+  ],
+  "properties": {
+    "ActualOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Indicates the currently active output in percent",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ActualType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "title": "ControllerTypeEnumeration",
+      "description": "Actual value for the controller type used by the zone",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.ControllerTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ActualValueActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Indicates the current status of the controller",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "AutomaticReferenceZoneSelection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "If true, the HRD selects automatically the reference zone.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "AverageControllerOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Indicates the average output which can be used when a sensor is broken",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "LowerOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Limitation of the minimum output in closed-loop control in %",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "OutputTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Time basis for operating the actuator",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "ReferenceZone": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "If zones are to operate parallel to a control zone, the reference relation can be realised with this parameter.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "SetValueActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "A control zone is switched on and off with this parameter.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SetValueManualOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Manually given output in percent if SetValueType = MANUAL is selected",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SetValueType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Set value for the controller type used by the zone",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "UpperOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Limitation of the maximum output in closed-loop control in %",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UpperSetValueCascade": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "If the two controllers are cascaded, the master defines to which nominal temperature value the slave is to control to. With this parameter, the upper limit for the slave is defined.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Indicates the currently active output in percent",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "AverageControllerOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Indicates the average output which can be used when a sensor is broken",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LowerOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Limitation of the minimum output in closed-loop control in %",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetValueManualOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Manually given output in percent if SetValueType = MANUAL is selected",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetValueType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Set value for the controller type used by the zone",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "UpperOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Limitation of the maximum output in closed-loop control in %",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperSetValueCascade": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "If the two controllers are cascaded, the master defines to which nominal temperature value the slave is to control to. With this parameter, the upper limit for the slave is defined.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtFuseAttributesType",
+  "title": "Powertrain_PtFuseAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtFuseAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BreakingCapacity",
+    "/properties/CurrentRated",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/FuseElementSpeedMarking",
+    "/properties/FuseIdentificationType",
+    "/properties/VoltageRated",
+    "/events/BreakingCapacity",
+    "/events/CurrentRated",
+    "/events/FuseElementSpeedMarking",
+    "/events/VoltageRated"
+  ],
+  "properties": {
+    "BreakingCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "CurrentRated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "FuseElementSpeedMarking": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "FuseIdentificationType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "string",
+      "readOnly": true
+    },
+    "VoltageRated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "BreakingCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "CurrentRated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "FuseElementSpeedMarking": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "VoltageRated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

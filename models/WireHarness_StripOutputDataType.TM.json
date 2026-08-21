@@ -1,0 +1,108 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_StripOutputDataType",
+  "title": "WireHarness_StripOutputDataType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.StripOutputDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StripOutputDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.StripOutputDataType",
+      "required": [
+        "ToolInstance",
+        "ActualStrippingLength"
+      ],
+      "properties": {
+        "ToolInstance": {
+          "type": "string"
+        },
+        "ActualStrippingLength": {
+          "type": "array",
+          "items": {
+            "title": "NumericalValue",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+            "required": [
+              "UnitComponent",
+              "ValueComponent",
+              "Tolerance"
+            ],
+            "properties": {
+              "UnitComponent": {
+                "title": "EUInformation",
+                "description": "References the unit of the value.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "ValueComponent": {
+                "description": "<p>Specifies the value of the numerical value.</p>",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Tolerance": {
+                "description": "<p>Specifies the tolerance for the dimension.</p>",
+                "type": "array",
+                "items": {
+                  "title": "Tolerance",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                  "required": [
+                    "id",
+                    "LowerBoundary",
+                    "UpperBoundary"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "LowerBoundary": {
+                      "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    },
+                    "UpperBoundary": {
+                      "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

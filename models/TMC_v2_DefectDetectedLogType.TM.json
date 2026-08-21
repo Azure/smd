@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_DefectDetectedLogType",
+  "title": "TMC_v2_DefectDetectedLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DefectDetectedLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefectEU",
+    "/properties/DefectPicture",
+    "/properties/DefectValue"
+  ],
+  "properties": {
+    "DefectEU": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The engineering units of the measurement of the defect.",
+      "type": "array",
+      "items": {
+        "title": "EUInformation",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+        "required": [
+          "NamespaceUri",
+          "UnitId",
+          "DisplayName",
+          "Description"
+        ],
+        "properties": {
+          "NamespaceUri": {
+            "type": "string"
+          },
+          "UnitId": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "DisplayName": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DefectPicture": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The picture relevant to the defect detected.",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "DefectValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The measurement of the defects.",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "readOnly": true
+    }
+  }
+}

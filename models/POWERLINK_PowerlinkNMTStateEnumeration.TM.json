@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/POWERLINK/#POWERLINK_PowerlinkNMTStateEnumeration",
+  "title": "POWERLINK_PowerlinkNMTStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkNMTStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PowerlinkNMTStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkNMTStateEnumeration",
+      "const": {
+        "NMT_GS_OFF": 0,
+        "NMT_GS_INITIALISING": 25,
+        "NMT_GS_RESET_APPLICATION": 41,
+        "NMT_GS_RESET_COMMUNICATION": 57,
+        "NMT_GS_RESET_CONFIGURATION": 121,
+        "NMT_XS_NOT_ACTIVE": 28,
+        "NMT_XS_PRE_OPERATIONAL_1": 29,
+        "NMT_XS_PRE_OPERATIONAL_2": 93,
+        "NMT_XS_READY_TO_OPERATE": 109,
+        "NMT_XS_OPERATIONAL": 253,
+        "NMT_CS_STOPPED": 77,
+        "NMT_XS_BASIC_ETHERNET": 30
+      },
+      "description": "This DataType is an enumeration that represents the NMT State",
+      "properties": {
+        "NMT_GS_OFF": {
+          "type": "integer"
+        },
+        "NMT_GS_INITIALISING": {
+          "description": "first state after power-on of the POWERLINK Device",
+          "type": "integer"
+        },
+        "NMT_GS_RESET_APPLICATION": {
+          "description": "set manufacturer-specific and standardised device profile area to their power-on values",
+          "type": "integer"
+        },
+        "NMT_GS_RESET_COMMUNICATION": {
+          "description": "set communication profile area (except ERR_History_ADOM) to their power-on values",
+          "type": "integer"
+        },
+        "NMT_GS_RESET_CONFIGURATION": {
+          "description": "generate the active device configuration",
+          "type": "integer"
+        },
+        "NMT_XS_NOT_ACTIVE": {
+          "description": "a non-permanent state which allows a starting device to recognize the current network state",
+          "type": "integer"
+        },
+        "NMT_XS_PRE_OPERATIONAL_1": {
+          "description": "the POWERLINK network operates in reduced cycle",
+          "type": "integer"
+        },
+        "NMT_XS_PRE_OPERATIONAL_2": {
+          "description": "the POWERLINK network operates in isochronous operation, but the device is still in a configuration state",
+          "type": "integer"
+        },
+        "NMT_XS_READY_TO_OPERATE": {
+          "description": "the device configuration is completed and the device is ready to switch over to NMT_XS_OPERATIONAL",
+          "type": "integer"
+        },
+        "NMT_XS_OPERATIONAL": {
+          "description": "normal operating state of a POWERLINK Device",
+          "type": "integer"
+        },
+        "NMT_CS_STOPPED": {
+          "description": "the device is largely passive, NMT_CS_STOPPED shall be used for controlled shutdown of a selected CN while the system is still running",
+          "type": "integer"
+        },
+        "NMT_XS_BASIC_ETHERNET": {
+          "description": "Legacy Ethernet communication according to IEEE 802.3, no POWERLINK specific network traffic control",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

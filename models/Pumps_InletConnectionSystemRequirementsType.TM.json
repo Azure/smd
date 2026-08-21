@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_InletConnectionSystemRequirementsType",
+  "title": "Pumps_InletConnectionSystemRequirementsType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.InletConnectionSystemRequirementsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/InletPressure",
+    "/properties/InletPressure_EngineeringUnits",
+    "/events/InletPressure"
+  ],
+  "properties": {
+    "InletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pressure at the inlet of the pump, measured at a defined location in the test dome.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/InletPressure_EngineeringUnits"
+    },
+    "InletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name InletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "InletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pressure at the inlet of the pump, measured at a defined location in the test dome.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/InletPressure_EngineeringUnits"
+    }
+  }
+}

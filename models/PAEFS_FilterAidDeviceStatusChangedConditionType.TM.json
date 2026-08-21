@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterAidDeviceStatusChangedConditionType",
+  "title": "PAEFS_FilterAidDeviceStatusChangedConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterAidDeviceStatusChangedConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FilterAidDeviceStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterAidDeviceStatusEnum",
+      "const": {
+        "DeviceActive": 0,
+        "DeviceInactive": 1,
+        "FillingActive": 2,
+        "DischargeActive": 3
+      },
+      "description": "Describes the action performed by the device for filter aid",
+      "properties": {
+        "DeviceActive": {
+          "type": "integer"
+        },
+        "DeviceInactive": {
+          "type": "integer"
+        },
+        "FillingActive": {
+          "type": "integer"
+        },
+        "DischargeActive": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "title": "FilterAidDeviceStatusEnum",
+      "description": "Reflects the value of the FilterAidDeviceStatus property at the time the condition was triggered",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterAidDeviceStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

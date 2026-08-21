@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UserTokenSettingsDataType",
+  "title": "OpcUaCore_UserTokenSettingsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UserTokenSettingsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "UserTokenSettingsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenSettingsDataType",
+      "required": [
+        "Name",
+        "RecordProperties",
+        "TokenType",
+        "IssuedTokenType",
+        "IssuerEndpointUrl",
+        "SecurityPolicyUri",
+        "CertificateGroupName",
+        "AuthorizationServiceName"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "TokenType": {
+          "title": "UserTokenType",
+          "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "IssuedTokenType": {
+          "type": "string"
+        },
+        "IssuerEndpointUrl": {
+          "type": "string"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        },
+        "CertificateGroupName": {
+          "type": "string"
+        },
+        "AuthorizationServiceName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

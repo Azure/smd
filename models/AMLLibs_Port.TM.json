@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_Port",
+  "title": "AMLLibs_Port",
+  "dov:typeRef": "org.opcfoundation.UA.Port",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_AutomationMLBaseRole",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ConnectionPoint",
+      "href": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_PortConnector",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/Cardinality",
+    "/properties/Cardinality_MaxOccur",
+    "/properties/Cardinality_MinOccur",
+    "/properties/Category",
+    "/properties/Direction",
+    "/properties/ID",
+    "/properties/Version",
+    "/events/Cardinality",
+    "/events/Cardinality_MaxOccur",
+    "/events/Cardinality_MinOccur",
+    "/events/Category",
+    "/events/Direction"
+  ],
+  "properties": {
+    "Cardinality": {
+      "description": "",
+      "type": "string",
+      "readOnly": true,
+      "dov:contains": [
+        "Cardinality_MinOccur",
+        "Cardinality_MaxOccur"
+      ]
+    },
+    "Cardinality_MaxOccur": {
+      "description": "",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "Cardinality"
+    },
+    "Cardinality_MinOccur": {
+      "description": "",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "Cardinality"
+    },
+    "Category": {
+      "description": "",
+      "type": "string",
+      "readOnly": true
+    },
+    "Direction": {
+      "description": "",
+      "type": "string",
+      "readOnly": true
+    },
+    "ID": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    },
+    "Version": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Cardinality": {
+      "data": {
+        "description": "",
+        "type": "string"
+      },
+      "dov:contains": [
+        "Cardinality_MinOccur",
+        "Cardinality_MaxOccur"
+      ]
+    },
+    "Cardinality_MaxOccur": {
+      "data": {
+        "description": "",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Cardinality"
+    },
+    "Cardinality_MinOccur": {
+      "data": {
+        "description": "",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Cardinality"
+    },
+    "Category": {
+      "data": {
+        "description": "",
+        "type": "string"
+      }
+    },
+    "Direction": {
+      "data": {
+        "description": "",
+        "type": "string"
+      }
+    }
+  }
+}

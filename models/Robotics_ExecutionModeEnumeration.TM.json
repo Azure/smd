@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_ExecutionModeEnumeration",
+  "title": "Robotics_ExecutionModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.ExecutionModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ExecutionModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Robotics.ExecutionModeEnumeration",
+      "const": {
+        "CYCLE": 0,
+        "CONTINUOUS": 1,
+        "STEP": 2
+      },
+      "properties": {
+        "CYCLE": {
+          "description": "Single execution of a task program according to ISO 8373.",
+          "type": "integer"
+        },
+        "CONTINUOUS": {
+          "description": "Task program is executed continuously and starts again automatically.",
+          "type": "integer"
+        },
+        "STEP": {
+          "description": "Task program is executed in steps.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

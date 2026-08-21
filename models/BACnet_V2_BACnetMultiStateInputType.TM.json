@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetMultiStateInputType",
+  "title": "BACnet_V2_BACnetMultiStateInputType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMultiStateInputType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetMultiStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "EventReporting",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventReportingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "FaultEvaluation",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetFaultEvaluationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Device_Type"
+  ],
+  "properties": {
+    "Device_Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

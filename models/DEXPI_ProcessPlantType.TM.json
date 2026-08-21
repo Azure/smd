@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ProcessPlantType",
+  "title": "DEXPI_ProcessPlantType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ProcessPlantType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProcessPlantIdentificationCodeAssignmentClass",
+    "/properties/ProcessPlantNameAssignmentClass",
+    "/events/ProcessPlantIdentificationCodeAssignmentClass",
+    "/events/ProcessPlantNameAssignmentClass"
+  ],
+  "properties": {
+    "ProcessPlantIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code of the ProcessPlant.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessPlantNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The name of the ProcessPlant.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ProcessPlantIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code of the ProcessPlant.",
+        "type": "string"
+      }
+    },
+    "ProcessPlantNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The name of the ProcessPlant.",
+        "type": "string"
+      }
+    }
+  }
+}

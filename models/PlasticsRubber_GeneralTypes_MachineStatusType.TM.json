@@ -1,0 +1,99 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineStatusType",
+  "title": "PlasticsRubber_GeneralTypes_MachineStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MachineStatusType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Users",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UsersType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MachineModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MachineModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "AUTOMATIC": 1,
+        "SEMI_AUTOMATIC": 2,
+        "MANUAL": 3,
+        "SETUP": 4,
+        "SLEEP": 5
+      },
+      "description": "Current machine mode (as defined by mode selector on the machine)",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states apply",
+          "type": "integer"
+        },
+        "AUTOMATIC": {
+          "description": "The machine is in automatic mode",
+          "type": "integer"
+        },
+        "SEMI_AUTOMATIC": {
+          "description": "The machine is in semi-automatic mode",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "The machine is in manual mode",
+          "type": "integer"
+        },
+        "SETUP": {
+          "description": "The machine is in setup mode",
+          "type": "integer"
+        },
+        "SLEEP": {
+          "description": "The machine is in sleep mode. Machine is still switched on, energy consumption reduced by e.g. reducing heating, switching drives off. Production is not possible.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ActivateSleepMode",
+    "/actions/DeactivateSleepMode"
+  ],
+  "actions": {
+    "ActivateSleepMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for activation of sleep mode"
+    },
+    "DeactivateSleepMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for deactivation of sleep mode"
+    }
+  },
+  "properties": {
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if the machine is physically present and connected",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MachineMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "MachineModeEnumeration",
+      "description": "Current machine mode (as defined by mode selector on the machine)",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MachineModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

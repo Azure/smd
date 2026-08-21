@@ -1,0 +1,225 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_ExtrusionLine_InterfaceType",
+  "title": "PlasticsRubber_Extrusion_ExtrusionLine_ExtrusionLine_InterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.ExtrusionLine.ExtrusionLine_InterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "JobGroups",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_JobGroupsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineConfiguration",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineInformation",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineInformationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineMESConfiguration",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineMESConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MaterialList",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaterialListType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MESMessage",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MESMessageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionDatasetManagement",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ProductionParameters",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_ProductionParametersType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Users",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UsersType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ProductionStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionStatusEnumeration",
+      "const": {
+        "OTHER": 0,
+        "NO_PRODUCTION": 1,
+        "START_UP": 2,
+        "READY_FOR_PRODUCTION": 3,
+        "PRODUCTION": 4,
+        "DRY_RUN": 5
+      },
+      "description": "Production status of the machine",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "NO_PRODUCTION": {
+          "description": "The machine does not produce any parts/products",
+          "type": "integer"
+        },
+        "START_UP": {
+          "description": "The machine is producing parts/products in the start-up phase. So the correct settings of the machines are not reached.",
+          "type": "integer"
+        },
+        "READY_FOR_PRODUCTION": {
+          "description": "The machine is producing parts/products, the correct settings of the machines are reached but the production is not yet released (e.g. waiting for release from quality assurance)",
+          "type": "integer"
+        },
+        "PRODUCTION": {
+          "description": "The machine is producing parts/products. In semi-automatic mode also during waiting time (e.g. for manual loading/unloading of parts) ProductionStatus remains in this state (time out possible if e.g. cycle time exceeds a pre-defined limit)",
+          "type": "integer"
+        },
+        "DRY_RUN": {
+          "description": "The machine is moving without material",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ClearMESMessage",
+    "/actions/SetMESMessage"
+  ],
+  "actions": {
+    "ClearMESMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/"
+    },
+    "SetMESMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id",
+          "Message",
+          "Message2"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "Message2": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConfigurationParameters": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "array",
+      "items": {
+        "title": "ConfigurationParameterType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ConfigurationParameterType",
+        "required": [
+          "Id",
+          "Description",
+          "DefaultValue",
+          "Unit"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Description": {
+            "description": "Description of the parameter",
+            "type": "string"
+          },
+          "DefaultValue": {
+            "description": "Default value of the parameter",
+            "type": "string"
+          },
+          "Unit": {
+            "title": "EUInformation",
+            "description": "Engineering unit of the parameter. If the Type of Defaultvalue is not a Number, then the Unit shall be empty",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "LineId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "readOnly": false
+    },
+    "LineStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "title": "ProductionStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

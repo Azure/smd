@@ -1,0 +1,108 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_ValveDesignType",
+  "title": "CAS_ValveDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.ValveDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_DesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ValveTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.ValveTypeEnum",
+      "const": {
+        "Other": 0,
+        "CheckValve": 1,
+        "ContinuousValve": 2,
+        "FlowControlValve": 3,
+        "PressureValve": 4,
+        "SwitchingValve": 5
+      },
+      "description": "possible valve types",
+      "properties": {
+        "Other": {
+          "description": "Not specified in this enumeration",
+          "type": "integer"
+        },
+        "CheckValve": {
+          "description": "Check valve",
+          "type": "integer"
+        },
+        "ContinuousValve": {
+          "description": "Continuous valve",
+          "type": "integer"
+        },
+        "FlowControlValve": {
+          "description": "Flow control valve",
+          "type": "integer"
+        },
+        "PressureValve": {
+          "description": "Pressure valve",
+          "type": "integer"
+        },
+        "SwitchingValve": {
+          "description": "Switching valve",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ComponentClass",
+    "/properties/NumberOfPorts",
+    "/events/ComponentClass",
+    "/events/NumberOfPorts"
+  ],
+  "properties": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "ValveTypeEnum",
+      "description": "Enumeration of possible valve types.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.ValveTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "NumberOfPorts": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Number of ports of a valve.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "ValveTypeEnum",
+        "description": "Enumeration of possible valve types.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.ValveTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "NumberOfPorts": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Number of ports of a valve.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

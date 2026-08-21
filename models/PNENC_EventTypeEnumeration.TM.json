@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EventTypeEnumeration",
+  "title": "PNENC_EventTypeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "EventTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+      "const": {
+        "FAULT": 0,
+        "WARNING": 1,
+        "UNSPECIFIED": 255
+      },
+      "properties": {
+        "FAULT": {
+          "description": "The log entry indicates a malfunction of the encoder, e.g. position fault",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The log entry is a warning, e.g. for battery status",
+          "type": "integer"
+        },
+        "UNSPECIFIED": {
+          "description": "No information about the type of the event is given.  The intended purpose for the definition is usage by the GetFilteredLogbookEntries Method to specify “don’t care” for the EventType parameter. Must not be used for log entries and encoder diagnosis events as EncoderDiagnosisEventType and LogbookEventType",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

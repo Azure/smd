@@ -1,0 +1,197 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetSpecialEventPeriod",
+  "title": "BACnet_V2_BACnetSpecialEventPeriod",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetSpecialEventPeriod",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetSpecialEventPeriod": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetSpecialEventPeriod",
+      "properties": {
+        "CalendarEntry": {
+          "title": "BACnetCalendarEntry",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetCalendarEntry",
+          "properties": {
+            "Date": {
+              "title": "BACnetDate",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDate",
+              "required": [
+                "Year",
+                "Month",
+                "DayOfMonth",
+                "DayOfWeek"
+              ],
+              "properties": {
+                "Year": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "Month": {
+                  "title": "BACnetMonth",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMonth",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DayOfMonth": {
+                  "title": "BACnetDayOfMonth",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfMonth",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DayOfWeek": {
+                  "title": "BACnetDayOfWeek",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfWeek",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "DateRange": {
+              "title": "BACnetDateRange",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDateRange",
+              "required": [
+                "StartDate",
+                "EndTime"
+              ],
+              "properties": {
+                "StartDate": {
+                  "title": "BACnetDate",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDate",
+                  "required": [
+                    "Year",
+                    "Month",
+                    "DayOfMonth",
+                    "DayOfWeek"
+                  ],
+                  "properties": {
+                    "Year": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "Month": {
+                      "title": "BACnetMonth",
+                      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMonth",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DayOfMonth": {
+                      "title": "BACnetDayOfMonth",
+                      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfMonth",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DayOfWeek": {
+                      "title": "BACnetDayOfWeek",
+                      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfWeek",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    }
+                  }
+                },
+                "EndTime": {
+                  "title": "BACnetDate",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDate",
+                  "required": [
+                    "Year",
+                    "Month",
+                    "DayOfMonth",
+                    "DayOfWeek"
+                  ],
+                  "properties": {
+                    "Year": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "Month": {
+                      "title": "BACnetMonth",
+                      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMonth",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DayOfMonth": {
+                      "title": "BACnetDayOfMonth",
+                      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfMonth",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DayOfWeek": {
+                      "title": "BACnetDayOfWeek",
+                      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfWeek",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    }
+                  }
+                }
+              }
+            },
+            "WeekNDay": {
+              "title": "BACnetWeekNDay",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetWeekNDay",
+              "required": [
+                "Month",
+                "Day",
+                "DayOfWeek"
+              ],
+              "properties": {
+                "Month": {
+                  "title": "BACnetMonth",
+                  "description": "January = 1, 0xFF = Any Month",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMonth",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "Day": {
+                  "title": "BACnetDay",
+                  "description": "1 = Days numbered 1-7, 2 = Day numbered 8-14, 3 = Days numbered 15-21, 4 = Days numbered 22-28, 5 = Days numbered 29-31, 6 = Last 7 days of this month, 0xFF = Any Week of this month",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDay",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DayOfWeek": {
+                  "title": "BACnetDayOfWeek",
+                  "description": "1 = Monday, 0xFF = Any day of week",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfWeek",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          }
+        },
+        "CalendarReference": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPv4FeatureType",
+  "title": "PROFINET_IPv4FeatureType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.IPv4FeatureType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_NetworkComponentFeatureType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "DefaultGateway": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    },
+    "DhcpEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IpAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    },
+    "SubnetMask": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DefaultGateway": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    },
+    "DhcpEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IpAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    },
+    "SubnetMask": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

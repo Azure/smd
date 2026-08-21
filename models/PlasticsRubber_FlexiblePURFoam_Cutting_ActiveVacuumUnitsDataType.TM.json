@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_ActiveVacuumUnitsDataType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ActiveVacuumUnitsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ActiveVacuumUnitsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ActiveVacuumUnitsDataType": {
+      "description": "Provides information about the position of a vacuum unit and the current vacuum power, given as a float value between 0 (off) and 1 (full power).",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ActiveVacuumUnitsDataType",
+      "required": [
+        "Position",
+        "VacuumPower"
+      ],
+      "properties": {
+        "Position": {
+          "description": "Information about the position (location) of the vacuum unit.",
+          "type": "string"
+        },
+        "VacuumPower": {
+          "description": "Indication about the relative power of the vacuum unit. Range from 0 to 1.",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

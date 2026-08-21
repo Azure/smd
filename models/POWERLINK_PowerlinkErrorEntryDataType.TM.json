@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/POWERLINK/#POWERLINK_PowerlinkErrorEntryDataType",
+  "title": "POWERLINK_PowerlinkErrorEntryDataType",
+  "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkErrorEntryDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PowerlinkErrorEntryDataType": {
+      "description": "Represents the entries of the POWERLINK Object ERR_History_ADOM (Object 1003h, SubIndex 1..254)",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkErrorEntryDataType",
+      "required": [
+        "entryType",
+        "errorCode",
+        "timeStamp",
+        "additionalInformation"
+      ],
+      "properties": {
+        "entryType": {
+          "description": "Entry type as defined in the Powerlink specification EPSG DS 301",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "errorCode": {
+          "description": "Error code as defined in the Powerlink specification EPSG DS 301",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "timeStamp": {
+          "description": "SoC Nettime from the cycle when the error/event was detected",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        "additionalInformation": {
+          "description": "This field contains device profile or vendor specific additional error information",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        }
+      }
+    }
+  }
+}

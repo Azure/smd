@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_AssetVerificationModeEnum",
+  "title": "FX_Data_AssetVerificationModeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "AssetVerificationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+      "const": {
+        "AssetCompatibility": 0,
+        "AssetIdentity": 1,
+        "AssetIdentityAndCompatibility": 2
+      },
+      "properties": {
+        "AssetCompatibility": {
+          "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentity": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentityAndCompatibility": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JoiningSystemResultManagementType",
+  "title": "IJT_Base_JoiningSystemResultManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningSystemResultManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ResultManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Results",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/RequestResults",
+    "/actions/RequestUnacknowledgedResults"
+  ],
+  "actions": {
+    "RequestResults": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FromSequenceNumber",
+          "ToSequenceNumber",
+          "FromTime",
+          "ToTime",
+          "RequestedMinimumDurationBetweenResults"
+        ],
+        "properties": {
+          "FromSequenceNumber": {
+            "description": "The starting sequence number for the Requested Results.  It is a required argument if results are requested based on the input sequence number range.  It shall be a valid value > 0. If 0, then fromTime and toTime are used.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "ToSequenceNumber": {
+            "description": "The ending sequence number of the Requested Results.  It is a required argument if results are requested based on the input sequence number range.  It shall be a valid value > 0 and shall be >= fromSequenceNumber. If 0, then fromTime and toTime are used.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "FromTime": {
+            "description": "It is the start time for the Requested Results.  This argument is considered only when fromSequenceNumber and toSequenceNumber are set as 0.",
+            "type": "string",
+            "format": "time"
+          },
+          "ToTime": {
+            "description": "It is the end time for the Requested Results.  This argument is considered only when fromSequenceNumber and toSequenceNumber are set as 0.",
+            "type": "string",
+            "format": "time"
+          },
+          "RequestedMinimumDurationBetweenResults": {
+            "description": "The client can use this argument to configure a time interval between each Result to optimize the number of Results sent from the Server.  The Server can return the revised interval if the requested interval is not supported.  Note: It is only a requested minimum time interval by the client and the server could take additional time for processing.",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RevisedMinimumDurationBetweenResults",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "RevisedMinimumDurationBetweenResults": {
+            "description": "It is the minimum revised interval supported by the server.",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RequestUnacknowledgedResults": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "MaxResults",
+          "RequestedMinimumDurationBetweenResults"
+        ],
+        "properties": {
+          "MaxResults": {
+            "description": "It is the maximum results requested by the Client.  If 0, then the Server shall send all the unacknowledged results.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RequestedMinimumDurationBetweenResults": {
+            "description": "The client can use this argument to configure a time interval between each Result to optimize the number of Results sent from the Server.  The Server can return the revised interval if the requested interval is not supported.  Note: It is only a requested minimum time interval by the client and the server could take additional time for processing.",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RevisedMinimumDurationBetweenResults",
+          "UnacknowledgedResultCount",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "RevisedMinimumDurationBetweenResults": {
+            "description": "It is the minimum revised interval supported by the server.",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "UnacknowledgedResultCount": {
+            "description": "It is the total count of unacknowledged results in the server.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

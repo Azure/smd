@@ -1,0 +1,370 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISChokeObjectType",
+  "title": "MDIS_MDISChokeObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISChokeObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISBaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ChokeCommandEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeCommandEnum",
+      "const": {
+        "Close": 1,
+        "Open": 2
+      },
+      "properties": {
+        "Close": {
+          "description": "The command to the Choke is Close",
+          "type": "integer"
+        },
+        "Open": {
+          "description": "The command to the Choke is Open",
+          "type": "integer"
+        }
+      }
+    },
+    "ChokeMoveEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeMoveEnum",
+      "const": {
+        "Moving": 1,
+        "Stopped": 2
+      },
+      "properties": {
+        "Moving": {
+          "description": "The choke is currently moving (in progress)",
+          "type": "integer"
+        },
+        "Stopped": {
+          "description": "The move has stopped",
+          "type": "integer"
+        }
+      }
+    },
+    "SEMEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+      "const": {
+        "SEM_A": 1,
+        "SEM_B": 2,
+        "Auto": 4
+      },
+      "properties": {
+        "SEM_A": {
+          "description": "Valve move command selection SEM A",
+          "type": "integer"
+        },
+        "SEM_B": {
+          "description": "Valve move command selection SEM B",
+          "type": "integer"
+        },
+        "Auto": {
+          "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
+          "type": "integer"
+        }
+      }
+    },
+    "SetCalculatedPositionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SetCalculatedPositionEnum",
+      "const": {
+        "Initial": 0,
+        "Inprogress": 1,
+        "Complete": 2,
+        "Fault": 4
+      },
+      "properties": {
+        "Initial": {
+          "description": "no command (initial state)",
+          "type": "integer"
+        },
+        "Inprogress": {
+          "description": "command in progress",
+          "type": "integer"
+        },
+        "Complete": {
+          "description": "command completed",
+          "type": "integer"
+        },
+        "Fault": {
+          "description": "command fault",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/Step",
+    "/properties/CommandRejected",
+    "/properties/DefeatableCloseInterlock",
+    "/properties/DefeatableOpenInterlock",
+    "/properties/NonDefeatableCloseInterlock",
+    "/properties/NonDefeatableOpenInterlock",
+    "/properties/PositionInSteps",
+    "/properties/SetCalculatedPositionStatus",
+    "/properties/StepDurationClose",
+    "/properties/StepDurationOpen",
+    "/properties/TotalSteps",
+    "/events/CommandRejected",
+    "/events/DefeatableCloseInterlock",
+    "/events/DefeatableOpenInterlock",
+    "/events/NonDefeatableCloseInterlock",
+    "/events/NonDefeatableOpenInterlock",
+    "/events/PositionInSteps",
+    "/events/SetCalculatedPositionStatus"
+  ],
+  "actions": {
+    "Abort": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS"
+    },
+    "Move": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Position",
+          "OverrideInterlocks",
+          "SEM"
+        ],
+        "properties": {
+          "Position": {
+            "description": "A number (in percent) indicating the percent open",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "OverrideInterlocks": {
+            "description": "Boolean indicating if the open or close command should override any defeat able interlocks",
+            "type": "boolean"
+          },
+          "SEM": {
+            "title": "SEMEnum",
+            "description": "The selection of which SEM to send the command to",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "SetCalculatedPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Position"
+        ],
+        "properties": {
+          "Position": {
+            "description": "A number (in percent) indicating the percent open",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      }
+    },
+    "Step": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Direction",
+          "Steps",
+          "OverrideInterlocks",
+          "SEM"
+        ],
+        "properties": {
+          "Direction": {
+            "title": "ChokeCommandEnum",
+            "description": "The direction for the valve, true is opening a valve, false if closing the valve",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeCommandEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Steps": {
+            "description": "The number of steps to open/close the valve",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "OverrideInterlocks": {
+            "description": "Boolean indicating if the open or close command should override any defeat able interlocks",
+            "type": "boolean"
+          },
+          "SEM": {
+            "title": "SEMEnum",
+            "description": "The selection of which SEM to send the command to",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CalculatedPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "CommandRejected": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Moving": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "ChokeMoveEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeMoveEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "NonDefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "NonDefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PositionInSteps": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767,
+      "readOnly": true
+    },
+    "SetCalculatedPositionStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "SetCalculatedPositionEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SetCalculatedPositionEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "StepDurationClose": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "StepDurationOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "TotalSteps": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CalculatedPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "CommandRejected": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "DefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "DefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "Moving": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "ChokeMoveEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.ChokeMoveEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "NonDefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "NonDefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "PositionInSteps": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "integer",
+        "minimum": -32768,
+        "maximum": 32767
+      }
+    },
+    "SetCalculatedPositionStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "SetCalculatedPositionEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.SetCalculatedPositionEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

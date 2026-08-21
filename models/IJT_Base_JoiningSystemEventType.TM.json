@@ -1,0 +1,363 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JoiningSystemEventType",
+  "title": "IJT_Base_JoiningSystemEventType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningSystemEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "JoiningSystemEventContentType": {
+      "description": "The JoiningSystemEventContentType is a subtype of 0:BaseVariableType. It is used JoiningSystemEventType and JoiningSystemConditionType.",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningSystemEventContentType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/JoiningSystemEventContent",
+    "/properties/JoiningSystemEventContent_AssociatedEntities",
+    "/properties/JoiningSystemEventContent_EventCode",
+    "/properties/JoiningSystemEventContent_EventText",
+    "/properties/JoiningSystemEventContent_JoiningTechnology",
+    "/properties/JoiningSystemEventContent_ReportedValues",
+    "/events/JoiningSystemEventContent",
+    "/events/JoiningSystemEventContent_AssociatedEntities",
+    "/events/JoiningSystemEventContent_EventCode",
+    "/events/JoiningSystemEventContent_EventText",
+    "/events/JoiningSystemEventContent_JoiningTechnology",
+    "/events/JoiningSystemEventContent_ReportedValues"
+  ],
+  "properties": {
+    "JoiningSystemEventContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "tm:ref": "#/schemaDefinitions/JoiningSystemEventContentType",
+      "readOnly": true,
+      "dov:contains": [
+        "JoiningSystemEventContent_AssociatedEntities",
+        "JoiningSystemEventContent_EventCode",
+        "JoiningSystemEventContent_EventText",
+        "JoiningSystemEventContent_JoiningTechnology",
+        "JoiningSystemEventContent_ReportedValues"
+      ]
+    },
+    "JoiningSystemEventContent_AssociatedEntities": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "AssociatedEntities is a list of identifiers of various entities/objects available in the given system. Example: An event maybe associated to Asset, Result, Joint, Error, etc.",
+      "type": "array",
+      "items": {
+        "title": "EntityDataType",
+        "description": "This structure provides the identification data for a given entity in the system.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+        "required": [
+          "EntityId",
+          "EntityType"
+        ],
+        "properties": {
+          "Name": {
+            "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+            "type": "string"
+          },
+          "EntityId": {
+            "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+            "type": "string"
+          },
+          "EntityOriginId": {
+            "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+            "type": "string"
+          },
+          "IsExternal": {
+            "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+            "type": "boolean"
+          },
+          "EntityType": {
+            "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+            "type": "integer",
+            "minimum": -32768,
+            "maximum": 32767
+          }
+        }
+      },
+      "readOnly": true,
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_EventCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "EventCode is a system specific event code associated to the given event.",
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807,
+      "readOnly": true,
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_EventText": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "EventText is a human readable text related to the context of the event.",
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_JoiningTechnology": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "JoiningTechnology is a human readable text to identify the joining technology which has triggered the event. Examples: Tightening, Gluing, Riveting, Flow Drill Fastening, etc.",
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_ReportedValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "ReportedValues is a list of values associated with the given event payload. Example: If it is an over temperature event, then the ReportedValue can be the measured value along with the corresponding limits.",
+      "type": "array",
+      "items": {
+        "title": "ReportedValueDataType",
+        "description": "This structure provides the given value and corresponding limits for a given physical quantity (if applicable).",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ReportedValueDataType",
+        "required": [
+          "CurrentValue"
+        ],
+        "properties": {
+          "PhysicalQuantity": {
+            "description": "It is the physical quantity of the value. Example: Torque, Angle, etc.  Note: It may not be applicable for few reported values such as Software Version, etc.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Name": {
+            "description": "It is the name of the given value.",
+            "type": "string"
+          },
+          "CurrentValue": {
+            "description": "It is the current value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the recommended data type is Double.",
+            "type": "string"
+          },
+          "PreviousValue": {
+            "description": "It is the previous value (if available). The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+            "type": "string"
+          },
+          "LowLimit": {
+            "description": "It is the low limit of the given value. It is not applicable for values which do not have PhysicalQuantity.",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "HighLimit": {
+            "description": "It is the high limit of the given value. It is not applicable for values which do not have PhysicalQuantity.",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "EngineeringUnits": {
+            "title": "EUInformation",
+            "description": "It is the engineering unit of the CurrentValue, PreviousValue, LowLimit, HighLimit. It is not applicable for values which does not have PhysicalQuantity.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true,
+      "dov:containedIn": "JoiningSystemEventContent"
+    }
+  },
+  "events": {
+    "JoiningSystemEventContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/JoiningSystemEventContentType"
+      },
+      "dov:contains": [
+        "JoiningSystemEventContent_AssociatedEntities",
+        "JoiningSystemEventContent_EventCode",
+        "JoiningSystemEventContent_EventText",
+        "JoiningSystemEventContent_JoiningTechnology",
+        "JoiningSystemEventContent_ReportedValues"
+      ]
+    },
+    "JoiningSystemEventContent_AssociatedEntities": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "data": {
+        "description": "AssociatedEntities is a list of identifiers of various entities/objects available in the given system. Example: An event maybe associated to Asset, Result, Joint, Error, etc.",
+        "type": "array",
+        "items": {
+          "title": "EntityDataType",
+          "description": "This structure provides the identification data for a given entity in the system.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+          "required": [
+            "EntityId",
+            "EntityType"
+          ],
+          "properties": {
+            "Name": {
+              "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+              "type": "string"
+            },
+            "EntityId": {
+              "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+              "type": "string"
+            },
+            "EntityOriginId": {
+              "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+              "type": "string"
+            },
+            "IsExternal": {
+              "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+              "type": "boolean"
+            },
+            "EntityType": {
+              "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+              "type": "integer",
+              "minimum": -32768,
+              "maximum": 32767
+            }
+          }
+        }
+      },
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_EventCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "data": {
+        "description": "EventCode is a system specific event code associated to the given event.",
+        "type": "integer",
+        "minimum": -9223372036854775808,
+        "maximum": 9223372036854775807
+      },
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_EventText": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "data": {
+        "description": "EventText is a human readable text related to the context of the event.",
+        "type": "string"
+      },
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_JoiningTechnology": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "data": {
+        "description": "JoiningTechnology is a human readable text to identify the joining technology which has triggered the event. Examples: Tightening, Gluing, Riveting, Flow Drill Fastening, etc.",
+        "type": "string"
+      },
+      "dov:containedIn": "JoiningSystemEventContent"
+    },
+    "JoiningSystemEventContent_ReportedValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "data": {
+        "description": "ReportedValues is a list of values associated with the given event payload. Example: If it is an over temperature event, then the ReportedValue can be the measured value along with the corresponding limits.",
+        "type": "array",
+        "items": {
+          "title": "ReportedValueDataType",
+          "description": "This structure provides the given value and corresponding limits for a given physical quantity (if applicable).",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ReportedValueDataType",
+          "required": [
+            "CurrentValue"
+          ],
+          "properties": {
+            "PhysicalQuantity": {
+              "description": "It is the physical quantity of the value. Example: Torque, Angle, etc.  Note: It may not be applicable for few reported values such as Software Version, etc.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Name": {
+              "description": "It is the name of the given value.",
+              "type": "string"
+            },
+            "CurrentValue": {
+              "description": "It is the current value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the recommended data type is Double.",
+              "type": "string"
+            },
+            "PreviousValue": {
+              "description": "It is the previous value (if available). The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+              "type": "string"
+            },
+            "LowLimit": {
+              "description": "It is the low limit of the given value. It is not applicable for values which do not have PhysicalQuantity.",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "HighLimit": {
+              "description": "It is the high limit of the given value. It is not applicable for values which do not have PhysicalQuantity.",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "EngineeringUnits": {
+              "title": "EUInformation",
+              "description": "It is the engineering unit of the CurrentValue, PreviousValue, LowLimit, HighLimit. It is not applicable for values which does not have PhysicalQuantity.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "dov:containedIn": "JoiningSystemEventContent"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_VehicleScaleType",
+  "title": "Scales_V2_VehicleScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.VehicleScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ScaleDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionPreset",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/InboundWeighing",
+    "/actions/OnePassWeighing",
+    "/actions/OutboundWeighing"
+  ],
+  "actions": {
+    "InboundWeighing": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VehicleId"
+        ],
+        "properties": {
+          "VehicleId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "OnePassWeighing": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VehicleId"
+        ],
+        "properties": {
+          "VehicleId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "OutboundWeighing": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VehicleId"
+        ],
+        "properties": {
+          "VehicleId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

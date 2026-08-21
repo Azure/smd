@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_SequenceChangeLogType",
+  "title": "PlasticsRubber_GeneralTypes_SequenceChangeLogType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.SequenceChangeLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_LogbookEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SequenceChangeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.SequenceChangeEnumeration",
+      "const": {
+        "UPDATE": 0,
+        "ADD": 1,
+        "MODIFY": 2,
+        "MOVE": 3,
+        "DELETE": 4
+      },
+      "description": "Classification of production sequence change",
+      "properties": {
+        "UPDATE": {
+          "description": "The sequence has been updated (e.g. when a new production dataset has been activated)",
+          "type": "integer"
+        },
+        "ADD": {
+          "description": "An element has been added to the sequence",
+          "type": "integer"
+        },
+        "MODIFY": {
+          "description": "An element of the sequence has been modified",
+          "type": "integer"
+        },
+        "MOVE": {
+          "description": "An element of the sequence has been moved",
+          "type": "integer"
+        },
+        "DELETE": {
+          "description": "An element of the sequence has been deleted",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "SequenceChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "SequenceChangeEnumeration",
+      "description": "Classification of production sequence change",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.SequenceChangeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

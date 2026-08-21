@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_DiscreteSignalType",
+  "title": "PADIM_DiscreteSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.DiscreteSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DiscreteSignalVariableType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.DiscreteSignalVariableType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "DiscreteSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/DiscreteSignalVariableType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DiscreteSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/DiscreteSignalVariableType"
+      }
+    }
+  }
+}

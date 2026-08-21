@@ -1,0 +1,276 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ScaleDeviceType",
+  "title": "Scales_V2_ScaleDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ScaleDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ListOfWeighingRanges",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_WeighingRangeElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryOperationMode",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryOperationModeStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionOutput",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_StatisticType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionPreset",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "State",
+      "href": "http://opcfoundation.org/UA/PackML/#PackML_PackMLBaseStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SubDevices",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ConfigurableObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "WeightItemType": {
+      "title": "WeightType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+      "required": [
+        "Gross",
+        "Net",
+        "Tare"
+      ],
+      "properties": {
+        "Gross": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Net": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Tare": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ClearTare",
+    "/actions/RegisterWeight",
+    "/actions/SetPresetTare",
+    "/actions/SetTare",
+    "/actions/SetZero",
+    "/properties/AllowedEngineeringUnits",
+    "/properties/MaterialClass",
+    "/properties/MinimalWeight",
+    "/properties/Policy",
+    "/properties/ProcessStateId",
+    "/properties/ProcessStateMessage",
+    "/properties/RegisteredWeight",
+    "/events/MinimalWeight",
+    "/events/RegisteredWeight"
+  ],
+  "actions": {
+    "ClearTare": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/"
+    },
+    "RegisterWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/"
+    },
+    "SetPresetTare": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "PresetTare",
+          "EngineeringUnits"
+        ],
+        "properties": {
+          "PresetTare": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "EngineeringUnits": {
+            "title": "EUInformation",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetTare": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/"
+    },
+    "SetZero": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/"
+    }
+  },
+  "properties": {
+    "AllowedEngineeringUnits": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "array",
+      "items": {
+        "title": "EUInformation",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+        "required": [
+          "NamespaceUri",
+          "UnitId",
+          "DisplayName",
+          "Description"
+        ],
+        "properties": {
+          "NamespaceUri": {
+            "type": "string"
+          },
+          "UnitId": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "DisplayName": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "CurrentWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    },
+    "MaterialClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the allowed material the scale may measure. Only relevant for certain scales (e.g. totalizing hopper scale or continuous scale)",
+      "type": "string",
+      "readOnly": false
+    },
+    "MinimalWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "Policy": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "ProcessStateId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Contains an relating identification for the occurring ProcessStateMessage.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessStateMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Contains the message of the current overall state of the scale.",
+      "type": "string",
+      "readOnly": false
+    },
+    "RegisteredWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CurrentWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    },
+    "MinimalWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "RegisteredWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    }
+  }
+}

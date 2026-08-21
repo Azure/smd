@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/RSL/#RSL_CartesianFrameAngleOrientationType",
+  "title": "RSL_CartesianFrameAngleOrientationType",
+  "dov:typeRef": "org.opcfoundation.UA.RSL.CartesianFrameAngleOrientationType",
+  "links": [],
+  "schemaDefinitions": {
+    "CartesianFrameAngleOrientationType": {
+      "title": "ThreeDFrame",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.RSL.CartesianFrameAngleOrientationType",
+      "required": [
+        "CartesianCoordinates",
+        "Orientation"
+      ],
+      "properties": {
+        "CartesianCoordinates": {
+          "title": "ThreeDCartesianCoordinates",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinates",
+          "required": [
+            "X",
+            "Y",
+            "Z"
+          ],
+          "properties": {
+            "X": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Y": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Z": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        },
+        "Orientation": {
+          "title": "ThreeDOrientation",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ThreeDOrientation",
+          "required": [
+            "A",
+            "B",
+            "C"
+          ],
+          "properties": {
+            "A": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "B": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "C": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        }
+      }
+    }
+  }
+}

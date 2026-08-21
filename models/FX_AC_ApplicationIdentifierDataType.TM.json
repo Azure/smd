@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ApplicationIdentifierDataType",
+  "title": "FX_AC_ApplicationIdentifierDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ApplicationIdentifierDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ApplicationIdentifierDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.ApplicationIdentifierDataType",
+      "required": [
+        "Name",
+        "UniqueIdentifier"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "UniqueIdentifier": {
+          "title": "ApplicationId",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.AC.ApplicationId",
+          "properties": {
+            "IdNumeric": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "IdString": {
+              "type": "string"
+            },
+            "IdGuid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "IdByteString": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    }
+  }
+}

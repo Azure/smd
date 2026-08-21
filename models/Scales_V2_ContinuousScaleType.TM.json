@@ -1,0 +1,181 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ContinuousScaleType",
+  "title": "Scales_V2_ContinuousScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ContinuousScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ScaleDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Totalizer",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_TotalizerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MasterTotalizer",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_TotalizerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionPreset",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "RateControlMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RateControlMode",
+      "const": {
+        "Gravimetric_0": 0,
+        "Volumetric_1": 1
+      },
+      "properties": {
+        "Gravimetric_0": {
+          "type": "integer"
+        },
+        "Volumetric_1": {
+          "type": "integer"
+        }
+      }
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "MeasuredItemType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/ControlMagnitude",
+    "/properties/Load",
+    "/properties/MaxFlowRate",
+    "/properties/MinFlowRate",
+    "/properties/RateControlMode",
+    "/properties/Speed",
+    "/properties/TargetFlowRate",
+    "/events/ControlMagnitude",
+    "/events/Load",
+    "/events/MaxFlowRate",
+    "/events/MinFlowRate",
+    "/events/RateControlMode",
+    "/events/Speed",
+    "/events/TargetFlowRate"
+  ],
+  "properties": {
+    "ControlMagnitude": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "FlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/MeasuredItemType",
+      "readOnly": false
+    },
+    "Load": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "MaxFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "MinFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "RateControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "title": "RateControlMode",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RateControlMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Speed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "TargetFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ControlMagnitude": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "FlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MeasuredItemType"
+      }
+    },
+    "Load": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "MaxFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "MinFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "RateControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "title": "RateControlMode",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RateControlMode",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Speed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "TargetFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_SpecialCompressorType",
+  "title": "DEXPI_SpecialCompressorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.SpecialCompressorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_CompressorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<CompressorEquipmentItem>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_CompressorEquipmentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignCapacityMotiveFluid",
+    "/properties/DesignRotationalSpeed",
+    "/properties/DesignShaftPower",
+    "/properties/TypeNameAssignmentClass",
+    "/events/DesignCapacityMotiveFluid",
+    "/events/DesignRotationalSpeed",
+    "/events/DesignShaftPower",
+    "/events/TypeNameAssignmentClass"
+  ],
+  "properties": {
+    "DesignCapacityMotiveFluid": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design capacity for the motive fluid of the SpecialCompressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design rotational speed of the SpecialCompressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design shaft power of the SpecialCompressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TypeNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The name of the type of the SpecialCompressor.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignCapacityMotiveFluid": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design capacity for the motive fluid of the SpecialCompressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design rotational speed of the SpecialCompressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design shaft power of the SpecialCompressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TypeNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The name of the type of the SpecialCompressor.",
+        "type": "string"
+      }
+    }
+  }
+}

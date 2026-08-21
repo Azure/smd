@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_JsonWriterGroupMessageType",
+  "title": "OpcUaCore_JsonWriterGroupMessageType",
+  "dov:typeRef": "org.opcfoundation.UA.JsonWriterGroupMessageType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_WriterGroupMessageType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "JsonNetworkMessageContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.JsonNetworkMessageContentMask",
+      "const": {
+        "NetworkMessageHeader": 0,
+        "DataSetMessageHeader": 1,
+        "SingleDataSetMessage": 2,
+        "PublisherId": 3,
+        "DataSetClassId": 4,
+        "ReplyTo": 5,
+        "WriterGroupName": 6
+      },
+      "properties": {
+        "NetworkMessageHeader": {
+          "type": "integer"
+        },
+        "DataSetMessageHeader": {
+          "type": "integer"
+        },
+        "SingleDataSetMessage": {
+          "type": "integer"
+        },
+        "PublisherId": {
+          "type": "integer"
+        },
+        "DataSetClassId": {
+          "type": "integer"
+        },
+        "ReplyTo": {
+          "type": "integer"
+        },
+        "WriterGroupName": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "NetworkMessageContentMask": {
+      "title": "JsonNetworkMessageContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.JsonNetworkMessageContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

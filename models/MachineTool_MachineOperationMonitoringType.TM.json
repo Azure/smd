@@ -1,0 +1,155 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_MachineOperationMonitoringType",
+  "title": "MachineTool_MachineOperationMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.MachineOperationMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryOperationMode",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_MachineOperationModeStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Obligation",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ObligationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "OperationCounters",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryOperationCounterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MachineOperationMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.MachineOperationMode",
+      "const": {
+        "Manual": 0,
+        "Automatic": 1,
+        "Setup": 2,
+        "AutoWithManualIntervention": 3,
+        "Service": 4,
+        "Other": 5
+      },
+      "properties": {
+        "Manual": {
+          "description": "The machine tool is controlled manually, by the operator. Depending on technology specific norms, the maximum axis movement speeds of the machine tool are limited.",
+          "type": "integer"
+        },
+        "Automatic": {
+          "description": "Operating mode for the automatic, programmed and continuous operation of the machine. Manual loading and unloading workpieces are possible when the automatic program is stopped. Axis movement speeds are fully available to the machine tool’s ability.",
+          "type": "integer"
+        },
+        "Setup": {
+          "description": "Depending on technology specific norms, the maximum axis movement speeds of the machine tool are limited. In this mode, the operator can make settings for the subsequent work processes.",
+          "type": "integer"
+        },
+        "AutoWithManualIntervention": {
+          "description": "Operating mode with the possibility of manual interventions in the machining process as well as limited automatic operation started by the operator. Depending on technology specific norms, the maximum axis movement speeds of the machine tool are limited.",
+          "type": "integer"
+        },
+        "Service": {
+          "description": "Operating mode for service purposes. This mode shall not be used for manufacturing any parts. This mode shall only be used by authorized personnel.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "The machine operation mode is different from the values defined in this enumeration.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/FeedOverride",
+    "/properties/IsWarmUp",
+    "/properties/PowerOnDuration",
+    "/events/FeedOverride",
+    "/events/IsWarmUp",
+    "/events/PowerOnDuration"
+  ],
+  "properties": {
+    "FeedOverride": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "IsWarmUp": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "OperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "title": "MachineOperationMode",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.MachineOperationMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PowerOnDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "FeedOverride": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "IsWarmUp": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "OperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "title": "MachineOperationMode",
+        "dov:typeRef": "org.opcfoundation.UA.MachineTool.MachineOperationMode",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PowerOnDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

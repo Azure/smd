@@ -1,0 +1,115 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_CompositionSpecification",
+  "title": "WireHarness_VEC_CompositionSpecification",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.CompositionSpecification",
+  "links": [],
+  "schemaDefinitions": {
+    "CompositionSpecification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.CompositionSpecification",
+      "required": [
+        "id",
+        "Identification",
+        "Component"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Component": {
+          "description": "<p>Specifies the PartOccurrences defined in the CompositionSpecification.</p>",
+          "type": "array",
+          "items": {
+            "title": "PartOccurrence",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PartOccurrence",
+            "required": [
+              "id",
+              "Identification",
+              "Role",
+              "Part"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Identification": {
+                "description": "<p>Specifies a unique identification of the<i>OccurrenceOrUsage</i>. The identification is guaranteed to be unique within the context. For all VEC-documents an<i>OccurrenceOrUsage</i>-instance can be trusted to be the same if the context-instance is the same and the identification of the<i>OccurrenceOrUsage</i>is the same.</p>",
+                "type": "string"
+              },
+              "Role": {
+                "description": "<p>Specifies the different roles of the OccurrenceOrUsage.</p>",
+                "type": "array",
+                "items": {
+                  "title": "Role",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Role",
+                  "required": [
+                    "id",
+                    "Identification"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "Identification": {
+                      "description": "<p>Specifies a unique identification of the Role. The identification is guaranteed to be unique within the OccurrenceOrUsage.</p>",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "Part": {
+                "description": "<p>References the PartVersion that is instantiated by this PartOccurrence.</p>",
+                "type": "array",
+                "items": {
+                  "title": "PartVersion",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PartVersion",
+                  "required": [
+                    "id",
+                    "CompanyName",
+                    "PartNumber"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "CompanyName": {
+                      "description": "<p>Defines the publishing company of the ItemVersion. The companyName is part of the main identifier of an ItemVersion together with the corresponding number (partNumber or documentNumber) and version (partVersion or documentVersion).</p>",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "PartNumber": {
+                      "description": "<p>The partNumber is the major identifier of a PartVersion. The format is user defined and respectively company specific. For all VEC-documents a PartVersion-instance can be trusted to be identical if the combination of partNumber, partVersion and companyName is identical.</p>",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

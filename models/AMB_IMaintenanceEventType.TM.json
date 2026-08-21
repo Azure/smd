@@ -1,0 +1,183 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AMB/#AMB_IMaintenanceEventType",
+  "title": "AMB_IMaintenanceEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AMB.IMaintenanceEventType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MaintenanceState",
+      "href": "http://opcfoundation.org/UA/AMB/#AMB_MaintenanceEventStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaintenanceMethodEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AMB.MaintenanceMethodEnum",
+      "const": {
+        "Local": 0,
+        "Remote": 1
+      },
+      "properties": {
+        "Local": {
+          "description": "Maintenance close to the asset",
+          "type": "integer"
+        },
+        "Remote": {
+          "description": "Maintenance from another location",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ConfigurationChanged",
+    "/properties/EstimatedDowntime",
+    "/properties/MaintenanceMethod",
+    "/properties/MaintenanceSupplier",
+    "/properties/PartsOfAssetReplaced",
+    "/properties/PartsOfAssetServiced",
+    "/properties/PlannedDate",
+    "/properties/QualificationOfPersonnel"
+  ],
+  "properties": {
+    "ConfigurationChanged": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Information if the configuration of the asset is planned to be changed or has changed during the maintenance activity. FALSE indicates no change, and TRUE indicates a change. The content may change during the different MaintenanceStates. By accessing the history of Events a Client can distinguish between the planned and actual configuration changes during the maintenance activity.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "EstimatedDowntime": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "The estimated time the execution of the maintenance activity will take. In case of replanning, it is allowed to change the EstimatedDowntime. If during the execution of the maintenance activity the EstimatedDowntime can be adjusted (e.g., the asset needs to be repaired because an inspection found some issues) this should be done. Clients can access the history of Events to receive the information on the original estimates when the maintenance activity started.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "MaintenanceMethod": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "title": "MaintenanceMethodEnum",
+      "description": "Information about the planned or used maintenance method. The content may change during the different MaintenanceStates. By accessing the history of Events a Client can distinguish between the planned and actual used maintenance method during the maintenance activity.",
+      "dov:typeRef": "org.opcfoundation.UA.AMB.MaintenanceMethodEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "MaintenanceSupplier": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "title": "NameNodeIdDataType",
+      "description": "A human-readable name of something plus optionally the NodeId in case the something is represented in the AddressSpace",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AMB.NameNodeIdDataType",
+      "required": [
+        "Name",
+        "NodeId"
+      ],
+      "properties": {
+        "Name": {
+          "description": "The human-readable name. Shall be the DisplayName of the NodeId field, in case the NodeId is provided",
+          "type": "string"
+        },
+        "NodeId": {
+          "description": "Optionally provided NodeId, in case the referenced thing is represented as Node in the AddressSpace.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "PartsOfAssetReplaced": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Information on the parts of the assets that are planned to be serviced during the maintenance activity, currently serviced or have been serviced, depending on the different MaintenanceStates. The content may change during the different MaintenanceStates. By accessing the history of Events a Client can distinguish between the planned and actual parts of the assets serviced during the maintenance activity. The value contains always an array of a human-readable name of the qualification of the parts of the asset to be serviced and optionally references a Node representing the part of the asset in the AddressSpace.",
+      "type": "array",
+      "items": {
+        "title": "NameNodeIdDataType",
+        "description": "A human-readable name of something plus optionally the NodeId in case the something is represented in the AddressSpace",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AMB.NameNodeIdDataType",
+        "required": [
+          "Name",
+          "NodeId"
+        ],
+        "properties": {
+          "Name": {
+            "description": "The human-readable name. Shall be the DisplayName of the NodeId field, in case the NodeId is provided",
+            "type": "string"
+          },
+          "NodeId": {
+            "description": "Optionally provided NodeId, in case the referenced thing is represented as Node in the AddressSpace.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "PartsOfAssetServiced": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Information on the parts of the assets that are planned to be serviced during the maintenance activity, currently serviced or have been serviced, depending on the different MaintenanceStates. The content may change during the different MaintenanceStates. By accessing the history of Events a Client can distinguish between the planned and actual parts of the assets serviced during the maintenance activity. The value contains always an array of a human-readable name of the qualification of the parts of the asset to be serviced and optionally references a Node representing the part of the asset in the AddressSpace.",
+      "type": "array",
+      "items": {
+        "title": "NameNodeIdDataType",
+        "description": "A human-readable name of something plus optionally the NodeId in case the something is represented in the AddressSpace",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AMB.NameNodeIdDataType",
+        "required": [
+          "Name",
+          "NodeId"
+        ],
+        "properties": {
+          "Name": {
+            "description": "The human-readable name. Shall be the DisplayName of the NodeId field, in case the NodeId is provided",
+            "type": "string"
+          },
+          "NodeId": {
+            "description": "Optionally provided NodeId, in case the referenced thing is represented as Node in the AddressSpace.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "PlannedDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Date for which the maintenance activity has been scheduled. In case of replanning, it is allowed to change the PlannedDate. However, it is not the intention that the PlannedDate is modified because the maintenance activity starts to get executed. If the PlannedDate depends for example on the operation hours of the asset, it might get adapted depending on the passed operation hours.",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "QualificationOfPersonnel": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "title": "NameNodeIdDataType",
+      "description": "A human-readable name of something plus optionally the NodeId in case the something is represented in the AddressSpace",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AMB.NameNodeIdDataType",
+      "required": [
+        "Name",
+        "NodeId"
+      ],
+      "properties": {
+        "Name": {
+          "description": "The human-readable name. Shall be the DisplayName of the NodeId field, in case the NodeId is provided",
+          "type": "string"
+        },
+        "NodeId": {
+          "description": "Optionally provided NodeId, in case the referenced thing is represented as Node in the AddressSpace.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+  "title": "DI_FunctionalGroupType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.FunctionalGroupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "GroupIdentifier",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UIElementType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.DI.UIElementType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/UIElement",
+    "/events/UIElement"
+  ],
+  "properties": {
+    "UIElement": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "tm:ref": "#/schemaDefinitions/UIElementType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "UIElement": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/UIElementType"
+      }
+    }
+  }
+}

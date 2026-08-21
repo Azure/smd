@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ADI/#ADI_AccessoryType",
+  "title": "ADI_AccessoryType",
+  "dov:typeRef": "org.opcfoundation.UA.ADI.AccessoryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_TopologyElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Configuration",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Status",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "FactorySettings",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "IsHotSwappable": {
+      "dov:namespace": "http://opcfoundation.org/UA/ADI/",
+      "description": "True if this accessory can be inserted in the accessory slot while it is powered",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsReady": {
+      "dov:namespace": "http://opcfoundation.org/UA/ADI/",
+      "description": "True if this accessory is ready for use",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

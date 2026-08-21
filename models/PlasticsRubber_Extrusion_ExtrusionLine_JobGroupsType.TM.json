@@ -1,0 +1,190 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_JobGroupsType",
+  "title": "PlasticsRubber_Extrusion_ExtrusionLine_JobGroupsType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.ExtrusionLine.JobGroupsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "JobGroup__Nr_",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_JobGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddJobGroup",
+    "/actions/FinishJobGroupById",
+    "/actions/InterruptJobGroupById",
+    "/actions/RemoveJobGroupById",
+    "/actions/StartJobGroupById"
+  ],
+  "actions": {
+    "AddJobGroup": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id",
+          "Description",
+          "EquipmentDescription",
+          "ProductionDatasetName",
+          "MaterialMapping",
+          "Priority",
+          "PlannedStart",
+          "PlannedProductionTime",
+          "PlannedSetUpTime",
+          "LatestEnd"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "EquipmentDescription": {
+            "type": "string"
+          },
+          "ProductionDatasetName": {
+            "type": "string"
+          },
+          "MaterialMapping": {
+            "type": "array",
+            "items": {
+              "title": "MaterialMappingType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.ExtrusionLine.MaterialMappingType",
+              "required": [
+                "MaterialId",
+                "MaterialLot",
+                "HopperId"
+              ],
+              "properties": {
+                "MaterialId": {
+                  "type": "string"
+                },
+                "MaterialLot": {
+                  "type": "string"
+                },
+                "HopperId": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "PlannedStart": {
+            "type": "string",
+            "format": "time"
+          },
+          "PlannedProductionTime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "PlannedSetUpTime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "LatestEnd": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JobGroupNodeId"
+        ],
+        "properties": {
+          "JobGroupNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FinishJobGroupById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "InterruptJobGroupById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveJobGroupById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartJobGroupById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "NodeVersion": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

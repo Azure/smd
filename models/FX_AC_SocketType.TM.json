@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_SocketType",
+  "title": "FX_AC_SocketType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.SocketType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AssetConnectorType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Kind",
+    "/events/Kind"
+  ],
+  "properties": {
+    "Kind": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Kind": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

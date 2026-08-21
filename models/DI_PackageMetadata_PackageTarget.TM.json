@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/PackageMetadata/#DI_PackageMetadata_PackageTarget",
+  "title": "DI_PackageMetadata_PackageTarget",
+  "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.PackageTarget",
+  "links": [],
+  "schemaDefinitions": {
+    "PackageTarget": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.PackageTarget",
+      "properties": {
+        "TargetType": {
+          "type": "string"
+        },
+        "TargetNode": {
+          "type": "string"
+        },
+        "ProductInstanceUri": {
+          "type": "string"
+        },
+        "AssetId": {
+          "type": "string"
+        },
+        "ManufacturerUri": {
+          "type": "string"
+        },
+        "ProductCode": {
+          "type": "string"
+        },
+        "SerialNumber": {
+          "type": "string"
+        },
+        "FxPath": {
+          "type": "array",
+          "items": {
+            "title": "FxPathElement",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FxPathElement",
+            "required": [
+              "AssetConnectorType"
+            ],
+            "properties": {
+              "AssetConnectorType": {
+                "type": "string"
+              },
+              "ConnectorId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "ConnectorName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "FxScope": {
+          "type": "array",
+          "items": {
+            "title": "FxPathElement",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FxPathElement",
+            "required": [
+              "AssetConnectorType"
+            ],
+            "properties": {
+              "AssetConnectorType": {
+                "type": "string"
+              },
+              "ConnectorId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "ConnectorName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "BrowsePath": {
+          "type": "array",
+          "items": {
+            "title": "RelativePathElement",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+            "required": [
+              "ReferenceTypeId",
+              "IsInverse",
+              "IncludeSubtypes",
+              "TargetName"
+            ],
+            "properties": {
+              "ReferenceTypeId": {
+                "type": "string"
+              },
+              "IsInverse": {
+                "type": "boolean"
+              },
+              "IncludeSubtypes": {
+                "type": "boolean"
+              },
+              "TargetName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "TargetServer": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

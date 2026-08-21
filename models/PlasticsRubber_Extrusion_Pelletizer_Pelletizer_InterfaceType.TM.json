@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/#PlasticsRubber_Extrusion_Pelletizer_Pelletizer_InterfaceType",
+  "title": "PlasticsRubber_Extrusion_Pelletizer_Pelletizer_InterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Pelletizer.Pelletizer_InterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DiePlate__Nr_",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/#PlasticsRubber_Extrusion_Pelletizer_DiePlateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Drive",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DriveType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "KnifePackage__Nr_",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/#PlasticsRubber_Extrusion_Pelletizer_KnifePackageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionTemperatureZonesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CutGap",
+    "/properties/PelletizerClosed",
+    "/properties/WaterFlowActive",
+    "/events/CutGap"
+  ],
+  "properties": {
+    "CutGap": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PelletizerClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WaterFlowActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CutGap": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Pelletizer/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

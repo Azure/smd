@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_RotaryTableType",
+  "title": "GMS_RotaryTableType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.RotaryTableType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "IsIntegrated": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "NumberOfAxes": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scheduler/#Scheduler_SpecialEventType",
+  "title": "Scheduler_SpecialEventType",
+  "dov:typeRef": "org.opcfoundation.UA.Scheduler.SpecialEventType",
+  "links": [],
+  "schemaDefinitions": {
+    "SpecialEventType": {
+      "description": "This structure contains a period, a list of time values, and a priority. It is a means to identify moments in time over one or more days.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scheduler.SpecialEventType",
+      "required": [
+        "Period",
+        "ListOfTimeActions",
+        "EventPriority"
+      ],
+      "properties": {
+        "Period": {
+          "title": "SpecialEventPeriodType",
+          "description": "This union contains a calendar entry or a reference to a calendar object",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scheduler.SpecialEventPeriodType",
+          "properties": {
+            "CalendarEntry": {
+              "title": "CalendarEntryType",
+              "description": "This union that defines various calendar date values",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.CalendarEntryType",
+              "properties": {
+                "Date": {
+                  "title": "DateType",
+                  "description": "This structure defines a calendar date. It allows to define a concrete date, e.g. 2022-02-12. By using wildcards, it also allows to define repeating dates, like every Wednesday, every odd day of a month, every 24th of December, every last day of a month in 2023, etc.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateType",
+                  "required": [
+                    "Year",
+                    "Month",
+                    "DayOfMonth",
+                    "DayOfWeek"
+                  ],
+                  "properties": {
+                    "Year": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "Month": {
+                      "title": "Month",
+                      "dov:typeRef": "org.opcfoundation.UA.Scheduler.Month",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DayOfMonth": {
+                      "title": "DayOfMonth",
+                      "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfMonth",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DayOfWeek": {
+                      "title": "DayOfWeek",
+                      "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfWeek",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    }
+                  }
+                },
+                "DateRange": {
+                  "title": "DateRangeType",
+                  "description": "This structure defines a time span, with absolute start and end dates. The StartDate and EndDate are limited to specific values, i.e., wild cards like odd months are not allowed. The Year field shall not be 0; the Month field shall be a value between 1 to 12; the DayOfMonth field shall be between 1 to 31 and the DayOfMonth field shall be 'unspecified'.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateRangeType",
+                  "required": [
+                    "StartDate",
+                    "EndDate"
+                  ],
+                  "properties": {
+                    "StartDate": {
+                      "title": "DateType",
+                      "description": "This structure defines a calendar date. It allows to define a concrete date, e.g. 2022-02-12. By using wildcards, it also allows to define repeating dates, like every Wednesday, every odd day of a month, every 24th of December, every last day of a month in 2023, etc.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateType",
+                      "required": [
+                        "Year",
+                        "Month",
+                        "DayOfMonth",
+                        "DayOfWeek"
+                      ],
+                      "properties": {
+                        "Year": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 65535
+                        },
+                        "Month": {
+                          "title": "Month",
+                          "dov:typeRef": "org.opcfoundation.UA.Scheduler.Month",
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DayOfMonth": {
+                          "title": "DayOfMonth",
+                          "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfMonth",
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DayOfWeek": {
+                          "title": "DayOfWeek",
+                          "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfWeek",
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        }
+                      }
+                    },
+                    "EndDate": {
+                      "title": "DateType",
+                      "description": "This structure defines a calendar date. It allows to define a concrete date, e.g. 2022-02-12. By using wildcards, it also allows to define repeating dates, like every Wednesday, every odd day of a month, every 24th of December, every last day of a month in 2023, etc.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateType",
+                      "required": [
+                        "Year",
+                        "Month",
+                        "DayOfMonth",
+                        "DayOfWeek"
+                      ],
+                      "properties": {
+                        "Year": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 65535
+                        },
+                        "Month": {
+                          "title": "Month",
+                          "dov:typeRef": "org.opcfoundation.UA.Scheduler.Month",
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DayOfMonth": {
+                          "title": "DayOfMonth",
+                          "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfMonth",
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DayOfWeek": {
+                          "title": "DayOfWeek",
+                          "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfWeek",
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "CalendarReference": {
+              "type": "string"
+            }
+          }
+        },
+        "ListOfTimeActions": {
+          "type": "array",
+          "items": {
+            "title": "TimeActionsType",
+            "description": "This structure contains a time and an array of actions. It is used to define actions to be executed at a specific point in time.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeActionsType",
+            "required": [
+              "Time",
+              "Actions"
+            ],
+            "properties": {
+              "Time": {
+                "title": "TimeType",
+                "description": "This structure that represents a point in time during a day",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeType",
+                "required": [
+                  "Hour",
+                  "Minute",
+                  "Second"
+                ],
+                "properties": {
+                  "Hour": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Minute": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Second": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  }
+                }
+              },
+              "Actions": {
+                "type": "array",
+                "items": {
+                  "title": "BaseActionType",
+                  "description": "This abstract structure defines the base of an action. The base only contains information, if the last execution of the action was successful.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.Scheduler.BaseActionType",
+                  "required": [
+                    "LastActionResult"
+                  ],
+                  "properties": {
+                    "LastActionResult": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EventPriority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

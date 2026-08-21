@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/OPENSCS-SER/#OPENSCS_SER_OPENSCSSNCollectionDataType",
+  "title": "OPENSCS_SER_OPENSCSSNCollectionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSSNCollectionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "OPENSCSSNCollectionDataType": {
+      "title": "OPENSCSCollectionDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSCollectionDataType",
+      "required": [
+        "ID",
+        "Description",
+        "State",
+        "AssociatedPoolID",
+        "SerialNumbers"
+      ],
+      "properties": {
+        "ID": {
+          "description": "An identification of the Collection. It usually refers to a specific packaging level of a specific product.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Additional information and description about the Collection.",
+          "type": "string"
+        },
+        "State": {
+          "title": "OPENSCSSerialNumberStateEnum",
+          "description": "State of the Serial Numbers in the Collection. ",
+          "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSSerialNumberStateEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "AssociatedPoolID": {
+          "description": "An identification of the Serial Number Pool from which the Serial Numbers were obtained. ",
+          "type": "string"
+        },
+        "SerialNumbers": {
+          "description": "Array of Serial Numbers in the collection.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

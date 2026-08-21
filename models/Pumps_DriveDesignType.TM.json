@@ -1,0 +1,346 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_DriveDesignType",
+  "title": "Pumps_DriveDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.DriveDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/EnergyEfficiencyClassOfMotor",
+    "/properties/MaxNominalFrequency",
+    "/properties/MinNominalFrequency",
+    "/properties/MotorEfficiency",
+    "/properties/NominalFrequency",
+    "/properties/NominalPowerConsumption",
+    "/properties/NominalVoltage",
+    "/properties/PowerFactor",
+    "/properties/ProtectionClass",
+    "/properties/RatedCurrent",
+    "/properties/RatedSpeed",
+    "/properties/TorqueAtNominalSpeedOfDrive",
+    "/properties/MaxNominalFrequency_EngineeringUnits",
+    "/properties/MinNominalFrequency_EngineeringUnits",
+    "/properties/MotorEfficiency_EngineeringUnits",
+    "/properties/NominalFrequency_EngineeringUnits",
+    "/properties/NominalPowerConsumption_EngineeringUnits",
+    "/properties/NominalVoltage_EngineeringUnits",
+    "/properties/PowerFactor_EngineeringUnits",
+    "/properties/RatedCurrent_EngineeringUnits",
+    "/properties/RatedSpeed_EngineeringUnits",
+    "/properties/TorqueAtNominalSpeedOfDrive_EngineeringUnits",
+    "/events/EnergyEfficiencyClassOfMotor",
+    "/events/MaxNominalFrequency",
+    "/events/MinNominalFrequency",
+    "/events/MotorEfficiency",
+    "/events/NominalFrequency",
+    "/events/NominalPowerConsumption",
+    "/events/NominalVoltage",
+    "/events/PowerFactor",
+    "/events/ProtectionClass",
+    "/events/RatedCurrent",
+    "/events/RatedSpeed",
+    "/events/TorqueAtNominalSpeedOfDrive"
+  ],
+  "properties": {
+    "EnergyEfficiencyClassOfMotor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Characterization of the energy efficiency of electric motors according to international standards.",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaxNominalFrequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "A suitable, maximum (usually rounded) value of a frequency to describe, designate or identify a component, device, resource, facility or equipment.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MaxNominalFrequency_EngineeringUnits"
+    },
+    "MinNominalFrequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "A suitable minimum (usually rounded) value of a frequency to describe, designate or identify a component, device, resource, facility or equipment.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MinNominalFrequency_EngineeringUnits"
+    },
+    "MotorEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of the motor power input P_mot delivered as pump power input P_mot, u.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MotorEfficiency_EngineeringUnits"
+    },
+    "NominalFrequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Design of the object at a certain frequency, which is repeated regularly.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/NominalFrequency_EngineeringUnits"
+    },
+    "NominalPowerConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Indication of the rated power consumption in watts.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/NominalPowerConsumption_EngineeringUnits"
+    },
+    "NominalVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rated voltage is the value of the electrical voltage in normal operation specified by the manufacturer or supplier.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/NominalVoltage_EngineeringUnits"
+    },
+    "PowerFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ratio of the amount of active power to apparent power.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/PowerFactor_EngineeringUnits"
+    },
+    "ProtectionClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Protection class of an enclosure, expressed as NEMA or IP rating.",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Appropriate (usually rounded) value of a current to describe, designate or identify a component, device, resource, facility or equipment.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/RatedCurrent_EngineeringUnits"
+    },
+    "RatedSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Speed corresponding to the rated data of the motor used.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/RatedSpeed_EngineeringUnits"
+    },
+    "TorqueAtNominalSpeedOfDrive": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The torque transmittable by the equipment.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/TorqueAtNominalSpeedOfDrive_EngineeringUnits"
+    },
+    "MaxNominalFrequency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaxNominalFrequency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinNominalFrequency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinNominalFrequency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MotorEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MotorEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NominalFrequency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NominalFrequency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NominalPowerConsumption_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NominalPowerConsumption, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NominalVoltage_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NominalVoltage, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PowerFactor_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PowerFactor, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedCurrent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedCurrent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TorqueAtNominalSpeedOfDrive_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TorqueAtNominalSpeedOfDrive, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "EnergyEfficiencyClassOfMotor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Characterization of the energy efficiency of electric motors according to international standards.",
+        "type": "string"
+      }
+    },
+    "MaxNominalFrequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "A suitable, maximum (usually rounded) value of a frequency to describe, designate or identify a component, device, resource, facility or equipment.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MaxNominalFrequency_EngineeringUnits"
+    },
+    "MinNominalFrequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "A suitable minimum (usually rounded) value of a frequency to describe, designate or identify a component, device, resource, facility or equipment.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MinNominalFrequency_EngineeringUnits"
+    },
+    "MotorEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of the motor power input P_mot delivered as pump power input P_mot, u.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MotorEfficiency_EngineeringUnits"
+    },
+    "NominalFrequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Design of the object at a certain frequency, which is repeated regularly.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/NominalFrequency_EngineeringUnits"
+    },
+    "NominalPowerConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Indication of the rated power consumption in watts.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/NominalPowerConsumption_EngineeringUnits"
+    },
+    "NominalVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rated voltage is the value of the electrical voltage in normal operation specified by the manufacturer or supplier.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/NominalVoltage_EngineeringUnits"
+    },
+    "PowerFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ratio of the amount of active power to apparent power.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/PowerFactor_EngineeringUnits"
+    },
+    "ProtectionClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Protection class of an enclosure, expressed as NEMA or IP rating.",
+        "type": "string"
+      }
+    },
+    "RatedCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Appropriate (usually rounded) value of a current to describe, designate or identify a component, device, resource, facility or equipment.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/RatedCurrent_EngineeringUnits"
+    },
+    "RatedSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Speed corresponding to the rated data of the motor used.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/RatedSpeed_EngineeringUnits"
+    },
+    "TorqueAtNominalSpeedOfDrive": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The torque transmittable by the equipment.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/TorqueAtNominalSpeedOfDrive_EngineeringUnits"
+    }
+  }
+}

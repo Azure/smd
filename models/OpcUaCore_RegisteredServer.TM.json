@@ -1,0 +1,65 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_RegisteredServer",
+  "title": "OpcUaCore_RegisteredServer",
+  "dov:typeRef": "org.opcfoundation.UA.RegisteredServer",
+  "links": [],
+  "schemaDefinitions": {
+    "RegisteredServer": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.RegisteredServer",
+      "required": [
+        "ServerUri",
+        "ProductUri",
+        "ServerNames",
+        "ServerType",
+        "GatewayServerUri",
+        "DiscoveryUrls",
+        "SemaphoreFilePath",
+        "IsOnline"
+      ],
+      "properties": {
+        "ServerUri": {
+          "type": "string"
+        },
+        "ProductUri": {
+          "type": "string"
+        },
+        "ServerNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ServerType": {
+          "title": "ApplicationType",
+          "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "GatewayServerUri": {
+          "type": "string"
+        },
+        "DiscoveryUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SemaphoreFilePath": {
+          "type": "string"
+        },
+        "IsOnline": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

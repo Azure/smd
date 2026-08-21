@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnAssetChangedEventType",
+  "title": "PROFINET_PnAssetChangedEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnAssetChangedEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnAssetChangeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnAssetChangeEnumeration",
+      "const": {
+        "INSERTED": 0,
+        "REMOVED": 1,
+        "CHANGED": 2
+      },
+      "properties": {
+        "INSERTED": {
+          "description": "Asset has been added",
+          "type": "integer"
+        },
+        "REMOVED": {
+          "description": "Asset has been removed",
+          "type": "integer"
+        },
+        "CHANGED": {
+          "description": "Asset has been changed",
+          "type": "integer"
+        }
+      }
+    },
+    "PnAssetTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnAssetTypeEnumeration",
+      "const": {
+        "DEVICE": 0,
+        "MODULE": 1,
+        "SUBMODULE": 2,
+        "ASSET": 3
+      },
+      "properties": {
+        "DEVICE": {
+          "description": "Device",
+          "type": "integer"
+        },
+        "MODULE": {
+          "description": "Real Module",
+          "type": "integer"
+        },
+        "SUBMODULE": {
+          "description": "Real Submodule",
+          "type": "integer"
+        },
+        "ASSET": {
+          "description": "Asset",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "AssetChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnAssetChangeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnAssetChangeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "AssetType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnAssetTypeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnAssetTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

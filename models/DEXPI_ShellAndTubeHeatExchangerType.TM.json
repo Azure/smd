@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ShellAndTubeHeatExchangerType",
+  "title": "DEXPI_ShellAndTubeHeatExchangerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ShellAndTubeHeatExchangerType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_HeatExchangerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<TubeBundle>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_TubeBundleType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/TemaStandardTypeAssignmentClass",
+    "/events/TemaStandardTypeAssignmentClass"
+  ],
+  "properties": {
+    "TemaStandardTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The type of the ShellAndTubeHeatExchanger according to the Tubular Exchanger Manufacturers Association, Inc. (TEMA, http://www.tema.org). This is a three-letter code.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TemaStandardTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The type of the ShellAndTubeHeatExchanger according to the Tubular Exchanger Manufacturers Association, Inc. (TEMA, http://www.tema.org). This is a three-letter code.",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MotorSetupType",
+  "title": "TMC_v2_MotorSetupType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MotorSetupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleSetupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MotorDirectionEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MotorDirectionEnumeration",
+      "const": {
+        "Clockwise": 0,
+        "CounterClockwise": 1
+      },
+      "description": "The MotorDirectionEnumeration provides the rotation direction of a motor.",
+      "properties": {
+        "Clockwise": {
+          "description": "The motor runs clockwise when energised.",
+          "type": "integer"
+        },
+        "CounterClockwise": {
+          "description": "The motor runs counter-clockwise when energised.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Direction",
+    "/events/Direction"
+  ],
+  "properties": {
+    "Direction": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "MotorDirectionEnumeration",
+      "description": "The rotation direction of the motor.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MotorDirectionEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Direction": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "title": "MotorDirectionEnumeration",
+        "description": "The rotation direction of the motor.",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MotorDirectionEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

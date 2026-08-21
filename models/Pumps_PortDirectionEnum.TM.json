@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_PortDirectionEnum",
+  "title": "Pumps_PortDirectionEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.PortDirectionEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "PortDirectionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PortDirectionEnum",
+      "const": {
+        "In": 0,
+        "Out": 1,
+        "InOut": 2
+      },
+      "description": "determines whether the port is an inlet and outlet or both",
+      "properties": {
+        "In": {
+          "description": "Ports with the direction “In” can only be connected to ports with the direction “Out” or “InOut”.",
+          "type": "integer"
+        },
+        "Out": {
+          "description": "Ports with the direction “Out” can only be connected to ports with the direction “In” or “InOut”.",
+          "type": "integer"
+        },
+        "InOut": {
+          "description": "Ports with the direction “InOut” can be connected to ports with arbitrary directions.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

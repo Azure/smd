@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionStatusChangedConditionType",
+  "title": "PAEFS_AirConnectionStatusChangedConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.AirConnectionStatusChangedConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AirConnectionOpenEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.AirConnectionOpenEnum",
+      "const": {
+        "Open": 0,
+        "Closed": 1,
+        "Opening": 2,
+        "Closing": 3
+      },
+      "description": "Describes whether the air connection is open, i.e., it is in a state in which air can be passed through",
+      "properties": {
+        "Open": {
+          "type": "integer"
+        },
+        "Closed": {
+          "type": "integer"
+        },
+        "Opening": {
+          "type": "integer"
+        },
+        "Closing": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "title": "AirConnectionOpenEnum",
+      "description": "Reflects the value of the ConnectionOpen property at the time the event is triggered",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.AirConnectionOpenEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/#SurfaceTechnology_ShotBlasting_DeploymentType",
+  "title": "SurfaceTechnology_ShotBlasting_DeploymentType",
+  "dov:typeRef": "org.opcfoundation.UA.SurfaceTechnology.ShotBlasting.DeploymentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActualConsumption",
+    "/properties/TotalConsumption",
+    "/events/ActualConsumption",
+    "/events/TotalConsumption"
+  ],
+  "properties": {
+    "ActualConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "ConsumedMedia": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "TotalConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ConsumedMedia": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "TotalConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

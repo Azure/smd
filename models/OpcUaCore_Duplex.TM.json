@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_Duplex",
+  "title": "OpcUaCore_Duplex",
+  "dov:typeRef": "org.opcfoundation.UA.Duplex",
+  "links": [],
+  "schemaDefinitions": {
+    "Duplex": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Duplex",
+      "const": {
+        "Full": 0,
+        "Half": 1,
+        "Unknown": 2
+      },
+      "properties": {
+        "Full": {
+          "description": "Full duplex.",
+          "type": "integer"
+        },
+        "Half": {
+          "description": "Half duplex.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Link is currently disconnected or initializing.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

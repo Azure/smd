@@ -1,0 +1,290 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_SystemOperationStateMachineType",
+  "title": "Robotics_SystemOperationStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.SystemOperationStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_OperationStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Executing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ExecutingSubstateMachine",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_ExecutingSubstateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecutingToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecutingToReady",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Idle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "IdleSubstateMachine",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_IdleSubstateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IdleToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IdleToReady",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Ready",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadyToExecuting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadyToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/GetReady",
+    "/actions/StandDown",
+    "/actions/Start",
+    "/actions/Stop",
+    "/properties/ConfiguredDefaultStopMode",
+    "/properties/PossibleStopModes",
+    "/events/ConfiguredDefaultStopMode",
+    "/events/PossibleStopModes"
+  ],
+  "actions": {
+    "GetReady": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "description": "0 – OK Values > 0 are reserved for errors defined by this and future standards. Values < 0 shall be used for application-specific errors",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "StandDown": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "description": "0 – OK Values > 0 are reserved for errors defined by this and future standards. Values < 0 shall be used for application-specific errors",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Start": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "description": "0 – OK Values > 0 are reserved for errors defined by this and future standards. Values < 0 shall be used for application-specific errors",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Stop": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "StopMode"
+        ],
+        "properties": {
+          "StopMode": {
+            "description": "provides a way to differentiate between different stop modes. This parameter should correspond to one of the values in the PossibleStopModes array",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "description": "0 – OK Values > 0 are reserved for errors defined by this and future standards. Values < 0 shall be used for application-specific errors",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConfiguredDefaultStopMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767,
+      "readOnly": false
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    },
+    "LastTransitionReason": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767,
+      "readOnly": false
+    },
+    "PossibleStopModes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "type": "array",
+      "items": {
+        "title": "EnumValueType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.EnumValueType",
+        "required": [
+          "Value",
+          "DisplayName",
+          "Description"
+        ],
+        "properties": {
+          "Value": {
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "DisplayName": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ConfiguredDefaultStopMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "type": "integer",
+        "minimum": -32768,
+        "maximum": 32767
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    },
+    "LastTransitionReason": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "type": "integer",
+        "minimum": -32768,
+        "maximum": 32767
+      }
+    },
+    "PossibleStopModes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "EnumValueType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EnumValueType",
+          "required": [
+            "Value",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "Value": {
+              "type": "integer",
+              "minimum": -9223372036854775808,
+              "maximum": 9223372036854775807
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

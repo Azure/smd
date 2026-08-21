@@ -1,0 +1,137 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ProvisionableDeviceType",
+  "title": "OpcUaCore_ProvisionableDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.ProvisionableDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ApplicationName_Placeholder",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ApplicationConfigurationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ApplicationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "const": {
+        "Server": 0,
+        "Client": 1,
+        "ClientAndServer": 2,
+        "DiscoveryServer": 3
+      },
+      "properties": {
+        "Server": {
+          "type": "integer"
+        },
+        "Client": {
+          "type": "integer"
+        },
+        "ClientAndServer": {
+          "type": "integer"
+        },
+        "DiscoveryServer": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetRegistrarEndpoints"
+  ],
+  "actions": {
+    "RequestTickets": {
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Tickets"
+        ],
+        "properties": {
+          "Tickets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "SetRegistrarEndpoints": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Registrars"
+        ],
+        "properties": {
+          "Registrars": {
+            "type": "array",
+            "items": {
+              "title": "ApplicationDescription",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.ApplicationDescription",
+              "required": [
+                "ApplicationUri",
+                "ProductUri",
+                "ApplicationName",
+                "ApplicationType",
+                "GatewayServerUri",
+                "DiscoveryProfileUri",
+                "DiscoveryUrls"
+              ],
+              "properties": {
+                "ApplicationUri": {
+                  "type": "string"
+                },
+                "ProductUri": {
+                  "type": "string"
+                },
+                "ApplicationName": {
+                  "type": "string"
+                },
+                "ApplicationType": {
+                  "title": "ApplicationType",
+                  "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "GatewayServerUri": {
+                  "type": "string"
+                },
+                "DiscoveryProfileUri": {
+                  "type": "string"
+                },
+                "DiscoveryUrls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "IsSingleton": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

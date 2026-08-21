@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_RecipeDataType",
+  "title": "TTD_RecipeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.RecipeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RecipeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.RecipeDataType",
+      "required": [
+        "RecipeId",
+        "RecipeContent",
+        "ContentEncoding"
+      ],
+      "properties": {
+        "RecipeId": {
+          "title": "RecipeIdDataType",
+          "description": "RecipeId meta data describing this recipe.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TTD.RecipeIdDataType",
+          "required": [
+            "Id"
+          ],
+          "properties": {
+            "Name": {
+              "description": "Human readable name for the recipe.",
+              "type": "string"
+            },
+            "Id": {
+              "description": "System wide unique id for the file content. (E.g. Hash of file content is possible)",
+              "type": "string"
+            },
+            "Type": {
+              "description": "The type of the textile testing device for which the recipe is applicable.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "Description of the recipe.",
+              "type": "string"
+            },
+            "Comment": {
+              "description": "Comment on the recipe.",
+              "type": "string"
+            },
+            "ModifiedDate": {
+              "description": "The date of the last modification to the recipe file.",
+              "type": "string",
+              "format": "time"
+            },
+            "Version": {
+              "description": "Version of the recipe.",
+              "type": "string"
+            },
+            "Validated": {
+              "description": "Flag that indicates if the recipe was successfully validated on the textile testing device. Null if the validation was not performed.",
+              "type": "boolean"
+            }
+          }
+        },
+        "RecipeContent": {
+          "description": "The content of this recipe as ByteString.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "ContentEncoding": {
+          "description": "The encoding of the content. E.g. UTF-8 or ASCII",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

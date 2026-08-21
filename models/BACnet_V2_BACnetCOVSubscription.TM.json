@@ -1,0 +1,122 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetCOVSubscription",
+  "title": "BACnet_V2_BACnetCOVSubscription",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetCOVSubscription",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetCOVSubscription": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetCOVSubscription",
+      "required": [
+        "Recipient",
+        "MonitoredPropertyReference",
+        "IssueConfirmedNotifications",
+        "TimeRemaining"
+      ],
+      "properties": {
+        "Recipient": {
+          "title": "BACnetRecipientProcess",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipientProcess",
+          "required": [
+            "Recipient",
+            "ProcessIdentifier"
+          ],
+          "properties": {
+            "Recipient": {
+              "title": "BACnetRecipient",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipient",
+              "properties": {
+                "Device": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Address": {
+                  "title": "BACnetAddress",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+                  "required": [
+                    "NetworkNumber",
+                    "MacAddress"
+                  ],
+                  "properties": {
+                    "NetworkNumber": {
+                      "description": "A value 0 indicates the local network",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "MacAddress": {
+                      "description": "A string of length 0 indicates a broadcast",
+                      "type": "string",
+                      "contentEncoding": "base64"
+                    }
+                  }
+                }
+              }
+            },
+            "ProcessIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        },
+        "MonitoredPropertyReference": {
+          "title": "BACnetDeviceObjectPropertyReference",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceObjectPropertyReference",
+          "required": [
+            "ObjectIdentifier"
+          ],
+          "properties": {
+            "ObjectIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "PropertyIdentifier": {
+              "title": "BACnetPropertyIdentifier",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyIdentifier",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "PropertyArrayIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "DeviceIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        },
+        "IssueConfirmedNotifications": {
+          "type": "boolean"
+        },
+        "TimeRemaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "CovIncrement": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

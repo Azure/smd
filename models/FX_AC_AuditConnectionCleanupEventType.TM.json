@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AuditConnectionCleanupEventType",
+  "title": "FX_AC_AuditConnectionCleanupEventType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.AuditConnectionCleanupEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AuditUaFxEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "RelatedEndpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "RelatedEndpointDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.RelatedEndpointDataType",
+      "required": [
+        "Address",
+        "ConnectionEndpointPath",
+        "ConnectionEndpointName"
+      ],
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "ConnectionEndpointPath": {
+          "type": "array",
+          "items": {
+            "title": "PortableQualifiedName",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+            "required": [
+              "NamespaceUri",
+              "Name"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ConnectionEndpointName": {
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "RemovedEndpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

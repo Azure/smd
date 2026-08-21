@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_LogEntryDataType",
+  "title": "PNENC_LogEntryDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "LogEntryDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+      "required": [
+        "FaultSituationNumber",
+        "EventNumber",
+        "EventType",
+        "EventCode",
+        "EventText",
+        "EventComing",
+        "EventGoing",
+        "EventAcknowledged"
+      ],
+      "properties": {
+        "FaultSituationNumber": {
+          "description": "Identification of fault situation. 0 means current fault situation",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "EventNumber": {
+          "description": "Unique number of log entry, analogous to Fault message counter",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "EventType": {
+          "title": "EventTypeEnumeration",
+          "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+          "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EventCode": {
+          "description": "Fault-code identifying a fault or warning",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EventText": {
+          "description": "Brief description of the fault or warning",
+          "type": "string"
+        },
+        "EventComing": {
+          "description": "Time when the event appears",
+          "type": "string",
+          "format": "time"
+        },
+        "EventGoing": {
+          "description": "Time when the event disappears",
+          "type": "string",
+          "format": "time"
+        },
+        "EventAcknowledged": {
+          "description": "Time when the event is acknowledged",
+          "type": "string",
+          "format": "time"
+        }
+      }
+    }
+  }
+}

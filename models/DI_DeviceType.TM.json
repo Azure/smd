@@ -1,0 +1,183 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_DeviceType",
+  "title": "DI_DeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.DeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CPIdentifier",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ConnectionPointType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceHealthAlarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceTypeImage",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Documentation",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ProtocolSupport",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ImageSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DeviceHealthEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "const": {
+        "NORMAL": 0,
+        "FAILURE": 1,
+        "CHECK_FUNCTION": 2,
+        "OFF_SPEC": 3,
+        "MAINTENANCE_REQUIRED": 4
+      },
+      "properties": {
+        "NORMAL": {
+          "description": "This device functions normally.",
+          "type": "integer"
+        },
+        "FAILURE": {
+          "description": "Malfunction of the device or any of its peripherals.",
+          "type": "integer"
+        },
+        "CHECK_FUNCTION": {
+          "description": "Functional checks are currently performed.",
+          "type": "integer"
+        },
+        "OFF_SPEC": {
+          "description": "The device is currently working outside of its specified range or that internal diagnoses indicate deviations from measured or set values.",
+          "type": "integer"
+        },
+        "MAINTENANCE_REQUIRED": {
+          "description": "This element is working, but a maintenance operation is required.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DeviceClass",
+    "/properties/DeviceHealth",
+    "/properties/ManufacturerUri",
+    "/properties/ProductCode",
+    "/properties/ProductInstanceUri",
+    "/events/DeviceHealth"
+  ],
+  "properties": {
+    "DeviceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "title": "DeviceHealthEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DeviceManual": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "DeviceRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "HardwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductInstanceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "RevisionCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoftwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "title": "DeviceHealthEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

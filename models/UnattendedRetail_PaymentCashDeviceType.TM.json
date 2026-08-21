@@ -1,0 +1,540 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_PaymentCashDeviceType",
+  "title": "UnattendedRetail_PaymentCashDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentCashDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_StandalonePaymentDeviceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AssetConfigurationEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AssetConfigurationEnum",
+      "const": {
+        "AcceptToCashboxOrStacker": 0,
+        "AcceptToRecyclerOrTube": 1,
+        "AcceptToEscrowAndStacker": 2,
+        "AcceptToEscrowAndRecycler": 3,
+        "Reject": 4
+      },
+      "properties": {
+        "AcceptToCashboxOrStacker": {
+          "type": "integer"
+        },
+        "AcceptToRecyclerOrTube": {
+          "type": "integer"
+        },
+        "AcceptToEscrowAndStacker": {
+          "type": "integer"
+        },
+        "AcceptToEscrowAndRecycler": {
+          "type": "integer"
+        },
+        "Reject": {
+          "type": "integer"
+        }
+      }
+    },
+    "PayoutStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PayoutStatusEnum",
+      "const": {
+        "Idle": 0,
+        "Ongoing": 1,
+        "SuccessfullyFinished": 2,
+        "Failed": 3
+      },
+      "properties": {
+        "Idle": {
+          "type": "integer"
+        },
+        "Ongoing": {
+          "type": "integer"
+        },
+        "SuccessfullyFinished": {
+          "type": "integer"
+        },
+        "Failed": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/PayoutBySupportedAssetList",
+    "/actions/PayoutByValue",
+    "/properties/CurrentSlotContentList",
+    "/properties/PayoutStatus",
+    "/events/CurrentSlotContentList",
+    "/events/PayoutStatus"
+  ],
+  "actions": {
+    "ChangeAssetConfigurationList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NewAssetConfigurationList"
+        ],
+        "properties": {
+          "NewAssetConfigurationList": {
+            "type": "array",
+            "items": {
+              "title": "AssetConfigurationEnum",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AssetConfigurationEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "ConsumeAvailableValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ValueToConsume"
+        ],
+        "properties": {
+          "ValueToConsume": {
+            "title": "PriceDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+            "required": [
+              "Amount",
+              "Currency"
+            ],
+            "properties": {
+              "Amount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Currency": {
+                "title": "CurrencyUnitType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+                "required": [
+                  "NumericCode",
+                  "Exponent",
+                  "AlphabeticCode",
+                  "Currency"
+                ],
+                "properties": {
+                  "NumericCode": {
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "Exponent": {
+                    "type": "integer",
+                    "minimum": -128,
+                    "maximum": 127
+                  },
+                  "AlphabeticCode": {
+                    "type": "string"
+                  },
+                  "Currency": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "PayoutBySupportedAssetList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NumberOfAssetsBySupportedAssetList"
+        ],
+        "properties": {
+          "NumberOfAssetsBySupportedAssetList": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "PayoutByValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "PayoutValue"
+        ],
+        "properties": {
+          "PayoutValue": {
+            "title": "PriceDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+            "required": [
+              "Amount",
+              "Currency"
+            ],
+            "properties": {
+              "Amount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Currency": {
+                "title": "CurrencyUnitType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+                "required": [
+                  "NumericCode",
+                  "Exponent",
+                  "AlphabeticCode",
+                  "Currency"
+                ],
+                "properties": {
+                  "NumericCode": {
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "Exponent": {
+                    "type": "integer",
+                    "minimum": -128,
+                    "maximum": 127
+                  },
+                  "AlphabeticCode": {
+                    "type": "string"
+                  },
+                  "Currency": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AssetConfigurationList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "AssetConfigurationEnum",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AssetConfigurationEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": false
+    },
+    "CurrentAvailableValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "title": "PriceDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+      "required": [
+        "Amount",
+        "Currency"
+      ],
+      "properties": {
+        "Amount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Currency": {
+          "title": "CurrencyUnitType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+          "required": [
+            "NumericCode",
+            "Exponent",
+            "AlphabeticCode",
+            "Currency"
+          ],
+          "properties": {
+            "NumericCode": {
+              "type": "integer",
+              "minimum": -32768,
+              "maximum": 32767
+            },
+            "Exponent": {
+              "type": "integer",
+              "minimum": -128,
+              "maximum": 127
+            },
+            "AlphabeticCode": {
+              "type": "string"
+            },
+            "Currency": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "CurrentSlotContentList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "readOnly": false
+    },
+    "PayoutStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "title": "PayoutStatusEnum",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PayoutStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SlotConfigurationList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "SlotConfigurationDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.SlotConfigurationDataType",
+        "required": [
+          "SlotIndex",
+          "SupportedAssetListIndex"
+        ],
+        "properties": {
+          "SlotIndex": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SupportedAssetListIndex": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SupportedAssetList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "PriceDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+        "required": [
+          "Amount",
+          "Currency"
+        ],
+        "properties": {
+          "Amount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Currency": {
+            "title": "CurrencyUnitType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+            "required": [
+              "NumericCode",
+              "Exponent",
+              "AlphabeticCode",
+              "Currency"
+            ],
+            "properties": {
+              "NumericCode": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Exponent": {
+                "type": "integer",
+                "minimum": -128,
+                "maximum": 127
+              },
+              "AlphabeticCode": {
+                "type": "string"
+              },
+              "Currency": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SupportedAssetListVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AssetConfigurationList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "AssetConfigurationEnum",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AssetConfigurationEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "CurrentAvailableValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "title": "PriceDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+        "required": [
+          "Amount",
+          "Currency"
+        ],
+        "properties": {
+          "Amount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Currency": {
+            "title": "CurrencyUnitType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+            "required": [
+              "NumericCode",
+              "Exponent",
+              "AlphabeticCode",
+              "Currency"
+            ],
+            "properties": {
+              "NumericCode": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Exponent": {
+                "type": "integer",
+                "minimum": -128,
+                "maximum": 127
+              },
+              "AlphabeticCode": {
+                "type": "string"
+              },
+              "Currency": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CurrentSlotContentList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    },
+    "PayoutStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "title": "PayoutStatusEnum",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PayoutStatusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

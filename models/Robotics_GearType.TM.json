@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_GearType",
+  "title": "Robotics_GearType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.GearType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "RationalNumberType": {
+      "title": "RationalNumber",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.RationalNumberType",
+      "required": [
+        "Numerator",
+        "Denominator"
+      ],
+      "properties": {
+        "Numerator": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Denominator": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/AssetId",
+    "/properties/Pitch",
+    "/events/Pitch"
+  ],
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "GearRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "tm:ref": "#/schemaDefinitions/RationalNumberType",
+      "readOnly": true,
+      "dov:contains": [
+        "GearRatio_Denominator",
+        "GearRatio_Numerator"
+      ]
+    },
+    "GearRatio_Denominator": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "GearRatio"
+    },
+    "GearRatio_Numerator": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "dov:containedIn": "GearRatio"
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Pitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "Pitch describes the distance covered in millimeters (mm) for linear motion per one revolution of the output side of the driving unit. Pitch is used in combination with GearRatio to describe the overall transmission from input to output of the gear.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "GearRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/RationalNumberType"
+      },
+      "dov:contains": [
+        "GearRatio_Denominator",
+        "GearRatio_Numerator"
+      ]
+    },
+    "GearRatio_Denominator": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "GearRatio"
+    },
+    "GearRatio_Numerator": {
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "dov:containedIn": "GearRatio"
+    },
+    "Pitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "description": "Pitch describes the distance covered in millimeters (mm) for linear motion per one revolution of the output side of the driving unit. Pitch is used in combination with GearRatio to describe the overall transmission from input to output of the gear.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

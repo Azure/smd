@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PortIdSubtype",
+  "title": "OpcUaCore_PortIdSubtype",
+  "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+  "links": [],
+  "schemaDefinitions": {
+    "PortIdSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+      "const": {
+        "InterfaceAlias": 1,
+        "PortComponent": 2,
+        "MacAddress": 3,
+        "NetworkAddress": 4,
+        "InterfaceName": 5,
+        "AgentCircuitId": 6,
+        "Local": 7
+      },
+      "properties": {
+        "InterfaceAlias": {
+          "description": "Represents a port identifier based on the ifAlias MIB object defined in IETF RFC 2863.",
+          "type": "integer"
+        },
+        "PortComponent": {
+          "description": "Represents a port identifier based on the value of entPhysicalAlias (defined in IETF RFC 2737) for a port component (i.e., entPhysicalClass value of port(10) or backplane(4)), within the containing chassis.",
+          "type": "integer"
+        },
+        "MacAddress": {
+          "description": "Represents a port identifier based on a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) which has been detected by the agent and associated with a particular port (IEEE Std 802-2014).",
+          "type": "integer"
+        },
+        "NetworkAddress": {
+          "description": "Represents a port identifier based on a network address, detected by the agent and associated with a particular port.",
+          "type": "integer"
+        },
+        "InterfaceName": {
+          "description": "Represents a port identifier based on the ifName MIB object, defined in IETF RFC 2863.",
+          "type": "integer"
+        },
+        "AgentCircuitId": {
+          "description": "Represents a port identifier based on the agent-local identifier of the circuit (defined in IETF RFC 3046), detected by the agent and associated with a particular port.",
+          "type": "integer"
+        },
+        "Local": {
+          "description": "Represents a port identifier based on a value locally assigned.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

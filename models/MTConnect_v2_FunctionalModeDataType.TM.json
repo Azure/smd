@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_FunctionalModeDataType",
+  "title": "MTConnect_v2_FunctionalModeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.FunctionalModeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "FunctionalModeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.FunctionalModeDataType",
+      "const": {
+        "MAINTENANCE": 0,
+        "PRODUCTION": 1,
+        "PROCESS_DEVELOPMENT": 2,
+        "SETUP": 3,
+        "TEARDOWN": 4
+      },
+      "description": "",
+      "properties": {
+        "MAINTENANCE": {
+          "description": "Action related to maintenance on the piece of equipment.",
+          "type": "integer"
+        },
+        "PRODUCTION": {
+          "description": "A structural element is currently producing product.",
+          "type": "integer"
+        },
+        "PROCESS_DEVELOPMENT": {
+          "description": "A structural element is being used to prove-out a new process.",
+          "type": "integer"
+        },
+        "SETUP": {
+          "description": "           A structural element is being prepared or modified to begin production           of product.         ",
+          "type": "integer"
+        },
+        "TEARDOWN": {
+          "description": "           Typically, a structural element has completed the production of a           product and is being modified or returned to a neutral state such that           it may then be prepared to begin production of a different product.         ",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

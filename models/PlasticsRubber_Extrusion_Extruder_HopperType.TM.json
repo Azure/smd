@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/#PlasticsRubber_Extrusion_Extruder_HopperType",
+  "title": "PlasticsRubber_Extrusion_Extruder_HopperType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Extruder.HopperType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Material",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaterialType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MaterialTemperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaterialLevel",
+    "/properties/MaterialLot",
+    "/properties/Weight",
+    "/events/MaterialLevel",
+    "/events/Weight"
+  ],
+  "properties": {
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaterialLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MaterialLot": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Weight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MaterialLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Weight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Extruder/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

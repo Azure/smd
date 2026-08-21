@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISInformationObjectType",
+  "title": "MDIS_MDISInformationObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISInformationObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Signatures",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TimeSynchronization",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISTimeSyncObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MDISVersionVariableType": {
+      "title": "MDISVersionDataType",
+      "description": "The standard representation of the version information that is related the MDIS Specification",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionVariableType",
+      "required": [
+        "MajorVersion",
+        "MinorVersion",
+        "Build"
+      ],
+      "properties": {
+        "MajorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "MinorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Build": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  },
+  "properties": {
+    "MDISVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "tm:ref": "#/schemaDefinitions/MDISVersionVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MDISVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MDISVersionVariableType"
+      }
+    }
+  }
+}

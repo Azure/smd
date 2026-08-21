@@ -1,0 +1,118 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditAddReferencesEventType",
+  "title": "OpcUaCore_AuditAddReferencesEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditAddReferencesEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditNodeManagementEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "NodeClass": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.NodeClass",
+      "const": {
+        "Unspecified": 0,
+        "Object": 1,
+        "Variable": 2,
+        "Method": 4,
+        "ObjectType": 8,
+        "VariableType": 16,
+        "ReferenceType": 32,
+        "DataType": 64,
+        "View": 128
+      },
+      "properties": {
+        "Unspecified": {
+          "description": "No value is specified.",
+          "type": "integer"
+        },
+        "Object": {
+          "description": "The Node is an Object.",
+          "type": "integer"
+        },
+        "Variable": {
+          "description": "The Node is a Variable.",
+          "type": "integer"
+        },
+        "Method": {
+          "description": "The Node is a Method.",
+          "type": "integer"
+        },
+        "ObjectType": {
+          "description": "The Node is an ObjectType.",
+          "type": "integer"
+        },
+        "VariableType": {
+          "description": "The Node is a VariableType.",
+          "type": "integer"
+        },
+        "ReferenceType": {
+          "description": "The Node is a ReferenceType.",
+          "type": "integer"
+        },
+        "DataType": {
+          "description": "The Node is a DataType.",
+          "type": "integer"
+        },
+        "View": {
+          "description": "The Node is a View.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ReferencesToAdd": {
+      "type": "array",
+      "items": {
+        "title": "AddReferencesItem",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AddReferencesItem",
+        "required": [
+          "SourceNodeId",
+          "ReferenceTypeId",
+          "IsForward",
+          "TargetServerUri",
+          "TargetNodeId",
+          "TargetNodeClass"
+        ],
+        "properties": {
+          "SourceNodeId": {
+            "type": "string"
+          },
+          "ReferenceTypeId": {
+            "type": "string"
+          },
+          "IsForward": {
+            "type": "boolean"
+          },
+          "TargetServerUri": {
+            "type": "string"
+          },
+          "TargetNodeId": {
+            "type": "string"
+          },
+          "TargetNodeClass": {
+            "title": "NodeClass",
+            "dov:typeRef": "org.opcfoundation.UA.NodeClass",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

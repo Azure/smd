@@ -1,0 +1,177 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PipingComponentType",
+  "title": "DEXPI_PipingComponentType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingComponentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Node>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PipingNodeType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "OnHoldClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.OnHoldClassification",
+      "const": {
+        "NotOnHold": 0,
+        "OnHold": 1
+      },
+      "description": "",
+      "properties": {
+        "NotOnHold": {
+          "description": "NotOnHold",
+          "type": "integer"
+        },
+        "OnHold": {
+          "description": "OnHold",
+          "type": "integer"
+        }
+      }
+    },
+    "PipingClassArtefactClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingClassArtefactClassification",
+      "const": {
+        "NonPipingClassArtefact": 0,
+        "PipingClassArtefact": 1
+      },
+      "description": "",
+      "properties": {
+        "NonPipingClassArtefact": {
+          "description": "NonPipingClassArtefact",
+          "type": "integer"
+        },
+        "PipingClassArtefact": {
+          "description": "PipingClassArtefact",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/BasfLineClassAssignmentClass",
+    "/properties/FluidCodeAssignmentClass",
+    "/properties/NominalDiametersRepresentationAssignmentClass",
+    "/properties/OnHoldSpecialization",
+    "/properties/PipingClassArtefactSpecialization",
+    "/properties/PressureTestCircuitNumberAssignmentClass",
+    "/events/BasfLineClassAssignmentClass",
+    "/events/FluidCodeAssignmentClass",
+    "/events/NominalDiametersRepresentationAssignmentClass",
+    "/events/OnHoldSpecialization",
+    "/events/PipingClassArtefactSpecialization",
+    "/events/PressureTestCircuitNumberAssignmentClass"
+  ],
+  "properties": {
+    "BasfLineClassAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The BASF line class of the PipingComponent, represented as a string. Note: This attribute has been included as an example for a company-specific attribute. It should actually be identified by a company-specific RDL reference. As there is currently no BASF RDL, the DEXPI RDL is used.",
+      "type": "string",
+      "readOnly": false
+    },
+    "FluidCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code of the fluid related to the PipingComponent. So  far, DEXPI does not define restrictions for valid values.",
+      "type": "string",
+      "readOnly": false
+    },
+    "NominalDiametersRepresentationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A readable representation of the nominal diameters of the ports of the PipingComponent. The purpose of this value is to give a textual representation of the nominal diameters to be used in the graphics of a PID.",
+      "type": "string",
+      "readOnly": false
+    },
+    "OnHoldSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "OnHoldClassification",
+      "description": "A specialization indicating if the PipingComponent is on hold or not.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.OnHoldClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PipingClassArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "PipingClassArtefactClassification",
+      "description": "A specialization indicating if the PipingComponent is an artefact that is         described by a piping class.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingClassArtefactClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PressureTestCircuitNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The number of the pressure test circuit of the PipingComponent.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "BasfLineClassAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The BASF line class of the PipingComponent, represented as a string. Note: This attribute has been included as an example for a company-specific attribute. It should actually be identified by a company-specific RDL reference. As there is currently no BASF RDL, the DEXPI RDL is used.",
+        "type": "string"
+      }
+    },
+    "FluidCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code of the fluid related to the PipingComponent. So  far, DEXPI does not define restrictions for valid values.",
+        "type": "string"
+      }
+    },
+    "NominalDiametersRepresentationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A readable representation of the nominal diameters of the ports of the PipingComponent. The purpose of this value is to give a textual representation of the nominal diameters to be used in the graphics of a PID.",
+        "type": "string"
+      }
+    },
+    "OnHoldSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "OnHoldClassification",
+        "description": "A specialization indicating if the PipingComponent is on hold or not.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.OnHoldClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PipingClassArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "PipingClassArtefactClassification",
+        "description": "A specialization indicating if the PipingComponent is an artefact that is         described by a piping class.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingClassArtefactClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PressureTestCircuitNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The number of the pressure test circuit of the PipingComponent.",
+        "type": "string"
+      }
+    }
+  }
+}

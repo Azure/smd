@@ -1,0 +1,132 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_HistoricalDataConfigurationType",
+  "title": "OpcUaCore_HistoricalDataConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.HistoricalDataConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AggregateConfiguration",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AggregateConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AggregateFunctions",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ExceptionDeviationFormat": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ExceptionDeviationFormat",
+      "const": {
+        "AbsoluteValue": 0,
+        "PercentOfValue": 1,
+        "PercentOfRange": 2,
+        "PercentOfEURange": 3,
+        "Unknown": 4
+      },
+      "properties": {
+        "AbsoluteValue": {
+          "type": "integer"
+        },
+        "PercentOfValue": {
+          "type": "integer"
+        },
+        "PercentOfRange": {
+          "type": "integer"
+        },
+        "PercentOfEURange": {
+          "type": "integer"
+        },
+        "Unknown": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Definition",
+    "/properties/ExceptionDeviation",
+    "/properties/ExceptionDeviationFormat",
+    "/properties/MaxCountStoredValues",
+    "/properties/MaxTimeInterval",
+    "/properties/MaxTimeStoredValues",
+    "/properties/MinTimeInterval",
+    "/properties/ServerTimestampSupported",
+    "/properties/StartOfArchive",
+    "/properties/StartOfOnlineArchive"
+  ],
+  "properties": {
+    "Definition": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ExceptionDeviation": {
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ExceptionDeviationFormat": {
+      "title": "ExceptionDeviationFormat",
+      "dov:typeRef": "org.opcfoundation.UA.ExceptionDeviationFormat",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaxCountStoredValues": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxTimeInterval": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "MaxTimeStoredValues": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "MinTimeInterval": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "ServerTimestampSupported": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "StartOfArchive": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "StartOfOnlineArchive": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Stepped": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

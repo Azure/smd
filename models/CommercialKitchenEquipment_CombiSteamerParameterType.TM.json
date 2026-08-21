@@ -1,0 +1,540 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CombiSteamerParameterType",
+  "title": "CommercialKitchenEquipment_CombiSteamerParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CombiSteamerParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CombiSteamerModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CombiSteamerModeEnumeration",
+      "const": {
+        "Off": 0,
+        "On": 1,
+        "Preheat": 2,
+        "StandBy": 3,
+        "Steaming": 4,
+        "CombiSteaming": 5,
+        "HotAir": 6,
+        "Perfection": 7,
+        "Cleaning": 8,
+        "PresetStart": 9,
+        "Error": 10
+      },
+      "properties": {
+        "Off": {
+          "type": "integer"
+        },
+        "On": {
+          "type": "integer"
+        },
+        "Preheat": {
+          "type": "integer"
+        },
+        "StandBy": {
+          "type": "integer"
+        },
+        "Steaming": {
+          "type": "integer"
+        },
+        "CombiSteaming": {
+          "type": "integer"
+        },
+        "HotAir": {
+          "type": "integer"
+        },
+        "Perfection": {
+          "type": "integer"
+        },
+        "Cleaning": {
+          "type": "integer"
+        },
+        "PresetStart": {
+          "type": "integer"
+        },
+        "Error": {
+          "type": "integer"
+        }
+      }
+    },
+    "SpecialCookingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.SpecialCookingModeEnumeration",
+      "const": {
+        "NoSpecialMode": 0,
+        "Baking": 1,
+        "SousVide": 2,
+        "RestStage": 3,
+        "Humidification": 4,
+        "PerfectHold": 5,
+        "InfoStep": 6,
+        "Smoking": 7,
+        "LowTemp_Cooking": 8,
+        "DeltaTSteaming": 9
+      },
+      "properties": {
+        "NoSpecialMode": {
+          "type": "integer"
+        },
+        "Baking": {
+          "type": "integer"
+        },
+        "SousVide": {
+          "type": "integer"
+        },
+        "RestStage": {
+          "type": "integer"
+        },
+        "Humidification": {
+          "type": "integer"
+        },
+        "PerfectHold": {
+          "type": "integer"
+        },
+        "InfoStep": {
+          "type": "integer"
+        },
+        "Smoking": {
+          "type": "integer"
+        },
+        "LowTemp_Cooking": {
+          "type": "integer"
+        },
+        "DeltaTSteaming": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActualExternalCoreTemperature_No_",
+    "/properties/ActualHumidity",
+    "/properties/ActualInternalCoreTemperature_No_",
+    "/properties/IsEnergySavingActive",
+    "/properties/IsLoaActive",
+    "/properties/IsSteamExhaustSystemActive",
+    "/properties/SetExternalCoreTemperature",
+    "/properties/SetHumidity",
+    "/properties/SetInternalCoreTemperature",
+    "/properties/SetProcessTimeStep",
+    "/properties/SpecialCookingMode",
+    "/properties/TimeRemainingStep",
+    "/properties/ActualExternalCoreTemperature_No__EngineeringUnits",
+    "/properties/ActualHumidity_EngineeringUnits",
+    "/properties/ActualInternalCoreTemperature_No__EngineeringUnits",
+    "/properties/ActualTemperatureChamber_No__EngineeringUnits",
+    "/properties/SetExternalCoreTemperature_EngineeringUnits",
+    "/properties/SetHumidity_EngineeringUnits",
+    "/properties/SetInternalCoreTemperature_EngineeringUnits",
+    "/properties/SetProcessTimeProgram_EngineeringUnits",
+    "/properties/SetProcessTimeStep_EngineeringUnits",
+    "/properties/SetTemperature_EngineeringUnits",
+    "/properties/TimeRemainingProgram_EngineeringUnits",
+    "/properties/TimeRemainingStep_EngineeringUnits",
+    "/events/ActualExternalCoreTemperature_No_",
+    "/events/ActualHumidity",
+    "/events/ActualInternalCoreTemperature_No_",
+    "/events/IsEnergySavingActive",
+    "/events/IsLoaActive",
+    "/events/IsSteamExhaustSystemActive",
+    "/events/SetExternalCoreTemperature",
+    "/events/SetHumidity",
+    "/events/SetInternalCoreTemperature",
+    "/events/SetProcessTimeStep",
+    "/events/SpecialCookingMode",
+    "/events/TimeRemainingStep"
+  ],
+  "properties": {
+    "ActualExternalCoreTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualExternalCoreTemperature_No__EngineeringUnits"
+    },
+    "ActualHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ActualHumidity_EngineeringUnits"
+    },
+    "ActualInternalCoreTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualInternalCoreTemperature_No__EngineeringUnits"
+    },
+    "ActualTemperatureChamber_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperatureChamber_No__EngineeringUnits"
+    },
+    "CombiSteamerMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "CombiSteamerModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CombiSteamerModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IsDoorOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsEnergySavingActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsLoaActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsSteamExhaustSystemActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SetExternalCoreTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetExternalCoreTemperature_EngineeringUnits"
+    },
+    "SetHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/SetHumidity_EngineeringUnits"
+    },
+    "SetInternalCoreTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetInternalCoreTemperature_EngineeringUnits"
+    },
+    "SetProcessTimeProgram": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTimeProgram_EngineeringUnits"
+    },
+    "SetProcessTimeStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTimeStep_EngineeringUnits"
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "SpecialCookingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "SpecialCookingModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.SpecialCookingModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "TimeRemainingProgram": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeRemainingProgram_EngineeringUnits"
+    },
+    "TimeRemainingStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeRemainingStep_EngineeringUnits"
+    },
+    "ActualExternalCoreTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualExternalCoreTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualHumidity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualHumidity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualInternalCoreTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualInternalCoreTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualTemperatureChamber_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualTemperatureChamber_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetExternalCoreTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetExternalCoreTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetHumidity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetHumidity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetInternalCoreTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetInternalCoreTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetProcessTimeProgram_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetProcessTimeProgram, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetProcessTimeStep_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetProcessTimeStep, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeRemainingProgram_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TimeRemainingProgram, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeRemainingStep_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TimeRemainingStep, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualExternalCoreTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualExternalCoreTemperature_No__EngineeringUnits"
+    },
+    "ActualHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ActualHumidity_EngineeringUnits"
+    },
+    "ActualInternalCoreTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualInternalCoreTemperature_No__EngineeringUnits"
+    },
+    "ActualTemperatureChamber_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperatureChamber_No__EngineeringUnits"
+    },
+    "CombiSteamerMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "CombiSteamerModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CombiSteamerModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "IsDoorOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IsEnergySavingActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IsLoaActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IsSteamExhaustSystemActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "SetExternalCoreTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetExternalCoreTemperature_EngineeringUnits"
+    },
+    "SetHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/SetHumidity_EngineeringUnits"
+    },
+    "SetInternalCoreTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetInternalCoreTemperature_EngineeringUnits"
+    },
+    "SetProcessTimeProgram": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTimeProgram_EngineeringUnits"
+    },
+    "SetProcessTimeStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTimeStep_EngineeringUnits"
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "SpecialCookingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "SpecialCookingModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.SpecialCookingModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "TimeRemainingProgram": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeRemainingProgram_EngineeringUnits"
+    },
+    "TimeRemainingStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeRemainingStep_EngineeringUnits"
+    }
+  }
+}

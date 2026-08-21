@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProcessIrregularity",
+  "title": "MachineTool_ProcessIrregularity",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProcessIrregularity",
+  "links": [],
+  "schemaDefinitions": {
+    "ProcessIrregularity": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProcessIrregularity",
+      "const": {
+        "CapabilityUnavailable": 0,
+        "Detected": 1,
+        "NotDetected": 2,
+        "NotYetDetermined": 3
+      },
+      "properties": {
+        "CapabilityUnavailable": {
+          "description": "The machine tool is not able to give a statement about process irregularities.",
+          "type": "integer"
+        },
+        "Detected": {
+          "description": "A process irregularity has been detected.",
+          "type": "integer"
+        },
+        "NotDetected": {
+          "description": "There was no process irregularity detected.",
+          "type": "integer"
+        },
+        "NotYetDetermined": {
+          "description": "A statement about the process irregularity is to be expected.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

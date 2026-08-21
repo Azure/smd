@@ -1,0 +1,92 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/RSL/#RSL_SpatialObjectType",
+  "title": "RSL_SpatialObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AlternativeFrames",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AttachPoints",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "InternalFrames",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SpatialLocationType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialLocationType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Identifier"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "type": "string",
+      "readOnly": false
+    },
+    "PositionFrame": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "tm:ref": "#/schemaDefinitions/SpatialLocationType",
+      "readOnly": false,
+      "dov:contains": [
+        "PositionFrame_Base"
+      ]
+    },
+    "PositionFrame_Base": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "type": "string",
+      "readOnly": false,
+      "dov:containedIn": "PositionFrame"
+    }
+  },
+  "events": {
+    "PositionFrame": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/SpatialLocationType"
+      },
+      "dov:contains": [
+        "PositionFrame_Base"
+      ]
+    },
+    "PositionFrame_Base": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "PositionFrame"
+    }
+  }
+}

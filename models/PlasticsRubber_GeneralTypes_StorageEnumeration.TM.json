@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StorageEnumeration",
+  "title": "PlasticsRubber_GeneralTypes_StorageEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StorageEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "StorageEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StorageEnumeration",
+      "const": {
+        "PRODUCTION": 1,
+        "PREPARATION": 2,
+        "FILE_SYSTEM": 4
+      },
+      "description": "Indication which parts of the production dataset shall be activated in the machine control after writing",
+      "properties": {
+        "PRODUCTION": {
+          "description": "The production dataset is written directly to the (active layer of the) control system of the machine",
+          "type": "integer"
+        },
+        "PREPARATION": {
+          "description": "The production dataset is written to the preparation layer of the control system of the machine (if supported)",
+          "type": "integer"
+        },
+        "FILE_SYSTEM": {
+          "description": "The production dataset is written to the file system of the machine for later activation",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

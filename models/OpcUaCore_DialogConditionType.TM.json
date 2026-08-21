@@ -1,0 +1,124 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DialogConditionType",
+  "title": "OpcUaCore_DialogConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.DialogConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/Respond2"
+  ],
+  "actions": {
+    "Respond": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SelectedResponse"
+        ],
+        "properties": {
+          "SelectedResponse": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Respond2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SelectedResponse",
+          "Comment"
+        ],
+        "properties": {
+          "SelectedResponse": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Comment": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CancelResponse": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DefaultResponse": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DialogState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "EnabledState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "LastResponse": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "OkResponse": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Prompt": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ResponseOptionSet": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DialogState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "EnabledState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    }
+  }
+}

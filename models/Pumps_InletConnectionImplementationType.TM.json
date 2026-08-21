@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_InletConnectionImplementationType",
+  "title": "Pumps_InletConnectionImplementationType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.InletConnectionImplementationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_ConnectionImplementationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/HeightOfTheInletConnection",
+    "/properties/MeanRatedVelocityAtInlet",
+    "/properties/RatedInletPressure",
+    "/properties/TotalHeadAtInletAreaOfThePump",
+    "/properties/HeightOfTheInletConnection_EngineeringUnits",
+    "/properties/MeanRatedVelocityAtInlet_EngineeringUnits",
+    "/properties/RatedInletPressure_EngineeringUnits",
+    "/properties/TotalHeadAtInletAreaOfThePump_EngineeringUnits",
+    "/events/HeightOfTheInletConnection",
+    "/events/MeanRatedVelocityAtInlet",
+    "/events/RatedInletPressure",
+    "/events/TotalHeadAtInletAreaOfThePump"
+  ],
+  "properties": {
+    "HeightOfTheInletConnection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the center of the inlet connection of the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheInletConnection_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtInlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rated flow at pump inlet connection divided by the inlet area of the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtInlet_EngineeringUnits"
+    },
+    "RatedInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Inlet pressure of the operating conditions at the guarantee point",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedInletPressure_EngineeringUnits"
+    },
+    "TotalHeadAtInletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Head observed at inlet area of the pump, corresponding to the sum of the height, pressure head and velocity head",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtInletAreaOfThePump_EngineeringUnits"
+    },
+    "HeightOfTheInletConnection_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheInletConnection, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanRatedVelocityAtInlet_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanRatedVelocityAtInlet, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedInletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedInletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TotalHeadAtInletAreaOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TotalHeadAtInletAreaOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "HeightOfTheInletConnection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the center of the inlet connection of the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheInletConnection_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtInlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rated flow at pump inlet connection divided by the inlet area of the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtInlet_EngineeringUnits"
+    },
+    "RatedInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Inlet pressure of the operating conditions at the guarantee point",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedInletPressure_EngineeringUnits"
+    },
+    "TotalHeadAtInletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Head observed at inlet area of the pump, corresponding to the sum of the height, pressure head and velocity head",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtInletAreaOfThePump_EngineeringUnits"
+    }
+  }
+}

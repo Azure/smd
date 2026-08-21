@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_ProductFinishedEventType",
+  "title": "WireHarness_ProductFinishedEventType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.ProductFinishedEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "JobResult": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobResult",
+      "const": {
+        "Unknown": 0,
+        "Successful": 1,
+        "Unsuccessful": 2
+      },
+      "properties": {
+        "Unknown": {
+          "description": "Unknown state. Used when result is not known, e.g. because job order is still running.",
+          "type": "integer"
+        },
+        "Successful": {
+          "description": "Job order was executed successful",
+          "type": "integer"
+        },
+        "Unsuccessful": {
+          "description": "Job order was not executed successful.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "EndTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "JobOrderID": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "readOnly": false
+    },
+    "MaterialDefinitionID": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProductID": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ResultIDs": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "Run": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "title": "JobResult",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobResult",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

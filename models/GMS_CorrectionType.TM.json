@@ -1,0 +1,115 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_CorrectionType",
+  "title": "GMS_CorrectionType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.CorrectionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CorrectionValueAbsolute",
+    "/properties/CorrectionValueRelative",
+    "/properties/Description",
+    "/properties/LowerControlLimit",
+    "/properties/ProgramName",
+    "/properties/UpperControlLimit",
+    "/events/CorrectionValueAbsolute",
+    "/events/CorrectionValueRelative",
+    "/events/LowerControlLimit",
+    "/events/UpperControlLimit"
+  ],
+  "properties": {
+    "CharacteristicIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "CorrectionValueAbsolute": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "CorrectionValueRelative": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "LowerControlLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "ProgramName": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "UpperControlLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CorrectionValueAbsolute": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CorrectionValueRelative": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LowerControlLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperControlLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

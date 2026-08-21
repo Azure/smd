@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_Order",
+  "title": "AMLLibs_Order",
+  "dov:typeRef": "org.opcfoundation.UA.Order",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_AutomationMLBaseInterface",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/Direction",
+    "/properties/ID",
+    "/properties/Version",
+    "/events/Direction"
+  ],
+  "properties": {
+    "Direction": {
+      "description": "",
+      "type": "string",
+      "readOnly": true
+    },
+    "ID": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    },
+    "Version": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Direction": {
+      "data": {
+        "description": "",
+        "type": "string"
+      }
+    }
+  }
+}

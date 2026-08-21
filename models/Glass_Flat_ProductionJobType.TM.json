@@ -1,0 +1,126 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_ProductionJobType",
+  "title": "Glass_Flat_ProductionJobType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.ProductionJobType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "InputMaterials",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Instruction",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_InstructionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "OutputMaterials",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "State",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_ProductionStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AbortJob",
+    "/actions/QueueJob",
+    "/actions/ReleaseJob",
+    "/actions/SuspendJob",
+    "/properties/JobGroup",
+    "/properties/Name"
+  ],
+  "actions": {
+    "AbortJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/"
+    },
+    "QueueJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/"
+    },
+    "ReleaseJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/"
+    },
+    "SuspendJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/"
+    }
+  },
+  "properties": {
+    "EndTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "JobGroup": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "NumberInList": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "EndTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeType",
+  "title": "Scales_V2_RecipeType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "RecipeElements",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "RecipeFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddRecipeElement",
+    "/actions/RemoveRecipeElement"
+  ],
+  "actions": {
+    "AddRecipeElement": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ElementType",
+          "ElementName",
+          "PreviousElements"
+        ],
+        "properties": {
+          "ElementType": {
+            "type": "string"
+          },
+          "ElementName": {
+            "type": "string"
+          },
+          "PreviousElements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ElementNodeId"
+        ],
+        "properties": {
+          "ElementNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveRecipeElement": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeElementNodeId"
+        ],
+        "properties": {
+          "RecipeElementNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "RecipeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "RecipeId defines a unique identifier of a recipe.",
+      "type": "string",
+      "readOnly": false
+    },
+    "RecipeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a user-readable name of the recipe.",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

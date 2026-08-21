@@ -1,0 +1,242 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ConnectionEndpointType",
+  "title": "FX_AC_ConnectionEndpointType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConnectionEndpointType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ConnectionEndpointStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConnectionEndpointStatusEnum",
+      "const": {
+        "Initial": 0,
+        "Ready": 1,
+        "PreOperational": 2,
+        "Operational": 3,
+        "Error": 4
+      },
+      "description": "This enumeration defines the values of the FlcConnectionStatus of an FlcConnectionEndpointType. ",
+      "properties": {
+        "Initial": {
+          "description": "Initial status of the logical connection. No communication-model objects referenced.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Logical connection is ready to operate, Communication-model objects are referenced but not enabled.",
+          "type": "integer"
+        },
+        "PreOperational": {
+          "description": "PreOperational status of the logical connection, Data output is active, but no input data received.",
+          "type": "integer"
+        },
+        "Operational": {
+          "description": "Operational status of the logical connection, Data output is active, and input data has been received.",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "The logical connection has encountered an Error.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ConnectionManagerApplicationUri",
+    "/properties/InputVariables",
+    "/properties/OutputVariables",
+    "/events/ConnectionManagerApplicationUri",
+    "/events/InputVariables",
+    "/events/OutputVariables"
+  ],
+  "properties": {
+    "CleanupTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "ConnectionManagerApplicationUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    },
+    "InputVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "IsPersistent": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "OutputVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "RelatedEndpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "RelatedEndpointDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.RelatedEndpointDataType",
+      "required": [
+        "Address",
+        "ConnectionEndpointPath",
+        "ConnectionEndpointName"
+      ],
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "ConnectionEndpointPath": {
+          "type": "array",
+          "items": {
+            "title": "PortableQualifiedName",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+            "required": [
+              "NamespaceUri",
+              "Name"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ConnectionEndpointName": {
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "ConnectionEndpointStatusEnum",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConnectionEndpointStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CleanupTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "ConnectionManagerApplicationUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "InputVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "IsPersistent": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "OutputVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "RelatedEndpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "title": "RelatedEndpointDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.RelatedEndpointDataType",
+        "required": [
+          "Address",
+          "ConnectionEndpointPath",
+          "ConnectionEndpointName"
+        ],
+        "properties": {
+          "Address": {
+            "type": "string"
+          },
+          "ConnectionEndpointPath": {
+            "type": "array",
+            "items": {
+              "title": "PortableQualifiedName",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+              "required": [
+                "NamespaceUri",
+                "Name"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ConnectionEndpointName": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "title": "ConnectionEndpointStatusEnum",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConnectionEndpointStatusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/#ISA95_JOBCONTROL_V2_ISA95StateDataType",
+  "title": "ISA95_JOBCONTROL_V2_ISA95StateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95StateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ISA95StateDataType": {
+      "description": "Defines the information needed to schedule and execute a job.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95StateDataType",
+      "required": [
+        "BrowsePath",
+        "StateText",
+        "StateNumber"
+      ],
+      "properties": {
+        "BrowsePath": {
+          "title": "RelativePath",
+          "description": "The browse path of substates. Shall be null when the top-level state is represented.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+          "required": [
+            "Elements"
+          ],
+          "properties": {
+            "Elements": {
+              "type": "array",
+              "items": {
+                "title": "RelativePathElement",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                "required": [
+                  "ReferenceTypeId",
+                  "IsInverse",
+                  "IncludeSubtypes",
+                  "TargetName"
+                ],
+                "properties": {
+                  "ReferenceTypeId": {
+                    "type": "string"
+                  },
+                  "IsInverse": {
+                    "type": "boolean"
+                  },
+                  "IncludeSubtypes": {
+                    "type": "boolean"
+                  },
+                  "TargetName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "StateText": {
+          "description": "The state represented as human readable text. Shall represent the same text as the CurrentState Variable of a StateMachine would.",
+          "type": "string"
+        },
+        "StateNumber": {
+          "description": "The state represented as number. Shall represent the same number as the Number subvariable of the CurrentState Variable of a StateMachine would.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

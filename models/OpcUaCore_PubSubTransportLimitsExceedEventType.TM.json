@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubTransportLimitsExceedEventType",
+  "title": "OpcUaCore_PubSubTransportLimitsExceedEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubTransportLimitsExceedEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubStatusEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Actual": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Maximum": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  }
+}

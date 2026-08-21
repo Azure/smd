@@ -1,0 +1,221 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetNotifierType",
+  "title": "BACnet_V2_BACnetNotifierType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetNotifierType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetDaysOfWeek": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDaysOfWeek",
+      "const": {
+        "monday": 0,
+        "tuesday": 1,
+        "wednesday": 2,
+        "thursday": 3,
+        "friday": 4,
+        "saturday": 5,
+        "sunday": 6
+      },
+      "properties": {
+        "monday": {
+          "type": "integer"
+        },
+        "tuesday": {
+          "type": "integer"
+        },
+        "wednesday": {
+          "type": "integer"
+        },
+        "thursday": {
+          "type": "integer"
+        },
+        "friday": {
+          "type": "integer"
+        },
+        "saturday": {
+          "type": "integer"
+        },
+        "sunday": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetEventTransitionBits": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventTransitionBits",
+      "const": {
+        "to_offnormal": 0,
+        "to_fault": 1,
+        "to_normal": 2
+      },
+      "properties": {
+        "to_offnormal": {
+          "type": "integer"
+        },
+        "to_fault": {
+          "type": "integer"
+        },
+        "to_normal": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Recipient_List": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetDestination",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDestination",
+      "required": [
+        "ValidDays",
+        "FromTime",
+        "ToTime",
+        "Recipient",
+        "ProcessIdentifier",
+        "IssueConfirmedNotifications",
+        "Transitions"
+      ],
+      "properties": {
+        "ValidDays": {
+          "title": "BACnetDaysOfWeek",
+          "description": "BACnetDaysOfWeek BitField",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDaysOfWeek",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "FromTime": {
+          "title": "BACnetTime",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTime",
+          "required": [
+            "Hour",
+            "Minute",
+            "Second",
+            "Hundredths"
+          ],
+          "properties": {
+            "Hour": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Minute": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Hundredths": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          }
+        },
+        "ToTime": {
+          "title": "BACnetTime",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTime",
+          "required": [
+            "Hour",
+            "Minute",
+            "Second",
+            "Hundredths"
+          ],
+          "properties": {
+            "Hour": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Minute": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Hundredths": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          }
+        },
+        "Recipient": {
+          "title": "BACnetRecipient",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipient",
+          "properties": {
+            "Device": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Address": {
+              "title": "BACnetAddress",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+              "required": [
+                "NetworkNumber",
+                "MacAddress"
+              ],
+              "properties": {
+                "NetworkNumber": {
+                  "description": "A value 0 indicates the local network",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "MacAddress": {
+                  "description": "A string of length 0 indicates a broadcast",
+                  "type": "string",
+                  "contentEncoding": "base64"
+                }
+              }
+            }
+          }
+        },
+        "ProcessIdentifier": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "IssueConfirmedNotifications": {
+          "type": "boolean"
+        },
+        "Transitions": {
+          "title": "BACnetEventTransitionBits",
+          "description": "BACnetEventTransitionsBits BitField",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventTransitionBits",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

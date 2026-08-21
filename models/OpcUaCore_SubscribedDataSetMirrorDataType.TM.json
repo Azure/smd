@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SubscribedDataSetMirrorDataType",
+  "title": "OpcUaCore_SubscribedDataSetMirrorDataType",
+  "dov:typeRef": "org.opcfoundation.UA.SubscribedDataSetMirrorDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SubscribedDataSetMirrorDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.SubscribedDataSetMirrorDataType",
+      "required": [
+        "ParentNodeName",
+        "RolePermissions"
+      ],
+      "properties": {
+        "ParentNodeName": {
+          "type": "string"
+        },
+        "RolePermissions": {
+          "type": "array",
+          "items": {
+            "title": "RolePermissionType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.RolePermissionType",
+            "required": [
+              "RoleId",
+              "Permissions"
+            ],
+            "properties": {
+              "RoleId": {
+                "type": "string"
+              },
+              "Permissions": {
+                "title": "PermissionType",
+                "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

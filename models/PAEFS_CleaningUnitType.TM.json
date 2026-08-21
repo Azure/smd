@@ -1,0 +1,114 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_CleaningUnitType",
+  "title": "PAEFS_CleaningUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.CleaningUnitType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Valve",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_CleaningUnitValveType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AirConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CleaningInterval",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointWriteType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FilterCleaningEffect",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointWriteType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryComponentIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReservoirPressure",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointWriteType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/RequestCleaning",
+    "/properties/AutomaticCleaningEnabled",
+    "/properties/CleaningRecommended",
+    "/properties/Malfunction",
+    "/properties/TotalCleaningCycles"
+  ],
+  "actions": {
+    "RequestCleaning": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method RequestCleaning requests cleaning of the unit. The cleaning unit will perform the cleaning as soon as possible."
+    }
+  },
+  "properties": {
+    "AutomaticCleaningEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "If enabled, the cleaning unit may automatically perform the cleaning according to predefined rules when cleaning is necessary. Otherwise, automatic cleaning is blocked.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "CleaningActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Describes that the unit is currently in a cleaning cycle.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "CleaningRecommended": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that cleaning of the separator is recommended.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the cleaning unit is malfunctioning. True in case of error. Malfunctions can be, for example, that the filter cleaning effect is not sufficient.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "TotalCleaningCycles": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Count of the number of cleaning cycles carried out by the cleaning system.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  }
+}

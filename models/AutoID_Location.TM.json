@@ -1,0 +1,132 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_Location",
+  "title": "AutoID_Location",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.Location",
+  "links": [],
+  "schemaDefinitions": {
+    "Location": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.Location",
+      "properties": {
+        "NMEA": {
+          "type": "string"
+        },
+        "Local": {
+          "title": "LocalCoordinate",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+          "required": [
+            "X",
+            "Y",
+            "Z",
+            "Timestamp",
+            "DilutionOfPrecision",
+            "UsefulPrecision"
+          ],
+          "properties": {
+            "X": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Y": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Z": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Timestamp": {
+              "description": "Optional",
+              "type": "string",
+              "format": "time"
+            },
+            "DilutionOfPrecision": {
+              "description": "Optional",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "UsefulPrecision": {
+              "description": "Optional",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "WGS84": {
+          "title": "WGS84Coordinate",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
+          "required": [
+            "N/S Hemisphere",
+            "Latitude",
+            "E/W Hemisphere",
+            "Longitude",
+            "Altitude",
+            "Timestamp",
+            "DilutionOfPrecision",
+            "UsefulPrecisionLatLon",
+            "UsefulPrecisionAlt"
+          ],
+          "properties": {
+            "N/S Hemisphere": {
+              "type": "string"
+            },
+            "Latitude": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "E/W Hemisphere": {
+              "type": "string"
+            },
+            "Longitude": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Altitude": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Timestamp": {
+              "type": "string",
+              "format": "time"
+            },
+            "DilutionOfPrecision": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "UsefulPrecisionLatLon": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "UsefulPrecisionAlt": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

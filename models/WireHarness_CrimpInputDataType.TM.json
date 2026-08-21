@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_CrimpInputDataType",
+  "title": "WireHarness_CrimpInputDataType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.CrimpInputDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "CrimpInputDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.CrimpInputDataType",
+      "required": [
+        "ToolType",
+        "ProcessDescription",
+        "Id",
+        "ReferencedElement",
+        "VerifyCrimpHeight",
+        "VerifyCrimpWidth",
+        "VerifyInsulationCrimpHeight",
+        "VerifyInsulationCrimpWidth",
+        "VerifyPullOutForce",
+        "CrimpForceMonitoring"
+      ],
+      "properties": {
+        "ToolType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProcessDescription": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Id": {
+          "type": "string"
+        },
+        "ReferencedElement": {
+          "title": "WireMountingIdDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireMountingIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "VerifyCrimpHeight": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "VerifyCrimpWidth": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "VerifyInsulationCrimpHeight": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "VerifyInsulationCrimpWidth": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "VerifyPullOutForce": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "CrimpForceMonitoring": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

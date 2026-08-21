@@ -1,0 +1,242 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_ComponentType",
+  "title": "PlasticsRubber_LDS_ComponentType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.ComponentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ComponentStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.ComponentStatusEnumeration",
+      "const": {
+        "GOOD": 0,
+        "WARNING": 1,
+        "WARNING_PRESSURE_TOO_HIGH": 2,
+        "WARNING_PRESSURE_TOO_LOW": 3,
+        "ADVANCE_WARNING_DRUM_CHANGE": 4,
+        "ERROR_DRUM_EMPTY": 5,
+        "ERROR": 6
+      },
+      "description": "Actual status of the component provides a minimal error handling for devices without event support.",
+      "properties": {
+        "GOOD": {
+          "description": "Component has no error or warning.",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The component has an undefined warning, but no need to stop the production.",
+          "type": "integer"
+        },
+        "WARNING_PRESSURE_TOO_HIGH": {
+          "description": "Pressure is too high. No need to stop the process but influence to the part quality.",
+          "type": "integer"
+        },
+        "WARNING_PRESSURE_TOO_LOW": {
+          "description": "Pressure is too low. No need to stop the process but influence to the part quality.",
+          "type": "integer"
+        },
+        "ADVANCE_WARNING_DRUM_CHANGE": {
+          "description": "Warning, barrel change is imminent. No need to stop the process.",
+          "type": "integer"
+        },
+        "ERROR_DRUM_EMPTY": {
+          "description": "Drum of the component is empty. Production needs to be stopped.",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "The component has an error and process needs to be stopped.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetSetValueDensity",
+    "/properties/ActualFollowerPlatePressure",
+    "/properties/ActualPressure",
+    "/properties/AllowsCycles",
+    "/properties/DrumCapacity",
+    "/properties/RemainingMaterialTime",
+    "/properties/ResidualAmount",
+    "/properties/SetFollowerPlatePressure",
+    "/properties/SetValueDensity",
+    "/events/ActualFollowerPlatePressure",
+    "/events/ActualPressure",
+    "/events/DrumCapacity",
+    "/events/RemainingMaterialTime",
+    "/events/ResidualAmount",
+    "/events/SetFollowerPlatePressure",
+    "/events/SetValueDensity"
+  ],
+  "actions": {
+    "SetSetValueDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "This optional method is used to modify SetValueDensity if allowed by the device.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Density"
+        ],
+        "properties": {
+          "Density": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActualFollowerPlatePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Actual material pressure under the follower plate",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ActualPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Actual pressure of the component",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "AllowsCycles": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Expected number of remaining cycles with the current drum",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DrumCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Maximum capacity of the drum",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "RemainingMaterialTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Time until the material of the component is empty",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "ResidualAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Residual amount of the material",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SetFollowerPlatePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Set value for material pressure under the follower plate",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SetValueDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Set point material density",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "title": "ComponentStatusEnumeration",
+      "description": "Actual status of the component provides a minimal error handling for devices without event support.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.ComponentStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualFollowerPlatePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Actual material pressure under the follower plate",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ActualPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Actual pressure of the component",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DrumCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Maximum capacity of the drum",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RemainingMaterialTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Time until the material of the component is empty",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "ResidualAmount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Residual amount of the material",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetFollowerPlatePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Set value for material pressure under the follower plate",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetValueDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Set point material density",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

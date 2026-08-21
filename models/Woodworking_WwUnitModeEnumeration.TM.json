@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Woodworking/#Woodworking_WwUnitModeEnumeration",
+  "title": "Woodworking_WwUnitModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "WwUnitModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "AUTOMATIC": 1,
+        "SEMIAUTOMATIC": 2,
+        "MANUAL": 3,
+        "SETUP": 4,
+        "SLEEP": 5
+      },
+      "description": "This enumeration represents the generalized mode of a unit.",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below applies.",
+          "type": "integer"
+        },
+        "AUTOMATIC": {
+          "description": "The unit is in automatic mode.",
+          "type": "integer"
+        },
+        "SEMIAUTOMATIC": {
+          "description": "The unit is in semi-automatic mode.",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "The unit is in manual mode.",
+          "type": "integer"
+        },
+        "SETUP": {
+          "description": "The unit is in setup mode.",
+          "type": "integer"
+        },
+        "SLEEP": {
+          "description": "The unit is in sleep mode. Component is still switched on, energy consumption reduced by e.g. reducing heating, switching drives off. Production is not possible.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

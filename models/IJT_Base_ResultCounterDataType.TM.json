@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_ResultCounterDataType",
+  "title": "IJT_Base_ResultCounterDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ResultCounterDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ResultCounterDataType": {
+      "description": "This structure is used to provide various types of counters associated to a Result. These counters are related to a joining process with sub-processes.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ResultCounterDataType",
+      "required": [
+        "CounterValue",
+        "CounterType"
+      ],
+      "properties": {
+        "Name": {
+          "description": "It is the name of the counter.",
+          "type": "string"
+        },
+        "CounterValue": {
+          "description": "It is the value of the counter.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "CounterType": {
+          "description": "It is the type of the counter.",
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        }
+      }
+    }
+  }
+}

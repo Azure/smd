@@ -1,0 +1,300 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_HistoricalExternalEventSourceType",
+  "title": "OpcUaCore_HistoricalExternalEventSourceType",
+  "dov:typeRef": "org.opcfoundation.UA.HistoricalExternalEventSourceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FilterOperator": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
+      "const": {
+        "Equals": 0,
+        "IsNull": 1,
+        "GreaterThan": 2,
+        "LessThan": 3,
+        "GreaterThanOrEqual": 4,
+        "LessThanOrEqual": 5,
+        "Like": 6,
+        "Not": 7,
+        "Between": 8,
+        "InList": 9,
+        "And": 10,
+        "Or": 11,
+        "Cast": 12,
+        "InView": 13,
+        "OfType": 14,
+        "RelatedTo": 15,
+        "BitwiseAnd": 16,
+        "BitwiseOr": 17
+      },
+      "properties": {
+        "Equals": {
+          "type": "integer"
+        },
+        "IsNull": {
+          "type": "integer"
+        },
+        "GreaterThan": {
+          "type": "integer"
+        },
+        "LessThan": {
+          "type": "integer"
+        },
+        "GreaterThanOrEqual": {
+          "type": "integer"
+        },
+        "LessThanOrEqual": {
+          "type": "integer"
+        },
+        "Like": {
+          "type": "integer"
+        },
+        "Not": {
+          "type": "integer"
+        },
+        "Between": {
+          "type": "integer"
+        },
+        "InList": {
+          "type": "integer"
+        },
+        "And": {
+          "type": "integer"
+        },
+        "Or": {
+          "type": "integer"
+        },
+        "Cast": {
+          "type": "integer"
+        },
+        "InView": {
+          "type": "integer"
+        },
+        "OfType": {
+          "type": "integer"
+        },
+        "RelatedTo": {
+          "type": "integer"
+        },
+        "BitwiseAnd": {
+          "type": "integer"
+        },
+        "BitwiseOr": {
+          "type": "integer"
+        }
+      }
+    },
+    "MessageSecurityMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+      "const": {
+        "Invalid": 0,
+        "None": 1,
+        "Sign": 2,
+        "SignAndEncrypt": 3
+      },
+      "properties": {
+        "Invalid": {
+          "type": "integer"
+        },
+        "None": {
+          "type": "integer"
+        },
+        "Sign": {
+          "type": "integer"
+        },
+        "SignAndEncrypt": {
+          "type": "integer"
+        }
+      }
+    },
+    "UserTokenType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+      "const": {
+        "Anonymous": 0,
+        "UserName": 1,
+        "Certificate": 2,
+        "IssuedToken": 3
+      },
+      "properties": {
+        "Anonymous": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "Certificate": {
+          "type": "integer"
+        },
+        "IssuedToken": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/EndpointUrl",
+    "/properties/IdentityTokenPolicy",
+    "/properties/SecurityMode",
+    "/properties/SecurityPolicyUri",
+    "/properties/Server",
+    "/properties/TransportProfileUri"
+  ],
+  "properties": {
+    "EndpointUrl": {
+      "type": "string",
+      "readOnly": true
+    },
+    "HistoricalEventFilter": {
+      "title": "EventFilter",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EventFilter",
+      "required": [
+        "SelectClauses",
+        "WhereClause"
+      ],
+      "properties": {
+        "SelectClauses": {
+          "type": "array",
+          "items": {
+            "title": "SimpleAttributeOperand",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SimpleAttributeOperand",
+            "required": [
+              "TypeDefinitionId",
+              "BrowsePath",
+              "AttributeId",
+              "IndexRange"
+            ],
+            "properties": {
+              "TypeDefinitionId": {
+                "type": "string"
+              },
+              "BrowsePath": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "AttributeId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "IndexRange": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "WhereClause": {
+          "title": "ContentFilter",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ContentFilter",
+          "required": [
+            "Elements"
+          ],
+          "properties": {
+            "Elements": {
+              "type": "array",
+              "items": {
+                "title": "ContentFilterElement",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.ContentFilterElement",
+                "required": [
+                  "FilterOperator",
+                  "FilterOperands"
+                ],
+                "properties": {
+                  "FilterOperator": {
+                    "title": "FilterOperator",
+                    "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "FilterOperands": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "IdentityTokenPolicy": {
+      "title": "UserTokenPolicy",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+      "required": [
+        "PolicyId",
+        "TokenType",
+        "IssuedTokenType",
+        "IssuerEndpointUrl",
+        "SecurityPolicyUri"
+      ],
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        },
+        "TokenType": {
+          "title": "UserTokenType",
+          "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "IssuedTokenType": {
+          "type": "string"
+        },
+        "IssuerEndpointUrl": {
+          "type": "string"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    },
+    "SecurityMode": {
+      "title": "MessageSecurityMode",
+      "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SecurityPolicyUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Server": {
+      "type": "string",
+      "readOnly": true
+    },
+    "TransportProfileUri": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

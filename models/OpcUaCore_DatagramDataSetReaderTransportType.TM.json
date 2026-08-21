@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DatagramDataSetReaderTransportType",
+  "title": "OpcUaCore_DatagramDataSetReaderTransportType",
+  "dov:typeRef": "org.opcfoundation.UA.DatagramDataSetReaderTransportType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetReaderTransportType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Address",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NetworkAddressType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DatagramQos",
+    "/properties/QosCategory",
+    "/properties/Topic"
+  ],
+  "properties": {
+    "DatagramQos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "QosCategory": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Topic": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

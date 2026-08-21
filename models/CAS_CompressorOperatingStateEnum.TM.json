@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_CompressorOperatingStateEnum",
+  "title": "CAS_CompressorOperatingStateEnum",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorOperatingStateEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "CompressorOperatingStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorOperatingStateEnum",
+      "const": {
+        "Other": 0,
+        "Stopped": 1,
+        "Starting": 2,
+        "Stopping": 3,
+        "Unloaded": 4,
+        "Loading": 5,
+        "Unloading": 6,
+        "Loaded": 7
+      },
+      "properties": {
+        "Other": {
+          "description": "The compressor is in a state not specified by this enumeration.",
+          "type": "integer"
+        },
+        "Stopped": {
+          "description": "The motor is not running.",
+          "type": "integer"
+        },
+        "Starting": {
+          "description": "Transition phase to end in Unloaded state.",
+          "type": "integer"
+        },
+        "Stopping": {
+          "description": "Transition phase to end in Stopped state.",
+          "type": "integer"
+        },
+        "Unloaded": {
+          "description": "The motor is running but the compressor does not deliver compressed air to the airnet.",
+          "type": "integer"
+        },
+        "Loading": {
+          "description": "Transition phase to end in Loaded state.",
+          "type": "integer"
+        },
+        "Unloading": {
+          "description": "Transition phase to end in Unloaded state.",
+          "type": "integer"
+        },
+        "Loaded": {
+          "description": "The compressor does deliver compressed air to the airnet.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

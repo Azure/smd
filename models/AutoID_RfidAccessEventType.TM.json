@@ -1,0 +1,179 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_RfidAccessEventType",
+  "title": "AutoID_RfidAccessEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidAccessEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/AutoID/#AutoID_AutoIdAccessEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "AccessResult": {
+      "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
+      "description": "Result values of the access.",
+      "type": "array",
+      "items": {
+        "title": "RfidAccessResult",
+        "description": "Additional result values of an Rfid Transponder access.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidAccessResult",
+        "properties": {
+          "CodeType": {
+            "description": "Defines the format of Identifier as string.",
+            "type": "string"
+          },
+          "Identifier": {
+            "title": "ScanData",
+            "description": "The AutoID Identifier (e.g. a code or a transponder) which was accessed by a command.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+            "properties": {
+              "ByteString": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "String": {
+                "type": "string"
+              },
+              "Epc": {
+                "title": "ScanDataEpc",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanDataEpc",
+                "required": [
+                  "PC",
+                  "UId",
+                  "XPC_W1",
+                  "XPC_W2"
+                ],
+                "properties": {
+                  "PC": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "UId": {
+                    "type": "string",
+                    "contentEncoding": "base64"
+                  },
+                  "XPC_W1": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "XPC_W2": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  }
+                }
+              },
+              "Custom": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          },
+          "Timestamp": {
+            "description": "The point of time the AutoID Identifier was accessed by the command.",
+            "type": "string",
+            "format": "time"
+          },
+          "CodeTypeRWData": {
+            "description": "Defines the format of RWData as string.",
+            "type": "string"
+          },
+          "RWData": {
+            "title": "ScanData",
+            "description": "The user data which was written to / was read from the Rfid Transponder by the command.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+            "properties": {
+              "ByteString": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "String": {
+                "type": "string"
+              },
+              "Epc": {
+                "title": "ScanDataEpc",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanDataEpc",
+                "required": [
+                  "PC",
+                  "UId",
+                  "XPC_W1",
+                  "XPC_W2"
+                ],
+                "properties": {
+                  "PC": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "UId": {
+                    "type": "string",
+                    "contentEncoding": "base64"
+                  },
+                  "XPC_W1": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "XPC_W2": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  }
+                }
+              },
+              "Custom": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          },
+          "Antenna": {
+            "description": "The antenna by which the transponder was accessed by the command.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "CurrentPowerLevel": {
+            "description": "The power level with which the transponder was accessed by the command.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "PC": {
+            "description": "The Protocol Control Word of the transponder accessed by the command.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Polarization": {
+            "description": "The polarization with which the last transponder was accessed by the command.",
+            "type": "string"
+          },
+          "Strength": {
+            "description": "The Rssi value with which the transponder was accessed by the command.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_WetSeparatorType",
+  "title": "PAEFS_WetSeparatorType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.WetSeparatorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SeparatorType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/WashingAgentDrainMalfunction",
+    "/properties/WashingAgentDrainOpen",
+    "/properties/WashingAgentInflowMalfunction",
+    "/properties/WashingAgentInflowOpen"
+  ],
+  "properties": {
+    "WashingAgentDrainMalfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates whether there is an error with the washing agent drain. True in case of error. Examples: clogging, burst pipe, defective valve.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WashingAgentDrainOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the washing agent drain valve is open.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WashingAgentInflowMalfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates whether there is an error with the washing agent inflow. True in case of error. Examples: clogging, burst pipe, defective valve.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "WashingAgentInflowOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the washing agent inflow valve is open.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

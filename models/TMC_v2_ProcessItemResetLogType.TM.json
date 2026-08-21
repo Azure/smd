@@ -1,0 +1,141 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProcessItemResetLogType",
+  "title": "TMC_v2_ProcessItemResetLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProcessItemResetLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "AggregationWindow": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "Tthe number of samples over which the aggregates are computed.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Avg": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The average of valid values over the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "LastResetTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The time (in UTC) when ResetAggregates was last successfully executed.",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Max": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The maximum valid value for the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Min": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The minimum valid value for the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SamplingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The accumulated total of the valid value for the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Std": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The standard deviation of the valid value for the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Total": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The accumulated total of the valid value for the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Avg": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The average of valid values over the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Max": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The maximum valid value for the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Min": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The minimum valid value for the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SamplingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The accumulated total of the valid value for the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Std": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The standard deviation of the valid value for the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Total": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The accumulated total of the valid value for the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

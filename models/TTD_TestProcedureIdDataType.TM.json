@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_TestProcedureIdDataType",
+  "title": "TTD_TestProcedureIdDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.TestProcedureIdDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TestProcedureIdDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.TestProcedureIdDataType",
+      "required": [
+        "TestProcedureId"
+      ],
+      "properties": {
+        "TestProcedureId": {
+          "description": "The available test procedures are stored on the testing device and referenced by name (TestProcedureId).",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Description of the test procedure.",
+          "type": "string"
+        },
+        "ProcedureReferences": {
+          "description": "An array of references to standards.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "IsProcedureLicensed": {
+          "description": "Flag to define the availability on the server.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

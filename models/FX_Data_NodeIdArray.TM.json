@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_NodeIdArray",
+  "title": "FX_Data_NodeIdArray",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+  "links": [],
+  "schemaDefinitions": {
+    "NodeIdArray": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+      "required": [
+        "Node",
+        "ArrayIndex"
+      ],
+      "properties": {
+        "Node": {
+          "type": "string"
+        },
+        "ArrayIndex": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  }
+}

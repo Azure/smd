@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DiagnosisEndEventType",
+  "title": "PlasticsRubber_GeneralTypes_DiagnosisEndEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.DiagnosisEndEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DiagnosticsStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.DiagnosticsStatusEnumeration",
+      "const": {
+        "OFF": 0,
+        "ACTIVE_OK": 1,
+        "ACTIVE_ERROR_DETECTED": 2,
+        "COMPLETE": 3,
+        "COMPLETE_ERROR_DETECTED": 4
+      },
+      "properties": {
+        "OFF": {
+          "description": "Diagnostics inactive ",
+          "type": "integer"
+        },
+        "ACTIVE_OK": {
+          "description": "Diagnostics active ",
+          "type": "integer"
+        },
+        "ACTIVE_ERROR_DETECTED": {
+          "description": "Diagnostics active, at least one error detected",
+          "type": "integer"
+        },
+        "COMPLETE": {
+          "description": "Diagnostics completed successfully, result in variable “Result” available",
+          "type": "integer"
+        },
+        "COMPLETE_ERROR_DETECTED": {
+          "description": "Diagnostics completed detected some error",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Status"
+  ],
+  "properties": {
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "DiagnosticsStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.DiagnosticsStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

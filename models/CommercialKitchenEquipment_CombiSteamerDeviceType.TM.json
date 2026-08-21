@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CombiSteamerDeviceType",
+  "title": "CommercialKitchenEquipment_CombiSteamerDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CombiSteamerDeviceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CommercialKitchenDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CombiSteamer",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CombiSteamerParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EnergySourceEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.EnergySourceEnumeration",
+      "const": {
+        "Electric": 0,
+        "Gas": 1,
+        "Steam": 2
+      },
+      "properties": {
+        "Electric": {
+          "type": "integer"
+        },
+        "Gas": {
+          "type": "integer"
+        },
+        "Steam": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "EnergySource": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "EnergySourceEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.EnergySourceEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IsWithAutomaticCleaning": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsWithExternalCoreTempSensor": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsWithInternalCoreTempSensor": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsWithSousvideTempSensor": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

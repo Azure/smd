@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_SealingMaterialType",
+  "title": "Glass_Flat_SealingMaterialType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.SealingMaterialType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Hardener",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Resin",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AddOnMaterial",
+    "/properties/MixingRatio_EngineeringUnits",
+    "/events/AddOnMaterial"
+  ],
+  "properties": {
+    "AddOnMaterial": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "MixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MixingRatio_EngineeringUnits"
+    },
+    "MixingRatio_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MixingRatio, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AddOnMaterial": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+        "type": "string"
+      }
+    },
+    "MixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MixingRatio_EngineeringUnits"
+    }
+  }
+}

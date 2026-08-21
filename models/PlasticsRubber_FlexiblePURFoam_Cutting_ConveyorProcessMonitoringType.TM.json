@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_ConveyorProcessMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ConveyorProcessMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Drives",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DrivesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DirectionEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+      "const": {
+        "Forward": 0,
+        "Backward": 1,
+        "Sideward": 2
+      },
+      "description": "Provides information about the current transportation direction of the conveyor.",
+      "properties": {
+        "Forward": {
+          "description": "Transportation direction is forward.",
+          "type": "integer"
+        },
+        "Backward": {
+          "description": "Transportation direction is backward.",
+          "type": "integer"
+        },
+        "Sideward": {
+          "description": "Transportation direction is sideward.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Active": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Indicates if the conveyor is active.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides a user-defined textual description or identifier to distinguish and locate the conveyor within the machine or system.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Direction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "title": "DirectionEnumeration",
+      "description": "Provides information about the current transportation direction of the conveyor.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Speed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Linear speed in the direction of material flow. ",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Active": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Indicates if the conveyor is active.",
+        "type": "boolean"
+      }
+    },
+    "Direction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "title": "DirectionEnumeration",
+        "description": "Provides information about the current transportation direction of the conveyor.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.DirectionEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Speed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Linear speed in the direction of material flow. ",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

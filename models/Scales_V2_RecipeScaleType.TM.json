@@ -1,0 +1,244 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeScaleType",
+  "title": "Scales_V2_RecipeScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ScaleDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionPreset",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Recipes",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SupportedMaterial",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_MaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AbortRecipe",
+    "/actions/ContinueRecipe",
+    "/actions/SkipCurrentRecipeElement",
+    "/actions/StartRecipe",
+    "/actions/StopRecipe",
+    "/properties/SupportedTargetValues",
+    "/properties/SupportedThresholdValues",
+    "/events/SupportedTargetValues",
+    "/events/SupportedThresholdValues"
+  ],
+  "actions": {
+    "AbortRecipe": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeNodeId"
+        ],
+        "properties": {
+          "RecipeNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContinueRecipe": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeNodeId"
+        ],
+        "properties": {
+          "RecipeNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SkipCurrentRecipeElement": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeNodeId"
+        ],
+        "properties": {
+          "RecipeNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartRecipe": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeNodeId"
+        ],
+        "properties": {
+          "RecipeNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StopRecipe": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeNodeId"
+        ],
+        "properties": {
+          "RecipeNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "SupportedTargetValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a list of values that may be set via the recipe.",
+      "type": "array",
+      "items": {
+        "title": "RecipeTargetValueType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeTargetValueType",
+        "required": [
+          "TargetValueId",
+          "TargetValueName"
+        ],
+        "properties": {
+          "TargetValueId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "TargetValueNodeId": {
+            "type": "string"
+          },
+          "TargetValueName": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "SupportedThresholdValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a list of threshold values that may be used within one recipe.",
+      "type": "array",
+      "items": {
+        "title": "RecipeThresholdType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeThresholdType",
+        "required": [
+          "ThresholdId",
+          "ThresholdName"
+        ],
+        "properties": {
+          "ThresholdId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ThresholdNodeId": {
+            "type": "string"
+          },
+          "ThresholdName": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "SupportedTargetValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines a list of values that may be set via the recipe.",
+        "type": "array",
+        "items": {
+          "title": "RecipeTargetValueType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeTargetValueType",
+          "required": [
+            "TargetValueId",
+            "TargetValueName"
+          ],
+          "properties": {
+            "TargetValueId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "TargetValueNodeId": {
+              "type": "string"
+            },
+            "TargetValueName": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "SupportedThresholdValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines a list of threshold values that may be used within one recipe.",
+        "type": "array",
+        "items": {
+          "title": "RecipeThresholdType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeThresholdType",
+          "required": [
+            "ThresholdId",
+            "ThresholdName"
+          ],
+          "properties": {
+            "ThresholdId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "ThresholdNodeId": {
+              "type": "string"
+            },
+            "ThresholdName": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

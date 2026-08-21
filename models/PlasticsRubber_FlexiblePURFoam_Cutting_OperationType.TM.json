@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_OperationType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_OperationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.OperationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "JobInformation",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PeripheralDevices",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ProcessingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+      "const": {
+        "Manual": 0,
+        "SemiAutomatic": 1,
+        "Automatic": 2
+      },
+      "description": "Provides information about the current processing mode as addition to the MachineOperationMode state Processing.",
+      "properties": {
+        "Manual": {
+          "description": "Machine is in manual mode",
+          "type": "integer"
+        },
+        "SemiAutomatic": {
+          "description": "Machine is in semi-automatic mode",
+          "type": "integer"
+        },
+        "Automatic": {
+          "description": "Machine is in automatic mode",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ControlVoltageSwitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides information, if the control voltage switch is switched on or off. The drives can only be operated with active control voltage.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ProcessingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "title": "ProcessingModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ControlVoltageSwitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Provides information, if the control voltage switch is switched on or off. The drives can only be operated with active control voltage.",
+        "type": "boolean"
+      }
+    },
+    "ProcessingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "title": "ProcessingModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.ProcessingModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

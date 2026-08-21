@@ -1,0 +1,180 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_LldpPortInformationType",
+  "title": "OpcUaCore_LldpPortInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.LldpPortInformationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "RemoteSystemsData",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ManAddrIfSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+      "const": {
+        "None": 0,
+        "Unknown": 1,
+        "PortRef": 2,
+        "SystemPortNumber": 3
+      },
+      "properties": {
+        "None": {
+          "description": "Optional variable is not set.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Interface is not known.",
+          "type": "integer"
+        },
+        "PortRef": {
+          "description": "Interface based on the port-ref MIB object.",
+          "type": "integer"
+        },
+        "SystemPortNumber": {
+          "description": "Interface based on the system port number.",
+          "type": "integer"
+        }
+      }
+    },
+    "PortIdSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+      "const": {
+        "InterfaceAlias": 1,
+        "PortComponent": 2,
+        "MacAddress": 3,
+        "NetworkAddress": 4,
+        "InterfaceName": 5,
+        "AgentCircuitId": 6,
+        "Local": 7
+      },
+      "properties": {
+        "InterfaceAlias": {
+          "description": "Represents a port identifier based on the ifAlias MIB object defined in IETF RFC 2863.",
+          "type": "integer"
+        },
+        "PortComponent": {
+          "description": "Represents a port identifier based on the value of entPhysicalAlias (defined in IETF RFC 2737) for a port component (i.e., entPhysicalClass value of port(10) or backplane(4)), within the containing chassis.",
+          "type": "integer"
+        },
+        "MacAddress": {
+          "description": "Represents a port identifier based on a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) which has been detected by the agent and associated with a particular port (IEEE Std 802-2014).",
+          "type": "integer"
+        },
+        "NetworkAddress": {
+          "description": "Represents a port identifier based on a network address, detected by the agent and associated with a particular port.",
+          "type": "integer"
+        },
+        "InterfaceName": {
+          "description": "Represents a port identifier based on the ifName MIB object, defined in IETF RFC 2863.",
+          "type": "integer"
+        },
+        "AgentCircuitId": {
+          "description": "Represents a port identifier based on the agent-local identifier of the circuit (defined in IETF RFC 3046), detected by the agent and associated with a particular port.",
+          "type": "integer"
+        },
+        "Local": {
+          "description": "Represents a port identifier based on a value locally assigned.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ManagementAddressTxPort",
+    "/properties/PortDescription"
+  ],
+  "properties": {
+    "DestMacAddress": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    },
+    "IetfBaseNetworkInterfaceName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ManagementAddressTxPort": {
+      "type": "array",
+      "items": {
+        "title": "LldpManagementAddressTxPortType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.LldpManagementAddressTxPortType",
+        "required": [
+          "AddressSubtype",
+          "ManAddress",
+          "TxEnable",
+          "AddrLen",
+          "IfSubtype",
+          "IfId"
+        ],
+        "properties": {
+          "AddressSubtype": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ManAddress": {
+            "type": "string"
+          },
+          "TxEnable": {
+            "type": "boolean"
+          },
+          "AddrLen": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "IfSubtype": {
+            "title": "ManAddrIfSubtype",
+            "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "IfId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "PortDescription": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PortId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PortIdSubtype": {
+      "title": "PortIdSubtype",
+      "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

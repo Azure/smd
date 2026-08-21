@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_PnIoTelegramType",
+  "title": "PNRIO_PnIoTelegramType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.PnIoTelegramType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Nr_SignalName",
+      "href": "http://opcfoundation.org/UA/PNRIO/#PNRIO_PnIoSignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnIoTelegramStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.PnIoTelegramStatusEnumeration",
+      "const": {
+        "GOOD": 0,
+        "BAD_BY_SUBSLOT": 1,
+        "BAD_BY_SLOT": 2,
+        "BAD_BY_DEVICE": 3,
+        "BAD_BY_CONTROLLER": 4
+      },
+      "properties": {
+        "GOOD": {
+          "description": "For ConsumerStatus: The submodule’s IO data object could be successfully processed by the application process. For ProviderStatus: The content of the submodule’s IO data object is valid. ",
+          "type": "integer"
+        },
+        "BAD_BY_SUBSLOT": {
+          "description": "For ConsumerStatus: not used. For ProviderStatus: The content of the submodule’s IO data object is invalid. The condition was detected by the submodule. ",
+          "type": "integer"
+        },
+        "BAD_BY_SLOT": {
+          "description": "For ConsumerStatus: not used. For ProviderStatus: . The content of the submodule’s IO data object is invalid. The condition was detected by the module. ",
+          "type": "integer"
+        },
+        "BAD_BY_DEVICE": {
+          "description": "For ConsumerStatus: The IO device has locally detected problems to convey data. For ProviderStatus: The content of the submodule’s IO data object is invalid. The condition was detected by the device. ",
+          "type": "integer"
+        },
+        "BAD_BY_CONTROLLER": {
+          "description": "For ConsumerStatus: The submodule’s IO data object could not be successfully processed by the application of the Controller (e.g. because of the operation state “stop”). For ProviderStatus: The content of the submodule’s IO data object is invalid. The condition was only locally detected by the Controller. ",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ConsumerStatus",
+    "/properties/IoTelegramImage"
+  ],
+  "properties": {
+    "ConsumerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "title": "PnIoTelegramStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.PnIoTelegramStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IoTelegramImage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ProviderStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "title": "PnIoTelegramStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.PnIoTelegramStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

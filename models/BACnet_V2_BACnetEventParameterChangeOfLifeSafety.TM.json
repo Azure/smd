@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventParameterChangeOfLifeSafety",
+  "title": "BACnet_V2_BACnetEventParameterChangeOfLifeSafety",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfLifeSafety",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventParameterChangeOfLifeSafety": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfLifeSafety",
+      "required": [
+        "NewState",
+        "NewMode",
+        "OperationExtended"
+      ],
+      "properties": {
+        "NewState": {
+          "title": "BACnetLifeSafetyState",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyState",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "NewMode": {
+          "title": "BACnetLifeSafetyMode",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyMode",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "OperationExtended": {
+          "title": "BACnetLifeSafetyOperation",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyOperation",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

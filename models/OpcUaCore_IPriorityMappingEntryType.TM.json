@@ -1,0 +1,73 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IPriorityMappingEntryType",
+  "title": "OpcUaCore_IPriorityMappingEntryType",
+  "dov:typeRef": "org.opcfoundation.UA.IPriorityMappingEntryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/PriorityValue_DSCP",
+    "/properties/PriorityValue_PCP",
+    "/events/PriorityValue_DSCP",
+    "/events/PriorityValue_PCP"
+  ],
+  "properties": {
+    "MappingUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PriorityLabel": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PriorityValue_DSCP": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "PriorityValue_PCP": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MappingUri": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "PriorityLabel": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "PriorityValue_DSCP": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "PriorityValue_PCP": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      }
+    }
+  }
+}

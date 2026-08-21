@@ -1,0 +1,988 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DataSetReaderType",
+  "title": "OpcUaCore_DataSetReaderType",
+  "dov:typeRef": "org.opcfoundation.UA.DataSetReaderType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TransportSettings",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetReaderTransportType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MessageSettings",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetReaderMessageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Status",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubStatusType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubDiagnosticsDataSetReaderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "SubscribedDataSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SubscribedDataSetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ApplicationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "const": {
+        "Server": 0,
+        "Client": 1,
+        "ClientAndServer": 2,
+        "DiscoveryServer": 3
+      },
+      "properties": {
+        "Server": {
+          "type": "integer"
+        },
+        "Client": {
+          "type": "integer"
+        },
+        "ClientAndServer": {
+          "type": "integer"
+        },
+        "DiscoveryServer": {
+          "type": "integer"
+        }
+      }
+    },
+    "DataSetFieldContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+      "const": {
+        "StatusCode": 0,
+        "SourceTimestamp": 1,
+        "ServerTimestamp": 2,
+        "SourcePicoSeconds": 3,
+        "ServerPicoSeconds": 4,
+        "RawData": 5
+      },
+      "properties": {
+        "StatusCode": {
+          "type": "integer"
+        },
+        "SourceTimestamp": {
+          "type": "integer"
+        },
+        "ServerTimestamp": {
+          "type": "integer"
+        },
+        "SourcePicoSeconds": {
+          "type": "integer"
+        },
+        "ServerPicoSeconds": {
+          "type": "integer"
+        },
+        "RawData": {
+          "type": "integer"
+        }
+      }
+    },
+    "DataSetFieldFlags": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+      "const": {
+        "PromotedField": 0
+      },
+      "properties": {
+        "PromotedField": {
+          "type": "integer"
+        }
+      }
+    },
+    "MessageSecurityMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+      "const": {
+        "Invalid": 0,
+        "None": 1,
+        "Sign": 2,
+        "SignAndEncrypt": 3
+      },
+      "properties": {
+        "Invalid": {
+          "type": "integer"
+        },
+        "None": {
+          "type": "integer"
+        },
+        "Sign": {
+          "type": "integer"
+        },
+        "SignAndEncrypt": {
+          "type": "integer"
+        }
+      }
+    },
+    "OverrideValueHandling": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OverrideValueHandling",
+      "const": {
+        "Disabled": 0,
+        "LastUsableValue": 1,
+        "OverrideValue": 2
+      },
+      "properties": {
+        "Disabled": {
+          "type": "integer"
+        },
+        "LastUsableValue": {
+          "type": "integer"
+        },
+        "OverrideValue": {
+          "type": "integer"
+        }
+      }
+    },
+    "PermissionType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+      "const": {
+        "Browse": 0,
+        "ReadRolePermissions": 1,
+        "WriteAttribute": 2,
+        "WriteRolePermissions": 3,
+        "WriteHistorizing": 4,
+        "Read": 5,
+        "Write": 6,
+        "ReadHistory": 7,
+        "InsertHistory": 8,
+        "ModifyHistory": 9,
+        "DeleteHistory": 10,
+        "ReceiveEvents": 11,
+        "Call": 12,
+        "AddReference": 13,
+        "RemoveReference": 14,
+        "DeleteNode": 15,
+        "AddNode": 16
+      },
+      "properties": {
+        "Browse": {
+          "type": "integer"
+        },
+        "ReadRolePermissions": {
+          "type": "integer"
+        },
+        "WriteAttribute": {
+          "type": "integer"
+        },
+        "WriteRolePermissions": {
+          "type": "integer"
+        },
+        "WriteHistorizing": {
+          "type": "integer"
+        },
+        "Read": {
+          "type": "integer"
+        },
+        "Write": {
+          "type": "integer"
+        },
+        "ReadHistory": {
+          "type": "integer"
+        },
+        "InsertHistory": {
+          "type": "integer"
+        },
+        "ModifyHistory": {
+          "type": "integer"
+        },
+        "DeleteHistory": {
+          "type": "integer"
+        },
+        "ReceiveEvents": {
+          "type": "integer"
+        },
+        "Call": {
+          "type": "integer"
+        },
+        "AddReference": {
+          "type": "integer"
+        },
+        "RemoveReference": {
+          "type": "integer"
+        },
+        "DeleteNode": {
+          "type": "integer"
+        },
+        "AddNode": {
+          "type": "integer"
+        }
+      }
+    },
+    "StructureType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.StructureType",
+      "const": {
+        "Structure": 0,
+        "StructureWithOptionalFields": 1,
+        "Union": 2,
+        "StructureWithSubtypedValues": 3,
+        "UnionWithSubtypedValues": 4
+      },
+      "properties": {
+        "Structure": {
+          "type": "integer"
+        },
+        "StructureWithOptionalFields": {
+          "type": "integer"
+        },
+        "Union": {
+          "type": "integer"
+        },
+        "StructureWithSubtypedValues": {
+          "type": "integer"
+        },
+        "UnionWithSubtypedValues": {
+          "type": "integer"
+        }
+      }
+    },
+    "UserTokenType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+      "const": {
+        "Anonymous": 0,
+        "UserName": 1,
+        "Certificate": 2,
+        "IssuedToken": 3
+      },
+      "properties": {
+        "Anonymous": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "Certificate": {
+          "type": "integer"
+        },
+        "IssuedToken": {
+          "type": "integer"
+        }
+      }
+    },
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/CreateDataSetMirror",
+    "/actions/CreateTargetVariables",
+    "/properties/SecurityGroupId",
+    "/properties/SecurityKeyServices",
+    "/properties/SecurityMode"
+  ],
+  "actions": {
+    "CreateDataSetMirror": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ParentNodeName",
+          "RolePermissions"
+        ],
+        "properties": {
+          "ParentNodeName": {
+            "type": "string"
+          },
+          "RolePermissions": {
+            "type": "array",
+            "items": {
+              "title": "RolePermissionType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.RolePermissionType",
+              "required": [
+                "RoleId",
+                "Permissions"
+              ],
+              "properties": {
+                "RoleId": {
+                  "type": "string"
+                },
+                "Permissions": {
+                  "title": "PermissionType",
+                  "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ParentNodeId"
+        ],
+        "properties": {
+          "ParentNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CreateTargetVariables": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ConfigurationVersion",
+          "TargetVariablesToAdd"
+        ],
+        "properties": {
+          "ConfigurationVersion": {
+            "title": "ConfigurationVersionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+            "required": [
+              "MajorVersion",
+              "MinorVersion"
+            ],
+            "properties": {
+              "MajorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "MinorVersion": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "TargetVariablesToAdd": {
+            "type": "array",
+            "items": {
+              "title": "FieldTargetDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FieldTargetDataType",
+              "required": [
+                "DataSetFieldId",
+                "ReceiverIndexRange",
+                "TargetNodeId",
+                "AttributeId",
+                "WriteIndexRange",
+                "OverrideValueHandling",
+                "OverrideValue"
+              ],
+              "properties": {
+                "DataSetFieldId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "ReceiverIndexRange": {
+                  "type": "string"
+                },
+                "TargetNodeId": {
+                  "type": "string"
+                },
+                "AttributeId": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "WriteIndexRange": {
+                  "type": "string"
+                },
+                "OverrideValueHandling": {
+                  "title": "OverrideValueHandling",
+                  "dov:typeRef": "org.opcfoundation.UA.OverrideValueHandling",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "OverrideValue": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AddResults"
+        ],
+        "properties": {
+          "AddResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DataSetFieldContentMask": {
+      "title": "DataSetFieldContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DataSetMetaData": {
+      "title": "DataSetMetaDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetMetaDataType",
+      "required": [
+        "Namespaces",
+        "StructureDataTypes",
+        "EnumDataTypes",
+        "SimpleDataTypes",
+        "Name",
+        "Description",
+        "Fields",
+        "DataSetClassId",
+        "ConfigurationVersion"
+      ],
+      "properties": {
+        "Namespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "StructureDataTypes": {
+          "type": "array",
+          "items": {
+            "title": "StructureDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.StructureDescription",
+            "required": [
+              "DataTypeId",
+              "Name",
+              "StructureDefinition"
+            ],
+            "properties": {
+              "DataTypeId": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "StructureDefinition": {
+                "title": "StructureDefinition",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.StructureDefinition",
+                "required": [
+                  "DefaultEncodingId",
+                  "BaseDataType",
+                  "StructureType",
+                  "Fields"
+                ],
+                "properties": {
+                  "DefaultEncodingId": {
+                    "type": "string"
+                  },
+                  "BaseDataType": {
+                    "type": "string"
+                  },
+                  "StructureType": {
+                    "title": "StructureType",
+                    "dov:typeRef": "org.opcfoundation.UA.StructureType",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "Fields": {
+                    "type": "array",
+                    "items": {
+                      "title": "StructureField",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.StructureField",
+                      "required": [
+                        "Name",
+                        "Description",
+                        "DataType",
+                        "ValueRank",
+                        "ArrayDimensions",
+                        "MaxStringLength",
+                        "IsOptional"
+                      ],
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        },
+                        "DataType": {
+                          "type": "string"
+                        },
+                        "ValueRank": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "ArrayDimensions": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 4294967295
+                          }
+                        },
+                        "MaxStringLength": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 4294967295
+                        },
+                        "IsOptional": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EnumDataTypes": {
+          "type": "array",
+          "items": {
+            "title": "EnumDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EnumDescription",
+            "required": [
+              "DataTypeId",
+              "Name",
+              "EnumDefinition",
+              "BuiltInType"
+            ],
+            "properties": {
+              "DataTypeId": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "EnumDefinition": {
+                "title": "EnumDefinition",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EnumDefinition",
+                "required": [
+                  "Fields"
+                ],
+                "properties": {
+                  "Fields": {
+                    "type": "array",
+                    "items": {
+                      "title": "EnumField",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EnumField",
+                      "required": [
+                        "Value",
+                        "DisplayName",
+                        "Description",
+                        "Name"
+                      ],
+                      "properties": {
+                        "Value": {
+                          "type": "integer",
+                          "minimum": -9223372036854775808,
+                          "maximum": 9223372036854775807
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        },
+                        "Name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "BuiltInType": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              }
+            }
+          }
+        },
+        "SimpleDataTypes": {
+          "type": "array",
+          "items": {
+            "title": "SimpleTypeDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SimpleTypeDescription",
+            "required": [
+              "DataTypeId",
+              "Name",
+              "BaseDataType",
+              "BuiltInType"
+            ],
+            "properties": {
+              "DataTypeId": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "BaseDataType": {
+                "type": "string"
+              },
+              "BuiltInType": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              }
+            }
+          }
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Fields": {
+          "type": "array",
+          "items": {
+            "title": "FieldMetaData",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FieldMetaData",
+            "required": [
+              "Name",
+              "Description",
+              "FieldFlags",
+              "BuiltInType",
+              "DataType",
+              "ValueRank",
+              "ArrayDimensions",
+              "MaxStringLength",
+              "DataSetFieldId",
+              "Properties"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              },
+              "FieldFlags": {
+                "title": "DataSetFieldFlags",
+                "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "BuiltInType": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "DataType": {
+                "type": "string"
+              },
+              "ValueRank": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ArrayDimensions": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "MaxStringLength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "DataSetFieldId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "Properties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "DataSetClassId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "ConfigurationVersion": {
+          "title": "ConfigurationVersionDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ConfigurationVersionDataType",
+          "required": [
+            "MajorVersion",
+            "MinorVersion"
+          ],
+          "properties": {
+            "MajorVersion": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "MinorVersion": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DataSetReaderProperties": {
+      "type": "array",
+      "items": {
+        "title": "KeyValuePair",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+        "required": [
+          "Key",
+          "Value"
+        ],
+        "properties": {
+          "Key": {
+            "type": "string"
+          },
+          "Value": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DataSetWriterId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "HeaderLayoutUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "KeyFrameCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MessageReceiveTimeout": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PublisherId": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    },
+    "SecurityGroupId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "SecurityKeyServices": {
+      "type": "array",
+      "items": {
+        "title": "EndpointDescription",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.EndpointDescription",
+        "required": [
+          "EndpointUrl",
+          "Server",
+          "ServerCertificate",
+          "SecurityMode",
+          "SecurityPolicyUri",
+          "UserIdentityTokens",
+          "TransportProfileUri",
+          "SecurityLevel"
+        ],
+        "properties": {
+          "EndpointUrl": {
+            "type": "string"
+          },
+          "Server": {
+            "title": "ApplicationDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ApplicationDescription",
+            "required": [
+              "ApplicationUri",
+              "ProductUri",
+              "ApplicationName",
+              "ApplicationType",
+              "GatewayServerUri",
+              "DiscoveryProfileUri",
+              "DiscoveryUrls"
+            ],
+            "properties": {
+              "ApplicationUri": {
+                "type": "string"
+              },
+              "ProductUri": {
+                "type": "string"
+              },
+              "ApplicationName": {
+                "type": "string"
+              },
+              "ApplicationType": {
+                "title": "ApplicationType",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "GatewayServerUri": {
+                "type": "string"
+              },
+              "DiscoveryProfileUri": {
+                "type": "string"
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ServerCertificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "SecurityMode": {
+            "title": "MessageSecurityMode",
+            "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "UserIdentityTokens": {
+            "type": "array",
+            "items": {
+              "title": "UserTokenPolicy",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+              "required": [
+                "PolicyId",
+                "TokenType",
+                "IssuedTokenType",
+                "IssuerEndpointUrl",
+                "SecurityPolicyUri"
+              ],
+              "properties": {
+                "PolicyId": {
+                  "type": "string"
+                },
+                "TokenType": {
+                  "title": "UserTokenType",
+                  "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "IssuedTokenType": {
+                  "type": "string"
+                },
+                "IssuerEndpointUrl": {
+                  "type": "string"
+                },
+                "SecurityPolicyUri": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "TransportProfileUri": {
+            "type": "string"
+          },
+          "SecurityLevel": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SecurityMode": {
+      "title": "MessageSecurityMode",
+      "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "WriterGroupId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

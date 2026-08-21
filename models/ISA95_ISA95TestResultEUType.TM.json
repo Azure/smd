@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://www.opcfoundation.org/UA/2013/01/ISA95#ISA95_ISA95TestResultEUType",
+  "title": "ISA95_ISA95TestResultEUType",
+  "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95TestResultEUType",
+  "links": [],
+  "schemaDefinitions": {
+    "ISA95TestResultEUType": {
+      "title": "ISA95TestResultMeasurementDataType",
+      "description": "",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.ISA95TestResultEUType",
+      "required": [
+        "Id",
+        "TestResultDescription",
+        "Date",
+        "Result",
+        "ResultUnitOfMeasure",
+        "Expiration"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "TestResultDescription": {
+          "type": "string"
+        },
+        "Date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Result": {
+          "description": "Stand-in for an unspecified data type.",
+          "type": "string"
+        },
+        "ResultUnitOfMeasure": {
+          "title": "EUInformation",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "Expiration": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

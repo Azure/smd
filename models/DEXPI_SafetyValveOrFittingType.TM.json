@@ -1,0 +1,124 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_SafetyValveOrFittingType",
+  "title": "DEXPI_SafetyValveOrFittingType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.SafetyValveOrFittingType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PipingComponentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/FlowInPipingClassCodeAssignmentClass",
+    "/properties/FlowOutPipingClassCodeAssignmentClass",
+    "/properties/LocationRegistrationNumberAssignmentClass",
+    "/properties/PositionNumberAssignmentClass",
+    "/properties/SetPressureHigh",
+    "/properties/SetPressureLow",
+    "/events/FlowInPipingClassCodeAssignmentClass",
+    "/events/FlowOutPipingClassCodeAssignmentClass",
+    "/events/LocationRegistrationNumberAssignmentClass",
+    "/events/PositionNumberAssignmentClass",
+    "/events/SetPressureHigh",
+    "/events/SetPressureLow"
+  ],
+  "properties": {
+    "FlowInPipingClassCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The code of the piping class at the flow in side of SafetyValveOrFitting.",
+      "type": "string",
+      "readOnly": false
+    },
+    "FlowOutPipingClassCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The code of the piping class at the flow out side of SafetyValveOrFitting.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LocationRegistrationNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The location registration number of the SafetyValveOrFitting.",
+      "type": "string",
+      "readOnly": false
+    },
+    "PositionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The position number of the SafetyValveOrFitting.",
+      "type": "string",
+      "readOnly": false
+    },
+    "SetPressureHigh": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The high pressure at which the SafetyValveOrFitting is activated.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SetPressureLow": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The low pressure at which the SafetyValveOrFitting is activated.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "FlowInPipingClassCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The code of the piping class at the flow in side of SafetyValveOrFitting.",
+        "type": "string"
+      }
+    },
+    "FlowOutPipingClassCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The code of the piping class at the flow out side of SafetyValveOrFitting.",
+        "type": "string"
+      }
+    },
+    "LocationRegistrationNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The location registration number of the SafetyValveOrFitting.",
+        "type": "string"
+      }
+    },
+    "PositionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The position number of the SafetyValveOrFitting.",
+        "type": "string"
+      }
+    },
+    "SetPressureHigh": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The high pressure at which the SafetyValveOrFitting is activated.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetPressureLow": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The low pressure at which the SafetyValveOrFitting is activated.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_AcousticSignalType",
+  "title": "IA_AcousticSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.AcousticSignalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AudioSample",
+    "/events/AudioSample"
+  ],
+  "properties": {
+    "AudioSample": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Contains the audio data, e.g. for devices capable of audio playback.",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": false
+    },
+    "NumberInList": {
+      "description": "Enumerate the acoustic signals. Instances of StackElementAcousticType index into this number using the OperationMode Property.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AudioSample": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "description": "Contains the audio data, e.g. for devices capable of audio playback.",
+        "type": "string",
+        "contentEncoding": "base64"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioSignalTypeEnumeration",
+  "title": "PNRIO_RioSignalTypeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "RioSignalTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+      "const": {
+        "CURRENT_4_20_mA": 0,
+        "CURRENT_0_20_mA": 1,
+        "VOLTAGE_0_10_V": 2,
+        "VOLTAGE_10_10_V": 3,
+        "HART": 4,
+        "DIGITAL_0_24V": 5,
+        "NAMUR": 6,
+        "MANUFACTURER_SPECIFIC": 7
+      },
+      "properties": {
+        "CURRENT_4_20_mA": {
+          "description": "Current, 4 to 20 mA",
+          "type": "integer"
+        },
+        "CURRENT_0_20_mA": {
+          "description": "Current, 0 to 20 mA",
+          "type": "integer"
+        },
+        "VOLTAGE_0_10_V": {
+          "description": "Voltage, 0 to 10 V",
+          "type": "integer"
+        },
+        "VOLTAGE_10_10_V": {
+          "description": "Voltage, -10 to 10 V",
+          "type": "integer"
+        },
+        "HART": {
+          "description": "HART Communication (this includes 4 to 20 mA)",
+          "type": "integer"
+        },
+        "DIGITAL_0_24V": {
+          "description": "Digital, 0/24 V (discrete input or output only)",
+          "type": "integer"
+        },
+        "NAMUR": {
+          "description": "See NAMUR NE 107.",
+          "type": "integer"
+        },
+        "MANUFACTURER_SPECIFIC": {
+          "description": "None of the above.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

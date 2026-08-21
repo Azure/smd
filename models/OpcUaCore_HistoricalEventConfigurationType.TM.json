@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_HistoricalEventConfigurationType",
+  "title": "OpcUaCore_HistoricalEventConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.HistoricalEventConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "EventTypes",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SortByEventFields",
+    "/properties/StartOfArchive",
+    "/properties/StartOfOnlineArchive"
+  ],
+  "properties": {
+    "SortByEventFields": {
+      "type": "array",
+      "items": {
+        "title": "SimpleAttributeOperand",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SimpleAttributeOperand",
+        "required": [
+          "TypeDefinitionId",
+          "BrowsePath",
+          "AttributeId",
+          "IndexRange"
+        ],
+        "properties": {
+          "TypeDefinitionId": {
+            "type": "string"
+          },
+          "BrowsePath": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "AttributeId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "IndexRange": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "StartOfArchive": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "StartOfOnlineArchive": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    }
+  }
+}

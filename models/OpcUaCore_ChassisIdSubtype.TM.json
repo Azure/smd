@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ChassisIdSubtype",
+  "title": "OpcUaCore_ChassisIdSubtype",
+  "dov:typeRef": "org.opcfoundation.UA.ChassisIdSubtype",
+  "links": [],
+  "schemaDefinitions": {
+    "ChassisIdSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ChassisIdSubtype",
+      "const": {
+        "ChassisComponent": 1,
+        "InterfaceAlias": 2,
+        "PortComponent": 3,
+        "MacAddress": 4,
+        "NetworkAddress": 5,
+        "InterfaceName": 6,
+        "Local": 7
+      },
+      "properties": {
+        "ChassisComponent": {
+          "description": "Represents a chassis identifier based on the value of entPhysicalAlias object (defined in IETF RFC 2737) for a chassis component (i.e., an entPhysicalClass value of chassis(3))",
+          "type": "integer"
+        },
+        "InterfaceAlias": {
+          "description": "Represents a chassis identifier based on the value of ifAlias object (defined in IETF RFC 2863) for an interface on the containing chassis.",
+          "type": "integer"
+        },
+        "PortComponent": {
+          "description": "Represents a chassis identifier based on the value of entPhysicalAlias object (defined in IETF RFC 2737) for a port or backplane component (i.e., entPhysicalClass has a value of port(10), or backplane(4)), within the containing chassis.",
+          "type": "integer"
+        },
+        "MacAddress": {
+          "description": "Represents a chassis identifier based on the value of a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) of a port on the containing chassis as defined in IEEE Std 802-2014.",
+          "type": "integer"
+        },
+        "NetworkAddress": {
+          "description": "Represents a chassis identifier based on a network address associated with a particular chassis. The encoded address is actually composed of two fields. The first field is a single octet, representing the IANA AddressFamilyNumbers value for the specific address type, and the second field is the network address value.",
+          "type": "integer"
+        },
+        "InterfaceName": {
+          "description": "Represents a chassis identifier based on the value of ifName object (defined in IETF RFC 2863) for an interface on the containing chassis.",
+          "type": "integer"
+        },
+        "Local": {
+          "description": "Represents a chassis identifier based on a locally defined value.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

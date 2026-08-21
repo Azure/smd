@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LaserSystems/#LaserSystems_ActivityDataMonitoringType",
+  "title": "LaserSystems_ActivityDataMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.LaserSystems.ActivityDataMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ElementMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/Description",
+    "/properties/PreviousValue",
+    "/events/Description",
+    "/events/PreviousValue"
+  ],
+  "properties": {
+    "CurrentValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "NumberInList": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ParameterIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "type": "string",
+      "readOnly": true
+    },
+    "PreviousValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CurrentValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "PreviousValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/LaserSystems/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PDRV/#PDRV_DriveAxisType",
+  "title": "PDRV_DriveAxisType",
+  "dov:typeRef": "org.opcfoundation.UA.PDRV.DriveAxisType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Monitoring",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PNSignals",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Maintenance",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "LimitSupervision",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Logbook",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_LogbookType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CharacteristicsConverter",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Safety",
+      "href": "http://opcfoundation.org/UA/PDRV/#PDRV_SafetyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CharacteristicsMotorAndControl",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "VelocityProfile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AxisTypeVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PDRV.AxisTypeVariableType",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
+    }
+  },
+  "tm:optional": [
+    "/actions/SetApplicationTag",
+    "/properties/ApplicationTag"
+  ],
+  "actions": {
+    "SetApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationTag"
+        ],
+        "properties": {
+          "ApplicationTag": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "string",
+      "readOnly": true
+    },
+    "AxisType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "tm:ref": "#/schemaDefinitions/AxisTypeVariableType",
+      "readOnly": true
+    }
+  }
+}

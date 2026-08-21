@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SimpleTypeDescription",
+  "title": "OpcUaCore_SimpleTypeDescription",
+  "dov:typeRef": "org.opcfoundation.UA.SimpleTypeDescription",
+  "links": [],
+  "schemaDefinitions": {
+    "SimpleTypeDescription": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.SimpleTypeDescription",
+      "required": [
+        "DataTypeId",
+        "Name",
+        "BaseDataType",
+        "BuiltInType"
+      ],
+      "properties": {
+        "DataTypeId": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "BaseDataType": {
+          "type": "string"
+        },
+        "BuiltInType": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

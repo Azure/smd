@@ -1,0 +1,152 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTConditionType",
+  "title": "MTConnect_v2_MTConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTConditionType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Constraints",
+      "href": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTConstraintType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MTCategoryType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTCategoryType",
+      "const": {
+        "EVENT": 0,
+        "CONDITION": 1,
+        "SAMPLE": 2
+      },
+      "description": "Represents the \\gls{category} attribute of the MTConnect \\gls{MTDataItem}.",
+      "properties": {
+        "EVENT": {
+          "description": "           An event category is a data item representing a discrete piece of           information from the piece of equipment.          ",
+          "type": "integer"
+        },
+        "CONDITION": {
+          "description": "           A condition category is a data item that communicates information           about the health of a piece of equipment and its ability to function.          ",
+          "type": "integer"
+        },
+        "SAMPLE": {
+          "description": "           A sample category is the reading of the value of a continuously           variable or analog data value.         ",
+          "type": "integer"
+        }
+      }
+    },
+    "MTRepresentationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTRepresentationType",
+      "const": {
+        "DISCRETE": 0,
+        "TIME_SERIES": 1,
+        "VALUE": 2
+      },
+      "description": "       Represents the \\mtmodel{representation} attribute of the MTConnect       \\gls{MTDataItem}.     ",
+      "properties": {
+        "DISCRETE": {
+          "description": "           A data entity where each discrete occurrence of the data may have the           same value as the previous occurrence of the data.         ",
+          "type": "integer"
+        },
+        "TIME_SERIES": {
+          "description": "A series of sampled data. ",
+          "type": "integer"
+        },
+        "VALUE": {
+          "description": "The measured value of the sample data.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/MTSubTypeName",
+    "/properties/Name",
+    "/properties/PeriodFilter",
+    "/properties/Representation",
+    "/properties/SampleRate",
+    "/properties/SourceData"
+  ],
+  "properties": {
+    "Category": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "title": "MTCategoryType",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTCategoryType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MTSubTypeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "string",
+      "readOnly": true
+    },
+    "MTTypeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "string",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "string",
+      "readOnly": true
+    },
+    "PeriodFilter": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Representation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "title": "MTRepresentationType",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTRepresentationType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SampleRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SourceData": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "string",
+      "readOnly": true
+    },
+    "XmlId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The data item mixin will inject the properties and the methods into the       related classes. This facility is similar to the Ruby module mixin or the       Scala traits. data entity describing a piece of information reported about       a piece of equipment.     ",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

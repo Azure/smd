@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ProcessSignalGeneratingFunctionType",
+  "title": "DEXPI_ProcessSignalGeneratingFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ProcessSignalGeneratingFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProcessSignalGeneratingFunctionNumberAssignmentClass",
+    "/properties/SensorTypeAssignmentClass",
+    "/events/ProcessSignalGeneratingFunctionNumberAssignmentClass",
+    "/events/SensorTypeAssignmentClass"
+  ],
+  "properties": {
+    "ProcessSignalGeneratingFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "An identifier for the ProcessSignalGeneratingFunction. It usually contains the identifier of the ProcessInstrumentationFunction that includes the ProcessSignalGeneratingFunction (see ProcessInstrumentationFunctionNumberAssignmentClass).",
+      "type": "string",
+      "readOnly": false
+    },
+    "SensorTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The sensor type of the ProcessSignalGeneratingFunction.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ProcessSignalGeneratingFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "An identifier for the ProcessSignalGeneratingFunction. It usually contains the identifier of the ProcessInstrumentationFunction that includes the ProcessSignalGeneratingFunction (see ProcessInstrumentationFunctionNumberAssignmentClass).",
+        "type": "string"
+      }
+    },
+    "SensorTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The sensor type of the ProcessSignalGeneratingFunction.",
+        "type": "string"
+      }
+    }
+  }
+}

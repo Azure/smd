@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_XYArrayItemType",
+  "title": "OpcUaCore_XYArrayItemType",
+  "dov:typeRef": "org.opcfoundation.UA.XYArrayItemType",
+  "links": [],
+  "schemaDefinitions": {
+    "XYArrayItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.XYArrayItemType",
+      "type": "array",
+      "items": {
+        "title": "XVType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.XVType",
+        "required": [
+          "X",
+          "Value"
+        ],
+        "properties": {
+          "X": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Value": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      }
+    }
+  }
+}

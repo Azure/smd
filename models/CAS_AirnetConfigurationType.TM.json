@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_AirnetConfigurationType",
+  "title": "CAS_AirnetConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_ConfigurationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/OperatingModes",
+    "/events/OperatingModes"
+  ],
+  "properties": {
+    "OperatingModes": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Configured operating mode for an airnet in a compressed air system.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "OperatingProfiles": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Configured operating profile for an airnet in a compressed air system.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "OperatingModes": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Configured operating mode for an airnet in a compressed air system.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "OperatingProfiles": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Configured operating profile for an airnet in a compressed air system.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

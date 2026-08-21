@@ -1,0 +1,30 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_IAggregateStatisticsType",
+  "title": "IA_IAggregateStatisticsType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.IAggregateStatisticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/IA/#IA_IStatisticsType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ResetCondition"
+  ],
+  "properties": {
+    "ResetCondition": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "The reason and context for the reset of the statistics, which is done without a trigger from an OPC UA Client, like calling the ResetStatistics Method. ResetCondition is a vendor-specific, human readable string. ResetCondition is non-localized and might contain an expression that can be parsed by certain clients. Examples are: “AFTER 4 HOURS”, “AFTER 1000 ITEMS”, “OPERATOR”. “OPERATOR” means, that an operator resets the statistics on a local HMI.",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

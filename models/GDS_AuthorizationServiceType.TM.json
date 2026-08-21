@@ -1,0 +1,381 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GDS/#GDS_AuthorizationServiceType",
+  "title": "GDS_AuthorizationServiceType",
+  "dov:typeRef": "org.opcfoundation.UA.GDS.AuthorizationServiceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UserTokenType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+      "const": {
+        "Anonymous": 0,
+        "UserName": 1,
+        "Certificate": 2,
+        "IssuedToken": 3
+      },
+      "properties": {
+        "Anonymous": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "Certificate": {
+          "type": "integer"
+        },
+        "IssuedToken": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/FinishRequestToken",
+    "/actions/RefreshToken",
+    "/actions/RequestAccessToken",
+    "/actions/StartRequestToken",
+    "/properties/SupportedRoles",
+    "/properties/UserTokenPolicies"
+  ],
+  "actions": {
+    "FinishRequestToken": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RequestId",
+          "RequestedRoles",
+          "UserIdentityToken",
+          "UserTokenSignature"
+        ],
+        "properties": {
+          "RequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "RequestedRoles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "UserIdentityToken": {
+            "title": "UserIdentityToken",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UserIdentityToken",
+            "required": [
+              "PolicyId"
+            ],
+            "properties": {
+              "PolicyId": {
+                "type": "string"
+              }
+            }
+          },
+          "UserTokenSignature": {
+            "title": "SignatureData",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SignatureData",
+            "required": [
+              "Algorithm",
+              "Signature"
+            ],
+            "properties": {
+              "Algorithm": {
+                "type": "string"
+              },
+              "Signature": {
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AccessToken",
+          "AccessTokenExpiryTime",
+          "RefreshToken",
+          "RefreshTokenExpiryTime"
+        ],
+        "properties": {
+          "AccessToken": {
+            "type": "string"
+          },
+          "AccessTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "RefreshToken": {
+            "type": "string"
+          },
+          "RefreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "GetServiceDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ServiceUri",
+          "ServiceCertificate",
+          "UserTokenPolicies"
+        ],
+        "properties": {
+          "ServiceUri": {
+            "type": "string"
+          },
+          "ServiceCertificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "UserTokenPolicies": {
+            "type": "array",
+            "items": {
+              "title": "UserTokenPolicy",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+              "required": [
+                "PolicyId",
+                "TokenType",
+                "IssuedTokenType",
+                "IssuerEndpointUrl",
+                "SecurityPolicyUri"
+              ],
+              "properties": {
+                "PolicyId": {
+                  "type": "string"
+                },
+                "TokenType": {
+                  "title": "UserTokenType",
+                  "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "IssuedTokenType": {
+                  "type": "string"
+                },
+                "IssuerEndpointUrl": {
+                  "type": "string"
+                },
+                "SecurityPolicyUri": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "RefreshToken": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ResourceId",
+          "CurrentRefreshToken"
+        ],
+        "properties": {
+          "ResourceId": {
+            "type": "string"
+          },
+          "CurrentRefreshToken": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AccessToken",
+          "AccessTokenExpiryTime",
+          "NewRefreshToken",
+          "NewRefreshTokenExpiryTime"
+        ],
+        "properties": {
+          "AccessToken": {
+            "type": "string"
+          },
+          "AccessTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "NewRefreshToken": {
+            "type": "string"
+          },
+          "NewRefreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "RequestAccessToken": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "IdentityToken",
+          "ResourceId"
+        ],
+        "properties": {
+          "IdentityToken": {
+            "title": "UserIdentityToken",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UserIdentityToken",
+            "required": [
+              "PolicyId"
+            ],
+            "properties": {
+              "PolicyId": {
+                "type": "string"
+              }
+            }
+          },
+          "ResourceId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AccessToken"
+        ],
+        "properties": {
+          "AccessToken": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartRequestToken": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ResourceId",
+          "PolicyId",
+          "RequestorData"
+        ],
+        "properties": {
+          "ResourceId": {
+            "type": "string"
+          },
+          "PolicyId": {
+            "type": "string"
+          },
+          "RequestorData": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ServiceData",
+          "RequestId"
+        ],
+        "properties": {
+          "ServiceData": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "RequestId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ServiceCertificate": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "ServiceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SupportedRoles": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "UserTokenPolicies": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "type": "array",
+      "items": {
+        "title": "UserTokenPolicy",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+        "required": [
+          "PolicyId",
+          "TokenType",
+          "IssuedTokenType",
+          "IssuerEndpointUrl",
+          "SecurityPolicyUri"
+        ],
+        "properties": {
+          "PolicyId": {
+            "type": "string"
+          },
+          "TokenType": {
+            "title": "UserTokenType",
+            "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "IssuedTokenType": {
+            "type": "string"
+          },
+          "IssuerEndpointUrl": {
+            "type": "string"
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

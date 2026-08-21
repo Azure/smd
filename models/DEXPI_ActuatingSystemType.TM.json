@@ -1,0 +1,73 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ActuatingSystemType",
+  "title": "DEXPI_ActuatingSystemType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ActuatingSystemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<ControlledActuator>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ControlledActuatorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<ShutOffValveReference>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ShutOffValveReferenceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Positioner>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PositionerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActuatingSystemNumberAssignmentClass",
+    "/properties/TypicalInformationAssignmentClass",
+    "/events/ActuatingSystemNumberAssignmentClass",
+    "/events/TypicalInformationAssignmentClass"
+  ],
+  "properties": {
+    "ActuatingSystemNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The number of the ActuatingSystem",
+      "type": "string",
+      "readOnly": false
+    },
+    "TypicalInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Typical information about the ActuatingSystem.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActuatingSystemNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The number of the ActuatingSystem",
+        "type": "string"
+      }
+    },
+    "TypicalInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "Typical information about the ActuatingSystem.",
+        "type": "string"
+      }
+    }
+  }
+}

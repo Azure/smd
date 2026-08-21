@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_PortConnector",
+  "title": "AMLLibs_PortConnector",
+  "dov:typeRef": "org.opcfoundation.UA.PortConnector",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/AMLLibs/#AMLLibs_AutomationMLBaseInterface",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/ID",
+    "/properties/Version"
+  ],
+  "properties": {
+    "ID": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    },
+    "Version": {
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_FileDirectoryType",
+  "title": "OpcUaCore_FileDirectoryType",
+  "dov:typeRef": "org.opcfoundation.UA.FileDirectoryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "CreateDirectory": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "DirectoryName"
+        ],
+        "properties": {
+          "DirectoryName": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "DirectoryNodeId"
+        ],
+        "properties": {
+          "DirectoryNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CreateFile": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileName",
+          "RequestFileOpen"
+        ],
+        "properties": {
+          "FileName": {
+            "type": "string"
+          },
+          "RequestFileOpen": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FileNodeId",
+          "FileHandle"
+        ],
+        "properties": {
+          "FileNodeId": {
+            "type": "string"
+          },
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "DeleteFileSystemObject": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ObjectToDelete"
+        ],
+        "properties": {
+          "ObjectToDelete": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MoveOrCopy": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ObjectToMoveOrCopy",
+          "TargetDirectory",
+          "CreateCopy",
+          "NewName"
+        ],
+        "properties": {
+          "ObjectToMoveOrCopy": {
+            "type": "string"
+          },
+          "TargetDirectory": {
+            "type": "string"
+          },
+          "CreateCopy": {
+            "type": "boolean"
+          },
+          "NewName": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "NewNodeId"
+        ],
+        "properties": {
+          "NewNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

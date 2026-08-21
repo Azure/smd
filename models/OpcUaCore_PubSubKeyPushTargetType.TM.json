@@ -1,0 +1,181 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubKeyPushTargetType",
+  "title": "OpcUaCore_PubSubKeyPushTargetType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubKeyPushTargetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UserTokenType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+      "const": {
+        "Anonymous": 0,
+        "UserName": 1,
+        "Certificate": 2,
+        "IssuedToken": 3
+      },
+      "properties": {
+        "Anonymous": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "Certificate": {
+          "type": "integer"
+        },
+        "IssuedToken": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "ConnectSecurityGroups": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupIds"
+        ],
+        "properties": {
+          "SecurityGroupIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ConnectResults"
+        ],
+        "properties": {
+          "ConnectResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "DisconnectSecurityGroups": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupIds"
+        ],
+        "properties": {
+          "SecurityGroupIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "DisconnectResults"
+        ],
+        "properties": {
+          "DisconnectResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "TriggerKeyUpdate": {}
+  },
+  "properties": {
+    "ApplicationUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "EndpointUrl": {
+      "type": "string",
+      "readOnly": true
+    },
+    "LastPushErrorTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "LastPushExecutionTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "RequestedKeyCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "RetryInterval": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "SecurityPolicyUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "UserTokenType": {
+      "title": "UserTokenPolicy",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+      "required": [
+        "PolicyId",
+        "TokenType",
+        "IssuedTokenType",
+        "IssuerEndpointUrl",
+        "SecurityPolicyUri"
+      ],
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        },
+        "TokenType": {
+          "title": "UserTokenType",
+          "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "IssuedTokenType": {
+          "type": "string"
+        },
+        "IssuerEndpointUrl": {
+          "type": "string"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

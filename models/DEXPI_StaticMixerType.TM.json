@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_StaticMixerType",
+  "title": "DEXPI_StaticMixerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.StaticMixerType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_MixerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/UpperLimitAllowableDesignPressureDrop",
+    "/events/UpperLimitAllowableDesignPressureDrop"
+  ],
+  "properties": {
+    "UpperLimitAllowableDesignPressureDrop": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The maximum allowable design pressure drop of the StaticMixer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "UpperLimitAllowableDesignPressureDrop": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The maximum allowable design pressure drop of the StaticMixer.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

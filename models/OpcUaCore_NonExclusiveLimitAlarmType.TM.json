@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NonExclusiveLimitAlarmType",
+  "title": "OpcUaCore_NonExclusiveLimitAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.NonExclusiveLimitAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_LimitAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/HighHighState",
+    "/properties/HighState",
+    "/properties/LowLowState",
+    "/properties/LowState",
+    "/events/HighHighState",
+    "/events/HighState",
+    "/events/LowLowState",
+    "/events/LowState"
+  ],
+  "properties": {
+    "ActiveState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "HighHighState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "HighState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "LowLowState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "LowState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "HighHighState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "HighState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "LowLowState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "LowState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    }
+  }
+}

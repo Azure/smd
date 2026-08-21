@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnLinkStateEnumeration",
+  "title": "PROFINET_PnLinkStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnLinkStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnLinkStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnLinkStateEnumeration",
+      "const": {
+        "UP": 1,
+        "DOWN": 2,
+        "TESTING": 3,
+        "UNKNOWN": 4,
+        "DORMANT": 5,
+        "NOT_PRESENT": 6,
+        "LOWER_LAYER_DOWN": 7
+      },
+      "properties": {
+        "UP": {
+          "description": "Ready to pass packets",
+          "type": "integer"
+        },
+        "DOWN": {
+          "description": "No packets are passed",
+          "type": "integer"
+        },
+        "TESTING": {
+          "description": "In some test mode",
+          "type": "integer"
+        },
+        "UNKNOWN": {
+          "description": "Status cannot be determined",
+          "type": "integer"
+        },
+        "DORMANT": {
+          "description": "In pending state waiting  for some external event",
+          "type": "integer"
+        },
+        "NOT_PRESENT": {
+          "description": "Port not present",
+          "type": "integer"
+        },
+        "LOWER_LAYER_DOWN": {
+          "description": "Down due to lower layer",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

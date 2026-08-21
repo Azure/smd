@@ -1,0 +1,356 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_GeneralTechnicalPartSpecification",
+  "title": "WireHarness_VEC_GeneralTechnicalPartSpecification",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.GeneralTechnicalPartSpecification",
+  "links": [],
+  "schemaDefinitions": {
+    "GeneralTechnicalPartSpecification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.GeneralTechnicalPartSpecification",
+      "required": [
+        "id",
+        "Identification",
+        "SpecialPartType",
+        "DescribedPart",
+        "ColorInformation",
+        "BoundingBox"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SpecialPartType": {
+          "description": "<p>The specialPartType allows the specification of subclassifications for a PartOrUsageRelatedSpecification (e.g. different types of connector housings).</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DescribedPart": {
+          "description": "References the PartVersion(s) to which the information defined in this specification applies. Example: If the PartOrUsageRelatedSpecification is a GeneralTechnicalPartSpecifcation and it defines that the color is 'green' then all PartVersion referenced by this association are 'green'.",
+          "type": "array",
+          "items": {
+            "title": "PartVersion",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.PartVersion",
+            "required": [
+              "id",
+              "CompanyName",
+              "PartNumber"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "CompanyName": {
+                "description": "<p>Defines the publishing company of the ItemVersion. The companyName is part of the main identifier of an ItemVersion together with the corresponding number (partNumber or documentNumber) and version (partVersion or documentVersion).</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "PartNumber": {
+                "description": "<p>The partNumber is the major identifier of a PartVersion. The format is user defined and respectively company specific. For all VEC-documents a PartVersion-instance can be trusted to be identical if the combination of partNumber, partVersion and companyName is identical.</p>",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ColorInformation": {
+          "description": "<p>Specifies the color of the part.</p>",
+          "type": "array",
+          "items": {
+            "title": "ARGB32ColorType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+            "required": [
+              "Value",
+              "Name"
+            ],
+            "properties": {
+              "Value": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Name": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "BoundingBox": {
+          "description": "<p>Defines the bounding box of the part.</p>",
+          "type": "array",
+          "items": {
+            "title": "BoundingBox",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.BoundingBox",
+            "required": [
+              "id",
+              "X",
+              "Y",
+              "Z"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "X": {
+                "title": "NumericalValue",
+                "description": "<p>Defines the extent of the bounding box in the direction of x<i/>(length).</p>",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                "required": [
+                  "UnitComponent",
+                  "ValueComponent",
+                  "Tolerance"
+                ],
+                "properties": {
+                  "UnitComponent": {
+                    "title": "EUInformation",
+                    "description": "References the unit of the value.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                    "required": [
+                      "NamespaceUri",
+                      "UnitId",
+                      "DisplayName",
+                      "Description"
+                    ],
+                    "properties": {
+                      "NamespaceUri": {
+                        "type": "string"
+                      },
+                      "UnitId": {
+                        "type": "integer",
+                        "minimum": -2147483648,
+                        "maximum": 2147483647
+                      },
+                      "DisplayName": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ValueComponent": {
+                    "description": "<p>Specifies the value of the numerical value.</p>",
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Tolerance": {
+                    "description": "<p>Specifies the tolerance for the dimension.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "Tolerance",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                      "required": [
+                        "id",
+                        "LowerBoundary",
+                        "UpperBoundary"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "LowerBoundary": {
+                          "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "UpperBoundary": {
+                          "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Y": {
+                "title": "NumericalValue",
+                "description": "<p>Defines the extent of the bounding box in the direction of y<i/>(width).</p>",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                "required": [
+                  "UnitComponent",
+                  "ValueComponent",
+                  "Tolerance"
+                ],
+                "properties": {
+                  "UnitComponent": {
+                    "title": "EUInformation",
+                    "description": "References the unit of the value.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                    "required": [
+                      "NamespaceUri",
+                      "UnitId",
+                      "DisplayName",
+                      "Description"
+                    ],
+                    "properties": {
+                      "NamespaceUri": {
+                        "type": "string"
+                      },
+                      "UnitId": {
+                        "type": "integer",
+                        "minimum": -2147483648,
+                        "maximum": 2147483647
+                      },
+                      "DisplayName": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ValueComponent": {
+                    "description": "<p>Specifies the value of the numerical value.</p>",
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Tolerance": {
+                    "description": "<p>Specifies the tolerance for the dimension.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "Tolerance",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                      "required": [
+                        "id",
+                        "LowerBoundary",
+                        "UpperBoundary"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "LowerBoundary": {
+                          "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "UpperBoundary": {
+                          "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Z": {
+                "title": "NumericalValue",
+                "description": "<p>Defines the extent of the bounding box in the direction of<i>z</i>(height).</p>",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                "required": [
+                  "UnitComponent",
+                  "ValueComponent",
+                  "Tolerance"
+                ],
+                "properties": {
+                  "UnitComponent": {
+                    "title": "EUInformation",
+                    "description": "References the unit of the value.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                    "required": [
+                      "NamespaceUri",
+                      "UnitId",
+                      "DisplayName",
+                      "Description"
+                    ],
+                    "properties": {
+                      "NamespaceUri": {
+                        "type": "string"
+                      },
+                      "UnitId": {
+                        "type": "integer",
+                        "minimum": -2147483648,
+                        "maximum": 2147483647
+                      },
+                      "DisplayName": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ValueComponent": {
+                    "description": "<p>Specifies the value of the numerical value.</p>",
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Tolerance": {
+                    "description": "<p>Specifies the tolerance for the dimension.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "Tolerance",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                      "required": [
+                        "id",
+                        "LowerBoundary",
+                        "UpperBoundary"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "LowerBoundary": {
+                          "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "UpperBoundary": {
+                          "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

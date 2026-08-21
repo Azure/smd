@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ShutOffValveReferenceType",
+  "title": "DEXPI_ShutOffValveReferenceType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ShutOffValveReferenceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SubTagNameAssignmentClass",
+    "/events/SubTagNameAssignmentClass"
+  ],
+  "properties": {
+    "SubTagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The sub tag name of the ShutOffValveReference.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "SubTagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The sub tag name of the ShutOffValveReference.",
+        "type": "string"
+      }
+    }
+  }
+}

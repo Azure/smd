@@ -1,0 +1,126 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProcessControlItemType",
+  "title": "TMC_v2_ProcessControlItemType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProcessControlItemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProcessItemType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "SetRemoteControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The SetRemoteControl Method enables or disables the remote control mode.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Enable"
+        ],
+        "properties": {
+          "Enable": {
+            "description": "The flag enables (True) or disables (False) the remote control mode.",
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "OperatorControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The OperatorControl variable qualifies the source of the ProcessControlItem Value when RemoteControl is False, otherwise OperatorControl is undefined. When OperatorControl is True, the underlying system exposes the information that the ProcessControlItem Value is modified by the operator with respect to the nominal value, e.g. NominalRate, a.k.a. design speed for a speed control loop. When OperatorControl is False, the underlying system exposes the information that the ProcessControlItem Value is not modified by the operator.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RemoteControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The RemoteControl variable lets the underlying system expose which system is currently in control of the ProcessControlItem. More specifically, if RemoteControl is True, the underlying system copies the RemoteValue to the ProcesControlItem Value to drive it, i.e. the ProcessControlItem is remotely controlled. If RemoteControl is False, the underlying system is not using RemoteValue to drive the ProcessControlItem, but another value that is exposed as the ProcessControlItem Value, i.e. the ProcessControlItem is locally controlled. A client requests (resp. releases) control of the ProcessControlItem by setting RemoteControl to True (resp. False) preferably by invoking the SetRemoteControl Method. If the client does not support methods, then the client sets RemoteControl to True. The underlying system will reset RemoteControl to False if remote control is not activated.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "RemoteControlEnable": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The RemoteControlEnable variable exposes when the underlying system is ready to activate the RemoteControl upon a request by a client. When RemoteControlEnable is False, the underlying system is not ready and will not activate a request to remotely control the ProcessControlItem.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RemoteValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The value set by the client to override the object value.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "RemoteValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The value set by the client to override the object value.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

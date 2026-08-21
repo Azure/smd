@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_RoleSetType",
+  "title": "OpcUaCore_RoleSetType",
+  "dov:typeRef": "org.opcfoundation.UA.RoleSetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "RoleName_Placeholder",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_RoleType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "AddRole": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RoleName",
+          "NamespaceUri"
+        ],
+        "properties": {
+          "RoleName": {
+            "type": "string"
+          },
+          "NamespaceUri": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RoleNodeId"
+        ],
+        "properties": {
+          "RoleNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveRole": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RoleNodeId"
+        ],
+        "properties": {
+          "RoleNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

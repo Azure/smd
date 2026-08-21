@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_TransferResultDataDataType",
+  "title": "DI_TransferResultDataDataType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.TransferResultDataDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TransferResultDataDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.TransferResultDataDataType",
+      "required": [
+        "SequenceNumber",
+        "EndOfResults",
+        "ParameterDefs"
+      ],
+      "properties": {
+        "SequenceNumber": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EndOfResults": {
+          "type": "boolean"
+        },
+        "ParameterDefs": {
+          "type": "array",
+          "items": {
+            "title": "ParameterResultDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.DI.ParameterResultDataType",
+            "required": [
+              "NodePath",
+              "StatusCode",
+              "Diagnostics"
+            ],
+            "properties": {
+              "NodePath": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "StatusCode": {
+                "type": "string"
+              },
+              "Diagnostics": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

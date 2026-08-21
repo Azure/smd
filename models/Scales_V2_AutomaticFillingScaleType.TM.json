@@ -1,0 +1,86 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_AutomaticFillingScaleType",
+  "title": "Scales_V2_AutomaticFillingScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AutomaticFillingScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ScaleDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionPreset",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ToleranceState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ToleranceState",
+      "const": {
+        "In_0": 0,
+        "Under_1": 1,
+        "Over_2": 2,
+        "UnderOrOver_3": 3
+      },
+      "properties": {
+        "In_0": {
+          "type": "integer"
+        },
+        "Under_1": {
+          "type": "integer"
+        },
+        "Over_2": {
+          "type": "integer"
+        },
+        "UnderOrOver_3": {
+          "type": "integer"
+        }
+      }
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/Deviation",
+    "/properties/ToleranceState",
+    "/events/Deviation"
+  ],
+  "properties": {
+    "Deviation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "ToleranceState": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "title": "ToleranceState",
+      "description": "Describes the state of the tolerance deviation. The option under and over needs to be determined via TargetItemType information of TargetWeight.",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ToleranceState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Deviation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_DataSetChangeLogType",
+  "title": "TMC_v2_DataSetChangeLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetChangeLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "NewDataSetEntries": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The list of modified dataset entries.",
+      "type": "array",
+      "items": {
+        "title": "DataSetEntryType",
+        "description": "The DataSetEntryType structure contains the value of a single parameter, or data value.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetEntryType",
+        "required": [
+          "ID",
+          "Value"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the parameter value, or data value.",
+            "type": "string"
+          },
+          "Value": {
+            "description": "The value of the parameter.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "NewDataSetID": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The unique identifier for the dataset after the modification.",
+      "type": "string",
+      "readOnly": true
+    },
+    "OldDataSetEntries": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The list of dataset entries prior to the change.",
+      "type": "array",
+      "items": {
+        "title": "DataSetEntryType",
+        "description": "The DataSetEntryType structure contains the value of a single parameter, or data value.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetEntryType",
+        "required": [
+          "ID",
+          "Value"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the parameter value, or data value.",
+            "type": "string"
+          },
+          "Value": {
+            "description": "The value of the parameter.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "OldDataSetID": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The unique identifier for the dataset after the modification.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

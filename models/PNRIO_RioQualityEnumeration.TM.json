@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioQualityEnumeration",
+  "title": "PNRIO_RioQualityEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioQualityEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "RioQualityEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioQualityEnumeration",
+      "const": {
+        "GOOD": 0,
+        "UNCERTAIN": 1,
+        "BAD": 2,
+        "UNSPECIFIED": 255
+      },
+      "properties": {
+        "GOOD": {
+          "description": "Input: The Process Value can be used by the Controller. Output: The Signal was generated from the Process Value.",
+          "type": "integer"
+        },
+        "UNCERTAIN": {
+          "description": "An error condition could compromise the Process Value (Input) or the Signal (Output).",
+          "type": "integer"
+        },
+        "BAD": {
+          "description": "Input: The Process Value cannot be used by the Controller. Output: The Signal may not be generated from the Process Value.",
+          "type": "integer"
+        },
+        "UNSPECIFIED": {
+          "description": "No information about the status is given.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

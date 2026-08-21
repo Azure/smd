@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UserNameIdentityToken",
+  "title": "OpcUaCore_UserNameIdentityToken",
+  "dov:typeRef": "org.opcfoundation.UA.UserNameIdentityToken",
+  "links": [],
+  "schemaDefinitions": {
+    "UserNameIdentityToken": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserNameIdentityToken",
+      "required": [
+        "PolicyId",
+        "UserName",
+        "Password",
+        "EncryptionAlgorithm"
+      ],
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "EncryptionAlgorithm": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

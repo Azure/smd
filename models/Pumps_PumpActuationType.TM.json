@@ -1,0 +1,362 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_PumpActuationType",
+  "title": "Pumps_PumpActuationType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpActuationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_ActuationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CleanValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FlushValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "GasDilValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "InletValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "OutletValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PumpKick",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_PumpKickObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PumpStandByRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PurgeValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "VentValveRequest",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteOutputObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ControlModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+      "const": {
+        "ConstantPressureControl": 0,
+        "ConstantTemperatureControl": 1,
+        "DifferentialPressureControl": 2,
+        "ConstantDifferentialPressureControl": 3,
+        "VariableDifferentialPressureControl": 4,
+        "FlowDependentDifferentialPressureControl": 5,
+        "ReturnFlowTemperatureControl": 6,
+        "FlowTemperatureControl": 7,
+        "FlowRateControl": 8,
+        "SpeedControl": 9,
+        "Automatic": 10,
+        "Uncontrolled": 11
+      },
+      "description": "describes the possible control modes of the pump",
+      "properties": {
+        "ConstantPressureControl": {
+          "description": "Constant pressure control mode",
+          "type": "integer"
+        },
+        "ConstantTemperatureControl": {
+          "description": "Constant temperature control mode",
+          "type": "integer"
+        },
+        "DifferentialPressureControl": {
+          "description": "Differential pressure control mode",
+          "type": "integer"
+        },
+        "ConstantDifferentialPressureControl": {
+          "description": "Constant differential pressure control mode",
+          "type": "integer"
+        },
+        "VariableDifferentialPressureControl": {
+          "description": "Variable differential pressure control mode",
+          "type": "integer"
+        },
+        "FlowDependentDifferentialPressureControl": {
+          "description": "Flow-dependent differential pressure control mode",
+          "type": "integer"
+        },
+        "ReturnFlowTemperatureControl": {
+          "description": "Return flow temperature control mode",
+          "type": "integer"
+        },
+        "FlowTemperatureControl": {
+          "description": "Flow temperature control mode",
+          "type": "integer"
+        },
+        "FlowRateControl": {
+          "description": "Flow rate control mode",
+          "type": "integer"
+        },
+        "SpeedControl": {
+          "description": "Speed control mode",
+          "type": "integer"
+        },
+        "Automatic": {
+          "description": "Automatic control mode",
+          "type": "integer"
+        },
+        "Uncontrolled": {
+          "description": "None / uncontrolled mode",
+          "type": "integer"
+        }
+      }
+    },
+    "OperationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+      "const": {
+        "AutoControl": 0,
+        "ClosedLoopStandardPID": 1,
+        "Advanced": 2,
+        "StandBy": 3,
+        "OpenLoopMin": 4,
+        "OpenLoopValue": 5,
+        "OpenLoopMax": 6,
+        "ClosedLoopMin": 7,
+        "ClosedLoopMax": 8,
+        "Test": 9,
+        "Calibration": 10
+      },
+      "description": "describes the possible operation modes of the pump",
+      "properties": {
+        "AutoControl": {
+          "description": "standard control algorithm, not configurable",
+          "type": "integer"
+        },
+        "ClosedLoopStandardPID": {
+          "description": "pid algorithm, control parameters configurable in functional element ControlPID",
+          "type": "integer"
+        },
+        "Advanced": {
+          "description": "manufacturer specific control algorithm, control parameters configurable",
+          "type": "integer"
+        },
+        "StandBy": {
+          "description": "ready for operation ",
+          "type": "integer"
+        },
+        "OpenLoopMin": {
+          "description": "open loop operation at minimum characteristic",
+          "type": "integer"
+        },
+        "OpenLoopValue": {
+          "description": "open loop operation at set point value",
+          "type": "integer"
+        },
+        "OpenLoopMax": {
+          "description": "open loop operation at maximum characteristic",
+          "type": "integer"
+        },
+        "ClosedLoopMin": {
+          "description": "closed loop operation at minimum characteristic",
+          "type": "integer"
+        },
+        "ClosedLoopMax": {
+          "description": "closed loop operation at maximum characteristic",
+          "type": "integer"
+        },
+        "Test": {
+          "description": "Test operation",
+          "type": "integer"
+        },
+        "Calibration": {
+          "description": "Calibration mode",
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/ActualControlMode",
+    "/properties/ActualOperationMode",
+    "/properties/ControlInversion",
+    "/properties/Enable",
+    "/properties/ExternalSignal",
+    "/properties/ReverseRotatingDirection",
+    "/properties/SetControlMode",
+    "/properties/SetOperationMode",
+    "/events/ActualControlMode",
+    "/events/ActualOperationMode",
+    "/events/ControlInversion",
+    "/events/Enable",
+    "/events/ExternalSignal",
+    "/events/ReverseRotatingDirection",
+    "/events/SetControlMode",
+    "/events/SetOperationMode"
+  ],
+  "properties": {
+    "ActualControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "ControlModeEnum",
+      "description": "This property describes the actual control mode of the pump.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ActualOperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "OperationModeEnum",
+      "description": "This property describes the actual operation mode of the pump.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ControlInversion": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "Enable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "ExternalSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "ReverseRotatingDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "SetControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "ControlModeEnum",
+      "description": "This property describes the desired control mode of the pump.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SetOperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "OperationModeEnum",
+      "description": "This property describes the desired operation mode of the pump.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "ControlModeEnum",
+        "description": "This property describes the actual control mode of the pump.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ActualOperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "OperationModeEnum",
+        "description": "This property describes the actual operation mode of the pump.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ControlInversion": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "Enable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "ExternalSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "ReverseRotatingDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "SetControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "ControlModeEnum",
+        "description": "This property describes the desired control mode of the pump.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SetOperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "OperationModeEnum",
+        "description": "This property describes the desired operation mode of the pump.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_LogRecord",
+  "title": "OpcUaCore_LogRecord",
+  "dov:typeRef": "org.opcfoundation.UA.LogRecord",
+  "links": [],
+  "schemaDefinitions": {
+    "LogRecord": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LogRecord",
+      "required": [
+        "Time",
+        "Severity",
+        "Message"
+      ],
+      "properties": {
+        "Time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Severity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "EventType": {
+          "type": "string"
+        },
+        "SourceNode": {
+          "type": "string"
+        },
+        "SourceName": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "TraceContext": {
+          "title": "TraceContextDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TraceContextDataType",
+          "required": [
+            "TraceId",
+            "SpanId",
+            "ParentSpanId",
+            "ParentIdentifier"
+          ],
+          "properties": {
+            "TraceId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "SpanId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            "ParentSpanId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            "ParentIdentifier": {
+              "type": "string"
+            }
+          }
+        },
+        "AdditionalData": {
+          "type": "array",
+          "items": {
+            "title": "NameValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.NameValuePair",
+            "required": [
+              "Name",
+              "Value"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

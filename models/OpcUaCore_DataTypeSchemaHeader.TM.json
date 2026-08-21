@@ -1,0 +1,226 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DataTypeSchemaHeader",
+  "title": "OpcUaCore_DataTypeSchemaHeader",
+  "dov:typeRef": "org.opcfoundation.UA.DataTypeSchemaHeader",
+  "links": [],
+  "schemaDefinitions": {
+    "DataTypeSchemaHeader": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataTypeSchemaHeader",
+      "required": [
+        "Namespaces",
+        "StructureDataTypes",
+        "EnumDataTypes",
+        "SimpleDataTypes"
+      ],
+      "properties": {
+        "Namespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "StructureDataTypes": {
+          "type": "array",
+          "items": {
+            "title": "StructureDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.StructureDescription",
+            "required": [
+              "DataTypeId",
+              "Name",
+              "StructureDefinition"
+            ],
+            "properties": {
+              "DataTypeId": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "StructureDefinition": {
+                "title": "StructureDefinition",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.StructureDefinition",
+                "required": [
+                  "DefaultEncodingId",
+                  "BaseDataType",
+                  "StructureType",
+                  "Fields"
+                ],
+                "properties": {
+                  "DefaultEncodingId": {
+                    "type": "string"
+                  },
+                  "BaseDataType": {
+                    "type": "string"
+                  },
+                  "StructureType": {
+                    "title": "StructureType",
+                    "dov:typeRef": "org.opcfoundation.UA.StructureType",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "Fields": {
+                    "type": "array",
+                    "items": {
+                      "title": "StructureField",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.StructureField",
+                      "required": [
+                        "Name",
+                        "Description",
+                        "DataType",
+                        "ValueRank",
+                        "ArrayDimensions",
+                        "MaxStringLength",
+                        "IsOptional"
+                      ],
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        },
+                        "DataType": {
+                          "type": "string"
+                        },
+                        "ValueRank": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "ArrayDimensions": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 4294967295
+                          }
+                        },
+                        "MaxStringLength": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 4294967295
+                        },
+                        "IsOptional": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EnumDataTypes": {
+          "type": "array",
+          "items": {
+            "title": "EnumDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EnumDescription",
+            "required": [
+              "DataTypeId",
+              "Name",
+              "EnumDefinition",
+              "BuiltInType"
+            ],
+            "properties": {
+              "DataTypeId": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "EnumDefinition": {
+                "title": "EnumDefinition",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EnumDefinition",
+                "required": [
+                  "Fields"
+                ],
+                "properties": {
+                  "Fields": {
+                    "type": "array",
+                    "items": {
+                      "title": "EnumField",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EnumField",
+                      "required": [
+                        "Value",
+                        "DisplayName",
+                        "Description",
+                        "Name"
+                      ],
+                      "properties": {
+                        "Value": {
+                          "type": "integer",
+                          "minimum": -9223372036854775808,
+                          "maximum": 9223372036854775807
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        },
+                        "Name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "BuiltInType": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              }
+            }
+          }
+        },
+        "SimpleDataTypes": {
+          "type": "array",
+          "items": {
+            "title": "SimpleTypeDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SimpleTypeDescription",
+            "required": [
+              "DataTypeId",
+              "Name",
+              "BaseDataType",
+              "BuiltInType"
+            ],
+            "properties": {
+              "DataTypeId": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "BaseDataType": {
+                "type": "string"
+              },
+              "BuiltInType": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ConfigurationParameterType",
+  "title": "PlasticsRubber_GeneralTypes_ConfigurationParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ConfigurationParameterType",
+  "links": [],
+  "schemaDefinitions": {
+    "ConfigurationParameterType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ConfigurationParameterType",
+      "required": [
+        "Id",
+        "Description",
+        "DefaultValue",
+        "Unit"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Unique identifier",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Description": {
+          "description": "Description of the parameter",
+          "type": "string"
+        },
+        "DefaultValue": {
+          "description": "Default value of the parameter",
+          "type": "string"
+        },
+        "Unit": {
+          "title": "EUInformation",
+          "description": "Engineering unit of the parameter. If the Type of Defaultvalue is not a Number, then the Unit shall be empty",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

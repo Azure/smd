@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_CavitySealRole",
+  "title": "WireHarness_VEC_CavitySealRole",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.CavitySealRole",
+  "links": [],
+  "schemaDefinitions": {
+    "CavitySealRole": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.CavitySealRole",
+      "required": [
+        "id",
+        "Identification",
+        "CavitySealSpecification"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the Role. The identification is guaranteed to be unique within the OccurrenceOrUsage.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CavitySealSpecification": {
+          "title": "CavitySealSpecificationIdDataType",
+          "description": "<p>References the<i>CavitySealSpecification</i>that is instanced by this<i>CavitySealRole.</i></p>",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.CavitySealSpecificationIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

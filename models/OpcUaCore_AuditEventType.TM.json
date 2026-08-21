@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditEventType",
+  "title": "OpcUaCore_AuditEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ClientApplicationUri"
+  ],
+  "properties": {
+    "ActionTimeStamp": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "ClientApplicationUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ClientAuditEntryId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ClientUserId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ServerId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Status": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

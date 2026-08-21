@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scheduler/#Scheduler_TimeType",
+  "title": "Scheduler_TimeType",
+  "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeType",
+  "links": [],
+  "schemaDefinitions": {
+    "TimeType": {
+      "description": "This structure that represents a point in time during a day",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeType",
+      "required": [
+        "Hour",
+        "Minute",
+        "Second"
+      ],
+      "properties": {
+        "Hour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Minute": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Second": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

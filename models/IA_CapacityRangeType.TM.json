@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_CapacityRangeType",
+  "title": "IA_CapacityRangeType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.CapacityRangeType",
+  "links": [],
+  "schemaDefinitions": {
+    "CapacityRangeType": {
+      "title": "Range",
+      "description": "Represent a scale of calibration values. The value defines the range (lowest and highest value), and the resolution property the size of each step.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.CapacityRangeType",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  }
+}

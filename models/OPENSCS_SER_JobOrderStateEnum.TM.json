@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/OPENSCS-SER/#OPENSCS_SER_JobOrderStateEnum",
+  "title": "OPENSCS_SER_JobOrderStateEnum",
+  "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.JobOrderStateEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "JobOrderStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.JobOrderStateEnum",
+      "const": {
+        "Undefined_0": 0,
+        "Waiting_1": 1,
+        "Ready_2": 2,
+        "Loaded_3": 3,
+        "Running_4": 4,
+        "Completed_5": 5,
+        "Aborted_6": 6,
+        "Held_7": 7,
+        "Suspended_8": 8,
+        "Closed_9": 9
+      },
+      "description": "Describes the possible serial number statesjob order states.  ",
+      "properties": {
+        "Undefined_0": {
+          "description": "defined value, should never be seen.",
+          "type": "integer"
+        },
+        "Waiting_1": {
+          "description": "The necessary pre-conditions have not been met and the order is not ready to run.",
+          "type": "integer"
+        },
+        "Ready_2": {
+          "description": "The necessary pre-conditions have been met and the order is ready to run, awaiting a Start command.",
+          "type": "integer"
+        },
+        "Loaded_3": {
+          "description": "In situations where only one job may be in active memory and is able to be run, then the job is loaded in active memory, the  necessary pre-conditions have been met, and the order is ready to run, awaiting a Start command.",
+          "type": "integer"
+        },
+        "Running_4": {
+          "description": "The order is executing.",
+          "type": "integer"
+        },
+        "Completed_5": {
+          "description": "The order has been completed and are no longer in execution.",
+          "type": "integer"
+        },
+        "Aborted_6": {
+          "description": "The order was aborted.",
+          "type": "integer"
+        },
+        "Held_7": {
+          "description": "The order has been temporarily stopped due to a constraint of some form.",
+          "type": "integer"
+        },
+        "Suspended_8": {
+          "description": "The order has been temporarily stopped due to a deliberate decision within the execution system.",
+          "type": "integer"
+        },
+        "Closed_9": {
+          "description": "The order has been completed and fully reconciled. No further changes, or restatement of actuals is expected.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,434 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_MachineEngineStatusType",
+  "title": "UnattendedRetail_MachineEngineStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.MachineEngineStatusType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AvailabilityEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityEnum",
+      "const": {
+        "Available": 0,
+        "OutOfOrder": 1,
+        "TemporaryNotAvailable": 2,
+        "Empty": 3
+      },
+      "properties": {
+        "Available": {
+          "type": "integer"
+        },
+        "OutOfOrder": {
+          "type": "integer"
+        },
+        "TemporaryNotAvailable": {
+          "type": "integer"
+        },
+        "Empty": {
+          "type": "integer"
+        }
+      }
+    },
+    "MachineEngineWorkingStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.MachineEngineWorkingStatusEnum",
+      "const": {
+        "Initializing": 0,
+        "WaitingForTemperature": 1,
+        "Ready": 2,
+        "Cleaning": 3,
+        "Dispensing": 4,
+        "Busy": 5,
+        "OutOfOrder": 6,
+        "EnergySavingMode": 7
+      },
+      "properties": {
+        "Initializing": {
+          "type": "integer"
+        },
+        "WaitingForTemperature": {
+          "type": "integer"
+        },
+        "Ready": {
+          "type": "integer"
+        },
+        "Cleaning": {
+          "type": "integer"
+        },
+        "Dispensing": {
+          "type": "integer"
+        },
+        "Busy": {
+          "type": "integer"
+        },
+        "OutOfOrder": {
+          "type": "integer"
+        },
+        "EnergySavingMode": {
+          "type": "integer"
+        }
+      }
+    },
+    "OutputStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputStatusEnum",
+      "const": {
+        "Free": 0,
+        "ProductNotTaken": 1,
+        "OutOfOrder": 2,
+        "Locked": 3,
+        "CleaningRequired": 4,
+        "VendorSpecific": 5
+      },
+      "properties": {
+        "Free": {
+          "type": "integer"
+        },
+        "ProductNotTaken": {
+          "type": "integer"
+        },
+        "OutOfOrder": {
+          "type": "integer"
+        },
+        "Locked": {
+          "type": "integer"
+        },
+        "CleaningRequired": {
+          "type": "integer"
+        },
+        "VendorSpecific": {
+          "type": "integer"
+        }
+      }
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/ActiveEVADTSStatusCodes",
+    "/properties/MainColdTemperature",
+    "/properties/MainHotTemperature",
+    "/properties/SensorData",
+    "/properties/MainColdTemperature_EngineeringUnits",
+    "/properties/MainHotTemperature_EngineeringUnits",
+    "/events/ActiveEVADTSStatusCodes",
+    "/events/MainColdTemperature",
+    "/events/MainHotTemperature",
+    "/events/SensorData"
+  ],
+  "properties": {
+    "ActiveEVADTSStatusCodes": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "MainColdTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MainColdTemperature_EngineeringUnits"
+    },
+    "MainHotTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MainHotTemperature_EngineeringUnits"
+    },
+    "OptionIdStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "AvailabilityStatusDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityStatusDataType",
+        "required": [
+          "Id",
+          "Status",
+          "EstimatedRemainingStock"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Status": {
+            "title": "AvailabilityEnum",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EstimatedRemainingStock": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "OutputStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "OutputStatusDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputStatusDataType",
+        "required": [
+          "OutputId",
+          "Status",
+          "VendorStatus"
+        ],
+        "properties": {
+          "OutputId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Status": {
+            "title": "OutputStatusEnum",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputStatusEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "VendorStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SelectionIdStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "AvailabilityStatusDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityStatusDataType",
+        "required": [
+          "Id",
+          "Status",
+          "EstimatedRemainingStock"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Status": {
+            "title": "AvailabilityEnum",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EstimatedRemainingStock": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SensorData": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "WorkingStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "title": "MachineEngineWorkingStatusEnum",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.MachineEngineWorkingStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MainColdTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MainColdTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MainHotTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MainHotTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveEVADTSStatusCodes": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "MainColdTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MainColdTemperature_EngineeringUnits"
+    },
+    "MainHotTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MainHotTemperature_EngineeringUnits"
+    },
+    "OptionIdStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "AvailabilityStatusDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityStatusDataType",
+          "required": [
+            "Id",
+            "Status",
+            "EstimatedRemainingStock"
+          ],
+          "properties": {
+            "Id": {
+              "type": "string"
+            },
+            "Status": {
+              "title": "AvailabilityEnum",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "EstimatedRemainingStock": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      }
+    },
+    "OutputStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "OutputStatusDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputStatusDataType",
+          "required": [
+            "OutputId",
+            "Status",
+            "VendorStatus"
+          ],
+          "properties": {
+            "OutputId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Status": {
+              "title": "OutputStatusEnum",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputStatusEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "VendorStatus": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    },
+    "SelectionIdStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "AvailabilityStatusDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityStatusDataType",
+          "required": [
+            "Id",
+            "Status",
+            "EstimatedRemainingStock"
+          ],
+          "properties": {
+            "Id": {
+              "type": "string"
+            },
+            "Status": {
+              "title": "AvailabilityEnum",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "EstimatedRemainingStock": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      }
+    },
+    "SensorData": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      },
+      "dov:placeholder": true
+    },
+    "WorkingStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "title": "MachineEngineWorkingStatusEnum",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.MachineEngineWorkingStatusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

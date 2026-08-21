@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CranesHoists/#CranesHoists_ExternalControlRequestEnumeration",
+  "title": "CranesHoists_ExternalControlRequestEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.CranesHoists.ExternalControlRequestEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ExternalControlRequestEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CranesHoists.ExternalControlRequestEnumeration",
+      "const": {
+        "NOT_REQUESTED": 0,
+        "REQUESTED_AND_CONTROL_ACTIVE": 1,
+        "REQUESTED_AND_CONTROL_INACTIVE": 2,
+        "REQUESTED_AND_CONTROL_BYPASSED": 3
+      },
+      "properties": {
+        "NOT_REQUESTED": {
+          "description": "No control request inputs have been received from any client",
+          "type": "integer"
+        },
+        "REQUESTED_AND_CONTROL_ACTIVE": {
+          "description": "Control request input has been received from a client and the request is being applied to the control",
+          "type": "integer"
+        },
+        "REQUESTED_AND_CONTROL_INACTIVE": {
+          "description": "Control request input has been received from a client but the request is not currently being applied to the control",
+          "type": "integer"
+        },
+        "REQUESTED_AND_CONTROL_BYPASSED": {
+          "description": "Control request input has been received from a client but the request is not currently being applied to the control because it has been bypassed in the control system",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetTimeValue",
+  "title": "BACnet_V2_BACnetTimeValue",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTimeValue",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetTimeValue": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTimeValue",
+      "required": [
+        "Time",
+        "Value"
+      ],
+      "properties": {
+        "Time": {
+          "title": "BACnetTime",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTime",
+          "required": [
+            "Hour",
+            "Minute",
+            "Second",
+            "Hundredths"
+          ],
+          "properties": {
+            "Hour": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Minute": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Hundredths": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          }
+        },
+        "Value": {
+          "title": "BACnetTimeValueValue",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTimeValueValue",
+          "required": [
+            "BooleanValue",
+            "UnsignedValue",
+            "SignedValue",
+            "OctedStringValue",
+            "CharStringValue",
+            "ObjectIdentifierValue",
+            "EnumerationValue",
+            "BitStringValue"
+          ],
+          "properties": {
+            "BooleanValue": {
+              "type": "boolean"
+            },
+            "UnsignedValue": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "SignedValue": {
+              "type": "integer"
+            },
+            "OctedStringValue": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "CharStringValue": {
+              "type": "string"
+            },
+            "ObjectIdentifierValue": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "EnumerationValue": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "BitStringValue": {
+              "title": "OptionSet",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.OptionSet",
+              "required": [
+                "Value",
+                "ValidBits"
+              ],
+              "properties": {
+                "Value": {
+                  "type": "string",
+                  "contentEncoding": "base64"
+                },
+                "ValidBits": {
+                  "type": "string",
+                  "contentEncoding": "base64"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TsnListenerStatus",
+  "title": "OpcUaCore_TsnListenerStatus",
+  "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
+  "links": [],
+  "schemaDefinitions": {
+    "TsnListenerStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
+      "const": {
+        "None": 0,
+        "Ready": 1,
+        "PartialFailed": 2,
+        "Failed": 3
+      },
+      "properties": {
+        "None": {
+          "description": "No Listener detected.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Listener ready (configured).",
+          "type": "integer"
+        },
+        "PartialFailed": {
+          "description": "One or more Listeners ready, and one or more Listeners failed.",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "Listener failed.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

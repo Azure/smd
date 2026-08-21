@@ -1,0 +1,28 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_DrainOperationalType",
+  "title": "CAS_DrainOperationalType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.DrainOperationalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_OperationalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/DrainTest"
+  ],
+  "actions": {
+    "DrainTest": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Invoke a drain test on a condensate drain."
+    }
+  }
+}

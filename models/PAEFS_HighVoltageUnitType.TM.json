@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_HighVoltageUnitType",
+  "title": "PAEFS_HighVoltageUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.HighVoltageUnitType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Collector",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_CollectorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Ionizer",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_IonizerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CurrentOutput",
+    "/properties/MaintenanceRequested",
+    "/properties/Malfunction",
+    "/properties/OperationCycleCounter",
+    "/properties/OperationDuration",
+    "/properties/PowerOnDuration",
+    "/properties/SupplyActive",
+    "/events/CurrentOutput"
+  ],
+  "properties": {
+    "CurrentOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Current output of the high voltage unit.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MaintenanceRequested": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that maintenance is requested for the high voltage generator.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the high voltage generator is malfunctioning (e.g., excess/insufficient voltage, overheating, etc). True in case of error.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "OperationCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": true
+    },
+    "OperationDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PowerOnDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "SupplyActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the high-voltage generator is emitting high voltage.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CurrentOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "data": {
+        "description": "Current output of the high voltage unit.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

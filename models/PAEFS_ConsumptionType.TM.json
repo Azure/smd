@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+  "title": "PAEFS_ConsumptionType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.ConsumptionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CurrentConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/LifetimeConsumption",
+    "/events/LifetimeConsumption"
+  ],
+  "properties": {
+    "LifetimeConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Consumption over total machine lifetime. The AnalogUnitType variables InstrumentRange and EURange must not be used.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LifetimeConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "data": {
+        "description": "Consumption over total machine lifetime. The AnalogUnitType variables InstrumentRange and EURange must not be used.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

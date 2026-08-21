@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventParameterChangeOfBitstring",
+  "title": "BACnet_V2_BACnetEventParameterChangeOfBitstring",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfBitstring",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventParameterChangeOfBitstring": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfBitstring",
+      "required": [
+        "Time-delay",
+        "Bitmask",
+        "List-of-bitstring-values"
+      ],
+      "properties": {
+        "Time-delay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Bitmask": {
+          "title": "OptionSet",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.OptionSet",
+          "required": [
+            "Value",
+            "ValidBits"
+          ],
+          "properties": {
+            "Value": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "ValidBits": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        },
+        "List-of-bitstring-values": {
+          "type": "array",
+          "items": {
+            "title": "OptionSet",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.OptionSet",
+            "required": [
+              "Value",
+              "ValidBits"
+            ],
+            "properties": {
+              "Value": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "ValidBits": {
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

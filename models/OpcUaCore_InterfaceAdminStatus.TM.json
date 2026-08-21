@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_InterfaceAdminStatus",
+  "title": "OpcUaCore_InterfaceAdminStatus",
+  "dov:typeRef": "org.opcfoundation.UA.InterfaceAdminStatus",
+  "links": [],
+  "schemaDefinitions": {
+    "InterfaceAdminStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.InterfaceAdminStatus",
+      "const": {
+        "Up": 0,
+        "Down": 1,
+        "Testing": 2
+      },
+      "properties": {
+        "Up": {
+          "description": "Ready to pass packets.",
+          "type": "integer"
+        },
+        "Down": {
+          "description": "Not ready to pass packets and not in some test mode.",
+          "type": "integer"
+        },
+        "Testing": {
+          "description": "In some test mode.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_MaintenanceAlarmType",
+  "title": "PlasticsRubber_GDD_MaintenanceAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MaintenanceAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_HelpOffNormalAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaintenanceStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MaintenanceStatusEnumeration",
+      "const": {
+        "NOT_DUE": 0,
+        "WARNING": 1,
+        "DUE": 2
+      },
+      "description": "Maintenance status of a machine/device/component",
+      "properties": {
+        "NOT_DUE": {
+          "description": "Maintenance of the device/component is not due",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "Maintenance of the device/component is due in the near future",
+          "type": "integer"
+        },
+        "DUE": {
+          "description": "Maintenance of the device/component is due",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/RemainingInterval",
+    "/events/RemainingInterval"
+  ],
+  "properties": {
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Unique Id of the maintenance activity.",
+      "type": "string",
+      "readOnly": false
+    },
+    "RemainingInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Interval before next maintenance is due.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "MaintenanceStatusEnumeration",
+      "description": "Maintenance status of the respective maintenance activity. ",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MaintenanceStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "RemainingInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Interval before next maintenance is due.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "MaintenanceStatusEnumeration",
+        "description": "Maintenance status of the respective maintenance activity. ",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MaintenanceStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

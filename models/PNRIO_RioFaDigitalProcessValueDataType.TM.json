@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioFaDigitalProcessValueDataType",
+  "title": "PNRIO_RioFaDigitalProcessValueDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RioFaDigitalProcessValueDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaDigitalProcessValueDataType",
+      "required": [
+        "Value",
+        "Qualifier",
+        "Quality"
+      ],
+      "properties": {
+        "Value": {
+          "description": "Current value.",
+          "type": "boolean"
+        },
+        "Qualifier": {
+          "description": "Current status.",
+          "type": "boolean"
+        },
+        "Quality": {
+          "description": "Value of RioQualityEnumeration.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

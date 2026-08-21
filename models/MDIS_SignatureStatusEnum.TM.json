@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_SignatureStatusEnum",
+  "title": "MDIS_SignatureStatusEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.SignatureStatusEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "SignatureStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SignatureStatusEnum",
+      "const": {
+        "NotAvailable": 1,
+        "Completed": 2,
+        "Failed": 4
+      },
+      "properties": {
+        "NotAvailable": {
+          "description": "The profile / signature is not available (in progress)",
+          "type": "integer"
+        },
+        "Completed": {
+          "description": "The profile / signature request has completed",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "The profile / signature request has failed",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_IDiodeArrayDeviceConditionSetType",
+  "title": "PADIM_IDiodeArrayDeviceConditionSetType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.IDiodeArrayDeviceConditionSetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/RemainingDataStorageCapacity",
+    "/properties/Watchdog"
+  ],
+  "properties": {
+    "RemainingDataStorageCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Watchdog": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterType",
+  "title": "OpcUaCore_DataSetWriterType",
+  "dov:typeRef": "org.opcfoundation.UA.DataSetWriterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TransportSettings",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterTransportType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MessageSettings",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterMessageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Status",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubStatusType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubDiagnosticsDataSetWriterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DataSetFieldContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+      "const": {
+        "StatusCode": 0,
+        "SourceTimestamp": 1,
+        "ServerTimestamp": 2,
+        "SourcePicoSeconds": 3,
+        "ServerPicoSeconds": 4,
+        "RawData": 5
+      },
+      "properties": {
+        "StatusCode": {
+          "type": "integer"
+        },
+        "SourceTimestamp": {
+          "type": "integer"
+        },
+        "ServerTimestamp": {
+          "type": "integer"
+        },
+        "SourcePicoSeconds": {
+          "type": "integer"
+        },
+        "ServerPicoSeconds": {
+          "type": "integer"
+        },
+        "RawData": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/KeyFrameCount"
+  ],
+  "properties": {
+    "DataSetFieldContentMask": {
+      "title": "DataSetFieldContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DataSetWriterId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DataSetWriterProperties": {
+      "type": "array",
+      "items": {
+        "title": "KeyValuePair",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+        "required": [
+          "Key",
+          "Value"
+        ],
+        "properties": {
+          "Key": {
+            "type": "string"
+          },
+          "Value": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "KeyFrameCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  }
+}

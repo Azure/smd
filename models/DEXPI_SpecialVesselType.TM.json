@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_SpecialVesselType",
+  "title": "DEXPI_SpecialVesselType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.SpecialVesselType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_VesselType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CylinderLength",
+    "/properties/TypeNameAssignmentClass",
+    "/events/CylinderLength",
+    "/events/TypeNameAssignmentClass"
+  ],
+  "properties": {
+    "CylinderLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The cylinder length of the SpecialVessel.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TypeNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The name of the type of the SpecialVessel.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CylinderLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The cylinder length of the SpecialVessel.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TypeNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The name of the type of the SpecialVessel.",
+        "type": "string"
+      }
+    }
+  }
+}

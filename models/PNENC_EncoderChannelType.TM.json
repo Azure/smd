@@ -1,0 +1,519 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderChannelType",
+  "title": "PNENC_EncoderChannelType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderChannelType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AxisConfig",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderAxisConfigType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ControlConfig",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderControlConfigType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Logbook",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_LogbookType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Probes",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderProbesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Sensor",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderSensorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SensorConfig",
+      "href": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderSensorConfigType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EncoderChannelStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderChannelStateEnumeration",
+      "const": {
+        "NORMAL_OPERATION": 0,
+        "ERROR_ACKNOWLEDGEMENT": 1,
+        "ERROR": 2,
+        "REFERENCE_VALUE_Gx_XIST2": 3,
+        "WAIT_FOR_REFERENCE_MARKS": 4,
+        "SET_SHIFT_HOME_POSITION": 5,
+        "WAIT_FOR_MEASURED_VALUE": 6,
+        "MEASURED_VALUE_IN_XIST2": 7,
+        "PARKING": 8,
+        "PARKING_ERROR": 9,
+        "PARKING_ERROR_ACK": 10
+      },
+      "properties": {
+        "NORMAL_OPERATION": {
+          "description": "The position feedback interface operates normally",
+          "type": "integer"
+        },
+        "ERROR_ACKNOWLEDGEMENT": {
+          "description": "Error acknowledgement is being processed",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "There is an error present",
+          "type": "integer"
+        },
+        "REFERENCE_VALUE_Gx_XIST2": {
+          "description": "The reference value is loaded in Gx_XIST2",
+          "type": "integer"
+        },
+        "WAIT_FOR_REFERENCE_MARKS": {
+          "description": "The reference mark is expected",
+          "type": "integer"
+        },
+        "SET_SHIFT_HOME_POSITION": {
+          "description": "Gx_XIST1 and Gx_XIST2 are set or shifted by a predefined preset value",
+          "type": "integer"
+        },
+        "WAIT_FOR_MEASURED_VALUE": {
+          "description": "Measurement task active, waiting for measurement values",
+          "type": "integer"
+        },
+        "MEASURED_VALUE_IN_XIST2": {
+          "description": "The requested measured value is loaded into Gx_XIST2",
+          "type": "integer"
+        },
+        "PARKING": {
+          "description": "The position feedback interface is inactive and does not deliver a valid Gx_XIST1 value",
+          "type": "integer"
+        },
+        "PARKING_ERROR": {
+          "description": "There is an error present and Gx_XIST1 is signaled invalid",
+          "type": "integer"
+        },
+        "PARKING_ERROR_ACK": {
+          "description": "Error acknowledgement is being processed and Gx_XIST1 is signaled invalid",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetApplicationTag",
+    "/properties/Acceleration",
+    "/properties/ApplicationTag",
+    "/properties/EncoderChannelState",
+    "/properties/EncoderProfileVersion",
+    "/properties/G1_STW",
+    "/properties/G1_XIST_PRESET_B",
+    "/properties/G1_XIST_PRESET_B1",
+    "/properties/G1_XIST_PRESET_C",
+    "/properties/G1_XIST1",
+    "/properties/G1_XIST2",
+    "/properties/G1_XIST3",
+    "/properties/G1_ZSW",
+    "/properties/NIST_A",
+    "/properties/NIST_B",
+    "/properties/Position",
+    "/properties/Position_Resolution",
+    "/properties/PositionSensorSignalValue",
+    "/properties/STW2_ENC",
+    "/properties/Temperature",
+    "/properties/Velocity",
+    "/properties/Velocity_Damping",
+    "/properties/ZSW2_ENC",
+    "/events/Acceleration",
+    "/events/EncoderChannelState",
+    "/events/G1_STW",
+    "/events/G1_XIST_PRESET_B",
+    "/events/G1_XIST_PRESET_B1",
+    "/events/G1_XIST_PRESET_C",
+    "/events/G1_XIST1",
+    "/events/G1_XIST2",
+    "/events/G1_XIST3",
+    "/events/G1_ZSW",
+    "/events/NIST_A",
+    "/events/NIST_B",
+    "/events/Position",
+    "/events/Position_Resolution",
+    "/events/PositionSensorSignalValue",
+    "/events/STW2_ENC",
+    "/events/Temperature",
+    "/events/Velocity",
+    "/events/Velocity_Damping",
+    "/events/ZSW2_ENC"
+  ],
+  "actions": {
+    "SetApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationTag"
+        ],
+        "properties": {
+          "ApplicationTag": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Acceleration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "ApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "string",
+      "readOnly": true
+    },
+    "EncoderChannelState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderChannelStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderChannelStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "EncoderProfileVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "string",
+      "readOnly": true
+    },
+    "G1_STW": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "G1_XIST_PRESET_B": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "G1_XIST_PRESET_B1": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "G1_XIST_PRESET_C": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "G1_XIST1": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "G1_XIST2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "G1_XIST3": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "G1_ZSW": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "NIST_A": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767,
+      "readOnly": true
+    },
+    "NIST_B": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Position": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:contains": [
+        "Position_Resolution"
+      ]
+    },
+    "Position_Resolution": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "Position"
+    },
+    "PositionSensorSignalValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "readOnly": true
+    },
+    "STW2_ENC": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Velocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:contains": [
+        "Velocity_Damping"
+      ]
+    },
+    "Velocity_Damping": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:containedIn": "Velocity"
+    },
+    "ZSW2_ENC": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Acceleration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "EncoderChannelState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "title": "EncoderChannelStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderChannelStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "G1_STW": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "G1_XIST_PRESET_B": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "G1_XIST_PRESET_B1": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "G1_XIST_PRESET_C": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    },
+    "G1_XIST1": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "G1_XIST2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "G1_XIST3": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    },
+    "G1_ZSW": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "NIST_A": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": -32768,
+        "maximum": 32767
+      }
+    },
+    "NIST_B": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Position": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:contains": [
+        "Position_Resolution"
+      ]
+    },
+    "Position_Resolution": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "Position"
+    },
+    "PositionSensorSignalValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number"
+      }
+    },
+    "STW2_ENC": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "Velocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "Velocity_Damping"
+      ]
+    },
+    "Velocity_Damping": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:containedIn": "Velocity"
+    },
+    "ZSW2_ENC": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

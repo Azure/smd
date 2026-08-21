@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_Annotation",
+  "title": "OpcUaCore_Annotation",
+  "dov:typeRef": "org.opcfoundation.UA.Annotation",
+  "links": [],
+  "schemaDefinitions": {
+    "Annotation": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Annotation",
+      "required": [
+        "Message",
+        "UserName",
+        "AnnotationTime"
+      ],
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "AnnotationTime": {
+          "type": "string",
+          "format": "time"
+        }
+      }
+    }
+  }
+}

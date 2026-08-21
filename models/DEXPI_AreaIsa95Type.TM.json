@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_AreaIsa95Type",
+  "title": "DEXPI_AreaIsa95Type",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.AreaIsa95Type",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AreaIdentificationCodeAssignmentClass",
+    "/properties/AreaNameAssignmentClass",
+    "/events/AreaIdentificationCodeAssignmentClass",
+    "/events/AreaNameAssignmentClass"
+  ],
+  "properties": {
+    "AreaIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code of the AreaIsa95.",
+      "type": "string",
+      "readOnly": false
+    },
+    "AreaNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The name of the AreaIsa95.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AreaIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code of the AreaIsa95.",
+        "type": "string"
+      }
+    },
+    "AreaNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The name of the AreaIsa95.",
+        "type": "string"
+      }
+    }
+  }
+}

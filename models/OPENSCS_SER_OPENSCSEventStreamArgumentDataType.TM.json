@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/OPENSCS-SER/#OPENSCS_SER_OPENSCSEventStreamArgumentDataType",
+  "title": "OPENSCS_SER_OPENSCSEventStreamArgumentDataType",
+  "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSEventStreamArgumentDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "OPENSCSEventStreamArgumentDataType": {
+      "description": "Defines the generateOptions argument for an EPCISStream GenerateFileForWrite method. It defines the serial number format information for object events and for aggregation events, and event context information. ",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSEventStreamArgumentDataType",
+      "required": [
+        "SNFormat",
+        "ParentSNFormat",
+        "PackedElementSNFormat",
+        "EventContext"
+      ],
+      "properties": {
+        "SNFormat": {
+          "description": "The format for of serial numbers in object events, can be a null string if there are no object events in the transferred events.",
+          "type": "string"
+        },
+        "ParentSNFormat": {
+          "description": "The format for of parent serial numbers in aggregation events, can be a null string if there are no aggregation events in the transferred events.",
+          "type": "string"
+        },
+        "PackedElementSNFormat": {
+          "description": "The format for of packed element serial numbers in aggregation events, can be a null string if there are no aggregation events in the transferred events.",
+          "type": "string"
+        },
+        "EventContext": {
+          "description": "Zero or more key value pairs that define additional context information for the event, such as order number or lot number.",
+          "type": "array",
+          "items": {
+            "title": "OPENSCSKeyValueDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSKeyValueDataType",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "description": "A string defining the key for the pair",
+                "type": "string"
+              },
+              "Value": {
+                "description": "A variant for the value of the pair structure",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLRemoteInterfaceDataType",
+  "title": "PackML_PackMLRemoteInterfaceDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLRemoteInterfaceDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PackMLRemoteInterfaceDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLRemoteInterfaceDataType",
+      "required": [
+        "Number",
+        "ControlCmdNumber",
+        "CmdValue",
+        "Parameter"
+      ],
+      "properties": {
+        "Number": {
+          "description": "This is the unique number for the downstream/upstream unit machine using a common tag structure as the unit machine.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ControlCmdNumber": {
+          "description": "A user defined command number associated with coded value from a remote unit. This number is a coded value sent from one node on the network to another.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "CmdValue": {
+          "description": "This is the command value associated with the ControlCmdNumber above.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Parameter": {
+          "description": "The parameter tags associated to commanded remote interface are typically used for command parameters that are given to the unit machine from remote machines.",
+          "type": "array",
+          "items": {
+            "title": "PackMLDescriptorDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLDescriptorDataType",
+            "required": [
+              "ID",
+              "Name",
+              "Unit",
+              "Value"
+            ],
+            "properties": {
+              "ID": {
+                "description": "A unique number assigned to the parameter",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "Name": {
+                "description": "The name of the parameter",
+                "type": "string"
+              },
+              "Unit": {
+                "title": "EUInformation",
+                "description": "OPC UA engineering unit information",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "Value": {
+                "description": "This is the numeric value of the parameter",
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

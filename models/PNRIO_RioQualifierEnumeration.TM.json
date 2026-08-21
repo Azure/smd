@@ -1,0 +1,183 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioQualifierEnumeration",
+  "title": "PNRIO_RioQualifierEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioQualifierEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "RioQualifierEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioQualifierEnumeration",
+      "const": {
+        "BAD_NOT_SPECIFIC": 0,
+        "BAD_NOT_CONNECTED": 8,
+        "BAD_NOT_CONNECTED_SIMULATION_ACTIVE": 9,
+        "BAD_PASSIVATED": 32,
+        "BAD_PASSIVATED_SIMULATION_ACTIVE": 33,
+        "BAD_MAINTENANCE_ALARM": 36,
+        "BAD_MAINTENANCE_ALARM_SIMULATION_ACTIVE": 37,
+        "BAD_PROCESS": 40,
+        "BAD_PROCESS_SIMULATION_ACTIVE": 41,
+        "BAD_FUNCTION_CHECK": 60,
+        "BAD_FUNCTION_CHECK_SIMULATION_ACTIVE": 61,
+        "UNCERTAIN_SUBSTITUTE_SET": 72,
+        "UNCERTAIN_SUBSTITUTE_SET_SIMULATION_ACTIVE": 73,
+        "UNCERTAIN_INITIAL_VALUE": 76,
+        "UNCERTAIN_INITIAL_VALUE_SIMULATION_ACTIVE": 77,
+        "UNCERTAIN_MAINTENANCE_DEMANDED": 104,
+        "UNCERTAIN_MAINTENANCE_DEMANDED_SIMULATION_ACTIVE": 105,
+        "UNCERTAIN_NO_MAINTENANCE": 120,
+        "UNCERTAIN_NO_MAINTENANCE_SIMULATION_ACTIVE": 121,
+        "GOOD": 128,
+        "GOOD_SIMULATION_ACTIVE": 129,
+        "UPDATE": 130,
+        "GOOD_INITIATE_FAULT_STATE": 160,
+        "GOOD_MAINTENANCE_REQUIRED": 164,
+        "GOOD_MAINTENANCE_REQUIRED_SIMULATION_ACTIVE": 165,
+        "GOOD_MAINTENANCE_DEMANDED": 168,
+        "GOOD_MAINTENANCE_DEMANDED_SIMULATION_ACTIVE": 169,
+        "GOOD_LOCAL_OVERRIDE": 156,
+        "GOOD_LOCAL_OVERRIDE_SIMULATION_ACTIVE": 157,
+        "GOOD_FUNCTION_CHECK": 188,
+        "GOOD_FUNCTION_CHECK_SIMULATION_ACTIVE": 189,
+        "UNSPECIFIED": 255
+      },
+      "properties": {
+        "BAD_NOT_SPECIFIC": {
+          "description": "Proxy determines that a device does not communicate.",
+          "type": "integer"
+        },
+        "BAD_NOT_CONNECTED": {
+          "description": "Some communication error: the device is currently unavailable.",
+          "type": "integer"
+        },
+        "BAD_NOT_CONNECTED_SIMULATION_ACTIVE": {
+          "description": "Same as BAD_NOT_CONNECTED but with simulate flag set.",
+          "type": "integer"
+        },
+        "BAD_PASSIVATED": {
+          "description": "The channel is passivated.",
+          "type": "integer"
+        },
+        "BAD_PASSIVATED_SIMULATION_ACTIVE": {
+          "description": "Same as BAD_PASSIVATED but with simulate flag set.",
+          "type": "integer"
+        },
+        "BAD_MAINTENANCE_ALARM": {
+          "description": "No measurement available because of a failure.",
+          "type": "integer"
+        },
+        "BAD_MAINTENANCE_ALARM_SIMULATION_ACTIVE": {
+          "description": "Same as BAD_MAINTENANCE_ALARM but with simulate flag set.",
+          "type": "integer"
+        },
+        "BAD_PROCESS": {
+          "description": "No measurement available because of invalid process conditions.",
+          "type": "integer"
+        },
+        "BAD_PROCESS_SIMULATION_ACTIVE": {
+          "description": "Same as BAD_PROCESS but with simulate flag set.",
+          "type": "integer"
+        },
+        "BAD_FUNCTION_CHECK": {
+          "description": "Local override, value not usable.",
+          "type": "integer"
+        },
+        "BAD_FUNCTION_CHECK_SIMULATION_ACTIVE": {
+          "description": "Same as BAD_FUNCTION_CHECK but with simulate flag set.",
+          "type": "integer"
+        },
+        "UNCERTAIN_SUBSTITUTE_SET": {
+          "description": "The configured substitute value (see SubstituteValue) is used as Process Value.",
+          "type": "integer"
+        },
+        "UNCERTAIN_SUBSTITUTE_SET_SIMULATION_ACTIVE": {
+          "description": "Same as UNCERTAIN_SUBSTITUTE_SET but with simulate flag set.",
+          "type": "integer"
+        },
+        "UNCERTAIN_INITIAL_VALUE": {
+          "description": "Default value since no measured value is available.",
+          "type": "integer"
+        },
+        "UNCERTAIN_INITIAL_VALUE_SIMULATION_ACTIVE": {
+          "description": "Same as UNCERTAIN_INITIAL_VALUE but with simulate flag set.",
+          "type": "integer"
+        },
+        "UNCERTAIN_MAINTENANCE_DEMANDED": {
+          "description": "Value is potentially invalid.",
+          "type": "integer"
+        },
+        "UNCERTAIN_MAINTENANCE_DEMANDED_SIMULATION_ACTIVE": {
+          "description": "Same as UNCERTAIN_MAINTENANCE_DEMANDED but with simulate flag set.",
+          "type": "integer"
+        },
+        "UNCERTAIN_NO_MAINTENANCE": {
+          "description": "The process conditions are out of the specified operating range of the device.",
+          "type": "integer"
+        },
+        "UNCERTAIN_NO_MAINTENANCE_SIMULATION_ACTIVE": {
+          "description": "Same as UNCERTAIN_NO_MAINTENANCE but with simulate flag set.",
+          "type": "integer"
+        },
+        "GOOD": {
+          "description": "No error or special condition is associated with this value.",
+          "type": "integer"
+        },
+        "GOOD_SIMULATION_ACTIVE": {
+          "description": "Same as GOOD but with simulate flag set.",
+          "type": "integer"
+        },
+        "UPDATE": {
+          "description": "IM_Revision_Counter changed.",
+          "type": "integer"
+        },
+        "GOOD_INITIATE_FAULT_STATE": {
+          "description": "The value is from a block that wants its following output block (e.g. Actuator FB) to go to Fail Safe.",
+          "type": "integer"
+        },
+        "GOOD_MAINTENANCE_REQUIRED": {
+          "description": "Value is usable. Maintenance is recommended within a medium-term period.",
+          "type": "integer"
+        },
+        "GOOD_MAINTENANCE_REQUIRED_SIMULATION_ACTIVE": {
+          "description": "Same as GOOD_MAINTENANCE_REQUIRED but with simulate flag set.",
+          "type": "integer"
+        },
+        "GOOD_MAINTENANCE_DEMANDED": {
+          "description": "Value is usable. Maintenance is strongly recommended within a short-term period.",
+          "type": "integer"
+        },
+        "GOOD_MAINTENANCE_DEMANDED_SIMULATION_ACTIVE": {
+          "description": "Same as GOOD_MAINTENANCE_DEMANDED but with simulate flag set.",
+          "type": "integer"
+        },
+        "GOOD_LOCAL_OVERRIDE": {
+          "description": "The value is from a block that has been locked out.",
+          "type": "integer"
+        },
+        "GOOD_LOCAL_OVERRIDE_SIMULATION_ACTIVE": {
+          "description": "Same as GOOD_LOCAL_OVERRIDE_SIMULATED but with simulate flag set.",
+          "type": "integer"
+        },
+        "GOOD_FUNCTION_CHECK": {
+          "description": "Function check is being executed.",
+          "type": "integer"
+        },
+        "GOOD_FUNCTION_CHECK_SIMULATION_ACTIVE": {
+          "description": "Same as GOOD_FUNCTION_CHECK but with simulate flag set.",
+          "type": "integer"
+        },
+        "UNSPECIFIED": {
+          "description": "No information about the status is given.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderAxisConfigType",
+  "title": "PNENC_EncoderAxisConfigType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderAxisConfigType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EncoderAxisTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderAxisTypeEnumeration",
+      "const": {
+        "ROTARY": 0,
+        "LINEAR": 1
+      },
+      "properties": {
+        "ROTARY": {
+          "description": "Rotating Axis",
+          "type": "integer"
+        },
+        "LINEAR": {
+          "description": "Linear Axis",
+          "type": "integer"
+        }
+      }
+    },
+    "EncoderCodeSequenceEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderCodeSequenceEnumeration",
+      "const": {
+        "INCREASING_CLOCKWISE": 0,
+        "INCREASING_COUNTERCLOCKWISE": 1
+      },
+      "properties": {
+        "INCREASING_CLOCKWISE": {
+          "description": "Increasing position values with clockwise rotation (viewed from shaft side)",
+          "type": "integer"
+        },
+        "INCREASING_COUNTERCLOCKWISE": {
+          "description": "Increasing position values with counterclockwise rotation (viewed from shaft side)",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetAxisConfig",
+    "/properties/AccelerationDampingTimeConstant",
+    "/properties/AxisType",
+    "/properties/CodeSequence",
+    "/properties/PositionScalingFactor",
+    "/properties/PresetOrShiftValue",
+    "/properties/VelocityDampingTimeConstant",
+    "/properties/VelocityReference",
+    "/events/AccelerationDampingTimeConstant",
+    "/events/VelocityDampingTimeConstant",
+    "/events/VelocityReference"
+  ],
+  "actions": {
+    "SetAxisConfig": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AxisConfigParameters"
+        ],
+        "properties": {
+          "AxisConfigParameters": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AxisConfigParametersResult"
+        ],
+        "properties": {
+          "AxisConfigParametersResult": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AccelerationDampingTimeConstant": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "AxisType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderAxisTypeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderAxisTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "CodeSequence": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderCodeSequenceEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderCodeSequenceEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PositionScalingFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "PresetOrShiftValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "VelocityDampingTimeConstant": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "VelocityReference": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AccelerationDampingTimeConstant": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "VelocityDampingTimeConstant": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "VelocityReference": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

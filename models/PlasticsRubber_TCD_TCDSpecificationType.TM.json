@@ -1,0 +1,149 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_TCDSpecificationType",
+  "title": "PlasticsRubber_TCD_TCDSpecificationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.TCDSpecificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CoolingCapacity",
+    "/properties/DeviceZoneId",
+    "/properties/ConnectedLoad_EngineeringUnits",
+    "/properties/CoolingCapacity_EngineeringUnits",
+    "/properties/PowerValue_EngineeringUnits",
+    "/events/CoolingCapacity"
+  ],
+  "properties": {
+    "ConnectedLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Connected load, defines the connections of the TCD (pump performance, heating capacity and performance of the remaining components)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/ConnectedLoad_EngineeringUnits"
+    },
+    "CoolingCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Power value for cooling, defines the power value for cooling at temperature difference 60 K between cooling water and heat transfer medium",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/CoolingCapacity_EngineeringUnits"
+    },
+    "DeviceZoneId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaxTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Defines the maximum working temperature of the TCD",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "NominalFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Nominal flow rate, defines the maximum achievable flow rate of the TCD",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PowerValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Power value, defines the heating capacity of the TCD with the rated voltage",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/PowerValue_EngineeringUnits"
+    },
+    "ConnectedLoad_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ConnectedLoad, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "CoolingCapacity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name CoolingCapacity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PowerValue_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PowerValue, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ConnectedLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Connected load, defines the connections of the TCD (pump performance, heating capacity and performance of the remaining components)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/ConnectedLoad_EngineeringUnits"
+    },
+    "CoolingCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Power value for cooling, defines the power value for cooling at temperature difference 60 K between cooling water and heat transfer medium",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/CoolingCapacity_EngineeringUnits"
+    },
+    "MaxTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Defines the maximum working temperature of the TCD",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "NominalFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Nominal flow rate, defines the maximum achievable flow rate of the TCD",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PowerValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Power value, defines the heating capacity of the TCD with the rated voltage",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/PowerValue_EngineeringUnits"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_RunCompleteEventType",
+  "title": "WireHarness_RunCompleteEventType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.RunCompleteEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "EndTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "GoodQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "JobOrderID": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProducedQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "ProductIDs": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "Run": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/WireHarness/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  }
+}

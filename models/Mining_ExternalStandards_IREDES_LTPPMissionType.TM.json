@@ -1,0 +1,413 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_LTPPMissionType",
+  "title": "Mining_ExternalStandards_IREDES_LTPPMissionType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMissionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "LTPPMaction": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMaction",
+      "const": {
+        "Load": 0,
+        "Dump": 1,
+        "Parking": 2,
+        "Workshop": 3,
+        "Other": 4
+      },
+      "properties": {
+        "Load": {
+          "description": "Load.",
+          "type": "integer"
+        },
+        "Dump": {
+          "description": "Dump.",
+          "type": "integer"
+        },
+        "Parking": {
+          "description": "Parking.",
+          "type": "integer"
+        },
+        "Workshop": {
+          "description": "Workshop.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "Other.",
+          "type": "integer"
+        }
+      }
+    },
+    "LTPPMptFromType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMptFromType",
+      "const": {
+        "LoadPt": 0,
+        "DumpPt": 1,
+        "Parking": 2,
+        "Workshop": 3,
+        "Others": 4
+      },
+      "properties": {
+        "LoadPt": {
+          "description": "Load point.",
+          "type": "integer"
+        },
+        "DumpPt": {
+          "description": "Dump point.",
+          "type": "integer"
+        },
+        "Parking": {
+          "description": "Parking.",
+          "type": "integer"
+        },
+        "Workshop": {
+          "description": "Workshop.",
+          "type": "integer"
+        },
+        "Others": {
+          "description": "Others.",
+          "type": "integer"
+        }
+      }
+    },
+    "LTPPMptToType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMptToType",
+      "const": {
+        "LoadPt": 0,
+        "DumpPt": 1,
+        "Parking": 2,
+        "Boulder": 3,
+        "Workshop": 4,
+        "Others": 5
+      },
+      "properties": {
+        "LoadPt": {
+          "description": "Load point.",
+          "type": "integer"
+        },
+        "DumpPt": {
+          "description": "Dump point.",
+          "type": "integer"
+        },
+        "Parking": {
+          "description": "Parking.",
+          "type": "integer"
+        },
+        "Boulder": {
+          "description": "Boulder.",
+          "type": "integer"
+        },
+        "Workshop": {
+          "description": "Workshop.",
+          "type": "integer"
+        },
+        "Others": {
+          "description": "Others.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/LTPPMarea",
+    "/properties/LTPPMopID",
+    "/properties/LTPPMptFromID",
+    "/properties/LTPPMptFromType",
+    "/properties/LTPPMptToID",
+    "/properties/LTPPMptToType",
+    "/properties/LTPPMtimeAct",
+    "/properties/LTPPMwaitgen",
+    "/properties/LTPPMwaitPoint",
+    "/events/LTPPMarea",
+    "/events/LTPPMopID",
+    "/events/LTPPMptFromID",
+    "/events/LTPPMptFromType",
+    "/events/LTPPMptToID",
+    "/events/LTPPMptToType",
+    "/events/LTPPMtimeAct",
+    "/events/LTPPMwaitgen",
+    "/events/LTPPMwaitPoint"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMaction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "title": "LTPPMaction",
+      "description": "Action to be carried out at destination point specified in LTPPMptTo.",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMaction",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "LTPPMarea": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "ID for the mine area the machine is operating in. Usually both departure and destination points should be located in this area.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMissEnd": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "End time of the mission. Counting ends when the machine is ready to start the next mission, including all waiting before the next mission can be started.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LTPPMisSeq": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Sequence number of the mission. Starting at 1 with the first mission in the reporting period.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": false
+    },
+    "LTPPMisstart": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Time tag when the mission started.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LTPPMopID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Operator ID.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMpayld": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Tonnage of payload carried between start and destination points.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "LTPPMptFromID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Electronic (Tag) ID of the point where the mission originated (tramming started). Electronic ID of the point stated in LTPPMptFromN.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMptFromN": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Name of the point where the mission originated (tramming started).",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMptFromType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "title": "LTPPMptFromType",
+      "description": "Type of the point where the mission started.",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMptFromType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "LTPPMptToID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Electronic (tag) ID of the point where the mission ended (destination point).",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMptToN": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Name of the destination point, where the tramming finished and the mission ended.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPMptToType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "title": "LTPPMptToType",
+      "description": "Type of the point where the mission ended.",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMptToType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "LTPPMtimeAct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Duration of the action carried out at the destination point in LTPPMaction.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LTPPMtramDist": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Tramming distance between start and destination point. Unit: km; Resolution: 0.0001 km (10 cm).",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "LTPPMtramEnd": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Tramming end time: Time stamp when the tramming ended at destination point.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LTPPMwaitgen": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Accumulated waiting time during the mission, excluding the time reported in LTPPMwaitPoint.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "LTPPMwaitPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Waiting time for destination point availability.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "LTPPMaction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "title": "LTPPMaction",
+        "description": "Action to be carried out at destination point specified in LTPPMptTo.",
+        "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMaction",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LTPPMarea": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "ID for the mine area the machine is operating in. Usually both departure and destination points should be located in this area.",
+        "type": "string"
+      }
+    },
+    "LTPPMisSeq": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Sequence number of the mission. Starting at 1 with the first mission in the reporting period.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    },
+    "LTPPMopID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Operator ID.",
+        "type": "string"
+      }
+    },
+    "LTPPMpayld": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Tonnage of payload carried between start and destination points.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "LTPPMptFromID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Electronic (Tag) ID of the point where the mission originated (tramming started). Electronic ID of the point stated in LTPPMptFromN.",
+        "type": "string"
+      }
+    },
+    "LTPPMptFromN": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Name of the point where the mission originated (tramming started).",
+        "type": "string"
+      }
+    },
+    "LTPPMptFromType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "title": "LTPPMptFromType",
+        "description": "Type of the point where the mission started.",
+        "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMptFromType",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LTPPMptToID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Electronic (tag) ID of the point where the mission ended (destination point).",
+        "type": "string"
+      }
+    },
+    "LTPPMptToN": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Name of the destination point, where the tramming finished and the mission ended.",
+        "type": "string"
+      }
+    },
+    "LTPPMptToType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "title": "LTPPMptToType",
+        "description": "Type of the point where the mission ended.",
+        "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPMptToType",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LTPPMtimeAct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Duration of the action carried out at the destination point in LTPPMaction.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "LTPPMtramDist": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Tramming distance between start and destination point. Unit: km; Resolution: 0.0001 km (10 cm).",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "LTPPMwaitgen": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Accumulated waiting time during the mission, excluding the time reported in LTPPMwaitPoint.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "LTPPMwaitPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Waiting time for destination point availability.",
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}

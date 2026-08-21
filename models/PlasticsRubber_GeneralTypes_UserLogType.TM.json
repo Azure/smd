@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UserLogType",
+  "title": "PlasticsRubber_GeneralTypes_UserLogType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.UserLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_LogbookEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UserChangeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.UserChangeEnumeration",
+      "const": {
+        "LOG_ON": 0,
+        "LOG_OFF": 1
+      },
+      "description": "Information if a user logs in or off",
+      "properties": {
+        "LOG_ON": {
+          "description": "The user has logged on the machine",
+          "type": "integer"
+        },
+        "LOG_OFF": {
+          "description": "The user has logged off the machine",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "UserChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "UserChangeEnumeration",
+      "description": "Information if the user logs in or off",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.UserChangeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

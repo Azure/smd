@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_EnergyMeasurementType",
+  "title": "PNEM_EnergyMeasurementType",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.EnergyMeasurementType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ResetEnergyCounter"
+  ],
+  "actions": {
+    "ResetEnergyCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/"
+    }
+  },
+  "properties": {
+    "MeasurementValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "PeObjectNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MeasurementValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

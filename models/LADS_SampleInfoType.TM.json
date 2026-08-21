@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LADS/#LADS_SampleInfoType",
+  "title": "LADS_SampleInfoType",
+  "dov:typeRef": "org.opcfoundation.UA.LADS.SampleInfoType",
+  "links": [],
+  "schemaDefinitions": {
+    "SampleInfoType": {
+      "description": "This DataType contains metadata for a sample, specifically data on the identification and location of the sample in a container.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LADS.SampleInfoType",
+      "required": [
+        "ContainerId",
+        "SampleId",
+        "Position",
+        "CustomData"
+      ],
+      "properties": {
+        "ContainerId": {
+          "description": "Identifier of the container the sample is in.",
+          "type": "string"
+        },
+        "SampleId": {
+          "description": "Identifier of the sample.",
+          "type": "string"
+        },
+        "Position": {
+          "description": "Vendor-specific description of the position of the sample in the container.",
+          "type": "string"
+        },
+        "CustomData": {
+          "description": "Custom data field for vendor-specific data.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

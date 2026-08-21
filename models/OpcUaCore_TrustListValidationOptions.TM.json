@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TrustListValidationOptions",
+  "title": "OpcUaCore_TrustListValidationOptions",
+  "dov:typeRef": "org.opcfoundation.UA.TrustListValidationOptions",
+  "links": [],
+  "schemaDefinitions": {
+    "TrustListValidationOptions": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TrustListValidationOptions",
+      "const": {
+        "SuppressCertificateExpired": 0,
+        "SuppressHostNameInvalid": 1,
+        "SuppressRevocationStatusUnknown": 2,
+        "SuppressIssuerCertificateExpired": 3,
+        "SuppressIssuerRevocationStatusUnknown": 4,
+        "CheckRevocationStatusOnline": 5,
+        "CheckRevocationStatusOffline": 6
+      },
+      "properties": {
+        "SuppressCertificateExpired": {
+          "description": "Ignore errors related to the validity time of the Certificate.",
+          "type": "integer"
+        },
+        "SuppressHostNameInvalid": {
+          "description": "Ignore mismatches between the host name or ApplicationUri.",
+          "type": "integer"
+        },
+        "SuppressRevocationStatusUnknown": {
+          "description": "Ignore errors if the revocation list cannot be found for the issuer of the Certificate.",
+          "type": "integer"
+        },
+        "SuppressIssuerCertificateExpired": {
+          "description": "Ignore errors if an issuer has an expired Certificate.",
+          "type": "integer"
+        },
+        "SuppressIssuerRevocationStatusUnknown": {
+          "description": "Ignore errors if the revocation list cannot be found for any issuer of issuer Certificates.",
+          "type": "integer"
+        },
+        "CheckRevocationStatusOnline": {
+          "description": "Check the revocation status online.",
+          "type": "integer"
+        },
+        "CheckRevocationStatusOffline": {
+          "description": "Check the revocation status offline.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

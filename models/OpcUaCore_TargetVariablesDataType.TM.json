@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TargetVariablesDataType",
+  "title": "OpcUaCore_TargetVariablesDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TargetVariablesDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TargetVariablesDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TargetVariablesDataType",
+      "required": [
+        "TargetVariables"
+      ],
+      "properties": {
+        "TargetVariables": {
+          "type": "array",
+          "items": {
+            "title": "FieldTargetDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FieldTargetDataType",
+            "required": [
+              "DataSetFieldId",
+              "ReceiverIndexRange",
+              "TargetNodeId",
+              "AttributeId",
+              "WriteIndexRange",
+              "OverrideValueHandling",
+              "OverrideValue"
+            ],
+            "properties": {
+              "DataSetFieldId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "ReceiverIndexRange": {
+                "type": "string"
+              },
+              "TargetNodeId": {
+                "type": "string"
+              },
+              "AttributeId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "WriteIndexRange": {
+                "type": "string"
+              },
+              "OverrideValueHandling": {
+                "title": "OverrideValueHandling",
+                "dov:typeRef": "org.opcfoundation.UA.OverrideValueHandling",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "OverrideValue": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

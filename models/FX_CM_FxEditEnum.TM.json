@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_FxEditEnum",
+  "title": "FX_CM_FxEditEnum",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxEditEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "FxEditEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxEditEnum",
+      "const": {
+        "StartEditing": 0,
+        "CommitUpdates": 1,
+        "DiscardUpdates": 2
+      },
+      "properties": {
+        "StartEditing": {
+          "description": "The ConnectionManager shall allow editing of the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "CommitUpdates": {
+          "description": "The ConnectionManager shall commit all updates from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "DiscardUpdates": {
+          "description": "The ConnectionManager shall discard the updates to the ConnectionConfigurationSets.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

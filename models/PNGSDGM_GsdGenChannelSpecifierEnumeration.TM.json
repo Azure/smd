@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenChannelSpecifierEnumeration",
+  "title": "PNGSDGM_GsdGenChannelSpecifierEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenChannelSpecifierEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "GsdGenChannelSpecifierEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenChannelSpecifierEnumeration",
+      "const": {
+        "ALL_DISAPPEARS": 0,
+        "APPEARS": 2048,
+        "DISAPPEARS": 4096,
+        "DISAPPEARS_OTHER_REMAIN": 6144
+      },
+      "properties": {
+        "ALL_DISAPPEARS": {
+          "description": "The Diagnosis ASE contains no longer any entries (of any severity) for this channel",
+          "type": "integer"
+        },
+        "APPEARS": {
+          "description": "An event appears and/or exists further. The Diagnosis ASE contains this and possible other entries for this channel",
+          "type": "integer"
+        },
+        "DISAPPEARS": {
+          "description": "An event disappears and/or exists no longer. The Diagnosis ASE contains no longer any entries of the same severity for this channel",
+          "type": "integer"
+        },
+        "DISAPPEARS_OTHER_REMAIN": {
+          "description": "An event disappears. The Diagnosis ASE still contains other entries of the same severity for this channel",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

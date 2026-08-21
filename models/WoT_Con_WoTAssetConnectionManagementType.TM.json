@@ -1,0 +1,165 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WoT-Con/#WoT_Con_WoTAssetConnectionManagementType",
+  "title": "WoT_Con_WoTAssetConnectionManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.WoT-Con.WoTAssetConnectionManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Configuration",
+      "href": "http://opcfoundation.org/UA/WoT-Con/#WoT_Con_WoTAssetConfigurationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ConnectionTest",
+    "/actions/CreateAssetForEndpoint",
+    "/actions/DiscoverAssets",
+    "/properties/SupportedWoTBindings"
+  ],
+  "actions": {
+    "ConnectionTest": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AssetEndpoint"
+        ],
+        "properties": {
+          "AssetEndpoint": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Success",
+          "Status"
+        ],
+        "properties": {
+          "Success": {
+            "type": "boolean"
+          },
+          "Status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CreateAsset": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AssetName"
+        ],
+        "properties": {
+          "AssetName": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AssetId"
+        ],
+        "properties": {
+          "AssetId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CreateAssetForEndpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AssetName",
+          "AssetEndpoint"
+        ],
+        "properties": {
+          "AssetName": {
+            "type": "string"
+          },
+          "AssetEndpoint": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AssetId"
+        ],
+        "properties": {
+          "AssetId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeleteAsset": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AssetId"
+        ],
+        "properties": {
+          "AssetId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DiscoverAssets": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AssetEndpoints"
+        ],
+        "properties": {
+          "AssetEndpoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "SupportedWoTBindings": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

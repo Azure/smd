@@ -1,0 +1,102 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtElectronicOverloadRelayAttributesType",
+  "title": "Powertrain_PtElectronicOverloadRelayAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtElectronicOverloadRelayAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "GroundEarthFaultDetectionSupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "JamDetectionSupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "NumberofAuxiliaryContactsNC": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "OverloadCurrentSettingRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "title": "Range",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": true
+    },
+    "PhaseLossSensitiveSupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "StallDetectionSuported": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "TripClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "VoltageRated": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "TripClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

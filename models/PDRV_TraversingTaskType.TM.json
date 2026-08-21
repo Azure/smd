@@ -1,0 +1,123 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PDRV/#PDRV_TraversingTaskType",
+  "title": "PDRV_TraversingTaskType",
+  "dov:typeRef": "org.opcfoundation.UA.PDRV.TraversingTaskType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Acceleration",
+    "/properties/Deceleration",
+    "/properties/TargetPosition",
+    "/properties/Velocity",
+    "/events/Acceleration",
+    "/events/Deceleration",
+    "/events/TargetPosition",
+    "/events/Velocity"
+  ],
+  "properties": {
+    "Acceleration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Deceleration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "PositioningMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "TargetPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "TraversingTaskNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Velocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Acceleration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "Deceleration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "PositioningMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "TargetPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "TraversingTaskNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Velocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

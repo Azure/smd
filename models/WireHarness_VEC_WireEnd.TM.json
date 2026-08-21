@@ -1,0 +1,206 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_WireEnd",
+  "title": "WireHarness_VEC_WireEnd",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireEnd",
+  "links": [],
+  "schemaDefinitions": {
+    "WireEnd": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireEnd",
+      "required": [
+        "id",
+        "Identification",
+        "PositionOnWire",
+        "StrippingLength",
+        "InsulationPullbackLength"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the WireEnd. The identification is guaranteed to be unique within the WireElementReference.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "PositionOnWire": {
+          "description": "<p>Specifies the order of the<i>WireEnds</i>on the<i>WireElementReference</i>. This must be a value between 0 and 1. The<i>PositionOnWire</i>is defined as a floating point number, to allow the ordering of an arbitrary number of<i>WireEnds</i>while having constant known values for the first and last<i>WireEnd</i>('0.0' &amp; '1.0'). The<i>PositionOnWire</i>is<u>not</u>defined as a relative factor with respect to the<i>WireLength</i>to determine an exact position of the<i>WireEnd</i>on the wire. This would not be defined unambiguously, since a<i>WireElementReference</i>can define multiple lengths of different<i>WireLengthTypes</i>. If such an interpretation can be made, it is tool or process specific definition.</p><p>In case of<i>WireRole</i>with multiple<i>WireElementReferences</i>the ordering of the<i>WireEnds</i>shall be consistent for all<i>WireElementReferences.</i>That means that all<i>WireEnds</i>with<i>PositionOnWire = 0.0</i>are on the same side of the<i>WireRole.</i></p>",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "StrippingLength": {
+          "description": "<p>Defines the length by which an insulation on this stripped relative to this<i>WireEnd,</i>defined by the<i>cutBackLength</i>. E.g. a<i>cutBackLength</i>of 20mm and a<i>strippingLength</i>of 10mm means, that this<i>WireElementReference</i>is cutback by 20mm relative to length of whole wire, on the side of the defining<i>WireEnd.</i>Form the remaining<i>WireElementReference</i>are then 10mm insulation removed.</p>",
+          "type": "array",
+          "items": {
+            "title": "NumericalValue",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+            "required": [
+              "UnitComponent",
+              "ValueComponent",
+              "Tolerance"
+            ],
+            "properties": {
+              "UnitComponent": {
+                "title": "EUInformation",
+                "description": "References the unit of the value.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "ValueComponent": {
+                "description": "<p>Specifies the value of the numerical value.</p>",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Tolerance": {
+                "description": "<p>Specifies the tolerance for the dimension.</p>",
+                "type": "array",
+                "items": {
+                  "title": "Tolerance",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                  "required": [
+                    "id",
+                    "LowerBoundary",
+                    "UpperBoundary"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "LowerBoundary": {
+                      "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    },
+                    "UpperBoundary": {
+                      "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "InsulationPullbackLength": {
+          "description": "Defines a partial stripping process in which the insulation is pulled back by the insulationPullbackLength after being cut at the strippingLength, and is left on the WireEnd e.g. for logistic reasons. The insulationPullbackLength must be shorter than the strippingLength; otherwise, it would not qualify as partial stripping.",
+          "type": "array",
+          "items": {
+            "title": "NumericalValue",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+            "required": [
+              "UnitComponent",
+              "ValueComponent",
+              "Tolerance"
+            ],
+            "properties": {
+              "UnitComponent": {
+                "title": "EUInformation",
+                "description": "References the unit of the value.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "ValueComponent": {
+                "description": "<p>Specifies the value of the numerical value.</p>",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Tolerance": {
+                "description": "<p>Specifies the tolerance for the dimension.</p>",
+                "type": "array",
+                "items": {
+                  "title": "Tolerance",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                  "required": [
+                    "id",
+                    "LowerBoundary",
+                    "UpperBoundary"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "LowerBoundary": {
+                      "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    },
+                    "UpperBoundary": {
+                      "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                      "type": "number",
+                      "minimum": -1.80e+308,
+                      "maximum": 1.80e+308
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

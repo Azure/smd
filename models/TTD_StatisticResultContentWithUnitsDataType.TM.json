@@ -1,0 +1,280 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_StatisticResultContentWithUnitsDataType",
+  "title": "TTD_StatisticResultContentWithUnitsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.StatisticResultContentWithUnitsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StatisticResultContentWithUnitsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.StatisticResultContentWithUnitsDataType",
+      "required": [
+        "ResultKey",
+        "ItemCount",
+        "MeanValue",
+        "StandardDeviation",
+        "CoefficientOfVariation",
+        "MinValue",
+        "MaxValue",
+        "ConfidenceInterval95",
+        "UnitItemCount",
+        "UnitMeanValue",
+        "UnitStandardDeviation",
+        "UnitCoefficientOfVariation",
+        "UnitMinValue",
+        "UnitMaxValue",
+        "UnitConfidenceInterval"
+      ],
+      "properties": {
+        "ResultKey": {
+          "description": "Unique identifier of the measured property defined by the tester application.",
+          "type": "string"
+        },
+        "ItemCount": {
+          "description": "Number of valid tests that were calculated in the statistics.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "MeanValue": {
+          "description": "Mean value of the valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "StandardDeviation": {
+          "description": "Standard-Deviation of the valid tets.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "CoefficientOfVariation": {
+          "description": "Coefficient of variation of valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "MinValue": {
+          "description": "The minimum value of the valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "MaxValue": {
+          "description": "The maximum value of the valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "ConfidenceInterval95": {
+          "description": "Confidence interval (95%) of the measurement.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "UnitItemCount": {
+          "title": "EUInformation",
+          "description": "Unit for the ItemCount.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnitMeanValue": {
+          "title": "EUInformation",
+          "description": "Unit for the MeanValue.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnitStandardDeviation": {
+          "title": "EUInformation",
+          "description": "Unit for the StandardDeviation.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnitCoefficientOfVariation": {
+          "title": "EUInformation",
+          "description": "Unit for the CoefficientOfVariation.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnitMinValue": {
+          "title": "EUInformation",
+          "description": "Unit for the MinValue.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnitMaxValue": {
+          "title": "EUInformation",
+          "description": "Unit for the MaxValue.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnitConfidenceInterval": {
+          "title": "EUInformation",
+          "description": "Unit for the ConfidenceInterval.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_ReadySubstateMachineType",
+  "title": "Robotics_ReadySubstateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.ReadySubstateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AtProgramStart",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProgramStartToSuspended",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Suspended",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SuspendedToProgramStart",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/ResetToProgramStart"
+  ],
+  "actions": {
+    "ResetToProgramStart": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "description": "0 – OK – Everything is OK 1 – E_SystemState – The system is not in correct state for this operation 2 – E_UnexpectedError – Unexpected Error during the method call 3 – E_ActiveAlarm – An Active Alarm prevents the system start 4 – E_AcknowledgeRequired – Condition needs to be acknowledged <0 – shall be used for vendor-specific errors >0 – are reserved for errors defined by this and future standards",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    },
+    "LastTransitionReason": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    },
+    "LastTransitionReason": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "type": "integer",
+        "minimum": -32768,
+        "maximum": 32767
+      }
+    }
+  }
+}

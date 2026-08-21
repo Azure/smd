@@ -1,0 +1,91 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_GasMixType",
+  "title": "Glass_Flat_GasMixType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.GasMixType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Gas_1",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Gas_2",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/GasFilling",
+    "/properties/MixingRatio",
+    "/properties/GasFilling_EngineeringUnits",
+    "/properties/MixingRatio_EngineeringUnits",
+    "/events/GasFilling",
+    "/events/MixingRatio"
+  ],
+  "properties": {
+    "GasFilling": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/GasFilling_EngineeringUnits"
+    },
+    "MixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MixingRatio_EngineeringUnits"
+    },
+    "GasFilling_EngineeringUnits": {
+      "description": "Unit designator for property and event with name GasFilling, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MixingRatio_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MixingRatio, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "GasFilling": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/GasFilling_EngineeringUnits"
+    },
+    "MixingRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MixingRatio_EngineeringUnits"
+    }
+  }
+}

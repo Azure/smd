@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterDataType",
+  "title": "OpcUaCore_DataSetWriterDataType",
+  "dov:typeRef": "org.opcfoundation.UA.DataSetWriterDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DataSetWriterDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetWriterDataType",
+      "required": [
+        "Name",
+        "Enabled",
+        "DataSetWriterId",
+        "DataSetFieldContentMask",
+        "KeyFrameCount",
+        "DataSetName",
+        "DataSetWriterProperties",
+        "TransportSettings",
+        "MessageSettings"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "DataSetWriterId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "DataSetFieldContentMask": {
+          "title": "DataSetFieldContentMask",
+          "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "KeyFrameCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "DataSetName": {
+          "type": "string"
+        },
+        "DataSetWriterProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "TransportSettings": {
+          "type": "string"
+        },
+        "MessageSettings": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryLifetimeCounterType",
+  "title": "Machinery_MachineryLifetimeCounterType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.MachineryLifetimeCounterType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "LifetimeVariableType": {
+      "description": "Remaining lifetime",
+      "dov:typeRef": "org.opcfoundation.UA.DI.LifetimeVariableType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type",
+      "type": "string",
+      "readOnly": false
+    },
+    "LifetimeVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "tm:ref": "#/schemaDefinitions/LifetimeVariableType",
+      "readOnly": false,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "LifetimeVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/LifetimeVariableType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_AdditiveStatusEnumeration",
+  "title": "PlasticsRubber_LDS_AdditiveStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.AdditiveStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "AdditiveStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.AdditiveStatusEnumeration",
+      "const": {
+        "GOOD": 0,
+        "WARNING": 1,
+        "ADVANCE_WARNING_ADDITIVE_CHANGE": 2,
+        "ERROR_EMPTY": 3,
+        "ERROR": 4
+      },
+      "description": "Actual status of the additive provides a minimal error handling for devices without event support.",
+      "properties": {
+        "GOOD": {
+          "description": "Component has no error or warning.",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The component has an undefined warning, but no need to stop the production.",
+          "type": "integer"
+        },
+        "ADVANCE_WARNING_ADDITIVE_CHANGE": {
+          "description": "Warning, additive change is imminent. No need to stop the process.",
+          "type": "integer"
+        },
+        "ERROR_EMPTY": {
+          "description": "Error, the additive is empty. Production needs to be stopped.",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "The additive has an error and process needs to be stopped.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

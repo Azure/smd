@@ -1,0 +1,198 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_SteamTrapType",
+  "title": "DEXPI_SteamTrapType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.SteamTrapType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "HeatTracingTypeClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatTracingTypeClassification",
+      "const": {
+        "ElectricalHeatTracingSystem": 0,
+        "HeatTracingSystem": 1,
+        "NoHeatTracingSystem": 2,
+        "SteamHeatTracingSystem": 3,
+        "TubularHeatTracingSystem": 4
+      },
+      "description": "",
+      "properties": {
+        "ElectricalHeatTracingSystem": {
+          "description": "ElectricalHeatTracingSystem",
+          "type": "integer"
+        },
+        "HeatTracingSystem": {
+          "description": "HeatTracingSystem",
+          "type": "integer"
+        },
+        "NoHeatTracingSystem": {
+          "description": "NoHeatTracingSystem",
+          "type": "integer"
+        },
+        "SteamHeatTracingSystem": {
+          "description": "SteamHeatTracingSystem",
+          "type": "integer"
+        },
+        "TubularHeatTracingSystem": {
+          "description": "TubularHeatTracingSystem",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/HeatTracingTypeAssignmentClass",
+    "/properties/HeatTracingTypeSpecialization",
+    "/properties/InsulationThickness",
+    "/properties/InsulationTypeAssignmentClass",
+    "/properties/LowerLimitHeatTracingTemperature",
+    "/properties/PipingClassCodeAssignmentClass",
+    "/properties/PipingComponentNameAssignmentClass",
+    "/properties/PipingComponentNumberAssignmentClass",
+    "/events/HeatTracingTypeAssignmentClass",
+    "/events/HeatTracingTypeSpecialization",
+    "/events/InsulationThickness",
+    "/events/InsulationTypeAssignmentClass",
+    "/events/LowerLimitHeatTracingTemperature",
+    "/events/PipingClassCodeAssignmentClass",
+    "/events/PipingComponentNameAssignmentClass",
+    "/events/PipingComponentNumberAssignmentClass"
+  ],
+  "properties": {
+    "HeatTracingTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The heat tracing type related to the PipeFitting, represented as a string.",
+      "type": "string",
+      "readOnly": false
+    },
+    "HeatTracingTypeSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "HeatTracingTypeClassification",
+      "description": "A specialization indicating the heat tracing type related to the PipeFitting.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatTracingTypeClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "InsulationThickness": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The insulation thickness of the PipeFitting.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "InsulationTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code for the insulation type related to the PipeFitting. So far, DEXPI does not define restrictions for valid values.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LowerLimitHeatTracingTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The temperature that a heat tracing system must ensure for the PipeFitting.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PipingClassCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The identification code of the piping class of the PipeFitting. So far, DEXPI does not define restrictions for valid values.",
+      "type": "string",
+      "readOnly": false
+    },
+    "PipingComponentNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The piping component name of the PipeFitting.",
+      "type": "string",
+      "readOnly": false
+    },
+    "PipingComponentNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The piping component number of the PipeFitting.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "HeatTracingTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The heat tracing type related to the PipeFitting, represented as a string.",
+        "type": "string"
+      }
+    },
+    "HeatTracingTypeSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "HeatTracingTypeClassification",
+        "description": "A specialization indicating the heat tracing type related to the PipeFitting.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatTracingTypeClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "InsulationThickness": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The insulation thickness of the PipeFitting.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InsulationTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code for the insulation type related to the PipeFitting. So far, DEXPI does not define restrictions for valid values.",
+        "type": "string"
+      }
+    },
+    "LowerLimitHeatTracingTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The temperature that a heat tracing system must ensure for the PipeFitting.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PipingClassCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The identification code of the piping class of the PipeFitting. So far, DEXPI does not define restrictions for valid values.",
+        "type": "string"
+      }
+    },
+    "PipingComponentNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The piping component name of the PipeFitting.",
+        "type": "string"
+      }
+    },
+    "PipingComponentNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The piping component number of the PipeFitting.",
+        "type": "string"
+      }
+    }
+  }
+}

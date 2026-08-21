@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_GlassMachineIdentificationType",
+  "title": "Glass_Flat_GlassMachineIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.GlassMachineIdentificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/LoggedInProfiles"
+  ],
+  "properties": {
+    "LoggedInProfiles": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "array",
+      "items": {
+        "title": "UserProfileType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.UserProfileType",
+        "required": [
+          "Name",
+          "LoginTime",
+          "Language",
+          "MeasurementFormat",
+          "AccessLevel",
+          "OpcUaUser"
+        ],
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "LoginTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Language": {
+            "type": "string"
+          },
+          "MeasurementFormat": {
+            "type": "string"
+          },
+          "AccessLevel": {
+            "type": "string"
+          },
+          "OpcUaUser": {
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

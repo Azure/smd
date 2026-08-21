@@ -1,0 +1,470 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnEquipmentType",
+  "title": "PROFINET_IPnEquipmentType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.IPnEquipmentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Alarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Assets",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnAssetContainerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IM",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Interfaces",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnInterfaceContainerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Modules",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnRealModuleContainerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnChannelAccumulativeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelAccumulativeEnumeration",
+      "const": {
+        "SINGLE": 0,
+        "ACCUMULATIVE": 256
+      },
+      "properties": {
+        "SINGLE": {
+          "description": "Single channel  Diagnosis only for the reported channel ",
+          "type": "integer"
+        },
+        "ACCUMULATIVE": {
+          "description": "Multiple channel  Accumulative diagnosis from more than one channel ",
+          "type": "integer"
+        }
+      }
+    },
+    "PnChannelDirectionEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+      "const": {
+        "MANUFACTURER_SPECIFIC": 0,
+        "INPUT_CHANNEL": 8192,
+        "OUTPUT_CHANNEL": 16384,
+        "BIDIRECTIONAL_CHANNEL": 24576
+      },
+      "properties": {
+        "MANUFACTURER_SPECIFIC": {
+          "description": "Manufacturer specific",
+          "type": "integer"
+        },
+        "INPUT_CHANNEL": {
+          "description": "Input",
+          "type": "integer"
+        },
+        "OUTPUT_CHANNEL": {
+          "description": "Output",
+          "type": "integer"
+        },
+        "BIDIRECTIONAL_CHANNEL": {
+          "description": "Input/Output",
+          "type": "integer"
+        }
+      }
+    },
+    "PnChannelMaintenanceEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelMaintenanceEnumeration",
+      "const": {
+        "FAULT": 0,
+        "MAINTENANCE_REQUIRED": 512,
+        "MAINTENANCE_DEMANDED": 1024,
+        "USE_QUALIFIED_CHANNEL_QUALIFIER": 1536
+      },
+      "properties": {
+        "FAULT": {
+          "description": "Fault",
+          "type": "integer"
+        },
+        "MAINTENANCE_REQUIRED": {
+          "description": "Maintenance required",
+          "type": "integer"
+        },
+        "MAINTENANCE_DEMANDED": {
+          "description": "Maintenance demanded",
+          "type": "integer"
+        },
+        "USE_QUALIFIED_CHANNEL_QUALIFIER": {
+          "description": "Use QualifiedChannelQualifier variable",
+          "type": "integer"
+        }
+      }
+    },
+    "PnChannelSpecifierEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelSpecifierEnumeration",
+      "const": {
+        "ALL_DISAPPEARS": 0,
+        "APPEARS": 2048,
+        "DISAPPEARS": 4096,
+        "DISAPPEARS_OTHER_REMAIN": 6144
+      },
+      "properties": {
+        "ALL_DISAPPEARS": {
+          "description": "The Diagnosis ASE contains no longer any entries (of any severity) for this channel",
+          "type": "integer"
+        },
+        "APPEARS": {
+          "description": "An event appears and/or exists further The Diagnosis ASE contains this and possible other entries for this channel. ",
+          "type": "integer"
+        },
+        "DISAPPEARS": {
+          "description": "An event disappears and/or exists no longer The Diagnosis ASE contains no longer any entries of the same severity for this channel ",
+          "type": "integer"
+        },
+        "DISAPPEARS_OTHER_REMAIN": {
+          "description": "An event disappears The Diagnosis ASE still contains other entries of the same severity for this channel ",
+          "type": "integer"
+        }
+      }
+    },
+    "PnChannelTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
+      "const": {
+        "UNSPECIFIC": 0,
+        "S1BIT": 1,
+        "S2BIT": 2,
+        "S4BIT": 3,
+        "S8BIT": 4,
+        "S16BIT": 5,
+        "S32BIT": 6,
+        "S64BIT": 7
+      },
+      "properties": {
+        "UNSPECIFIC": {
+          "description": "Shall be used if the field ChannelNumber contains the value 0x8000 (submodule) Furthermore, it shall be used if none of the below defined types are appropriate. ",
+          "type": "integer"
+        },
+        "S1BIT": {
+          "description": "The data length of this channel is 1 Bit.",
+          "type": "integer"
+        },
+        "S2BIT": {
+          "description": "The data length of this channel is 2 Bit.",
+          "type": "integer"
+        },
+        "S4BIT": {
+          "description": "The data length of this channel is 4 Bit.",
+          "type": "integer"
+        },
+        "S8BIT": {
+          "description": "The data length of this channel is 8 Bit.",
+          "type": "integer"
+        },
+        "S16BIT": {
+          "description": "The data length of this channel is 16 Bit.",
+          "type": "integer"
+        },
+        "S32BIT": {
+          "description": "The data length of this channel is 32 Bit.",
+          "type": "integer"
+        },
+        "S64BIT": {
+          "description": "The data length of this channel is 64 Bit.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ShowLocation",
+    "/properties/Diagnosis",
+    "/properties/Vendor",
+    "/events/Diagnosis"
+  ],
+  "actions": {
+    "ShowLocation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/"
+    }
+  },
+  "properties": {
+    "Diagnosis": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "array",
+      "items": {
+        "title": "PnDeviceDiagnosisDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceDiagnosisDataType",
+        "required": [
+          "API",
+          "Slot",
+          "Subslot",
+          "ChannelNumber",
+          "Type",
+          "Accumulative",
+          "Maintenance",
+          "Specifier",
+          "Direction",
+          "UserStructureIdentifier",
+          "ChannelErrorType",
+          "ExtChannelErrorType",
+          "ExtChannelAddValue",
+          "QualifiedChannelQualifier",
+          "ManufacturerData",
+          "Message",
+          "HelpText"
+        ],
+        "properties": {
+          "API": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Slot": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Subslot": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "ChannelNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Type": {
+            "title": "PnChannelTypeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Accumulative": {
+            "title": "PnChannelAccumulativeEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelAccumulativeEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Maintenance": {
+            "title": "PnChannelMaintenanceEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelMaintenanceEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Specifier": {
+            "title": "PnChannelSpecifierEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelSpecifierEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Direction": {
+            "title": "PnChannelDirectionEnumeration",
+            "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "UserStructureIdentifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "ChannelErrorType": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "ExtChannelErrorType": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "ExtChannelAddValue": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "QualifiedChannelQualifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ManufacturerData": {
+            "description": "Manufacturer specific diagnosis data",
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "Message": {
+            "description": "Diagnosis message read from the GSDML",
+            "type": "string"
+          },
+          "HelpText": {
+            "description": "Help text read from the GSDML",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "Vendor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Diagnosis": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PnDeviceDiagnosisDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceDiagnosisDataType",
+          "required": [
+            "API",
+            "Slot",
+            "Subslot",
+            "ChannelNumber",
+            "Type",
+            "Accumulative",
+            "Maintenance",
+            "Specifier",
+            "Direction",
+            "UserStructureIdentifier",
+            "ChannelErrorType",
+            "ExtChannelErrorType",
+            "ExtChannelAddValue",
+            "QualifiedChannelQualifier",
+            "ManufacturerData",
+            "Message",
+            "HelpText"
+          ],
+          "properties": {
+            "API": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Slot": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Subslot": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "ChannelNumber": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Type": {
+              "title": "PnChannelTypeEnumeration",
+              "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelTypeEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Accumulative": {
+              "title": "PnChannelAccumulativeEnumeration",
+              "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelAccumulativeEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Maintenance": {
+              "title": "PnChannelMaintenanceEnumeration",
+              "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelMaintenanceEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Specifier": {
+              "title": "PnChannelSpecifierEnumeration",
+              "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelSpecifierEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Direction": {
+              "title": "PnChannelDirectionEnumeration",
+              "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnChannelDirectionEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "UserStructureIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "ChannelErrorType": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "ExtChannelErrorType": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "ExtChannelAddValue": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "QualifiedChannelQualifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "ManufacturerData": {
+              "description": "Manufacturer specific diagnosis data",
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "Message": {
+              "description": "Diagnosis message read from the GSDML",
+              "type": "string"
+            },
+            "HelpText": {
+              "description": "Help text read from the GSDML",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

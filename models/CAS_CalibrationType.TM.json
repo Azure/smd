@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_CalibrationType",
+  "title": "CAS_CalibrationType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.CalibrationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "LastCalibrationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Date when the sensor was last calibrated.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "NextCalibrationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Date when the sensor is scheduled for the next calibration.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LastCalibrationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Date when the sensor was last calibrated.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "NextCalibrationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Date when the sensor is scheduled for the next calibration.",
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_FileSystemLoadingType",
+  "title": "DI_FileSystemLoadingType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.FileSystemLoadingType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_SoftwareLoadingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FileSystem",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileDirectoryType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UpdateBehavior": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.UpdateBehavior",
+      "const": {
+        "KeepsParameters": 0,
+        "WillDisconnect": 1,
+        "RequiresPowerCycle": 2,
+        "WillReboot": 3,
+        "NeedsPreparation": 4
+      },
+      "properties": {
+        "KeepsParameters": {
+          "description": "If KeepsParameters is not set, the device will lose its configuration during update. The Client should do a backup of the parameters before the update and restore them afterwards.",
+          "type": "integer"
+        },
+        "WillDisconnect": {
+          "description": "If WillDisconnect is set, the OPC UA Server will restart during installation. This can be the case if the update is about the firmware of the device that hosts the OPC UA Server.",
+          "type": "integer"
+        },
+        "RequiresPowerCycle": {
+          "description": "If RequiresPowerCycle is set, the devices require a manual power off / power on for installation.",
+          "type": "integer"
+        },
+        "WillReboot": {
+          "description": "If WillReboot is set, the device will reboot during the update, inclusive of embedded infrastructure elements like an integrated switch. An update Client should take this into account since the devices behind an integrated switch are not reachable for that time.",
+          "type": "integer"
+        },
+        "NeedsPreparation": {
+          "description": "If NeedsPreparation is not set, the Client can install the update without maintaining the PrepareForUpdateStateMachine. This can be used to support an installation without stopping the software.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ValidateFiles"
+  ],
+  "actions": {
+    "GetUpdateBehavior": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NodeIds"
+        ],
+        "properties": {
+          "NodeIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "UpdateBehavior"
+        ],
+        "properties": {
+          "UpdateBehavior": {
+            "title": "UpdateBehavior",
+            "dov:typeRef": "org.opcfoundation.UA.DI.UpdateBehavior",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "ValidateFiles": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NodeIds"
+        ],
+        "properties": {
+          "NodeIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ErrorCode",
+          "ErrorMessage"
+        ],
+        "properties": {
+          "ErrorCode": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ErrorMessage": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

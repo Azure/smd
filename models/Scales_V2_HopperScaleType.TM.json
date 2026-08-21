@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_HopperScaleType",
+  "title": "Scales_V2_HopperScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.HopperScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_SimpleScaleType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/LevelMax",
+    "/properties/LevelMin",
+    "/properties/Limits",
+    "/events/LevelMax",
+    "/events/LevelMin"
+  ],
+  "properties": {
+    "LevelMax": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "LevelMin": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "LimitMax": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "The current fill level exceeds the allowed maximum level.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "LimitMin": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "The current fill level falls below the allowed minimum level.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Limits": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a placeholder for individual additional limits that may be reached.",
+      "type": "boolean",
+      "readOnly": false,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "LevelMax": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "LevelMin": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

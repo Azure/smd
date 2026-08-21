@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLCountDataType",
+  "title": "PackML_PackMLCountDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PackMLCountDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+      "required": [
+        "ID",
+        "Name",
+        "Unit",
+        "Count",
+        "AccCount"
+      ],
+      "properties": {
+        "ID": {
+          "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Name": {
+          "description": "A string description of the material.",
+          "type": "string"
+        },
+        "Unit": {
+          "title": "EUInformation",
+          "description": "OPC UA engineering unit information for the count.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "Count": {
+          "description": "The amount of consumed (processed or defective) material on the current production job.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "AccCount": {
+          "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

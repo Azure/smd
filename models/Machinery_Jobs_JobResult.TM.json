@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Jobs/#Machinery_Jobs_JobResult",
+  "title": "Machinery_Jobs_JobResult",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobResult",
+  "links": [],
+  "schemaDefinitions": {
+    "JobResult": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobResult",
+      "const": {
+        "Unknown": 0,
+        "Successful": 1,
+        "Unsuccessful": 2
+      },
+      "properties": {
+        "Unknown": {
+          "description": "Unknown state. Used when result is not known, e.g. because job order is still running.",
+          "type": "integer"
+        },
+        "Successful": {
+          "description": "Job order was executed successful",
+          "type": "integer"
+        },
+        "Unsuccessful": {
+          "description": "Job order was not executed successful.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

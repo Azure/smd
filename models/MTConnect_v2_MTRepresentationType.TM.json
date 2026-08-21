@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTRepresentationType",
+  "title": "MTConnect_v2_MTRepresentationType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTRepresentationType",
+  "links": [],
+  "schemaDefinitions": {
+    "MTRepresentationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTRepresentationType",
+      "const": {
+        "DISCRETE": 0,
+        "TIME_SERIES": 1,
+        "VALUE": 2
+      },
+      "description": "       Represents the \\mtmodel{representation} attribute of the MTConnect       \\gls{MTDataItem}.     ",
+      "properties": {
+        "DISCRETE": {
+          "description": "           A data entity where each discrete occurrence of the data may have the           same value as the previous occurrence of the data.         ",
+          "type": "integer"
+        },
+        "TIME_SERIES": {
+          "description": "A series of sampled data. ",
+          "type": "integer"
+        },
+        "VALUE": {
+          "description": "The measured value of the sample data.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ManAddrIfSubtype",
+  "title": "OpcUaCore_ManAddrIfSubtype",
+  "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+  "links": [],
+  "schemaDefinitions": {
+    "ManAddrIfSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+      "const": {
+        "None": 0,
+        "Unknown": 1,
+        "PortRef": 2,
+        "SystemPortNumber": 3
+      },
+      "properties": {
+        "None": {
+          "description": "Optional variable is not set.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Interface is not known.",
+          "type": "integer"
+        },
+        "PortRef": {
+          "description": "Interface based on the port-ref MIB object.",
+          "type": "integer"
+        },
+        "SystemPortNumber": {
+          "description": "Interface based on the system port number.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

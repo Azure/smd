@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ProgramTransitionEventType",
+  "title": "OpcUaCore_ProgramTransitionEventType",
+  "dov:typeRef": "org.opcfoundation.UA.ProgramTransitionEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BaseDataVariableType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "IntermediateResult": {
+      "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "IntermediateResult": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
+      }
+    }
+  }
+}

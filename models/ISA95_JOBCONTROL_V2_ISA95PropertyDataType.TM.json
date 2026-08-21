@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/#ISA95_JOBCONTROL_V2_ISA95PropertyDataType",
+  "title": "ISA95_JOBCONTROL_V2_ISA95PropertyDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95PropertyDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ISA95PropertyDataType": {
+      "description": "A subtype of OPC UA Structure that defines two linked data items: an ID, which is a unique identifier for a property within the scope of the associated resource, and the value, which is the data for the property.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95PropertyDataType",
+      "required": [
+        "ID",
+        "Value"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for a property within the scope of the associated resource",
+          "type": "string"
+        },
+        "Value": {
+          "description": "Value for the property",
+          "type": "string"
+        },
+        "Description": {
+          "description": "An optional description of the parameter.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "description": "The Unit Of Measure of the value",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "Subproperties": {
+          "type": "array",
+          "items": {
+            "title": "ISA95PropertyDataType",
+            "description": "A subtype of OPC UA Structure that defines two linked data items: an ID, which is a unique identifier for a property within the scope of the associated resource, and the value, which is the data for the property.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95PropertyDataType",
+            "required": [
+              "ID",
+              "Value"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for a property within the scope of the associated resource",
+                "type": "string"
+              },
+              "Value": {
+                "description": "Value for the property",
+                "type": "string"
+              },
+              "Description": {
+                "description": "An optional description of the parameter.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "EngineeringUnits": {
+                "title": "EUInformation",
+                "description": "The Unit Of Measure of the value",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "Subproperties": {
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for the infinite remainder of this data structure, which is recursively defined.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

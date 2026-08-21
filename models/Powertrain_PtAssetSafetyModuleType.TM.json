@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetSafetyModuleType",
+  "title": "Powertrain_PtAssetSafetyModuleType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtAssetSafetyModuleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "PtEncoderInterfaceAttributes",
+      "dov:refType": "HasPtAttributes",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtEncoderInterfaceAttributesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "PtFunctionalSafetyAttributes",
+      "dov:refType": "HasPtAttributes",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtFunctionalSafetyAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

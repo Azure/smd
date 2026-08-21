@@ -1,0 +1,105 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialRejectedLogType",
+  "title": "TMC_v2_MaterialRejectedLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialRejectedLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaterialQuantityVariableType": {
+      "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to  provide a material quantity.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308
+    }
+  },
+  "properties": {
+    "RejectedMaterial": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
+      "readOnly": true,
+      "dov:contains": [
+        "RejectedMaterial_ValueInBUoM"
+      ]
+    },
+    "RejectedMaterial_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "RejectedMaterial"
+    },
+    "RejectedMaterialTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
+      "readOnly": true,
+      "dov:contains": [
+        "RejectedMaterialTotal_ValueInBUoM"
+      ]
+    },
+    "RejectedMaterialTotal_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "RejectedMaterialTotal"
+    }
+  },
+  "events": {
+    "RejectedMaterial": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
+      },
+      "dov:contains": [
+        "RejectedMaterial_ValueInBUoM"
+      ]
+    },
+    "RejectedMaterial_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "RejectedMaterial"
+    },
+    "RejectedMaterialTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
+      },
+      "dov:contains": [
+        "RejectedMaterialTotal_ValueInBUoM"
+      ]
+    },
+    "RejectedMaterialTotal_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "RejectedMaterialTotal"
+    }
+  }
+}

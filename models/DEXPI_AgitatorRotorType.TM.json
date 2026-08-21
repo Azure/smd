@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_AgitatorRotorType",
+  "title": "DEXPI_AgitatorRotorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.AgitatorRotorType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Diameter",
+    "/properties/LengthToMountingFlange",
+    "/properties/MaterialOfConstructionCodeAssignmentClass",
+    "/properties/RotorTypeAssignmentClass",
+    "/events/Diameter",
+    "/events/LengthToMountingFlange",
+    "/events/MaterialOfConstructionCodeAssignmentClass",
+    "/events/RotorTypeAssignmentClass"
+  ],
+  "properties": {
+    "Diameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The diameter of the AgitatorRotor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "LengthToMountingFlange": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The length to the mounting flange of the AgitatorRotor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A code that gives the material of construction of the AgitatorRotor.",
+      "type": "string",
+      "readOnly": false
+    },
+    "RotorTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The rotor type of the AgitatorRotor.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Diameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The diameter of the AgitatorRotor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LengthToMountingFlange": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The length to the mounting flange of the AgitatorRotor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A code that gives the material of construction of the AgitatorRotor.",
+        "type": "string"
+      }
+    },
+    "RotorTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The rotor type of the AgitatorRotor.",
+        "type": "string"
+      }
+    }
+  }
+}

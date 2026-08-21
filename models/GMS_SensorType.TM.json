@@ -1,0 +1,199 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_SensorType",
+  "title": "GMS_SensorType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.SensorType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ToolType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ToolLife",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ToolAlignmentState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.ToolAlignmentState",
+      "const": {
+        "Fixed": 0,
+        "Indexed": 1,
+        "Continuous": 2
+      },
+      "properties": {
+        "Fixed": {
+          "type": "integer"
+        },
+        "Indexed": {
+          "type": "integer"
+        },
+        "Continuous": {
+          "type": "integer"
+        }
+      }
+    },
+    "ToolIsQualifiedStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.ToolIsQualifiedStatus",
+      "const": {
+        "Qualified": 0,
+        "Imprecise": 1,
+        "NotQualified": 2
+      },
+      "properties": {
+        "Qualified": {
+          "type": "integer"
+        },
+        "Imprecise": {
+          "type": "integer"
+        },
+        "NotQualified": {
+          "type": "integer"
+        }
+      }
+    },
+    "MultiStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "tm:optional": [
+    "/properties/AbsoluteProbe",
+    "/properties/Alignment",
+    "/properties/Axes",
+    "/properties/Capabilities",
+    "/properties/EngineeringUnit",
+    "/properties/IsQualifiedStatus",
+    "/properties/MeasuringRange",
+    "/properties/Resolution",
+    "/properties/WorkingRange",
+    "/events/Capabilities"
+  ],
+  "properties": {
+    "AbsoluteProbe": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Alignment": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "title": "ToolAlignmentState",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.ToolAlignmentState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Axes": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "Capabilities": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "readOnly": false
+    },
+    "Class": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
+      "readOnly": false
+    },
+    "EngineeringUnit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "title": "EUInformation",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+      "required": [
+        "NamespaceUri",
+        "UnitId",
+        "DisplayName",
+        "Description"
+      ],
+      "properties": {
+        "NamespaceUri": {
+          "type": "string"
+        },
+        "UnitId": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "IsQualifiedStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "title": "ToolIsQualifiedStatus",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.ToolIsQualifiedStatus",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "MeasuringRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Resolution": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "WorkingRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Capabilities": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "Class": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
+      }
+    }
+  }
+}

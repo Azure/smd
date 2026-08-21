@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISTimeSyncObjectType",
+  "title": "MDIS_MDISTimeSyncObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISTimeSyncObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "SetTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TargetTime"
+        ],
+        "properties": {
+          "TargetTime": {
+            "description": "The UTC Time that the Server shall use to update its internal clock.",
+            "type": "string",
+            "format": "time"
+          }
+        }
+      }
+    }
+  }
+}

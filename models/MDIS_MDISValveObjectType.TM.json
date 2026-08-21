@@ -1,0 +1,317 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISValveObjectType",
+  "title": "MDIS_MDISValveObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISValveObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISBaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "ValveSignature",
+      "dov:refType": "HasSignature",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CommandEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.CommandEnum",
+      "const": {
+        "Close": 1,
+        "Open": 2,
+        "None": 4
+      },
+      "properties": {
+        "Close": {
+          "description": "The last command to the valve was Close",
+          "type": "integer"
+        },
+        "Open": {
+          "description": "The last command to the valve was Open",
+          "type": "integer"
+        },
+        "None": {
+          "description": "No known command has been sent to the valve. The initial setting on start-up of a server.",
+          "type": "integer"
+        }
+      }
+    },
+    "SEMEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+      "const": {
+        "SEM_A": 1,
+        "SEM_B": 2,
+        "Auto": 4
+      },
+      "properties": {
+        "SEM_A": {
+          "description": "Valve move command selection SEM A",
+          "type": "integer"
+        },
+        "SEM_B": {
+          "description": "Valve move command selection SEM B",
+          "type": "integer"
+        },
+        "Auto": {
+          "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
+          "type": "integer"
+        }
+      }
+    },
+    "SignatureStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SignatureStatusEnum",
+      "const": {
+        "NotAvailable": 1,
+        "Completed": 2,
+        "Failed": 4
+      },
+      "properties": {
+        "NotAvailable": {
+          "description": "The profile / signature is not available (in progress)",
+          "type": "integer"
+        },
+        "Completed": {
+          "description": "The profile / signature request has completed",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "The profile / signature request has failed",
+          "type": "integer"
+        }
+      }
+    },
+    "ValvePositionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
+      "const": {
+        "Closed": 1,
+        "Open": 2,
+        "Moving": 4,
+        "Unknown": 8
+      },
+      "properties": {
+        "Closed": {
+          "description": "The Valve is Closed",
+          "type": "integer"
+        },
+        "Open": {
+          "description": "The Valve is Open",
+          "type": "integer"
+        },
+        "Moving": {
+          "description": "The Valve is Moving",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "The Valve is in an unknown state. This value can be used when a subsea vendor does not have any last command information and does not know the state of the valve.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/CloseTimeDuration",
+    "/properties/CommandRejected",
+    "/properties/DefeatableCloseInterlock",
+    "/properties/DefeatableOpenInterlock",
+    "/properties/LastCommand",
+    "/properties/NonDefeatableCloseInterlock",
+    "/properties/NonDefeatableOpenInterlock",
+    "/properties/OpenTimeDuration",
+    "/properties/SignatureRequestStatus",
+    "/events/CommandRejected",
+    "/events/DefeatableCloseInterlock",
+    "/events/DefeatableOpenInterlock",
+    "/events/LastCommand",
+    "/events/NonDefeatableCloseInterlock",
+    "/events/NonDefeatableOpenInterlock",
+    "/events/SignatureRequestStatus"
+  ],
+  "actions": {
+    "Move": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Direction",
+          "OverrideInterlock",
+          "SEM",
+          "Signature",
+          "ShutdownRequest"
+        ],
+        "properties": {
+          "Direction": {
+            "title": "CommandEnum",
+            "description": "The enumeration indicates whether the command is to open the valve or to close the valve",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.CommandEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "OverrideInterlock": {
+            "description": "Boolean indicating if the open or close command should override any defeat able interlocks",
+            "type": "boolean"
+          },
+          "SEM": {
+            "title": "SEMEnum",
+            "description": "The selection of which SEM to send the command to",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Signature": {
+            "description": "Boolean indicating if a profile should be generated by this move command request",
+            "type": "boolean"
+          },
+          "ShutdownRequest": {
+            "description": "Boolean indicates that this command is a shutdown move command",
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CloseTimeDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "CommandRejected": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "LastCommand": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "CommandEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.CommandEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "NonDefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "NonDefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "OpenTimeDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "Position": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "ValvePositionEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SignatureRequestStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "SignatureStatusEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SignatureStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CommandRejected": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "DefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "DefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "LastCommand": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "CommandEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.CommandEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "NonDefeatableCloseInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "NonDefeatableOpenInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "Position": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "ValvePositionEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SignatureRequestStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "SignatureStatusEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.SignatureStatusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

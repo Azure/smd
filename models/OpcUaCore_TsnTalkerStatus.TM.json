@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TsnTalkerStatus",
+  "title": "OpcUaCore_TsnTalkerStatus",
+  "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
+  "links": [],
+  "schemaDefinitions": {
+    "TsnTalkerStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
+      "const": {
+        "None": 0,
+        "Ready": 1,
+        "Failed": 2
+      },
+      "properties": {
+        "None": {
+          "description": "No Talker detected.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Talker ready (configured).",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "Talker failed.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

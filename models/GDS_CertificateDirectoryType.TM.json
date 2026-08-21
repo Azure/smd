@@ -1,0 +1,356 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GDS/#GDS_CertificateDirectoryType",
+  "title": "GDS_CertificateDirectoryType",
+  "dov:typeRef": "org.opcfoundation.UA.GDS.CertificateDirectoryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/GDS/#GDS_DirectoryType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/CheckRevocationStatus",
+    "/actions/GetCertificates",
+    "/actions/RevokeCertificate"
+  ],
+  "actions": {
+    "CheckRevocationStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Certificate"
+        ],
+        "properties": {
+          "Certificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CertificateStatus",
+          "ValidityTime"
+        ],
+        "properties": {
+          "CertificateStatus": {
+            "type": "string"
+          },
+          "ValidityTime": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      }
+    },
+    "FinishRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "RequestId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "RequestId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Certificate",
+          "PrivateKey",
+          "IssuerCertificates"
+        ],
+        "properties": {
+          "Certificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "PrivateKey": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "IssuerCertificates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    },
+    "GetCertificateGroups": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CertificateGroupIds"
+        ],
+        "properties": {
+          "CertificateGroupIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "GetCertificates": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "CertificateGroupId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "CertificateGroupId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CertificateTypeIds",
+          "Certificates"
+        ],
+        "properties": {
+          "CertificateTypeIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Certificates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    },
+    "GetCertificateStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "CertificateGroupId",
+          "CertificateTypeId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "UpdateRequired"
+        ],
+        "properties": {
+          "UpdateRequired": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "GetTrustList": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "CertificateGroupId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "CertificateGroupId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "TrustListId"
+        ],
+        "properties": {
+          "TrustListId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RevokeCertificate": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "Certificate"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "Certificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "StartNewKeyPairRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "CertificateGroupId",
+          "CertificateTypeId",
+          "SubjectName",
+          "DomainNames",
+          "PrivateKeyFormat",
+          "PrivateKeyPassword"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          },
+          "SubjectName": {
+            "type": "string"
+          },
+          "DomainNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "PrivateKeyFormat": {
+            "type": "string"
+          },
+          "PrivateKeyPassword": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RequestId"
+        ],
+        "properties": {
+          "RequestId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartSigningRequest": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId",
+          "CertificateGroupId",
+          "CertificateTypeId",
+          "CertificateRequest"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          },
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          },
+          "CertificateRequest": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RequestId"
+        ],
+        "properties": {
+          "RequestId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

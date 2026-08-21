@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://fdi-cooperation.com/OPCUA/FDI7/#Fdi_cooperation_OPCUA_FDI7_ConnectionPoint_HART_TP5",
+  "title": "Fdi_cooperation_OPCUA_FDI7_ConnectionPoint_HART_TP5",
+  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI7.ConnectionPoint_HART_TP5",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ConnectionPointType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DevMfg",
+    "/properties/DevPollAddr",
+    "/properties/DevRev",
+    "/properties/DevTag",
+    "/properties/DevType"
+  ],
+  "properties": {
+    "DevAddr": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI7/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    },
+    "DevMfg": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI7/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DevPollAddr": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI7/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "DevRev": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI7/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DevTag": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI7/",
+      "type": "string",
+      "readOnly": true
+    },
+    "DevType": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI7/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

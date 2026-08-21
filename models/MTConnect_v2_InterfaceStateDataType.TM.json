@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_InterfaceStateDataType",
+  "title": "MTConnect_v2_InterfaceStateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.InterfaceStateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "InterfaceStateDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.InterfaceStateDataType",
+      "const": {
+        "ACTIVE": 0,
+        "COMPLETE": 1,
+        "FAIL": 2,
+        "NOT_READY": 4,
+        "READY": 5
+      },
+      "description": "",
+      "properties": {
+        "ACTIVE": {
+          "description": "The value of the data entity that is engaging.",
+          "type": "integer"
+        },
+        "COMPLETE": {
+          "description": "Completion of an action.",
+          "type": "integer"
+        },
+        "FAIL": {
+          "description": "Failure before completion of an action.",
+          "type": "integer"
+        },
+        "NOT_READY": {
+          "description": "A component is not ready to engage.",
+          "type": "integer"
+        },
+        "READY": {
+          "description": "A component is ready to engage.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

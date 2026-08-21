@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/#PlasticsRubber_IMM2MES_InjectionUnitType",
+  "title": "PlasticsRubber_IMM2MES_InjectionUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.IMM2MES.InjectionUnitType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "TemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_TemperatureZonesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaxScrewStroke",
+    "/properties/ScrewDiameter",
+    "/properties/ScrewId",
+    "/properties/ScrewVolume",
+    "/events/MaxScrewStroke",
+    "/events/ScrewDiameter",
+    "/events/ScrewVolume"
+  ],
+  "properties": {
+    "BarrelId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Id (e.g. serial number) of the barrel",
+      "type": "string",
+      "readOnly": true
+    },
+    "Index": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Number of the injection unit",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "InProduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "information if the injection unit is used in the current running production",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Information if the injection unit is physically installed on the injection machines",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaxScrewStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "maximum stroke of the screw installed in the injection unit",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ScrewDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "diameter of the screw installed in the injection unit",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ScrewId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Id of the screw installed in the injection unit",
+      "type": "string",
+      "readOnly": true
+    },
+    "ScrewVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "volume of the screw installed in the injection unit",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MaxScrewStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "maximum stroke of the screw installed in the injection unit",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ScrewDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "diameter of the screw installed in the injection unit",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ScrewVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "volume of the screw installed in the injection unit",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

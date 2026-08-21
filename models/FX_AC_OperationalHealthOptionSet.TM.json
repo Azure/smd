@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_OperationalHealthOptionSet",
+  "title": "FX_AC_OperationalHealthOptionSet",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+  "links": [],
+  "schemaDefinitions": {
+    "OperationalHealthOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+      "const": {
+        "OperationalWarning": 16,
+        "OperationalError": 17,
+        "SubOperationalWarning": 18,
+        "SubOperationalError": 19
+      },
+      "properties": {
+        "OperationalWarning": {
+          "description": "FunctionalEntity indicates a warning.",
+          "type": "integer"
+        },
+        "OperationalError": {
+          "description": "FunctionalEntity indicates an error.",
+          "type": "integer"
+        },
+        "SubOperationalWarning": {
+          "description": "One of the SubFunctionalEntities indicates a warning.",
+          "type": "integer"
+        },
+        "SubOperationalError": {
+          "description": "One of the SubFunctionalEntities indicates an error.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_ControlSignalType",
+  "title": "PADIM_ControlSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.ControlSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ExecutionModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.ExecutionModeEnum",
+      "const": {
+        "Start": 2,
+        "Abort": 255
+      },
+      "properties": {
+        "Start": {
+          "type": "integer"
+        },
+        "Abort": {
+          "type": "integer"
+        }
+      }
+    },
+    "ControlVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.ControlVariableType",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38
+    }
+  },
+  "tm:optional": [
+    "/actions/AutoAdjustPositioner"
+  ],
+  "actions": {
+    "AutoAdjustPositioner": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ExecutionMode"
+        ],
+        "properties": {
+          "ExecutionMode": {
+            "title": "ExecutionModeEnum",
+            "dov:typeRef": "org.opcfoundation.UA.PADIM.ExecutionModeEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ControlSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/ControlVariableType",
+      "readOnly": false,
+      "dov:contains": [
+        "ControlSignal_ActuatorType",
+        "ControlSignal_OperatingDirection",
+        "ControlSignal_Setpoint"
+      ]
+    },
+    "ControlSignal_ActuatorType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "ControlSignal"
+    },
+    "ControlSignal_OperatingDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "ControlSignal"
+    },
+    "ControlSignal_Setpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:containedIn": "ControlSignal"
+    }
+  },
+  "events": {
+    "ControlSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/ControlVariableType"
+      },
+      "dov:contains": [
+        "ControlSignal_ActuatorType",
+        "ControlSignal_OperatingDirection",
+        "ControlSignal_Setpoint"
+      ]
+    },
+    "ControlSignal_ActuatorType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ControlSignal"
+    },
+    "ControlSignal_OperatingDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ControlSignal"
+    },
+    "ControlSignal_Setpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:containedIn": "ControlSignal"
+    }
+  }
+}

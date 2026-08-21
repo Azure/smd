@@ -1,0 +1,116 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialDefinitionType",
+  "title": "TMC_v2_MaterialDefinitionType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+  "links": [],
+  "schemaDefinitions": {
+    "MaterialDefinitionType": {
+      "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+      "required": [
+        "ID",
+        "MES_ID",
+        "Description",
+        "BaseUnitOfMeasure",
+        "BatchManaged"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the material definition.",
+          "type": "string"
+        },
+        "MES_ID": {
+          "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Description of the material definition.",
+          "type": "string"
+        },
+        "BaseUnitOfMeasure": {
+          "title": "EUInformation",
+          "description": "The base unit of measure for the material definition.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "BatchManaged": {
+          "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+          "type": "boolean"
+        },
+        "GroupID": {
+          "description": "The material group the material definition belongs to.",
+          "type": "string"
+        },
+        "ParentGroupID": {
+          "description": "The parent group of the material group the material definition belongs to.",
+          "type": "string"
+        },
+        "ShelfLife": {
+          "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Properties": {
+          "description": "An array containing additional properties that can be additionally  required for the material definition.",
+          "type": "array",
+          "items": {
+            "title": "DataDescriptionType",
+            "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+            "required": [
+              "ID",
+              "MES_ID",
+              "Description"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the metadata description.",
+                "type": "string"
+              },
+              "MES_ID": {
+                "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "The metadata description.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerConfigurationType",
+  "title": "OpcUaCore_ServerConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "CertificateGroups",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_CertificateGroupFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "TransactionDiagnostics",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransactionDiagnosticsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ConfigurationFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ApplicationConfigurationFileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ApplicationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "const": {
+        "Server": 0,
+        "Client": 1,
+        "ClientAndServer": 2,
+        "DiscoveryServer": 3
+      },
+      "properties": {
+        "Server": {
+          "type": "integer"
+        },
+        "Client": {
+          "type": "integer"
+        },
+        "ClientAndServer": {
+          "type": "integer"
+        },
+        "DiscoveryServer": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/CancelChanges",
+    "/actions/CreateSelfSignedCertificate",
+    "/actions/DeleteCertificate",
+    "/actions/GetCertificates",
+    "/actions/ResetToServerDefaults",
+    "/properties/ApplicationNames",
+    "/properties/ApplicationType",
+    "/properties/ApplicationUri",
+    "/properties/HasSecureElement",
+    "/properties/InApplicationSetup",
+    "/properties/ProductUri",
+    "/properties/SupportsTransactions"
+  ],
+  "actions": {
+    "ApplyChanges": {},
+    "CancelChanges": {},
+    "CreateSelfSignedCertificate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CertificateGroupId",
+          "CertificateTypeId",
+          "SubjectName",
+          "DnsNames",
+          "IpAddresses",
+          "LifetimeInDays",
+          "KeySizeInBits"
+        ],
+        "properties": {
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          },
+          "SubjectName": {
+            "type": "string"
+          },
+          "DnsNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "IpAddresses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "LifetimeInDays": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "KeySizeInBits": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Certificate"
+        ],
+        "properties": {
+          "Certificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "CreateSigningRequest": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CertificateGroupId",
+          "CertificateTypeId",
+          "SubjectName",
+          "RegeneratePrivateKey",
+          "Nonce"
+        ],
+        "properties": {
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          },
+          "SubjectName": {
+            "type": "string"
+          },
+          "RegeneratePrivateKey": {
+            "type": "boolean"
+          },
+          "Nonce": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CertificateRequest"
+        ],
+        "properties": {
+          "CertificateRequest": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "DeleteCertificate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CertificateGroupId",
+          "CertificateTypeId"
+        ],
+        "properties": {
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetCertificates": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CertificateGroupId"
+        ],
+        "properties": {
+          "CertificateGroupId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CertificateTypeIds",
+          "Certificates"
+        ],
+        "properties": {
+          "CertificateTypeIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Certificates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    },
+    "GetRejectedList": {
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Certificates"
+        ],
+        "properties": {
+          "Certificates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    },
+    "ResetToServerDefaults": {},
+    "UpdateCertificate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CertificateGroupId",
+          "CertificateTypeId",
+          "Certificate",
+          "IssuerCertificates",
+          "PrivateKeyFormat",
+          "PrivateKey"
+        ],
+        "properties": {
+          "CertificateGroupId": {
+            "type": "string"
+          },
+          "CertificateTypeId": {
+            "type": "string"
+          },
+          "Certificate": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "IssuerCertificates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          },
+          "PrivateKeyFormat": {
+            "type": "string"
+          },
+          "PrivateKey": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ApplyChangesRequired"
+        ],
+        "properties": {
+          "ApplyChangesRequired": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ApplicationNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ApplicationType": {
+      "title": "ApplicationType",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ApplicationUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "HasSecureElement": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "InApplicationSetup": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaxTrustListSize": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MulticastDnsEnabled": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ProductUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ServerCapabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "SupportedPrivateKeyFormats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "SupportsTransactions": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

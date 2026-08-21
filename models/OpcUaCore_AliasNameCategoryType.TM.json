@@ -1,0 +1,235 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AliasNameCategoryType",
+  "title": "OpcUaCore_AliasNameCategoryType",
+  "dov:typeRef": "org.opcfoundation.UA.AliasNameCategoryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddAliasesToCategory",
+    "/actions/DeleteAliasesFromCategory",
+    "/actions/FindAliasVerbose",
+    "/properties/LastChange"
+  ],
+  "actions": {
+    "AddAliasesToCategory": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AliasNames",
+          "TargetNodes",
+          "TargetServers",
+          "TargetReferenceType"
+        ],
+        "properties": {
+          "AliasNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "TargetNodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "TargetServers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "TargetReferenceType": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ErrorCodes"
+        ],
+        "properties": {
+          "ErrorCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "DeleteAliasesFromCategory": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AliasNames",
+          "TargetNodes"
+        ],
+        "properties": {
+          "AliasNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "TargetNodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ErrorCodes"
+        ],
+        "properties": {
+          "ErrorCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "FindAlias": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AliasNameSearchPattern",
+          "ReferenceTypeFilter"
+        ],
+        "properties": {
+          "AliasNameSearchPattern": {
+            "type": "string"
+          },
+          "ReferenceTypeFilter": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AliasNodeList"
+        ],
+        "properties": {
+          "AliasNodeList": {
+            "type": "array",
+            "items": {
+              "title": "AliasNameDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AliasNameDataType",
+              "required": [
+                "AliasName",
+                "ReferencedNodes"
+              ],
+              "properties": {
+                "AliasName": {
+                  "type": "string"
+                },
+                "ReferencedNodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "FindAliasVerbose": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AliasNameSearchPattern",
+          "ReferenceTypeFilter"
+        ],
+        "properties": {
+          "AliasNameSearchPattern": {
+            "type": "string"
+          },
+          "ReferenceTypeFilter": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AliasNodeList"
+        ],
+        "properties": {
+          "AliasNodeList": {
+            "type": "array",
+            "items": {
+              "title": "AliasNameVerboseDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AliasNameVerboseDataType",
+              "required": [
+                "AliasName",
+                "ReferencedNodes",
+                "ServerUris",
+                "AliasNameCategoryId"
+              ],
+              "properties": {
+                "AliasName": {
+                  "type": "string"
+                },
+                "ReferencedNodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ServerUris": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "AliasNameCategoryId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "LastChange": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  }
+}

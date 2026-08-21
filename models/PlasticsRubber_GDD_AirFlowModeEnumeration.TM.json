@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_AirFlowModeEnumeration",
+  "title": "PlasticsRubber_GDD_AirFlowModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "AirFlowModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+      "const": {
+        "CONTINUOUS": 0,
+        "INTERVAL": 1,
+        "OPTIMIZED": 2
+      },
+      "description": "Determines the air flow, either from a fan or from compressed air. ",
+      "properties": {
+        "CONTINUOUS": {
+          "description": "constant flow",
+          "type": "integer"
+        },
+        "INTERVAL": {
+          "description": "changing cyclic between low or no and high or normal flow  ",
+          "type": "integer"
+        },
+        "OPTIMIZED": {
+          "description": "Energy optimized mode (depending e.g. on throughput / humidity…)",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

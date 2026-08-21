@@ -1,0 +1,76 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_BaseConfigurationType",
+  "title": "UnattendedRetail_BaseConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.BaseConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultCurrency",
+    "/properties/LocalTime"
+  ],
+  "properties": {
+    "DefaultCurrency": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "title": "CurrencyUnitType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+      "required": [
+        "NumericCode",
+        "Exponent",
+        "AlphabeticCode",
+        "Currency"
+      ],
+      "properties": {
+        "NumericCode": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "Exponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "AlphabeticCode": {
+          "type": "string"
+        },
+        "Currency": {
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    },
+    "LocalTime": {
+      "title": "TimeZoneDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

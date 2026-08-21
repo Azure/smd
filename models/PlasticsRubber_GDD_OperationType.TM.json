@@ -1,0 +1,297 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_OperationType",
+  "title": "PlasticsRubber_GDD_OperationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.OperationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MaintenanceInformation",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_MaintenanceInformationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TotalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MainFailureBehaviourEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+      "const": {
+        "STANDBY": 0,
+        "CONTINUE": 1
+      },
+      "description": "Determines how the dryer should react after a power failure, for example.",
+      "properties": {
+        "STANDBY": {
+          "description": "The dryer starts in standby.",
+          "type": "integer"
+        },
+        "CONTINUE": {
+          "description": "The dryer starts in last position.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/IdentifyDevice",
+    "/actions/ResetAllErrors",
+    "/actions/ResetEnergyMeasurement",
+    "/actions/ResetErrorById",
+    "/properties/EnergyConsumptionLimit",
+    "/properties/EnergyConsumptionResettable",
+    "/properties/MainFailureBehaviour",
+    "/events/EnergyConsumptionLimit",
+    "/events/EnergyConsumptionResettable",
+    "/events/MainFailureBehaviour"
+  ],
+  "actions": {
+    "IdentifyDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "The peripheral device on which this method is called shows itself by e.g. activation of a LED or by Message on the UI of the device."
+    },
+    "ResetAllErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to reset all errors of the device."
+    },
+    "ResetEnergyMeasurement": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to reset the EnergyConsumptionResettable Variable of the device and all components (e.g. bins, desiccant bed)."
+    },
+    "ResetErrorById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to reset one error of the device.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "List of the active errors of the device.",
+      "type": "array",
+      "items": {
+        "title": "ClassifiedActiveErrorDataType",
+        "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+        "required": [
+          "Id",
+          "Severity",
+          "Message",
+          "SourceNodes",
+          "Classification"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier defined by manufacturer",
+            "type": "string"
+          },
+          "Severity": {
+            "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Message": {
+            "description": "Message giving information about the error",
+            "type": "string"
+          },
+          "SourceNodes": {
+            "description": "NodeIds of the Nodes which cause the error",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Classification": {
+            "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DeviceMappingNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Unique identifier/address/number for devices of the same DeviceType within a local network.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "EnergyConsumptionLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "This variable limits the energy consumed by the device relative to a user-defined default state (100%).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "EnergyConsumptionResettable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Consumption of the granulate drying device in kWh since the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HighestActiveAlarmSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Indication of the severity of the highest active alarm.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MainFailureBehaviour": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "MainFailureBehaviourEnumeration",
+      "description": "Determines how the dryer should react after a power failure, for example.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "RemoteControlOpcUa": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Variable to read the actual remote control state of the server instance. If RemoteControlOpcUa is FALSE, the interface is read-only (Variables not writeable, methods not executable). The value shall be stored persistently. ",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "List of the active errors of the device.",
+        "type": "array",
+        "items": {
+          "title": "ClassifiedActiveErrorDataType",
+          "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+          "required": [
+            "Id",
+            "Severity",
+            "Message",
+            "SourceNodes",
+            "Classification"
+          ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            },
+            "SourceNodes": {
+              "description": "NodeIds of the Nodes which cause the error",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "Classification": {
+              "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        }
+      }
+    },
+    "DeviceMappingNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Unique identifier/address/number for devices of the same DeviceType within a local network.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "EnergyConsumptionLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "This variable limits the energy consumed by the device relative to a user-defined default state (100%).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "EnergyConsumptionResettable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Consumption of the granulate drying device in kWh since the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HighestActiveAlarmSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Indication of the severity of the highest active alarm.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "MainFailureBehaviour": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "MainFailureBehaviourEnumeration",
+        "description": "Determines how the dryer should react after a power failure, for example.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.MainFailureBehaviourEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RemoteControlOpcUa": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Variable to read the actual remote control state of the server instance. If RemoteControlOpcUa is FALSE, the interface is read-only (Variables not writeable, methods not executable). The value shall be stored persistently. ",
+        "type": "boolean"
+      }
+    }
+  }
+}

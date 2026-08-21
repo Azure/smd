@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_IRLengthDataType",
+  "title": "Mining_ExternalStandards_IREDES_IRLengthDataType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.IRLengthDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "IRLengthDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.IRLengthDataType",
+      "required": [
+        "Value",
+        "Unit"
+      ],
+      "properties": {
+        "Value": {
+          "description": "Data Type for length specification.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Unit": {
+          "title": "EUInformation",
+          "description": "Datatype for engineering unit description. Valid values: mm, cm, m, ft.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

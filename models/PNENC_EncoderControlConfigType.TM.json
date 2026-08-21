@@ -1,0 +1,155 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderControlConfigType",
+  "title": "PNENC_EncoderControlConfigType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderControlConfigType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EncoderAlarmChannelControlEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderAlarmChannelControlEnumeration",
+      "const": {
+        "ALARM_CHANNEL_DISABLED": 0,
+        "ALARM_CHANNEL_ENABLED": 1
+      },
+      "properties": {
+        "ALARM_CHANNEL_DISABLED": {
+          "description": "No Profile specific diagnosis (default)",
+          "type": "integer"
+        },
+        "ALARM_CHANNEL_ENABLED": {
+          "description": "Profile specific diagnosis is switched-on",
+          "type": "integer"
+        }
+      }
+    },
+    "EncoderPresetControlEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderPresetControlEnumeration",
+      "const": {
+        "ENABLE_PRESET_CONTROL": 0,
+        "DISABLE_PRESET_CONTROL": 1
+      },
+      "properties": {
+        "ENABLE_PRESET_CONTROL": {
+          "description": "G1_XIST1 is affected by a Set-/Shift home position function command",
+          "type": "integer"
+        },
+        "DISABLE_PRESET_CONTROL": {
+          "description": "Set-/Shift home position function does not affect G1_XIST1",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetControlConfig",
+    "/properties/AlarmChannelControl",
+    "/properties/SignOfLifeFailuresTolerated",
+    "/properties/XIST1PresetControl"
+  ],
+  "actions": {
+    "SetControlConfig": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ControlConfigParameters"
+        ],
+        "properties": {
+          "ControlConfigParameters": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ControlConfigParametersResult"
+        ],
+        "properties": {
+          "ControlConfigParametersResult": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AlarmChannelControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderAlarmChannelControlEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderAlarmChannelControlEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SignOfLifeFailuresTolerated": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "XIST1PresetControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "title": "EncoderPresetControlEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderPresetControlEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

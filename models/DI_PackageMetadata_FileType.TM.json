@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/PackageMetadata/#DI_PackageMetadata_FileType",
+  "title": "DI_PackageMetadata_FileType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FileType",
+  "links": [],
+  "schemaDefinitions": {
+    "FileType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FileType",
+      "const": {
+        "DeploymentItem": 0,
+        "ReleaseNotes": 1,
+        "LicenseInfo": 2,
+        "PreInstallNote": 3
+      },
+      "properties": {
+        "DeploymentItem": {
+          "description": "This file shall be deployed to the device. At most one file can be marked as DeploymentItem. If the complete Software Package is deployed to the device the individual files are not described explicitly.",
+          "type": "integer"
+        },
+        "ReleaseNotes": {
+          "description": "E.g. link for user to open the document.",
+          "type": "integer"
+        },
+        "LicenseInfo": {
+          "description": "E.g. link for user to open the document.",
+          "type": "integer"
+        },
+        "PreInstallNote": {
+          "description": "Text that shall be shown to the user at least once before installation.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_ControllerModeDataType",
+  "title": "MTConnect_v2_ControllerModeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.ControllerModeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ControllerModeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.ControllerModeDataType",
+      "const": {
+        "AUTOMATIC": 0,
+        "EDIT": 1,
+        "MANUAL": 2,
+        "MANUAL_DATA_INPUT": 3,
+        "SEMI_AUTOMATIC": 4
+      },
+      "description": "",
+      "properties": {
+        "AUTOMATIC": {
+          "description": "The controller is configured to automatically execute a program.",
+          "type": "integer"
+        },
+        "EDIT": {
+          "description": "           The controller is currently functioning as a programming device and is           not capable of executing an active program.         ",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "Operations based on the instructions received from an external source.",
+          "type": "integer"
+        },
+        "MANUAL_DATA_INPUT": {
+          "description": "The operator can enter a series of operations for the controller to perform.",
+          "type": "integer"
+        },
+        "SEMI_AUTOMATIC": {
+          "description": "           The controller executes a single set of instructions from an active           program and then stops until given a command to execute the next set           of instructions.         ",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

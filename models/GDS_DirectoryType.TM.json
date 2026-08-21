@@ -1,0 +1,560 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GDS/#GDS_DirectoryType",
+  "title": "GDS_DirectoryType",
+  "dov:typeRef": "org.opcfoundation.UA.GDS.DirectoryType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Applications",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ApplicationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "const": {
+        "Server": 0,
+        "Client": 1,
+        "ClientAndServer": 2,
+        "DiscoveryServer": 3
+      },
+      "properties": {
+        "Server": {
+          "type": "integer"
+        },
+        "Client": {
+          "type": "integer"
+        },
+        "ClientAndServer": {
+          "type": "integer"
+        },
+        "DiscoveryServer": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "FindApplications": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationUri"
+        ],
+        "properties": {
+          "ApplicationUri": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Applications"
+        ],
+        "properties": {
+          "Applications": {
+            "type": "array",
+            "items": {
+              "title": "ApplicationRecordDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.GDS.ApplicationRecordDataType",
+              "required": [
+                "ApplicationId",
+                "ApplicationUri",
+                "ApplicationType",
+                "ApplicationNames",
+                "ProductUri",
+                "DiscoveryUrls",
+                "ServerCapabilities"
+              ],
+              "properties": {
+                "ApplicationId": {
+                  "type": "string"
+                },
+                "ApplicationUri": {
+                  "type": "string"
+                },
+                "ApplicationType": {
+                  "title": "ApplicationType",
+                  "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "ApplicationNames": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ProductUri": {
+                  "type": "string"
+                },
+                "DiscoveryUrls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ServerCapabilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetApplication": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Application"
+        ],
+        "properties": {
+          "Application": {
+            "title": "ApplicationRecordDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.GDS.ApplicationRecordDataType",
+            "required": [
+              "ApplicationId",
+              "ApplicationUri",
+              "ApplicationType",
+              "ApplicationNames",
+              "ProductUri",
+              "DiscoveryUrls",
+              "ServerCapabilities"
+            ],
+            "properties": {
+              "ApplicationId": {
+                "type": "string"
+              },
+              "ApplicationUri": {
+                "type": "string"
+              },
+              "ApplicationType": {
+                "title": "ApplicationType",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ApplicationNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ProductUri": {
+                "type": "string"
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ServerCapabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "QueryApplications": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "StartingRecordId",
+          "MaxRecordsToReturn",
+          "ApplicationName",
+          "ApplicationUri",
+          "ApplicationType",
+          "ProductUri",
+          "Capabilities"
+        ],
+        "properties": {
+          "StartingRecordId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxRecordsToReturn": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ApplicationName": {
+            "type": "string"
+          },
+          "ApplicationUri": {
+            "type": "string"
+          },
+          "ApplicationType": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ProductUri": {
+            "type": "string"
+          },
+          "Capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "LastCounterResetTime",
+          "NextRecordId",
+          "Applications"
+        ],
+        "properties": {
+          "LastCounterResetTime": {
+            "type": "string",
+            "format": "time"
+          },
+          "NextRecordId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Applications": {
+            "type": "array",
+            "items": {
+              "title": "ApplicationDescription",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.ApplicationDescription",
+              "required": [
+                "ApplicationUri",
+                "ProductUri",
+                "ApplicationName",
+                "ApplicationType",
+                "GatewayServerUri",
+                "DiscoveryProfileUri",
+                "DiscoveryUrls"
+              ],
+              "properties": {
+                "ApplicationUri": {
+                  "type": "string"
+                },
+                "ProductUri": {
+                  "type": "string"
+                },
+                "ApplicationName": {
+                  "type": "string"
+                },
+                "ApplicationType": {
+                  "title": "ApplicationType",
+                  "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "GatewayServerUri": {
+                  "type": "string"
+                },
+                "DiscoveryProfileUri": {
+                  "type": "string"
+                },
+                "DiscoveryUrls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "QueryServers": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "StartingRecordId",
+          "MaxRecordsToReturn",
+          "ApplicationName",
+          "ApplicationUri",
+          "ProductUri",
+          "ServerCapabilities"
+        ],
+        "properties": {
+          "StartingRecordId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxRecordsToReturn": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ApplicationName": {
+            "type": "string"
+          },
+          "ApplicationUri": {
+            "type": "string"
+          },
+          "ProductUri": {
+            "type": "string"
+          },
+          "ServerCapabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "LastCounterResetTime",
+          "Servers"
+        ],
+        "properties": {
+          "LastCounterResetTime": {
+            "type": "string",
+            "format": "time"
+          },
+          "Servers": {
+            "type": "array",
+            "items": {
+              "title": "ServerOnNetwork",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.ServerOnNetwork",
+              "required": [
+                "RecordId",
+                "ServerName",
+                "DiscoveryUrl",
+                "ServerCapabilities"
+              ],
+              "properties": {
+                "RecordId": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "ServerName": {
+                  "type": "string"
+                },
+                "DiscoveryUrl": {
+                  "type": "string"
+                },
+                "ServerCapabilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "RegisterApplication": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Application"
+        ],
+        "properties": {
+          "Application": {
+            "title": "ApplicationRecordDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.GDS.ApplicationRecordDataType",
+            "required": [
+              "ApplicationId",
+              "ApplicationUri",
+              "ApplicationType",
+              "ApplicationNames",
+              "ProductUri",
+              "DiscoveryUrls",
+              "ServerCapabilities"
+            ],
+            "properties": {
+              "ApplicationId": {
+                "type": "string"
+              },
+              "ApplicationUri": {
+                "type": "string"
+              },
+              "ApplicationType": {
+                "title": "ApplicationType",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ApplicationNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ProductUri": {
+                "type": "string"
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ServerCapabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ApplicationId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UnregisterApplication": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationId"
+        ],
+        "properties": {
+          "ApplicationId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UpdateApplication": {
+      "dov:namespace": "http://opcfoundation.org/UA/GDS/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Application"
+        ],
+        "properties": {
+          "Application": {
+            "title": "ApplicationRecordDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.GDS.ApplicationRecordDataType",
+            "required": [
+              "ApplicationId",
+              "ApplicationUri",
+              "ApplicationType",
+              "ApplicationNames",
+              "ProductUri",
+              "DiscoveryUrls",
+              "ServerCapabilities"
+            ],
+            "properties": {
+              "ApplicationId": {
+                "type": "string"
+              },
+              "ApplicationUri": {
+                "type": "string"
+              },
+              "ApplicationType": {
+                "title": "ApplicationType",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ApplicationNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ProductUri": {
+                "type": "string"
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ServerCapabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

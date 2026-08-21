@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryValueUpdateEventType",
+  "title": "OpcUaCore_AuditHistoryValueUpdateEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditHistoryValueUpdateEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryUpdateEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PerformUpdateType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "const": {
+        "Insert": 1,
+        "Replace": 2,
+        "Update": 3,
+        "Remove": 4
+      },
+      "properties": {
+        "Insert": {
+          "description": "Data was inserted.",
+          "type": "integer"
+        },
+        "Replace": {
+          "description": "Data was replaced.",
+          "type": "integer"
+        },
+        "Update": {
+          "description": "Data was inserted or replaced.",
+          "type": "integer"
+        },
+        "Remove": {
+          "description": "Data was deleted.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "NewValues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "OldValues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "PerformInsertReplace": {
+      "title": "PerformUpdateType",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "UpdatedNode": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

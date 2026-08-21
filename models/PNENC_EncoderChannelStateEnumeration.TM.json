@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderChannelStateEnumeration",
+  "title": "PNENC_EncoderChannelStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderChannelStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "EncoderChannelStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderChannelStateEnumeration",
+      "const": {
+        "NORMAL_OPERATION": 0,
+        "ERROR_ACKNOWLEDGEMENT": 1,
+        "ERROR": 2,
+        "REFERENCE_VALUE_Gx_XIST2": 3,
+        "WAIT_FOR_REFERENCE_MARKS": 4,
+        "SET_SHIFT_HOME_POSITION": 5,
+        "WAIT_FOR_MEASURED_VALUE": 6,
+        "MEASURED_VALUE_IN_XIST2": 7,
+        "PARKING": 8,
+        "PARKING_ERROR": 9,
+        "PARKING_ERROR_ACK": 10
+      },
+      "properties": {
+        "NORMAL_OPERATION": {
+          "description": "The position feedback interface operates normally",
+          "type": "integer"
+        },
+        "ERROR_ACKNOWLEDGEMENT": {
+          "description": "Error acknowledgement is being processed",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "There is an error present",
+          "type": "integer"
+        },
+        "REFERENCE_VALUE_Gx_XIST2": {
+          "description": "The reference value is loaded in Gx_XIST2",
+          "type": "integer"
+        },
+        "WAIT_FOR_REFERENCE_MARKS": {
+          "description": "The reference mark is expected",
+          "type": "integer"
+        },
+        "SET_SHIFT_HOME_POSITION": {
+          "description": "Gx_XIST1 and Gx_XIST2 are set or shifted by a predefined preset value",
+          "type": "integer"
+        },
+        "WAIT_FOR_MEASURED_VALUE": {
+          "description": "Measurement task active, waiting for measurement values",
+          "type": "integer"
+        },
+        "MEASURED_VALUE_IN_XIST2": {
+          "description": "The requested measured value is loaded into Gx_XIST2",
+          "type": "integer"
+        },
+        "PARKING": {
+          "description": "The position feedback interface is inactive and does not deliver a valid Gx_XIST1 value",
+          "type": "integer"
+        },
+        "PARKING_ERROR": {
+          "description": "There is an error present and Gx_XIST1 is signaled invalid",
+          "type": "integer"
+        },
+        "PARKING_ERROR_ACK": {
+          "description": "Error acknowledgement is being processed and Gx_XIST1 is signaled invalid",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

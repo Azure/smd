@@ -1,0 +1,91 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeBaseEthernetPortType",
+  "title": "OpcUaCore_IIeeeBaseEthernetPortType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeBaseEthernetPortType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "Duplex": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Duplex",
+      "const": {
+        "Full": 0,
+        "Half": 1,
+        "Unknown": 2
+      },
+      "properties": {
+        "Full": {
+          "description": "Full duplex.",
+          "type": "integer"
+        },
+        "Half": {
+          "description": "Half duplex.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Link is currently disconnected or initializing.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Duplex": {
+      "title": "Duplex",
+      "dov:typeRef": "org.opcfoundation.UA.Duplex",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaxFrameLength": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Speed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Duplex": {
+      "data": {
+        "title": "Duplex",
+        "dov:typeRef": "org.opcfoundation.UA.Duplex",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "MaxFrameLength": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "Speed": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    }
+  }
+}

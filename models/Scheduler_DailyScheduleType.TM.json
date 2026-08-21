@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scheduler/#Scheduler_DailyScheduleType",
+  "title": "Scheduler_DailyScheduleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scheduler.DailyScheduleType",
+  "links": [],
+  "schemaDefinitions": {
+    "DailyScheduleType": {
+      "description": "This structure defines a sequence of TimeActionsType structures. Each element in the sequence defines a time/actions pair that describes the actions to be executed at a given point in the day.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scheduler.DailyScheduleType",
+      "required": [
+        "DaySchedule"
+      ],
+      "properties": {
+        "DaySchedule": {
+          "type": "array",
+          "items": {
+            "title": "TimeActionsType",
+            "description": "This structure contains a time and an array of actions. It is used to define actions to be executed at a specific point in time.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeActionsType",
+            "required": [
+              "Time",
+              "Actions"
+            ],
+            "properties": {
+              "Time": {
+                "title": "TimeType",
+                "description": "This structure that represents a point in time during a day",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeType",
+                "required": [
+                  "Hour",
+                  "Minute",
+                  "Second"
+                ],
+                "properties": {
+                  "Hour": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Minute": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Second": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  }
+                }
+              },
+              "Actions": {
+                "type": "array",
+                "items": {
+                  "title": "BaseActionType",
+                  "description": "This abstract structure defines the base of an action. The base only contains information, if the last execution of the action was successful.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.Scheduler.BaseActionType",
+                  "required": [
+                    "LastActionResult"
+                  ],
+                  "properties": {
+                    "LastActionResult": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SignatureData",
+  "title": "OpcUaCore_SignatureData",
+  "dov:typeRef": "org.opcfoundation.UA.SignatureData",
+  "links": [],
+  "schemaDefinitions": {
+    "SignatureData": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.SignatureData",
+      "required": [
+        "Algorithm",
+        "Signature"
+      ],
+      "properties": {
+        "Algorithm": {
+          "type": "string"
+        },
+        "Signature": {
+          "type": "string",
+          "contentEncoding": "base64"
+        }
+      }
+    }
+  }
+}

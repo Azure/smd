@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ProcessSignalGeneratingSystemType",
+  "title": "DEXPI_ProcessSignalGeneratingSystemType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ProcessSignalGeneratingSystemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<PrimaryElement>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PrimaryElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Transmitter>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_TransmitterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProcessSignalGeneratingSystemNumberAssignmentClass",
+    "/properties/TypicalInformationAssignmentClass",
+    "/events/ProcessSignalGeneratingSystemNumberAssignmentClass",
+    "/events/TypicalInformationAssignmentClass"
+  ],
+  "properties": {
+    "ProcessSignalGeneratingSystemNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The number of the ProcessSignalGeneratingSystem",
+      "type": "string",
+      "readOnly": false
+    },
+    "TypicalInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Typical information about the ProcessSignalGeneratingSystem.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ProcessSignalGeneratingSystemNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The number of the ProcessSignalGeneratingSystem",
+        "type": "string"
+      }
+    },
+    "TypicalInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "Typical information about the ProcessSignalGeneratingSystem.",
+        "type": "string"
+      }
+    }
+  }
+}

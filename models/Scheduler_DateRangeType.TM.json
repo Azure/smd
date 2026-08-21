@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scheduler/#Scheduler_DateRangeType",
+  "title": "Scheduler_DateRangeType",
+  "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateRangeType",
+  "links": [],
+  "schemaDefinitions": {
+    "DateRangeType": {
+      "description": "This structure defines a time span, with absolute start and end dates. The StartDate and EndDate are limited to specific values, i.e., wild cards like odd months are not allowed. The Year field shall not be 0; the Month field shall be a value between 1 to 12; the DayOfMonth field shall be between 1 to 31 and the DayOfMonth field shall be 'unspecified'.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateRangeType",
+      "required": [
+        "StartDate",
+        "EndDate"
+      ],
+      "properties": {
+        "StartDate": {
+          "title": "DateType",
+          "description": "This structure defines a calendar date. It allows to define a concrete date, e.g. 2022-02-12. By using wildcards, it also allows to define repeating dates, like every Wednesday, every odd day of a month, every 24th of December, every last day of a month in 2023, etc.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateType",
+          "required": [
+            "Year",
+            "Month",
+            "DayOfMonth",
+            "DayOfWeek"
+          ],
+          "properties": {
+            "Year": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Month": {
+              "title": "Month",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.Month",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DayOfMonth": {
+              "title": "DayOfMonth",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfMonth",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DayOfWeek": {
+              "title": "DayOfWeek",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfWeek",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "EndDate": {
+          "title": "DateType",
+          "description": "This structure defines a calendar date. It allows to define a concrete date, e.g. 2022-02-12. By using wildcards, it also allows to define repeating dates, like every Wednesday, every odd day of a month, every 24th of December, every last day of a month in 2023, etc.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scheduler.DateType",
+          "required": [
+            "Year",
+            "Month",
+            "DayOfMonth",
+            "DayOfWeek"
+          ],
+          "properties": {
+            "Year": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Month": {
+              "title": "Month",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.Month",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DayOfMonth": {
+              "title": "DayOfMonth",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfMonth",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DayOfWeek": {
+              "title": "DayOfWeek",
+              "dov:typeRef": "org.opcfoundation.UA.Scheduler.DayOfWeek",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    }
+  }
+}

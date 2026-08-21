@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AdditiveManufacturing/#AdditiveManufacturing_FeedstockListType",
+  "title": "AdditiveManufacturing_FeedstockListType",
+  "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockListType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Feedstock",
+      "href": "http://opcfoundation.org/UA/AdditiveManufacturing/#AdditiveManufacturing_FeedstockType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/NodeVersion"
+  ],
+  "properties": {
+    "NodeVersion": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ChamberType",
+  "title": "DEXPI_ChamberType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ChamberType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ChamberFunctionClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.ChamberFunctionClassification",
+      "const": {
+        "Cooling": 0,
+        "Heating": 1,
+        "Processing": 2,
+        "Tempering": 3
+      },
+      "description": "",
+      "properties": {
+        "Cooling": {
+          "description": "Cooling",
+          "type": "integer"
+        },
+        "Heating": {
+          "description": "Heating",
+          "type": "integer"
+        },
+        "Processing": {
+          "description": "Processing",
+          "type": "integer"
+        },
+        "Tempering": {
+          "description": "Tempering",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ChamberDescriptionAssignmentClass",
+    "/properties/ChamberFunctionAssignmentClass",
+    "/properties/ChamberFunctionSpecialization",
+    "/properties/Height",
+    "/properties/InsideDiameter",
+    "/properties/Length",
+    "/properties/LowerLimitDesignPressure",
+    "/properties/LowerLimitDesignTemperature",
+    "/properties/MaterialOfConstructionCodeAssignmentClass",
+    "/properties/NominalDiameter",
+    "/properties/NominalDiameterTypeRepresentationAssignmentClass",
+    "/properties/SubTagNameAssignmentClass",
+    "/properties/UpperLimitDesignPressure",
+    "/properties/UpperLimitDesignTemperature",
+    "/properties/Width",
+    "/events/ChamberDescriptionAssignmentClass",
+    "/events/ChamberFunctionAssignmentClass",
+    "/events/ChamberFunctionSpecialization",
+    "/events/Height",
+    "/events/InsideDiameter",
+    "/events/Length",
+    "/events/LowerLimitDesignPressure",
+    "/events/LowerLimitDesignTemperature",
+    "/events/MaterialOfConstructionCodeAssignmentClass",
+    "/events/NominalDiameter",
+    "/events/NominalDiameterTypeRepresentationAssignmentClass",
+    "/events/SubTagNameAssignmentClass",
+    "/events/UpperLimitDesignPressure",
+    "/events/UpperLimitDesignTemperature",
+    "/events/Width"
+  ],
+  "properties": {
+    "ChamberDescriptionAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The description of the Chamber.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ChamberFunctionAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The function of the Chamber.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ChamberFunctionSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "ChamberFunctionClassification",
+      "description": "A specialization indicating the function of the Chamber.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.ChamberFunctionClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The height of the Chamber.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "InsideDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The inside diameter of the Chamber.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The length of the Chamber.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "LowerLimitDesignPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The lowest pressure for which the Chamber is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "LowerLimitDesignTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The lowest temperature for which the Chamber is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A code that gives the material of construction of the Chamber.",
+      "type": "string",
+      "readOnly": false
+    },
+    "NominalDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The nominal diameter of the Chamber, given as a length. See also <owner.NominalDiameterTypeRepresentationClass>.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "NominalDiameterTypeRepresentationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A readable representation of the type of the nominal diameter of the Chamber. The purpose of this value is to give a textual representation of the nominal diameter to be used in the graphics of a PID.",
+      "type": "string",
+      "readOnly": false
+    },
+    "SubTagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The sub tag name of the Chamber.",
+      "type": "string",
+      "readOnly": false
+    },
+    "UpperLimitDesignPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The highest pressure for which the Chamber is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UpperLimitDesignTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The highest temperature for which the Chamber is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Width": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The width of the Chamber.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ChamberDescriptionAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The description of the Chamber.",
+        "type": "string"
+      }
+    },
+    "ChamberFunctionAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The function of the Chamber.",
+        "type": "string"
+      }
+    },
+    "ChamberFunctionSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "ChamberFunctionClassification",
+        "description": "A specialization indicating the function of the Chamber.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.ChamberFunctionClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The height of the Chamber.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InsideDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The inside diameter of the Chamber.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The length of the Chamber.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LowerLimitDesignPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The lowest pressure for which the Chamber is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LowerLimitDesignTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The lowest temperature for which the Chamber is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A code that gives the material of construction of the Chamber.",
+        "type": "string"
+      }
+    },
+    "NominalDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The nominal diameter of the Chamber, given as a length. See also <owner.NominalDiameterTypeRepresentationClass>.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "NominalDiameterTypeRepresentationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A readable representation of the type of the nominal diameter of the Chamber. The purpose of this value is to give a textual representation of the nominal diameter to be used in the graphics of a PID.",
+        "type": "string"
+      }
+    },
+    "SubTagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The sub tag name of the Chamber.",
+        "type": "string"
+      }
+    },
+    "UpperLimitDesignPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The highest pressure for which the Chamber is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperLimitDesignTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The highest temperature for which the Chamber is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Width": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The width of the Chamber.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

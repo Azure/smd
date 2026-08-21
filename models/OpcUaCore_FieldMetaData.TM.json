@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_FieldMetaData",
+  "title": "OpcUaCore_FieldMetaData",
+  "dov:typeRef": "org.opcfoundation.UA.FieldMetaData",
+  "links": [],
+  "schemaDefinitions": {
+    "FieldMetaData": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FieldMetaData",
+      "required": [
+        "Name",
+        "Description",
+        "FieldFlags",
+        "BuiltInType",
+        "DataType",
+        "ValueRank",
+        "ArrayDimensions",
+        "MaxStringLength",
+        "DataSetFieldId",
+        "Properties"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "FieldFlags": {
+          "title": "DataSetFieldFlags",
+          "dov:typeRef": "org.opcfoundation.UA.DataSetFieldFlags",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "BuiltInType": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "DataType": {
+          "type": "string"
+        },
+        "ValueRank": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ArrayDimensions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        },
+        "MaxStringLength": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "DataSetFieldId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

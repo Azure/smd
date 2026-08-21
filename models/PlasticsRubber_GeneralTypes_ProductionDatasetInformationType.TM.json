@@ -1,0 +1,122 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetInformationType",
+  "title": "PlasticsRubber_GeneralTypes_ProductionDatasetInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionDatasetInformationType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProductionDatasetInformationType": {
+      "description": "Information on a production dataset",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ProductionDatasetInformationType",
+      "required": [
+        "Name",
+        "Description",
+        "MESId",
+        "CreationTimestamp",
+        "LastModificationTimestamp",
+        "LastSaveTimestamp",
+        "UserName",
+        "Components",
+        "Manufacturer",
+        "SerialNumber",
+        "Model",
+        "ControllerName",
+        "UserMachineName",
+        "LocationName",
+        "ProductName",
+        "MouldId",
+        "NumCavities"
+      ],
+      "properties": {
+        "Name": {
+          "description": "Name of the production dataset (=identifier)",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Additional description of the production dataset",
+          "type": "string"
+        },
+        "MESId": {
+          "description": "Id of the production dataset file assigned by MES",
+          "type": "string"
+        },
+        "CreationTimestamp": {
+          "description": "Time when the production dataset was originally created or saved with a new name",
+          "type": "string",
+          "format": "date-time"
+        },
+        "LastModificationTimestamp": {
+          "description": "Time of the last modification of the production dataset",
+          "type": "string",
+          "format": "date-time"
+        },
+        "LastSaveTimestamp": {
+          "description": "Time when the production dataset was saved to the file system of the machine",
+          "type": "string",
+          "format": "date-time"
+        },
+        "UserName": {
+          "description": "Name of the user who has made the last parameter change on the machine",
+          "type": "string"
+        },
+        "Components": {
+          "description": "Informs for which machines information is included in the file",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        },
+        "Manufacturer": {
+          "description": "Manufacturer of the machine from which the production dataset file is generated",
+          "type": "string"
+        },
+        "SerialNumber": {
+          "description": "Serial number of the machine from which the production dataset file is generated",
+          "type": "string"
+        },
+        "Model": {
+          "description": "Model of the machine from which the production dataset file is generated",
+          "type": "string"
+        },
+        "ControllerName": {
+          "description": "Name of Controller of the machine from which the production dataset file is generated",
+          "type": "string"
+        },
+        "UserMachineName": {
+          "description": "User machine name of the machine from which the production dataset file is generated",
+          "type": "string"
+        },
+        "LocationName": {
+          "description": "Location of the machine from which the production dataset file is generated",
+          "type": "string"
+        },
+        "ProductName": {
+          "description": "Name of the product produced with this production dataset",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "MouldId": {
+          "description": "Id of the mould for this production dataset",
+          "type": "string"
+        },
+        "NumCavities": {
+          "description": "Number of cavities of the mould for this production dataset",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

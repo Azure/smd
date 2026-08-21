@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PumpType",
+  "title": "DEXPI_PumpType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.PumpType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_EquipmentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignPressureHead",
+    "/properties/DesignVolumeFlowRate",
+    "/properties/DifferentialPressure",
+    "/events/DesignPressureHead",
+    "/events/DesignVolumeFlowRate",
+    "/events/DifferentialPressure"
+  ],
+  "properties": {
+    "DesignPressureHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design pressure head of the Pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignVolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The volume flow rate for which the Pump is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DifferentialPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The differential pressure of the Pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignPressureHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design pressure head of the Pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignVolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The volume flow rate for which the Pump is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DifferentialPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The differential pressure of the Pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

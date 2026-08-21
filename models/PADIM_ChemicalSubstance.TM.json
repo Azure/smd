@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_ChemicalSubstance",
+  "title": "PADIM_ChemicalSubstance",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.ChemicalSubstance",
+  "links": [],
+  "schemaDefinitions": {
+    "ChemicalSubstance": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.ChemicalSubstance",
+      "required": [
+        "PatDictionary",
+        "Label",
+        "Id"
+      ],
+      "properties": {
+        "PatDictionary": {
+          "title": "PatDictionaryEnum",
+          "dov:typeRef": "org.opcfoundation.UA.PADIM.PatDictionaryEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Label": {
+          "type": "string"
+        },
+        "Id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProcessItemType",
+  "title": "TMC_v2_ProcessItemType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProcessItemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "LimitAlarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NonExclusiveLevelAlarmType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UIInfo",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_UIInformationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "ResetAggregates": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Method ResetAggregates restarts from new the computation of aggregates performed by the  underlying system.",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AggregationWindow": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "Tthe number of samples over which the aggregates are computed. When the number of aggregated  samples since the last reset exceeds the AggregationWindow, the aggregates are rolled over, i.e. computed  over the last AggregationWindow number of samples.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "Avg": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The average of valid values over the last AggregationWindow samples and after the last reset.  It is only reset by the successful execution of the ResetAggregates method.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "LastResetTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The time (in UTC) when ResetAggregates was last successfully executed.",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Max": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The maximum valid value for the last AggregationWindow samples and after the last reset. It is only reset by the successful execution of the ResetAggregates method.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Min": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The minimum valid value for the last AggregationWindow samples and after the last reset. It is only reset by the successful execution of the ResetAggregates method.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SamplingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The rate samples are collected for aggregation. The rate is referred to the either product or time, as  indicated by the EURange property.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Std": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The standard deviation of the valid value for the last AggregationWindow samples and after the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Total": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The accumulated total of the valid value for the last AggregationWindow samples and after the last reset. It is only reset by the successful execution of the ResetAggregates method.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "Value represents the current value measured by the sensor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Avg": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The average of valid values over the last AggregationWindow samples and after the last reset.  It is only reset by the successful execution of the ResetAggregates method.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Max": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The maximum valid value for the last AggregationWindow samples and after the last reset. It is only reset by the successful execution of the ResetAggregates method.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Min": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The minimum valid value for the last AggregationWindow samples and after the last reset. It is only reset by the successful execution of the ResetAggregates method.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SamplingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The rate samples are collected for aggregation. The rate is referred to the either product or time, as  indicated by the EURange property.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Std": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The standard deviation of the valid value for the last AggregationWindow samples and after the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Total": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The accumulated total of the valid value for the last AggregationWindow samples and after the last reset. It is only reset by the successful execution of the ResetAggregates method.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "Value represents the current value measured by the sensor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

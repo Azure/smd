@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_EmergencyStopFunctionType",
+  "title": "Robotics_EmergencyStopFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.EmergencyStopFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Active": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "The Active variable is TRUE if this particular emergency stop function is active, e.g. that the emergency stop button is pressed, FALSE otherwise.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "The Name of the EmergencyStopFunctionType provides a manufacturer-specific emergency stop function identifier within the safety system.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Active": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "data": {
+        "description": "The Active variable is TRUE if this particular emergency stop function is active, e.g. that the emergency stop button is pressed, FALSE otherwise.",
+        "type": "boolean"
+      }
+    }
+  }
+}

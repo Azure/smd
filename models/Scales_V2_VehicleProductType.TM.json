@@ -1,0 +1,228 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_VehicleProductType",
+  "title": "Scales_V2_VehicleProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.VehicleProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Material",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_MaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "WeightItemType": {
+      "title": "WeightType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+      "required": [
+        "Gross",
+        "Net",
+        "Tare"
+      ],
+      "properties": {
+        "Gross": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Net": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Tare": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/GetVehicleInformation",
+    "/properties/CarrierDisplayName",
+    "/properties/CarrierId",
+    "/properties/Customer",
+    "/properties/Destination",
+    "/properties/DriverDisplayName",
+    "/properties/DriverId",
+    "/properties/InboundScale",
+    "/properties/InboundWeight",
+    "/properties/OutboundScale",
+    "/properties/ScaleOperatorId",
+    "/properties/Supplier",
+    "/properties/Tare",
+    "/properties/TareExpirationDate",
+    "/properties/TotalWeight",
+    "/properties/TotalWeightResetDate",
+    "/events/InboundWeight"
+  ],
+  "actions": {
+    "GetVehicleInformation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VehicleId"
+        ],
+        "properties": {
+          "VehicleId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CarrierDisplayName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "CarrierId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Customer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DeltaWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    },
+    "Destination": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DriverDisplayName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DriverId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "InboundScale": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "InboundWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    },
+    "OutboundScale": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "OutboundWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    },
+    "ScaleOperatorId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Supplier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Tare": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "number",
+      "readOnly": false
+    },
+    "TareExpirationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "TotalWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "title": "WeightType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightType",
+      "required": [
+        "Gross",
+        "Net",
+        "Tare"
+      ],
+      "properties": {
+        "Gross": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Net": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Tare": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": false
+    },
+    "TotalWeightResetDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "VehicleId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DeltaWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    },
+    "InboundWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    },
+    "OutboundWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    }
+  }
+}

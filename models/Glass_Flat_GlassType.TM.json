@@ -1,0 +1,235 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_GlassType",
+  "title": "Glass_Flat_GlassType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.GlassType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CoatingClassEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.CoatingClassEnumeration",
+      "const": {
+        "HardCoating": 0,
+        "SoftCoating": 1,
+        "CoatedWithFoilProtection": 2,
+        "UserDefined": 3
+      },
+      "properties": {
+        "HardCoating": {
+          "type": "integer"
+        },
+        "SoftCoating": {
+          "type": "integer"
+        },
+        "CoatedWithFoilProtection": {
+          "type": "integer"
+        },
+        "UserDefined": {
+          "type": "integer"
+        }
+      }
+    },
+    "SignificantSideEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.SignificantSideEnumeration",
+      "const": {
+        "Indifferent": 0,
+        "Top": 1,
+        "Down": 2
+      },
+      "properties": {
+        "Indifferent": {
+          "type": "integer"
+        },
+        "Top": {
+          "type": "integer"
+        },
+        "Down": {
+          "type": "integer"
+        }
+      }
+    },
+    "StructureAlignmentEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.StructureAlignmentEnumeration",
+      "const": {
+        "Indifferent": 0,
+        "Longitudinal": 1,
+        "Transverse": 2
+      },
+      "properties": {
+        "Indifferent": {
+          "type": "integer"
+        },
+        "Longitudinal": {
+          "type": "integer"
+        },
+        "Transverse": {
+          "type": "integer"
+        }
+      }
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/Absorption",
+    "/properties/CoatingEmessivity",
+    "/properties/CoatingSubClass",
+    "/properties/ElectricalConductivity",
+    "/properties/Reflection",
+    "/properties/Transmission",
+    "/events/Absorption",
+    "/events/CoatingEmessivity",
+    "/events/ElectricalConductivity",
+    "/events/Reflection",
+    "/events/Transmission"
+  ],
+  "properties": {
+    "Absorption": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "CoatingClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "title": "CoatingClassEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.CoatingClassEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "CoatingEmessivity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "CoatingSubClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "ElectricalConductivity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "Orientation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "number",
+      "readOnly": false
+    },
+    "Reflection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "SignificantSide": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "title": "SignificantSideEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.SignificantSideEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "StructureAlignment": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "title": "StructureAlignmentEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.StructureAlignmentEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "StructureClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "Transmission": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "X": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Y": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Absorption": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "CoatingEmessivity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "ElectricalConductivity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "Reflection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "Transmission": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "X": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Y": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_FryingAndGrillingParameterType",
+  "title": "CommercialKitchenEquipment_FryingAndGrillingParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.FryingAndGrillingParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "GrillingZoneStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.GrillingZoneStateEnumeration",
+      "const": {
+        "Off": 0,
+        "Standby": 1,
+        "Idle": 2,
+        "Grilling": 3
+      },
+      "properties": {
+        "Off": {
+          "type": "integer"
+        },
+        "Standby": {
+          "type": "integer"
+        },
+        "Idle": {
+          "type": "integer"
+        },
+        "Grilling": {
+          "type": "integer"
+        }
+      }
+    },
+    "PlatenPositionStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PlatenPositionStateEnumeration",
+      "const": {
+        "Home": 0,
+        "Cooking": 1,
+        "Idle": 2,
+        "Open": 3
+      },
+      "properties": {
+        "Home": {
+          "type": "integer"
+        },
+        "Cooking": {
+          "type": "integer"
+        },
+        "Idle": {
+          "type": "integer"
+        },
+        "Open": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActualGrillTemperature_No_",
+    "/properties/ActualPlatenTemperature_No_",
+    "/properties/CurrentState",
+    "/properties/GrillingZoneName",
+    "/properties/PlatenPositionState",
+    "/properties/RemainingProcessTime",
+    "/properties/SetGrillTemperature_No_",
+    "/properties/SetPlatenTemperature_No_",
+    "/properties/SetProcessTime",
+    "/properties/ActualGrillTemperature_No__EngineeringUnits",
+    "/properties/ActualPlatenTemperature_No__EngineeringUnits",
+    "/properties/RemainingProcessTime_EngineeringUnits",
+    "/properties/SetGrillTemperature_No__EngineeringUnits",
+    "/properties/SetPlatenTemperature_No__EngineeringUnits",
+    "/properties/SetProcessTime_EngineeringUnits",
+    "/events/ActualGrillTemperature_No_",
+    "/events/ActualPlatenTemperature_No_",
+    "/events/CurrentState",
+    "/events/GrillingZoneName",
+    "/events/PlatenPositionState",
+    "/events/RemainingProcessTime",
+    "/events/SetGrillTemperature_No_",
+    "/events/SetPlatenTemperature_No_",
+    "/events/SetProcessTime"
+  ],
+  "properties": {
+    "ActualGrillTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualGrillTemperature_No__EngineeringUnits"
+    },
+    "ActualPlatenTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualPlatenTemperature_No__EngineeringUnits"
+    },
+    "CurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "GrillingZoneStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.GrillingZoneStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "GrillingZoneName": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IsWithPlaten": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PlatenPositionState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "PlatenPositionStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PlatenPositionStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "RemainingProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RemainingProcessTime_EngineeringUnits"
+    },
+    "SetGrillTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetGrillTemperature_No__EngineeringUnits"
+    },
+    "SetPlatenTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetPlatenTemperature_No__EngineeringUnits"
+    },
+    "SetProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTime_EngineeringUnits"
+    },
+    "ActualGrillTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualGrillTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualPlatenTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualPlatenTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RemainingProcessTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RemainingProcessTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetGrillTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetGrillTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetPlatenTemperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetPlatenTemperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetProcessTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetProcessTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualGrillTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualGrillTemperature_No__EngineeringUnits"
+    },
+    "ActualPlatenTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualPlatenTemperature_No__EngineeringUnits"
+    },
+    "CurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "GrillingZoneStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.GrillingZoneStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "GrillingZoneName": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "IsWithPlaten": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "PlatenPositionState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "PlatenPositionStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.PlatenPositionStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RemainingProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RemainingProcessTime_EngineeringUnits"
+    },
+    "SetGrillTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetGrillTemperature_No__EngineeringUnits"
+    },
+    "SetPlatenTemperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetPlatenTemperature_No__EngineeringUnits"
+    },
+    "SetProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTime_EngineeringUnits"
+    }
+  }
+}

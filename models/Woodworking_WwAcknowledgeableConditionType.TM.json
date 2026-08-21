@@ -1,0 +1,261 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Woodworking/#Woodworking_WwAcknowledgeableConditionType",
+  "title": "Woodworking_WwAcknowledgeableConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwAcknowledgeableConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AcknowledgeableConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "WwEventCategoryEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwEventCategoryEnumeration",
+      "const": {
+        "OTHER": 0,
+        "DIAGNOSTIC": 1,
+        "INFORMATION": 2,
+        "WARNING": 3,
+        "ALARM": 4,
+        "ERROR": 5
+      },
+      "description": "This enumeration represents the category of an event.",
+      "properties": {
+        "OTHER": {
+          "description": "No other event category applies or it is unknown.",
+          "type": "integer"
+        },
+        "DIAGNOSTIC": {
+          "description": "The event is a diagnostic event.",
+          "type": "integer"
+        },
+        "INFORMATION": {
+          "description": "The event is an information event.",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The event is a warning event.",
+          "type": "integer"
+        },
+        "ALARM": {
+          "description": "The event is an alarm event.",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "The event is an error event.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Arguments",
+    "/properties/Group",
+    "/properties/LocalizedMessages",
+    "/properties/MessageName"
+  ],
+  "properties": {
+    "Arguments": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Arguments Variable is an argument value array of one dimension that can be used to parameterize the message. The number of the indexing in the array corresponds to the placeholder number in the message text. This ensures that the formatting functions of the implementations enable the localized message texts to be created.",
+      "type": "array",
+      "items": {
+        "title": "WwMessageArgumentDataType",
+        "description": "The WwArgumentDataType definition extends the argument structure with an argument value.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwMessageArgumentDataType",
+        "required": [
+          "Name",
+          "DataType",
+          "ValueRank",
+          "ArrayDimensions",
+          "Description",
+          "Value"
+        ],
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "DataType": {
+            "type": "string"
+          },
+          "ValueRank": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ArrayDimensions": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Value": {
+            "title": "WwMessageArgumentValueDataType",
+            "description": "The WwArgumentValueDataType definition defines the possible types of an argument value.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwMessageArgumentValueDataType",
+            "properties": {
+              "Array": {
+                "description": "The content of the value as an array of the own type",
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for the infinite remainder of this data structure, which is recursively defined.",
+                  "type": "string"
+                }
+              },
+              "Boolean": {
+                "description": "The content of the value as a boolean",
+                "type": "boolean"
+              },
+              "Int16": {
+                "description": "The content of the value as a 16 bit integer",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Int32": {
+                "description": "The content of the value as a 32 bit integer",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "Int64": {
+                "description": "The content of the value as a 64 bit integer",
+                "type": "integer",
+                "minimum": -9223372036854775808,
+                "maximum": 9223372036854775807
+              },
+              "SByte": {
+                "description": "The content of the value as a 8 bit integer",
+                "type": "integer",
+                "minimum": -128,
+                "maximum": 127
+              },
+              "UInt16": {
+                "description": "The content of the value as a 16 bit unsigned integer",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "UInt32": {
+                "description": "The content of the value as a 32 bit unsigned integer",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "UInt64": {
+                "description": "The content of the value as a 64 bit unsigned integer",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709551615
+              },
+              "Byte": {
+                "description": "The content of the value as a 8 bit unsigned integer",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "DateTime": {
+                "description": "The content of the value as a datetime",
+                "type": "string",
+                "format": "date-time"
+              },
+              "Guid": {
+                "description": "The content of the value as a GUID",
+                "type": "string",
+                "format": "uuid"
+              },
+              "LocalizedText": {
+                "description": "The content of the value as a localized text",
+                "type": "string"
+              },
+              "Double": {
+                "description": "The content of the value as a double",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Float": {
+                "description": "The content of the value as a float",
+                "type": "number",
+                "minimum": -3.40e+38,
+                "maximum": 3.40e+38
+              },
+              "String": {
+                "description": "The content of the value as a string",
+                "type": "string"
+              },
+              "Other": {
+                "description": "The content of the value has no standard format and is instantiated as a string",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "EventCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "title": "WwEventCategoryEnumeration",
+      "description": "The EventCategory Variable provides the category of the event.",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwEventCategoryEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Group": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The Group Variable specifies the class or group of the Message like “safety”, “emergency”, “consumable”.  See chapter “Categorizing and grouping the messages, events, alarms and conditions”.",
+      "type": "string",
+      "readOnly": true
+    },
+    "LocalizedMessages": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The LocalizedMessages Variable contains an array of localized messages corresponding to the installed server languages.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "MessageId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The MessageId Variable is a unique Identifier like a number or name of the message in the cause path (PathParts) determined Module. Example: “A4711” or “1”",
+      "type": "string",
+      "readOnly": true
+    },
+    "MessageName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The MessageName Variable is a short name like a number or title to reference a translation of the general message text. Example: “ID_MSG_EmergencyAlarm”.",
+      "type": "string",
+      "readOnly": true
+    },
+    "PathParts": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "description": "The PathParts Variable is an array of Path information strings based on a server independent hierarchical structure of modules or an application specific expansion of that. It is an additional location information beside the SourceName. Example:  “Machine”, “FixedSide”, “Sizing”, “Milling1”",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

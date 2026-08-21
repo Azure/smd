@@ -1,0 +1,35 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_TestNumDataType",
+  "title": "TTD_TestNumDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.TestNumDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TestNumDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.TestNumDataType",
+      "required": [
+        "TestProcedureId",
+        "NumberOfTests"
+      ],
+      "properties": {
+        "TestProcedureId": {
+          "description": "The name of the test procedure that should be executed.",
+          "type": "string"
+        },
+        "NumberOfTests": {
+          "description": "The number of tests that have to be performed with this test procedure on one sample.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

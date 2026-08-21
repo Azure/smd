@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EventOriginatorEnumeration",
+  "title": "PlasticsRubber_GeneralTypes_EventOriginatorEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.EventOriginatorEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "EventOriginatorEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.EventOriginatorEnumeration",
+      "const": {
+        "OTHER": 0,
+        "MACHINE": 1,
+        "OPERATOR": 2,
+        "MES": 3,
+        "PERIPHERAL_DEVICE": 4
+      },
+      "description": "Originator of an event",
+      "properties": {
+        "OTHER": {
+          "description": "Undefined",
+          "type": "integer"
+        },
+        "MACHINE": {
+          "description": "The machine causes the event (e.g. an alarm)",
+          "type": "integer"
+        },
+        "OPERATOR": {
+          "description": "The operator of the machine causes the event (e.g. a parameter change)",
+          "type": "integer"
+        },
+        "MES": {
+          "description": "The MES causes the event (e.g. a MESMessage)",
+          "type": "integer"
+        },
+        "PERIPHERAL_DEVICE": {
+          "description": "A peripheral device causes the event (e.g. an alarm)",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

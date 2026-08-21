@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioPaAnalogOutputConfigDataType",
+  "title": "PNRIO_RioPaAnalogOutputConfigDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogOutputConfigDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RioPaAnalogOutputConfigDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaAnalogOutputConfigDataType",
+      "required": [
+        "SignalType",
+        "WireCheckEnabled",
+        "SubstitutePolicy",
+        "SubstituteValue",
+        "SubstituteTime"
+      ],
+      "properties": {
+        "SignalType": {
+          "title": "RioSignalTypeEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSignalTypeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "WireCheckEnabled": {
+          "type": "boolean"
+        },
+        "SubstitutePolicy": {
+          "title": "RioSubstitutePolicyEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SubstituteValue": {
+          "title": "RioAnalogDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+          "properties": {
+            "Float_32": {
+              "type": "number",
+              "minimum": -3.40e+38,
+              "maximum": 3.40e+38
+            },
+            "Int_16": {
+              "type": "integer",
+              "minimum": -32768,
+              "maximum": 32767
+            },
+            "Int_32": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "UInt_16": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "UInt_32": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        },
+        "SubstituteTime": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

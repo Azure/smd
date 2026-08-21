@@ -1,0 +1,280 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_NewPresentedMaterialLogType",
+  "title": "TMC_v2_NewPresentedMaterialLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.NewPresentedMaterialLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaterialStockStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStockStatusEnumeration",
+      "const": {
+        "Unrestricted": 0,
+        "QualityInspection": 1,
+        "Blocked": 2
+      },
+      "description": "The MaterialStockStatusEnumeration provides the stock status for a material lot.",
+      "properties": {
+        "Unrestricted": {
+          "description": "The parameter depends solely from the machine and does not vary with the brand.",
+          "type": "integer"
+        },
+        "QualityInspection": {
+          "description": "The parameter depends solely from the brand being produced and does not vary with the machine.",
+          "type": "integer"
+        },
+        "Blocked": {
+          "description": "The parameter depends both from the machine and the brand being produced.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "MaterialSublot": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "MaterialSublotType",
+      "description": "The MaterialSublotType structure contains the material sublot information. It is harmonised with  ISA 95 Material Sublot.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialSublotType",
+      "required": [
+        "ID",
+        "MES_ID",
+        "MaterialLot",
+        "MaterialStorageLocationID",
+        "Quantity"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the material sublot in the underlying system.",
+          "type": "string"
+        },
+        "MES_ID": {
+          "description": "The unique identifier for the material sublot in higher level systems.",
+          "type": "string"
+        },
+        "MaterialLot": {
+          "title": "MaterialLotType",
+          "description": "The MaterialLotType structure contains the material lot information. It is harmonised with ISA  95 Material Lot.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialLotType",
+          "required": [
+            "ID",
+            "MES_ID",
+            "Description",
+            "MaterialDefinition",
+            "Status",
+            "ProductionDate"
+          ],
+          "properties": {
+            "ID": {
+              "description": "Unique identifier for the material lot in the underlying system.",
+              "type": "string"
+            },
+            "MES_ID": {
+              "description": "The unique identifier for the material lot in higher level systems. In some  production contexts the material lot is called a batch.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "Description of the material lot.",
+              "type": "string"
+            },
+            "MaterialDefinition": {
+              "title": "MaterialDefinitionType",
+              "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+              "required": [
+                "ID",
+                "MES_ID",
+                "Description",
+                "BaseUnitOfMeasure",
+                "BatchManaged"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the material definition.",
+                  "type": "string"
+                },
+                "MES_ID": {
+                  "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "Description of the material definition.",
+                  "type": "string"
+                },
+                "BaseUnitOfMeasure": {
+                  "title": "EUInformation",
+                  "description": "The base unit of measure for the material definition.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                  "required": [
+                    "NamespaceUri",
+                    "UnitId",
+                    "DisplayName",
+                    "Description"
+                  ],
+                  "properties": {
+                    "NamespaceUri": {
+                      "type": "string"
+                    },
+                    "UnitId": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DisplayName": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "BatchManaged": {
+                  "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                  "type": "boolean"
+                },
+                "GroupID": {
+                  "description": "The material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ParentGroupID": {
+                  "description": "The parent group of the material group the material definition belongs to.",
+                  "type": "string"
+                },
+                "ShelfLife": {
+                  "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Properties": {
+                  "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                  "type": "array",
+                  "items": {
+                    "title": "DataDescriptionType",
+                    "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                    "required": [
+                      "ID",
+                      "MES_ID",
+                      "Description"
+                    ],
+                    "properties": {
+                      "ID": {
+                        "description": "Unique identifier for the metadata description.",
+                        "type": "string"
+                      },
+                      "MES_ID": {
+                        "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "The metadata description.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Status": {
+              "title": "MaterialStockStatusEnumeration",
+              "description": "The stock status of the material lot.",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStockStatusEnumeration",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "ProductionDate": {
+              "description": "The date and time when the material lot was produced.",
+              "type": "string",
+              "format": "time"
+            },
+            "BestUsedBeforeDate": {
+              "description": "The last date the material lot can be used. It is computed adding the  material definition shelf life to the production date.",
+              "type": "string",
+              "format": "time"
+            },
+            "Properties": {
+              "description": "An array containing additional properties that can be additionally required  for the material lot.",
+              "type": "array",
+              "items": {
+                "title": "DataDescriptionType",
+                "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                "required": [
+                  "ID",
+                  "MES_ID",
+                  "Description"
+                ],
+                "properties": {
+                  "ID": {
+                    "description": "Unique identifier for the metadata description.",
+                    "type": "string"
+                  },
+                  "MES_ID": {
+                    "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "The metadata description.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MaterialStorageLocationID": {
+          "description": "Unique identifier for the location where the material is  produced/stored.",
+          "type": "string"
+        },
+        "Quantity": {
+          "description": "The quantity of the sublot in the base unit of measure defined in the  MaterialDefinition.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "CarrierID": {
+          "description": "The ID of the carrier holding the sublot, for example the bobbin core  fitted with an RFID. If the sublot is not contained in any carrier, then  the CarrierID is NULL.",
+          "type": "string"
+        },
+        "RelativePositionID": {
+          "description": "The unique identifier of the relative position of the sublot in the  carrier identified by CarrierID. If CarrierID is NULL, then the string is  empty.",
+          "type": "string"
+        },
+        "ParentSublotID": {
+          "description": "The parent sublot ID is the unique identifier of the material sublot  that contains the sublot structure in question. If the sublot is not  contained in any sublot, then the ParentSublotID is NULL.",
+          "type": "string"
+        },
+        "Sublots": {
+          "description": "The material sublots contained in the material sublot in question.",
+          "type": "array",
+          "items": {
+            "description": "Stand-in for the infinite remainder of this data structure, which is recursively defined.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

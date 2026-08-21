@@ -1,0 +1,164 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Energy/#Machinery_Energy_IMassFlowType",
+  "title": "Machinery_Energy_IMassFlowType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Energy.IMassFlowType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/Energy/#Machinery_Energy_IBaseFlowType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Mass",
+    "/properties/MassFlowRate",
+    "/properties/Mass_EngineeringUnits",
+    "/properties/MassFlowRate_EngineeringUnits",
+    "/events/Mass",
+    "/events/MassFlowRate"
+  ],
+  "properties": {
+    "Mass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:contains": [
+        "Mass_AccuracyClass",
+        "Mass_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Mass",
+      "dov:withUnit": "properties/Mass_EngineeringUnits"
+    },
+    "Mass_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "Mass"
+    },
+    "Mass_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "Mass"
+    },
+    "MassFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:contains": [
+        "MassFlowRate_AccuracyClass",
+        "MassFlowRate_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MassFlowRate",
+      "dov:withUnit": "properties/MassFlowRate_EngineeringUnits"
+    },
+    "MassFlowRate_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "MassFlowRate"
+    },
+    "MassFlowRate_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "MassFlowRate"
+    },
+    "Mass_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Mass, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MassFlowRate_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MassFlowRate, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Mass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "Mass_AccuracyClass",
+        "Mass_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Mass",
+      "dov:withUnit": "properties/Mass_EngineeringUnits"
+    },
+    "Mass_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Mass"
+    },
+    "Mass_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Mass"
+    },
+    "MassFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "MassFlowRate_AccuracyClass",
+        "MassFlowRate_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MassFlowRate",
+      "dov:withUnit": "properties/MassFlowRate_EngineeringUnits"
+    },
+    "MassFlowRate_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "MassFlowRate"
+    },
+    "MassFlowRate_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "MassFlowRate"
+    }
+  }
+}

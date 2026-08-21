@@ -1,0 +1,154 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_IRWorkOrderReplyGenType",
+  "title": "Mining_ExternalStandards_IREDES_IRWorkOrderReplyGenType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.IRWorkOrderReplyGenType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "Answer": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.Answer",
+      "const": {
+        "Accepted": 0,
+        "Delayed": 1,
+        "AcceptedWithCondition": 2,
+        "Denied": 3
+      },
+      "properties": {
+        "Accepted": {
+          "description": "Order is accepted.",
+          "type": "integer"
+        },
+        "Delayed": {
+          "description": "Order can only be executed with delay.",
+          "type": "integer"
+        },
+        "AcceptedWithCondition": {
+          "description": "Order is accepted under a condition.",
+          "type": "integer"
+        },
+        "Denied": {
+          "description": "Orders denied.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Condition",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Duration",
+    "/properties/Extra",
+    "/properties/Reason",
+    "/events/Condition",
+    "/events/Duration",
+    "/events/Extra",
+    "/events/Reason"
+  ],
+  "properties": {
+    "Answer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "title": "Answer",
+      "description": "See Answer enumeration.",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.Answer",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Condition": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Only for 'AcceptedWithCondition' option. Free text field for condition such as 'need consumable', etc.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "type": "string",
+      "readOnly": false
+    },
+    "Duration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "For delayed option only.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "Extra": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "Reason": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Place to clarify reasons for delaying or denying the work order.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Answer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "title": "Answer",
+        "description": "See Answer enumeration.",
+        "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.Answer",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Condition": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Only for 'AcceptedWithCondition' option. Free text field for condition such as 'need consumable', etc.",
+        "type": "string"
+      }
+    },
+    "Duration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "For delayed option only.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "Extra": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "Reason": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Place to clarify reasons for delaying or denying the work order.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UadpDataSetReaderMessageDataType",
+  "title": "OpcUaCore_UadpDataSetReaderMessageDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UadpDataSetReaderMessageDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "UadpDataSetReaderMessageDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UadpDataSetReaderMessageDataType",
+      "required": [
+        "GroupVersion",
+        "NetworkMessageNumber",
+        "DataSetOffset",
+        "DataSetClassId",
+        "NetworkMessageContentMask",
+        "DataSetMessageContentMask",
+        "PublishingInterval",
+        "ReceiveOffset",
+        "ProcessingOffset"
+      ],
+      "properties": {
+        "GroupVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "NetworkMessageNumber": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "DataSetOffset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "DataSetClassId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "NetworkMessageContentMask": {
+          "title": "UadpNetworkMessageContentMask",
+          "dov:typeRef": "org.opcfoundation.UA.UadpNetworkMessageContentMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "DataSetMessageContentMask": {
+          "title": "UadpDataSetMessageContentMask",
+          "dov:typeRef": "org.opcfoundation.UA.UadpDataSetMessageContentMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "PublishingInterval": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "ReceiveOffset": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "ProcessingOffset": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        }
+      }
+    }
+  }
+}

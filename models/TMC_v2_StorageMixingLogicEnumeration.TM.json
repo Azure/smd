@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_StorageMixingLogicEnumeration",
+  "title": "TMC_v2_StorageMixingLogicEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "StorageMixingLogicEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+      "const": {
+        "Mixing": 0,
+        "NonMixingByProduct": 1,
+        "NonMixingByBatch": 2
+      },
+      "description": "The StorageMixingLogicEnumeration describes standard ways of mixing material in a material  storage buffer.",
+      "properties": {
+        "Mixing": {
+          "description": "The material storage buffer containing a material accepts any other material.",
+          "type": "integer"
+        },
+        "NonMixingByProduct": {
+          "description": "The material storage buffer containing a material accepts other materials with the same MaterialDefinition.",
+          "type": "integer"
+        },
+        "NonMixingByBatch": {
+          "description": "The material storage buffer containing a material accepts other materials with the same MaterialLot.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

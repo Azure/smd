@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_OperationModeEnum",
+  "title": "Pumps_OperationModeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "OperationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OperationModeEnum",
+      "const": {
+        "AutoControl": 0,
+        "ClosedLoopStandardPID": 1,
+        "Advanced": 2,
+        "StandBy": 3,
+        "OpenLoopMin": 4,
+        "OpenLoopValue": 5,
+        "OpenLoopMax": 6,
+        "ClosedLoopMin": 7,
+        "ClosedLoopMax": 8,
+        "Test": 9,
+        "Calibration": 10
+      },
+      "description": "describes the possible operation modes of the pump",
+      "properties": {
+        "AutoControl": {
+          "description": "standard control algorithm, not configurable",
+          "type": "integer"
+        },
+        "ClosedLoopStandardPID": {
+          "description": "pid algorithm, control parameters configurable in functional element ControlPID",
+          "type": "integer"
+        },
+        "Advanced": {
+          "description": "manufacturer specific control algorithm, control parameters configurable",
+          "type": "integer"
+        },
+        "StandBy": {
+          "description": "ready for operation ",
+          "type": "integer"
+        },
+        "OpenLoopMin": {
+          "description": "open loop operation at minimum characteristic",
+          "type": "integer"
+        },
+        "OpenLoopValue": {
+          "description": "open loop operation at set point value",
+          "type": "integer"
+        },
+        "OpenLoopMax": {
+          "description": "open loop operation at maximum characteristic",
+          "type": "integer"
+        },
+        "ClosedLoopMin": {
+          "description": "closed loop operation at minimum characteristic",
+          "type": "integer"
+        },
+        "ClosedLoopMax": {
+          "description": "closed loop operation at maximum characteristic",
+          "type": "integer"
+        },
+        "Test": {
+          "description": "Test operation",
+          "type": "integer"
+        },
+        "Calibration": {
+          "description": "Calibration mode",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

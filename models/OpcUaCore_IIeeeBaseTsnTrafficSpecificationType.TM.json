@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeBaseTsnTrafficSpecificationType",
+  "title": "OpcUaCore_IIeeeBaseTsnTrafficSpecificationType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeBaseTsnTrafficSpecificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Interval": {
+      "title": "UnsignedRationalNumber",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnsignedRationalNumber",
+      "required": [
+        "Numerator",
+        "Denominator"
+      ],
+      "properties": {
+        "Numerator": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Denominator": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      },
+      "readOnly": true
+    },
+    "MaxFrameSize": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxIntervalFrames": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Interval": {
+      "data": {
+        "title": "UnsignedRationalNumber",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnsignedRationalNumber",
+        "required": [
+          "Numerator",
+          "Denominator"
+        ],
+        "properties": {
+          "Numerator": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Denominator": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "MaxFrameSize": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "MaxIntervalFrames": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

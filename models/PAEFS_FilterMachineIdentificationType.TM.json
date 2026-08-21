@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterMachineIdentificationType",
+  "title": "PAEFS_FilterMachineIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterMachineIdentificationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ExIdentification",
+    "/properties/RatedPower",
+    "/events/RatedPower"
+  ],
+  "properties": {
+    "ExIdentification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "NominalAirflow": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "RatedPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "NominalAirflow": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RatedPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_CommHealthOptionSet",
+  "title": "FX_AC_CommHealthOptionSet",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.CommHealthOptionSet",
+  "links": [],
+  "schemaDefinitions": {
+    "CommHealthOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.CommHealthOptionSet",
+      "const": {
+        "CommInitial": 0,
+        "CommPreOperational": 1,
+        "CommError": 2
+      },
+      "properties": {
+        "CommInitial": {
+          "description": "At least one of the ConnectionEndpoints has its Status set to Initial.",
+          "type": "integer"
+        },
+        "CommPreOperational": {
+          "description": "At least one of the ConnectionEndpoints has its Status set to PreOperational.",
+          "type": "integer"
+        },
+        "CommError": {
+          "description": "At least one of the ConnectionEndpoints has its Status set to Error.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ResultEvaluationEnum",
+  "title": "Machinery_Result_ResultEvaluationEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultEvaluationEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "ResultEvaluationEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultEvaluationEnum",
+      "const": {
+        "Undefined": 0,
+        "OK": 1,
+        "NotOK": 2,
+        "NotDecidable": 3
+      },
+      "description": "Indicates whether a result was in tolerance",
+      "properties": {
+        "Undefined": {
+          "description": "The evaluation of the result is unknown, for example because it failed",
+          "type": "integer"
+        },
+        "OK": {
+          "description": "The result is in tolerance",
+          "type": "integer"
+        },
+        "NotOK": {
+          "description": "The result is out of tolerance",
+          "type": "integer"
+        },
+        "NotDecidable": {
+          "description": "The decision is not possible due to measurement uncertainty.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

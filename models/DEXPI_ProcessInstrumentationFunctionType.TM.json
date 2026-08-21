@@ -1,0 +1,368 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ProcessInstrumentationFunctionType",
+  "title": "DEXPI_ProcessInstrumentationFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ProcessInstrumentationFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<ActuatingFunction>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ActuatingFunctionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<ProcessSignalGeneratingFunction>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ProcessSignalGeneratingFunctionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<SignalConveyingFunction>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_SignalConveyingFunctionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "GmpRelevanceClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.GmpRelevanceClassification",
+      "const": {
+        "GmpRelevantFunction": 0,
+        "NonGmpRelevantFunction": 1
+      },
+      "description": "",
+      "properties": {
+        "GmpRelevantFunction": {
+          "description": "GmpRelevantFunction",
+          "type": "integer"
+        },
+        "NonGmpRelevantFunction": {
+          "description": "NonGmpRelevantFunction",
+          "type": "integer"
+        }
+      }
+    },
+    "GuaranteedSupplyFunctionClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.GuaranteedSupplyFunctionClassification",
+      "const": {
+        "GuaranteedSupplyFunction": 0,
+        "NonGuaranteedSupplyFunction": 1
+      },
+      "description": "",
+      "properties": {
+        "GuaranteedSupplyFunction": {
+          "description": "GuaranteedSupplyFunction",
+          "type": "integer"
+        },
+        "NonGuaranteedSupplyFunction": {
+          "description": "NonGuaranteedSupplyFunction",
+          "type": "integer"
+        }
+      }
+    },
+    "LocationClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.LocationClassification",
+      "const": {
+        "CentralLocation": 0,
+        "ControlPanel": 1,
+        "Field": 2
+      },
+      "description": "",
+      "properties": {
+        "CentralLocation": {
+          "description": "CentralLocation",
+          "type": "integer"
+        },
+        "ControlPanel": {
+          "description": "ControlPanel",
+          "type": "integer"
+        },
+        "Field": {
+          "description": "Field",
+          "type": "integer"
+        }
+      }
+    },
+    "QualityRelevanceClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.QualityRelevanceClassification",
+      "const": {
+        "NonQualityRelevantFunction": 0,
+        "QualityRelevantFunction": 1
+      },
+      "description": "",
+      "properties": {
+        "NonQualityRelevantFunction": {
+          "description": "NonQualityRelevantFunction",
+          "type": "integer"
+        },
+        "QualityRelevantFunction": {
+          "description": "QualityRelevantFunction",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DeviceInformationAssignmentClass",
+    "/properties/GmpRelevanceSpecialization",
+    "/properties/GuaranteedSupplyFunctionSpecialization",
+    "/properties/LocationSpecialization",
+    "/properties/PanelIdentificationCodeAssignmentClass",
+    "/properties/ProcessInstrumentationFunctionCategoryAssignmentClass",
+    "/properties/ProcessInstrumentationFunctionModifierAssignmentClass",
+    "/properties/ProcessInstrumentationFunctionNumberAssignmentClass",
+    "/properties/ProcessInstrumentationFunctionsAssignmentClass",
+    "/properties/QualityRelevanceSpecialization",
+    "/properties/SafetyRelevanceClassAssignmentClass",
+    "/properties/TypicalInformationAssignmentClass",
+    "/properties/VendorCompanyNameAssignmentClass",
+    "/properties/VotingSystemRepresentationAssignmentClass",
+    "/events/DeviceInformationAssignmentClass",
+    "/events/GmpRelevanceSpecialization",
+    "/events/GuaranteedSupplyFunctionSpecialization",
+    "/events/LocationSpecialization",
+    "/events/PanelIdentificationCodeAssignmentClass",
+    "/events/ProcessInstrumentationFunctionCategoryAssignmentClass",
+    "/events/ProcessInstrumentationFunctionModifierAssignmentClass",
+    "/events/ProcessInstrumentationFunctionNumberAssignmentClass",
+    "/events/ProcessInstrumentationFunctionsAssignmentClass",
+    "/events/QualityRelevanceSpecialization",
+    "/events/SafetyRelevanceClassAssignmentClass",
+    "/events/TypicalInformationAssignmentClass",
+    "/events/VendorCompanyNameAssignmentClass",
+    "/events/VotingSystemRepresentationAssignmentClass"
+  ],
+  "properties": {
+    "DeviceInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Device information the ProcessInstrumentationFunction, e.g., for a detector.",
+      "type": "string",
+      "readOnly": false
+    },
+    "GmpRelevanceSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "GmpRelevanceClassification",
+      "description": "A classification indicating if the ProcessInstrumentationFunction is relevant for GMP (good manufacturing practise).",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.GmpRelevanceClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "GuaranteedSupplyFunctionSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "GuaranteedSupplyFunctionClassification",
+      "description": "A classification indicating if the ProcessInstrumentationFunction is a guaranteed supply function.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.GuaranteedSupplyFunctionClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "LocationSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "LocationClassification",
+      "description": "A specialization indicating the location of the ProcessInstrumentationFunction.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.LocationClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PanelIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The panel identification code of the ProcessInstrumentationFunction.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessInstrumentationFunctionCategoryAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The function category of the ProcessInstrumentationFunction. The value is a string, typically one or two letters. Recent standards for PIDs normally enforce a single letter from a fixed list. However, there are no formal DEXPI restrictions for valid strings.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessInstrumentationFunctionModifierAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The modifier of the ProcessInstrumentationFunction. The value is a string, typically a single letter, e.g., D for difference. So far, there are no formal DEXPI restrictions for valid strings.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessInstrumentationFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A unique identifier for the ProcessInstrumentationFunction. If the ProcessInstrumentationFunction is part of a InstrumentationLoopFunction, the identifier of the ProcessInstrumentationFunction usually contains the identifier of the InstrumentationLoopFunction (see InstrumentationLoopFunctionNumberAssignmentClass).",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessInstrumentationFunctionsAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Additional functions of the ProcessInstrumentationFunction (i.e., in addition to the function category, see  ProcessInstrumentationFunctionCategoryAssignmentClass).",
+      "type": "string",
+      "readOnly": false
+    },
+    "QualityRelevanceSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "QualityRelevanceClassification",
+      "description": "A classification indicating if the ProcessInstrumentationFunction is quality relevant.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.QualityRelevanceClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SafetyRelevanceClassAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The safety relevance class the ProcessInstrumentationFunction.",
+      "type": "string",
+      "readOnly": false
+    },
+    "TypicalInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "Typical information about the ProcessInstrumentationFunction.",
+      "type": "string",
+      "readOnly": false
+    },
+    "VendorCompanyNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The vendor company name the ProcessInstrumentationFunction.",
+      "type": "string",
+      "readOnly": false
+    },
+    "VotingSystemRepresentationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A representation of the voting system of the ProcessInstrumentationFunction.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DeviceInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "Device information the ProcessInstrumentationFunction, e.g., for a detector.",
+        "type": "string"
+      }
+    },
+    "GmpRelevanceSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "GmpRelevanceClassification",
+        "description": "A classification indicating if the ProcessInstrumentationFunction is relevant for GMP (good manufacturing practise).",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.GmpRelevanceClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "GuaranteedSupplyFunctionSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "GuaranteedSupplyFunctionClassification",
+        "description": "A classification indicating if the ProcessInstrumentationFunction is a guaranteed supply function.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.GuaranteedSupplyFunctionClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LocationSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "LocationClassification",
+        "description": "A specialization indicating the location of the ProcessInstrumentationFunction.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.LocationClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PanelIdentificationCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The panel identification code of the ProcessInstrumentationFunction.",
+        "type": "string"
+      }
+    },
+    "ProcessInstrumentationFunctionCategoryAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The function category of the ProcessInstrumentationFunction. The value is a string, typically one or two letters. Recent standards for PIDs normally enforce a single letter from a fixed list. However, there are no formal DEXPI restrictions for valid strings.",
+        "type": "string"
+      }
+    },
+    "ProcessInstrumentationFunctionModifierAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The modifier of the ProcessInstrumentationFunction. The value is a string, typically a single letter, e.g., D for difference. So far, there are no formal DEXPI restrictions for valid strings.",
+        "type": "string"
+      }
+    },
+    "ProcessInstrumentationFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A unique identifier for the ProcessInstrumentationFunction. If the ProcessInstrumentationFunction is part of a InstrumentationLoopFunction, the identifier of the ProcessInstrumentationFunction usually contains the identifier of the InstrumentationLoopFunction (see InstrumentationLoopFunctionNumberAssignmentClass).",
+        "type": "string"
+      }
+    },
+    "ProcessInstrumentationFunctionsAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "Additional functions of the ProcessInstrumentationFunction (i.e., in addition to the function category, see  ProcessInstrumentationFunctionCategoryAssignmentClass).",
+        "type": "string"
+      }
+    },
+    "QualityRelevanceSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "QualityRelevanceClassification",
+        "description": "A classification indicating if the ProcessInstrumentationFunction is quality relevant.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.QualityRelevanceClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SafetyRelevanceClassAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The safety relevance class the ProcessInstrumentationFunction.",
+        "type": "string"
+      }
+    },
+    "TypicalInformationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "Typical information about the ProcessInstrumentationFunction.",
+        "type": "string"
+      }
+    },
+    "VendorCompanyNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The vendor company name the ProcessInstrumentationFunction.",
+        "type": "string"
+      }
+    },
+    "VotingSystemRepresentationAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A representation of the voting system of the ProcessInstrumentationFunction.",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_SeparatorDesignType",
+  "title": "CAS_SeparatorDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.SeparatorDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_DesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SeparatorTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.SeparatorTypeEnum",
+      "const": {
+        "Other": 0,
+        "CentrifugalOilyWaterSeparator": 1,
+        "EmulsionSplittingSeparator": 2,
+        "FlotationSeparator": 3,
+        "GravityPlateSeparator": 4,
+        "HydrocycloneOilyWaterSeparator": 5
+      },
+      "description": "possible condensate separator types",
+      "properties": {
+        "Other": {
+          "description": "Not specified in this enumeration",
+          "type": "integer"
+        },
+        "CentrifugalOilyWaterSeparator": {
+          "description": "Centrifugal oily water separator",
+          "type": "integer"
+        },
+        "EmulsionSplittingSeparator": {
+          "description": "Emulsion splitting separator",
+          "type": "integer"
+        },
+        "FlotationSeparator": {
+          "description": "Flotation separator",
+          "type": "integer"
+        },
+        "GravityPlateSeparator": {
+          "description": "Gravity plate separator",
+          "type": "integer"
+        },
+        "HydrocycloneOilyWaterSeparator": {
+          "description": "Hydrocyclone oily water separator",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ComponentClass",
+    "/events/ComponentClass"
+  ],
+  "properties": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "SeparatorTypeEnum",
+      "description": "Enumeration of possible condensate separator types.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.SeparatorTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "SeparatorTypeEnum",
+        "description": "Enumeration of possible condensate separator types.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.SeparatorTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

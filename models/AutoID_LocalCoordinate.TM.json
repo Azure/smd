@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_LocalCoordinate",
+  "title": "AutoID_LocalCoordinate",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+  "links": [],
+  "schemaDefinitions": {
+    "LocalCoordinate": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+      "required": [
+        "X",
+        "Y",
+        "Z",
+        "Timestamp",
+        "DilutionOfPrecision",
+        "UsefulPrecision"
+      ],
+      "properties": {
+        "X": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Y": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Z": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Timestamp": {
+          "description": "Optional",
+          "type": "string",
+          "format": "time"
+        },
+        "DilutionOfPrecision": {
+          "description": "Optional",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "UsefulPrecision": {
+          "description": "Optional",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

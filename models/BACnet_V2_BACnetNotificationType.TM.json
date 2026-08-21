@@ -1,0 +1,113 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetNotificationType",
+  "title": "BACnet_V2_BACnetNotificationType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetNotificationType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AlarmConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetEventState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventState",
+      "const": {
+        "Normal": 0,
+        "Fault": 1,
+        "OffNormal": 2,
+        "HighLimit": 3,
+        "LowLimit": 4,
+        "LifeSafetyAlarm": 5
+      },
+      "properties": {
+        "Normal": {
+          "type": "integer"
+        },
+        "Fault": {
+          "type": "integer"
+        },
+        "OffNormal": {
+          "type": "integer"
+        },
+        "HighLimit": {
+          "type": "integer"
+        },
+        "LowLimit": {
+          "type": "integer"
+        },
+        "LifeSafetyAlarm": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetNotifyType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetNotifyType",
+      "const": {
+        "Alarm": 0,
+        "Event": 1,
+        "AckNotification": 2
+      },
+      "properties": {
+        "Alarm": {
+          "type": "integer"
+        },
+        "Event": {
+          "type": "integer"
+        },
+        "AckNotification": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/From_State"
+  ],
+  "properties": {
+    "From_State": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetEventState",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Notification_Class": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "Notify_Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetNotifyType",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetNotifyType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "To_State": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetEventState",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

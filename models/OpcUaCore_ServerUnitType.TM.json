@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerUnitType",
+  "title": "OpcUaCore_ServerUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerUnitType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_UnitType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AlternativeUnits",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CoherentUnit",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_UnitType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ConversionLimitEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ConversionLimitEnum",
+      "const": {
+        "NoConversion": 0,
+        "Limited": 1,
+        "Unlimited": 2
+      },
+      "properties": {
+        "NoConversion": {
+          "type": "integer"
+        },
+        "Limited": {
+          "type": "integer"
+        },
+        "Unlimited": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConversionLimit": {
+      "title": "ConversionLimitEnum",
+      "dov:typeRef": "org.opcfoundation.UA.ConversionLimitEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterUnitType",
+  "title": "PAEFS_FilterUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterUnitType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CleaningUnit",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_CleaningUnitType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DischargeSystem",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_DischargeSystemType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Separator",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SeparatorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AirConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Airflow",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AirIntakeConnection",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AirOutletConnection",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PowerConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Pressure",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureLoss",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "RotationalSpeed",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/OperationOff",
+    "/actions/OperationOn",
+    "/actions/SetAndActivateAirflowSetpoint",
+    "/actions/SetAndActivatePressureSetpoint",
+    "/actions/SetAndActivateRotationalSpeedSetpoint",
+    "/properties/MaintenanceRequested",
+    "/properties/OperationCycleCounter",
+    "/properties/OperationDuration",
+    "/properties/PowerOnDuration"
+  ],
+  "actions": {
+    "OperationOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method OperationOff turns the machine off. As with the OperationOn Method, this method should be present under the filter unit if and only if the filter unit is considered a machine."
+    },
+    "OperationOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method OperationOn turns the machine on. It should only be available on the filter unit if the filter unit is considered a machine, rather than a component of a larger machine. If the filter unit is only a component of a larger machine, the OperationOn Method should be present on the filter system."
+    },
+    "SetAndActivateAirflowSetpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method SetAirflowSetpoint sets a setpoint for the airflow. The value’s unit is the same as the one specified in object Airflow. Since setpoints are mutually exclusive, the method also sets the boolean IsActiveSetpoint of the setpoints for pressure and rotational speed to false.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Value"
+        ],
+        "properties": {
+          "Value": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "SetAndActivatePressureSetpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method SetPressureSetpoint sets a setpoint for the pressure. The value’s unit is the same as the one specified in object Pressure. Since setpoints are mutually exclusive, the method also sets the boolean IsActiveSetpoint of the setpoints for airflow and rotational speed to false.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Value"
+        ],
+        "properties": {
+          "Value": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "SetAndActivateRotationalSpeedSetpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method SetRotationalSpeedSetpoint sets a setpoint for the rotational speed. The value’s unit is the same as the one specified in object RotationalSpeed. Since setpoints are mutually exclusive, the method also sets the boolean IsActiveSetpoint of the setpoints for airflow and pressure to false.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Value"
+        ],
+        "properties": {
+          "Value": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "MaintenanceRequested": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The maintenance request allows the manufacturer to inform the operator that the system requires maintenance. True = maintenance requested by system. False = no maintenance requested.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "One or more subsystems of the filter unit have a malfunction. True in case of error.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "OperationCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": true
+    },
+    "OperationDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PowerOnDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

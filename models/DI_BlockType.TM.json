@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_BlockType",
+  "title": "DI_BlockType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.BlockType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_TopologyElementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActualMode",
+    "/properties/NormalMode",
+    "/properties/PermittedMode",
+    "/properties/RevisionCounter",
+    "/properties/TargetMode"
+  ],
+  "properties": {
+    "ActualMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "NormalMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "PermittedMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "RevisionCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "TargetMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/RSL/#RSL_SpatialObjectsListType",
+  "title": "RSL_SpatialObjectsListType",
+  "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialObjectsListType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SpatialLocationType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.RSL.SpatialLocationType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "type": "string",
+      "readOnly": false
+    },
+    "NodeVersion": {
+      "type": "string",
+      "readOnly": false
+    },
+    "WorldFrame": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "tm:ref": "#/schemaDefinitions/SpatialLocationType",
+      "readOnly": false,
+      "dov:contains": [
+        "WorldFrame_Base"
+      ]
+    },
+    "WorldFrame_Base": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "description": "WorldFrame as the origin of the coordinate system has no Base i.e. it must be null.",
+      "type": "string",
+      "readOnly": false,
+      "dov:containedIn": "WorldFrame"
+    }
+  },
+  "events": {
+    "WorldFrame": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/SpatialLocationType"
+      },
+      "dov:contains": [
+        "WorldFrame_Base"
+      ]
+    },
+    "WorldFrame_Base": {
+      "dov:namespace": "http://opcfoundation.org/UA/RSL/",
+      "data": {
+        "description": "WorldFrame as the origin of the coordinate system has no Base i.e. it must be null.",
+        "type": "string"
+      },
+      "dov:containedIn": "WorldFrame"
+    }
+  }
+}

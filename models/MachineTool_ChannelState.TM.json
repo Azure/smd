@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ChannelState",
+  "title": "MachineTool_ChannelState",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ChannelState",
+  "links": [],
+  "schemaDefinitions": {
+    "ChannelState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ChannelState",
+      "const": {
+        "Active": 0,
+        "Interrupted": 1,
+        "Reset": 2
+      },
+      "properties": {
+        "Active": {
+          "description": "There is an active command being executed by the NC channel.",
+          "type": "integer"
+        },
+        "Interrupted": {
+          "description": "The NC execution is interrupted. Execution of a program in the channel can be restarted.",
+          "type": "integer"
+        },
+        "Reset": {
+          "description": "No NC command is active in the NC channel. E.g. channel is idle.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

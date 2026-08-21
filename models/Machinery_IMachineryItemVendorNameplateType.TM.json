@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/#Machinery_IMachineryItemVendorNameplateType",
+  "title": "Machinery_IMachineryItemVendorNameplateType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.IMachineryItemVendorNameplateType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_IVendorNameplateType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/InitialOperationDate",
+    "/properties/MonthOfConstruction",
+    "/properties/YearOfConstruction"
+  ],
+  "properties": {
+    "InitialOperationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "The date, when the MachineryItem was switched on the first time after it has left the manufacturer plant.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A human-readable, localized name of the manufacturer of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "MonthOfConstruction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "The month in which the manufacturing process of the MachineryItem has been completed. It shall be a number between 1 and 12, representing the month from January to December.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A string containing a unique production number of the manufacturer of the MachineryItem. The global uniqueness of the serial number is only given in the context of the manufacturer, and potentially the model. The value shall not change during the life-cycle of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "YearOfConstruction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "The year (Gregorian calendar) in which the manufacturing process of the MachineryItem has been completed. It shall be a four-digit number and never change during the life-cycle of a MachineryItem.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

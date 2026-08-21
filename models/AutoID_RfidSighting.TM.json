@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_RfidSighting",
+  "title": "AutoID_RfidSighting",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidSighting",
+  "links": [],
+  "schemaDefinitions": {
+    "RfidSighting": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidSighting",
+      "required": [
+        "Antenna",
+        "Strength",
+        "Timestamp",
+        "CurrentPowerLevel"
+      ],
+      "properties": {
+        "Antenna": {
+          "description": "Returns the number of the antenna which detects the RFID tag first.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Strength": {
+          "description": "Returns the signal strength (RSSI) of the transponder. Higher values indicate a better strength.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Timestamp": {
+          "description": "Timestamp in UtcTime",
+          "type": "string",
+          "format": "time"
+        },
+        "CurrentPowerLevel": {
+          "description": "Returns the current power level (unit according to parameter settings).",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

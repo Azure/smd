@@ -1,0 +1,35 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_ItemVersion",
+  "title": "WireHarness_VEC_ItemVersion",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ItemVersion",
+  "links": [],
+  "schemaDefinitions": {
+    "ItemVersion": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ItemVersion",
+      "required": [
+        "id",
+        "CompanyName"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "CompanyName": {
+          "description": "<p>Defines the publishing company of the ItemVersion. The companyName is part of the main identifier of an ItemVersion together with the corresponding number (partNumber or documentNumber) and version (partVersion or documentVersion).</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

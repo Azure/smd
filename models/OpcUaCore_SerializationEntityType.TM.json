@@ -1,0 +1,158 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SerializationEntityType",
+  "title": "OpcUaCore_SerializationEntityType",
+  "dov:typeRef": "org.opcfoundation.UA.SerializationEntityType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ConfigureSerialization",
+    "/properties/ConsiderSubElementSerializationProperties",
+    "/properties/CustomMetaDataProperties",
+    "/properties/CustomMetaDataRef",
+    "/properties/ExcludeReferenceTypes",
+    "/properties/IncludeDictionaryReference",
+    "/properties/IncludeReferenceTypes",
+    "/properties/IncludeSourceTimestamp",
+    "/properties/IncludeStatus",
+    "/properties/SerializationDepth"
+  ],
+  "actions": {
+    "ConfigureSerialization": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SerializationFilterProperties"
+        ],
+        "properties": {
+          "SerializationFilterProperties": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConsiderSubElementSerializationProperties": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "CustomMetaDataProperties": {
+      "type": "array",
+      "items": {
+        "title": "KeyValuePair",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+        "required": [
+          "Key",
+          "Value"
+        ],
+        "properties": {
+          "Key": {
+            "type": "string"
+          },
+          "Value": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "CustomMetaDataRef": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ExcludeReferenceTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "IncludeDictionaryReference": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IncludeReferenceTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "IncludeSourceTimestamp": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IncludeStatus": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "SerializationDepth": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SerializedData": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SerializedData": {
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

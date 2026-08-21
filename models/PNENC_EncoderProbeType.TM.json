@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderProbeType",
+  "title": "PNENC_EncoderProbeType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderProbeType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/LatchStart",
+    "/properties/LatchActive",
+    "/events/LatchActive"
+  ],
+  "actions": {
+    "LatchStart": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/"
+    }
+  },
+  "properties": {
+    "LastLatchedPos": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "readOnly": true
+    },
+    "LatchActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LastLatchedPos": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number"
+      }
+    },
+    "LatchActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

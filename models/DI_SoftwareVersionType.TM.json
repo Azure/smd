@@ -1,0 +1,73 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_SoftwareVersionType",
+  "title": "DI_SoftwareVersionType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareVersionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/Clear",
+    "/properties/ChangeLogReference",
+    "/properties/Hash",
+    "/properties/PatchIdentifiers",
+    "/properties/ReleaseDate"
+  ],
+  "actions": {
+    "Clear": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/"
+    }
+  },
+  "properties": {
+    "ChangeLogReference": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Hash": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "PatchIdentifiers": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ReleaseDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "SoftwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

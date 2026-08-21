@@ -1,0 +1,128 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTConditionEventType",
+  "title": "MTConnect_v2_MTConditionEventType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTConditionEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MTSeverityDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTSeverityDataType",
+      "const": {
+        "FAULT": 0,
+        "NORMAL": 1,
+        "WARNING": 2
+      },
+      "description": "",
+      "properties": {
+        "FAULT": {
+          "description": "Fault value for a condition element.",
+          "type": "integer"
+        },
+        "NORMAL": {
+          "description": "Normal value for a condition element.",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "Warning value for a condition element.",
+          "type": "integer"
+        }
+      }
+    },
+    "QualifierDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.QualifierDataType",
+      "const": {
+        "HIGH": 0,
+        "LOW": 1
+      },
+      "description": "",
+      "properties": {
+        "HIGH": {
+          "description": "High qualifier value for a condition element.",
+          "type": "integer"
+        },
+        "LOW": {
+          "description": "Low qualifier value for a condition element.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/NativeCode",
+    "/properties/NativeSeverity",
+    "/properties/Qualifier"
+  ],
+  "properties": {
+    "ActiveState": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "type": "string",
+      "readOnly": true
+    },
+    "DataItemId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "type": "string",
+      "readOnly": true
+    },
+    "MTSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "title": "MTSeverityDataType",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTSeverityDataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MTSubTypeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "type": "string",
+      "readOnly": true
+    },
+    "MTTypeName": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "type": "string",
+      "readOnly": true
+    },
+    "NativeCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "type": "string",
+      "readOnly": true
+    },
+    "NativeSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "type": "string",
+      "readOnly": true
+    },
+    "Qualifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "title": "QualifierDataType",
+      "description": "       The condition type is derived from the UA \\uamodel{ContitionType}. When       the \\mtmodel{Warning} or \\mtmodel{Fault} state occurs, an       \\mtuatype{MTConditionEventType} \\uamodel{Event} is created with the       \\mtmodel{ActiveState} set to \\uamodel{True} and \\uamodel{Retain} set to       \\uamodel{True}. The severity is used to represent the MTConnect condition       states of Warning and Fault with the values of 500 and 1000 respectively.       A new \\uamodel{NodeId} will be created for every unique instance of the       MTConnect \\mtmodel{Condition} reported. When the \\mtmodel{Condition} goes       back to Normal, the \\mtmodel{ActiveState} is set to \\uamodel{False} and       \\uamodel{Retain} is also set to \\uamodel{False} with the \\uamodel{NodeId}       of the associated \\mtmodel{Condition}. If multiple MTConnect       \\mtmodel{Condition}s have been cleared at the same time, all currently       active \\mtuatype{MTConditionEventType} \\uamodel{Event}s will need to       deactivated. The \\mtuatype{MTConditionEventType} must set the       \\uamodel{BaseEvent} \\uamodel{SourceNode} to the related       \\mtuatype{MTConditionType} that represents the meta-data for this       Condition. The \\mtuatype{MTConditionEventType} will never be instantiated       in the \\uaterm{AddressSpace} as an \\uamodel{Object}.      ",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.QualifierDataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

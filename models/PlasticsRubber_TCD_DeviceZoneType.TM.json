@@ -1,0 +1,402 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_DeviceZoneType",
+  "title": "PlasticsRubber_TCD_DeviceZoneType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.DeviceZoneType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExternalChannels",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_ExternalChannelsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExternalSensor",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_ExternalSensorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FlowRate",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "LeakStopper",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_LeakStopperType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MaintenanceInformation",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_MaintenanceInformationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MouldEvacuation",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_MouldEvacuationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureDifference",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PumpSpeed",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Temperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureDifference",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActualProcessPower",
+    "/properties/ActualPumpPower",
+    "/properties/ActualPumpSpeedRPM",
+    "/properties/ActualRegulationRatio",
+    "/properties/DelayTimeAfterCooling",
+    "/properties/InternalMeasuringPoint",
+    "/properties/PressureMainLine",
+    "/properties/PressureReturnLine",
+    "/properties/PumpControlMode",
+    "/properties/StandbyTemperature",
+    "/properties/SwitchingOffTemperature",
+    "/properties/TemperatureLimitation",
+    "/properties/TemperatureMainLine",
+    "/properties/TemperatureReturnLine",
+    "/properties/ActualProcessPower_EngineeringUnits",
+    "/properties/ActualPumpPower_EngineeringUnits",
+    "/properties/ActualPumpSpeedRPM_EngineeringUnits",
+    "/properties/ActualRegulationRatio_EngineeringUnits",
+    "/properties/DelayTimeAfterCooling_EngineeringUnits",
+    "/events/ActualProcessPower",
+    "/events/ActualPumpPower",
+    "/events/ActualPumpSpeedRPM",
+    "/events/ActualRegulationRatio",
+    "/events/DelayTimeAfterCooling",
+    "/events/InternalMeasuringPoint",
+    "/events/PressureMainLine",
+    "/events/PressureReturnLine",
+    "/events/PumpControlMode",
+    "/events/StandbyTemperature",
+    "/events/SwitchingOffTemperature",
+    "/events/TemperatureLimitation",
+    "/events/TemperatureMainLine",
+    "/events/TemperatureReturnLine"
+  ],
+  "properties": {
+    "ActualProcessPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual calculated process performance (from the view of the TCD: heating = positive value, cooling = negative value)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/ActualProcessPower_EngineeringUnits"
+    },
+    "ActualPumpPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual power of the pump in kW",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/ActualPumpPower_EngineeringUnits"
+    },
+    "ActualPumpSpeedRPM": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual speed of the pump in revolutions per minute",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/ActualPumpSpeedRPM_EngineeringUnits"
+    },
+    "ActualRegulationRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual Regulation Ratio (heating = positive value, cooling = negative value)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ActualRegulationRatio_EngineeringUnits"
+    },
+    "DelayTimeAfterCooling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Delay Time after cooling before switching off the TCD",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/DelayTimeAfterCooling_EngineeringUnits"
+    },
+    "InternalMeasuringPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Determines whether the temperature of the main or the return is to be controlled",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "PressureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual pressure in the main line (Pressure return line + pump pressure)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PressureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual pressure in the return line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PumpControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Defines to which setpoint or function the pump is controlled",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "StandbyTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "The standby value temperature is approached with the Method ReduceToStandByOn. The TCD switches off.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SwitchingOffTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Defines the temperature to which the TCD must be cooled down before it switches off",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TemperatureLimitation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "This setpoint is for temperature limitation of the mould circuit e.g. to protect the connected tubes or the downstream water distribution system",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TemperatureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual temperature in the main line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TemperatureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual temperature in the return line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ActualProcessPower_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualProcessPower, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualPumpPower_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualPumpPower, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualPumpSpeedRPM_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualPumpSpeedRPM, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualRegulationRatio_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualRegulationRatio, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DelayTimeAfterCooling_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DelayTimeAfterCooling, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualProcessPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual calculated process performance (from the view of the TCD: heating = positive value, cooling = negative value)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/ActualProcessPower_EngineeringUnits"
+    },
+    "ActualPumpPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual power of the pump in kW",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/ActualPumpPower_EngineeringUnits"
+    },
+    "ActualPumpSpeedRPM": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual speed of the pump in revolutions per minute",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/ActualPumpSpeedRPM_EngineeringUnits"
+    },
+    "ActualRegulationRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual Regulation Ratio (heating = positive value, cooling = negative value)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ActualRegulationRatio_EngineeringUnits"
+    },
+    "DelayTimeAfterCooling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Delay Time after cooling before switching off the TCD",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/DelayTimeAfterCooling_EngineeringUnits"
+    },
+    "InternalMeasuringPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Determines whether the temperature of the main or the return is to be controlled",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "PressureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual pressure in the main line (Pressure return line + pump pressure)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PressureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual pressure in the return line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PumpControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Defines to which setpoint or function the pump is controlled",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "StandbyTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "The standby value temperature is approached with the Method ReduceToStandByOn. The TCD switches off.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SwitchingOffTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Defines the temperature to which the TCD must be cooled down before it switches off",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TemperatureLimitation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "This setpoint is for temperature limitation of the mould circuit e.g. to protect the connected tubes or the downstream water distribution system",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TemperatureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual temperature in the main line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TemperatureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual temperature in the return line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

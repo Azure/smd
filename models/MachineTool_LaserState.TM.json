@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_LaserState",
+  "title": "MachineTool_LaserState",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.LaserState",
+  "links": [],
+  "schemaDefinitions": {
+    "LaserState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.LaserState",
+      "const": {
+        "Undefined": 0,
+        "Ready": 1,
+        "Active": 2,
+        "Error": 3
+      },
+      "properties": {
+        "Undefined": {
+          "description": "The laser state cannot be indicated, for example because the device does not provide this information or because it is currently unavailable. This can be e.g. during the startup phase.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "The laser is ready and laser programs can be started. No error state is active. In this state, laser emission is prohibited.",
+          "type": "integer"
+        },
+        "Active": {
+          "description": "In this state, safety clearances have to be set for processing and emission can be activated. For devices that can run programs themselves it indicates that a program is running on the laser device.",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "An error state is reported from the laser device.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerEndpointDataType",
+  "title": "OpcUaCore_ServerEndpointDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerEndpointDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ServerEndpointDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerEndpointDataType",
+      "required": [
+        "Name",
+        "RecordProperties",
+        "DiscoveryUrls",
+        "NetworkName",
+        "Port",
+        "EndpointUrls",
+        "SecuritySettingNames",
+        "TransportProfileUri",
+        "UserTokenSettingNames",
+        "ReverseConnectUrls"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "DiscoveryUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "NetworkName": {
+          "type": "string"
+        },
+        "Port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "EndpointUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SecuritySettingNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "TransportProfileUri": {
+          "type": "string"
+        },
+        "UserTokenSettingNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReverseConnectUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

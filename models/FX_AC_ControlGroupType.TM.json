@@ -1,0 +1,118 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ControlGroupType",
+  "title": "FX_AC_ControlGroupType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ControlGroupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ListOfRelated",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ListToBlock",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ControlItemFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ListToRestrict",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ControlItemFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ControlGroup",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ControlGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/EstablishControl",
+    "/actions/ReassignControl",
+    "/actions/ReleaseControl"
+  ],
+  "actions": {
+    "EstablishControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "LockContext"
+        ],
+        "properties": {
+          "LockContext": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "LockStatus"
+        ],
+        "properties": {
+          "LockStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "ReassignControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "LockContext"
+        ],
+        "properties": {
+          "LockContext": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "LockStatus"
+        ],
+        "properties": {
+          "LockStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "ReleaseControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/"
+    }
+  },
+  "properties": {
+    "IsControlled": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  }
+}

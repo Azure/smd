@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JoiningSystemIdentificationType",
+  "title": "IJT_Base_JoiningSystemIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningSystemIdentificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Description",
+    "/properties/IntegratorName",
+    "/properties/JoiningTechnology",
+    "/properties/Location",
+    "/properties/Manufacturer",
+    "/properties/ManufacturerUri",
+    "/properties/Model",
+    "/properties/ProductInstanceUri",
+    "/properties/SystemId"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "It is the description of the system which could be written by the customer to identify the system. It could be the purpose of the system in the assembly line.",
+      "type": "string",
+      "readOnly": false
+    },
+    "IntegratorName": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "IntegratorName is the name of the system integrator.",
+      "type": "string",
+      "readOnly": false
+    },
+    "JoiningTechnology": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "JoiningTechnology is a human readable text to identify the joining technology of the joining system.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Location": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "Location is the location of the given system in the given plant or factory in text format.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Manufacturer provides a human-readable, localized name of the joining system manufacturer.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "ManufacturerUri provides a unique identifier for this company. This identifier should be a fully qualified domain name; however, it may be a GUID or similar construct that ensures global uniqueness.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Model provides the type of the joining system. Examples: Fixtured System, Handheld System, etc.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "Name is the name of the joining system. It can also be the standard browse name of the instance of JoiningSystemType.",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductInstanceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "ProductInstanceUri is a globally unique resource identifier provided by the manufacturer.",
+      "type": "string",
+      "readOnly": true
+    },
+    "SystemId": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "SystemId is the system integrator specific identifier for the system. It represents a reference to the manufacturer ERP system.",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

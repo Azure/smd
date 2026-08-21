@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoConfigurationStatusEnumeration",
+  "title": "PNGSDGM_GsdGenIoConfigurationStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoConfigurationStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "GsdGenIoConfigurationStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoConfigurationStatusEnumeration",
+      "const": {
+        "OK": 0,
+        "SUBSTITUTE": 1,
+        "WRONG": 2,
+        "UNKNOWN": 3
+      },
+      "properties": {
+        "OK": {
+          "description": "Proper Submodule which works as configured",
+          "type": "integer"
+        },
+        "SUBSTITUTE": {
+          "description": "Substitute Submodule which works",
+          "type": "integer"
+        },
+        "WRONG": {
+          "description": "Wrong Submodule which does not work",
+          "type": "integer"
+        },
+        "UNKNOWN": {
+          "description": "Unknown Submodule which is plugged at Subslot not found in expected configuration",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

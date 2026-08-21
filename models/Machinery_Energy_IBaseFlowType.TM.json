@@ -1,0 +1,164 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Energy/#Machinery_Energy_IBaseFlowType",
+  "title": "Machinery_Energy_IBaseFlowType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Energy.IBaseFlowType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Pressure",
+    "/properties/Temperature",
+    "/properties/Pressure_EngineeringUnits",
+    "/properties/Temperature_EngineeringUnits",
+    "/events/Pressure",
+    "/events/Temperature"
+  ],
+  "properties": {
+    "Pressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:contains": [
+        "Pressure_AccuracyClass",
+        "Pressure_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/Pressure_EngineeringUnits"
+    },
+    "Pressure_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "Pressure"
+    },
+    "Pressure_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "Pressure"
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:contains": [
+        "Temperature_AccuracyClass",
+        "Temperature_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/Temperature_EngineeringUnits"
+    },
+    "Temperature_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "Temperature"
+    },
+    "Temperature_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "Temperature"
+    },
+    "Pressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Pressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Temperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Temperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Pressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "Pressure_AccuracyClass",
+        "Pressure_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/Pressure_EngineeringUnits"
+    },
+    "Pressure_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Pressure"
+    },
+    "Pressure_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Pressure"
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "Temperature_AccuracyClass",
+        "Temperature_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/Temperature_EngineeringUnits"
+    },
+    "Temperature_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Temperature"
+    },
+    "Temperature_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Temperature"
+    }
+  }
+}

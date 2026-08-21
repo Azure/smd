@@ -1,0 +1,151 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialPointType",
+  "title": "TMC_v2_MaterialPointType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+  "links": [],
+  "schemaDefinitions": {
+    "MaterialPointType": {
+      "description": "The MaterialPointType structure provides the description of the capability of a load or unload point.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialPointType",
+      "required": [
+        "ID",
+        "Description",
+        "MaterialCapability",
+        "ConnectedMaterialPoint",
+        "PropagatesProductionOrder"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the material point type.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Description of the material point type.",
+          "type": "string"
+        },
+        "MaterialCapability": {
+          "description": "The complete set of material definitions that the material point can process.",
+          "type": "array",
+          "items": {
+            "title": "MaterialDefinitionType",
+            "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+            "required": [
+              "ID",
+              "MES_ID",
+              "Description",
+              "BaseUnitOfMeasure",
+              "BatchManaged"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the material definition.",
+                "type": "string"
+              },
+              "MES_ID": {
+                "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "Description of the material definition.",
+                "type": "string"
+              },
+              "BaseUnitOfMeasure": {
+                "title": "EUInformation",
+                "description": "The base unit of measure for the material definition.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "BatchManaged": {
+                "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+                "type": "boolean"
+              },
+              "GroupID": {
+                "description": "The material group the material definition belongs to.",
+                "type": "string"
+              },
+              "ParentGroupID": {
+                "description": "The parent group of the material group the material definition belongs to.",
+                "type": "string"
+              },
+              "ShelfLife": {
+                "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Properties": {
+                "description": "An array containing additional properties that can be additionally  required for the material definition.",
+                "type": "array",
+                "items": {
+                  "title": "DataDescriptionType",
+                  "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                  "required": [
+                    "ID",
+                    "MES_ID",
+                    "Description"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the metadata description.",
+                      "type": "string"
+                    },
+                    "MES_ID": {
+                      "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "The metadata description.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ConnectedMaterialPoint": {
+          "description": "The identifier for the node id of the connected material point.",
+          "type": "string"
+        },
+        "PropagatesProductionOrder": {
+          "description": "The material point propagates the production order with the ConnectedMaterialPoint. If the material point is a MaterialLoadingPointType, and PropagatesProductionOrder is True, then the material point receives a production order from the upstream ConnectedMaterialPoint. If the material point is a MaterialOutputPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. If the material point is a MaterialRejectionPointType, and PropagatesProductionOrder is True, then the material point sends a production order to the downstream ConnectedMaterialPoint. This variable is defined by the end user and entered by the developer of the TMC server invoking the SetNewSpecification method.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

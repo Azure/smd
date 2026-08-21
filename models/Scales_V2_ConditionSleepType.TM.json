@@ -1,0 +1,88 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ConditionSleepType",
+  "title": "Scales_V2_ConditionSleepType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ConditionSleepType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeElementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DataItemType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.DataItemType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/ThresholdValueNodeId",
+    "/properties/Timeout",
+    "/events/ThresholdValueNodeId",
+    "/events/Timeout"
+  ],
+  "properties": {
+    "TargetThresholdValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/DataItemType",
+      "readOnly": false
+    },
+    "ThresholdValueId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines an Id of process value that needs to be monitored and is element of the SupportedThresholdValues in the RecipeScale.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ThresholdValueNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "The NodeId of process value that needs to be monitored and is element of the SupportedThresholdValues in the RecipeScale. This variable should be used if the value is part of the address space.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Timeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Timeout specifies the duration within the TargetThresholdValue needs to be reached. If Timeout is exceeded and operator intervention is necessary.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TargetThresholdValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/DataItemType"
+      }
+    },
+    "ThresholdValueId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines an Id of process value that needs to be monitored and is element of the SupportedThresholdValues in the RecipeScale.",
+        "type": "string"
+      }
+    },
+    "ThresholdValueNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "The NodeId of process value that needs to be monitored and is element of the SupportedThresholdValues in the RecipeScale. This variable should be used if the value is part of the address space.",
+        "type": "string"
+      }
+    },
+    "Timeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Timeout specifies the duration within the TargetThresholdValue needs to be reached. If Timeout is exceeded and operator intervention is necessary.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    }
+  }
+}

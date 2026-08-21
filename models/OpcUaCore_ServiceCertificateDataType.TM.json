@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServiceCertificateDataType",
+  "title": "OpcUaCore_ServiceCertificateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ServiceCertificateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ServiceCertificateDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServiceCertificateDataType",
+      "required": [
+        "Certificate",
+        "Issuers",
+        "ValidFrom",
+        "ValidTo"
+      ],
+      "properties": {
+        "Certificate": {
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "Issuers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        },
+        "ValidFrom": {
+          "type": "string",
+          "format": "time"
+        },
+        "ValidTo": {
+          "type": "string",
+          "format": "time"
+        }
+      }
+    }
+  }
+}

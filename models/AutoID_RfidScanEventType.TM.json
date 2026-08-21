@@ -1,0 +1,259 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_RfidScanEventType",
+  "title": "AutoID_RfidScanEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidScanEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/AutoID/#AutoID_AutoIdScanEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "ScanResult": {
+      "dov:namespace": "http://opcfoundation.org/UA/AutoID/",
+      "type": "array",
+      "items": {
+        "title": "RfidScanResult",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidScanResult",
+        "required": [
+          "CodeType",
+          "ScanData",
+          "Timestamp",
+          "Sighting"
+        ],
+        "properties": {
+          "CodeType": {
+            "description": "Defines the format of the ScanData as string.",
+            "type": "string"
+          },
+          "ScanData": {
+            "title": "ScanData",
+            "description": "Holds the information about the detected objects e.g. the detected transponders.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+            "properties": {
+              "ByteString": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "String": {
+                "type": "string"
+              },
+              "Epc": {
+                "title": "ScanDataEpc",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanDataEpc",
+                "required": [
+                  "PC",
+                  "UId",
+                  "XPC_W1",
+                  "XPC_W2"
+                ],
+                "properties": {
+                  "PC": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "UId": {
+                    "type": "string",
+                    "contentEncoding": "base64"
+                  },
+                  "XPC_W1": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "XPC_W2": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  }
+                }
+              },
+              "Custom": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          },
+          "Timestamp": {
+            "description": "Timestamp of the ScanResult creation.",
+            "type": "string",
+            "format": "time"
+          },
+          "Location": {
+            "title": "Location",
+            "description": "Returns the location of the object detection.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AutoID.Location",
+            "properties": {
+              "NMEA": {
+                "type": "string"
+              },
+              "Local": {
+                "title": "LocalCoordinate",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+                "required": [
+                  "X",
+                  "Y",
+                  "Z",
+                  "Timestamp",
+                  "DilutionOfPrecision",
+                  "UsefulPrecision"
+                ],
+                "properties": {
+                  "X": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Y": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Z": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Timestamp": {
+                    "description": "Optional",
+                    "type": "string",
+                    "format": "time"
+                  },
+                  "DilutionOfPrecision": {
+                    "description": "Optional",
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "UsefulPrecision": {
+                    "description": "Optional",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                }
+              },
+              "WGS84": {
+                "title": "WGS84Coordinate",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
+                "required": [
+                  "N/S Hemisphere",
+                  "Latitude",
+                  "E/W Hemisphere",
+                  "Longitude",
+                  "Altitude",
+                  "Timestamp",
+                  "DilutionOfPrecision",
+                  "UsefulPrecisionLatLon",
+                  "UsefulPrecisionAlt"
+                ],
+                "properties": {
+                  "N/S Hemisphere": {
+                    "type": "string"
+                  },
+                  "Latitude": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "E/W Hemisphere": {
+                    "type": "string"
+                  },
+                  "Longitude": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Altitude": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Timestamp": {
+                    "type": "string",
+                    "format": "time"
+                  },
+                  "DilutionOfPrecision": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "UsefulPrecisionLatLon": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "UsefulPrecisionAlt": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                }
+              },
+              "Name": {
+                "type": "string"
+              }
+            }
+          },
+          "Sighting": {
+            "description": "Returns additional information on the RFID-related properties of the scan event.",
+            "type": "array",
+            "items": {
+              "title": "RfidSighting",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AutoID.RfidSighting",
+              "required": [
+                "Antenna",
+                "Strength",
+                "Timestamp",
+                "CurrentPowerLevel"
+              ],
+              "properties": {
+                "Antenna": {
+                  "description": "Returns the number of the antenna which detects the RFID tag first.",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "Strength": {
+                  "description": "Returns the signal strength (RSSI) of the transponder. Higher values indicate a better strength.",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "Timestamp": {
+                  "description": "Timestamp in UtcTime",
+                  "type": "string",
+                  "format": "time"
+                },
+                "CurrentPowerLevel": {
+                  "description": "Returns the current power level (unit according to parameter settings).",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

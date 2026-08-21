@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISDigitalOutObjectType",
+  "title": "MDIS_MDISDigitalOutObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISDigitalOutObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISDigitalInstrumentObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "WriteState": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "State"
+        ],
+        "properties": {
+          "State": {
+            "description": "Boolean state that is being written to the object",
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

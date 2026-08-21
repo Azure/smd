@@ -1,0 +1,127 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_BreakdownMaintenanceType",
+  "title": "Pumps_BreakdownMaintenanceType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.BreakdownMaintenanceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/CorrectiveMaintenanceTime",
+    "/properties/Criticality",
+    "/properties/Failure",
+    "/properties/NumberOfFailures",
+    "/properties/Severity",
+    "/properties/CorrectiveMaintenanceTime_EngineeringUnits",
+    "/events/CorrectiveMaintenanceTime",
+    "/events/Criticality",
+    "/events/Failure",
+    "/events/NumberOfFailures",
+    "/events/Severity"
+  ],
+  "properties": {
+    "CorrectiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Part of the maintenance time when active corrective maintenance is carried out on an item, including technical, logistic and internal administrative delays",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/CorrectiveMaintenanceTime_EngineeringUnits"
+    },
+    "Criticality": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Index of the severity of an effect combined with the probability of expected frequency of its occurrence",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Failure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "NumberOfFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Number of failures of an object",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Severity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Extent of loss, damage or harm caused by a fault or failure",
+      "type": "string",
+      "readOnly": true
+    },
+    "CorrectiveMaintenanceTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name CorrectiveMaintenanceTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CorrectiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Part of the maintenance time when active corrective maintenance is carried out on an item, including technical, logistic and internal administrative delays",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/CorrectiveMaintenanceTime_EngineeringUnits"
+    },
+    "Criticality": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Index of the severity of an effect combined with the probability of expected frequency of its occurrence",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Failure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "NumberOfFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Number of failures of an object",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Severity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Extent of loss, damage or harm caused by a fault or failure",
+        "type": "string"
+      }
+    }
+  }
+}

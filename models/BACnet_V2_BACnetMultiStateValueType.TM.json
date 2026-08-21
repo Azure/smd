@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetMultiStateValueType",
+  "title": "BACnet_V2_BACnetMultiStateValueType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMultiStateValueType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetMultiStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "EventReporting",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventReportingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "FaultEvaluation",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetFaultEvaluationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Priority_Array",
+    "/properties/Relinquish_Default"
+  ],
+  "properties": {
+    "Priority_Array": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "array",
+      "items": {
+        "title": "BACnetPriorityValue",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPriorityValue",
+        "properties": {
+          "Real": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "Enumerated": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Unsigned": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "Boolean": {
+            "type": "boolean"
+          },
+          "Signed": {
+            "type": "integer"
+          },
+          "Double": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "Relinquish_Default": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    }
+  }
+}

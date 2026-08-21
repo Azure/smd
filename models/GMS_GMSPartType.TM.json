@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_GMSPartType",
+  "title": "GMS_GMSPartType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.GMSPartType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionPartType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CatalogType": {
+      "dov:typeRef": "org.opcfoundation.UA.GMS.CatalogType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/NestIdentifier",
+    "/properties/Operator",
+    "/properties/PartAmendmentStatus",
+    "/properties/PartCarrierIdentifier",
+    "/properties/PartDescription",
+    "/properties/ProcessingMachineIdentifier",
+    "/properties/ProcessParameter",
+    "/properties/ProductionNumber",
+    "/events/NestIdentifier",
+    "/events/Operator",
+    "/events/PartCarrierIdentifier",
+    "/events/ProcessingMachineIdentifier",
+    "/events/ProcessParameter"
+  ],
+  "properties": {
+    "NestIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/CatalogType",
+      "readOnly": false
+    },
+    "Operator": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/CatalogType",
+      "readOnly": false
+    },
+    "PartAmendmentStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "PartCarrierIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/CatalogType",
+      "readOnly": false
+    },
+    "PartDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProcessingMachineIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/CatalogType",
+      "readOnly": false
+    },
+    "ProcessParameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "readOnly": false
+    },
+    "ProductionNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "NestIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/CatalogType"
+      }
+    },
+    "Operator": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/CatalogType"
+      }
+    },
+    "PartCarrierIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/CatalogType"
+      }
+    },
+    "ProcessingMachineIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/CatalogType"
+      }
+    },
+    "ProcessParameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

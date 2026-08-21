@@ -1,0 +1,229 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_OutletConnectionDesignType",
+  "title": "Pumps_OutletConnectionDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.OutletConnectionDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_ConnectionDesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaximumAllowableOutletPressure",
+    "/properties/MinimumAllowableOutetPressure",
+    "/properties/OutletAreaOfThePump",
+    "/properties/ReliefValveAccumulationPressure",
+    "/properties/ReliefValveBackPressure",
+    "/properties/ReliefValveReseatPressure",
+    "/properties/ReliefValveSetPressure",
+    "/properties/MaximumAllowableOutletPressure_EngineeringUnits",
+    "/properties/MinimumAllowableOutetPressure_EngineeringUnits",
+    "/properties/OutletAreaOfThePump_EngineeringUnits",
+    "/properties/ReliefValveAccumulationPressure_EngineeringUnits",
+    "/properties/ReliefValveBackPressure_EngineeringUnits",
+    "/properties/ReliefValveReseatPressure_EngineeringUnits",
+    "/properties/ReliefValveSetPressure_EngineeringUnits",
+    "/events/MaximumAllowableOutletPressure",
+    "/events/MinimumAllowableOutetPressure",
+    "/events/OutletAreaOfThePump",
+    "/events/ReliefValveAccumulationPressure",
+    "/events/ReliefValveBackPressure",
+    "/events/ReliefValveReseatPressure",
+    "/events/ReliefValveSetPressure"
+  ],
+  "properties": {
+    "MaximumAllowableOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest value of outlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableOutletPressure_EngineeringUnits"
+    },
+    "MinimumAllowableOutetPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest value of outlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumAllowableOutetPressure_EngineeringUnits"
+    },
+    "OutletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Free cross-sectional area of the orifice in the outlet connection of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Area",
+      "dov:withUnit": "properties/OutletAreaOfThePump_EngineeringUnits"
+    },
+    "ReliefValveAccumulationPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Outlet pressure at which the relief valve will pass the total pump flow.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveAccumulationPressure_EngineeringUnits"
+    },
+    "ReliefValveBackPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pressure at the outlet of the relief valve when the valve is closed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveBackPressure_EngineeringUnits"
+    },
+    "ReliefValveReseatPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Outlet pressure at which the relief valve will close after passing the total pump flow.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveReseatPressure_EngineeringUnits"
+    },
+    "ReliefValveSetPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Outlet pressure at which the relief valve begins to open.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveSetPressure_EngineeringUnits"
+    },
+    "MaximumAllowableOutletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableOutletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableOutetPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableOutetPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OutletAreaOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OutletAreaOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ReliefValveAccumulationPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ReliefValveAccumulationPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ReliefValveBackPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ReliefValveBackPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ReliefValveReseatPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ReliefValveReseatPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ReliefValveSetPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ReliefValveSetPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MaximumAllowableOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest value of outlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableOutletPressure_EngineeringUnits"
+    },
+    "MinimumAllowableOutetPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest value of outlet pressure at which the pump or component is capable of functioning on the basis of the materials used.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumAllowableOutetPressure_EngineeringUnits"
+    },
+    "OutletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Free cross-sectional area of the orifice in the outlet connection of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Area",
+      "dov:withUnit": "properties/OutletAreaOfThePump_EngineeringUnits"
+    },
+    "ReliefValveAccumulationPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Outlet pressure at which the relief valve will pass the total pump flow.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveAccumulationPressure_EngineeringUnits"
+    },
+    "ReliefValveBackPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pressure at the outlet of the relief valve when the valve is closed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveBackPressure_EngineeringUnits"
+    },
+    "ReliefValveReseatPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Outlet pressure at which the relief valve will close after passing the total pump flow.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveReseatPressure_EngineeringUnits"
+    },
+    "ReliefValveSetPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Outlet pressure at which the relief valve begins to open.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/ReliefValveSetPressure_EngineeringUnits"
+    }
+  }
+}

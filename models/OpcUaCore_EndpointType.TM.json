@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_EndpointType",
+  "title": "OpcUaCore_EndpointType",
+  "dov:typeRef": "org.opcfoundation.UA.EndpointType",
+  "links": [],
+  "schemaDefinitions": {
+    "EndpointType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EndpointType",
+      "required": [
+        "EndpointUrl",
+        "SecurityMode",
+        "SecurityPolicyUri",
+        "TransportProfileUri"
+      ],
+      "properties": {
+        "EndpointUrl": {
+          "type": "string"
+        },
+        "SecurityMode": {
+          "title": "MessageSecurityMode",
+          "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        },
+        "TransportProfileUri": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

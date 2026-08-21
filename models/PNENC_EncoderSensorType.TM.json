@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNENC/#PNENC_EncoderSensorType",
+  "title": "PNENC_EncoderSensorType",
+  "dov:typeRef": "org.opcfoundation.UA.PNENC.EncoderSensorType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/PresetControl",
+    "/actions/Ref1LatchStart",
+    "/properties/Ref1LastLatchedPos",
+    "/properties/Ref1LatchActive",
+    "/events/Ref1LastLatchedPos",
+    "/events/Ref1LatchActive"
+  ],
+  "actions": {
+    "PresetControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "PresetValue"
+        ],
+        "properties": {
+          "PresetValue": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "Ref1LatchStart": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/"
+    }
+  },
+  "properties": {
+    "PositionOffset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "readOnly": true
+    },
+    "Ref1LastLatchedPos": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "number",
+      "readOnly": true
+    },
+    "Ref1LatchActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "PositionOffset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number"
+      }
+    },
+    "Ref1LastLatchedPos": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "number"
+      }
+    },
+    "Ref1LatchActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNENC/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

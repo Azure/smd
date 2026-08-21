@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PDRV/#PDRV_SafetyFunctionType",
+  "title": "PDRV_SafetyFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.PDRV.SafetyFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Limit"
+  ],
+  "properties": {
+    "ActivationState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Limit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "SelectionState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActivationState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "SelectionState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_LTPPwaitProcType",
+  "title": "Mining_ExternalStandards_IREDES_LTPPwaitProcType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPwaitProcType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BlastDelay",
+    "/properties/CantDump",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/MineUtils",
+    "/properties/NoRock",
+    "/properties/RoadMaint",
+    "/properties/Traffic",
+    "/events/BlastDelay",
+    "/events/CantDump",
+    "/events/MineUtils",
+    "/events/NoRock",
+    "/events/RoadMaint",
+    "/events/Traffic"
+  ],
+  "properties": {
+    "BlastDelay": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Any Delay caused by blasting operations.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "CantDump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Dump point blocked by another machine, boulders or dump shaft filled / truck missing.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "MineUtils": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Waiting for mine utilities.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "NoRock": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Wait for material to handle - No access to material to load.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "RoadMaint": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Waiting for roadway maintenance.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "Traffic": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Traffic caused delays: roadway blocked by another machine / cars / other traffic.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "BlastDelay": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Any Delay caused by blasting operations.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "CantDump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Dump point blocked by another machine, boulders or dump shaft filled / truck missing.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "MineUtils": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Waiting for mine utilities.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "NoRock": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Wait for material to handle - No access to material to load.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "RoadMaint": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Waiting for roadway maintenance.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "Traffic": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Traffic caused delays: roadway blocked by another machine / cars / other traffic.",
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AlarmConditionType",
+  "title": "OpcUaCore_AlarmConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.AlarmConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AcknowledgeableConditionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ShelvingState",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ShelvedStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FirstInGroup",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AlarmGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AudioVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.AudioVariableType",
+      "type": "string",
+      "contentEncoding": "base64"
+    },
+    "TwoStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/GetGroupMemberships",
+    "/actions/PlaceInService",
+    "/actions/PlaceInService2",
+    "/actions/RemoveFromService",
+    "/actions/RemoveFromService2",
+    "/actions/Reset",
+    "/actions/Reset2",
+    "/actions/Silence",
+    "/actions/Suppress",
+    "/actions/Suppress2",
+    "/actions/Unsuppress",
+    "/actions/Unsuppress2",
+    "/properties/AudibleEnabled",
+    "/properties/AudibleSound",
+    "/properties/FirstInGroupFlag",
+    "/properties/LatchedState",
+    "/properties/MaxTimeShelved",
+    "/properties/OffDelay",
+    "/properties/OnDelay",
+    "/properties/OutOfServiceState",
+    "/properties/ReAlarmRepeatCount",
+    "/properties/ReAlarmTime",
+    "/properties/SilenceState",
+    "/properties/SuppressedState",
+    "/events/AudibleSound",
+    "/events/FirstInGroupFlag",
+    "/events/LatchedState",
+    "/events/OutOfServiceState",
+    "/events/ReAlarmRepeatCount",
+    "/events/SilenceState",
+    "/events/SuppressedState"
+  ],
+  "actions": {
+    "GetGroupMemberships": {
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Groups"
+        ],
+        "properties": {
+          "Groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "PlaceInService": {},
+    "PlaceInService2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Comment"
+        ],
+        "properties": {
+          "Comment": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveFromService": {},
+    "RemoveFromService2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Comment"
+        ],
+        "properties": {
+          "Comment": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Reset": {},
+    "Reset2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Comment"
+        ],
+        "properties": {
+          "Comment": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Silence": {},
+    "Suppress": {},
+    "Suppress2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Comment"
+        ],
+        "properties": {
+          "Comment": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Unsuppress": {},
+    "Unsuppress2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Comment"
+        ],
+        "properties": {
+          "Comment": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActiveState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "AudibleEnabled": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "AudibleSound": {
+      "tm:ref": "#/schemaDefinitions/AudioVariableType",
+      "readOnly": true
+    },
+    "EnabledState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "FirstInGroupFlag": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "InputNode": {
+      "type": "string",
+      "readOnly": true
+    },
+    "LatchedState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "MaxTimeShelved": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "OffDelay": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "OnDelay": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "OutOfServiceState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "ReAlarmRepeatCount": {
+      "type": "integer",
+      "minimum": -32768,
+      "maximum": 32767,
+      "readOnly": true
+    },
+    "ReAlarmTime": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "SilenceState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "SuppressedOrShelved": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "SuppressedState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "AudibleSound": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AudioVariableType"
+      }
+    },
+    "EnabledState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "FirstInGroupFlag": {
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "LatchedState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "OutOfServiceState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "ReAlarmRepeatCount": {
+      "data": {
+        "type": "integer",
+        "minimum": -32768,
+        "maximum": 32767
+      }
+    },
+    "SilenceState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "SuppressedState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    }
+  }
+}

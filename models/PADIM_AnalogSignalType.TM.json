@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_AnalogSignalType",
+  "title": "PADIM_AnalogSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalogSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "S_SignalCalibrationIdentifier_",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SignalConditionSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogSignalVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.AnalogSignalVariableType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/actions/ZeroPointAdjustment"
+  ],
+  "actions": {
+    "ZeroPointAdjustment": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/"
+    }
+  },
+  "properties": {
+    "AnalogSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/AnalogSignalVariableType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AnalogSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogSignalVariableType"
+      }
+    }
+  }
+}

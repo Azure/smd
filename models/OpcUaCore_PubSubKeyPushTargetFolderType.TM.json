@@ -1,0 +1,190 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubKeyPushTargetFolderType",
+  "title": "OpcUaCore_PubSubKeyPushTargetFolderType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubKeyPushTargetFolderType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PushTargetName_Placeholder",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubKeyPushTargetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UserTokenType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+      "const": {
+        "Anonymous": 0,
+        "UserName": 1,
+        "Certificate": 2,
+        "IssuedToken": 3
+      },
+      "properties": {
+        "Anonymous": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "Certificate": {
+          "type": "integer"
+        },
+        "IssuedToken": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AddPushTargetFolder",
+    "/actions/RemovePushTargetFolder"
+  ],
+  "actions": {
+    "AddPushTarget": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationUri",
+          "EndpointUrl",
+          "SecurityPolicyUri",
+          "UserTokenType",
+          "RequestedKeyCount",
+          "RetryInterval"
+        ],
+        "properties": {
+          "ApplicationUri": {
+            "type": "string"
+          },
+          "EndpointUrl": {
+            "type": "string"
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "UserTokenType": {
+            "title": "UserTokenPolicy",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+            "required": [
+              "PolicyId",
+              "TokenType",
+              "IssuedTokenType",
+              "IssuerEndpointUrl",
+              "SecurityPolicyUri"
+            ],
+            "properties": {
+              "PolicyId": {
+                "type": "string"
+              },
+              "TokenType": {
+                "title": "UserTokenType",
+                "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "IssuedTokenType": {
+                "type": "string"
+              },
+              "IssuerEndpointUrl": {
+                "type": "string"
+              },
+              "SecurityPolicyUri": {
+                "type": "string"
+              }
+            }
+          },
+          "RequestedKeyCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "RetryInterval": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "PushTargetId"
+        ],
+        "properties": {
+          "PushTargetId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AddPushTargetFolder": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Name"
+        ],
+        "properties": {
+          "Name": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "PushTargetFolderNodeId"
+        ],
+        "properties": {
+          "PushTargetFolderNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemovePushTarget": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "PushTargetId"
+        ],
+        "properties": {
+          "PushTargetId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemovePushTargetFolder": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "PushTargetFolderNodeId"
+        ],
+        "properties": {
+          "PushTargetFolderNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_EphemeralKeyType",
+  "title": "OpcUaCore_EphemeralKeyType",
+  "dov:typeRef": "org.opcfoundation.UA.EphemeralKeyType",
+  "links": [],
+  "schemaDefinitions": {
+    "EphemeralKeyType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EphemeralKeyType",
+      "required": [
+        "PublicKey",
+        "Signature"
+      ],
+      "properties": {
+        "PublicKey": {
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "Signature": {
+          "type": "string",
+          "contentEncoding": "base64"
+        }
+      }
+    }
+  }
+}

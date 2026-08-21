@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AggregateConfigurationType",
+  "title": "OpcUaCore_AggregateConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.AggregateConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "PercentDataBad": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "PercentDataGood": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "TreatUncertainAsBad": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "UseSlopedExtrapolation": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

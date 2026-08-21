@@ -1,0 +1,189 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISMotorObjectType",
+  "title": "MDIS_MDISMotorObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISMotorObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISBaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MotorOperationEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.MotorOperationEnum",
+      "const": {
+        "Off": 1,
+        "Auto": 2,
+        "Manual": 4
+      },
+      "properties": {
+        "Off": {
+          "description": "The Motor cannot be started either automatically or manually",
+          "type": "integer"
+        },
+        "Auto": {
+          "description": "The Motor works automatically",
+          "type": "integer"
+        },
+        "Manual": {
+          "description": "The Motor is controlled manually",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetOperation",
+    "/actions/Start",
+    "/actions/Stop",
+    "/properties/DefeatableStartInterlock",
+    "/properties/DefeatableStopInterlock",
+    "/properties/NonDefeatableStartInterlock",
+    "/properties/NonDefeatableStopInterlock",
+    "/events/DefeatableStartInterlock",
+    "/events/DefeatableStopInterlock",
+    "/events/NonDefeatableStartInterlock",
+    "/events/NonDefeatableStopInterlock"
+  ],
+  "actions": {
+    "SetOperation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Mode"
+        ],
+        "properties": {
+          "Mode": {
+            "title": "MotorOperationEnum",
+            "description": "Mode to operate in (i.e. Auto or Manual)",
+            "dov:typeRef": "org.opcfoundation.UA.MDIS.MotorOperationEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Start": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "OverrideInterlocks"
+        ],
+        "properties": {
+          "OverrideInterlocks": {
+            "description": "Boolean indicating if the command should override any interlocks",
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "OverrideInterlocks"
+        ],
+        "properties": {
+          "OverrideInterlocks": {
+            "description": "Boolean indicating if the command should override any interlocks",
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DefeatableStartInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DefeatableStopInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "NonDefeatableStartInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "NonDefeatableStopInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Operation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "title": "MotorOperationEnum",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.MotorOperationEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Running": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DefeatableStartInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "DefeatableStopInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "NonDefeatableStartInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "NonDefeatableStopInterlock": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "Operation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "title": "MotorOperationEnum",
+        "dov:typeRef": "org.opcfoundation.UA.MDIS.MotorOperationEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Running": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

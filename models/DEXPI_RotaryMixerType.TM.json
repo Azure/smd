@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_RotaryMixerType",
+  "title": "DEXPI_RotaryMixerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.RotaryMixerType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_MixerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignRotationalSpeed",
+    "/properties/DesignShaftPower",
+    "/properties/UpperLimitAllowableDesignPressureDrop",
+    "/events/DesignRotationalSpeed",
+    "/events/DesignShaftPower",
+    "/events/UpperLimitAllowableDesignPressureDrop"
+  ],
+  "properties": {
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design rotational speed of the RotaryMixer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design shaft power of the RotaryMixer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UpperLimitAllowableDesignPressureDrop": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The maximum allowable design pressure drop of the RotaryMixer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design rotational speed of the RotaryMixer.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design shaft power of the RotaryMixer.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperLimitAllowableDesignPressureDrop": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The maximum allowable design pressure drop of the RotaryMixer.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

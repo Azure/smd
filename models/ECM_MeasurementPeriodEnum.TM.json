@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_MeasurementPeriodEnum",
+  "title": "ECM_MeasurementPeriodEnum",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.MeasurementPeriodEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "MeasurementPeriodEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ECM.MeasurementPeriodEnum",
+      "const": {
+        "SlidingDemand": 0,
+        "FixedBlockCompleted": 1,
+        "FixedBlockInstantaneous": 2,
+        "FixedBlockPredicted": 3
+      },
+      "properties": {
+        "SlidingDemand": {
+          "description": "The measurement period is interpreted to consider the last measurement period.",
+          "type": "integer"
+        },
+        "FixedBlockCompleted": {
+          "description": "The measurement period is interpreted to take the last completed measurement period aligned to the full hour.",
+          "type": "integer"
+        },
+        "FixedBlockInstantaneous": {
+          "description": "The measurement period is interpreted to take the current measurement period aligned to the full hour. That means, if for example only have of the measurement period has passed, only that half is considered.",
+          "type": "integer"
+        },
+        "FixedBlockPredicted": {
+          "description": "The measurement period is interpreted to take the current measurement period aligned to the full hour and predicts the duration that has not been passed. That means, if for example only have of the measurement period has passed, the first half of the considered values is based on real measurements while the second half takes predicted values.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

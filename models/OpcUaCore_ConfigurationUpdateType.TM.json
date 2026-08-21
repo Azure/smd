@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ConfigurationUpdateType",
+  "title": "OpcUaCore_ConfigurationUpdateType",
+  "dov:typeRef": "org.opcfoundation.UA.ConfigurationUpdateType",
+  "links": [],
+  "schemaDefinitions": {
+    "ConfigurationUpdateType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ConfigurationUpdateType",
+      "const": {
+        "Insert": 1,
+        "Replace": 2,
+        "InsertOrReplace": 3,
+        "Delete": 4
+      },
+      "properties": {
+        "Insert": {
+          "description": "The target is added. An error occurs if a name conflict occurs.",
+          "type": "integer"
+        },
+        "Replace": {
+          "description": "Existing records are updated. An error occurs if a name cannot be matched to an existing record.",
+          "type": "integer"
+        },
+        "InsertOrReplace": {
+          "description": "Existing records are updated. New records are created if no match to an exising record.",
+          "type": "integer"
+        },
+        "Delete": {
+          "description": "Existing records are deleted. An error occurs if a name cannot be matched to an existing record.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

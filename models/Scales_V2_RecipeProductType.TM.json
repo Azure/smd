@@ -1,0 +1,91 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeProductType",
+  "title": "Scales_V2_RecipeProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ReportFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "RecipeNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the NodeId of the recipe that is being produced.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Report": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines an array with the various messages from the recipe. Each RecipeElement generates its own report message.",
+      "type": "array",
+      "items": {
+        "title": "RecipeReportElementType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeReportElementType",
+        "required": [
+          "ReportMessage",
+          "Timestamp"
+        ],
+        "properties": {
+          "ReportMessage": {
+            "type": "string"
+          },
+          "Timestamp": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "RecipeNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the NodeId of the recipe that is being produced.",
+        "type": "string"
+      }
+    },
+    "Report": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines an array with the various messages from the recipe. Each RecipeElement generates its own report message.",
+        "type": "array",
+        "items": {
+          "title": "RecipeReportElementType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeReportElementType",
+          "required": [
+            "ReportMessage",
+            "Timestamp"
+          ],
+          "properties": {
+            "ReportMessage": {
+              "type": "string"
+            },
+            "Timestamp": {
+              "type": "string",
+              "format": "time"
+            }
+          }
+        }
+      }
+    }
+  }
+}

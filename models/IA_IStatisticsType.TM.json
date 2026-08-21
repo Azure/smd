@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_IStatisticsType",
+  "title": "IA_IStatisticsType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.IStatisticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ResetStatistics",
+    "/properties/StartTime"
+  ],
+  "actions": {
+    "ResetStatistics": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Restarts all statistical data, including a reset of the StartTime to the current time."
+    }
+  },
+  "properties": {
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates the point in time at which the collection of the statistical data has been started.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  }
+}

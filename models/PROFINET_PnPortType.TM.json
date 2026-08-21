@@ -1,0 +1,229 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnPortType",
+  "title": "PROFINET_PnPortType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnPortType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "EthernetPort",
+      "dov:refType": "CommLinkTo",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_EthernetPortType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Statistic",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnPortStatisticType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnLinkStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnLinkStateEnumeration",
+      "const": {
+        "UP": 1,
+        "DOWN": 2,
+        "TESTING": 3,
+        "UNKNOWN": 4,
+        "DORMANT": 5,
+        "NOT_PRESENT": 6,
+        "LOWER_LAYER_DOWN": 7
+      },
+      "properties": {
+        "UP": {
+          "description": "Ready to pass packets",
+          "type": "integer"
+        },
+        "DOWN": {
+          "description": "No packets are passed",
+          "type": "integer"
+        },
+        "TESTING": {
+          "description": "In some test mode",
+          "type": "integer"
+        },
+        "UNKNOWN": {
+          "description": "Status cannot be determined",
+          "type": "integer"
+        },
+        "DORMANT": {
+          "description": "In pending state waiting  for some external event",
+          "type": "integer"
+        },
+        "NOT_PRESENT": {
+          "description": "Port not present",
+          "type": "integer"
+        },
+        "LOWER_LAYER_DOWN": {
+          "description": "Down due to lower layer",
+          "type": "integer"
+        }
+      }
+    },
+    "PnPortStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnPortStateEnumeration",
+      "const": {
+        "UNKNOWN": 0,
+        "DISABLED_DISCARDING": 1,
+        "BLOCKING": 2,
+        "LISTENING": 3,
+        "LEARNING": 4,
+        "FORWARDING": 5,
+        "BROKEN": 6
+      },
+      "properties": {
+        "UNKNOWN": {
+          "description": "Status cannot be determined",
+          "type": "integer"
+        },
+        "DISABLED_DISCARDING": {
+          "description": "The port is administratively disabled and discarding frames",
+          "type": "integer"
+        },
+        "BLOCKING": {
+          "description": "The port blocks incoming frames",
+          "type": "integer"
+        },
+        "LISTENING": {
+          "description": "The port is listening to and sending BPDUs (Bridge Protocol Data Units).",
+          "type": "integer"
+        },
+        "LEARNING": {
+          "type": "integer"
+        },
+        "FORWARDING": {
+          "type": "integer"
+        },
+        "BROKEN": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/CableDelay",
+    "/properties/IsWireless",
+    "/properties/LinkState",
+    "/properties/MAUType",
+    "/properties/PortState",
+    "/properties/PowerBudget",
+    "/events/CableDelay",
+    "/events/IsWireless",
+    "/events/LinkState",
+    "/events/MAUType",
+    "/events/PortState",
+    "/events/PowerBudget"
+  ],
+  "properties": {
+    "CableDelay": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "IsWireless": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "LinkState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnLinkStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnLinkStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MAUType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "PortState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnPortStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnPortStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PowerBudget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CableDelay": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "IsWireless": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "LinkState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnLinkStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnLinkStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "MAUType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "PortState": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnPortStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnPortStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PowerBudget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

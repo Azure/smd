@@ -1,0 +1,858 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AutomationComponentType",
+  "title": "FX_AC_AutomationComponentType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.AutomationComponentType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Assets",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AutomationComponentLog",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_LogObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ComponentCapabilities",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AutomationComponentCapabilitiesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Descriptors",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FunctionalEntities",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "PublisherCapabilities",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_PublisherCapabilitiesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "SubscriberCapabilities",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_SubscriberCapabilitiesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AssetVerificationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+      "const": {
+        "AssetCompatibility": 0,
+        "AssetIdentity": 1,
+        "AssetIdentityAndCompatibility": 2
+      },
+      "properties": {
+        "AssetCompatibility": {
+          "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentity": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentityAndCompatibility": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        }
+      }
+    },
+    "AssetVerificationResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+      "const": {
+        "NotSet": 0,
+        "Match": 1,
+        "Compatible": 2,
+        "Mismatch": 3
+      },
+      "properties": {
+        "NotSet": {
+          "description": "The verification result is not set.",
+          "type": "integer"
+        },
+        "Match": {
+          "description": "Asset matches expectation.",
+          "type": "integer"
+        },
+        "Compatible": {
+          "description": "Asset does not match expectation but is compatible.",
+          "type": "integer"
+        },
+        "Mismatch": {
+          "description": "Asset does not match expectation and is not compatible.",
+          "type": "integer"
+        }
+      }
+    },
+    "DeviceHealthOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+      "const": {
+        "DeviceFailure": 0,
+        "DeviceCheckFunction": 1,
+        "DeviceMaintenanceRequired": 2,
+        "DeviceOffSpec": 3
+      },
+      "properties": {
+        "DeviceFailure": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to Failure.",
+          "type": "integer"
+        },
+        "DeviceCheckFunction": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to CheckFunction.",
+          "type": "integer"
+        },
+        "DeviceMaintenanceRequired": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to MaintenanceRequired.",
+          "type": "integer"
+        },
+        "DeviceOffSpec": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to OffSpec.",
+          "type": "integer"
+        }
+      }
+    },
+    "FunctionalEntityVerificationResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+      "const": {
+        "NotSet": 0,
+        "Match": 1,
+        "Mismatch": 2
+      },
+      "properties": {
+        "NotSet": {
+          "description": "The verification result is not set.",
+          "type": "integer"
+        },
+        "Match": {
+          "description": "FunctionalEntity matches expectation.",
+          "type": "integer"
+        },
+        "Mismatch": {
+          "description": "FunctionalEntity does not match expectation.",
+          "type": "integer"
+        }
+      }
+    },
+    "FxCommandMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxCommandMask",
+      "const": {
+        "VerifyAssetCmd": 0,
+        "VerifyFunctionalEntityCmd": 1,
+        "CreateConnectionEndpointCmd": 2,
+        "EstablishControlCmd": 3,
+        "SetConfigurationDataCmd": 4,
+        "ReassignControlCmd": 5,
+        "ReserveCommunicationIdsCmd": 6,
+        "SetCommunicationConfigurationCmd": 7,
+        "EnableCommunicationCmd": 8
+      },
+      "description": "This OptionSet defines flags indicating the commands a ConnectionManager may use in its call to the EstablishConnections Method.",
+      "properties": {
+        "VerifyAssetCmd": {
+          "description": "The addressed Server shall verify compatibility and/or identity for all requested Assets.",
+          "type": "integer"
+        },
+        "VerifyFunctionalEntityCmd": {
+          "description": "The addressed Server shall verify compatibility for all requested functional entities.",
+          "type": "integer"
+        },
+        "CreateConnectionEndpointCmd": {
+          "description": "The addressed Server shall create or modify ConnectionEndpoints. ",
+          "type": "integer"
+        },
+        "EstablishControlCmd": {
+          "description": "The addressed Server shall establish control over the requested ControlGroups.",
+          "type": "integer"
+        },
+        "SetConfigurationDataCmd": {
+          "description": "The addressed Server shall apply the supplied application configuration.",
+          "type": "integer"
+        },
+        "ReassignControlCmd": {
+          "description": "The addressed Server shall reassign the requested ControlGroups.",
+          "type": "integer"
+        },
+        "ReserveCommunicationIdsCmd": {
+          "description": "The addressed Server shall reserve identifiers for the communication model configuration.",
+          "type": "integer"
+        },
+        "SetCommunicationConfigurationCmd": {
+          "description": "The addressed Server shall apply the supplied communication model configuration.",
+          "type": "integer"
+        },
+        "EnableCommunicationCmd": {
+          "description": "The addressed Server shall enable the communication configuration.",
+          "type": "integer"
+        }
+      }
+    },
+    "OperationalHealthOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+      "const": {
+        "OperationalWarning": 16,
+        "OperationalError": 17,
+        "SubOperationalWarning": 18,
+        "SubOperationalError": 19
+      },
+      "properties": {
+        "OperationalWarning": {
+          "description": "FunctionalEntity indicates a warning.",
+          "type": "integer"
+        },
+        "OperationalError": {
+          "description": "FunctionalEntity indicates an error.",
+          "type": "integer"
+        },
+        "SubOperationalWarning": {
+          "description": "One of the SubFunctionalEntities indicates a warning.",
+          "type": "integer"
+        },
+        "SubOperationalError": {
+          "description": "One of the SubFunctionalEntities indicates an error.",
+          "type": "integer"
+        }
+      }
+    },
+    "AggregatedHealthType": {
+      "title": "AggregatedHealthDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthType",
+      "required": [
+        "AggregatedDeviceHealth",
+        "AggregatedOperationalHealth"
+      ],
+      "properties": {
+        "AggregatedDeviceHealth": {
+          "title": "DeviceHealthOptionSet",
+          "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "AggregatedOperationalHealth": {
+          "title": "OperationalHealthOptionSet",
+          "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ConformanceName"
+  ],
+  "actions": {
+    "CloseConnections": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ConnectionEndpoints",
+          "Remove"
+        ],
+        "properties": {
+          "ConnectionEndpoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Remove": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "EstablishConnections": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "CommandMask",
+          "AssetVerifications",
+          "ConnectionEndpointConfigurations",
+          "ReserveCommunicationIds",
+          "CommunicationConfigurations"
+        ],
+        "properties": {
+          "CommandMask": {
+            "title": "FxCommandMask",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxCommandMask",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "AssetVerifications": {
+            "type": "array",
+            "items": {
+              "title": "AssetVerificationDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationDataType",
+              "required": [
+                "AssetToVerify",
+                "VerificationMode",
+                "ExpectedVerificationResult",
+                "ExpectedVerificationVariables",
+                "ExpectedAdditionalVerificationVariables"
+              ],
+              "properties": {
+                "AssetToVerify": {
+                  "type": "string"
+                },
+                "VerificationMode": {
+                  "title": "AssetVerificationModeEnum",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "ExpectedVerificationResult": {
+                  "title": "AssetVerificationResultEnum",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "ExpectedVerificationVariables": {
+                  "type": "array",
+                  "items": {
+                    "title": "KeyValuePair",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                    "required": [
+                      "Key",
+                      "Value"
+                    ],
+                    "properties": {
+                      "Key": {
+                        "type": "string"
+                      },
+                      "Value": {
+                        "description": "Stand-in for an unspecified data type.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "ExpectedAdditionalVerificationVariables": {
+                  "type": "array",
+                  "items": {
+                    "title": "NodeIdValuePair",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+                    "required": [
+                      "Key",
+                      "Value"
+                    ],
+                    "properties": {
+                      "Key": {
+                        "title": "NodeIdArray",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                        "required": [
+                          "Node",
+                          "ArrayIndex"
+                        ],
+                        "properties": {
+                          "Node": {
+                            "type": "string"
+                          },
+                          "ArrayIndex": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 4294967295
+                            }
+                          }
+                        }
+                      },
+                      "Value": {
+                        "description": "Stand-in for an unspecified data type.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ConnectionEndpointConfigurations": {
+            "type": "array",
+            "items": {
+              "title": "ConnectionEndpointConfigurationDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointConfigurationDataType",
+              "required": [
+                "FunctionalEntityNode",
+                "ConnectionEndpoint",
+                "ExpectedVerificationVariables",
+                "ControlGroups",
+                "ConfigurationData",
+                "CommunicationLinks"
+              ],
+              "properties": {
+                "FunctionalEntityNode": {
+                  "type": "string"
+                },
+                "ConnectionEndpoint": {
+                  "title": "ConnectionEndpointDefinitionDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointDefinitionDataType",
+                  "properties": {
+                    "Parameter": {
+                      "title": "ConnectionEndpointParameterDataType",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointParameterDataType",
+                      "required": [
+                        "Name",
+                        "ConnectionEndpointTypeId",
+                        "InputVariableIds",
+                        "OutputVariableIds",
+                        "IsPersistent",
+                        "CleanupTimeout",
+                        "RelatedEndpoint",
+                        "IsPreconfigured"
+                      ],
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "ConnectionEndpointTypeId": {
+                          "type": "string"
+                        },
+                        "InputVariableIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "OutputVariableIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "IsPersistent": {
+                          "type": "boolean"
+                        },
+                        "CleanupTimeout": {
+                          "type": "string",
+                          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+                        },
+                        "RelatedEndpoint": {
+                          "title": "RelatedEndpointDataType",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.FX.Data.RelatedEndpointDataType",
+                          "required": [
+                            "Address",
+                            "ConnectionEndpointPath",
+                            "ConnectionEndpointName"
+                          ],
+                          "properties": {
+                            "Address": {
+                              "type": "string"
+                            },
+                            "ConnectionEndpointPath": {
+                              "type": "array",
+                              "items": {
+                                "title": "PortableQualifiedName",
+                                "type": "object",
+                                "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                                "required": [
+                                  "NamespaceUri",
+                                  "Name"
+                                ],
+                                "properties": {
+                                  "NamespaceUri": {
+                                    "type": "string"
+                                  },
+                                  "Name": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "ConnectionEndpointName": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "IsPreconfigured": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "Node": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "ExpectedVerificationVariables": {
+                  "type": "array",
+                  "items": {
+                    "title": "NodeIdValuePair",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+                    "required": [
+                      "Key",
+                      "Value"
+                    ],
+                    "properties": {
+                      "Key": {
+                        "title": "NodeIdArray",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                        "required": [
+                          "Node",
+                          "ArrayIndex"
+                        ],
+                        "properties": {
+                          "Node": {
+                            "type": "string"
+                          },
+                          "ArrayIndex": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 4294967295
+                            }
+                          }
+                        }
+                      },
+                      "Value": {
+                        "description": "Stand-in for an unspecified data type.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "ControlGroups": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ConfigurationData": {
+                  "type": "array",
+                  "items": {
+                    "title": "NodeIdValuePair",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+                    "required": [
+                      "Key",
+                      "Value"
+                    ],
+                    "properties": {
+                      "Key": {
+                        "title": "NodeIdArray",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                        "required": [
+                          "Node",
+                          "ArrayIndex"
+                        ],
+                        "properties": {
+                          "Node": {
+                            "type": "string"
+                          },
+                          "ArrayIndex": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 4294967295
+                            }
+                          }
+                        }
+                      },
+                      "Value": {
+                        "description": "Stand-in for an unspecified data type.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "CommunicationLinks": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ReserveCommunicationIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "CommunicationConfigurations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AssetVerificationResults",
+          "ConnectionEndpointConfigurationResults",
+          "ReserveCommunicationIdsResults",
+          "CommunicationConfigurationResults"
+        ],
+        "properties": {
+          "AssetVerificationResults": {
+            "type": "array",
+            "items": {
+              "title": "AssetVerificationResultDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultDataType",
+              "required": [
+                "VerificationStatus",
+                "VerificationResult",
+                "VerificationVariablesErrors",
+                "VerificationAdditionalVariablesErrors"
+              ],
+              "properties": {
+                "VerificationStatus": {
+                  "type": "string"
+                },
+                "VerificationResult": {
+                  "title": "AssetVerificationResultEnum",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "VerificationVariablesErrors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "VerificationAdditionalVariablesErrors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "ConnectionEndpointConfigurationResults": {
+            "type": "array",
+            "items": {
+              "title": "ConnectionEndpointConfigurationResultDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointConfigurationResultDataType",
+              "required": [
+                "ConnectionEndpointId",
+                "FunctionalEntityNodeResult",
+                "ConnectionEndpointResult",
+                "VerificationResult",
+                "VerificationStatus",
+                "VerificationVariablesErrors",
+                "EstablishControlResult",
+                "ConfigurationDataResult",
+                "ReassignControlResult",
+                "CommunicationLinksResult",
+                "EnableCommunicationResult"
+              ],
+              "properties": {
+                "ConnectionEndpointId": {
+                  "type": "string"
+                },
+                "FunctionalEntityNodeResult": {
+                  "type": "string"
+                },
+                "ConnectionEndpointResult": {
+                  "type": "string"
+                },
+                "VerificationResult": {
+                  "title": "FunctionalEntityVerificationResultEnum",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "VerificationStatus": {
+                  "type": "string"
+                },
+                "VerificationVariablesErrors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "EstablishControlResult": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ConfigurationDataResult": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ReassignControlResult": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "CommunicationLinksResult": {
+                  "type": "string"
+                },
+                "EnableCommunicationResult": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ReserveCommunicationIdsResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "CommunicationConfigurationResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AggregatedHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "tm:ref": "#/schemaDefinitions/AggregatedHealthType",
+      "readOnly": false,
+      "dov:contains": [
+        "AggregatedHealth_AggregatedDeviceHealth",
+        "AggregatedHealth_AggregatedOperationalHealth"
+      ]
+    },
+    "AggregatedHealth_AggregatedDeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "DeviceHealthOptionSet",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "dov:containedIn": "AggregatedHealth"
+    },
+    "AggregatedHealth_AggregatedOperationalHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "OperationalHealthOptionSet",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "dov:containedIn": "AggregatedHealth"
+    },
+    "ConformanceName": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AggregatedHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AggregatedHealthType"
+      },
+      "dov:contains": [
+        "AggregatedHealth_AggregatedDeviceHealth",
+        "AggregatedHealth_AggregatedOperationalHealth"
+      ]
+    },
+    "AggregatedHealth_AggregatedDeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "title": "DeviceHealthOptionSet",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "dov:containedIn": "AggregatedHealth"
+    },
+    "AggregatedHealth_AggregatedOperationalHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "title": "OperationalHealthOptionSet",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "dov:containedIn": "AggregatedHealth"
+    }
+  }
+}
