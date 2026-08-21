@@ -1,0 +1,158 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCMachineStateMachineType",
+  "title": "TMC_v2_TMCMachineStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.TMCMachineStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PackML/#PackML_PackMLMachineStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Clearing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ClearingToStopped",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ExecuteState",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCExecuteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Running",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "RunningToStopping",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Stopped",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "StoppedSubstate",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StoppedToRunning",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Stopping",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StoppingToStopped",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    },
+    "BooleanGuardVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/Reset",
+    "/actions/Stop"
+  ],
+  "actions": {
+    "Reset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Stop": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    }
+  },
+  "properties": {
+    "ClearingToStoppedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    },
+    "RunningToStoppingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "StoppedToRunningGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "StoppingToStoppedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ClearingToStoppedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    },
+    "RunningToStoppingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "StoppedToRunningGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "StoppingToStoppedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ColumnPackingsArrangementType",
+  "title": "DEXPI_ColumnPackingsArrangementType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ColumnPackingsArrangementType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Height",
+    "/properties/MaterialOfConstructionCodeAssignmentClass",
+    "/properties/NumberOfPackings",
+    "/properties/PackingTypeAssignmentClass",
+    "/events/Height",
+    "/events/MaterialOfConstructionCodeAssignmentClass",
+    "/events/NumberOfPackings",
+    "/events/PackingTypeAssignmentClass"
+  ],
+  "properties": {
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The height of the ColumnPackingsArrangement.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A code that gives the material of construction of the ColumnPackingsArrangement.",
+      "type": "string",
+      "readOnly": false
+    },
+    "NumberOfPackings": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The number of packings in the ColumnPackingsArrangement.",
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807,
+      "readOnly": false
+    },
+    "PackingTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The type of the packings in the ColumnPackingsArrangement.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The height of the ColumnPackingsArrangement.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A code that gives the material of construction of the ColumnPackingsArrangement.",
+        "type": "string"
+      }
+    },
+    "NumberOfPackings": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The number of packings in the ColumnPackingsArrangement.",
+        "type": "integer",
+        "minimum": -9223372036854775808,
+        "maximum": 9223372036854775807
+      }
+    },
+    "PackingTypeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The type of the packings in the ColumnPackingsArrangement.",
+        "type": "string"
+      }
+    }
+  }
+}

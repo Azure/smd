@@ -1,0 +1,33 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TimeZoneDataType",
+  "title": "OpcUaCore_TimeZoneDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TimeZoneDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

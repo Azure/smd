@@ -1,0 +1,31 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AutomaticRollFilterType",
+  "title": "PAEFS_AutomaticRollFilterType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.AutomaticRollFilterType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SeparatorType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/EndOfFilterRoll"
+  ],
+  "properties": {
+    "EndOfFilterRoll": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "EndOfFilterRoll is true if the end of the filter roll is reached.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

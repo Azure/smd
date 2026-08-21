@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_AxisStateDataType",
+  "title": "MTConnect_v2_AxisStateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.AxisStateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AxisStateDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.AxisStateDataType",
+      "const": {
+        "HOME": 0,
+        "PARKED": 1,
+        "STOPPED": 2,
+        "TRAVEL": 3
+      },
+      "description": "",
+      "properties": {
+        "HOME": {
+          "description": "The component at its home position.",
+          "type": "integer"
+        },
+        "PARKED": {
+          "description": "The component has been moved to a fixed position.",
+          "type": "integer"
+        },
+        "STOPPED": {
+          "description": "The component is stopped.",
+          "type": "integer"
+        },
+        "TRAVEL": {
+          "description": "The component is in motion.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/ExtrusionLine/#PlasticsRubber_Extrusion_v2_ExtrusionLine_JobStatusChangedEventType",
+  "title": "PlasticsRubber_Extrusion_v2_ExtrusionLine_JobStatusChangedEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion_v2.ExtrusionLine.JobStatusChangedEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "JobStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "const": {
+        "OTHER": 0,
+        "TRANSFERRED_ASSIGNED": 1,
+        "SET_UP_ACTIVE": 2,
+        "SET_UP_INTERRUPTED": 3,
+        "SET_UP_FINISHED": 4,
+        "START_UP_ACTIVE": 5,
+        "JOB_IN_PRODUCTION": 6,
+        "JOB_INTERRUPTED": 7,
+        "JOB_FINISHED": 8,
+        "TEAR_DOWN_ACTIVE": 9,
+        "TEAR_DOWN_INTERRUPTED": 10,
+        "TEAR_DOWN_FINISHED": 11
+      },
+      "description": "Current status of the job",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "TRANSFERRED_ASSIGNED": {
+          "description": "The job has been transferred to the machine and assigned as current job",
+          "type": "integer"
+        },
+        "SET_UP_ACTIVE": {
+          "description": "The operator prepares the machine for the job",
+          "type": "integer"
+        },
+        "SET_UP_INTERRUPTED": {
+          "description": "The operator has interrupted but not finished the preparation of the machine for the job",
+          "type": "integer"
+        },
+        "SET_UP_FINISHED": {
+          "description": "The operator has finished the preparation of the machine for the job",
+          "type": "integer"
+        },
+        "START_UP_ACTIVE": {
+          "description": "The operator is setting the machine in the start-up phase",
+          "type": "integer"
+        },
+        "JOB_IN_PRODUCTION": {
+          "description": "The machine is producing parts/products for the job",
+          "type": "integer"
+        },
+        "JOB_INTERRUPTED": {
+          "description": "The job is interrupted. The nominal output is not reached",
+          "type": "integer"
+        },
+        "JOB_FINISHED": {
+          "description": "Nominal output reached",
+          "type": "integer"
+        },
+        "TEAR_DOWN_ACTIVE": {
+          "description": "The operator tears the machine down",
+          "type": "integer"
+        },
+        "TEAR_DOWN_INTERRUPTED": {
+          "description": "Tear-down is interrupted but not finished",
+          "type": "integer"
+        },
+        "TEAR_DOWN_FINISHED": {
+          "description": "Tear-down is finished",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActiveStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/ExtrusionLine/",
+      "title": "JobStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "JobGroupId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/ExtrusionLine/",
+      "type": "string",
+      "readOnly": true
+    },
+    "JobId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/ExtrusionLine/",
+      "type": "string",
+      "readOnly": true
+    },
+    "LastStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/ExtrusionLine/",
+      "title": "JobStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

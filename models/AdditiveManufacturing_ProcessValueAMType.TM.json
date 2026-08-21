@@ -1,0 +1,88 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AdditiveManufacturing/#AdditiveManufacturing_ProcessValueAMType",
+  "title": "AdditiveManufacturing_ProcessValueAMType",
+  "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.ProcessValueAMType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/ProcessValues/#Machinery_ProcessValues_ProcessValueType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SensorCategory": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.SensorCategory",
+      "const": {
+        "MachineHealth": 0,
+        "MaintenanceTracking": 1,
+        "ProcessMonitoring": 2
+      },
+      "description": "This enumeration indicates the severity of a specific sensor.",
+      "properties": {
+        "MachineHealth": {
+          "description": "The sensor is mainly relevant to indicate the current AM machine’s health.",
+          "type": "integer"
+        },
+        "MaintenanceTracking": {
+          "description": "The sensor is mainly relevant to track serviceable components.",
+          "type": "integer"
+        },
+        "ProcessMonitoring": {
+          "description": "The sensor is mainly relevant to monitor the production operability.",
+          "type": "integer"
+        }
+      }
+    },
+    "SensorSeverity": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.SensorSeverity",
+      "const": {
+        "Info": 0,
+        "Critical": 1
+      },
+      "description": "This enumeration indicates the severity of a specific sensor.",
+      "properties": {
+        "Info": {
+          "description": "This sensor’s current value is not critical for the overall production.",
+          "type": "integer"
+        },
+        "Critical": {
+          "description": "This sensor’s current value is critical for the overall production.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Severity"
+  ],
+  "properties": {
+    "Category": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "title": "SensorCategory",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.SensorCategory",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Severity": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "title": "SensorSeverity",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.SensorSeverity",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetBinaryInputType",
+  "title": "BACnet_V2_BACnetBinaryInputType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetBinaryInputType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetBinaryType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "EventReporting",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventReportingType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetPolarity": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPolarity",
+      "const": {
+        "Normal": 0,
+        "Reverse": 1
+      },
+      "properties": {
+        "Normal": {
+          "type": "integer"
+        },
+        "Reverse": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Device_Type"
+  ],
+  "properties": {
+    "Device_Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Polarity": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetPolarity",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPolarity",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

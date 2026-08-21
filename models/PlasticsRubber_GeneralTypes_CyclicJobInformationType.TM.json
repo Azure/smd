@@ -1,0 +1,151 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_CyclicJobInformationType",
+  "title": "PlasticsRubber_GeneralTypes_CyclicJobInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CyclicJobInformationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_JobInformationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ExpectedCycleTime",
+    "/properties/MouldId",
+    "/properties/NominalBoxParts",
+    "/properties/NumCavities"
+  ],
+  "actions": {
+    "SetCyclicJobData": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for setting the data for cyclic jobs",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "JobName",
+          "JobDescription",
+          "CustomerName",
+          "ProductionDatasetName",
+          "ProductionDatasetDescription",
+          "Material",
+          "ProductName",
+          "ProductDescription",
+          "ContinueAtJobEnd",
+          "NominalParts",
+          "NominalBoxParts",
+          "ExpectedCycleTime",
+          "MouldId",
+          "NumCavities"
+        ],
+        "properties": {
+          "JobName": {
+            "type": "string"
+          },
+          "JobDescription": {
+            "type": "string"
+          },
+          "CustomerName": {
+            "type": "string"
+          },
+          "ProductionDatasetName": {
+            "type": "string"
+          },
+          "ProductionDatasetDescription": {
+            "type": "string"
+          },
+          "Material": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ProductName": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ProductDescription": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ContinueAtJobEnd": {
+            "type": "boolean"
+          },
+          "NominalParts": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "NominalBoxParts": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "ExpectedCycleTime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "MouldId": {
+            "type": "string"
+          },
+          "NumCavities": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ExpectedCycleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Calculated cycle time for the job",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "MouldId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id of the Mould used for the job",
+      "type": "string",
+      "readOnly": true
+    },
+    "NominalBoxParts": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of parts that shall be put into one box",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": false
+    },
+    "NominalParts": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Total number (sum of all cavities) of parts that shall be produced by the job",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": false
+    },
+    "NumCavities": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of cavities in the Mould used for production",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  }
+}

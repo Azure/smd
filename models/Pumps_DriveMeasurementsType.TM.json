@@ -1,0 +1,393 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_DriveMeasurementsType",
+  "title": "Pumps_DriveMeasurementsType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.DriveMeasurementsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Current",
+    "/properties/DCLinkCurrent",
+    "/properties/DCLinkVoltage",
+    "/properties/DriverPowerInput",
+    "/properties/EnergyConsumption",
+    "/properties/Frequency",
+    "/properties/MotorCurrent",
+    "/properties/MotorEfficiency",
+    "/properties/MotorTemperature",
+    "/properties/MotorVoltage",
+    "/properties/PowerFactor",
+    "/properties/Torque",
+    "/properties/Voltage",
+    "/properties/Current_EngineeringUnits",
+    "/properties/DCLinkCurrent_EngineeringUnits",
+    "/properties/DCLinkVoltage_EngineeringUnits",
+    "/properties/DriverPowerInput_EngineeringUnits",
+    "/properties/EnergyConsumption_EngineeringUnits",
+    "/properties/Frequency_EngineeringUnits",
+    "/properties/MotorCurrent_EngineeringUnits",
+    "/properties/MotorEfficiency_EngineeringUnits",
+    "/properties/MotorTemperature_EngineeringUnits",
+    "/properties/MotorVoltage_EngineeringUnits",
+    "/properties/Torque_EngineeringUnits",
+    "/properties/Voltage_EngineeringUnits",
+    "/events/Current",
+    "/events/DCLinkCurrent",
+    "/events/DCLinkVoltage",
+    "/events/DriverPowerInput",
+    "/events/EnergyConsumption",
+    "/events/Frequency",
+    "/events/MotorCurrent",
+    "/events/MotorEfficiency",
+    "/events/MotorTemperature",
+    "/events/MotorVoltage",
+    "/events/PowerFactor",
+    "/events/Torque",
+    "/events/Voltage"
+  ],
+  "properties": {
+    "Current": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured consumed mains current of the whole unit of the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/Current_EngineeringUnits"
+    },
+    "DCLinkCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured actual electrical dc current of the converter.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/DCLinkCurrent_EngineeringUnits"
+    },
+    "DCLinkVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured actual electrical dc voltage of the converter.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/DCLinkVoltage_EngineeringUnits"
+    },
+    "DriverPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured power absorbed by the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/DriverPowerInput_EngineeringUnits"
+    },
+    "EnergyConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured energy consumption of the unit of the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/EnergyConsumption_EngineeringUnits"
+    },
+    "Frequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured output frequency of the frequency converter.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/Frequency_EngineeringUnits"
+    },
+    "MotorCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured actual motor current.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/MotorCurrent_EngineeringUnits"
+    },
+    "MotorEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Determined proportion of the motor power input P_mot delivered as pump power input P_mot, u",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MotorEfficiency_EngineeringUnits"
+    },
+    "MotorTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured temperature of the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MotorTemperature_EngineeringUnits"
+    },
+    "MotorVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured actual motor voltage.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/MotorVoltage_EngineeringUnits"
+    },
+    "PowerFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Determined power factor of the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Torque": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured torque of the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MomentOfForce",
+      "dov:withUnit": "properties/Torque_EngineeringUnits"
+    },
+    "Voltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured actual mains voltage of the motor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/Voltage_EngineeringUnits"
+    },
+    "Current_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Current, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DCLinkCurrent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DCLinkCurrent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DCLinkVoltage_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DCLinkVoltage, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DriverPowerInput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DriverPowerInput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "EnergyConsumption_EngineeringUnits": {
+      "description": "Unit designator for property and event with name EnergyConsumption, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Frequency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Frequency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MotorCurrent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MotorCurrent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MotorEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MotorEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MotorTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MotorTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MotorVoltage_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MotorVoltage, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Torque_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Torque, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Voltage_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Voltage, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Current": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured consumed mains current of the whole unit of the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/Current_EngineeringUnits"
+    },
+    "DCLinkCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured actual electrical dc current of the converter.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/DCLinkCurrent_EngineeringUnits"
+    },
+    "DCLinkVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured actual electrical dc voltage of the converter.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/DCLinkVoltage_EngineeringUnits"
+    },
+    "DriverPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured power absorbed by the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/DriverPowerInput_EngineeringUnits"
+    },
+    "EnergyConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured energy consumption of the unit of the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/EnergyConsumption_EngineeringUnits"
+    },
+    "Frequency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured output frequency of the frequency converter.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/Frequency_EngineeringUnits"
+    },
+    "MotorCurrent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured actual motor current.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/MotorCurrent_EngineeringUnits"
+    },
+    "MotorEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Determined proportion of the motor power input P_mot delivered as pump power input P_mot, u",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MotorEfficiency_EngineeringUnits"
+    },
+    "MotorTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured temperature of the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MotorTemperature_EngineeringUnits"
+    },
+    "MotorVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured actual motor voltage.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/MotorVoltage_EngineeringUnits"
+    },
+    "PowerFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Determined power factor of the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Torque": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured torque of the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MomentOfForce",
+      "dov:withUnit": "properties/Torque_EngineeringUnits"
+    },
+    "Voltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured actual mains voltage of the motor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/Voltage_EngineeringUnits"
+    }
+  }
+}

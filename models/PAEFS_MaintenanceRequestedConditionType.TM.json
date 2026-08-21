@@ -1,0 +1,28 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_MaintenanceRequestedConditionType",
+  "title": "PAEFS_MaintenanceRequestedConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.MaintenanceRequestedConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AcknowledgeableConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Requested": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Reflects the value of the MaintenanceRequested property of the object from which the event originates at the time the event was sent",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

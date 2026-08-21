@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ScaleEventType",
+  "title": "Scales_V2_ScaleEventType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ScaleEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AuxParameters",
+    "/properties/HelpSource",
+    "/properties/VendorNotificationId",
+    "/events/VendorNotificationId"
+  ],
+  "properties": {
+    "AuxParameters": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "HelpSource": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "NotificationCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "NotificationId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "VendorNotificationId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "NotificationCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "NotificationId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "VendorNotificationId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

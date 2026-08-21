@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_IntermediateStepEvent",
+  "title": "Glass_Flat_IntermediateStepEvent",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.IntermediateStepEvent",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_GlassEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProcessStep",
+    "/properties/Status"
+  ],
+  "properties": {
+    "ProcessStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

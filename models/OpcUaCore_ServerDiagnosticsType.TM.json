@@ -1,0 +1,585 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerDiagnosticsType",
+  "title": "OpcUaCore_ServerDiagnosticsType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerDiagnosticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "SessionsDiagnosticsSummary",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SessionsDiagnosticsSummaryType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SamplingIntervalDiagnosticsArrayType": {
+      "dov:typeRef": "org.opcfoundation.UA.SamplingIntervalDiagnosticsArrayType",
+      "type": "array",
+      "items": {
+        "title": "SamplingIntervalDiagnosticsDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SamplingIntervalDiagnosticsDataType",
+        "required": [
+          "SamplingInterval",
+          "MonitoredItemCount",
+          "MaxMonitoredItemCount",
+          "DisabledMonitoredItemCount"
+        ],
+        "properties": {
+          "SamplingInterval": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "MonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxMonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DisabledMonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "ServerDiagnosticsSummaryType": {
+      "title": "ServerDiagnosticsSummaryDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerDiagnosticsSummaryType",
+      "required": [
+        "ServerViewCount",
+        "CurrentSessionCount",
+        "CumulatedSessionCount",
+        "SecurityRejectedSessionCount",
+        "RejectedSessionCount",
+        "SessionTimeoutCount",
+        "SessionAbortCount",
+        "CurrentSubscriptionCount",
+        "CumulatedSubscriptionCount",
+        "PublishingIntervalCount",
+        "SecurityRejectedRequestsCount",
+        "RejectedRequestsCount"
+      ],
+      "properties": {
+        "ServerViewCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "CurrentSessionCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "CumulatedSessionCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "SecurityRejectedSessionCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "RejectedSessionCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "SessionTimeoutCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "SessionAbortCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "CurrentSubscriptionCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "CumulatedSubscriptionCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "PublishingIntervalCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "SecurityRejectedRequestsCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "RejectedRequestsCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    },
+    "SubscriptionDiagnosticsArrayType": {
+      "dov:typeRef": "org.opcfoundation.UA.SubscriptionDiagnosticsArrayType",
+      "type": "array",
+      "items": {
+        "title": "SubscriptionDiagnosticsDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SubscriptionDiagnosticsDataType",
+        "required": [
+          "SessionId",
+          "SubscriptionId",
+          "Priority",
+          "PublishingInterval",
+          "MaxKeepAliveCount",
+          "MaxLifetimeCount",
+          "MaxNotificationsPerPublish",
+          "PublishingEnabled",
+          "ModifyCount",
+          "EnableCount",
+          "DisableCount",
+          "RepublishRequestCount",
+          "RepublishMessageRequestCount",
+          "RepublishMessageCount",
+          "TransferRequestCount",
+          "TransferredToAltClientCount",
+          "TransferredToSameClientCount",
+          "PublishRequestCount",
+          "DataChangeNotificationsCount",
+          "EventNotificationsCount",
+          "NotificationsCount",
+          "LatePublishRequestCount",
+          "CurrentKeepAliveCount",
+          "CurrentLifetimeCount",
+          "UnacknowledgedMessageCount",
+          "DiscardedMessageCount",
+          "MonitoredItemCount",
+          "DisabledMonitoredItemCount",
+          "MonitoringQueueOverflowCount",
+          "NextSequenceNumber",
+          "EventQueueOverflowCount"
+        ],
+        "properties": {
+          "SessionId": {
+            "type": "string"
+          },
+          "SubscriptionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "PublishingInterval": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "MaxKeepAliveCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxLifetimeCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxNotificationsPerPublish": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "PublishingEnabled": {
+            "type": "boolean"
+          },
+          "ModifyCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "EnableCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DisableCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RepublishRequestCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RepublishMessageRequestCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RepublishMessageCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "TransferRequestCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "TransferredToAltClientCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "TransferredToSameClientCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "PublishRequestCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DataChangeNotificationsCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "EventNotificationsCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "NotificationsCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "LatePublishRequestCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CurrentKeepAliveCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CurrentLifetimeCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "UnacknowledgedMessageCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DiscardedMessageCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DisabledMonitoredItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MonitoringQueueOverflowCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "NextSequenceNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "EventQueueOverflowCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/SamplingIntervalDiagnosticsArray",
+    "/events/SamplingIntervalDiagnosticsArray"
+  ],
+  "properties": {
+    "EnabledFlag": {
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SamplingIntervalDiagnosticsArray": {
+      "tm:ref": "#/schemaDefinitions/SamplingIntervalDiagnosticsArrayType",
+      "readOnly": true
+    },
+    "ServerDiagnosticsSummary": {
+      "tm:ref": "#/schemaDefinitions/ServerDiagnosticsSummaryType",
+      "readOnly": true,
+      "dov:contains": [
+        "ServerDiagnosticsSummary_ServerViewCount",
+        "ServerDiagnosticsSummary_CurrentSessionCount",
+        "ServerDiagnosticsSummary_CumulatedSessionCount",
+        "ServerDiagnosticsSummary_SecurityRejectedSessionCount",
+        "ServerDiagnosticsSummary_RejectedSessionCount",
+        "ServerDiagnosticsSummary_SessionTimeoutCount",
+        "ServerDiagnosticsSummary_SessionAbortCount",
+        "ServerDiagnosticsSummary_PublishingIntervalCount",
+        "ServerDiagnosticsSummary_CurrentSubscriptionCount",
+        "ServerDiagnosticsSummary_CumulatedSubscriptionCount",
+        "ServerDiagnosticsSummary_SecurityRejectedRequestsCount",
+        "ServerDiagnosticsSummary_RejectedRequestsCount"
+      ]
+    },
+    "ServerDiagnosticsSummary_CumulatedSessionCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_CumulatedSubscriptionCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_CurrentSessionCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_CurrentSubscriptionCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_PublishingIntervalCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_RejectedRequestsCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_RejectedSessionCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SecurityRejectedRequestsCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SecurityRejectedSessionCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_ServerViewCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SessionAbortCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SessionTimeoutCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "SubscriptionDiagnosticsArray": {
+      "tm:ref": "#/schemaDefinitions/SubscriptionDiagnosticsArrayType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SamplingIntervalDiagnosticsArray": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/SamplingIntervalDiagnosticsArrayType"
+      }
+    },
+    "ServerDiagnosticsSummary": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/ServerDiagnosticsSummaryType"
+      },
+      "dov:contains": [
+        "ServerDiagnosticsSummary_ServerViewCount",
+        "ServerDiagnosticsSummary_CurrentSessionCount",
+        "ServerDiagnosticsSummary_CumulatedSessionCount",
+        "ServerDiagnosticsSummary_SecurityRejectedSessionCount",
+        "ServerDiagnosticsSummary_RejectedSessionCount",
+        "ServerDiagnosticsSummary_SessionTimeoutCount",
+        "ServerDiagnosticsSummary_SessionAbortCount",
+        "ServerDiagnosticsSummary_PublishingIntervalCount",
+        "ServerDiagnosticsSummary_CurrentSubscriptionCount",
+        "ServerDiagnosticsSummary_CumulatedSubscriptionCount",
+        "ServerDiagnosticsSummary_SecurityRejectedRequestsCount",
+        "ServerDiagnosticsSummary_RejectedRequestsCount"
+      ]
+    },
+    "ServerDiagnosticsSummary_CumulatedSessionCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_CumulatedSubscriptionCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_CurrentSessionCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_CurrentSubscriptionCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_PublishingIntervalCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_RejectedRequestsCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_RejectedSessionCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SecurityRejectedRequestsCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SecurityRejectedSessionCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_ServerViewCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SessionAbortCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "ServerDiagnosticsSummary_SessionTimeoutCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerDiagnosticsSummary"
+    },
+    "SubscriptionDiagnosticsArray": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/SubscriptionDiagnosticsArrayType"
+      }
+    }
+  }
+}

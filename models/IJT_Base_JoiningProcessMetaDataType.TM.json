@@ -1,0 +1,103 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JoiningProcessMetaDataType",
+  "title": "IJT_Base_JoiningProcessMetaDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "JoiningProcessMetaDataType": {
+      "description": "This structure provides the meta data which describes the joining process.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+      "required": [
+        "JoiningProcessId"
+      ],
+      "properties": {
+        "JoiningProcessId": {
+          "description": "It is the system-wide unique identifier of the joining process.",
+          "type": "string"
+        },
+        "JoiningProcessOriginId": {
+          "description": "It is an identifier to track the changes made to the original instance in the system. Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+          "type": "string"
+        },
+        "CreationTime": {
+          "description": "It is the time when the joining process was created.",
+          "type": "string",
+          "format": "time"
+        },
+        "LastUpdatedTime": {
+          "description": "It is the time when the joining process was updated last time. If it is not available, it can be same as CreationTime.",
+          "type": "string",
+          "format": "time"
+        },
+        "Name": {
+          "description": "It is the name of the joining process.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "It is the description of the joining process.",
+          "type": "string"
+        },
+        "JoiningTechnology": {
+          "description": "It is a human readable text to identify the joining technology.",
+          "type": "string"
+        },
+        "Classification": {
+          "description": "It is the classification of the joining process.",
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "AssociatedEntities": {
+          "description": "It is the list of entities associated to the joining process. Examples: ProductInstanceUri of the Controller.",
+          "type": "array",
+          "items": {
+            "title": "EntityDataType",
+            "description": "This structure provides the identification data for a given entity in the system.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+            "required": [
+              "EntityId",
+              "EntityType"
+            ],
+            "properties": {
+              "Name": {
+                "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                "type": "string"
+              },
+              "EntityId": {
+                "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                "type": "string"
+              },
+              "EntityOriginId": {
+                "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                "type": "string"
+              },
+              "IsExternal": {
+                "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                "type": "boolean"
+              },
+              "EntityType": {
+                "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

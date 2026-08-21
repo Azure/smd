@@ -1,0 +1,145 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_LTPPaccPtsType",
+  "title": "Mining_ExternalStandards_IREDES_LTPPaccPtsType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.LTPPaccPtsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "LTPPTimeRep",
+      "href": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_LTPPTimeRepType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/LTPPLdrawPtID",
+    "/properties/LTPPLdumpPtID",
+    "/properties/LTPPLopObserv",
+    "/events/LTPPLdrawPtID",
+    "/events/LTPPLdumpPtID",
+    "/events/LTPPLopObserv"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPLcycl": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Number of cycles travelled between this point pair during reporting period.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "LTPPLdist": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Distance travelled between those two points during reporting period. Accumulated distance of al rounds travelled. Both routes are counted! Accuracy: 0.01 km.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "LTPPLdrawPtID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Electronic (tag) ID of the draw (load point) in this combination (Name in 1.1.1.1).",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPLdrawPtN": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Name of the draw (load point) accessed in the reported job.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPLdumpPtID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Electronic (tag) ID of the draw (load point) in this combination (Name in 1.1.1.1).",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPLdumpPtN": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Name of the dump point in this combination.",
+      "type": "string",
+      "readOnly": false
+    },
+    "LTPPLmass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Mass transported between this point pair during reporting period in t. Min accuracy: 0.01 t.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    },
+    "LTPPLopObserv": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Operator observations regarding the travel way, load or dump points during reporting period (e.g. loose rock, bad roadway,...). Preliminarily a string, later we can add preselect-lists for easier operator input!",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "LTPPLcycl": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Number of cycles travelled between this point pair during reporting period.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "LTPPLdist": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Distance travelled between those two points during reporting period. Accumulated distance of al rounds travelled. Both routes are counted! Accuracy: 0.01 km.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "LTPPLdrawPtID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Electronic (tag) ID of the draw (load point) in this combination (Name in 1.1.1.1).",
+        "type": "string"
+      }
+    },
+    "LTPPLdumpPtID": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Electronic (tag) ID of the draw (load point) in this combination (Name in 1.1.1.1).",
+        "type": "string"
+      }
+    },
+    "LTPPLmass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Mass transported between this point pair during reporting period in t. Min accuracy: 0.01 t.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "LTPPLopObserv": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Operator observations regarding the travel way, load or dump points during reporting period (e.g. loose rock, bad roadway,...). Preliminarily a string, later we can add preselect-lists for easier operator input!",
+        "type": "string"
+      }
+    }
+  }
+}

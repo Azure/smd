@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_DeliveryProgressDataType",
+  "title": "UnattendedRetail_DeliveryProgressDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryProgressDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DeliveryProgressDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryProgressDataType",
+      "required": [
+        "ProgressInPercent",
+        "Status",
+        "TransactionId"
+      ],
+      "properties": {
+        "ProgressInPercent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Status": {
+          "type": "array",
+          "items": {
+            "title": "OutputDeliveryStatusDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputDeliveryStatusDataType",
+            "required": [
+              "Status",
+              "OutputId"
+            ],
+            "properties": {
+              "Status": {
+                "title": "DeliveryStatusEnum",
+                "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryStatusEnum",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "OutputId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              }
+            }
+          }
+        },
+        "TransactionId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        }
+      }
+    }
+  }
+}

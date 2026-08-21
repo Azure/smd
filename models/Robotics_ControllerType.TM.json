@@ -1,0 +1,117 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_ControllerType",
+  "title": "Robotics_ControllerType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.ControllerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "MotionDeviceIdentifier",
+      "dov:refType": "Controls",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_MotionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "SafetyStatesIdentifier",
+      "dov:refType": "HasSafetyStates",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_SafetyStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Components",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "CurrentUser",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_UserType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ParameterSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Programs",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileDirectoryType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Software",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SystemOperation",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_SystemOperationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "TaskControls",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AssetId",
+    "/properties/ComponentName",
+    "/properties/DeviceManual"
+  ],
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ComponentName": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "DeviceManual": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

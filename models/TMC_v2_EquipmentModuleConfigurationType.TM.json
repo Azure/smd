@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_EquipmentModuleConfigurationType",
+  "title": "TMC_v2_EquipmentModuleConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.EquipmentModuleConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DataItemType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.DataItemType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/ConfigurationItem",
+    "/events/ConfigurationItem"
+  ],
+  "properties": {
+    "ConfigurationItem": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/DataItemType",
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "LastChangeDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The UTC date and time when the configuration was last changed.",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ConfigurationItem": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/DataItemType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_TransferServicesType",
+  "title": "DI_TransferServicesType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.TransferServicesType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "FetchTransferResultData": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TransferID",
+          "SequenceNumber",
+          "MaxParameterResultsToReturn",
+          "OmitGoodResults"
+        ],
+        "properties": {
+          "TransferID": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SequenceNumber": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "MaxParameterResultsToReturn": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "OmitGoodResults": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FetchResultData"
+        ],
+        "properties": {
+          "FetchResultData": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TransferFromDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "TransferID",
+          "InitTransferStatus"
+        ],
+        "properties": {
+          "TransferID": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "InitTransferStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "TransferToDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "TransferID",
+          "InitTransferStatus"
+        ],
+        "properties": {
+          "TransferID": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "InitTransferStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  }
+}

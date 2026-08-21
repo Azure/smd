@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SecuritySettingsDataType",
+  "title": "OpcUaCore_SecuritySettingsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.SecuritySettingsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SecuritySettingsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.SecuritySettingsDataType",
+      "required": [
+        "Name",
+        "RecordProperties",
+        "SecurityModes",
+        "SecurityPolicyUris",
+        "CertificateGroupName"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "SecurityModes": {
+          "type": "array",
+          "items": {
+            "title": "MessageSecurityMode",
+            "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        },
+        "SecurityPolicyUris": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CertificateGroupName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

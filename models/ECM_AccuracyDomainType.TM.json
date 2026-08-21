@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_AccuracyDomainType",
+  "title": "ECM_AccuracyDomainType",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.AccuracyDomainType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "EnumValues": {
+      "type": "array",
+      "items": {
+        "title": "EnumValueType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.EnumValueType",
+        "required": [
+          "Value",
+          "DisplayName",
+          "Description"
+        ],
+        "properties": {
+          "Value": {
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "DisplayName": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

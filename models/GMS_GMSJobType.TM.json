@@ -1,0 +1,88 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_GMSJobType",
+  "title": "GMS_GMSJobType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.GMSJobType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionJobType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MeasurementReasonEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.MeasurementReasonEnum",
+      "const": {
+        "ContinuousMeasurements": 0,
+        "SpecialMeasurement": 1,
+        "AuditMeasurement": 2,
+        "MinMastering": 3,
+        "MedMastering": 4,
+        "MaxMastering": 5
+      },
+      "properties": {
+        "ContinuousMeasurements": {
+          "type": "integer"
+        },
+        "SpecialMeasurement": {
+          "type": "integer"
+        },
+        "AuditMeasurement": {
+          "type": "integer"
+        },
+        "MinMastering": {
+          "type": "integer"
+        },
+        "MedMastering": {
+          "type": "integer"
+        },
+        "MaxMastering": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/BatchIdentifier",
+    "/properties/Duration",
+    "/properties/MeasurementReason",
+    "/properties/RemainingTime"
+  ],
+  "properties": {
+    "BatchIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Duration": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "MeasurementReason": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "title": "MeasurementReasonEnum",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.MeasurementReasonEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "RemainingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    }
+  }
+}

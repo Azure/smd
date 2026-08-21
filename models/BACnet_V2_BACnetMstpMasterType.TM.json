@@ -1,0 +1,136 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetMstpMasterType",
+  "title": "BACnet_V2_BACnetMstpMasterType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMstpMasterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Auto_Slave_Discovery",
+    "/properties/Manual_Slave_Address_Binding",
+    "/properties/Slave_Address_Binding",
+    "/properties/Slave_Proxy_Enable"
+  ],
+  "properties": {
+    "Auto_Slave_Discovery": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Manual_Slave_Address_Binding": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "array",
+      "items": {
+        "title": "BACnetAddressBinding",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddressBinding",
+        "required": [
+          "DeviceObjectIdentifier",
+          "DeviceAddress"
+        ],
+        "properties": {
+          "DeviceObjectIdentifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DeviceAddress": {
+            "title": "BACnetAddress",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+            "required": [
+              "NetworkNumber",
+              "MacAddress"
+            ],
+            "properties": {
+              "NetworkNumber": {
+                "description": "A value 0 indicates the local network",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "MacAddress": {
+                "description": "A string of length 0 indicates a broadcast",
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "Max_Info_Frames": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Max_Master": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": false
+    },
+    "Slave_Address_Binding": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "array",
+      "items": {
+        "title": "BACnetAddressBinding",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddressBinding",
+        "required": [
+          "DeviceObjectIdentifier",
+          "DeviceAddress"
+        ],
+        "properties": {
+          "DeviceObjectIdentifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DeviceAddress": {
+            "title": "BACnetAddress",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+            "required": [
+              "NetworkNumber",
+              "MacAddress"
+            ],
+            "properties": {
+              "NetworkNumber": {
+                "description": "A value 0 indicates the local network",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "MacAddress": {
+                "description": "A string of length 0 indicates a broadcast",
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "Slave_Proxy_Enable": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  }
+}

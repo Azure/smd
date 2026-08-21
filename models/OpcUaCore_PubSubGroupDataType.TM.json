@@ -1,0 +1,197 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubGroupDataType",
+  "title": "OpcUaCore_PubSubGroupDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubGroupDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PubSubGroupDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PubSubGroupDataType",
+      "required": [
+        "Name",
+        "Enabled",
+        "SecurityMode",
+        "SecurityGroupId",
+        "SecurityKeyServices",
+        "MaxNetworkMessageSize",
+        "GroupProperties"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "SecurityMode": {
+          "title": "MessageSecurityMode",
+          "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SecurityGroupId": {
+          "type": "string"
+        },
+        "SecurityKeyServices": {
+          "type": "array",
+          "items": {
+            "title": "EndpointDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EndpointDescription",
+            "required": [
+              "EndpointUrl",
+              "Server",
+              "ServerCertificate",
+              "SecurityMode",
+              "SecurityPolicyUri",
+              "UserIdentityTokens",
+              "TransportProfileUri",
+              "SecurityLevel"
+            ],
+            "properties": {
+              "EndpointUrl": {
+                "type": "string"
+              },
+              "Server": {
+                "title": "ApplicationDescription",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationDescription",
+                "required": [
+                  "ApplicationUri",
+                  "ProductUri",
+                  "ApplicationName",
+                  "ApplicationType",
+                  "GatewayServerUri",
+                  "DiscoveryProfileUri",
+                  "DiscoveryUrls"
+                ],
+                "properties": {
+                  "ApplicationUri": {
+                    "type": "string"
+                  },
+                  "ProductUri": {
+                    "type": "string"
+                  },
+                  "ApplicationName": {
+                    "type": "string"
+                  },
+                  "ApplicationType": {
+                    "title": "ApplicationType",
+                    "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "GatewayServerUri": {
+                    "type": "string"
+                  },
+                  "DiscoveryProfileUri": {
+                    "type": "string"
+                  },
+                  "DiscoveryUrls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "ServerCertificate": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "SecurityMode": {
+                "title": "MessageSecurityMode",
+                "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "SecurityPolicyUri": {
+                "type": "string"
+              },
+              "UserIdentityTokens": {
+                "type": "array",
+                "items": {
+                  "title": "UserTokenPolicy",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+                  "required": [
+                    "PolicyId",
+                    "TokenType",
+                    "IssuedTokenType",
+                    "IssuerEndpointUrl",
+                    "SecurityPolicyUri"
+                  ],
+                  "properties": {
+                    "PolicyId": {
+                      "type": "string"
+                    },
+                    "TokenType": {
+                      "title": "UserTokenType",
+                      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "IssuedTokenType": {
+                      "type": "string"
+                    },
+                    "IssuerEndpointUrl": {
+                      "type": "string"
+                    },
+                    "SecurityPolicyUri": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "TransportProfileUri": {
+                "type": "string"
+              },
+              "SecurityLevel": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              }
+            }
+          }
+        },
+        "MaxNetworkMessageSize": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "GroupProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

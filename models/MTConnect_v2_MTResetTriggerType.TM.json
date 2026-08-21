@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTResetTriggerType",
+  "title": "MTConnect_v2_MTResetTriggerType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTResetTriggerType",
+  "links": [],
+  "schemaDefinitions": {
+    "MTResetTriggerType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTResetTriggerType",
+      "const": {
+        "ACTION_COMPLETE": 0,
+        "ANNUAL": 1,
+        "DAY": 2,
+        "MAINTENANCE": 3,
+        "MANUAL": 4,
+        "MONTH": 5,
+        "POWER_ON": 6,
+        "SHIFT": 7,
+        "WEEK": 8
+      },
+      "description": "       These need to become \\uamodel{Good_} status code in OPC UA. resettrigger       is an optional XML element that identifies the type of event that may       cause a reset to occur. It is additional information regarding the meaning       of the data that establishes an understanding of the time frame that the       data represents so that the data may be correctly understood by a client       software application.     ",
+      "properties": {
+        "ACTION_COMPLETE": {
+          "description": "           The value of the data entity that is measuring an action or operation           is to be reset upon completion of that action or operation.         ",
+          "type": "integer"
+        },
+        "ANNUAL": {
+          "description": "The value of the data entity is to be reset at the end of a 12-month period.",
+          "type": "integer"
+        },
+        "DAY": {
+          "description": "The value of the data entity is to be reset at the end of a 24-hour period.",
+          "type": "integer"
+        },
+        "MAINTENANCE": {
+          "description": "Action related to maintenance on the piece of equipment.",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "Operations based on the instructions received from an external source.",
+          "type": "integer"
+        },
+        "MONTH": {
+          "description": "The value of the data entity is to be reset at the end of a monthly period.",
+          "type": "integer"
+        },
+        "POWER_ON": {
+          "description": "           The value of the data entity is to be reset when power was applied to           the piece of equipment after a planned or unplanned interruption of           power has occurred.         ",
+          "type": "integer"
+        },
+        "SHIFT": {
+          "description": "The value of the data entity is to be reset at the end of a work shift.",
+          "type": "integer"
+        },
+        "WEEK": {
+          "description": "The value of the data entity is to be reset at the end of a 7-day period.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

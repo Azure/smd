@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_ForceCurveDataType",
+  "title": "WireHarness_ForceCurveDataType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.ForceCurveDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ForceCurveDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.ForceCurveDataType",
+      "required": [
+        "Points",
+        "EngineeringUnitsX",
+        "EngineeringUnitsValue"
+      ],
+      "properties": {
+        "Points": {
+          "type": "array",
+          "items": {
+            "title": "ForceCurvePointDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.ForceCurvePointDataType",
+            "required": [
+              "X",
+              "Value"
+            ],
+            "properties": {
+              "X": {
+                "description": "Position on the X axis of this value",
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "Value": {
+                "description": "The value itself",
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              }
+            }
+          }
+        },
+        "EngineeringUnitsX": {
+          "title": "EUInformation",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "EngineeringUnitsValue": {
+          "title": "EUInformation",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

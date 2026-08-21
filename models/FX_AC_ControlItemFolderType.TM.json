@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ControlItemFolderType",
+  "title": "FX_AC_ControlItemFolderType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ControlItemFolderType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaxInactiveLockTime"
+  ],
+  "properties": {
+    "MaxInactiveLockTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    }
+  }
+}

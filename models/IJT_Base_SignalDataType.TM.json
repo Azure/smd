@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_SignalDataType",
+  "title": "IJT_Base_SignalDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.SignalDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SignalDataType": {
+      "description": "This structure contains the signal information which is used in SetIOSignals and GetIOSignals methods.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.SignalDataType",
+      "required": [
+        "SignalId",
+        "SignalValue",
+        "SignalDescription",
+        "SignalType"
+      ],
+      "properties": {
+        "SignalId": {
+          "description": "It is the identifier of the signal.",
+          "type": "string"
+        },
+        "SignalValue": {
+          "description": "It is the value of the signal.",
+          "type": "number"
+        },
+        "SignalDescription": {
+          "description": "It is the description of the signal.",
+          "type": "string"
+        },
+        "SignalType": {
+          "description": "It is the type of the signal.",
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        }
+      }
+    }
+  }
+}

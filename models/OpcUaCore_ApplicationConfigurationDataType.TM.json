@@ -1,0 +1,566 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ApplicationConfigurationDataType",
+  "title": "OpcUaCore_ApplicationConfigurationDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ApplicationConfigurationDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ApplicationConfigurationDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationConfigurationDataType",
+      "required": [
+        "ConfigurationVersion",
+        "ConfigurationProperties",
+        "ApplicationIdentity",
+        "CertificateGroups",
+        "ServerEndpoints",
+        "ClientEndpoints",
+        "SecuritySettings",
+        "UserTokenSettings",
+        "AuthorizationServices"
+      ],
+      "properties": {
+        "ConfigurationVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "ConfigurationProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ApplicationIdentity": {
+          "title": "ApplicationIdentityDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ApplicationIdentityDataType",
+          "required": [
+            "Name",
+            "RecordProperties",
+            "ApplicationUri",
+            "ApplicationNames",
+            "AdditionalServers"
+          ],
+          "properties": {
+            "Name": {
+              "type": "string"
+            },
+            "RecordProperties": {
+              "type": "array",
+              "items": {
+                "title": "KeyValuePair",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                "required": [
+                  "Key",
+                  "Value"
+                ],
+                "properties": {
+                  "Key": {
+                    "type": "string"
+                  },
+                  "Value": {
+                    "description": "Stand-in for an unspecified data type.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "ApplicationUri": {
+              "type": "string"
+            },
+            "ApplicationNames": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "AdditionalServers": {
+              "type": "array",
+              "items": {
+                "title": "ApplicationDescription",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationDescription",
+                "required": [
+                  "ApplicationUri",
+                  "ProductUri",
+                  "ApplicationName",
+                  "ApplicationType",
+                  "GatewayServerUri",
+                  "DiscoveryProfileUri",
+                  "DiscoveryUrls"
+                ],
+                "properties": {
+                  "ApplicationUri": {
+                    "type": "string"
+                  },
+                  "ProductUri": {
+                    "type": "string"
+                  },
+                  "ApplicationName": {
+                    "type": "string"
+                  },
+                  "ApplicationType": {
+                    "title": "ApplicationType",
+                    "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "GatewayServerUri": {
+                    "type": "string"
+                  },
+                  "DiscoveryProfileUri": {
+                    "type": "string"
+                  },
+                  "DiscoveryUrls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "CertificateGroups": {
+          "type": "array",
+          "items": {
+            "title": "CertificateGroupDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.CertificateGroupDataType",
+            "required": [
+              "Name",
+              "RecordProperties",
+              "Purpose",
+              "CertificateTypes",
+              "IsCertificateAssigned",
+              "ValidationOptions"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "RecordProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "Purpose": {
+                "type": "string"
+              },
+              "CertificateTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "IsCertificateAssigned": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                }
+              },
+              "ValidationOptions": {
+                "title": "TrustListValidationOptions",
+                "dov:typeRef": "org.opcfoundation.UA.TrustListValidationOptions",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          }
+        },
+        "ServerEndpoints": {
+          "type": "array",
+          "items": {
+            "title": "ServerEndpointDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServerEndpointDataType",
+            "required": [
+              "Name",
+              "RecordProperties",
+              "DiscoveryUrls",
+              "NetworkName",
+              "Port",
+              "EndpointUrls",
+              "SecuritySettingNames",
+              "TransportProfileUri",
+              "UserTokenSettingNames",
+              "ReverseConnectUrls"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "RecordProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "NetworkName": {
+                "type": "string"
+              },
+              "Port": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "EndpointUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "SecuritySettingNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "TransportProfileUri": {
+                "type": "string"
+              },
+              "UserTokenSettingNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ReverseConnectUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "ClientEndpoints": {
+          "type": "array",
+          "items": {
+            "title": "EndpointDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EndpointDataType",
+            "required": [
+              "Name",
+              "RecordProperties",
+              "DiscoveryUrls",
+              "NetworkName",
+              "Port"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "RecordProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "NetworkName": {
+                "type": "string"
+              },
+              "Port": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              }
+            }
+          }
+        },
+        "SecuritySettings": {
+          "type": "array",
+          "items": {
+            "title": "SecuritySettingsDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SecuritySettingsDataType",
+            "required": [
+              "Name",
+              "RecordProperties",
+              "SecurityModes",
+              "SecurityPolicyUris",
+              "CertificateGroupName"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "RecordProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "SecurityModes": {
+                "type": "array",
+                "items": {
+                  "title": "MessageSecurityMode",
+                  "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              },
+              "SecurityPolicyUris": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "CertificateGroupName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "UserTokenSettings": {
+          "type": "array",
+          "items": {
+            "title": "UserTokenSettingsDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UserTokenSettingsDataType",
+            "required": [
+              "Name",
+              "RecordProperties",
+              "TokenType",
+              "IssuedTokenType",
+              "IssuerEndpointUrl",
+              "SecurityPolicyUri",
+              "CertificateGroupName",
+              "AuthorizationServiceName"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "RecordProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "TokenType": {
+                "title": "UserTokenType",
+                "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "IssuedTokenType": {
+                "type": "string"
+              },
+              "IssuerEndpointUrl": {
+                "type": "string"
+              },
+              "SecurityPolicyUri": {
+                "type": "string"
+              },
+              "CertificateGroupName": {
+                "type": "string"
+              },
+              "AuthorizationServiceName": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "AuthorizationServices": {
+          "type": "array",
+          "items": {
+            "title": "AuthorizationServiceConfigurationDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AuthorizationServiceConfigurationDataType",
+            "required": [
+              "Name",
+              "RecordProperties",
+              "ServiceUri",
+              "ServiceCertificates",
+              "IssuerEndpointSettings"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "RecordProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "ServiceUri": {
+                "type": "string"
+              },
+              "ServiceCertificates": {
+                "type": "array",
+                "items": {
+                  "title": "ServiceCertificateDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.ServiceCertificateDataType",
+                  "required": [
+                    "Certificate",
+                    "Issuers",
+                    "ValidFrom",
+                    "ValidTo"
+                  ],
+                  "properties": {
+                    "Certificate": {
+                      "type": "string",
+                      "contentEncoding": "base64"
+                    },
+                    "Issuers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "contentEncoding": "base64"
+                      }
+                    },
+                    "ValidFrom": {
+                      "type": "string",
+                      "format": "time"
+                    },
+                    "ValidTo": {
+                      "type": "string",
+                      "format": "time"
+                    }
+                  }
+                }
+              },
+              "IssuerEndpointSettings": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

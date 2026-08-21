@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ADI/#ADI_AccessorySlotType",
+  "title": "ADI_AccessorySlotType",
+  "dov:typeRef": "org.opcfoundation.UA.ADI.AccessorySlotType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ConfigurableObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AccessorySlotStateMachine",
+      "href": "http://opcfoundation.org/UA/ADI/#ADI_AccessorySlotStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AccessoryIdentifier",
+      "href": "http://opcfoundation.org/UA/ADI/#ADI_AccessoryType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "IsEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/ADI/",
+      "description": "True if this accessory slot is capable of accepting an accessory in it",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsHotSwappable": {
+      "dov:namespace": "http://opcfoundation.org/UA/ADI/",
+      "description": "True if an accessory can be inserted in the accessory slot while it is powered",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

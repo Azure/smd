@@ -1,0 +1,177 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_JobOrderDataType",
+  "title": "TTD_JobOrderDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.JobOrderDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "JobOrderDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.JobOrderDataType",
+      "required": [
+        "JobId",
+        "RecipeId",
+        "NumberOfTests",
+        "SampleInfos",
+        "CarrierTypeId",
+        "CarrierId",
+        "Scheduled"
+      ],
+      "properties": {
+        "JobId": {
+          "description": "The unique id given to the job by the client (MES)",
+          "type": "string"
+        },
+        "RecipeId": {
+          "title": "RecipeIdDataType",
+          "description": "The available recipes are stored on the TTD and are referenced by their id.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TTD.RecipeIdDataType",
+          "required": [
+            "Id"
+          ],
+          "properties": {
+            "Name": {
+              "description": "Human readable name for the recipe.",
+              "type": "string"
+            },
+            "Id": {
+              "description": "System wide unique id for the file content. (E.g. Hash of file content is possible)",
+              "type": "string"
+            },
+            "Type": {
+              "description": "The type of the textile testing device for which the recipe is applicable.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "Description of the recipe.",
+              "type": "string"
+            },
+            "Comment": {
+              "description": "Comment on the recipe.",
+              "type": "string"
+            },
+            "ModifiedDate": {
+              "description": "The date of the last modification to the recipe file.",
+              "type": "string",
+              "format": "time"
+            },
+            "Version": {
+              "description": "Version of the recipe.",
+              "type": "string"
+            },
+            "Validated": {
+              "description": "Flag that indicates if the recipe was successfully validated on the textile testing device. Null if the validation was not performed.",
+              "type": "boolean"
+            }
+          }
+        },
+        "NumberOfTests": {
+          "description": "This array contains TestNumDataType structures that describe how many tests per procedures have to be performed.",
+          "type": "array",
+          "items": {
+            "title": "TestNumDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TTD.TestNumDataType",
+            "required": [
+              "TestProcedureId",
+              "NumberOfTests"
+            ],
+            "properties": {
+              "TestProcedureId": {
+                "description": "The name of the test procedure that should be executed.",
+                "type": "string"
+              },
+              "NumberOfTests": {
+                "description": "The number of tests that have to be performed with this test procedure on one sample.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        },
+        "SampleInfos": {
+          "description": "This array contains SampleInfoDataType structures that hold the information about the samples that have to be tested.",
+          "type": "array",
+          "items": {
+            "title": "SampleInfoDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TTD.SampleInfoDataType",
+            "required": [
+              "SampleId",
+              "NominalLinearDensity",
+              "PositionOnCarrier"
+            ],
+            "properties": {
+              "SampleId": {
+                "description": "The unique identifier of a (physical) sample.",
+                "type": "string"
+              },
+              "NominalLinearDensity": {
+                "description": "The nominal linear density of this sample in tex. It is used for calculating linear density related parameters.",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "MaterialDensity": {
+                "description": "The material density in g/cm³. It is used for calculating some test results like diameter.",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "MaterialType": {
+                "description": "The material type information can be used to switch between material dependend handling of material or for reporting.",
+                "type": "string"
+              },
+              "PositionOnCarrier": {
+                "description": "Position of the sample on the carrier. If there is no carrier an empty String should be provided.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "CarrierTypeId": {
+          "description": "Id to identify the creel geometry of the geometry of the fiber container.",
+          "type": "string"
+        },
+        "CarrierId": {
+          "description": "Id of the fiber container or carrier/creel. For creels represents the number of the creel wagon.",
+          "type": "string"
+        },
+        "AdditionalInfo": {
+          "description": "A set of key/value pairs to provide additional information for a job.",
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Scheduled": {
+          "description": "Indicates if a job was scheduled by a remote client(MES).",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

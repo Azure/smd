@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteObjectType",
+  "title": "Pumps_DiscreteObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.DiscreteObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/OnOffCycle",
+    "/properties/Status",
+    "/events/OnOffCycle",
+    "/events/Status"
+  ],
+  "properties": {
+    "OnOffCycle": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property contains the total number of transitions of the value from the Off to the On state.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "OnOffCycle": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property contains the total number of transitions of the value from the Off to the On state.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    }
+  }
+}

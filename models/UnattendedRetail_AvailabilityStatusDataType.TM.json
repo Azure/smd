@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_AvailabilityStatusDataType",
+  "title": "UnattendedRetail_AvailabilityStatusDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityStatusDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AvailabilityStatusDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityStatusDataType",
+      "required": [
+        "Id",
+        "Status",
+        "EstimatedRemainingStock"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Status": {
+          "title": "AvailabilityEnum",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AvailabilityEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EstimatedRemainingStock": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

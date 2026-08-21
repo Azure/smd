@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_AnalogInputType",
+  "title": "TMC_v2_AnalogInputType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.AnalogInputType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Setup",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_AnalogInputSetupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
+      "type": "number"
+    }
+  },
+  "properties": {
+    "RawValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/AnalogItemType",
+      "readOnly": true
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The engineering unit value of the analog input.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "RawValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogItemType"
+      }
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The engineering unit value of the analog input.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

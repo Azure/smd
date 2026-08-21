@@ -1,0 +1,225 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CoffeeMachineParameterType",
+  "title": "CommercialKitchenEquipment_CoffeeMachineParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CoffeeMachineParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CoffeeMachineModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CoffeeMachineModeEnumeration",
+      "const": {
+        "Off": 0,
+        "Standby": 1,
+        "Error": 2,
+        "Cleaning": 3
+      },
+      "properties": {
+        "Off": {
+          "type": "integer"
+        },
+        "Standby": {
+          "type": "integer"
+        },
+        "Error": {
+          "type": "integer"
+        },
+        "Cleaning": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/BoilerTempSteam",
+    "/properties/BoilerPressureWater_EngineeringUnits",
+    "/properties/BoilerTempWater_EngineeringUnits",
+    "/properties/GrinderRuntime_No__EngineeringUnits",
+    "/events/BoilerTempSteam"
+  ],
+  "properties": {
+    "BoilerPressureSteam": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "BoilerPressureWater": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/BoilerPressureWater_EngineeringUnits"
+    },
+    "BoilerTempSteam": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "BoilerTempWater": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/BoilerTempWater_EngineeringUnits"
+    },
+    "CurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "CoffeeMachineModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CoffeeMachineModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "GrinderRuntime_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/GrinderRuntime_No__EngineeringUnits"
+    },
+    "SystemClean": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "TotalBrew_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true,
+      "dov:placeholder": true
+    },
+    "TotalMix": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "BoilerPressureWater_EngineeringUnits": {
+      "description": "Unit designator for property and event with name BoilerPressureWater, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "BoilerTempWater_EngineeringUnits": {
+      "description": "Unit designator for property and event with name BoilerTempWater, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "GrinderRuntime_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name GrinderRuntime_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "BoilerPressureSteam": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "BoilerPressureWater": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/BoilerPressureWater_EngineeringUnits"
+    },
+    "BoilerTempSteam": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "BoilerTempWater": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/BoilerTempWater_EngineeringUnits"
+    },
+    "CurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "CoffeeMachineModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CoffeeMachineModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "GrinderRuntime_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/GrinderRuntime_No__EngineeringUnits"
+    },
+    "SystemClean": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "TotalBrew_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      },
+      "dov:placeholder": true
+    },
+    "TotalMix": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    }
+  }
+}

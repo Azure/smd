@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_ComponentStateEnumeration",
+  "title": "PlasticsRubber_Dosing_ComponentStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ComponentStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ComponentStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ComponentStateEnumeration",
+      "const": {
+        "Off": 0,
+        "Ready": 1,
+        "Dosing": 2,
+        "Calibration": 3,
+        "Error": 4,
+        "Cleaning": 5,
+        "Purging": 6,
+        "Priming": 7
+      },
+      "properties": {
+        "Off": {
+          "description": "The component has been switched off",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "The component is waiting for a start dosing signal",
+          "type": "integer"
+        },
+        "Dosing": {
+          "description": "The component is actively feeding material",
+          "type": "integer"
+        },
+        "Calibration": {
+          "description": "Component is in calibration mode and can typically not be used for dosing or filling",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "The component has an active error",
+          "type": "integer"
+        },
+        "Cleaning": {
+          "description": "The component is in cleaning mode e.g. hopper draining",
+          "type": "integer"
+        },
+        "Purging": {
+          "description": "The component is in purging mode",
+          "type": "integer"
+        },
+        "Priming": {
+          "description": "The component is in priming mode",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

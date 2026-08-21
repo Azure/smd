@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtMotorAttributesType",
+  "title": "Powertrain_PtMotorAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtMotorAttributesType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/MotorType",
+    "/events/MotorType"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "MotorType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MotorType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

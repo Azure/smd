@@ -1,0 +1,276 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UserManagementType",
+  "title": "OpcUaCore_UserManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.UserManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PasswordOptionsMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PasswordOptionsMask",
+      "const": {
+        "SupportInitialPasswordChange": 0,
+        "SupportDisableUser": 1,
+        "SupportDisableDeleteForUser": 2,
+        "SupportNoChangeForUser": 3,
+        "SupportDescriptionForUser": 4,
+        "RequiresUpperCaseCharacters": 5,
+        "RequiresLowerCaseCharacters": 6,
+        "RequiresDigitCharacters": 7,
+        "RequiresSpecialCharacters": 8
+      },
+      "properties": {
+        "SupportInitialPasswordChange": {
+          "description": "Indicates if the server supports the feature to require a password change after the creation of the user.",
+          "type": "integer"
+        },
+        "SupportDisableUser": {
+          "description": "Indicates if the server supports to disable a user.",
+          "type": "integer"
+        },
+        "SupportDisableDeleteForUser": {
+          "description": "Indicates if the server supports the configuration NoDelete for a user.",
+          "type": "integer"
+        },
+        "SupportNoChangeForUser": {
+          "description": "Indicates if the server supports the configuration NoChangeByUser for a user.",
+          "type": "integer"
+        },
+        "SupportDescriptionForUser": {
+          "description": "Indicates if the server supports to management of a description for the user.",
+          "type": "integer"
+        },
+        "RequiresUpperCaseCharacters": {
+          "description": "Indicates if a upper case ASCII character is required in a password.",
+          "type": "integer"
+        },
+        "RequiresLowerCaseCharacters": {
+          "description": "Indicates if a lower case ASCII character is required in a password.",
+          "type": "integer"
+        },
+        "RequiresDigitCharacters": {
+          "description": "Indicates if a digit ASCII character is required in a password.",
+          "type": "integer"
+        },
+        "RequiresSpecialCharacters": {
+          "description": "Indicates if a special character is required in a password.",
+          "type": "integer"
+        }
+      }
+    },
+    "UserConfigurationMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+      "const": {
+        "NoDelete": 0,
+        "Disabled": 1,
+        "NoChangeByUser": 2,
+        "MustChangePassword": 3
+      },
+      "properties": {
+        "NoDelete": {
+          "description": "The user cannot be deleted.",
+          "type": "integer"
+        },
+        "Disabled": {
+          "description": "The user is disabled.",
+          "type": "integer"
+        },
+        "NoChangeByUser": {
+          "description": "The user cannot change the password.",
+          "type": "integer"
+        },
+        "MustChangePassword": {
+          "description": "The user must change the password to get the assigned roles. If the password is not changed, the user has only the Role Anonymous.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/PasswordRestrictions"
+  ],
+  "actions": {
+    "AddUser": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "UserName",
+          "Password",
+          "UserConfiguration",
+          "Description"
+        ],
+        "properties": {
+          "UserName": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          },
+          "UserConfiguration": {
+            "title": "UserConfigurationMask",
+            "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ChangePassword": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "OldPassword",
+          "NewPassword"
+        ],
+        "properties": {
+          "OldPassword": {
+            "type": "string"
+          },
+          "NewPassword": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ModifyUser": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "UserName",
+          "ModifyPassword",
+          "Password",
+          "ModifyUserConfiguration",
+          "UserConfiguration",
+          "ModifyDescription",
+          "Description"
+        ],
+        "properties": {
+          "UserName": {
+            "type": "string"
+          },
+          "ModifyPassword": {
+            "type": "boolean"
+          },
+          "Password": {
+            "type": "string"
+          },
+          "ModifyUserConfiguration": {
+            "type": "boolean"
+          },
+          "UserConfiguration": {
+            "title": "UserConfigurationMask",
+            "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ModifyDescription": {
+            "type": "boolean"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveUser": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "UserName"
+        ],
+        "properties": {
+          "UserName": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "PasswordLength": {
+      "title": "Range",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": true
+    },
+    "PasswordOptions": {
+      "title": "PasswordOptionsMask",
+      "dov:typeRef": "org.opcfoundation.UA.PasswordOptionsMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PasswordRestrictions": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Users": {
+      "type": "array",
+      "items": {
+        "title": "UserManagementDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserManagementDataType",
+        "required": [
+          "UserName",
+          "UserConfiguration",
+          "Description"
+        ],
+        "properties": {
+          "UserName": {
+            "type": "string"
+          },
+          "UserConfiguration": {
+            "title": "UserConfigurationMask",
+            "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_PortableNodeIdentifier",
+  "title": "FX_CM_PortableNodeIdentifier",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableNodeIdentifier",
+  "links": [],
+  "schemaDefinitions": {
+    "PortableNodeIdentifier": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableNodeIdentifier",
+      "properties": {
+        "Node": {
+          "title": "PortableNodeId",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+          "required": [
+            "NamespaceUri",
+            "Identifier"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "Identifier": {
+              "type": "string"
+            }
+          }
+        },
+        "Alias": {
+          "type": "string"
+        },
+        "IdentifierBrowsePath": {
+          "title": "PortableRelativePath",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePath",
+          "required": [
+            "Elements"
+          ],
+          "properties": {
+            "Elements": {
+              "type": "array",
+              "items": {
+                "title": "PortableRelativePathElement",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+                "required": [
+                  "ReferenceTypeId",
+                  "IsInverse",
+                  "IncludeSubtypes",
+                  "TargetName"
+                ],
+                "properties": {
+                  "ReferenceTypeId": {
+                    "title": "PortableNodeId",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+                    "required": [
+                      "NamespaceUri",
+                      "Identifier"
+                    ],
+                    "properties": {
+                      "NamespaceUri": {
+                        "type": "string"
+                      },
+                      "Identifier": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "IsInverse": {
+                    "type": "boolean"
+                  },
+                  "IncludeSubtypes": {
+                    "type": "boolean"
+                  },
+                  "TargetName": {
+                    "title": "PortableQualifiedName",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                    "required": [
+                      "NamespaceUri",
+                      "Name"
+                    ],
+                    "properties": {
+                      "NamespaceUri": {
+                        "type": "string"
+                      },
+                      "Name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

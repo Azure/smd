@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLAlarmDataType",
+  "title": "PackML_PackMLAlarmDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLAlarmDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PackMLAlarmDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLAlarmDataType",
+      "required": [
+        "ID",
+        "Value",
+        "Message",
+        "Category",
+        "DateTime",
+        "AckDateTime",
+        "Trigger"
+      ],
+      "properties": {
+        "ID": {
+          "description": "A unique number assigned to each type of alarm, stop or warning.",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Value": {
+          "description": "An alarm, stop or warning message number associated to the ID to allow for user specific detail or to break down the Alarm.ID to greater detail",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Message": {
+          "description": "The actual text of the alarm, stop or warning for those machines capable of providing string information",
+          "type": "string"
+        },
+        "Category": {
+          "description": "A user defined value which indicates what type of alarm, stop or warning has occurred. E.g. electrical, mechanical, process limit, …",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "DateTime": {
+          "description": "The date and time that the alarm, stop or warning occurred, in ISO 8601 format (year, month, day, hour, minute, second, msec), as an array of 32 bit integers. Any unused date time elements should be set to zero",
+          "type": "string",
+          "format": "time"
+        },
+        "AckDateTime": {
+          "description": "The date and time that the alarm, stop or warning has been acknowledged, in ISO 8601 format (year, month, day, hour, minute, second, msec), as an array of 32 bit integers. Any unused date time elements should be set to zero",
+          "type": "string",
+          "format": "time"
+        },
+        "Trigger": {
+          "description": "This variable is true when the alarm is active",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

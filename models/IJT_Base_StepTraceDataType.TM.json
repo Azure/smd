@@ -1,0 +1,122 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_StepTraceDataType",
+  "title": "IJT_Base_StepTraceDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.StepTraceDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StepTraceDataType": {
+      "description": "It is to describe of the trace for a given program step. It is used in JoiningTraceDataType.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.StepTraceDataType",
+      "required": [
+        "StepTraceId",
+        "StepResultId",
+        "NumberOfTracePoints",
+        "StepTraceContent"
+      ],
+      "properties": {
+        "StepTraceId": {
+          "description": "It is the system-wide unique identifier of the step trace.",
+          "type": "string"
+        },
+        "StepResultId": {
+          "description": "It is the system-wide unique identifier of the associated step result.",
+          "type": "string"
+        },
+        "NumberOfTracePoints": {
+          "description": "It is the total number of trace points to be sent for each quantity.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "SamplingInterval": {
+          "description": "It is the time between each sample in the given Trace array. This is required if applications want to reduce the amount of data by omitting the StepTraceContent array which represents TIME.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "StartTimeOffset": {
+          "description": "It is the offset to the ProcessingTimes.StartTime in the Result instance. This value can be used to order the steps in execution order if same step is run multiple times.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "StepTraceContent": {
+          "description": "It is an array of trace data which contains the samples of different quantities like torque, angle, time, etc. The array size of TraceContent array should be same for each quantity and that is determined by the NumberOfTracePoints value.",
+          "type": "array",
+          "items": {
+            "title": "TraceContentDataType",
+            "description": "It is to describe the trace samples for a given program step. It is used in StepTraceDataType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.TraceContentDataType",
+            "required": [
+              "Values"
+            ],
+            "properties": {
+              "Values": {
+                "description": "It is an array of trace samples. The values correspond to the PhysicalQuantity attribute.",
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                }
+              },
+              "SensorId": {
+                "description": "It is the system-wide unique identifier of the sensor which has reported the values. This will be useful for identifying the sensor when the same set of samples are reported by multiple sensors.",
+                "type": "string"
+              },
+              "Name": {
+                "description": "It is the user-friendly name for the given trace.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is an additional text to describe the trace samples.",
+                "type": "string"
+              },
+              "PhysicalQuantity": {
+                "description": "It is to determine the type of the physical quantity associated to a given value(s).",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "EngineeringUnits": {
+                "title": "EUInformation",
+                "description": "It is the engineering unit of the values.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

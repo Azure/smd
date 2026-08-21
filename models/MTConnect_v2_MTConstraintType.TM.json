@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTConstraintType",
+  "title": "MTConnect_v2_MTConstraintType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTConstraintType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Maximum",
+    "/properties/Minimum",
+    "/properties/Nominal",
+    "/properties/Values"
+  ],
+  "properties": {
+    "Maximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The MTConnect constraints. The Values or the Minimum, Maximum, and Nominal       values should be provided. Multiple Values can be provided as an array as       a set of allowable values for this \\gls{MTDataItem}. A constraint is used       by a software application to evaluate the validity of the reported data.     ",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Minimum": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The MTConnect constraints. The Values or the Minimum, Maximum, and Nominal       values should be provided. Multiple Values can be provided as an array as       a set of allowable values for this \\gls{MTDataItem}. A constraint is used       by a software application to evaluate the validity of the reported data.     ",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Nominal": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The MTConnect constraints. The Values or the Minimum, Maximum, and Nominal       values should be provided. Multiple Values can be provided as an array as       a set of allowable values for this \\gls{MTDataItem}. A constraint is used       by a software application to evaluate the validity of the reported data.     ",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "Values": {
+      "dov:namespace": "http://opcfoundation.org/UA/MTConnect/v2/",
+      "description": "       The MTConnect constraints. The Values or the Minimum, Maximum, and Nominal       values should be provided. Multiple Values can be provided as an array as       a set of allowable values for this \\gls{MTDataItem}. A constraint is used       by a software application to evaluate the validity of the reported data.     ",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

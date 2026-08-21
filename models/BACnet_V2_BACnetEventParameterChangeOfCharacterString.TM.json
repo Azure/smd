@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventParameterChangeOfCharacterString",
+  "title": "BACnet_V2_BACnetEventParameterChangeOfCharacterString",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfCharacterString",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventParameterChangeOfCharacterString": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfCharacterString",
+      "required": [
+        "Time-delay",
+        "AlarmValues"
+      ],
+      "properties": {
+        "Time-delay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "AlarmValues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

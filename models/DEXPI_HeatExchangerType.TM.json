@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_HeatExchangerType",
+  "title": "DEXPI_HeatExchangerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.HeatExchangerType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_EquipmentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignHeatFlowRate",
+    "/properties/DesignHeatTransferArea",
+    "/properties/DesignHeatTransferCoefficient",
+    "/events/DesignHeatFlowRate",
+    "/events/DesignHeatTransferArea",
+    "/events/DesignHeatTransferCoefficient"
+  ],
+  "properties": {
+    "DesignHeatFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The heat flow rate for which the HeatExchanger is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignHeatTransferArea": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design heat transfer area of the HeatExchanger.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignHeatTransferCoefficient": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design heat transfer coefficient of the HeatExchanger.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignHeatFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The heat flow rate for which the HeatExchanger is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignHeatTransferArea": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design heat transfer area of the HeatExchanger.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignHeatTransferCoefficient": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design heat transfer coefficient of the HeatExchanger.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NegotiationStatus",
+  "title": "OpcUaCore_NegotiationStatus",
+  "dov:typeRef": "org.opcfoundation.UA.NegotiationStatus",
+  "links": [],
+  "schemaDefinitions": {
+    "NegotiationStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.NegotiationStatus",
+      "const": {
+        "InProgress": 0,
+        "Complete": 1,
+        "Failed": 2,
+        "Unknown": 3,
+        "NoNegotiation": 4
+      },
+      "properties": {
+        "InProgress": {
+          "description": "The auto-negotiation protocol is running and negotiation is currently in-progress.",
+          "type": "integer"
+        },
+        "Complete": {
+          "description": "The auto-negotiation protocol has completed successfully.",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "The auto-negotiation protocol has failed.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "The auto-negotiation status is not currently known, this could be because it is still negotiating or the protocol cannot run (e.g., if no medium is present).",
+          "type": "integer"
+        },
+        "NoNegotiation": {
+          "description": "No auto-negotiation is executed. The auto-negotiation function is either not supported on this interface or has not been enabled.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

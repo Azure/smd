@@ -1,0 +1,127 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_SpacerType",
+  "title": "Glass_Flat_SpacerType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.SpacerType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Glass/Flat/#Glass_Flat_BaseMaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SpacerMaterialClass": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.SpacerMaterialClass",
+      "const": {
+        "Other": 0,
+        "Metalic": 1,
+        "TPS": 2,
+        "Plastic": 3,
+        "Elastic": 4
+      },
+      "properties": {
+        "Other": {
+          "type": "integer"
+        },
+        "Metalic": {
+          "type": "integer"
+        },
+        "TPS": {
+          "type": "integer"
+        },
+        "Plastic": {
+          "type": "integer"
+        },
+        "Elastic": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Filling",
+    "/properties/SealantDepth",
+    "/properties/SpacerMaterialSubClass",
+    "/events/Filling",
+    "/events/SealantDepth"
+  ],
+  "properties": {
+    "Filling": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false,
+      "dov:contains": [
+        "Filling_FillLevel"
+      ]
+    },
+    "Filling_FillLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "dov:containedIn": "Filling"
+    },
+    "SealantDepth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SpacerMaterialClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "title": "SpacerMaterialClass",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.SpacerMaterialClass",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SpacerMaterialSubClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Filling": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.LimitedString64",
+        "type": "string"
+      },
+      "dov:contains": [
+        "Filling_FillLevel"
+      ]
+    },
+    "Filling_FillLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "Filling"
+    },
+    "SealantDepth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

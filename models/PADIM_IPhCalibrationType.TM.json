@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_IPhCalibrationType",
+  "title": "PADIM_IPhCalibrationType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.IPhCalibrationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SensorAsymmetryPotential",
+    "/properties/SensorSlope",
+    "/properties/SensorT90",
+    "/events/SensorAsymmetryPotential",
+    "/events/SensorSlope"
+  ],
+  "properties": {
+    "SensorAsymmetryPotential": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "SensorSlope": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "SensorT90": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SensorAsymmetryPotential": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "SensorSlope": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

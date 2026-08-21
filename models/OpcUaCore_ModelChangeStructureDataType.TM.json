@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ModelChangeStructureDataType",
+  "title": "OpcUaCore_ModelChangeStructureDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ModelChangeStructureDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ModelChangeStructureDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ModelChangeStructureDataType",
+      "required": [
+        "Affected",
+        "AffectedType",
+        "Verb"
+      ],
+      "properties": {
+        "Affected": {
+          "type": "string"
+        },
+        "AffectedType": {
+          "type": "string"
+        },
+        "Verb": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

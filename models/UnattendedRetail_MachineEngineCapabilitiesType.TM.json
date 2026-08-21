@@ -1,0 +1,145 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_MachineEngineCapabilitiesType",
+  "title": "UnattendedRetail_MachineEngineCapabilitiesType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.MachineEngineCapabilitiesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Options": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "OptionDescriptionDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionDescriptionDataType",
+        "required": [
+          "OptionId",
+          "Range",
+          "Step",
+          "Default",
+          "EngineeringUnit"
+        ],
+        "properties": {
+          "OptionId": {
+            "type": "string"
+          },
+          "Range": {
+            "title": "Range",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Range",
+            "required": [
+              "Low",
+              "High"
+            ],
+            "properties": {
+              "Low": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "High": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              }
+            }
+          },
+          "Step": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Default": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "EngineeringUnit": {
+            "title": "EUInformation",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "OutputIds": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "readOnly": true
+    },
+    "SelectionList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "SelectionDescriptionDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.SelectionDescriptionDataType",
+        "required": [
+          "SelectionId",
+          "AvailableOptionIds",
+          "IsStoppable"
+        ],
+        "properties": {
+          "SelectionId": {
+            "type": "string"
+          },
+          "AvailableOptionIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "IsStoppable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SelectionListVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

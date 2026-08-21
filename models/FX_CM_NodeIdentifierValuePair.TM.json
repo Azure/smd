@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_NodeIdentifierValuePair",
+  "title": "FX_CM_NodeIdentifierValuePair",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifierValuePair",
+  "links": [],
+  "schemaDefinitions": {
+    "NodeIdentifierValuePair": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifierValuePair",
+      "required": [
+        "Key",
+        "ArrayIndex",
+        "Value"
+      ],
+      "properties": {
+        "Key": {
+          "title": "NodeIdentifier",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifier",
+          "properties": {
+            "Node": {
+              "type": "string"
+            },
+            "Alias": {
+              "type": "string"
+            },
+            "IdentifierBrowsePath": {
+              "title": "RelativePath",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+              "required": [
+                "Elements"
+              ],
+              "properties": {
+                "Elements": {
+                  "type": "array",
+                  "items": {
+                    "title": "RelativePathElement",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                    "required": [
+                      "ReferenceTypeId",
+                      "IsInverse",
+                      "IncludeSubtypes",
+                      "TargetName"
+                    ],
+                    "properties": {
+                      "ReferenceTypeId": {
+                        "type": "string"
+                      },
+                      "IsInverse": {
+                        "type": "boolean"
+                      },
+                      "IncludeSubtypes": {
+                        "type": "boolean"
+                      },
+                      "TargetName": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ArrayIndex": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        },
+        "Value": {
+          "description": "Stand-in for an unspecified data type.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

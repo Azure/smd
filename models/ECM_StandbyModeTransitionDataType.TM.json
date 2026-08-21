@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_StandbyModeTransitionDataType",
+  "title": "ECM_StandbyModeTransitionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.StandbyModeTransitionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StandbyModeTransitionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ECM.StandbyModeTransitionDataType",
+      "required": [
+        "IDDestination",
+        "CurrentTimeToDestination",
+        "CurrentTimeToOperate",
+        "EnergyConsumptionToDestination"
+      ],
+      "properties": {
+        "IDDestination": {
+          "description": "Identification of destination energy saving mode.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "CurrentTimeToDestination": {
+          "description": "Time needed to reach the mode IDDestination. Shall be a “Worst case” value if ongoing (dynamic) time value is not supported. Shall be 0 if destination energy saving mode is reached.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "CurrentTimeToOperate": {
+          "description": "Time needed to reach READY_TO_OPERATE if the energy saving mode is not regularly terminated. The server might update the value after reaching the destination state as long as the TimeMinLengthOfStay of the destination state is not reached.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "EnergyConsumptionToDestination": {
+          "description": "Energy consumption for actual transition. Shall be 0 if not in a transition state.",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerCapabilitiesType",
+  "title": "OpcUaCore_ServerCapabilitiesType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerCapabilitiesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "OperationLimits",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_OperationLimitsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ModellingRules",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AggregateFunctions",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "RoleSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_RoleSetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ServerVendorCapabilityType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.ServerVendorCapabilityType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/ConformanceUnits",
+    "/properties/MaxArrayLength",
+    "/properties/MaxByteStringLength",
+    "/properties/MaxLogObjectContinuationPoints",
+    "/properties/MaxMonitoredItems",
+    "/properties/MaxMonitoredItemsPerSubscription",
+    "/properties/MaxMonitoredItemsQueueSize",
+    "/properties/MaxSelectClauseParameters",
+    "/properties/MaxSessions",
+    "/properties/MaxStringLength",
+    "/properties/MaxSubscriptions",
+    "/properties/MaxSubscriptionsPerSession",
+    "/properties/MaxWhereClauseParameters",
+    "/properties/VendorCapability_Placeholder",
+    "/events/VendorCapability_Placeholder"
+  ],
+  "properties": {
+    "ConformanceUnits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "LocaleIdArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "MaxArrayLength": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxBrowseContinuationPoints": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MaxByteStringLength": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxHistoryContinuationPoints": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MaxLogObjectContinuationPoints": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MaxMonitoredItems": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxMonitoredItemsPerSubscription": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxMonitoredItemsQueueSize": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxQueryContinuationPoints": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MaxSelectClauseParameters": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxSessions": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxStringLength": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxSubscriptions": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxSubscriptionsPerSession": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxWhereClauseParameters": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MinSupportedSampleRate": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "ServerProfileArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "SoftwareCertificates": {
+      "type": "array",
+      "items": {
+        "title": "SignedSoftwareCertificate",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SignedSoftwareCertificate",
+        "required": [
+          "CertificateData",
+          "Signature"
+        ],
+        "properties": {
+          "CertificateData": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "Signature": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "VendorCapability_Placeholder": {
+      "tm:ref": "#/schemaDefinitions/ServerVendorCapabilityType",
+      "readOnly": true,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "VendorCapability_Placeholder": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/ServerVendorCapabilityType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

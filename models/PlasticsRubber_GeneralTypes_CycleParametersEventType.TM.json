@@ -1,0 +1,323 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_CycleParametersEventType",
+  "title": "PlasticsRubber_GeneralTypes_CycleParametersEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CycleParametersEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CavityCycleQualityEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CavityCycleQualityEnumeration",
+      "const": {
+        "NO_PART": 0,
+        "GOOD_PART": 1,
+        "BAD_PART": 2,
+        "REWORK": 3
+      },
+      "description": "Quality of the cycle for each cavity",
+      "properties": {
+        "NO_PART": {
+          "description": "There is no part in cavity",
+          "type": "integer"
+        },
+        "GOOD_PART": {
+          "description": "The machine has detected no failures during the cycle for this cavity and the part quality is assumed as good",
+          "type": "integer"
+        },
+        "BAD_PART": {
+          "description": "The machine has detected failures during the cycle for the cavity and the part quality is assumed as bad",
+          "type": "integer"
+        },
+        "REWORK": {
+          "description": "The machine has detected failures during the cycle for the cavity which might be fixed by reworking the part",
+          "type": "integer"
+        }
+      }
+    },
+    "CycleQualityEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CycleQualityEnumeration",
+      "const": {
+        "GOOD_CYCLE": 0,
+        "BAD_CYCLE": 1,
+        "TEST_SAMPLE_CYCLE": 2,
+        "FAILED_CYCLE": 3
+      },
+      "description": "Quality of the whole cycle",
+      "properties": {
+        "GOOD_CYCLE": {
+          "description": "The machine has detected no failures during the cycle and the part quality (for all cavities) is assumed as good",
+          "type": "integer"
+        },
+        "BAD_CYCLE": {
+          "description": "The quality of the part(s) is assumed as bad",
+          "type": "integer"
+        },
+        "TEST_SAMPLE_CYCLE": {
+          "description": "A cycle is separated as a test sample",
+          "type": "integer"
+        },
+        "FAILED_CYCLE": {
+          "description": "The machine has detected failures during the cycle and the part quality is assumed as bad. Further information is provided by the MessageCondition fired in this case.",
+          "type": "integer"
+        }
+      }
+    },
+    "JobStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "const": {
+        "OTHER": 0,
+        "TRANSFERRED_ASSIGNED": 1,
+        "SET_UP_ACTIVE": 2,
+        "SET_UP_INTERRUPTED": 3,
+        "SET_UP_FINISHED": 4,
+        "START_UP_ACTIVE": 5,
+        "JOB_IN_PRODUCTION": 6,
+        "JOB_INTERRUPTED": 7,
+        "JOB_FINISHED": 8,
+        "TEAR_DOWN_ACTIVE": 9,
+        "TEAR_DOWN_INTERRUPTED": 10,
+        "TEAR_DOWN_FINISHED": 11
+      },
+      "description": "Current status of the job",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "TRANSFERRED_ASSIGNED": {
+          "description": "The job has been transferred to the machine and assigned as current job",
+          "type": "integer"
+        },
+        "SET_UP_ACTIVE": {
+          "description": "The operator prepares the machine for the job",
+          "type": "integer"
+        },
+        "SET_UP_INTERRUPTED": {
+          "description": "The operator has interrupted but not finished the preparation of the machine for the job",
+          "type": "integer"
+        },
+        "SET_UP_FINISHED": {
+          "description": "The operator has finished the preparation of the machine for the job",
+          "type": "integer"
+        },
+        "START_UP_ACTIVE": {
+          "description": "The operator is setting the machine in the start-up phase",
+          "type": "integer"
+        },
+        "JOB_IN_PRODUCTION": {
+          "description": "The machine is producing parts/products for the job",
+          "type": "integer"
+        },
+        "JOB_INTERRUPTED": {
+          "description": "The job is interrupted. The nominal output is not reached",
+          "type": "integer"
+        },
+        "JOB_FINISHED": {
+          "description": "Nominal output reached",
+          "type": "integer"
+        },
+        "TEAR_DOWN_ACTIVE": {
+          "description": "The operator tears the machine down",
+          "type": "integer"
+        },
+        "TEAR_DOWN_INTERRUPTED": {
+          "description": "Tear-down is interrupted but not finished",
+          "type": "integer"
+        },
+        "TEAR_DOWN_FINISHED": {
+          "description": "Tear-down is finished",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/AverageCycleTime",
+    "/properties/BoxBadPartsCounter",
+    "/properties/BoxCycleCounter",
+    "/properties/BoxGoodPartsCounter",
+    "/properties/BoxId",
+    "/properties/BoxPartsCounter",
+    "/properties/BoxTestSamplesCounter",
+    "/properties/CavityCycleQuality",
+    "/properties/MachineCycleCounter",
+    "/properties/PartId"
+  ],
+  "properties": {
+    "AverageCycleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "BoxBadPartsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of bad parts produced in the current box",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "BoxCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "BoxGoodPartsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of good parts produced in the current box",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "BoxId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id of the box in which the current production is put in",
+      "type": "string",
+      "readOnly": true
+    },
+    "BoxPartsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Total number of  parts produced in the current box",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "BoxTestSamplesCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of test sample parts produced in the current box",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "CavityCycleQuality": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Quality of the cycle for each cavity ",
+      "type": "array",
+      "items": {
+        "title": "CavityCycleQualityEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CavityCycleQualityEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": true
+    },
+    "CurrentLotName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the current production lot",
+      "type": "string",
+      "readOnly": true
+    },
+    "CycleQuality": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "CycleQualityEnumeration",
+      "description": "Quality of the whole cycle",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CycleQualityEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "CycleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Cycle time",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "JobBadPartsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of bad parts produced in the current job",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "JobCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of the cycle in the job",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "JobGoodPartsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of good parts produced in the current job",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "JobName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the job",
+      "type": "string",
+      "readOnly": true
+    },
+    "JobPartsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Total number of parts produced in the current job",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "JobStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "JobStatusEnumeration",
+      "description": "Current status of the job",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "JobTestSamplesCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of test sample parts produced in the current job",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "MachineCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of finished cycles in the machine life time",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "PartId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id(s) of the parts produced in the cycle",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

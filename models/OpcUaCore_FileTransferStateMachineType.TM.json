@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_FileTransferStateMachineType",
+  "title": "OpcUaCore_FileTransferStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.FileTransferStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Idle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_InitialStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadPrepare",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadTransfer",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ApplyWrite",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Error",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IdleToReadPrepare",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadPrepareToReadTransfer",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadTransferToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IdleToApplyWrite",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ApplyWriteToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadPrepareToError",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ReadTransferToError",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ApplyWriteToError",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ErrorToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "Reset": {}
+  }
+}

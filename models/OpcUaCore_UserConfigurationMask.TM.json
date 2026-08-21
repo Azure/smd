@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UserConfigurationMask",
+  "title": "OpcUaCore_UserConfigurationMask",
+  "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+  "links": [],
+  "schemaDefinitions": {
+    "UserConfigurationMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserConfigurationMask",
+      "const": {
+        "NoDelete": 0,
+        "Disabled": 1,
+        "NoChangeByUser": 2,
+        "MustChangePassword": 3
+      },
+      "properties": {
+        "NoDelete": {
+          "description": "The user cannot be deleted.",
+          "type": "integer"
+        },
+        "Disabled": {
+          "description": "The user is disabled.",
+          "type": "integer"
+        },
+        "NoChangeByUser": {
+          "description": "The user cannot change the password.",
+          "type": "integer"
+        },
+        "MustChangePassword": {
+          "description": "The user must change the password to get the assigned roles. If the password is not changed, the user has only the Role Anonymous.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

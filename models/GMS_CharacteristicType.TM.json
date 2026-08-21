@@ -1,0 +1,160 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_CharacteristicType",
+  "title": "GMS_CharacteristicType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.CharacteristicType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ResultEvaluationEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultEvaluationEnum",
+      "const": {
+        "Undefined": 0,
+        "OK": 1,
+        "NotOK": 2,
+        "NotDecidable": 3
+      },
+      "description": "Indicates whether a result was in tolerance",
+      "properties": {
+        "Undefined": {
+          "description": "The evaluation of the result is unknown, for example because it failed",
+          "type": "integer"
+        },
+        "OK": {
+          "description": "The result is in tolerance",
+          "type": "integer"
+        },
+        "NotOK": {
+          "description": "The result is out of tolerance",
+          "type": "integer"
+        },
+        "NotDecidable": {
+          "description": "The decision is not possible due to measurement uncertainty.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/CharacteristicIdentifier",
+    "/properties/CharacteristicsClass",
+    "/properties/Formula",
+    "/properties/IsValid",
+    "/properties/LowerToleranceLimit",
+    "/properties/Nominal",
+    "/properties/ResultEvaluation",
+    "/properties/ResultValue",
+    "/properties/UpperToleranceLimit",
+    "/events/LowerToleranceLimit",
+    "/events/Nominal",
+    "/events/ResultValue",
+    "/events/UpperToleranceLimit"
+  ],
+  "properties": {
+    "CharacteristicIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "CharacteristicsClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": false
+    },
+    "Formula": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "IsValid": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "LowerToleranceLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Nominal": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "ResultEvaluation": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "title": "ResultEvaluationEnum",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultEvaluationEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "ResultValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UpperToleranceLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "LowerToleranceLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Nominal": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ResultValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperToleranceLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

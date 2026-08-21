@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoChannelType",
+  "title": "PNGSDGM_GsdGenIoChannelType",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoChannelType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Data",
+      "href": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoChannelDataType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Quality",
+      "href": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoChannelQualityType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Number": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

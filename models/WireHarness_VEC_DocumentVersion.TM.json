@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_DocumentVersion",
+  "title": "WireHarness_VEC_DocumentVersion",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.DocumentVersion",
+  "links": [],
+  "schemaDefinitions": {
+    "DocumentVersion": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.DocumentVersion",
+      "required": [
+        "id",
+        "CompanyName",
+        "DocumentNumber",
+        "DocumentVersion",
+        "DigitalRepresentationIndex",
+        "Specification"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "CompanyName": {
+          "description": "<p>Defines the publishing company of the ItemVersion. The companyName is part of the main identifier of an ItemVersion together with the corresponding number (partNumber or documentNumber) and version (partVersion or documentVersion).</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DocumentNumber": {
+          "description": "<p>The documentNumber is the major identifier of a DocumentVersion. The format is user defined and respectively company specific.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DocumentVersion": {
+          "description": "<p>The documentVersion specifies the version index of a document (see also documentNumber).</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DigitalRepresentationIndex": {
+          "description": "<p>An arbitrary change index that indicates if the digital representation (the content in VEC) of this<i>DocumentVersion</i>has been changed / regenerated. This can be for example an index, a timestamp or a checksum. This allows the detection of changes in the content, even when the DocumentNumber &amp; DocumentVersion is the same.</p><p>For a more detailed explanation in the context see 'Parts &amp; Documents'. KBLFRM-837.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Specification": {
+          "description": "Specifies the Specifications contained in the DocumentVersion. All structured, technical information in the VEC is described by such Specifications.",
+          "type": "array",
+          "items": {
+            "title": "Specification",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Specification",
+            "required": [
+              "id",
+              "Identification"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Identification": {
+                "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

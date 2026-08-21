@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_CommandEnum",
+  "title": "MDIS_CommandEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.CommandEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "CommandEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.CommandEnum",
+      "const": {
+        "Close": 1,
+        "Open": 2,
+        "None": 4
+      },
+      "properties": {
+        "Close": {
+          "description": "The last command to the valve was Close",
+          "type": "integer"
+        },
+        "Open": {
+          "description": "The last command to the valve was Open",
+          "type": "integer"
+        },
+        "None": {
+          "description": "No known command has been sent to the valve. The initial setting on start-up of a server.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

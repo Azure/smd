@@ -1,0 +1,73 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditActivateSessionEventType",
+  "title": "OpcUaCore_AuditActivateSessionEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditActivateSessionEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditSessionEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CurrentRoleIds"
+  ],
+  "properties": {
+    "ClientSoftwareCertificates": {
+      "type": "array",
+      "items": {
+        "title": "SignedSoftwareCertificate",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SignedSoftwareCertificate",
+        "required": [
+          "CertificateData",
+          "Signature"
+        ],
+        "properties": {
+          "CertificateData": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "Signature": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "CurrentRoleIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "SecureChannelId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "UserIdentityToken": {
+      "title": "UserIdentityToken",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserIdentityToken",
+      "required": [
+        "PolicyId"
+      ],
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

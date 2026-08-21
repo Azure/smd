@@ -1,0 +1,132 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_JsonDataSetReaderMessageType",
+  "title": "OpcUaCore_JsonDataSetReaderMessageType",
+  "dov:typeRef": "org.opcfoundation.UA.JsonDataSetReaderMessageType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetReaderMessageType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "JsonDataSetMessageContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.JsonDataSetMessageContentMask",
+      "const": {
+        "DataSetWriterId": 0,
+        "MetaDataVersion": 1,
+        "SequenceNumber": 2,
+        "Timestamp": 3,
+        "Status": 4,
+        "MessageType": 5,
+        "DataSetWriterName": 6,
+        "FieldEncoding1": 7,
+        "PublisherId": 8,
+        "WriterGroupName": 9,
+        "MinorVersion": 10,
+        "FieldEncoding2": 11
+      },
+      "properties": {
+        "DataSetWriterId": {
+          "type": "integer"
+        },
+        "MetaDataVersion": {
+          "type": "integer"
+        },
+        "SequenceNumber": {
+          "type": "integer"
+        },
+        "Timestamp": {
+          "type": "integer"
+        },
+        "Status": {
+          "type": "integer"
+        },
+        "MessageType": {
+          "type": "integer"
+        },
+        "DataSetWriterName": {
+          "type": "integer"
+        },
+        "FieldEncoding1": {
+          "type": "integer"
+        },
+        "PublisherId": {
+          "type": "integer"
+        },
+        "WriterGroupName": {
+          "type": "integer"
+        },
+        "MinorVersion": {
+          "type": "integer"
+        },
+        "FieldEncoding2": {
+          "type": "integer"
+        }
+      }
+    },
+    "JsonNetworkMessageContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.JsonNetworkMessageContentMask",
+      "const": {
+        "NetworkMessageHeader": 0,
+        "DataSetMessageHeader": 1,
+        "SingleDataSetMessage": 2,
+        "PublisherId": 3,
+        "DataSetClassId": 4,
+        "ReplyTo": 5,
+        "WriterGroupName": 6
+      },
+      "properties": {
+        "NetworkMessageHeader": {
+          "type": "integer"
+        },
+        "DataSetMessageHeader": {
+          "type": "integer"
+        },
+        "SingleDataSetMessage": {
+          "type": "integer"
+        },
+        "PublisherId": {
+          "type": "integer"
+        },
+        "DataSetClassId": {
+          "type": "integer"
+        },
+        "ReplyTo": {
+          "type": "integer"
+        },
+        "WriterGroupName": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "DataSetMessageContentMask": {
+      "title": "JsonDataSetMessageContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.JsonDataSetMessageContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "NetworkMessageContentMask": {
+      "title": "JsonNetworkMessageContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.JsonNetworkMessageContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

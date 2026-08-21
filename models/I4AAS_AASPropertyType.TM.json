@@ -1,0 +1,124 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASPropertyType",
+  "title": "I4AAS_AASPropertyType",
+  "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASPropertyType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASSubmodelElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ValueId",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASReferenceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AASValueTypeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASValueTypeDataType",
+      "const": {
+        "Boolean": 0,
+        "SByte": 1,
+        "Byte": 2,
+        "Int16": 3,
+        "UInt16": 4,
+        "Int32": 5,
+        "UInt32": 6,
+        "Int64": 7,
+        "UInt64": 8,
+        "Float": 9,
+        "Double": 10,
+        "String": 11,
+        "DateTime": 12,
+        "ByteString": 13,
+        "LocalizedText": 14,
+        "UtcTime": 15
+      },
+      "properties": {
+        "Boolean": {
+          "type": "integer"
+        },
+        "SByte": {
+          "type": "integer"
+        },
+        "Byte": {
+          "type": "integer"
+        },
+        "Int16": {
+          "type": "integer"
+        },
+        "UInt16": {
+          "type": "integer"
+        },
+        "Int32": {
+          "type": "integer"
+        },
+        "UInt32": {
+          "type": "integer"
+        },
+        "Int64": {
+          "type": "integer"
+        },
+        "UInt64": {
+          "type": "integer"
+        },
+        "Float": {
+          "type": "integer"
+        },
+        "Double": {
+          "type": "integer"
+        },
+        "String": {
+          "type": "integer"
+        },
+        "DateTime": {
+          "type": "integer"
+        },
+        "ByteString": {
+          "type": "integer"
+        },
+        "LocalizedText": {
+          "type": "integer"
+        },
+        "UtcTime": {
+          "type": "integer"
+        }
+      }
+    },
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/Value"
+  ],
+  "properties": {
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": false
+    },
+    "ValueType": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "title": "AASValueTypeDataType",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASValueTypeDataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

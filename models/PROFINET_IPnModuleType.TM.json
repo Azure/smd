@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnModuleType",
+  "title": "PROFINET_IPnModuleType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.IPnModuleType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/GSDDescription",
+    "/properties/GSDName"
+  ],
+  "properties": {
+    "GSDDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "GSDName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IdentNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Slot": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

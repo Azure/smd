@@ -1,0 +1,116 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_VisionStepModelStateMachineType",
+  "title": "MachineVision_VisionStepModelStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.VisionStepModelStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Entry",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_InitialStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "EntryToExitAuto",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "EntryToWaitAuto",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Exit",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Step",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StepToExitAuto",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StepToWaitAuto",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Wait",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "WaitToStep",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "WaitToStepAuto",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "Sync": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Cause",
+          "CauseDescription"
+        ],
+        "properties": {
+          "Cause": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "CauseDescription": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Error"
+        ],
+        "properties": {
+          "Error": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_IdentificationType",
+  "title": "PlasticsRubber_GeneralTypes_IdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.IdentificationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/YearOfConstruction"
+  ],
+  "properties": {
+    "DeviceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Indicates in which domain or for what purpose a certain device is used",
+      "type": "string",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Provides the name of the manufacturer of the machine",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Represents the name of the machine type",
+      "type": "string",
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Represents the serial number of the machine (unique ID given by the manufacturer)",
+      "type": "string",
+      "readOnly": true
+    },
+    "YearOfConstruction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Represents the year of construction of the machine",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

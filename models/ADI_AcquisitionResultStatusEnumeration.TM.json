@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ADI/#ADI_AcquisitionResultStatusEnumeration",
+  "title": "ADI_AcquisitionResultStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.ADI.AcquisitionResultStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "AcquisitionResultStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ADI.AcquisitionResultStatusEnumeration",
+      "const": {
+        "NOT_USED": 0,
+        "GOOD": 1,
+        "BAD": 2,
+        "UNKNOWN": 3,
+        "PARTIAL": 4
+      },
+      "properties": {
+        "NOT_USED": {
+          "description": "No longer used.",
+          "type": "integer"
+        },
+        "GOOD": {
+          "description": "The acquisition has been completed as requested without any error.",
+          "type": "integer"
+        },
+        "BAD": {
+          "description": "The acquisition has been completed as requested with error.",
+          "type": "integer"
+        },
+        "UNKNOWN": {
+          "description": "The acquisition has been completed but nothing can be said about the quality of the result.",
+          "type": "integer"
+        },
+        "PARTIAL": {
+          "description": "The acquisition has been partially completed as requested without any error.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

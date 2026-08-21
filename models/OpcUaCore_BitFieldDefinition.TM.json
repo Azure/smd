@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BitFieldDefinition",
+  "title": "OpcUaCore_BitFieldDefinition",
+  "dov:typeRef": "org.opcfoundation.UA.BitFieldDefinition",
+  "links": [],
+  "schemaDefinitions": {
+    "BitFieldDefinition": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BitFieldDefinition",
+      "required": [
+        "Name",
+        "Description",
+        "Reserved",
+        "StartingBitPosition",
+        "EndingBitPosition"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Reserved": {
+          "type": "boolean"
+        },
+        "StartingBitPosition": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "EndingBitPosition": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

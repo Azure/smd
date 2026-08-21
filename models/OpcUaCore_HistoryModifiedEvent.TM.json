@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_HistoryModifiedEvent",
+  "title": "OpcUaCore_HistoryModifiedEvent",
+  "dov:typeRef": "org.opcfoundation.UA.HistoryModifiedEvent",
+  "links": [],
+  "schemaDefinitions": {
+    "HistoryModifiedEvent": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.HistoryModifiedEvent",
+      "required": [
+        "Events",
+        "ModificationInfos"
+      ],
+      "properties": {
+        "Events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ModificationInfos": {
+          "type": "array",
+          "items": {
+            "title": "ModificationInfo",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ModificationInfo",
+            "required": [
+              "ModificationTime",
+              "UpdateType",
+              "UserName"
+            ],
+            "properties": {
+              "ModificationTime": {
+                "type": "string",
+                "format": "time"
+              },
+              "UpdateType": {
+                "title": "HistoryUpdateType",
+                "dov:typeRef": "org.opcfoundation.UA.HistoryUpdateType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "UserName": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

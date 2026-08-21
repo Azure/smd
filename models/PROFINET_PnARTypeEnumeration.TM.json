@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnARTypeEnumeration",
+  "title": "PROFINET_PnARTypeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARTypeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnARTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnARTypeEnumeration",
+      "const": {
+        "IOCARSingle": 0,
+        "IOSAR": 6,
+        "IOCARSingleUsingRT_CLASS_3": 16,
+        "IOCARSR": 32
+      },
+      "properties": {
+        "IOCARSingle": {
+          "type": "integer"
+        },
+        "IOSAR": {
+          "description": "The supervisor AR is a special form of the IOCARSingle allowing takeover of the ownership of a submodule",
+          "type": "integer"
+        },
+        "IOCARSingleUsingRT_CLASS_3": {
+          "description": "This is a special form of the IOCARSingle indicating RT_CLASS_3 communication",
+          "type": "integer"
+        },
+        "IOCARSR": {
+          "description": "The SR AR is a special form of the IOCARSingle indicating system redundancy or dynamic reconfiguration usage",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

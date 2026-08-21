@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ClosedLoopControlType",
+  "title": "PlasticsRubber_GeneralTypes_ClosedLoopControlType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClosedLoopControlType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AutoTuningOff",
+    "/actions/AutoTuningOn",
+    "/properties/AutomaticControllerMode",
+    "/properties/AutoTuningActive",
+    "/properties/PIDParameters"
+  ],
+  "actions": {
+    "AutoTuningOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Stops an already active self-optimisation process (no control parameters are changed)"
+    },
+    "AutoTuningOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Starts the self-optimisation of the controller"
+    }
+  },
+  "properties": {
+    "AutomaticControllerMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Determination if PID Parameters are determined by auto-tuning itself (TRUE) or can be manually adjusted (FALSE)",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "AutoTuningActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Informs if the automatic tuning is currently active",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PIDParameters": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "PID Parameters as array if several input signals (sensors) are used for the control",
+      "type": "array",
+      "items": {
+        "title": "PIDParametersDataType",
+        "description": "Structure for storing the parameters of a PID controller",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.PIDParametersDataType",
+        "required": [
+          "P",
+          "I",
+          "D"
+        ],
+        "properties": {
+          "P": {
+            "description": "Propotional gain",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "I": {
+            "description": "Integral gain",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "D": {
+            "description": "Derivative gain",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

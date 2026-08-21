@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryComponentIdentificationType",
+  "title": "Machinery_MachineryComponentIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.MachineryComponentIdentificationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/DeviceRevision"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DeviceRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A string representation of the overall revision level of the component. Often, it is increased when either the SoftwareRevision and / or the HardwareRevision of the component is increased. As an example, it can be used in ERP systems together with the ProductCode.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

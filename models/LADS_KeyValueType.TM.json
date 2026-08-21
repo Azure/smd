@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LADS/#LADS_KeyValueType",
+  "title": "LADS_KeyValueType",
+  "dov:typeRef": "org.opcfoundation.UA.LADS.KeyValueType",
+  "links": [],
+  "schemaDefinitions": {
+    "KeyValueType": {
+      "description": "A key-value pair similar to 0:KeyValuePair which uses 0:String instead of 0:Qualifiedname for easu of use.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LADS.KeyValueType",
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "properties": {
+        "Key": {
+          "description": "Unique key to identify a value.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value associated with the key.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

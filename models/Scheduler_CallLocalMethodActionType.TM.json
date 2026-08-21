@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scheduler/#Scheduler_CallLocalMethodActionType",
+  "title": "Scheduler_CallLocalMethodActionType",
+  "dov:typeRef": "org.opcfoundation.UA.Scheduler.CallLocalMethodActionType",
+  "links": [],
+  "schemaDefinitions": {
+    "CallLocalMethodActionType": {
+      "description": "This structure defines an action to call a Method of an Object managed in the same Server where the action is used.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scheduler.CallLocalMethodActionType",
+      "required": [
+        "LastActionResult",
+        "ObjectId",
+        "MethodId",
+        "InputValues",
+        "LastOutputValues"
+      ],
+      "properties": {
+        "LastActionResult": {
+          "type": "string"
+        },
+        "ObjectId": {
+          "type": "string"
+        },
+        "MethodId": {
+          "type": "string"
+        },
+        "InputValues": {
+          "type": "array",
+          "items": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        },
+        "LastOutputValues": {
+          "type": "array",
+          "items": {
+            "description": "Stand-in for an unspecified data type.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

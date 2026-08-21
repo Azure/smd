@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_SpindleMonitoringType",
+  "title": "MachineTool_SpindleMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.SpindleMonitoringType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_WorkingUnitMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/IsUsedAsAxis",
+    "/properties/Override",
+    "/events/IsUsedAsAxis",
+    "/events/Override"
+  ],
+  "properties": {
+    "IsRotating": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsUsedAsAxis": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Override": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "IsRotating": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IsUsedAsAxis": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "Override": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

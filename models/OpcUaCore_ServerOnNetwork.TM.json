@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerOnNetwork",
+  "title": "OpcUaCore_ServerOnNetwork",
+  "dov:typeRef": "org.opcfoundation.UA.ServerOnNetwork",
+  "links": [],
+  "schemaDefinitions": {
+    "ServerOnNetwork": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerOnNetwork",
+      "required": [
+        "RecordId",
+        "ServerName",
+        "DiscoveryUrl",
+        "ServerCapabilities"
+      ],
+      "properties": {
+        "RecordId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "ServerName": {
+          "type": "string"
+        },
+        "DiscoveryUrl": {
+          "type": "string"
+        },
+        "ServerCapabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_PathModeDataType",
+  "title": "MTConnect_v2_PathModeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.PathModeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PathModeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.PathModeDataType",
+      "const": {
+        "INDEPENDENT": 0,
+        "MASTER": 1,
+        "MIRROR": 2,
+        "SYNCHRONOUS": 3
+      },
+      "description": "",
+      "properties": {
+        "INDEPENDENT": {
+          "description": "The path is operating independently and without the influence of another path.",
+          "type": "integer"
+        },
+        "MASTER": {
+          "description": "           It provides information or state values that influences the operation           of other dataitem of similar type.         ",
+          "type": "integer"
+        },
+        "MIRROR": {
+          "description": "           The axes associated with the path are mirroring the motion of the           master value path.         ",
+          "type": "integer"
+        },
+        "SYNCHRONOUS": {
+          "description": "           Physical or logical parts which are not physically connected to each           other but are operating together.         ",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

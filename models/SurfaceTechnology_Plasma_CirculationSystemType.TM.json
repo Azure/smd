@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/SurfaceTechnology/Plasma/#SurfaceTechnology_Plasma_CirculationSystemType",
+  "title": "SurfaceTechnology_Plasma_CirculationSystemType",
+  "dov:typeRef": "org.opcfoundation.UA.SurfaceTechnology.Plasma.CirculationSystemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CoolingCircuitFlowRate",
+    "/properties/CoolingCircuitTemperatureOutlet",
+    "/events/CoolingCircuitFlowRate",
+    "/events/CoolingCircuitTemperatureOutlet"
+  ],
+  "properties": {
+    "CoolingCircuitFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/Plasma/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "CoolingCircuitTemperatureOutlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/Plasma/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CoolingCircuitFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/Plasma/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CoolingCircuitTemperatureOutlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/Plasma/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

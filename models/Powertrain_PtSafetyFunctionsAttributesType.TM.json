@@ -1,0 +1,107 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtSafetyFunctionsAttributesType",
+  "title": "Powertrain_PtSafetyFunctionsAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtSafetyFunctionsAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/FunctionalSafetyCategory",
+    "/properties/FunctionalSafetyPerformanceLevel",
+    "/properties/FunctionalSafetySilLevel",
+    "/properties/SafetyFunctions",
+    "/properties/SafetyStandards",
+    "/events/FunctionalSafetyCategory",
+    "/events/FunctionalSafetyPerformanceLevel",
+    "/events/FunctionalSafetySilLevel",
+    "/events/SafetyFunctions"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "FunctionalSafetyCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "FunctionalSafetyPerformanceLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "FunctionalSafetySilLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SafetyFunctions": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SafetyStandards": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "FunctionalSafetyCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "FunctionalSafetyPerformanceLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "FunctionalSafetySilLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "SafetyFunctions": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

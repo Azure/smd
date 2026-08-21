@@ -1,0 +1,263 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_VisionEventType",
+  "title": "MachineVision_VisionEventType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.VisionEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CausePath",
+    "/properties/ExternalConfigurationId",
+    "/properties/ExternalRecipeId",
+    "/properties/InternalConfigurationId",
+    "/properties/InternalRecipeId",
+    "/properties/JobId",
+    "/properties/MeasId",
+    "/properties/PartId",
+    "/properties/ProductId",
+    "/properties/ResultId"
+  ],
+  "properties": {
+    "CausePath": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "type": "string",
+      "readOnly": false
+    },
+    "ExternalConfigurationId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "BinaryIdBaseDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.ConfigurationIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique name for identifying the recipe.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Represents an optional version number of the identified recipe. It is recommended to be of the format Major.minor.patch.build or a subset thereof, but the actual format is implementation defined.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Represents an optional hash of the binary content of the actual recipe (as it would be transmitted by the transfer methods). The hash is supposed to be provided by the environment if existing. The environment shall use the same hash function on all recipes so that a difference in the hash indicates a difference in the recipe. It is recommended to use the SHA-256 algorithm for computing the hash, however, the actual algorithm is implementation-defined.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "HashAlgorithm": {
+          "description": "Name of the hash function used. Required if internally and externally computed hashes are to be compared.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "ExternalRecipeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "BinaryIdBaseDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.RecipeIdExternalDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique name for identifying the recipe.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Represents an optional version number of the identified recipe. It is recommended to be of the format Major.minor.patch.build or a subset thereof, but the actual format is implementation defined.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Represents an optional hash of the binary content of the actual recipe (as it would be transmitted by the transfer methods). The hash is supposed to be provided by the environment if existing. The environment shall use the same hash function on all recipes so that a difference in the hash indicates a difference in the recipe. It is recommended to use the SHA-256 algorithm for computing the hash, however, the actual algorithm is implementation-defined.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "HashAlgorithm": {
+          "description": "Name of the hash function used. Required if internally and externally computed hashes are to be compared.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "InternalConfigurationId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "BinaryIdBaseDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.ConfigurationIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique name for identifying the recipe.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Represents an optional version number of the identified recipe. It is recommended to be of the format Major.minor.patch.build or a subset thereof, but the actual format is implementation defined.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Represents an optional hash of the binary content of the actual recipe (as it would be transmitted by the transfer methods). The hash is supposed to be provided by the environment if existing. The environment shall use the same hash function on all recipes so that a difference in the hash indicates a difference in the recipe. It is recommended to use the SHA-256 algorithm for computing the hash, however, the actual algorithm is implementation-defined.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "HashAlgorithm": {
+          "description": "Name of the hash function used. Required if internally and externally computed hashes are to be compared.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "InternalRecipeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "BinaryIdBaseDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.RecipeIdInternalDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique name for identifying the recipe.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Represents an optional version number of the identified recipe. It is recommended to be of the format Major.minor.patch.build or a subset thereof, but the actual format is implementation defined.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Represents an optional hash of the binary content of the actual recipe (as it would be transmitted by the transfer methods). The hash is supposed to be provided by the environment if existing. The environment shall use the same hash function on all recipes so that a difference in the hash indicates a difference in the recipe. It is recommended to use the SHA-256 algorithm for computing the hash, however, the actual algorithm is implementation-defined.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "HashAlgorithm": {
+          "description": "Name of the hash function used. Required if internally and externally computed hashes are to be compared.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "JobId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "JobIdDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.JobIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique identifier/name for identifying the job carried out.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "MeasId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "MeasIdDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.MeasIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is an identifier/name for identifying the measurement operation. This identifier is passed by the client to the vision system so no assumptions can be made about its uniqueness or other properties.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the measurement.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "PartId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "PartIdDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.PartIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Describes the connection between a unit under test and a result, which was created during the processing of a recipe applied on this unit under test. Usually passed by the client with a Start method call and not changed by the server.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the part.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "ProductId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "ProductIdDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.ProductIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique identifier/name for identifying the product.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional short human readable description of the configuration",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "ResultId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "title": "ResultIdDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.ResultIdDataType",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id is a system-wide unique identifier/name for identifying the generated result.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

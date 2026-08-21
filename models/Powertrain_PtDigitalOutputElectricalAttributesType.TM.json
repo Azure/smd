@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtDigitalOutputElectricalAttributesType",
+  "title": "Powertrain_PtDigitalOutputElectricalAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtDigitalOutputElectricalAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/DigitalOutputElectricalType",
+    "/properties/NumberOfChannels",
+    "/properties/OutputCurrentMax",
+    "/properties/SafetyPropertySupported",
+    "/events/DigitalOutputElectricalType",
+    "/events/OutputCurrentMax"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "DigitalOutputElectricalType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "NumberOfChannels": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "OutputCurrentMax": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "SafetyPropertySupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DigitalOutputElectricalType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "OutputCurrentMax": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

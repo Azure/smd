@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_HydraulicUnitType",
+  "title": "PlasticsRubber_GeneralTypes_HydraulicUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.HydraulicUnitType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_PowerUnitType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActualPressure",
+    "/events/ActualPressure"
+  ],
+  "properties": {
+    "ActualPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Current pressure of the hydraulic unit",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Current pressure of the hydraulic unit",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

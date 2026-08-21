@@ -1,0 +1,131 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TemporaryFileTransferType",
+  "title": "OpcUaCore_TemporaryFileTransferType",
+  "dov:typeRef": "org.opcfoundation.UA.TemporaryFileTransferType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "TransferState_Placeholder",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileTransferStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "CloseAndCommit": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileHandle"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "CompletionStateMachine"
+        ],
+        "properties": {
+          "CompletionStateMachine": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GenerateFileForRead": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "GenerateOptions"
+        ],
+        "properties": {
+          "GenerateOptions": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FileNodeId",
+          "FileHandle",
+          "CompletionStateMachine"
+        ],
+        "properties": {
+          "FileNodeId": {
+            "type": "string"
+          },
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CompletionStateMachine": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GenerateFileForWrite": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "GenerateOptions"
+        ],
+        "properties": {
+          "GenerateOptions": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FileNodeId",
+          "FileHandle"
+        ],
+        "properties": {
+          "FileNodeId": {
+            "type": "string"
+          },
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ClientProcessingTimeout": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

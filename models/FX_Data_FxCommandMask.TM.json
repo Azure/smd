@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_FxCommandMask",
+  "title": "FX_Data_FxCommandMask",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxCommandMask",
+  "links": [],
+  "schemaDefinitions": {
+    "FxCommandMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxCommandMask",
+      "const": {
+        "VerifyAssetCmd": 0,
+        "VerifyFunctionalEntityCmd": 1,
+        "CreateConnectionEndpointCmd": 2,
+        "EstablishControlCmd": 3,
+        "SetConfigurationDataCmd": 4,
+        "ReassignControlCmd": 5,
+        "ReserveCommunicationIdsCmd": 6,
+        "SetCommunicationConfigurationCmd": 7,
+        "EnableCommunicationCmd": 8
+      },
+      "description": "This OptionSet defines flags indicating the commands a ConnectionManager may use in its call to the EstablishConnections Method.",
+      "properties": {
+        "VerifyAssetCmd": {
+          "description": "The addressed Server shall verify compatibility and/or identity for all requested Assets.",
+          "type": "integer"
+        },
+        "VerifyFunctionalEntityCmd": {
+          "description": "The addressed Server shall verify compatibility for all requested functional entities.",
+          "type": "integer"
+        },
+        "CreateConnectionEndpointCmd": {
+          "description": "The addressed Server shall create or modify ConnectionEndpoints. ",
+          "type": "integer"
+        },
+        "EstablishControlCmd": {
+          "description": "The addressed Server shall establish control over the requested ControlGroups.",
+          "type": "integer"
+        },
+        "SetConfigurationDataCmd": {
+          "description": "The addressed Server shall apply the supplied application configuration.",
+          "type": "integer"
+        },
+        "ReassignControlCmd": {
+          "description": "The addressed Server shall reassign the requested ControlGroups.",
+          "type": "integer"
+        },
+        "ReserveCommunicationIdsCmd": {
+          "description": "The addressed Server shall reserve identifiers for the communication model configuration.",
+          "type": "integer"
+        },
+        "SetCommunicationConfigurationCmd": {
+          "description": "The addressed Server shall apply the supplied communication model configuration.",
+          "type": "integer"
+        },
+        "EnableCommunicationCmd": {
+          "description": "The addressed Server shall enable the communication configuration.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_RecurrentPrognosisType",
+  "title": "TTD_RecurrentPrognosisType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.RecurrentPrognosisType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_PrognosisType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Interval"
+  ],
+  "properties": {
+    "Activity": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Interval": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "LastExecutionTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Activity": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

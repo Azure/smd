@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/LADS/#LADS_MaintenanceTaskResultEnum",
+  "title": "LADS_MaintenanceTaskResultEnum",
+  "dov:typeRef": "org.opcfoundation.UA.LADS.MaintenanceTaskResultEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "MaintenanceTaskResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LADS.MaintenanceTaskResultEnum",
+      "const": {
+        "Success": 0,
+        "Failure": 1,
+        "Undetermined": 2
+      },
+      "description": "This enumeration defines the different results when executing a Task..",
+      "properties": {
+        "Success": {
+          "description": "The maintenance task stopped successfully.",
+          "type": "integer"
+        },
+        "Failure": {
+          "description": "The maintenance task stopped with failure.",
+          "type": "integer"
+        },
+        "Undetermined": {
+          "description": "The status of the maintenance task upon stopping cannot be determined.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

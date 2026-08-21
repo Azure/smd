@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_DeliveryRequestDataType",
+  "title": "UnattendedRetail_DeliveryRequestDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryRequestDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DeliveryRequestDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryRequestDataType",
+      "required": [
+        "TransactionId",
+        "SelectionId",
+        "Options"
+      ],
+      "properties": {
+        "TransactionId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        "SelectionId": {
+          "type": "string"
+        },
+        "Options": {
+          "type": "array",
+          "items": {
+            "title": "OptionSelectionDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionSelectionDataType",
+            "required": [
+              "OptionId",
+              "Value"
+            ],
+            "properties": {
+              "OptionId": {
+                "type": "string"
+              },
+              "Value": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

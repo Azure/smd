@@ -1,0 +1,345 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_ConditionBasedMaintenanceType",
+  "title": "Pumps_ConditionBasedMaintenanceType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.ConditionBasedMaintenanceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Availability",
+    "/properties/Durability",
+    "/properties/ExpectedReliability",
+    "/properties/InstantaneousAvailability",
+    "/properties/IntrinsicMaintainability",
+    "/properties/IntrinsicReliability",
+    "/properties/Maintainability",
+    "/properties/OperationalReliability",
+    "/properties/ProductionBasedAvailability",
+    "/properties/Reliability",
+    "/properties/TimeBasedAvailability",
+    "/properties/Availability_EngineeringUnits",
+    "/properties/Durability_EngineeringUnits",
+    "/properties/ExpectedReliability_EngineeringUnits",
+    "/properties/InstantaneousAvailability_EngineeringUnits",
+    "/properties/IntrinsicMaintainability_EngineeringUnits",
+    "/properties/IntrinsicReliability_EngineeringUnits",
+    "/properties/Maintainability_EngineeringUnits",
+    "/properties/OperationalReliability_EngineeringUnits",
+    "/properties/ProductionBasedAvailability_EngineeringUnits",
+    "/properties/Reliability_EngineeringUnits",
+    "/properties/TimeBasedAvailability_EngineeringUnits",
+    "/events/Availability",
+    "/events/Durability",
+    "/events/ExpectedReliability",
+    "/events/InstantaneousAvailability",
+    "/events/IntrinsicMaintainability",
+    "/events/IntrinsicReliability",
+    "/events/Maintainability",
+    "/events/OperationalReliability",
+    "/events/ProductionBasedAvailability",
+    "/events/Reliability",
+    "/events/TimeBasedAvailability"
+  ],
+  "properties": {
+    "Availability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Probability that a machine will, when used under specified conditions, operate satisfactorily and effectively",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Availability_EngineeringUnits"
+    },
+    "Durability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Actual reliability of an item considering operating modes, operating conditions and possible preventive maintenance actions carried out",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Durability_EngineeringUnits"
+    },
+    "ExpectedReliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Reliability of an item determined by design and manufacture under expected conditions of operation and maintenance",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ExpectedReliability_EngineeringUnits"
+    },
+    "InstantaneousAvailability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Probability that an item is in a state to perform as required at a given instant, under given conditions, assuming that the necessary external resources are provided",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/InstantaneousAvailability_EngineeringUnits"
+    },
+    "IntrinsicMaintainability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Maintainability of an item determined by the design under expected conditions of maintenance and logistic support",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/IntrinsicMaintainability_EngineeringUnits"
+    },
+    "IntrinsicReliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Reliability of an item determined by design and manufacture under expected conditions of operation assuming that no preventive maintenance task is carried out, excepting routine maintenance",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/IntrinsicReliability_EngineeringUnits"
+    },
+    "Maintainability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ability of a machine or part of a system to be retained in, or restored to, a state in which it can perform the required function(s)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Maintainability_EngineeringUnits"
+    },
+    "OperationalReliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Actual reliability of an item considering operating modes, operating conditions and possible preventive maintenance actions carried out",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/OperationalReliability_EngineeringUnits"
+    },
+    "ProductionBasedAvailability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ratio of actual production to required production, or any other reference level, over a specified period of time",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ProductionBasedAvailability_EngineeringUnits"
+    },
+    "Reliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Probability that a machine will perform its required functions without failure for a specified time period when used under specified conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Reliability_EngineeringUnits"
+    },
+    "TimeBasedAvailability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "During a given period of time, percentage of the time during which an item was able to perform when required",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/TimeBasedAvailability_EngineeringUnits"
+    },
+    "Availability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Availability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Durability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Durability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ExpectedReliability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ExpectedReliability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "InstantaneousAvailability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name InstantaneousAvailability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "IntrinsicMaintainability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name IntrinsicMaintainability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "IntrinsicReliability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name IntrinsicReliability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Maintainability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Maintainability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OperationalReliability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OperationalReliability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductionBasedAvailability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ProductionBasedAvailability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Reliability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Reliability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeBasedAvailability_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TimeBasedAvailability, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Availability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Probability that a machine will, when used under specified conditions, operate satisfactorily and effectively",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Availability_EngineeringUnits"
+    },
+    "Durability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Actual reliability of an item considering operating modes, operating conditions and possible preventive maintenance actions carried out",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Durability_EngineeringUnits"
+    },
+    "ExpectedReliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Reliability of an item determined by design and manufacture under expected conditions of operation and maintenance",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ExpectedReliability_EngineeringUnits"
+    },
+    "InstantaneousAvailability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Probability that an item is in a state to perform as required at a given instant, under given conditions, assuming that the necessary external resources are provided",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/InstantaneousAvailability_EngineeringUnits"
+    },
+    "IntrinsicMaintainability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Maintainability of an item determined by the design under expected conditions of maintenance and logistic support",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/IntrinsicMaintainability_EngineeringUnits"
+    },
+    "IntrinsicReliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Reliability of an item determined by design and manufacture under expected conditions of operation assuming that no preventive maintenance task is carried out, excepting routine maintenance",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/IntrinsicReliability_EngineeringUnits"
+    },
+    "Maintainability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ability of a machine or part of a system to be retained in, or restored to, a state in which it can perform the required function(s)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Maintainability_EngineeringUnits"
+    },
+    "OperationalReliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Actual reliability of an item considering operating modes, operating conditions and possible preventive maintenance actions carried out",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/OperationalReliability_EngineeringUnits"
+    },
+    "ProductionBasedAvailability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ratio of actual production to required production, or any other reference level, over a specified period of time",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ProductionBasedAvailability_EngineeringUnits"
+    },
+    "Reliability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Probability that a machine will perform its required functions without failure for a specified time period when used under specified conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/Reliability_EngineeringUnits"
+    },
+    "TimeBasedAvailability": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "During a given period of time, percentage of the time during which an item was able to perform when required",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/TimeBasedAvailability_EngineeringUnits"
+    }
+  }
+}

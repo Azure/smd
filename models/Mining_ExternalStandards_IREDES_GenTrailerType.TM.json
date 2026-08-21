@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_GenTrailerType",
+  "title": "Mining_ExternalStandards_IREDES_GenTrailerType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.GenTrailerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "ChkSum": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "CRC 32 checksum.",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "FileCloseDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Date the file was created.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  }
+}

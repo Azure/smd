@@ -1,0 +1,152 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IetfBaseNetworkInterfaceType",
+  "title": "OpcUaCore_IetfBaseNetworkInterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.IetfBaseNetworkInterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "InterfaceAdminStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.InterfaceAdminStatus",
+      "const": {
+        "Up": 0,
+        "Down": 1,
+        "Testing": 2
+      },
+      "properties": {
+        "Up": {
+          "description": "Ready to pass packets.",
+          "type": "integer"
+        },
+        "Down": {
+          "description": "Not ready to pass packets and not in some test mode.",
+          "type": "integer"
+        },
+        "Testing": {
+          "description": "In some test mode.",
+          "type": "integer"
+        }
+      }
+    },
+    "InterfaceOperStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.InterfaceOperStatus",
+      "const": {
+        "Up": 0,
+        "Down": 1,
+        "Testing": 2,
+        "Unknown": 3,
+        "Dormant": 4,
+        "NotPresent": 5,
+        "LowerLayerDown": 6
+      },
+      "properties": {
+        "Up": {
+          "description": "Ready to pass packets.",
+          "type": "integer"
+        },
+        "Down": {
+          "description": "The interface does not pass any packets.",
+          "type": "integer"
+        },
+        "Testing": {
+          "description": "In some test mode. No operational packets can be passed.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Status cannot be determined for some reason.",
+          "type": "integer"
+        },
+        "Dormant": {
+          "description": "Waiting for some external event.",
+          "type": "integer"
+        },
+        "NotPresent": {
+          "description": "Some component (typically hardware) is missing.",
+          "type": "integer"
+        },
+        "LowerLayerDown": {
+          "description": "Down due to state of lower-layer interface(s).",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/PhysAddress",
+    "/events/PhysAddress"
+  ],
+  "properties": {
+    "AdminStatus": {
+      "title": "InterfaceAdminStatus",
+      "dov:typeRef": "org.opcfoundation.UA.InterfaceAdminStatus",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "OperStatus": {
+      "title": "InterfaceOperStatus",
+      "dov:typeRef": "org.opcfoundation.UA.InterfaceOperStatus",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PhysAddress": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Speed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AdminStatus": {
+      "data": {
+        "title": "InterfaceAdminStatus",
+        "dov:typeRef": "org.opcfoundation.UA.InterfaceAdminStatus",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "OperStatus": {
+      "data": {
+        "title": "InterfaceOperStatus",
+        "dov:typeRef": "org.opcfoundation.UA.InterfaceOperStatus",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PhysAddress": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "Speed": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    }
+  }
+}

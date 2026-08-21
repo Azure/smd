@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BaseConfigurationRecordDataType",
+  "title": "OpcUaCore_BaseConfigurationRecordDataType",
+  "dov:typeRef": "org.opcfoundation.UA.BaseConfigurationRecordDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "BaseConfigurationRecordDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BaseConfigurationRecordDataType",
+      "required": [
+        "Name",
+        "RecordProperties"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

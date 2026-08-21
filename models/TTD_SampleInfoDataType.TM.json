@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_SampleInfoDataType",
+  "title": "TTD_SampleInfoDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.SampleInfoDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SampleInfoDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.SampleInfoDataType",
+      "required": [
+        "SampleId",
+        "NominalLinearDensity",
+        "PositionOnCarrier"
+      ],
+      "properties": {
+        "SampleId": {
+          "description": "The unique identifier of a (physical) sample.",
+          "type": "string"
+        },
+        "NominalLinearDensity": {
+          "description": "The nominal linear density of this sample in tex. It is used for calculating linear density related parameters.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "MaterialDensity": {
+          "description": "The material density in g/cm³. It is used for calculating some test results like diameter.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "MaterialType": {
+          "description": "The material type information can be used to switch between material dependend handling of material or for reporting.",
+          "type": "string"
+        },
+        "PositionOnCarrier": {
+          "description": "Position of the sample on the carrier. If there is no carrier an empty String should be provided.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/OPENSCS-SER/#OPENSCS_SER_JobOrderCommandEnum",
+  "title": "OPENSCS_SER_JobOrderCommandEnum",
+  "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.JobOrderCommandEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "JobOrderCommandEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.JobOrderCommandEnum",
+      "const": {
+        "Undefined_0": 0,
+        "Store_1": 1,
+        "StoreAndStart_2": 2,
+        "Start_3": 3,
+        "Update_4": 4,
+        "Stop_5": 5,
+        "Cancel_6": 6,
+        "Clear_7": 7
+      },
+      "description": "Describes the possible job order commands.  ",
+      "properties": {
+        "Undefined_0": {
+          "description": "Undefined value, should never be seen.",
+          "type": "integer"
+        },
+        "Store_1": {
+          "description": "Command to store the job order in local storage, but not to start the order.",
+          "type": "integer"
+        },
+        "StoreAndStart_2": {
+          "description": "Command to store the job order and start it as soon as the Job Order receiver is ready to start.",
+          "type": "integer"
+        },
+        "Start_3": {
+          "description": "Command to start a stored job order as soon as the receiver is ready to start. Only the Job Orders ID is used to identify the stored job order, all other information is not used.  No changes are made to the stored order. If multiple Job Orders have been commanded to Start, then the priority and timing values in the Job Orders shall be used to determine the order of execution of the orders.",
+          "type": "integer"
+        },
+        "Update_4": {
+          "description": "Command to update a stored Job Order that has not yet been started, with the new order information.  All previously stored information is replaced.",
+          "type": "integer"
+        },
+        "Stop_5": {
+          "description": "Command to stop a started job order, report on any work done on the order, and remove the stored information. Only the Job Orders ID is used to identify the job order, all other information is not used.",
+          "type": "integer"
+        },
+        "Cancel_6": {
+          "description": "Cancel an un-started job order and remove the stored information. Only the Job Orders ID is used to identify the job order, all other information is not used.",
+          "type": "integer"
+        },
+        "Clear_7": {
+          "description": "Command to allow the Information Receiver to clear any maintained information on the Job Order (usually sent after a receipt of a Job Response with a status of Finished.) Only the Job Orders ID is used to identify the job order, all other information is not used.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

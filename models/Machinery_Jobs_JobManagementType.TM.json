@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Jobs/#Machinery_Jobs_JobManagementType",
+  "title": "Machinery_Jobs_JobManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobManagementType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "JobOrderControl",
+      "href": "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/#ISA95_JOBCONTROL_V2_ISA95JobOrderReceiverObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "JobOrderResults",
+      "href": "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/#ISA95_JOBCONTROL_V2_ISA95JobResponseProviderObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

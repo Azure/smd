@@ -1,0 +1,101 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CookingZoneDeviceType",
+  "title": "CommercialKitchenEquipment_CookingZoneDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.CookingZoneDeviceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CommercialKitchenDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CookingZone__No__",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CookingZoneParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EnergySourceEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.EnergySourceEnumeration",
+      "const": {
+        "Electric": 0,
+        "Gas": 1,
+        "Steam": 2
+      },
+      "properties": {
+        "Electric": {
+          "type": "integer"
+        },
+        "Gas": {
+          "type": "integer"
+        },
+        "Steam": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/NominalVoltage_EngineeringUnits"
+  ],
+  "properties": {
+    "EnergySource": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "EnergySourceEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.EnergySourceEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IsWithPanDetection": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "NominalVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/NominalVoltage_EngineeringUnits"
+    },
+    "NumberOfPhases": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "NominalVoltage_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NominalVoltage, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "NominalVoltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricPotential",
+      "dov:withUnit": "properties/NominalVoltage_EngineeringUnits"
+    }
+  }
+}

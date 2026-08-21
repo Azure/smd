@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialDispensedLogType",
+  "title": "TMC_v2_MaterialDispensedLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDispensedLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaterialQuantityVariableType": {
+      "description": "The MaterialQuantityVariableType is a subtype of the DisplayAnalogUnitType. It is used to  provide a material quantity.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialQuantityVariableType",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308
+    },
+    "MaterialSublotVariableType": {
+      "description": "The MaterialSublotVariableType is a subtype of the MaterialQuantityVariableType. It is used to  provide the quantity for a material sublot.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialSublotVariableType",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308
+    }
+  },
+  "properties": {
+    "DispensedMaterial": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType",
+      "readOnly": true,
+      "dov:contains": [
+        "DispensedMaterial_ValueInBUoM"
+      ]
+    },
+    "DispensedMaterial_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "DispensedMaterial"
+    },
+    "DispensedMaterialTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType",
+      "readOnly": true,
+      "dov:contains": [
+        "DispensedMaterialTotal_ValueInBUoM"
+      ]
+    },
+    "DispensedMaterialTotal_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "DispensedMaterialTotal"
+    }
+  },
+  "events": {
+    "DispensedMaterial": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialSublotVariableType"
+      },
+      "dov:contains": [
+        "DispensedMaterial_ValueInBUoM"
+      ]
+    },
+    "DispensedMaterial_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "DispensedMaterial"
+    },
+    "DispensedMaterialTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialQuantityVariableType"
+      },
+      "dov:contains": [
+        "DispensedMaterialTotal_ValueInBUoM"
+      ]
+    },
+    "DispensedMaterialTotal_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "DispensedMaterialTotal"
+    }
+  }
+}

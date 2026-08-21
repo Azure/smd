@@ -1,0 +1,75 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_IAmperometricSignalConditionSetType",
+  "title": "PADIM_IAmperometricSignalConditionSetType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.IAmperometricSignalConditionSetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SensingElementTemperature",
+    "/properties/SensorCleaningsCounter",
+    "/properties/SensorNextCalibration",
+    "/properties/SensorSterilisationsCounter",
+    "/events/SensingElementTemperature",
+    "/events/SensorNextCalibration"
+  ],
+  "properties": {
+    "SensingElementTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "SensorCleaningsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "SensorNextCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "SensorSterilisationsCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SensingElementTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "SensorNextCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

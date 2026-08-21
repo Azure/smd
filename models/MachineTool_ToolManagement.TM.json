@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ToolManagement",
+  "title": "MachineTool_ToolManagement",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolManagement",
+  "links": [],
+  "schemaDefinitions": {
+    "ToolManagement": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolManagement",
+      "const": {
+        "NumberBased": 0,
+        "GroupBased": 1,
+        "Other": 2
+      },
+      "properties": {
+        "NumberBased": {
+          "description": "The tool is addressed using a single identifier.",
+          "type": "integer"
+        },
+        "GroupBased": {
+          "description": "The tool is addressed using an identifier for the group and a second one for the tool within the group.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "The tool is addressed by a different, custom defined system.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

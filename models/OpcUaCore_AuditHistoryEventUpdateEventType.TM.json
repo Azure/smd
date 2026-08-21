@@ -1,0 +1,240 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryEventUpdateEventType",
+  "title": "OpcUaCore_AuditHistoryEventUpdateEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditHistoryEventUpdateEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryUpdateEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FilterOperator": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
+      "const": {
+        "Equals": 0,
+        "IsNull": 1,
+        "GreaterThan": 2,
+        "LessThan": 3,
+        "GreaterThanOrEqual": 4,
+        "LessThanOrEqual": 5,
+        "Like": 6,
+        "Not": 7,
+        "Between": 8,
+        "InList": 9,
+        "And": 10,
+        "Or": 11,
+        "Cast": 12,
+        "InView": 13,
+        "OfType": 14,
+        "RelatedTo": 15,
+        "BitwiseAnd": 16,
+        "BitwiseOr": 17
+      },
+      "properties": {
+        "Equals": {
+          "type": "integer"
+        },
+        "IsNull": {
+          "type": "integer"
+        },
+        "GreaterThan": {
+          "type": "integer"
+        },
+        "LessThan": {
+          "type": "integer"
+        },
+        "GreaterThanOrEqual": {
+          "type": "integer"
+        },
+        "LessThanOrEqual": {
+          "type": "integer"
+        },
+        "Like": {
+          "type": "integer"
+        },
+        "Not": {
+          "type": "integer"
+        },
+        "Between": {
+          "type": "integer"
+        },
+        "InList": {
+          "type": "integer"
+        },
+        "And": {
+          "type": "integer"
+        },
+        "Or": {
+          "type": "integer"
+        },
+        "Cast": {
+          "type": "integer"
+        },
+        "InView": {
+          "type": "integer"
+        },
+        "OfType": {
+          "type": "integer"
+        },
+        "RelatedTo": {
+          "type": "integer"
+        },
+        "BitwiseAnd": {
+          "type": "integer"
+        },
+        "BitwiseOr": {
+          "type": "integer"
+        }
+      }
+    },
+    "PerformUpdateType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "const": {
+        "Insert": 1,
+        "Replace": 2,
+        "Update": 3,
+        "Remove": 4
+      },
+      "properties": {
+        "Insert": {
+          "description": "Data was inserted.",
+          "type": "integer"
+        },
+        "Replace": {
+          "description": "Data was replaced.",
+          "type": "integer"
+        },
+        "Update": {
+          "description": "Data was inserted or replaced.",
+          "type": "integer"
+        },
+        "Remove": {
+          "description": "Data was deleted.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Filter": {
+      "title": "EventFilter",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EventFilter",
+      "required": [
+        "SelectClauses",
+        "WhereClause"
+      ],
+      "properties": {
+        "SelectClauses": {
+          "type": "array",
+          "items": {
+            "title": "SimpleAttributeOperand",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.SimpleAttributeOperand",
+            "required": [
+              "TypeDefinitionId",
+              "BrowsePath",
+              "AttributeId",
+              "IndexRange"
+            ],
+            "properties": {
+              "TypeDefinitionId": {
+                "type": "string"
+              },
+              "BrowsePath": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "AttributeId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "IndexRange": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "WhereClause": {
+          "title": "ContentFilter",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ContentFilter",
+          "required": [
+            "Elements"
+          ],
+          "properties": {
+            "Elements": {
+              "type": "array",
+              "items": {
+                "title": "ContentFilterElement",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.ContentFilterElement",
+                "required": [
+                  "FilterOperator",
+                  "FilterOperands"
+                ],
+                "properties": {
+                  "FilterOperator": {
+                    "title": "FilterOperator",
+                    "dov:typeRef": "org.opcfoundation.UA.FilterOperator",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "FilterOperands": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "NewValues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "OldValues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "PerformInsertReplace": {
+      "title": "PerformUpdateType",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "UpdatedNode": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

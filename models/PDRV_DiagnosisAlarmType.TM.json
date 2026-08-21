@@ -1,0 +1,111 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PDRV/#PDRV_DiagnosisAlarmType",
+  "title": "PDRV_DiagnosisAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.PDRV.DiagnosisAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AlarmConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EventTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+      "const": {
+        "FAULT": 0,
+        "WARNING": 1,
+        "UNSPECIFIED": 255
+      },
+      "properties": {
+        "FAULT": {
+          "description": "The log entry indicates a malfunction of the encoder, e.g. position fault",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The log entry is a warning, e.g. for battery status",
+          "type": "integer"
+        },
+        "UNSPECIFIED": {
+          "description": "No information about the type of the event is given.  The intended purpose for the definition is usage by the GetFilteredLogbookEntries Method to specify “don’t care” for the EventType parameter. Must not be used for log entries and encoder diagnosis events as EncoderDiagnosisEventType and LogbookEventType",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "LogEntry": {
+      "dov:namespace": "http://opcfoundation.org/UA/PDRV/",
+      "title": "LogEntryDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNENC.LogEntryDataType",
+      "required": [
+        "FaultSituationNumber",
+        "EventNumber",
+        "EventType",
+        "EventCode",
+        "EventText",
+        "EventComing",
+        "EventGoing",
+        "EventAcknowledged"
+      ],
+      "properties": {
+        "FaultSituationNumber": {
+          "description": "Identification of fault situation. 0 means current fault situation",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "EventNumber": {
+          "description": "Unique number of log entry, analogous to Fault message counter",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "EventType": {
+          "title": "EventTypeEnumeration",
+          "description": "Characterization of the event (fault, warning, etc.). Must never have the value “UNSPECIFIED”",
+          "dov:typeRef": "org.opcfoundation.UA.PNENC.EventTypeEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EventCode": {
+          "description": "Fault-code identifying a fault or warning",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EventText": {
+          "description": "Brief description of the fault or warning",
+          "type": "string"
+        },
+        "EventComing": {
+          "description": "Time when the event appears",
+          "type": "string",
+          "format": "time"
+        },
+        "EventGoing": {
+          "description": "Time when the event disappears",
+          "type": "string",
+          "format": "time"
+        },
+        "EventAcknowledged": {
+          "description": "Time when the event is acknowledged",
+          "type": "string",
+          "format": "time"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

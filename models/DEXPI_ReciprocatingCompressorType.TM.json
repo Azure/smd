@@ -1,0 +1,70 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ReciprocatingCompressorType",
+  "title": "DEXPI_ReciprocatingCompressorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ReciprocatingCompressorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_CompressorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Displacer>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_DisplacerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignRotationalSpeed",
+    "/properties/DesignShaftPower",
+    "/events/DesignRotationalSpeed",
+    "/events/DesignShaftPower"
+  ],
+  "properties": {
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design rotational speed of the ReciprocatingCompressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design shaft power of the ReciprocatingCompressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design rotational speed of the ReciprocatingCompressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design shaft power of the ReciprocatingCompressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

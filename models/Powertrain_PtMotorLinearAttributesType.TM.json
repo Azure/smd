@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtMotorLinearAttributesType",
+  "title": "Powertrain_PtMotorLinearAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtMotorLinearAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtMotorAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/ForcerWeight",
+    "/properties/MotorBackEMF",
+    "/properties/MotorPolePairPitch",
+    "/events/ForcerWeight",
+    "/events/MotorBackEMF",
+    "/events/MotorPolePairPitch"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "ForcerWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "MotorBackEMF": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "MotorPolePairPitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ForcerWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "MotorBackEMF": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "MotorPolePairPitch": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

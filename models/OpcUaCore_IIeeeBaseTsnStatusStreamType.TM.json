@@ -1,0 +1,296 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeBaseTsnStatusStreamType",
+  "title": "OpcUaCore_IIeeeBaseTsnStatusStreamType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeBaseTsnStatusStreamType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TsnFailureCode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TsnFailureCode",
+      "const": {
+        "NoFailure": 0,
+        "InsufficientBandwidth": 1,
+        "InsufficientResources": 2,
+        "InsufficientTrafficClassBandwidth": 3,
+        "StreamIdInUse": 4,
+        "StreamDestinationAddressInUse": 5,
+        "StreamPreemptedByHigherRank": 6,
+        "LatencyHasChanged": 7,
+        "EgressPortNotAvbCapable": 8,
+        "UseDifferentDestinationAddress": 9,
+        "OutOfMsrpResources": 10,
+        "OutOfMmrpResources": 11,
+        "CannotStoreDestinationAddress": 12,
+        "PriorityIsNotAnSrcClass": 13,
+        "MaxFrameSizeTooLarge": 14,
+        "MaxFanInPortsLimitReached": 15,
+        "FirstValueChangedForStreamId": 16,
+        "VlanBlockedOnEgress": 17,
+        "VlanTaggingDisabledOnEgress": 18,
+        "SrClassPriorityMismatch": 19,
+        "FeatureNotPropagated": 20,
+        "MaxLatencyExceeded": 21,
+        "BridgeDoesNotProvideNetworkId": 22,
+        "StreamTransformNotSupported": 23,
+        "StreamIdTypeNotSupported": 24,
+        "FeatureNotSupported": 25
+      },
+      "properties": {
+        "NoFailure": {
+          "description": "No failure",
+          "type": "integer"
+        },
+        "InsufficientBandwidth": {
+          "description": "Insufficient bandwidth",
+          "type": "integer"
+        },
+        "InsufficientResources": {
+          "description": "Insufficient bridge resources",
+          "type": "integer"
+        },
+        "InsufficientTrafficClassBandwidth": {
+          "description": "Insufficient bandwidth for Traffic Class",
+          "type": "integer"
+        },
+        "StreamIdInUse": {
+          "description": "StreamID in use by another Talker",
+          "type": "integer"
+        },
+        "StreamDestinationAddressInUse": {
+          "description": "Stream destination address already in use",
+          "type": "integer"
+        },
+        "StreamPreemptedByHigherRank": {
+          "description": "Stream pre-empted by higher rank",
+          "type": "integer"
+        },
+        "LatencyHasChanged": {
+          "description": "Reported latency has changed",
+          "type": "integer"
+        },
+        "EgressPortNotAvbCapable": {
+          "description": "Egress port is not AVBCapable",
+          "type": "integer"
+        },
+        "UseDifferentDestinationAddress": {
+          "description": "Use a different destination address",
+          "type": "integer"
+        },
+        "OutOfMsrpResources": {
+          "description": "Out of MSRP resources",
+          "type": "integer"
+        },
+        "OutOfMmrpResources": {
+          "description": "Out of MMRP resources",
+          "type": "integer"
+        },
+        "CannotStoreDestinationAddress": {
+          "description": "Cannot store destination address",
+          "type": "integer"
+        },
+        "PriorityIsNotAnSrcClass": {
+          "description": "Requested priority is not an SR Class priority",
+          "type": "integer"
+        },
+        "MaxFrameSizeTooLarge": {
+          "description": "MaxFrameSize is too large for media",
+          "type": "integer"
+        },
+        "MaxFanInPortsLimitReached": {
+          "description": "MaxFanInPorts limit has been reached",
+          "type": "integer"
+        },
+        "FirstValueChangedForStreamId": {
+          "description": "Changes in FirstValue for a registered StreamID",
+          "type": "integer"
+        },
+        "VlanBlockedOnEgress": {
+          "description": "VLAN is blocked on this egress port (Registration Forbidden)",
+          "type": "integer"
+        },
+        "VlanTaggingDisabledOnEgress": {
+          "description": "VLAN tagging is disabled on this egress port (untagged set)",
+          "type": "integer"
+        },
+        "SrClassPriorityMismatch": {
+          "description": "SR class priority mismatch",
+          "type": "integer"
+        },
+        "FeatureNotPropagated": {
+          "description": "Enhanced feature cannot be propagated to original Port",
+          "type": "integer"
+        },
+        "MaxLatencyExceeded": {
+          "description": "MaxLatency exceeded",
+          "type": "integer"
+        },
+        "BridgeDoesNotProvideNetworkId": {
+          "description": "Nearest Bridge cannot provide network identification for stream transformation",
+          "type": "integer"
+        },
+        "StreamTransformNotSupported": {
+          "description": "Stream transformation not supported",
+          "type": "integer"
+        },
+        "StreamIdTypeNotSupported": {
+          "description": "Stream identification type not supported for stream transformation",
+          "type": "integer"
+        },
+        "FeatureNotSupported": {
+          "description": "Enhanced feature cannot be supported without a CNC",
+          "type": "integer"
+        }
+      }
+    },
+    "TsnListenerStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
+      "const": {
+        "None": 0,
+        "Ready": 1,
+        "PartialFailed": 2,
+        "Failed": 3
+      },
+      "properties": {
+        "None": {
+          "description": "No Listener detected.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Listener ready (configured).",
+          "type": "integer"
+        },
+        "PartialFailed": {
+          "description": "One or more Listeners ready, and one or more Listeners failed.",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "Listener failed.",
+          "type": "integer"
+        }
+      }
+    },
+    "TsnTalkerStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
+      "const": {
+        "None": 0,
+        "Ready": 1,
+        "Failed": 2
+      },
+      "properties": {
+        "None": {
+          "description": "No Talker detected.",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "Talker ready (configured).",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "Talker failed.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ListenerStatus",
+    "/properties/TalkerStatus",
+    "/events/ListenerStatus",
+    "/events/TalkerStatus"
+  ],
+  "properties": {
+    "FailureCode": {
+      "title": "TsnFailureCode",
+      "dov:typeRef": "org.opcfoundation.UA.TsnFailureCode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "FailureSystemIdentifier": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "readOnly": true
+    },
+    "ListenerStatus": {
+      "title": "TsnListenerStatus",
+      "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "TalkerStatus": {
+      "title": "TsnTalkerStatus",
+      "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "FailureCode": {
+      "data": {
+        "title": "TsnFailureCode",
+        "dov:typeRef": "org.opcfoundation.UA.TsnFailureCode",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "FailureSystemIdentifier": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      }
+    },
+    "ListenerStatus": {
+      "data": {
+        "title": "TsnListenerStatus",
+        "dov:typeRef": "org.opcfoundation.UA.TsnListenerStatus",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "TalkerStatus": {
+      "data": {
+        "title": "TsnTalkerStatus",
+        "dov:typeRef": "org.opcfoundation.UA.TsnTalkerStatus",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

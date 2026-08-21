@@ -1,0 +1,159 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_InstallationStateMachineType",
+  "title": "DI_InstallationStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.InstallationStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Idle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_InitialStateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Installing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Error",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IdleToInstalling",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "InstallingToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "InstallingToError",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ErrorToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/InstallFiles",
+    "/actions/InstallSoftwarePackage",
+    "/actions/Uninstall",
+    "/properties/InstallationDelay",
+    "/properties/PercentComplete",
+    "/events/InstallationDelay",
+    "/events/PercentComplete"
+  ],
+  "actions": {
+    "InstallFiles": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "NodeIds"
+        ],
+        "properties": {
+          "NodeIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "InstallSoftwarePackage": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ManufacturerUri",
+          "SoftwareRevision",
+          "PatchIdentifiers",
+          "Hash"
+        ],
+        "properties": {
+          "ManufacturerUri": {
+            "type": "string"
+          },
+          "SoftwareRevision": {
+            "type": "string"
+          },
+          "PatchIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Hash": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "Resume": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/"
+    },
+    "Uninstall": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/"
+    }
+  },
+  "properties": {
+    "InstallationDelay": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PercentComplete": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "InstallationDelay": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "PercentComplete": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      }
+    }
+  }
+}

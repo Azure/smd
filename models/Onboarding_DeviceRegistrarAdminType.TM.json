@@ -1,0 +1,99 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Onboarding/#Onboarding_DeviceRegistrarAdminType",
+  "title": "Onboarding_DeviceRegistrarAdminType",
+  "dov:typeRef": "org.opcfoundation.UA.Onboarding.DeviceRegistrarAdminType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "TicketAuthorities",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TrustListType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceIdentityAuthorities",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TrustListType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "RegisterTickets": {
+      "dov:namespace": "http://opcfoundation.org/UA/Onboarding/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Tickets"
+        ],
+        "properties": {
+          "Tickets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "UnregisterTickets": {
+      "dov:namespace": "http://opcfoundation.org/UA/Onboarding/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Tickets"
+        ],
+        "properties": {
+          "Tickets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

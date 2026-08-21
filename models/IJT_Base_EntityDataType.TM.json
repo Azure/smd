@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_EntityDataType",
+  "title": "IJT_Base_EntityDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "EntityDataType": {
+      "description": "This structure provides the identification data for a given entity in the system.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+      "required": [
+        "EntityId",
+        "EntityType"
+      ],
+      "properties": {
+        "Name": {
+          "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+          "type": "string"
+        },
+        "EntityId": {
+          "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+          "type": "string"
+        },
+        "EntityOriginId": {
+          "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+          "type": "string"
+        },
+        "IsExternal": {
+          "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+          "type": "boolean"
+        },
+        "EntityType": {
+          "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        }
+      }
+    }
+  }
+}

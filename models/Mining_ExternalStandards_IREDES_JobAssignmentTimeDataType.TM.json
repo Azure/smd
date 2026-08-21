@@ -1,0 +1,31 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_JobAssignmentTimeDataType",
+  "title": "Mining_ExternalStandards_IREDES_JobAssignmentTimeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.JobAssignmentTimeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "JobAssignmentTimeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.JobAssignmentTimeDataType",
+      "properties": {
+        "ExpectedFinishTime": {
+          "description": "Time Machine is expected to finish the job.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "ExpectedDuration": {
+          "description": "Time the job is going to take to finish.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        }
+      }
+    }
+  }
+}

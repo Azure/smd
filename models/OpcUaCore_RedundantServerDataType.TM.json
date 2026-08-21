@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_RedundantServerDataType",
+  "title": "OpcUaCore_RedundantServerDataType",
+  "dov:typeRef": "org.opcfoundation.UA.RedundantServerDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RedundantServerDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.RedundantServerDataType",
+      "required": [
+        "ServerId",
+        "ServiceLevel",
+        "ServerState"
+      ],
+      "properties": {
+        "ServerId": {
+          "type": "string"
+        },
+        "ServiceLevel": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "ServerState": {
+          "title": "ServerState",
+          "dov:typeRef": "org.opcfoundation.UA.ServerState",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

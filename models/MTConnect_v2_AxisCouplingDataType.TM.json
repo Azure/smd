@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_AxisCouplingDataType",
+  "title": "MTConnect_v2_AxisCouplingDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.AxisCouplingDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AxisCouplingDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.AxisCouplingDataType",
+      "const": {
+        "MASTER": 0,
+        "SLAVE": 1,
+        "SYNCHRONOUS": 2,
+        "TANDEM": 3
+      },
+      "description": "",
+      "properties": {
+        "MASTER": {
+          "description": "           It provides information or state values that influences the operation           of other dataitem of similar type.         ",
+          "type": "integer"
+        },
+        "SLAVE": {
+          "description": "The axis is a slave to the coupledaxes event",
+          "type": "integer"
+        },
+        "SYNCHRONOUS": {
+          "description": "           Physical or logical parts which are not physically connected to each           other but are operating together.         ",
+          "type": "integer"
+        },
+        "TANDEM": {
+          "description": "Elements are physically connected to each other and operate as a single unit.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

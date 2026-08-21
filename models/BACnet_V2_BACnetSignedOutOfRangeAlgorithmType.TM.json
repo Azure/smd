@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetSignedOutOfRangeAlgorithmType",
+  "title": "BACnet_V2_BACnetSignedOutOfRangeAlgorithmType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetSignedOutOfRangeAlgorithmType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventAlgorithmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetLimitEnable": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLimitEnable",
+      "const": {
+        "lowLimitEnable": 0,
+        "highLimitEnable": 1
+      },
+      "properties": {
+        "lowLimitEnable": {
+          "type": "integer"
+        },
+        "highLimitEnable": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Deadband": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "readOnly": false
+    },
+    "HighLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "readOnly": false
+    },
+    "LimitEnable": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetLimitEnable",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLimitEnable",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "LowLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "readOnly": false
+    }
+  }
+}

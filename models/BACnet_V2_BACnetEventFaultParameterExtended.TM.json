@@ -1,0 +1,212 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventFaultParameterExtended",
+  "title": "BACnet_V2_BACnetEventFaultParameterExtended",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventFaultParameterExtended",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventFaultParameterExtended": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventFaultParameterExtended",
+      "required": [
+        "VendorId",
+        "Extended-fault-type",
+        "Parameters"
+      ],
+      "properties": {
+        "VendorId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Extended-fault-type": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "Parameters": {
+          "type": "array",
+          "items": {
+            "title": "BACnetEventParameterExtendedParameters",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterExtendedParameters",
+            "properties": {
+              "Real": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Unsigned": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Boolean": {
+                "type": "boolean"
+              },
+              "Double": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Octed": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                }
+              },
+              "CharacterString": {
+                "type": "string"
+              },
+              "BitString": {
+                "title": "OptionSet",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.OptionSet",
+                "required": [
+                  "Value",
+                  "ValidBits"
+                ],
+                "properties": {
+                  "Value": {
+                    "type": "string",
+                    "contentEncoding": "base64"
+                  },
+                  "ValidBits": {
+                    "type": "string",
+                    "contentEncoding": "base64"
+                  }
+                }
+              },
+              "Enum": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Date": {
+                "title": "BACnetDate",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDate",
+                "required": [
+                  "Year",
+                  "Month",
+                  "DayOfMonth",
+                  "DayOfWeek"
+                ],
+                "properties": {
+                  "Year": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "Month": {
+                    "title": "BACnetMonth",
+                    "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMonth",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DayOfMonth": {
+                    "title": "BACnetDayOfMonth",
+                    "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfMonth",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DayOfWeek": {
+                    "title": "BACnetDayOfWeek",
+                    "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDayOfWeek",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  }
+                }
+              },
+              "Time": {
+                "title": "BACnetTime",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTime",
+                "required": [
+                  "Hour",
+                  "Minute",
+                  "Second",
+                  "Hundredths"
+                ],
+                "properties": {
+                  "Hour": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Minute": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Second": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "Hundredths": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  }
+                }
+              },
+              "ObjectIdentifier": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "Reference": {
+                "title": "BACnetDeviceObjectPropertyReference",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceObjectPropertyReference",
+                "required": [
+                  "ObjectIdentifier"
+                ],
+                "properties": {
+                  "ObjectIdentifier": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 4294967295
+                  },
+                  "PropertyIdentifier": {
+                    "title": "BACnetPropertyIdentifier",
+                    "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyIdentifier",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "PropertyArrayIndex": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 4294967295
+                  },
+                  "DeviceIdentifier": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 4294967295
+                  }
+                }
+              },
+              "Integer": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

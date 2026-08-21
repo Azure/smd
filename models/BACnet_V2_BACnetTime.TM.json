@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetTime",
+  "title": "BACnet_V2_BACnetTime",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTime",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetTime": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTime",
+      "required": [
+        "Hour",
+        "Minute",
+        "Second",
+        "Hundredths"
+      ],
+      "properties": {
+        "Hour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Minute": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Second": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Hundredths": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

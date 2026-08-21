@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_RGBWDataType",
+  "title": "IA_RGBWDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.RGBWDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RGBWDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.RGBWDataType",
+      "required": [
+        "Red",
+        "Green",
+        "Blue"
+      ],
+      "properties": {
+        "Red": {
+          "description": "Defines the intensity of the colour red",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Green": {
+          "description": "Defines the intensity of the colour green",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Blue": {
+          "description": "Defines the intensity of the colour blue",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "White": {
+          "description": "Defines the intensity of an additional white component. Shall be not provided when using RGB.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

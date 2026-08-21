@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_OperationalModeEnumeration",
+  "title": "Robotics_OperationalModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.OperationalModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "OperationalModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Robotics.OperationalModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "MANUAL_REDUCED_SPEED": 1,
+        "MANUAL_HIGH_SPEED": 2,
+        "AUTOMATIC": 3,
+        "AUTOMATIC_EXTERNAL": 4
+      },
+      "properties": {
+        "OTHER": {
+          "description": "Other for when there is a system-boot (unknown) or a failure of the safety, there is no valid operational mode.",
+          "type": "integer"
+        },
+        "MANUAL_REDUCED_SPEED": {
+          "description": "'Manual reduced speed' - name according to ISO 10218-1:2011.",
+          "type": "integer"
+        },
+        "MANUAL_HIGH_SPEED": {
+          "description": "'Manual high speed' - name according to ISO 10218-1:2011.",
+          "type": "integer"
+        },
+        "AUTOMATIC": {
+          "description": "'Automatic' - name according to ISO 10218-1:2011.",
+          "type": "integer"
+        },
+        "AUTOMATIC_EXTERNAL": {
+          "description": "'Automatic external' - Same as 'Automatic' but with external control, e.g. by a PLC.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

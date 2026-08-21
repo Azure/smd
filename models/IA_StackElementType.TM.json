@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_StackElementType",
+  "title": "IA_StackElementType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.StackElementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/IsPartOfBase",
+    "/properties/SignalOn"
+  ],
+  "properties": {
+    "IsPartOfBase": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates, if the element is contained in the mounting base of the stacklight. All elements contained in the mounting base shall be at the beginning of the list of stack elements.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "NumberInList": {
+      "description": "Enumerate the stacklight elements counting upwards beginning from the base of the stacklight.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": true
+    },
+    "SignalOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates if the signal emitted by the stack element is currently switched on or not.",
+      "type": "boolean",
+      "readOnly": false
+    }
+  }
+}

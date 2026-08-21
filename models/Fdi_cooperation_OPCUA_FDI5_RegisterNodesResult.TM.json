@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://fdi-cooperation.com/OPCUA/FDI5/#Fdi_cooperation_OPCUA_FDI5_RegisterNodesResult",
+  "title": "Fdi_cooperation_OPCUA_FDI5_RegisterNodesResult",
+  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisterNodesResult",
+  "links": [],
+  "schemaDefinitions": {
+    "RegisterNodesResult": {
+      "type": "object",
+      "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisterNodesResult",
+      "required": [
+        "Status",
+        "RegisteredNodes"
+      ],
+      "properties": {
+        "Status": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "RegisteredNodes": {
+          "type": "array",
+          "items": {
+            "title": "RegisteredNode",
+            "type": "object",
+            "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisteredNode",
+            "required": [
+              "NodeStatus",
+              "OnlineContextNodeId",
+              "OnlineDeviceNodeId",
+              "OfflineContextNodeId",
+              "OfflineDeviceNodeId"
+            ],
+            "properties": {
+              "NodeStatus": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "OnlineContextNodeId": {
+                "type": "string"
+              },
+              "OnlineDeviceNodeId": {
+                "type": "string"
+              },
+              "OfflineContextNodeId": {
+                "type": "string"
+              },
+              "OfflineDeviceNodeId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

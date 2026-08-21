@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_AccessResult",
+  "title": "AutoID_AccessResult",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.AccessResult",
+  "links": [],
+  "schemaDefinitions": {
+    "AccessResult": {
+      "description": "Result values of an AutoID Identifier access.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.AccessResult",
+      "properties": {
+        "CodeType": {
+          "description": "Defines the format of Identifier as string.",
+          "type": "string"
+        },
+        "Identifier": {
+          "title": "ScanData",
+          "description": "The AutoID Identifier (e.g. a code or a transponder) which was accessed by a command.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+          "properties": {
+            "ByteString": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "String": {
+              "type": "string"
+            },
+            "Epc": {
+              "title": "ScanDataEpc",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanDataEpc",
+              "required": [
+                "PC",
+                "UId",
+                "XPC_W1",
+                "XPC_W2"
+              ],
+              "properties": {
+                "PC": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "UId": {
+                  "type": "string",
+                  "contentEncoding": "base64"
+                },
+                "XPC_W1": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "XPC_W2": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                }
+              }
+            },
+            "Custom": {
+              "description": "Stand-in for an unspecified data type.",
+              "type": "string"
+            }
+          }
+        },
+        "Timestamp": {
+          "description": "The point of time the AutoID Identifier was accessed by the command.",
+          "type": "string",
+          "format": "time"
+        }
+      }
+    }
+  }
+}

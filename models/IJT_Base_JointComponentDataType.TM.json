@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JointComponentDataType",
+  "title": "IJT_Base_JointComponentDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointComponentDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "JointComponentDataType": {
+      "description": "This structure is the base container for any joint component such as Bolt, Rivet, Gasket, Glue string, etc.  Note: The concrete definition of joint component is not defined in this version of the specification.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointComponentDataType",
+      "required": [
+        "JointComponentId"
+      ],
+      "properties": {
+        "JointComponentId": {
+          "description": "It is the identifier of the joint component. Examples: BoltId, RivetId, GasketId, etc.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "It is the name of the joint component.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "It is the description of the joint component.",
+          "type": "string"
+        },
+        "Manufacturer": {
+          "description": "It is the manufacturer of the joint component.",
+          "type": "string"
+        },
+        "ManufacturerUri": {
+          "description": "It is the identifier of the manufacturer.",
+          "type": "string"
+        },
+        "JointComponentContent": {
+          "description": "It is the content of the joint component. Examples: Bolt, Rivet, Gasket, etc. ",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_UIInformationType",
+  "title": "TMC_v2_UIInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.UIInformationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "UIResources",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "DeleteUIResource": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Method DeleteUIResource permanently removes a UI resource from the underlying system  memory.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ResourceName"
+        ],
+        "properties": {
+          "ResourceName": {
+            "description": "The name of the UI resource to be deleted from the underlying system.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "LoadUIResource": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Method LoadUIResource loads a UI resource in the underlying system for visualization. It will  override the existing UI resource by the same name.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ResourceName",
+          "ResourceValue"
+        ],
+        "properties": {
+          "ResourceName": {
+            "description": "The name of the UI resource to be created in the underlying system.",
+            "type": "string"
+          },
+          "ResourceValue": {
+            "description": "The value that the UI resource will obtain in the underlying system, i.e. the SVG file.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "PositionX": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "PositionX is the relative horizontal position of the top-left corner of the object rendering in the target  visualization scope.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PositionY": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "PositionX is the relative vertical position of the top-left corner of the object rendering in the target  visualization scope.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PositionZ": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "PositionZ is the depth of the object rendering in the target visualization scope. ",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Resizable": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "When Resizable is True, the UI resource Width is rescaled based on the actual display size.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Width": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "Width is the width of the object visualization in the target visualization scope.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  }
+}

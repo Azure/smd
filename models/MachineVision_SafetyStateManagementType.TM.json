@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_SafetyStateManagementType",
+  "title": "MachineVision_SafetyStateManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.SafetyStateManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "ReportSafetyState": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SafetyTriggered",
+          "SafetyInformation"
+        ],
+        "properties": {
+          "SafetyTriggered": {
+            "type": "boolean"
+          },
+          "SafetyInformation": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Error"
+        ],
+        "properties": {
+          "Error": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "VisionSafetyInformation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "type": "string",
+      "readOnly": false
+    },
+    "VisionSafetyTriggered": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "VisionSafetyInformation": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "data": {
+        "type": "string"
+      }
+    },
+    "VisionSafetyTriggered": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

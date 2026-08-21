@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_AxisType",
+  "title": "Robotics_AxisType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.AxisType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "PowerTrainIdentifier",
+      "dov:refType": "Requires",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_PowerTrainType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AdditionalLoad",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_LoadType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ParameterSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AxisMotionProfileEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Robotics.AxisMotionProfileEnumeration",
+      "const": {
+        "OTHER": 0,
+        "ROTARY": 1,
+        "ROTARY_ENDLESS": 2,
+        "LINEAR": 3,
+        "LINEAR_ENDLESS": 4
+      },
+      "properties": {
+        "OTHER": {
+          "description": "Any motion-profile which is not defined by the AxisMotionProfileEnumeration.",
+          "type": "integer"
+        },
+        "ROTARY": {
+          "description": "Rotary motion is a rotation along a circular path with defined limits. Motion movement is not going always in the same direction. Control unit is mainly degree.",
+          "type": "integer"
+        },
+        "ROTARY_ENDLESS": {
+          "description": "Rotary motion is a rotation along a circular path with no limits. Motion movement is going endless in the same direction. Control unit is mainly degree.",
+          "type": "integer"
+        },
+        "LINEAR": {
+          "description": "Linear motion is a one dimensional motion along a straight line with defined limits. Motion movement is not going always in the same direction. Control unit is mainly mm.",
+          "type": "integer"
+        },
+        "LINEAR_ENDLESS": {
+          "description": "Linear motion is a one dimensional motion along a straight line with no limits. Motion movement is going endless in the same direction. Control unit is mainly mm.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/AssetId"
+  ],
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "MotionProfile": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "title": "AxisMotionProfileEnumeration",
+      "description": "The kind of axis motion as defined with the AxisMotionProfileEnumeration.",
+      "dov:typeRef": "org.opcfoundation.UA.Robotics.AxisMotionProfileEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

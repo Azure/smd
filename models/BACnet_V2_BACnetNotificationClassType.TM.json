@@ -1,0 +1,70 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetNotificationClassType",
+  "title": "BACnet_V2_BACnetNotificationClassType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetNotificationClassType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetNotifierType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetEventTransitionBits": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventTransitionBits",
+      "const": {
+        "to_offnormal": 0,
+        "to_fault": 1,
+        "to_normal": 2
+      },
+      "properties": {
+        "to_offnormal": {
+          "type": "integer"
+        },
+        "to_fault": {
+          "type": "integer"
+        },
+        "to_normal": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "Ack_Required": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetEventTransitionBits",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventTransitionBits",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Notification_Class": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "Priority": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_MicrowaveCombiOvenParameterType",
+  "title": "CommercialKitchenEquipment_MicrowaveCombiOvenParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.MicrowaveCombiOvenParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "OperatingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.OperatingModeEnumeration",
+      "const": {
+        "Preheat": 0,
+        "CoolDown": 1,
+        "Process": 2,
+        "PowerSaving": 3,
+        "Standby": 4,
+        "Service": 5,
+        "Cleaning": 6,
+        "Off": 7,
+        "Error": 8
+      },
+      "properties": {
+        "Preheat": {
+          "type": "integer"
+        },
+        "CoolDown": {
+          "type": "integer"
+        },
+        "Process": {
+          "type": "integer"
+        },
+        "PowerSaving": {
+          "type": "integer"
+        },
+        "Standby": {
+          "type": "integer"
+        },
+        "Service": {
+          "type": "integer"
+        },
+        "Cleaning": {
+          "type": "integer"
+        },
+        "Off": {
+          "type": "integer"
+        },
+        "Error": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/CookingStep",
+    "/properties/FanSpeed",
+    "/properties/MicrowaveEnergy",
+    "/properties/RemainingProcessTimeStep",
+    "/properties/ActualTemperatureChamber_EngineeringUnits",
+    "/properties/FanSpeed_EngineeringUnits",
+    "/properties/MicrowaveEnergy_EngineeringUnits",
+    "/properties/RemainingProcessTime_EngineeringUnits",
+    "/properties/RemainingProcessTimeStep_EngineeringUnits",
+    "/properties/SetProcessTime_EngineeringUnits",
+    "/properties/SetTemperature_EngineeringUnits",
+    "/events/CookingStep",
+    "/events/FanSpeed",
+    "/events/MicrowaveEnergy",
+    "/events/RemainingProcessTimeStep"
+  ],
+  "properties": {
+    "ActualTemperatureChamber": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperatureChamber_EngineeringUnits"
+    },
+    "CookingStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "FanSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/FanSpeed_EngineeringUnits"
+    },
+    "IsDoorOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "MicrowaveEnergy": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MicrowaveEnergy_EngineeringUnits"
+    },
+    "OperatingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "OperatingModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.OperatingModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "RemainingProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RemainingProcessTime_EngineeringUnits"
+    },
+    "RemainingProcessTimeStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RemainingProcessTimeStep_EngineeringUnits"
+    },
+    "SetProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTime_EngineeringUnits"
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "ActualTemperatureChamber_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualTemperatureChamber, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "FanSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name FanSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MicrowaveEnergy_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MicrowaveEnergy, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RemainingProcessTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RemainingProcessTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RemainingProcessTimeStep_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RemainingProcessTimeStep, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetProcessTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetProcessTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualTemperatureChamber": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperatureChamber_EngineeringUnits"
+    },
+    "CookingStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "FanSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/FanSpeed_EngineeringUnits"
+    },
+    "IsDoorOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "MicrowaveEnergy": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MicrowaveEnergy_EngineeringUnits"
+    },
+    "OperatingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "OperatingModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.OperatingModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RemainingProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RemainingProcessTime_EngineeringUnits"
+    },
+    "RemainingProcessTimeStep": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RemainingProcessTimeStep_EngineeringUnits"
+    },
+    "SetProcessTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/SetProcessTime_EngineeringUnits"
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    }
+  }
+}

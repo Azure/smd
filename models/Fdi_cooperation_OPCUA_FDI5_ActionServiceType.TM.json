@@ -1,0 +1,126 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://fdi-cooperation.com/OPCUA/FDI5/#Fdi_cooperation_OPCUA_FDI5_ActionServiceType",
+  "title": "Fdi_cooperation_OPCUA_FDI5_ActionServiceType",
+  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.ActionServiceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ActionIdentifier_PH",
+      "href": "http://fdi-cooperation.com/OPCUA/FDI5/#Fdi_cooperation_OPCUA_FDI5_ActionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "AbortAction": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ActionNodeId"
+        ],
+        "properties": {
+          "ActionNodeId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AbortActionError"
+        ],
+        "properties": {
+          "AbortActionError": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "InvokeAction": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ActionName",
+          "MethodArguments"
+        ],
+        "properties": {
+          "ActionName": {
+            "type": "string"
+          },
+          "MethodArguments": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ActionNodeId",
+          "InvokeActionError"
+        ],
+        "properties": {
+          "ActionNodeId": {
+            "type": "string"
+          },
+          "InvokeActionError": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "RespondAction": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ActionNodeId",
+          "Response"
+        ],
+        "properties": {
+          "ActionNodeId": {
+            "type": "string"
+          },
+          "Response": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RespondActionError"
+        ],
+        "properties": {
+          "RespondActionError": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  }
+}

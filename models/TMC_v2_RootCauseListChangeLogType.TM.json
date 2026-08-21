@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_RootCauseListChangeLogType",
+  "title": "TMC_v2_RootCauseListChangeLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseListChangeLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "NewRootCauseMessages": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The list of modified root cause messages.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseMessageType",
+        "description": "The RootCauseMessageType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseMessageType",
+        "required": [
+          "ID",
+          "LocalText",
+          "GroupID"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the localised text.",
+            "type": "string"
+          },
+          "LocalText": {
+            "description": "The localized text.",
+            "type": "string"
+          },
+          "GroupID": {
+            "description": "GroupID identifies uniquely each group of root causes which are  grouped in families, e.g. electrical, mechanical, controls, etc.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "OldRootCauseMessages": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The list of root cause messages prior to the change.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseMessageType",
+        "description": "The RootCauseMessageType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseMessageType",
+        "required": [
+          "ID",
+          "LocalText",
+          "GroupID"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the localised text.",
+            "type": "string"
+          },
+          "LocalText": {
+            "description": "The localized text.",
+            "type": "string"
+          },
+          "GroupID": {
+            "description": "GroupID identifies uniquely each group of root causes which are  grouped in families, e.g. electrical, mechanical, controls, etc.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_LoadingMonitoringType",
+  "title": "GMS_LoadingMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.LoadingMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ElementMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MultiStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+      "type": "integer",
+      "minimum": 0
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/IsInLoadingPosition",
+    "/events/IsInLoadingPosition"
+  ],
+  "properties": {
+    "IsInLoadingPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "LoadStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "IsInLoadingPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "LoadStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
+      }
+    }
+  }
+}

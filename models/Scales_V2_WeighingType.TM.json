@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_WeighingType",
+  "title": "Scales_V2_WeighingType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeighingType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Material",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_MaterialType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TargetItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+      "type": "number"
+    }
+  },
+  "properties": {
+    "TargetWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/TargetItemType",
+      "readOnly": false
+    },
+    "WeighingModuleNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the Id of the load cell which is used for weighing the product.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TargetWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TargetItemType"
+      }
+    },
+    "WeighingModuleNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the Id of the load cell which is used for weighing the product.",
+        "type": "string"
+      }
+    }
+  }
+}

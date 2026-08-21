@@ -1,0 +1,126 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_PrinterModuleType",
+  "title": "Scales_V2_PrinterModuleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.PrinterModuleType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryOperationMode",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryOperationModeStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
+      "type": "number"
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/LabelLength",
+    "/properties/LabelStock",
+    "/properties/LabelTypeId",
+    "/properties/LabelWidth",
+    "/properties/PrintMediaStock",
+    "/events/LabelLength",
+    "/events/LabelStock",
+    "/events/LabelTypeId",
+    "/events/LabelWidth",
+    "/events/PrintMediaStock"
+  ],
+  "properties": {
+    "LabelLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    },
+    "LabelStock": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogItemType",
+      "readOnly": true
+    },
+    "LabelTypeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the Id of the label to be printed.",
+      "type": "string",
+      "readOnly": true
+    },
+    "LabelWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    },
+    "PrintMediaStock": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogItemType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LabelLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "LabelStock": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogItemType"
+      }
+    },
+    "LabelTypeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the Id of the label to be printed.",
+        "type": "string"
+      }
+    },
+    "LabelWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "PrintMediaStock": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogItemType"
+      }
+    }
+  }
+}

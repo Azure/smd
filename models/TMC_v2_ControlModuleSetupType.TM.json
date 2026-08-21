@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleSetupType",
+  "title": "TMC_v2_ControlModuleSetupType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModuleSetupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DataItemType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.DataItemType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/SetupItem",
+    "/events/SetupItem"
+  ],
+  "properties": {
+    "SetupItem": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/DataItemType",
+      "readOnly": false,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "SetupItem": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/DataItemType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

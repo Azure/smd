@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISVersionDataType",
+  "title": "MDIS_MDISVersionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "MDISVersionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISVersionDataType",
+      "required": [
+        "MajorVersion",
+        "MinorVersion",
+        "Build"
+      ],
+      "properties": {
+        "MajorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "MinorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Build": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

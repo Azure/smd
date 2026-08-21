@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_LevelsType",
+  "title": "PlasticsRubber_Dosing_LevelsType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.LevelsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Level",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AbortFilling",
+    "/actions/StartFilling",
+    "/properties/Filling",
+    "/events/Filling"
+  ],
+  "actions": {
+    "AbortFilling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to abort filling the Component."
+    },
+    "StartFilling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to fill the Component up to the MaxValue of the MonitoredParameterType in the Level Variable."
+    }
+  },
+  "properties": {
+    "Filling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Flag to indicate if the hopper is being filled right now.",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Filling": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Flag to indicate if the hopper is being filled right now.",
+        "type": "boolean"
+      }
+    }
+  }
+}

@@ -1,0 +1,746 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_ContactingSpecification",
+  "title": "WireHarness_VEC_ContactingSpecification",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ContactingSpecification",
+  "links": [],
+  "schemaDefinitions": {
+    "ContactingSpecification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ContactingSpecification",
+      "required": [
+        "id",
+        "Identification",
+        "ContactPoint"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ContactPoint": {
+          "description": "Specifies the ContactPoints defined by the ContactingSpecification.",
+          "type": "array",
+          "items": {
+            "title": "ContactPoint",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ContactPoint",
+            "required": [
+              "id",
+              "Identification",
+              "MountedTerminal",
+              "WireMounting"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Identification": {
+                "description": "<p>Specifies a unique identification of the ContactPoint. The identification is guaranteed to be unique within the ContactingSpecification.</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "MountedTerminal": {
+                "description": "References the terminal that is used for contacting defined by the ContactPoint.",
+                "type": "array",
+                "items": {
+                  "title": "TerminalRoleIdDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.TerminalRoleIdDataType",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "WireMounting": {
+                "description": "Specifies the WireMouting defined by ContactPoint. More than one WireMounting is allowed in order to support variance. In concrete configuration the WireMounting with all referenced elements present is used.",
+                "type": "array",
+                "items": {
+                  "title": "WireMounting",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireMounting",
+                  "required": [
+                    "id",
+                    "MountedCavitySeal",
+                    "ReferencedWireEnd",
+                    "WireMountingDetail"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "MountedCavitySeal": {
+                      "description": "<p>References the cavity seal that is used for the wire mounting.</p>",
+                      "type": "array",
+                      "items": {
+                        "title": "CavitySealRoleIdDataType",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.CavitySealRoleIdDataType",
+                        "required": [
+                          "id"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "ReferencedWireEnd": {
+                      "description": "<p>References the wire ends that are used for the wire mounting. The minimum cardinality is one, because a wire mounting without wire end makes no sense.</p><p>The maximum cardinality is * in order to support multi crimps.</p>",
+                      "type": "array",
+                      "items": {
+                        "title": "WireEndIdDataType",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireEndIdDataType",
+                        "required": [
+                          "id"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "WireMountingDetail": {
+                      "description": "<p>Specifies the WireMoutingDetails, if a detailed description of the relationships between WireEnds and WireReceptions is needed.</p>",
+                      "type": "array",
+                      "items": {
+                        "title": "WireMountingDetail",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireMountingDetail",
+                        "required": [
+                          "id",
+                          "CoreCrimpSize",
+                          "InsulationCrimpSize",
+                          "WireTipProtrusion",
+                          "ContactedWireReception",
+                          "ReferencedWireEnd",
+                          "AbsoluteSealPosition",
+                          "CorePullOffForce"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "CoreCrimpSize": {
+                            "description": "<p>Defines the required core crimp size (width &amp; height) of this specific wire mounting situation.</p>",
+                            "type": "array",
+                            "items": {
+                              "title": "Size",
+                              "type": "object",
+                              "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Size",
+                              "required": [
+                                "Width",
+                                "Height"
+                              ],
+                              "properties": {
+                                "Width": {
+                                  "title": "NumericalValue",
+                                  "description": "<p>The width of the element.</p>",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                                  "required": [
+                                    "UnitComponent",
+                                    "ValueComponent",
+                                    "Tolerance"
+                                  ],
+                                  "properties": {
+                                    "UnitComponent": {
+                                      "title": "EUInformation",
+                                      "description": "References the unit of the value.",
+                                      "type": "object",
+                                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                      "required": [
+                                        "NamespaceUri",
+                                        "UnitId",
+                                        "DisplayName",
+                                        "Description"
+                                      ],
+                                      "properties": {
+                                        "NamespaceUri": {
+                                          "type": "string"
+                                        },
+                                        "UnitId": {
+                                          "type": "integer",
+                                          "minimum": -2147483648,
+                                          "maximum": 2147483647
+                                        },
+                                        "DisplayName": {
+                                          "type": "string"
+                                        },
+                                        "Description": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "ValueComponent": {
+                                      "description": "<p>Specifies the value of the numerical value.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "Tolerance": {
+                                      "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                      "type": "array",
+                                      "items": {
+                                        "title": "Tolerance",
+                                        "type": "object",
+                                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                        "required": [
+                                          "id",
+                                          "LowerBoundary",
+                                          "UpperBoundary"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "LowerBoundary": {
+                                            "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          },
+                                          "UpperBoundary": {
+                                            "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Height": {
+                                  "title": "NumericalValue",
+                                  "description": "<p>The height of the element.</p>",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                                  "required": [
+                                    "UnitComponent",
+                                    "ValueComponent",
+                                    "Tolerance"
+                                  ],
+                                  "properties": {
+                                    "UnitComponent": {
+                                      "title": "EUInformation",
+                                      "description": "References the unit of the value.",
+                                      "type": "object",
+                                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                      "required": [
+                                        "NamespaceUri",
+                                        "UnitId",
+                                        "DisplayName",
+                                        "Description"
+                                      ],
+                                      "properties": {
+                                        "NamespaceUri": {
+                                          "type": "string"
+                                        },
+                                        "UnitId": {
+                                          "type": "integer",
+                                          "minimum": -2147483648,
+                                          "maximum": 2147483647
+                                        },
+                                        "DisplayName": {
+                                          "type": "string"
+                                        },
+                                        "Description": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "ValueComponent": {
+                                      "description": "<p>Specifies the value of the numerical value.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "Tolerance": {
+                                      "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                      "type": "array",
+                                      "items": {
+                                        "title": "Tolerance",
+                                        "type": "object",
+                                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                        "required": [
+                                          "id",
+                                          "LowerBoundary",
+                                          "UpperBoundary"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "LowerBoundary": {
+                                            "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          },
+                                          "UpperBoundary": {
+                                            "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "InsulationCrimpSize": {
+                            "description": "<p>Defines the required insulation crimp size (width &amp; height) of this specific wire mounting situation.</p>",
+                            "type": "array",
+                            "items": {
+                              "title": "Size",
+                              "type": "object",
+                              "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Size",
+                              "required": [
+                                "Width",
+                                "Height"
+                              ],
+                              "properties": {
+                                "Width": {
+                                  "title": "NumericalValue",
+                                  "description": "<p>The width of the element.</p>",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                                  "required": [
+                                    "UnitComponent",
+                                    "ValueComponent",
+                                    "Tolerance"
+                                  ],
+                                  "properties": {
+                                    "UnitComponent": {
+                                      "title": "EUInformation",
+                                      "description": "References the unit of the value.",
+                                      "type": "object",
+                                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                      "required": [
+                                        "NamespaceUri",
+                                        "UnitId",
+                                        "DisplayName",
+                                        "Description"
+                                      ],
+                                      "properties": {
+                                        "NamespaceUri": {
+                                          "type": "string"
+                                        },
+                                        "UnitId": {
+                                          "type": "integer",
+                                          "minimum": -2147483648,
+                                          "maximum": 2147483647
+                                        },
+                                        "DisplayName": {
+                                          "type": "string"
+                                        },
+                                        "Description": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "ValueComponent": {
+                                      "description": "<p>Specifies the value of the numerical value.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "Tolerance": {
+                                      "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                      "type": "array",
+                                      "items": {
+                                        "title": "Tolerance",
+                                        "type": "object",
+                                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                        "required": [
+                                          "id",
+                                          "LowerBoundary",
+                                          "UpperBoundary"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "LowerBoundary": {
+                                            "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          },
+                                          "UpperBoundary": {
+                                            "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Height": {
+                                  "title": "NumericalValue",
+                                  "description": "<p>The height of the element.</p>",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                                  "required": [
+                                    "UnitComponent",
+                                    "ValueComponent",
+                                    "Tolerance"
+                                  ],
+                                  "properties": {
+                                    "UnitComponent": {
+                                      "title": "EUInformation",
+                                      "description": "References the unit of the value.",
+                                      "type": "object",
+                                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                      "required": [
+                                        "NamespaceUri",
+                                        "UnitId",
+                                        "DisplayName",
+                                        "Description"
+                                      ],
+                                      "properties": {
+                                        "NamespaceUri": {
+                                          "type": "string"
+                                        },
+                                        "UnitId": {
+                                          "type": "integer",
+                                          "minimum": -2147483648,
+                                          "maximum": 2147483647
+                                        },
+                                        "DisplayName": {
+                                          "type": "string"
+                                        },
+                                        "Description": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "ValueComponent": {
+                                      "description": "<p>Specifies the value of the numerical value.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "Tolerance": {
+                                      "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                      "type": "array",
+                                      "items": {
+                                        "title": "Tolerance",
+                                        "type": "object",
+                                        "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                        "required": [
+                                          "id",
+                                          "LowerBoundary",
+                                          "UpperBoundary"
+                                        ],
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "LowerBoundary": {
+                                            "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          },
+                                          "UpperBoundary": {
+                                            "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                            "type": "number",
+                                            "minimum": -1.80e+308,
+                                            "maximum": 1.80e+308
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "WireTipProtrusion": {
+                            "description": "<p>Defines the valid length range in which the protrusion of the conductor from the conductor crimp must be located.</p>",
+                            "type": "array",
+                            "items": {
+                              "title": "ValueRange",
+                              "type": "object",
+                              "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ValueRange",
+                              "required": [
+                                "UnitComponent",
+                                "Minimum",
+                                "Maximum"
+                              ],
+                              "properties": {
+                                "UnitComponent": {
+                                  "title": "EUInformation",
+                                  "description": "References the unit of the value.",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                  "required": [
+                                    "NamespaceUri",
+                                    "UnitId",
+                                    "DisplayName",
+                                    "Description"
+                                  ],
+                                  "properties": {
+                                    "NamespaceUri": {
+                                      "type": "string"
+                                    },
+                                    "UnitId": {
+                                      "type": "integer",
+                                      "minimum": -2147483648,
+                                      "maximum": 2147483647
+                                    },
+                                    "DisplayName": {
+                                      "type": "string"
+                                    },
+                                    "Description": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "Minimum": {
+                                  "description": "<p>Lower bound of the value range.</p>",
+                                  "type": "number",
+                                  "minimum": -1.80e+308,
+                                  "maximum": 1.80e+308
+                                },
+                                "Maximum": {
+                                  "description": "<p>Upper bound of the value range.</p>",
+                                  "type": "number",
+                                  "minimum": -1.80e+308,
+                                  "maximum": 1.80e+308
+                                }
+                              }
+                            }
+                          },
+                          "ContactedWireReception": {
+                            "title": "WireReceptionReferenceIdDataType",
+                            "description": "References the WireReception that is used for the WireMounting.",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireReceptionReferenceIdDataType",
+                            "required": [
+                              "id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "ReferencedWireEnd": {
+                            "description": "References the WireEnds that are mounted to referenced WireReception. A cardinality of more than one is allowed in order support parallel connectors, where multiple wire ends are placed on one side of the connector (one wire reception) and the other wire ends are placed on the other side of the connector (the other wire reception).",
+                            "type": "array",
+                            "items": {
+                              "title": "WireEndIdDataType",
+                              "type": "object",
+                              "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireEndIdDataType",
+                              "required": [
+                                "id"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "AbsoluteSealPosition": {
+                            "title": "NumericalValue",
+                            "description": "The absoluteSealPosition defines distance between the conductor tip and edge of the CavitySeal facing the conductor tip.",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                            "required": [
+                              "UnitComponent",
+                              "ValueComponent",
+                              "Tolerance"
+                            ],
+                            "properties": {
+                              "UnitComponent": {
+                                "title": "EUInformation",
+                                "description": "References the unit of the value.",
+                                "type": "object",
+                                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                "required": [
+                                  "NamespaceUri",
+                                  "UnitId",
+                                  "DisplayName",
+                                  "Description"
+                                ],
+                                "properties": {
+                                  "NamespaceUri": {
+                                    "type": "string"
+                                  },
+                                  "UnitId": {
+                                    "type": "integer",
+                                    "minimum": -2147483648,
+                                    "maximum": 2147483647
+                                  },
+                                  "DisplayName": {
+                                    "type": "string"
+                                  },
+                                  "Description": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "ValueComponent": {
+                                "description": "<p>Specifies the value of the numerical value.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              },
+                              "Tolerance": {
+                                "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                "type": "array",
+                                "items": {
+                                  "title": "Tolerance",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                  "required": [
+                                    "id",
+                                    "LowerBoundary",
+                                    "UpperBoundary"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "LowerBoundary": {
+                                      "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "UpperBoundary": {
+                                      "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "CorePullOffForce": {
+                            "description": "The minimum force that the completed crimp (core crimp only, insulation crimp non-functional) should withstand when wire is being pulled off the terminal. Above that force, the crimp can be expected to be destroyed at any time.",
+                            "type": "array",
+                            "items": {
+                              "title": "NumericalValue",
+                              "type": "object",
+                              "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                              "required": [
+                                "UnitComponent",
+                                "ValueComponent",
+                                "Tolerance"
+                              ],
+                              "properties": {
+                                "UnitComponent": {
+                                  "title": "EUInformation",
+                                  "description": "References the unit of the value.",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                  "required": [
+                                    "NamespaceUri",
+                                    "UnitId",
+                                    "DisplayName",
+                                    "Description"
+                                  ],
+                                  "properties": {
+                                    "NamespaceUri": {
+                                      "type": "string"
+                                    },
+                                    "UnitId": {
+                                      "type": "integer",
+                                      "minimum": -2147483648,
+                                      "maximum": 2147483647
+                                    },
+                                    "DisplayName": {
+                                      "type": "string"
+                                    },
+                                    "Description": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "ValueComponent": {
+                                  "description": "<p>Specifies the value of the numerical value.</p>",
+                                  "type": "number",
+                                  "minimum": -1.80e+308,
+                                  "maximum": 1.80e+308
+                                },
+                                "Tolerance": {
+                                  "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                  "type": "array",
+                                  "items": {
+                                    "title": "Tolerance",
+                                    "type": "object",
+                                    "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                    "required": [
+                                      "id",
+                                      "LowerBoundary",
+                                      "UpperBoundary"
+                                    ],
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "LowerBoundary": {
+                                        "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                        "type": "number",
+                                        "minimum": -1.80e+308,
+                                        "maximum": 1.80e+308
+                                      },
+                                      "UpperBoundary": {
+                                        "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                        "type": "number",
+                                        "minimum": -1.80e+308,
+                                        "maximum": 1.80e+308
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

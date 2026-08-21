@@ -1,0 +1,182 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterSystemType",
+  "title": "PAEFS_FilterSystemType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterSystemType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Fan",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FanType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FilterAidDevice",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterAidDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FilterUnit",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterUnitType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SafetySystem",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SafetySystemType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "TemperatureRegulator",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_TemperatureRegulatorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AirConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AirIntakeConnection",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AirOutletConnection",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PowerConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureLoss",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ControlModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.ControlModeEnum",
+      "const": {
+        "Automatic": 0,
+        "Manual": 1,
+        "Other": 2
+      },
+      "description": "Describes the possibility of controlling the system externally",
+      "properties": {
+        "Automatic": {
+          "type": "integer"
+        },
+        "Manual": {
+          "type": "integer"
+        },
+        "Other": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/OperationOff",
+    "/actions/OperationOn",
+    "/properties/ControlMode",
+    "/properties/MaintenanceRequested",
+    "/properties/OperationCycleCounter",
+    "/properties/OperationDuration",
+    "/properties/PowerOnDuration"
+  ],
+  "actions": {
+    "OperationOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method OperationOff turns the filter system machine off. As with the OperationOn method, this method should be present under the FilterSystemType if and only if the filter units are considered components of the system rather than individual machines."
+    },
+    "OperationOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method OperationOn turns the filter system machine on. It should only be available on the filter system if the filter units are considered components of the filter system and do not have their own OperationOn and OperationOff methods."
+    }
+  },
+  "properties": {
+    "ControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "title": "ControlModeEnum",
+      "description": "Operating mode that describes whether the system can be controlled externally. Possible values are manual, auto and other.",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.ControlModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaintenanceRequested": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The maintenance request allows the manufacturer to inform the operator that the system requires maintenance. True = maintenance requested by system. False = no maintenance requested.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Malfunction describes that the filter system has a collective fault message. True in case of error.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "OperationCycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": true
+    },
+    "OperationDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PowerOnDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

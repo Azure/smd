@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuthorizationServiceConfigurationDataType",
+  "title": "OpcUaCore_AuthorizationServiceConfigurationDataType",
+  "dov:typeRef": "org.opcfoundation.UA.AuthorizationServiceConfigurationDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AuthorizationServiceConfigurationDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AuthorizationServiceConfigurationDataType",
+      "required": [
+        "Name",
+        "RecordProperties",
+        "ServiceUri",
+        "ServiceCertificates",
+        "IssuerEndpointSettings"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ServiceUri": {
+          "type": "string"
+        },
+        "ServiceCertificates": {
+          "type": "array",
+          "items": {
+            "title": "ServiceCertificateDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCertificateDataType",
+            "required": [
+              "Certificate",
+              "Issuers",
+              "ValidFrom",
+              "ValidTo"
+            ],
+            "properties": {
+              "Certificate": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "Issuers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "contentEncoding": "base64"
+                }
+              },
+              "ValidFrom": {
+                "type": "string",
+                "format": "time"
+              },
+              "ValidTo": {
+                "type": "string",
+                "format": "time"
+              }
+            }
+          }
+        },
+        "IssuerEndpointSettings": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

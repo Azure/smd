@@ -1,0 +1,115 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/OPENSCS-SER/#OPENSCS_SER_OPENSCSSIDClassObjectType",
+  "title": "OPENSCS_SER_OPENSCSSIDClassObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSSIDClassObjectType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/IntendedUse",
+    "/properties/SIDClassDescription",
+    "/properties/SIDClassProperty"
+  ],
+  "properties": {
+    "AllowedCharacterSet": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IntendedUse": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SIDClassDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SIDClassID": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SIDClassOwner": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SIDClassProperty": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "array",
+      "items": {
+        "title": "OPENSCSSIDClassPropertyDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSSIDClassPropertyDataType",
+        "required": [
+          "PropertyID",
+          "PropertyDescription",
+          "PropertyValue",
+          "LabelProperty"
+        ],
+        "properties": {
+          "PropertyID": {
+            "description": "An identification of the SID Class Property.",
+            "type": "string"
+          },
+          "PropertyDescription": {
+            "description": "Additional information and description about the SID Class Property.",
+            "type": "string"
+          },
+          "PropertyValue": {
+            "description": "Defines value for the specific SID Class Property. The format is not defined in this specification and must be negotiated between Information Providers and Information Requesters during design or change management of a system.",
+            "type": "string"
+          },
+          "LabelProperty": {
+            "description": "An array of property elements, each of which may have associated label property definitions.",
+            "type": "array",
+            "items": {
+              "title": "OPENSCSLabelPropertyDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.OPENSCS-SER.OPENSCSLabelPropertyDataType",
+              "required": [
+                "PropertyID",
+                "PropertyDescription",
+                "PropertyValue"
+              ],
+              "properties": {
+                "PropertyID": {
+                  "description": "The identification of a property associated with a label.",
+                  "type": "string"
+                },
+                "PropertyDescription": {
+                  "description": "An optional description of the property associated with the label",
+                  "type": "string"
+                },
+                "PropertyValue": {
+                  "description": "A value for the property, if defined this may be considered a default property value.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "SyntaxSpecification": {
+      "dov:namespace": "http://opcfoundation.org/UA/OPENSCS-SER/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_ComponentStatusEnumeration",
+  "title": "PlasticsRubber_LDS_ComponentStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.ComponentStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ComponentStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.ComponentStatusEnumeration",
+      "const": {
+        "GOOD": 0,
+        "WARNING": 1,
+        "WARNING_PRESSURE_TOO_HIGH": 2,
+        "WARNING_PRESSURE_TOO_LOW": 3,
+        "ADVANCE_WARNING_DRUM_CHANGE": 4,
+        "ERROR_DRUM_EMPTY": 5,
+        "ERROR": 6
+      },
+      "description": "Actual status of the component provides a minimal error handling for devices without event support.",
+      "properties": {
+        "GOOD": {
+          "description": "Component has no error or warning.",
+          "type": "integer"
+        },
+        "WARNING": {
+          "description": "The component has an undefined warning, but no need to stop the production.",
+          "type": "integer"
+        },
+        "WARNING_PRESSURE_TOO_HIGH": {
+          "description": "Pressure is too high. No need to stop the process but influence to the part quality.",
+          "type": "integer"
+        },
+        "WARNING_PRESSURE_TOO_LOW": {
+          "description": "Pressure is too low. No need to stop the process but influence to the part quality.",
+          "type": "integer"
+        },
+        "ADVANCE_WARNING_DRUM_CHANGE": {
+          "description": "Warning, barrel change is imminent. No need to stop the process.",
+          "type": "integer"
+        },
+        "ERROR_DRUM_EMPTY": {
+          "description": "Drum of the component is empty. Production needs to be stopped.",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "The component has an error and process needs to be stopped.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

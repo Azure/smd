@@ -1,0 +1,174 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_CompressorOperationalType",
+  "title": "CAS_CompressorOperationalType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorOperationalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_OperationalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CompressorOperatingStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorOperatingStateEnum",
+      "const": {
+        "Other": 0,
+        "Stopped": 1,
+        "Starting": 2,
+        "Stopping": 3,
+        "Unloaded": 4,
+        "Loading": 5,
+        "Unloading": 6,
+        "Loaded": 7
+      },
+      "properties": {
+        "Other": {
+          "description": "The compressor is in a state not specified by this enumeration.",
+          "type": "integer"
+        },
+        "Stopped": {
+          "description": "The motor is not running.",
+          "type": "integer"
+        },
+        "Starting": {
+          "description": "Transition phase to end in Unloaded state.",
+          "type": "integer"
+        },
+        "Stopping": {
+          "description": "Transition phase to end in Stopped state.",
+          "type": "integer"
+        },
+        "Unloaded": {
+          "description": "The motor is running but the compressor does not deliver compressed air to the airnet.",
+          "type": "integer"
+        },
+        "Loading": {
+          "description": "Transition phase to end in Loaded state.",
+          "type": "integer"
+        },
+        "Unloading": {
+          "description": "Transition phase to end in Unloaded state.",
+          "type": "integer"
+        },
+        "Loaded": {
+          "description": "The compressor does deliver compressed air to the airnet.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActivePressureBand",
+    "/properties/FlowRateRatio",
+    "/properties/IsentropicEfficiency",
+    "/properties/OperatingState",
+    "/properties/SpecificEnergyRequirement",
+    "/events/ActivePressureBand",
+    "/events/FlowRateRatio",
+    "/events/IsentropicEfficiency",
+    "/events/OperatingState",
+    "/events/SpecificEnergyRequirement"
+  ],
+  "properties": {
+    "ActivePressureBand": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Indicates the actual active pressure band.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "FlowRateRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Calculated ratio of actual and maximum possible flow rate of a compressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "IsentropicEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Calculated isentropic efficiency.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "CompressorOperatingStateEnum",
+      "description": "Actual operating state of the compressor.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorOperatingStateEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SpecificEnergyRequirement": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Calculated shaft input energy per unit of compressor actual rate of flow.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActivePressureBand": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Indicates the actual active pressure band.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "FlowRateRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Calculated ratio of actual and maximum possible flow rate of a compressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "IsentropicEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Calculated isentropic efficiency.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "CompressorOperatingStateEnum",
+        "description": "Actual operating state of the compressor.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorOperatingStateEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SpecificEnergyRequirement": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Calculated shaft input energy per unit of compressor actual rate of flow.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

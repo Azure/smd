@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_IConductivityCalibrationType",
+  "title": "PADIM_IConductivityCalibrationType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.IConductivityCalibrationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ConductivityCellConstant",
+    "/events/ConductivityCellConstant"
+  ],
+  "properties": {
+    "ConductivityCellConstant": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ConductivityCellConstant": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

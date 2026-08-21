@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionActiveProgramType",
+  "title": "MachineTool_ProductionActiveProgramType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProductionActiveProgramType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionProgramType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "State",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionProgramStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/JobIdentifier",
+    "/properties/JobNodeId",
+    "/events/JobIdentifier",
+    "/events/JobNodeId"
+  ],
+  "properties": {
+    "JobIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "JobNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "JobIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "JobNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

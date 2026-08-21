@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_OccurrenceOrUsage",
+  "title": "WireHarness_VEC_OccurrenceOrUsage",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.OccurrenceOrUsage",
+  "links": [],
+  "schemaDefinitions": {
+    "OccurrenceOrUsage": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.OccurrenceOrUsage",
+      "required": [
+        "id",
+        "Identification",
+        "Role"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique identification of the<i>OccurrenceOrUsage</i>. The identification is guaranteed to be unique within the context. For all VEC-documents an<i>OccurrenceOrUsage</i>-instance can be trusted to be the same if the context-instance is the same and the identification of the<i>OccurrenceOrUsage</i>is the same.</p>",
+          "type": "string"
+        },
+        "Role": {
+          "description": "<p>Specifies the different roles of the OccurrenceOrUsage.</p>",
+          "type": "array",
+          "items": {
+            "title": "Role",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Role",
+            "required": [
+              "id",
+              "Identification"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Identification": {
+                "description": "<p>Specifies a unique identification of the Role. The identification is guaranteed to be unique within the OccurrenceOrUsage.</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

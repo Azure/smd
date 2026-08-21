@@ -1,0 +1,506 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialStorageBufferType",
+  "title": "TMC_v2_MaterialStorageBufferType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStorageBufferType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCDeviceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "StorageLogicEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+      "const": {
+        "Other": 0,
+        "FIFO": 1,
+        "LIFO": 2,
+        "FEFO": 3
+      },
+      "description": "The StorageLogicEnumeration describes standard loading and unloading material  configurations.",
+      "properties": {
+        "Other": {
+          "description": "None of the below options.",
+          "type": "integer"
+        },
+        "FIFO": {
+          "description": "First-In, First-Out.",
+          "type": "integer"
+        },
+        "LIFO": {
+          "description": "Last-In, First-Out.",
+          "type": "integer"
+        },
+        "FEFO": {
+          "description": "First-Expired, First-Out.",
+          "type": "integer"
+        }
+      }
+    },
+    "StorageMixingLogicEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+      "const": {
+        "Mixing": 0,
+        "NonMixingByProduct": 1,
+        "NonMixingByBatch": 2
+      },
+      "description": "The StorageMixingLogicEnumeration describes standard ways of mixing material in a material  storage buffer.",
+      "properties": {
+        "Mixing": {
+          "description": "The material storage buffer containing a material accepts any other material.",
+          "type": "integer"
+        },
+        "NonMixingByProduct": {
+          "description": "The material storage buffer containing a material accepts other materials with the same MaterialDefinition.",
+          "type": "integer"
+        },
+        "NonMixingByBatch": {
+          "description": "The material storage buffer containing a material accepts other materials with the same MaterialLot.",
+          "type": "integer"
+        }
+      }
+    },
+    "StateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.StateVariableType",
+      "type": "string"
+    },
+    "MaterialLotVariableType": {
+      "description": "The MaterialLotVariableType is a subtype of the MaterialQuantityVariableType. It is used to  provide the quantity for a material lot.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialLotVariableType",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308
+    },
+    "MaterialRateType": {
+      "description": "The MaterialRateType is a subtype of the MaterialQuantityVariableType. It is used to provide  the rate for a material flow rate.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialRateType",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308
+    }
+  },
+  "properties": {
+    "ActualLoadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialRateType",
+      "readOnly": true,
+      "dov:contains": [
+        "ActualLoadingRate_ValueInBUoM"
+      ]
+    },
+    "ActualLoadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "ActualLoadingRate"
+    },
+    "ActualUnloadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialRateType",
+      "readOnly": true,
+      "dov:contains": [
+        "ActualUnloadingRate_ValueInBUoM"
+      ]
+    },
+    "ActualUnloadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "ActualUnloadingRate"
+    },
+    "LoadingRateState": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/StateVariableType",
+      "readOnly": true
+    },
+    "MaterialPointDefinition": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "MaterialStorageBufferDataType",
+      "description": "The MaterialStorageBufferDataType structure provides the description of the capability of a  material storage buffer.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStorageBufferDataType",
+      "required": [
+        "ID",
+        "StoredMaterial",
+        "EngineeringUnits",
+        "TotalStorageCapacity",
+        "StorageLogic",
+        "MixingLogic"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the material storage buffer.",
+          "type": "string"
+        },
+        "StoredMaterial": {
+          "title": "MaterialDefinitionType",
+          "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+          "required": [
+            "ID",
+            "MES_ID",
+            "Description",
+            "BaseUnitOfMeasure",
+            "BatchManaged"
+          ],
+          "properties": {
+            "ID": {
+              "description": "Unique identifier for the material definition.",
+              "type": "string"
+            },
+            "MES_ID": {
+              "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "Description of the material definition.",
+              "type": "string"
+            },
+            "BaseUnitOfMeasure": {
+              "title": "EUInformation",
+              "description": "The base unit of measure for the material definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "BatchManaged": {
+              "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+              "type": "boolean"
+            },
+            "GroupID": {
+              "description": "The material group the material definition belongs to.",
+              "type": "string"
+            },
+            "ParentGroupID": {
+              "description": "The parent group of the material group the material definition belongs to.",
+              "type": "string"
+            },
+            "ShelfLife": {
+              "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Properties": {
+              "description": "An array containing additional properties that can be additionally  required for the material definition.",
+              "type": "array",
+              "items": {
+                "title": "DataDescriptionType",
+                "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                "required": [
+                  "ID",
+                  "MES_ID",
+                  "Description"
+                ],
+                "properties": {
+                  "ID": {
+                    "description": "Unique identifier for the metadata description.",
+                    "type": "string"
+                  },
+                  "MES_ID": {
+                    "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "The metadata description.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "description": "The unit of measure for the material stored in the buffer.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "TotalStorageCapacity": {
+          "description": "The total capacity of the material storage buffer.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "StorageLogic": {
+          "title": "StorageLogicEnumeration",
+          "description": "The logic by which product is loaded and unloaded from the material storage buffer.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "MixingLogic": {
+          "title": "StorageMixingLogicEnumeration",
+          "description": "How different material loaded into the material storage buffer mix.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      },
+      "readOnly": true
+    },
+    "MES_ID": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "Unique identifier for the material point in an external system, e.g. MES.",
+      "type": "string",
+      "readOnly": false
+    },
+    "MixingLogic": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "StorageMixingLogicEnumeration",
+      "description": "MixingLogic identifies if and how materials can be mixed in the MaterialStorageBuffer.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "NominalLoadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialRateType",
+      "readOnly": true,
+      "dov:contains": [
+        "NominalLoadingRate_ValueInBUoM"
+      ]
+    },
+    "NominalLoadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "NominalLoadingRate"
+    },
+    "NominalUnloadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialRateType",
+      "readOnly": true,
+      "dov:contains": [
+        "NominalUnloadingRate_ValueInBUoM"
+      ]
+    },
+    "NominalUnloadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "NominalUnloadingRate"
+    },
+    "StorageLogic": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "StorageLogicEnumeration",
+      "description": "The logic used at the buffer storage to store and retrieve material.",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "StoredLot": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/MaterialLotVariableType",
+      "readOnly": true,
+      "dov:contains": [
+        "StoredLot_ValueInBUoM"
+      ]
+    },
+    "StoredLot_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The material quantity in base unit of measure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "dov:containedIn": "StoredLot"
+    },
+    "TotalStorageCapacity": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The total capacity of the material storage buffer.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UnloadingRateState": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/StateVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualLoadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialRateType"
+      },
+      "dov:contains": [
+        "ActualLoadingRate_ValueInBUoM"
+      ]
+    },
+    "ActualLoadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "ActualLoadingRate"
+    },
+    "ActualUnloadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialRateType"
+      },
+      "dov:contains": [
+        "ActualUnloadingRate_ValueInBUoM"
+      ]
+    },
+    "ActualUnloadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "ActualUnloadingRate"
+    },
+    "LoadingRateState": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/StateVariableType"
+      }
+    },
+    "NominalLoadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialRateType"
+      },
+      "dov:contains": [
+        "NominalLoadingRate_ValueInBUoM"
+      ]
+    },
+    "NominalLoadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "NominalLoadingRate"
+    },
+    "NominalUnloadingRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialRateType"
+      },
+      "dov:contains": [
+        "NominalUnloadingRate_ValueInBUoM"
+      ]
+    },
+    "NominalUnloadingRate_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "NominalUnloadingRate"
+    },
+    "StoredLot": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MaterialLotVariableType"
+      },
+      "dov:contains": [
+        "StoredLot_ValueInBUoM"
+      ]
+    },
+    "StoredLot_ValueInBUoM": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The material quantity in base unit of measure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:containedIn": "StoredLot"
+    },
+    "UnloadingRateState": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/StateVariableType"
+      }
+    }
+  }
+}

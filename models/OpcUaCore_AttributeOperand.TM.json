@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AttributeOperand",
+  "title": "OpcUaCore_AttributeOperand",
+  "dov:typeRef": "org.opcfoundation.UA.AttributeOperand",
+  "links": [],
+  "schemaDefinitions": {
+    "AttributeOperand": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AttributeOperand",
+      "required": [
+        "NodeId",
+        "Alias",
+        "BrowsePath",
+        "AttributeId",
+        "IndexRange"
+      ],
+      "properties": {
+        "NodeId": {
+          "type": "string"
+        },
+        "Alias": {
+          "type": "string"
+        },
+        "BrowsePath": {
+          "title": "RelativePath",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+          "required": [
+            "Elements"
+          ],
+          "properties": {
+            "Elements": {
+              "type": "array",
+              "items": {
+                "title": "RelativePathElement",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                "required": [
+                  "ReferenceTypeId",
+                  "IsInverse",
+                  "IncludeSubtypes",
+                  "TargetName"
+                ],
+                "properties": {
+                  "ReferenceTypeId": {
+                    "type": "string"
+                  },
+                  "IsInverse": {
+                    "type": "boolean"
+                  },
+                  "IncludeSubtypes": {
+                    "type": "boolean"
+                  },
+                  "TargetName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "AttributeId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "IndexRange": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

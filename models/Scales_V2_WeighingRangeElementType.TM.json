@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_WeighingRangeElementType",
+  "title": "Scales_V2_WeighingRangeElementType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeighingRangeElementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "ActualScaleInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Value expressed in units of mass of the difference between two consecutive indicated values, for digital indication ('d' as described in Welmec /OIML).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Range": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "title": "Range",
+      "description": "Defines the range within the scale may be operated depending on the additional parameters within this type.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": false
+    },
+    "VerificationScaleInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Value, expressed in units of mass, used for the classification and verification of an instrument. ('e' as described in Welmec /OIML)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualScaleInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Value expressed in units of mass of the difference between two consecutive indicated values, for digital indication ('d' as described in Welmec /OIML).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Range": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "title": "Range",
+        "description": "Defines the range within the scale may be operated depending on the additional parameters within this type.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Range",
+        "required": [
+          "Low",
+          "High"
+        ],
+        "properties": {
+          "Low": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "High": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "VerificationScaleInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Value, expressed in units of mass, used for the classification and verification of an instrument. ('e' as described in Welmec /OIML)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

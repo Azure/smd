@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubStatusType",
+  "title": "OpcUaCore_PubSubStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubStatusType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PubSubState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PubSubState",
+      "const": {
+        "Disabled": 0,
+        "Paused": 1,
+        "Operational": 2,
+        "Error": 3,
+        "PreOperational": 4
+      },
+      "properties": {
+        "Disabled": {
+          "type": "integer"
+        },
+        "Paused": {
+          "type": "integer"
+        },
+        "Operational": {
+          "type": "integer"
+        },
+        "Error": {
+          "type": "integer"
+        },
+        "PreOperational": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/Disable",
+    "/actions/Enable"
+  ],
+  "actions": {
+    "Disable": {},
+    "Enable": {}
+  },
+  "properties": {
+    "State": {
+      "title": "PubSubState",
+      "dov:typeRef": "org.opcfoundation.UA.PubSubState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "State": {
+      "data": {
+        "title": "PubSubState",
+        "dov:typeRef": "org.opcfoundation.UA.PubSubState",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

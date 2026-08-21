@@ -1,0 +1,110 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+  "title": "PAEFS_AirConnectionType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.AirConnectionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Airflow",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "GasQuality",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Humidity",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Pressure",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Temperature",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AirConnectionOpenEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.AirConnectionOpenEnum",
+      "const": {
+        "Open": 0,
+        "Closed": 1,
+        "Opening": 2,
+        "Closing": 3
+      },
+      "description": "Describes whether the air connection is open, i.e., it is in a state in which air can be passed through",
+      "properties": {
+        "Open": {
+          "type": "integer"
+        },
+        "Closed": {
+          "type": "integer"
+        },
+        "Opening": {
+          "type": "integer"
+        },
+        "Closing": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/Close",
+    "/actions/Open",
+    "/properties/ConnectionOpen",
+    "/properties/Malfunction"
+  ],
+  "actions": {
+    "Close": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method Close closes or switches some of the valves in the ducting system so that no air may pass through the ducting system to the device"
+    },
+    "Open": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method Open opens or switches all valves of the ducting system so that the air can pass through to the filter device"
+    }
+  },
+  "properties": {
+    "ConnectionOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "title": "AirConnectionOpenEnum",
+      "description": "Indicates the connections status (open, closed, or a state in between)",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.AirConnectionOpenEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the AirConnection is malfunctioning, i.e., an error occurs in a component that provides functionality for this abstract component; e.g., an error in the ducting system or a valve. True in case of error.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

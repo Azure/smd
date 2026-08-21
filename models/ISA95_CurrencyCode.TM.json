@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://www.opcfoundation.org/UA/2013/01/ISA95#ISA95_CurrencyCode",
+  "title": "ISA95_CurrencyCode",
+  "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.CurrencyCode",
+  "links": [],
+  "schemaDefinitions": {
+    "CurrencyCode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.www.UA.2013.01.ISA95.CurrencyCode",
+      "required": [
+        "namespaceUri",
+        "unitId",
+        "charId",
+        "displayName",
+        "Description"
+      ],
+      "properties": {
+        "namespaceUri": {
+          "type": "string"
+        },
+        "unitId": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "charId": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

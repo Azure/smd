@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetClockAlignedTrendLogType",
+  "title": "BACnet_V2_BACnetClockAlignedTrendLogType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetClockAlignedTrendLogType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetTrendLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Log_Interval"
+  ],
+  "properties": {
+    "Align_Interval": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Interval_Offset": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Log_Interval": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": true
+    }
+  }
+}

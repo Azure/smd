@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_DesignValueDataType",
+  "title": "IJT_Base_DesignValueDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.DesignValueDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DesignValueDataType": {
+      "description": "This structure provides the design value for a given physical quantity. It is used in JointDesignDataType.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.DesignValueDataType",
+      "properties": {
+        "PhysicalQuantity": {
+          "description": "It is the physical quantity of the value. Example: Force, Angle, etc.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Name": {
+          "description": "It is the name of the given value.",
+          "type": "string"
+        },
+        "DesignValue": {
+          "description": "It is the design value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+          "type": "string"
+        },
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "description": "It is the engineering unit of the design value.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

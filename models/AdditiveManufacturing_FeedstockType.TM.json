@@ -1,0 +1,147 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AdditiveManufacturing/#AdditiveManufacturing_FeedstockType",
+  "title": "AdditiveManufacturing_FeedstockType",
+  "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FeedstockFunction": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockFunction",
+      "const": {
+        "Undefined": 0,
+        "Main": 1,
+        "Ancillary": 2,
+        "Consumable": 3
+      },
+      "description": "This enumeration indicates the function of a specific feedstock.",
+      "properties": {
+        "Undefined": {
+          "description": "The function of the feedstock is unknown.",
+          "type": "integer"
+        },
+        "Main": {
+          "description": "The feedstock is used for production and is part of the finished part.",
+          "type": "integer"
+        },
+        "Ancillary": {
+          "description": "The feedstock is used for production but removed before the part is finished.",
+          "type": "integer"
+        },
+        "Consumable": {
+          "description": "The feedstock is consumed during the production e.g., process gas.",
+          "type": "integer"
+        }
+      }
+    },
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/Cycle",
+    "/properties/ExternalIdentifier",
+    "/properties/Function",
+    "/properties/Manufacturer",
+    "/properties/Name",
+    "/properties/ReadyForProduction",
+    "/properties/RemainingQuantity",
+    "/events/Cycle",
+    "/events/Function",
+    "/events/ReadyForProduction",
+    "/events/RemainingQuantity"
+  ],
+  "properties": {
+    "Cycle": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "ExternalIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Function": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "title": "FeedstockFunction",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockFunction",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ReadyForProduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "RemainingQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Cycle": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "Function": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "data": {
+        "title": "FeedstockFunction",
+        "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockFunction",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ReadyForProduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "RemainingQuantity": {
+      "dov:namespace": "http://opcfoundation.org/UA/AdditiveManufacturing/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

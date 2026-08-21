@@ -1,0 +1,250 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/#PlasticsRubber_HotRunner_OperationType",
+  "title": "PlasticsRubber_HotRunner_OperationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.OperationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/IdentifyDevice",
+    "/actions/ResetAllErrors",
+    "/actions/ResetErrorById",
+    "/properties/EvenHeatUpMaxTemperatureDifference",
+    "/events/EvenHeatUpMaxTemperatureDifference"
+  ],
+  "actions": {
+    "IdentifyDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "The peripheral device on which this method is called shows itself by e.g. activation of a LED."
+    },
+    "ResetAllErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Method to reset all errors of the device"
+    },
+    "ResetErrorById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Method to reset one error of the device",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SetReactionOnDisconnect": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Method to set ReactionOnDisconnect and SessionNameForReactionOnDisconnect",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ReactionOnDisconnect"
+        ],
+        "properties": {
+          "ReactionOnDisconnect": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "List of the active errors of the device",
+      "type": "array",
+      "items": {
+        "title": "ClassifiedActiveErrorDataType",
+        "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+        "required": [
+          "Id",
+          "Severity",
+          "Message",
+          "SourceNodes",
+          "Classification"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier defined by manufacturer",
+            "type": "string"
+          },
+          "Severity": {
+            "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Message": {
+            "description": "Message giving information about the error",
+            "type": "string"
+          },
+          "SourceNodes": {
+            "description": "NodeIds of the Nodes which cause the error",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Classification": {
+            "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "ActiveSetValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Central selection of the used set temperature for the temperature zones ",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "DeviceMappingNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Unique identifier/address/number for devices of the same DeviceType within a local network",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "EnablePower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Global power control switch for all zone controllers",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "EvenHeatUpMaxTemperatureDifference": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Definition of the maximum temperature difference of all zones during even heat-up ",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "HighestActiveAlarmSeverity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Indication of the severity of the highest active alarm",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ReactionOnDisconnect": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Selection of the set temperature for the temperature zones in case of a disconnection from the OPC UA client ",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SessionNameForReactionOnDisconnect": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Contains the sessionName of the connection with the client relevant for ReactionOnDisconnect",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveErrors": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "List of the active errors of the device",
+        "type": "array",
+        "items": {
+          "title": "ClassifiedActiveErrorDataType",
+          "description": "Iinformation about an active error in a device including the SoureNodes and a Classification",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ClassifiedActiveErrorDataType",
+          "required": [
+            "Id",
+            "Severity",
+            "Message",
+            "SourceNodes",
+            "Classification"
+          ],
+          "properties": {
+            "Id": {
+              "description": "Unique identifier defined by manufacturer",
+              "type": "string"
+            },
+            "Severity": {
+              "description": "Severity as defined in the BaseEventType (1 = low – 1000 = high)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Message": {
+              "description": "Message giving information about the error",
+              "type": "string"
+            },
+            "SourceNodes": {
+              "description": "NodeIds of the Nodes which cause the error",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "Classification": {
+              "description": "Classification of the error, if a process parameter expressed as MonitoredParameterType is the cause of the error",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        }
+      }
+    },
+    "ActiveSetValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Central selection of the used set temperature for the temperature zones ",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "EvenHeatUpMaxTemperatureDifference": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Definition of the maximum temperature difference of all zones during even heat-up ",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ReactionOnDisconnect": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Selection of the set temperature for the temperature zones in case of a disconnection from the OPC UA client ",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

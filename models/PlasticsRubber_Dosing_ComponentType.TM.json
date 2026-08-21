@@ -1,0 +1,245 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_ComponentType",
+  "title": "PlasticsRubber_Dosing_ComponentType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ComponentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ElectricalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Levels",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_LevelsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Material",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_DosingMaterialType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MaterialConsumption",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_MaterialConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Throughput",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ComponentStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ComponentStateEnumeration",
+      "const": {
+        "Off": 0,
+        "Ready": 1,
+        "Dosing": 2,
+        "Calibration": 3,
+        "Error": 4,
+        "Cleaning": 5,
+        "Purging": 6,
+        "Priming": 7
+      },
+      "properties": {
+        "Off": {
+          "description": "The component has been switched off",
+          "type": "integer"
+        },
+        "Ready": {
+          "description": "The component is waiting for a start dosing signal",
+          "type": "integer"
+        },
+        "Dosing": {
+          "description": "The component is actively feeding material",
+          "type": "integer"
+        },
+        "Calibration": {
+          "description": "Component is in calibration mode and can typically not be used for dosing or filling",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "The component has an active error",
+          "type": "integer"
+        },
+        "Cleaning": {
+          "description": "The component is in cleaning mode e.g. hopper draining",
+          "type": "integer"
+        },
+        "Purging": {
+          "description": "The component is in purging mode",
+          "type": "integer"
+        },
+        "Priming": {
+          "description": "The component is in priming mode",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AbortCalibration",
+    "/actions/AbortCleaning",
+    "/actions/IdentifyComponent",
+    "/actions/StartCalibration",
+    "/actions/StartCleaning",
+    "/properties/BulkDensity",
+    "/properties/FeedRateScalingFactor",
+    "/properties/IsActive",
+    "/properties/SetActive",
+    "/properties/Weight",
+    "/events/BulkDensity",
+    "/events/SetActive",
+    "/events/Weight"
+  ],
+  "actions": {
+    "AbortCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Abort the current calibration sequence for this component."
+    },
+    "AbortCleaning": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method without arguments to abort the current cleaning sequence."
+    },
+    "IdentifyComponent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "The dosing component on which this method is called shows itself by e.g. activation of a LED."
+    },
+    "StartCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Start the automated calibration sequence for this component."
+    },
+    "StartCleaning": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Start the automated cleaning sequence for this component."
+    }
+  },
+  "properties": {
+    "BulkDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Bulk density of the material which is dosed (not to be confused with the density of the material itself defined in MaterialType).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DosingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Provides information, how the dosing of the component is controlled.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "FeedRateScalingFactor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Material-specific output of the Component per DrivePercentage.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "IsActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Provides information if the dosing component is active in the current production.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Indicates if the hardware of this component is installed. ",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "SetActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Activates the dosing component for the current production.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "title": "ComponentStateEnumeration",
+      "description": "The actual working state of the component. ",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ComponentStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Weight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Weight of the Material (e.g. inside the hopper).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "BulkDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Bulk density of the material which is dosed (not to be confused with the density of the material itself defined in MaterialType).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DosingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Provides information, how the dosing of the component is controlled.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "SetActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Activates the dosing component for the current production.",
+        "type": "boolean"
+      }
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "title": "ComponentStateEnumeration",
+        "description": "The actual working state of the component. ",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ComponentStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Weight": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "data": {
+        "description": "Weight of the Material (e.g. inside the hopper).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

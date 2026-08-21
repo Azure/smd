@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_OpPerfLogType",
+  "title": "Mining_ExternalStandards_IREDES_OpPerfLogType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.OpPerfLogType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Mworking": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Machine working.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "TurnedOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Machine intentionally put in “OFF” state. This state is only counted if the machine is intentionally deactivated by an operator. Observe that a “switch off” while the machine is in “Wait Repair” mode will be counted as “wait repair” until the machine is switched on again.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "WaitOperator": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Time the machine waits for operator assistance during the reporting period. See “IREDES Drill Rig profile description” document.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "WaitProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Machine waiting for other partners in the process or for process reasons not caused by the machine itself. This may be an (autonomous) machine waiting for access to a shared tramming zone or waiting for access to a dump shaft, a truck to become available etc. See “IREDES Drill Rig profile description” document.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "WaitRepair": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Waiting time for repair until the repair is finished and the machine manually is switched on again. See “IREDES Drill Rig profile description” document.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "WaitSamples": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Waiting time for external supplies like electric power, network connection for remote control (if not in local operation mode), water, material etc. See “IREDES Drill Rig profile description” document.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Mworking": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Machine working.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "TurnedOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Machine intentionally put in “OFF” state. This state is only counted if the machine is intentionally deactivated by an operator. Observe that a “switch off” while the machine is in “Wait Repair” mode will be counted as “wait repair” until the machine is switched on again.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "WaitOperator": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Time the machine waits for operator assistance during the reporting period. See “IREDES Drill Rig profile description” document.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "WaitProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Machine waiting for other partners in the process or for process reasons not caused by the machine itself. This may be an (autonomous) machine waiting for access to a shared tramming zone or waiting for access to a dump shaft, a truck to become available etc. See “IREDES Drill Rig profile description” document.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "WaitRepair": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Waiting time for repair until the repair is finished and the machine manually is switched on again. See “IREDES Drill Rig profile description” document.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "WaitSamples": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Waiting time for external supplies like electric power, network connection for remote control (if not in local operation mode), water, material etc. See “IREDES Drill Rig profile description” document.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ServerAddressConfDataType",
+  "title": "FX_CM_ServerAddressConfDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ServerAddressConfDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ServerAddressConfDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.ServerAddressConfDataType",
+      "required": [
+        "BrowseName",
+        "Address",
+        "SecurityMode",
+        "SecurityPolicyUri",
+        "ServerUri",
+        "Namespaces"
+      ],
+      "properties": {
+        "BrowseName": {
+          "type": "string"
+        },
+        "Address": {
+          "type": "string"
+        },
+        "AddressSelection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AddressModify": {
+          "type": "boolean"
+        },
+        "SecurityMode": {
+          "title": "MessageSecurityMode",
+          "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SecurityModeSelection": {
+          "type": "array",
+          "items": {
+            "title": "MessageSecurityMode",
+            "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        },
+        "SecurityModeModify": {
+          "type": "boolean"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        },
+        "SecurityPolicyUriSelection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SecurityPolicyUriModify": {
+          "type": "boolean"
+        },
+        "ServerUri": {
+          "type": "string"
+        },
+        "ServerUriSelection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ServerUriModify": {
+          "type": "boolean"
+        },
+        "ServerProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Namespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

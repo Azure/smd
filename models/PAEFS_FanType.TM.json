@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FanType",
+  "title": "PAEFS_FanType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.FanType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryComponentIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PowerConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "RotationalSpeed",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointWriteType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaintenanceSwitchOn",
+    "/properties/Malfunction"
+  ],
+  "properties": {
+    "MaintenanceSwitchOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Status of a physical maintenance switch on the fan. True when the switch is on.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates whether there is an error with the fan. True in case of error.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

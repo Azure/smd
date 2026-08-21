@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AcDescriptorType",
+  "title": "FX_AC_AcDescriptorType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.AcDescriptorType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DescriptorFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DescriptorIdentifier",
+    "/properties/DescriptorVersion"
+  ],
+  "properties": {
+    "DescriptorIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DescriptorVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "FxVersion",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxVersion",
+      "required": [
+        "Major",
+        "Minor",
+        "Build",
+        "SubBuild"
+      ],
+      "properties": {
+        "Major": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Minor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Build": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "SubBuild": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_IFunctionalEntityType",
+  "title": "FX_AC_IFunctionalEntityType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.IFunctionalEntityType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Capabilities",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_FunctionalEntityCapabilitiesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ConfigurationData",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ConfigurationDataFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ConnectionEndpoints",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ConnectionEndpointsFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ControlGroups",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ControlGroupsFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "InputData",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_InputsFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Operational",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "OperationalHealthAlarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "OutputData",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_OutputsFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "PublisherCapabilities",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_PublisherCapabilitiesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Status",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "SubscriberCapabilities",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_SubscriberCapabilitiesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FunctionalEntityVerificationResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+      "const": {
+        "NotSet": 0,
+        "Match": 1,
+        "Mismatch": 2
+      },
+      "properties": {
+        "NotSet": {
+          "description": "The verification result is not set.",
+          "type": "integer"
+        },
+        "Match": {
+          "description": "FunctionalEntity matches expectation.",
+          "type": "integer"
+        },
+        "Mismatch": {
+          "description": "FunctionalEntity does not match expectation.",
+          "type": "integer"
+        }
+      }
+    },
+    "OperationalHealthOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+      "const": {
+        "OperationalWarning": 16,
+        "OperationalError": 17,
+        "SubOperationalWarning": 18,
+        "SubOperationalError": 19
+      },
+      "properties": {
+        "OperationalWarning": {
+          "description": "FunctionalEntity indicates a warning.",
+          "type": "integer"
+        },
+        "OperationalError": {
+          "description": "FunctionalEntity indicates an error.",
+          "type": "integer"
+        },
+        "SubOperationalWarning": {
+          "description": "One of the SubFunctionalEntities indicates a warning.",
+          "type": "integer"
+        },
+        "SubOperationalError": {
+          "description": "One of the SubFunctionalEntities indicates an error.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/Verify",
+    "/properties/ApplicationIdentifier",
+    "/properties/AuthorAssignedIdentifier",
+    "/properties/AuthorAssignedVersion",
+    "/properties/AuthorUri",
+    "/properties/OperationalHealth",
+    "/events/OperationalHealth"
+  ],
+  "actions": {
+    "Verify": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ExpectedVerificationVariables"
+        ],
+        "properties": {
+          "ExpectedVerificationVariables": {
+            "type": "array",
+            "items": {
+              "title": "NodeIdValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "title": "NodeIdArray",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                  "required": [
+                    "Node",
+                    "ArrayIndex"
+                  ],
+                  "properties": {
+                    "Node": {
+                      "type": "string"
+                    },
+                    "ArrayIndex": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      }
+                    }
+                  }
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "VerificationResult",
+          "VerificationVariablesErrors"
+        ],
+        "properties": {
+          "VerificationResult": {
+            "title": "FunctionalEntityVerificationResultEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "VerificationVariablesErrors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ApplicationIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "title": "ApplicationIdentifierDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.ApplicationIdentifierDataType",
+        "required": [
+          "Name",
+          "UniqueIdentifier"
+        ],
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "UniqueIdentifier": {
+            "title": "ApplicationId",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.AC.ApplicationId",
+            "properties": {
+              "IdNumeric": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "IdString": {
+                "type": "string"
+              },
+              "IdGuid": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "IdByteString": {
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "AuthorAssignedIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    },
+    "AuthorAssignedVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "FxVersion",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxVersion",
+      "required": [
+        "Major",
+        "Minor",
+        "Build",
+        "SubBuild"
+      ],
+      "properties": {
+        "Major": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Minor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Build": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "SubBuild": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      },
+      "readOnly": false
+    },
+    "AuthorUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    },
+    "OperationalHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "OperationalHealthOptionSet",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "OperationalHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "title": "OperationalHealthOptionSet",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_IntermediateResultEventType",
+  "title": "GMS_IntermediateResultEventType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.IntermediateResultEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ResultReadyEventType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Characteristics",
+      "href": "http://opcfoundation.org/UA/GMS/#GMS_CharacteristicType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProgramName"
+  ],
+  "properties": {
+    "ProgramName": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

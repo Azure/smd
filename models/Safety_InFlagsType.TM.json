@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Safety#Safety_InFlagsType",
+  "title": "Safety_InFlagsType",
+  "dov:typeRef": "org.opcfoundation.UA.Safety.InFlagsType",
+  "links": [],
+  "schemaDefinitions": {
+    "InFlagsType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Safety.InFlagsType",
+      "const": {
+        "CommunicationError": 0,
+        "OperatorAckRequested": 1,
+        "FSV_Activated": 2
+      },
+      "description": "Byte with Non safety Flags from SafetyConsumer",
+      "properties": {
+        "CommunicationError": {
+          "description": "0: No error, 1: An error was detected in the previous ResponseSPDU.",
+          "type": "integer"
+        },
+        "OperatorAckRequested": {
+          "description": "Used to inform the SafetyProvider that operator acknowledgment is requested.",
+          "type": "integer"
+        },
+        "FSV_Activated": {
+          "description": "Is used for conformance test of SafetyConsumer.SAPI.FSV_Activated.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

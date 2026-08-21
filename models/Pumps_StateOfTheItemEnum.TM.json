@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_StateOfTheItemEnum",
+  "title": "Pumps_StateOfTheItemEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.StateOfTheItemEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "StateOfTheItemEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.StateOfTheItemEnum",
+      "const": {
+        "IdleState": 0,
+        "StandByState": 1,
+        "OperatingState": 2,
+        "ExternalDisabledState": 3,
+        "DownState": 4
+      },
+      "description": "describes the state of the pump",
+      "properties": {
+        "IdleState": {
+          "description": "Item is in up state and non-operating outside required time",
+          "type": "integer"
+        },
+        "StandByState": {
+          "description": "Item is in up state and non-operating during required time",
+          "type": "integer"
+        },
+        "OperatingState": {
+          "description": "Item is in up state and operating as required",
+          "type": "integer"
+        },
+        "ExternalDisabledState": {
+          "description": "Item is in up state, but lacks required external resources or is disabled due to planned actions other than maintenance",
+          "type": "integer"
+        },
+        "DownState": {
+          "description": "Item is unable to perform a required function due to preventive maintenance or a fault",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

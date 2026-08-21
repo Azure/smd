@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_GDDMaintenanceType",
+  "title": "PlasticsRubber_GDD_GDDMaintenanceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.GDDMaintenanceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaintenanceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MaintenanceInstructions",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "GDDMaintenanceReset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "OperatorName",
+          "MachineManufacturer",
+          "MachineSerialNumber"
+        ],
+        "properties": {
+          "OperatorName": {
+            "type": "string"
+          },
+          "MachineManufacturer": {
+            "type": "string"
+          },
+          "MachineSerialNumber": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

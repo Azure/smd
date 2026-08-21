@@ -1,0 +1,70 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_PowerUnitType",
+  "title": "PlasticsRubber_GeneralTypes_PowerUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.PowerUnitType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActualTemperature",
+    "/events/ActualTemperature"
+  ],
+  "properties": {
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Current temperature of the PowerUnit",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id of the PowerUnit",
+      "type": "string",
+      "readOnly": true
+    },
+    "Index": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of the power unit",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if the power unit is physically present and connected",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "PowerOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if the PowerUnit is switched on",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Current temperature of the PowerUnit",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

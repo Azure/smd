@@ -1,0 +1,247 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_LogObjectType",
+  "title": "OpcUaCore_LogObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.LogObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "LogRecordMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LogRecordMask",
+      "const": {
+        "EventType": 0,
+        "SourceNode": 1,
+        "SourceName": 2,
+        "TraceContext": 3,
+        "AdditionalData": 4
+      },
+      "properties": {
+        "EventType": {
+          "type": "integer"
+        },
+        "SourceNode": {
+          "type": "integer"
+        },
+        "SourceName": {
+          "type": "integer"
+        },
+        "TraceContext": {
+          "type": "integer"
+        },
+        "AdditionalData": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ReleaseContinuationPoint",
+    "/properties/MaxRecords",
+    "/properties/MaxStorageDuration",
+    "/properties/MinimumSeverity"
+  ],
+  "actions": {
+    "GetRecords": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "StartTime",
+          "EndTime",
+          "MaxReturnRecords",
+          "MinimumSeverity",
+          "RequestMask",
+          "ContinuationPointIn"
+        ],
+        "properties": {
+          "StartTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "EndTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "MaxReturnRecords": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MinimumSeverity": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "RequestMask": {
+            "title": "LogRecordMask",
+            "dov:typeRef": "org.opcfoundation.UA.LogRecordMask",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ContinuationPointIn": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results",
+          "ContinuationPointOut"
+        ],
+        "properties": {
+          "Results": {
+            "title": "LogRecordsDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.LogRecordsDataType",
+            "required": [
+              "LogRecordArray"
+            ],
+            "properties": {
+              "LogRecordArray": {
+                "type": "array",
+                "items": {
+                  "title": "LogRecord",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.LogRecord",
+                  "required": [
+                    "Time",
+                    "Severity",
+                    "Message"
+                  ],
+                  "properties": {
+                    "Time": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "Severity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "EventType": {
+                      "type": "string"
+                    },
+                    "SourceNode": {
+                      "type": "string"
+                    },
+                    "SourceName": {
+                      "type": "string"
+                    },
+                    "Message": {
+                      "type": "string"
+                    },
+                    "TraceContext": {
+                      "title": "TraceContextDataType",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.TraceContextDataType",
+                      "required": [
+                        "TraceId",
+                        "SpanId",
+                        "ParentSpanId",
+                        "ParentIdentifier"
+                      ],
+                      "properties": {
+                        "TraceId": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "SpanId": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 18446744073709551615
+                        },
+                        "ParentSpanId": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 18446744073709551615
+                        },
+                        "ParentIdentifier": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "AdditionalData": {
+                      "type": "array",
+                      "items": {
+                        "title": "NameValuePair",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.NameValuePair",
+                        "required": [
+                          "Name",
+                          "Value"
+                        ],
+                        "properties": {
+                          "Name": {
+                            "type": "string"
+                          },
+                          "Value": {
+                            "description": "Stand-in for an unspecified data type.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ContinuationPointOut": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "ReleaseContinuationPoint": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ContinuationPointIn"
+        ],
+        "properties": {
+          "ContinuationPointIn": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "MaxRecords": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxStorageDuration": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "MinimumSeverity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

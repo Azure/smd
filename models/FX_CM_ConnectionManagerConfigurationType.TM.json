@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionManagerConfigurationType",
+  "title": "FX_CM_ConnectionManagerConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionManagerConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ConnectionConfigurationSetOperation": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionConfigurationSetOperation",
+      "const": {
+        "ElementAdd": 0,
+        "ElementRemove": 1,
+        "ElementReplace": 2
+      },
+      "properties": {
+        "ElementAdd": {
+          "description": "The ConnectionConfigurationSet is added to the ConnectionManager configuration.",
+          "type": "integer"
+        },
+        "ElementRemove": {
+          "description": "The ConnectionConfigurationSet is removed from the ConnectionManager configuration.",
+          "type": "integer"
+        },
+        "ElementReplace": {
+          "description": "The ConnectionConfigurationSet is replaced in the ConnectionManager configuration.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "CloseAndUpdate": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileHandle",
+          "RequireCompleteUpdate",
+          "Operations"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RequireCompleteUpdate": {
+            "type": "boolean"
+          },
+          "Operations": {
+            "type": "array",
+            "items": {
+              "title": "ConnectionConfigurationSetOperation",
+              "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionConfigurationSetOperation",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ChangesApplied",
+          "OperationResults",
+          "ConfigurationObjects"
+        ],
+        "properties": {
+          "ChangesApplied": {
+            "type": "boolean"
+          },
+          "OperationResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ConfigurationObjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/PackageMetadata/#DI_PackageMetadata_CompatibilityOption",
+  "title": "DI_PackageMetadata_CompatibilityOption",
+  "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.CompatibilityOption",
+  "links": [],
+  "schemaDefinitions": {
+    "CompatibilityOption": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.CompatibilityOption",
+      "required": [
+        "CompatibilityRequirements"
+      ],
+      "properties": {
+        "CompatibilityRequirements": {
+          "type": "array",
+          "items": {
+            "title": "CompatibilityRequirement",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.CompatibilityRequirement",
+            "required": [
+              "Variable",
+              "Values",
+              "Operation"
+            ],
+            "properties": {
+              "Variable": {
+                "type": "string"
+              },
+              "Values": {
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              },
+              "Operation": {
+                "title": "ComparisonOperation",
+                "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.ComparisonOperation",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

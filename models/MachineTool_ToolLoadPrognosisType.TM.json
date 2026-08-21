@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ToolLoadPrognosisType",
+  "title": "MachineTool_ToolLoadPrognosisType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolLoadPrognosisType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_PrognosisType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ToolIdentifier",
+    "/properties/ToolName",
+    "/events/ToolIdentifier",
+    "/events/ToolName"
+  ],
+  "properties": {
+    "Location": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ToolIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ToolName": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Location": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "ToolIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "ToolName": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

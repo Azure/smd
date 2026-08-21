@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_WeighingItemType",
+  "title": "Scales_V2_WeighingItemType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeighingItemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "WeightItemType": {
+      "title": "WeightType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+      "required": [
+        "Gross",
+        "Net",
+        "Tare"
+      ],
+      "properties": {
+        "Gross": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Net": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Tare": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ItemId",
+    "/properties/MeasuredHeight",
+    "/properties/MeasuredLength",
+    "/properties/MeasuredVolume",
+    "/properties/MeasuredWidth",
+    "/properties/ZoneName",
+    "/events/MeasuredHeight",
+    "/events/MeasuredLength",
+    "/events/MeasuredVolume",
+    "/events/MeasuredWidth"
+  ],
+  "properties": {
+    "ItemId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a unique number that is assigned to an item.",
+      "type": "string",
+      "readOnly": false
+    },
+    "MeasuredHeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "MeasuredLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "MeasuredVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "MeasuredWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    },
+    "MeasuredWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "ZoneName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "MeasuredHeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "MeasuredLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "MeasuredVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "MeasuredWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    },
+    "MeasuredWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

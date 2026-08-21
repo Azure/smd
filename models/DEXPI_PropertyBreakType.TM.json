@@ -1,0 +1,201 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PropertyBreakType",
+  "title": "DEXPI_PropertyBreakType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.PropertyBreakType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Node>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PipingNodeType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "CompositionBreakClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.CompositionBreakClassification",
+      "const": {
+        "CompositionBreak": 0,
+        "NoCompositionBreak": 1
+      },
+      "description": "",
+      "properties": {
+        "CompositionBreak": {
+          "description": "CompositionBreak",
+          "type": "integer"
+        },
+        "NoCompositionBreak": {
+          "description": "NoCompositionBreak",
+          "type": "integer"
+        }
+      }
+    },
+    "InsulationBreakClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.InsulationBreakClassification",
+      "const": {
+        "InsulationBreak": 0,
+        "NoInsulationBreak": 1
+      },
+      "description": "",
+      "properties": {
+        "InsulationBreak": {
+          "description": "InsulationBreak",
+          "type": "integer"
+        },
+        "NoInsulationBreak": {
+          "description": "NoInsulationBreak",
+          "type": "integer"
+        }
+      }
+    },
+    "NominalDiameterBreakClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.NominalDiameterBreakClassification",
+      "const": {
+        "NoNominalDiameterBreak": 0,
+        "NominalDiameterBreak": 1
+      },
+      "description": "",
+      "properties": {
+        "NoNominalDiameterBreak": {
+          "description": "NoNominalDiameterBreak",
+          "type": "integer"
+        },
+        "NominalDiameterBreak": {
+          "description": "NominalDiameterBreak",
+          "type": "integer"
+        }
+      }
+    },
+    "PipingClassBreakClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingClassBreakClassification",
+      "const": {
+        "NoPipingClassBreak": 0,
+        "PipingClassBreak": 1
+      },
+      "description": "",
+      "properties": {
+        "NoPipingClassBreak": {
+          "description": "NoPipingClassBreak",
+          "type": "integer"
+        },
+        "PipingClassBreak": {
+          "description": "PipingClassBreak",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/CompositionBreakSpecialization",
+    "/properties/InsulationBreakSpecialization",
+    "/properties/NominalDiameterBreakSpecialization",
+    "/properties/PipingClassBreakSpecialization",
+    "/events/CompositionBreakSpecialization",
+    "/events/InsulationBreakSpecialization",
+    "/events/NominalDiameterBreakSpecialization",
+    "/events/PipingClassBreakSpecialization"
+  ],
+  "properties": {
+    "CompositionBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "CompositionBreakClassification",
+      "description": "A specialization indicating if the PropertyBreak is a composition break or not.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.CompositionBreakClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "InsulationBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "InsulationBreakClassification",
+      "description": "A specialization indicating if the PropertyBreak is an insulation break or not.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.InsulationBreakClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "NominalDiameterBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "NominalDiameterBreakClassification",
+      "description": "A specialization indicating if the PropertyBreak is a nominal diameter break or not.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.NominalDiameterBreakClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PipingClassBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "PipingClassBreakClassification",
+      "description": "A specialization indicating if the PropertyBreak is a composition break or not.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingClassBreakClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CompositionBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "CompositionBreakClassification",
+        "description": "A specialization indicating if the PropertyBreak is a composition break or not.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.CompositionBreakClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "InsulationBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "InsulationBreakClassification",
+        "description": "A specialization indicating if the PropertyBreak is an insulation break or not.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.InsulationBreakClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "NominalDiameterBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "NominalDiameterBreakClassification",
+        "description": "A specialization indicating if the PropertyBreak is a nominal diameter break or not.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.NominalDiameterBreakClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "PipingClassBreakSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "PipingClassBreakClassification",
+        "description": "A specialization indicating if the PropertyBreak is a composition break or not.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.PipingClassBreakClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

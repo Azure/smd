@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ActuatingFunctionType",
+  "title": "DEXPI_ActuatingFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ActuatingFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActuatingFunctionNumberAssignmentClass",
+    "/events/ActuatingFunctionNumberAssignmentClass"
+  ],
+  "properties": {
+    "ActuatingFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "An identifier for the ActuatingFunction. It usually contains the identifier of the ProcessInstrumentationFunction that includes the ActuatingFunction (see ProcessInstrumentationFunctionNumberAssignmentClass).",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActuatingFunctionNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "An identifier for the ActuatingFunction. It usually contains the identifier of the ProcessInstrumentationFunction that includes the ActuatingFunction (see ProcessInstrumentationFunctionNumberAssignmentClass).",
+        "type": "string"
+      }
+    }
+  }
+}

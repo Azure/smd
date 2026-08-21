@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_SimpleProductType",
+  "title": "Scales_V2_SimpleProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.SimpleProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ContainerId",
+    "/properties/UnitPrice",
+    "/events/UnitPrice"
+  ],
+  "properties": {
+    "ContainerId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "UnitPrice": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "number",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "UnitPrice": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "type": "number"
+      }
+    }
+  }
+}

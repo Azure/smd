@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_GranulateDryingDeviceType",
+  "title": "PlasticsRubber_GDD_GranulateDryingDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.GranulateDryingDeviceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Dryer",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_DryerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineConfiguration",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Operation",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_OperationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UserLogin",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_UserLoginType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DisplayLanguage",
+    "/events/DisplayLanguage"
+  ],
+  "properties": {
+    "DisplayLanguage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "With the DisplayLanguage Variable the client can set the desired language on the user interface at the GDD.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DisplayLanguage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "With the DisplayLanguage Variable the client can set the desired language on the user interface at the GDD.",
+        "type": "string"
+      }
+    }
+  }
+}

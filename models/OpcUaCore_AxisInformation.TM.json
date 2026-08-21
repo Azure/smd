@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AxisInformation",
+  "title": "OpcUaCore_AxisInformation",
+  "dov:typeRef": "org.opcfoundation.UA.AxisInformation",
+  "links": [],
+  "schemaDefinitions": {
+    "AxisInformation": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AxisInformation",
+      "required": [
+        "EngineeringUnits",
+        "EURange",
+        "Title",
+        "AxisScaleType",
+        "AxisSteps"
+      ],
+      "properties": {
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "EURange": {
+          "title": "Range",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Range",
+          "required": [
+            "Low",
+            "High"
+          ],
+          "properties": {
+            "Low": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "High": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        },
+        "Title": {
+          "type": "string"
+        },
+        "AxisScaleType": {
+          "title": "AxisScaleEnumeration",
+          "dov:typeRef": "org.opcfoundation.UA.AxisScaleEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "AxisSteps": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    }
+  }
+}

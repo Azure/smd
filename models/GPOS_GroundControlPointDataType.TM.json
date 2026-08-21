@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GPOS/#GPOS_GroundControlPointDataType",
+  "title": "GPOS_GroundControlPointDataType",
+  "dov:typeRef": "org.opcfoundation.UA.RSL.GroundControlPointDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "GroundControlPointDataType": {
+      "description": "Defines a pair of coordinates - local and global - to allow geo-references from local coordinate to a global coordinate system",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.RSL.GroundControlPointDataType",
+      "required": [
+        "GlobalPosition",
+        "LocalPosition"
+      ],
+      "properties": {
+        "GlobalPosition": {
+          "title": "S3DGeographicCoordinateDataType",
+          "description": "Represents a geographic coordinate",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.GPOS.S3DGeographicCoordinateDataType",
+          "required": [
+            "Longitude",
+            "Latitude"
+          ],
+          "properties": {
+            "Longitude": {
+              "description": "MUST be interpreted according to the CoordinateReferenceSystem",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Latitude": {
+              "description": "MUST be interpreted according to the CoordinateReferenceSystem",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Elevation": {
+              "description": "MUST be interpreted according to the ElevationReference. If floor, the height relative to specific floor in meter",
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        },
+        "LocalPosition": {
+          "title": "ThreeDCartesianCoordinates",
+          "description": "Local position in metric coordinates (in meter)",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.ThreeDCartesianCoordinates",
+          "required": [
+            "X",
+            "Y",
+            "Z"
+          ],
+          "properties": {
+            "X": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Y": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "Z": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        }
+      }
+    }
+  }
+}

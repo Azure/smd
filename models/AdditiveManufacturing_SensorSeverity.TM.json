@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AdditiveManufacturing/#AdditiveManufacturing_SensorSeverity",
+  "title": "AdditiveManufacturing_SensorSeverity",
+  "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.SensorSeverity",
+  "links": [],
+  "schemaDefinitions": {
+    "SensorSeverity": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.SensorSeverity",
+      "const": {
+        "Info": 0,
+        "Critical": 1
+      },
+      "description": "This enumeration indicates the severity of a specific sensor.",
+      "properties": {
+        "Info": {
+          "description": "This sensor’s current value is not critical for the overall production.",
+          "type": "integer"
+        },
+        "Critical": {
+          "description": "This sensor’s current value is critical for the overall production.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

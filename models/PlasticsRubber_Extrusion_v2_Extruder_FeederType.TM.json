@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/#PlasticsRubber_Extrusion_v2_Extruder_FeederType",
+  "title": "PlasticsRubber_Extrusion_v2_Extruder_FeederType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion_v2.Extruder.FeederType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DriveType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Hopper",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/#PlasticsRubber_Extrusion_v2_Extruder_HopperType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Throughput",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FeedingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion_v2.Extruder.FeedingModeEnumeration",
+      "const": {
+        "ONLY_CONVEYING": 0,
+        "OTHER": 1,
+        "GRAVIMETRIC": 2,
+        "VOLUMETRIC": 3,
+        "LIQUID": 4,
+        "BATCH": 5
+      },
+      "properties": {
+        "ONLY_CONVEYING": {
+          "type": "integer"
+        },
+        "OTHER": {
+          "type": "integer"
+        },
+        "GRAVIMETRIC": {
+          "type": "integer"
+        },
+        "VOLUMETRIC": {
+          "type": "integer"
+        },
+        "LIQUID": {
+          "type": "integer"
+        },
+        "BATCH": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/IsControlled"
+  ],
+  "properties": {
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IsControlled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Mode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/",
+      "title": "FeedingModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion_v2.Extruder.FeedingModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Target": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/Extruder/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

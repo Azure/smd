@@ -1,0 +1,214 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_ConnectionEndpointConfigurationDataType",
+  "title": "FX_Data_ConnectionEndpointConfigurationDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointConfigurationDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ConnectionEndpointConfigurationDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointConfigurationDataType",
+      "required": [
+        "FunctionalEntityNode",
+        "ConnectionEndpoint",
+        "ExpectedVerificationVariables",
+        "ControlGroups",
+        "ConfigurationData",
+        "CommunicationLinks"
+      ],
+      "properties": {
+        "FunctionalEntityNode": {
+          "type": "string"
+        },
+        "ConnectionEndpoint": {
+          "title": "ConnectionEndpointDefinitionDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointDefinitionDataType",
+          "properties": {
+            "Parameter": {
+              "title": "ConnectionEndpointParameterDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointParameterDataType",
+              "required": [
+                "Name",
+                "ConnectionEndpointTypeId",
+                "InputVariableIds",
+                "OutputVariableIds",
+                "IsPersistent",
+                "CleanupTimeout",
+                "RelatedEndpoint",
+                "IsPreconfigured"
+              ],
+              "properties": {
+                "Name": {
+                  "type": "string"
+                },
+                "ConnectionEndpointTypeId": {
+                  "type": "string"
+                },
+                "InputVariableIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "OutputVariableIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "IsPersistent": {
+                  "type": "boolean"
+                },
+                "CleanupTimeout": {
+                  "type": "string",
+                  "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+                },
+                "RelatedEndpoint": {
+                  "title": "RelatedEndpointDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.RelatedEndpointDataType",
+                  "required": [
+                    "Address",
+                    "ConnectionEndpointPath",
+                    "ConnectionEndpointName"
+                  ],
+                  "properties": {
+                    "Address": {
+                      "type": "string"
+                    },
+                    "ConnectionEndpointPath": {
+                      "type": "array",
+                      "items": {
+                        "title": "PortableQualifiedName",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                        "required": [
+                          "NamespaceUri",
+                          "Name"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "Name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "ConnectionEndpointName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "IsPreconfigured": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "Node": {
+              "type": "string"
+            }
+          }
+        },
+        "ExpectedVerificationVariables": {
+          "type": "array",
+          "items": {
+            "title": "NodeIdValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "title": "NodeIdArray",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                "required": [
+                  "Node",
+                  "ArrayIndex"
+                ],
+                "properties": {
+                  "Node": {
+                    "type": "string"
+                  },
+                  "ArrayIndex": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 4294967295
+                    }
+                  }
+                }
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ControlGroups": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ConfigurationData": {
+          "type": "array",
+          "items": {
+            "title": "NodeIdValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "title": "NodeIdArray",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                "required": [
+                  "Node",
+                  "ArrayIndex"
+                ],
+                "properties": {
+                  "Node": {
+                    "type": "string"
+                  },
+                  "ArrayIndex": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 4294967295
+                    }
+                  }
+                }
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "CommunicationLinks": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

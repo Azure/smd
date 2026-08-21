@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ThinFilmEvaporatorType",
+  "title": "DEXPI_ThinFilmEvaporatorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ThinFilmEvaporatorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_HeatExchangerType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Rotor>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_HeatExchangerRotorType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignPower",
+    "/properties/DesignRotationalSpeed",
+    "/properties/DesignShaftPower",
+    "/events/DesignPower",
+    "/events/DesignRotationalSpeed",
+    "/events/DesignShaftPower"
+  ],
+  "properties": {
+    "DesignPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design power of the ThinFilmEvaporator.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design rotational speed of the ThinFilmEvaporator.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The design shaft power of the ThinFilmEvaporator.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design power of the ThinFilmEvaporator.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignRotationalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design rotational speed of the ThinFilmEvaporator.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DesignShaftPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The design shaft power of the ThinFilmEvaporator.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

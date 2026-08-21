@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioFaAnalogValueDataType",
+  "title": "PNRIO_RioFaAnalogValueDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogValueDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "RioFaAnalogValueDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioFaAnalogValueDataType",
+      "required": [
+        "Value",
+        "Qualifier"
+      ],
+      "properties": {
+        "Value": {
+          "title": "RioAnalogDataType",
+          "description": "Current value.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioAnalogDataType",
+          "properties": {
+            "Float_32": {
+              "type": "number",
+              "minimum": -3.40e+38,
+              "maximum": 3.40e+38
+            },
+            "Int_16": {
+              "type": "integer",
+              "minimum": -32768,
+              "maximum": 32767
+            },
+            "Int_32": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "UInt_16": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "UInt_32": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        },
+        "Qualifier": {
+          "description": "Current status.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

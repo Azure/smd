@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetAddress",
+  "title": "BACnet_V2_BACnetAddress",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetAddress": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+      "required": [
+        "NetworkNumber",
+        "MacAddress"
+      ],
+      "properties": {
+        "NetworkNumber": {
+          "description": "A value 0 indicates the local network",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "MacAddress": {
+          "description": "A string of length 0 indicates a broadcast",
+          "type": "string",
+          "contentEncoding": "base64"
+        }
+      }
+    }
+  }
+}

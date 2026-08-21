@@ -1,0 +1,170 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ConfigurationDataFolderType",
+  "title": "FX_AC_ConfigurationDataFolderType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ConfigurationDataFolderType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BaseDataVariableType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.BaseDataVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/ClearStoredVariables",
+    "/actions/ListStoredVariables",
+    "/actions/SetStoredVariables",
+    "/properties/ConfigurationVariable1",
+    "/events/ConfigurationVariable1"
+  ],
+  "actions": {
+    "ClearStoredVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VariablesToClear"
+        ],
+        "properties": {
+          "VariablesToClear": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ListStoredVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "StoredVariables"
+        ],
+        "properties": {
+          "StoredVariables": {
+            "type": "array",
+            "items": {
+              "title": "NodeIdValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "title": "NodeIdArray",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                  "required": [
+                    "Node",
+                    "ArrayIndex"
+                  ],
+                  "properties": {
+                    "Node": {
+                      "type": "string"
+                    },
+                    "ArrayIndex": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      }
+                    }
+                  }
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetStoredVariables": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VariablesToStore"
+        ],
+        "properties": {
+          "VariablesToStore": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConfigurationVariable1": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "tm:ref": "#/schemaDefinitions/BaseDataVariableType",
+      "readOnly": false,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "ConfigurationVariable1": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BaseDataVariableType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

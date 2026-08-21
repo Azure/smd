@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeTsnInterfaceConfigurationType",
+  "title": "OpcUaCore_IIeeeTsnInterfaceConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeTsnInterfaceConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/InterfaceName",
+    "/events/InterfaceName"
+  ],
+  "properties": {
+    "InterfaceName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "MacAddress": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "InterfaceName": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "MacAddress": {
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

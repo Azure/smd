@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_CIMVOperationModeEnum",
+  "title": "MDIS_CIMVOperationModeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.CIMVOperationModeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "CIMVOperationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.CIMVOperationModeEnum",
+      "const": {
+        "Position": 1,
+        "Flow": 2,
+        "Manual": 4
+      },
+      "properties": {
+        "Position": {
+          "description": "The CIMV is in closed-loop Position control mode. Sending fix position",
+          "type": "integer"
+        },
+        "Flow": {
+          "description": "The CIMV is in closed-loop Flow control mode (auto regulate)",
+          "type": "integer"
+        },
+        "Manual": {
+          "description": "The CIMV is in open-loop Manual mode (compare it to step mode – i.e., move some increment relative to current). Note: some CIMV instance may not support this mode.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

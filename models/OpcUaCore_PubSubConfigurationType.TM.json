@@ -1,0 +1,282 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubConfigurationType",
+  "title": "OpcUaCore_PubSubConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PubSubConfigurationRefMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefMask",
+      "const": {
+        "ElementAdd": 0,
+        "ElementMatch": 1,
+        "ElementModify": 2,
+        "ElementRemove": 3,
+        "ReferenceWriter": 4,
+        "ReferenceReader": 5,
+        "ReferenceWriterGroup": 6,
+        "ReferenceReaderGroup": 7,
+        "ReferenceConnection": 8,
+        "ReferencePubDataset": 9,
+        "ReferenceSubDataset": 10,
+        "ReferenceSecurityGroup": 11,
+        "ReferencePushTarget": 12
+      },
+      "properties": {
+        "ElementAdd": {
+          "type": "integer"
+        },
+        "ElementMatch": {
+          "type": "integer"
+        },
+        "ElementModify": {
+          "type": "integer"
+        },
+        "ElementRemove": {
+          "type": "integer"
+        },
+        "ReferenceWriter": {
+          "type": "integer"
+        },
+        "ReferenceReader": {
+          "type": "integer"
+        },
+        "ReferenceWriterGroup": {
+          "type": "integer"
+        },
+        "ReferenceReaderGroup": {
+          "type": "integer"
+        },
+        "ReferenceConnection": {
+          "type": "integer"
+        },
+        "ReferencePubDataset": {
+          "type": "integer"
+        },
+        "ReferenceSubDataset": {
+          "type": "integer"
+        },
+        "ReferenceSecurityGroup": {
+          "type": "integer"
+        },
+        "ReferencePushTarget": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "CloseAndUpdate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileHandle",
+          "RequireCompleteUpdate",
+          "ConfigurationReferences"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RequireCompleteUpdate": {
+            "type": "boolean"
+          },
+          "ConfigurationReferences": {
+            "type": "array",
+            "items": {
+              "title": "PubSubConfigurationRefDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefDataType",
+              "required": [
+                "ConfigurationMask",
+                "ElementIndex",
+                "ConnectionIndex",
+                "GroupIndex"
+              ],
+              "properties": {
+                "ConfigurationMask": {
+                  "title": "PubSubConfigurationRefMask",
+                  "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefMask",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "ElementIndex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "ConnectionIndex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "GroupIndex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ChangesApplied",
+          "ReferencesResults",
+          "ConfigurationValues",
+          "ConfigurationObjects"
+        ],
+        "properties": {
+          "ChangesApplied": {
+            "type": "boolean"
+          },
+          "ReferencesResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ConfigurationValues": {
+            "type": "array",
+            "items": {
+              "title": "PubSubConfigurationValueDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationValueDataType",
+              "required": [
+                "ConfigurationElement",
+                "Name",
+                "Identifier"
+              ],
+              "properties": {
+                "ConfigurationElement": {
+                  "title": "PubSubConfigurationRefDataType",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefDataType",
+                  "required": [
+                    "ConfigurationMask",
+                    "ElementIndex",
+                    "ConnectionIndex",
+                    "GroupIndex"
+                  ],
+                  "properties": {
+                    "ConfigurationMask": {
+                      "title": "PubSubConfigurationRefMask",
+                      "dov:typeRef": "org.opcfoundation.UA.PubSubConfigurationRefMask",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "ElementIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "ConnectionIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "GroupIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    }
+                  }
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Identifier": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ConfigurationObjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ReserveIds": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TransportProfileUri",
+          "NumReqWriterGroupIds",
+          "NumReqDataSetWriterIds"
+        ],
+        "properties": {
+          "TransportProfileUri": {
+            "type": "string"
+          },
+          "NumReqWriterGroupIds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "NumReqDataSetWriterIds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "DefaultPublisherId",
+          "WriterGroupIds",
+          "DataSetWriterIds"
+        ],
+        "properties": {
+          "DefaultPublisherId": {
+            "type": "string"
+          },
+          "WriterGroupIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          },
+          "DataSetWriterIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        }
+      }
+    }
+  }
+}

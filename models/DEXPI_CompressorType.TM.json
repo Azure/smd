@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_CompressorType",
+  "title": "DEXPI_CompressorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.CompressorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_EquipmentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DesignVolumeFlowRate",
+    "/properties/DifferentialPressure",
+    "/events/DesignVolumeFlowRate",
+    "/events/DifferentialPressure"
+  ],
+  "properties": {
+    "DesignVolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The volume flow rate for which the Compressor is designed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DifferentialPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The differential pressure of the Compressor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DesignVolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The volume flow rate for which the Compressor is designed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DifferentialPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The differential pressure of the Compressor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

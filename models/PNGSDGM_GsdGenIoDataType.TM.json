@@ -1,0 +1,86 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoDataType",
+  "title": "PNGSDGM_GsdGenIoDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoDataType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "InputChannelx",
+      "href": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoChannelType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "OutputChannelx",
+      "href": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoChannelType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "GsdGenIoConsistencyEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoConsistencyEnumeration",
+      "const": {
+        "ITEM_CONSISTENCY": 0,
+        "ALL_ITEMS_CONSISTENCY": 1
+      },
+      "properties": {
+        "ITEM_CONSISTENCY": {
+          "description": "Each data type is handled consistently.",
+          "type": "integer"
+        },
+        "ALL_ITEMS_CONSISTENCY": {
+          "description": "The Submodule requires consistency over the whole Input/Output Data.",
+          "type": "integer"
+        }
+      }
+    },
+    "GsdGenIoDataItemVariableType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoDataItemVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/DataItemx",
+    "/events/DataItemx"
+  ],
+  "properties": {
+    "Consistency": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "title": "GsdGenIoConsistencyEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoConsistencyEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DataItemx": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "tm:ref": "#/schemaDefinitions/GsdGenIoDataItemVariableType",
+      "readOnly": true,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "DataItemx": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNGSDGM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/GsdGenIoDataItemVariableType"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

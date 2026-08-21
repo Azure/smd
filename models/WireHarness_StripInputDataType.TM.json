@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_StripInputDataType",
+  "title": "WireHarness_StripInputDataType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.StripInputDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StripInputDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.StripInputDataType",
+      "required": [
+        "ToolType",
+        "ProcessDescription",
+        "Id",
+        "ReferencedElement",
+        "StrippingLengthMonitoring"
+      ],
+      "properties": {
+        "ToolType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProcessDescription": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Id": {
+          "type": "string"
+        },
+        "ReferencedElement": {
+          "title": "WireEndIdDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireEndIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "StrippingLengthMonitoring": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

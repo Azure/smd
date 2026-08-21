@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MessageLogType",
+  "title": "PlasticsRubber_GeneralTypes_MessageLogType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MessageLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_LogbookEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Classification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Classification of the message",
+      "type": "string",
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id of the message",
+      "type": "string",
+      "readOnly": true
+    },
+    "IsStandstillMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if the message has led to a standstill",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

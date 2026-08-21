@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_PumpRoleEnum",
+  "title": "Pumps_PumpRoleEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpRoleEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "PumpRoleEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpRoleEnum",
+      "const": {
+        "Slave": 0,
+        "Master": 1,
+        "SlaveAndAuxiliaryMaster": 2
+      },
+      "description": "identifies the role rsp. task of the pump within the multi pump management",
+      "properties": {
+        "Slave": {
+          "description": "Slave",
+          "type": "integer"
+        },
+        "Master": {
+          "description": "Master",
+          "type": "integer"
+        },
+        "SlaveAndAuxiliaryMaster": {
+          "description": "Slave and auxiliary master",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommunicationInterfaceAttributesType",
+  "title": "Powertrain_PtCommunicationInterfaceAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtCommunicationInterfaceAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CommunicationSpeed",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/NumberOfPorts",
+    "/properties/ProfileTypes",
+    "/properties/SafetyProtocolTypes",
+    "/events/ProfileTypes",
+    "/events/SafetyProtocolTypes"
+  ],
+  "properties": {
+    "CommunicationSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "string",
+      "readOnly": true
+    },
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "NumberOfPorts": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "ProfileTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "readOnly": true
+    },
+    "ProtocolTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "readOnly": true
+    },
+    "SafetyProtocolTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ProfileTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    },
+    "ProtocolTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    },
+    "SafetyProtocolTypes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}

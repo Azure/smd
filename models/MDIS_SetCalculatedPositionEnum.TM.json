@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_SetCalculatedPositionEnum",
+  "title": "MDIS_SetCalculatedPositionEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.SetCalculatedPositionEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "SetCalculatedPositionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SetCalculatedPositionEnum",
+      "const": {
+        "Initial": 0,
+        "Inprogress": 1,
+        "Complete": 2,
+        "Fault": 4
+      },
+      "properties": {
+        "Initial": {
+          "description": "no command (initial state)",
+          "type": "integer"
+        },
+        "Inprogress": {
+          "description": "command in progress",
+          "type": "integer"
+        },
+        "Complete": {
+          "description": "command completed",
+          "type": "integer"
+        },
+        "Fault": {
+          "description": "command fault",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

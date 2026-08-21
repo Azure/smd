@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_DistributionTypeEnum",
+  "title": "Pumps_DistributionTypeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.DistributionTypeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "DistributionTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DistributionTypeEnum",
+      "const": {
+        "ManufacturerSpecific": 0,
+        "OperatorSpecific": 1,
+        "ConcerningTimeDistribution": 2,
+        "ConcerningLoadDistribution": 3
+      },
+      "description": "describes the share of operation time of different pumps of the pump system in addition operation mode",
+      "properties": {
+        "ManufacturerSpecific": {
+          "description": "Manufacturer specific distribution of operation time",
+          "type": "integer"
+        },
+        "OperatorSpecific": {
+          "description": "Operator specific distribution of operation time",
+          "type": "integer"
+        },
+        "ConcerningTimeDistribution": {
+          "description": "Equivalent distribution of operation time, concerning time distribution",
+          "type": "integer"
+        },
+        "ConcerningLoadDistribution": {
+          "description": "Equivalent distribution of operation time, concerning load distribution",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

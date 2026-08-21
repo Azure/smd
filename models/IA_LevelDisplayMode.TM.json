@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_LevelDisplayMode",
+  "title": "IA_LevelDisplayMode",
+  "dov:typeRef": "org.opcfoundation.UA.IA.LevelDisplayMode",
+  "links": [],
+  "schemaDefinitions": {
+    "LevelDisplayMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.LevelDisplayMode",
+      "const": {
+        "Dimmed": 0,
+        "Blinking": 1,
+        "Other": 2
+      },
+      "description": "Contains the values used to indicate how a percentual value is displayed if the stacklight unit works in Levelmeter mode.",
+      "properties": {
+        "Dimmed": {
+          "description": "Uses dimming to display fractions.",
+          "type": "integer"
+        },
+        "Blinking": {
+          "description": "Uses blinking to display fractions.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "Display fractions in a way not defined in this version of the specification.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

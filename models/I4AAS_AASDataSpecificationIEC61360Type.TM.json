@@ -1,0 +1,267 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASDataSpecificationIEC61360Type",
+  "title": "I4AAS_AASDataSpecificationIEC61360Type",
+  "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASDataSpecificationIEC61360Type",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASDataSpecificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Administration",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASAdministrativeInformationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASIdentifierType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnitId",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASReferenceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ValueId",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASReferenceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ValueList",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_ValueListType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AASCategoryDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASCategoryDataType",
+      "const": {
+        "CONSTANT": 0,
+        "PARAMETER": 1,
+        "VARIABLE": 2,
+        "RELATIONSHIP": 3
+      },
+      "properties": {
+        "CONSTANT": {
+          "description": "Constant",
+          "type": "integer"
+        },
+        "PARAMETER": {
+          "description": "Parameter",
+          "type": "integer"
+        },
+        "VARIABLE": {
+          "description": "Variable",
+          "type": "integer"
+        },
+        "RELATIONSHIP": {
+          "description": "Relationship",
+          "type": "integer"
+        }
+      }
+    },
+    "AASDataTypeIEC61360DataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASDataTypeIEC61360DataType",
+      "const": {
+        "BOOLEAN": 0,
+        "DATE": 1,
+        "RATIONAL": 2,
+        "RATIONAL_MEASURE": 3,
+        "REAL_COUNT": 4,
+        "REAL_CURRENCY": 5,
+        "REAL_MEASURE": 6,
+        "STRING": 7,
+        "STRING_TRANSLATABLE": 8,
+        "TIME": 9,
+        "TIME_STAMP": 10,
+        "URL": 11,
+        "INTEGER": 12,
+        "INTEGER_COUNT": 13,
+        "INTEGER_CURRENCY": 14
+      },
+      "properties": {
+        "BOOLEAN": {
+          "type": "integer"
+        },
+        "DATE": {
+          "type": "integer"
+        },
+        "RATIONAL": {
+          "type": "integer"
+        },
+        "RATIONAL_MEASURE": {
+          "type": "integer"
+        },
+        "REAL_COUNT": {
+          "type": "integer"
+        },
+        "REAL_CURRENCY": {
+          "type": "integer"
+        },
+        "REAL_MEASURE": {
+          "type": "integer"
+        },
+        "STRING": {
+          "type": "integer"
+        },
+        "STRING_TRANSLATABLE": {
+          "type": "integer"
+        },
+        "TIME": {
+          "type": "integer"
+        },
+        "TIME_STAMP": {
+          "type": "integer"
+        },
+        "URL": {
+          "type": "integer"
+        },
+        "INTEGER": {
+          "type": "integer"
+        },
+        "INTEGER_COUNT": {
+          "type": "integer"
+        },
+        "INTEGER_CURRENCY": {
+          "type": "integer"
+        }
+      }
+    },
+    "AASLevelTypeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASLevelTypeDataType",
+      "const": {
+        "Min": 0,
+        "Max": 1,
+        "Num": 2,
+        "Type": 3
+      },
+      "properties": {
+        "Min": {
+          "description": "“Minimum”",
+          "type": "integer"
+        },
+        "Max": {
+          "description": "“Maximum”",
+          "type": "integer"
+        },
+        "Num": {
+          "description": "'Number'",
+          "type": "integer"
+        },
+        "Type": {
+          "description": "'Type'",
+          "type": "integer"
+        }
+      }
+    },
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/Category",
+    "/properties/DataType",
+    "/properties/Definition",
+    "/properties/LevelType",
+    "/properties/ShortName",
+    "/properties/SourceOfDefinition",
+    "/properties/Symbol",
+    "/properties/Unit",
+    "/properties/Value",
+    "/properties/ValueFormat"
+  ],
+  "properties": {
+    "Category": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "title": "AASCategoryDataType",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASCategoryDataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "DataType": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "title": "AASDataTypeIEC61360DataType",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASDataTypeIEC61360DataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Definition": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "LevelType": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "title": "AASLevelTypeDataType",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASLevelTypeDataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "PreferredName": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ShortName": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "SourceOfDefinition": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Symbol": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Unit": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Value": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": false
+    },
+    "ValueFormat": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

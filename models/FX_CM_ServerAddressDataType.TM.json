@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ServerAddressDataType",
+  "title": "FX_CM_ServerAddressDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ServerAddressDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ServerAddressDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.ServerAddressDataType",
+      "required": [
+        "Address",
+        "SecurityMode",
+        "SecurityPolicyUri",
+        "ServerUri"
+      ],
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "SecurityMode": {
+          "title": "MessageSecurityMode",
+          "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        },
+        "ServerUri": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

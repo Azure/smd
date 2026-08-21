@@ -1,0 +1,2527 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_DesignType",
+  "title": "Pumps_DesignType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.DesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "InstallationNpshCurve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PumpCurve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PumpEfficiencyCurve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PumpH_Q_Curve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PumpNpshCurve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PumpPowerInputCurve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "StablePumpH_Q_Curve",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DeclarationOfConformityOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DeclarationOfConformityOptionSet",
+      "const": {
+        "S2006_42_EC": 0,
+        "S2009_125_EC": 1,
+        "S2011_65_EU": 2,
+        "S2014_35_EU": 3,
+        "S2014_34_EU": 4,
+        "S2014_30_EU": 5,
+        "S2014_68_EU": 6,
+        "S2014_29_EU": 7
+      },
+      "description": "defines flags for directives on the basis of which conformity was determined",
+      "properties": {
+        "S2006_42_EC": {
+          "description": "Directives of the EU Declaration of Conformity - 2006/ 42/ EG, concerning machinery and amending Directive 95/16/EG",
+          "type": "integer"
+        },
+        "S2009_125_EC": {
+          "description": "Directives of the EU Declaration of Conformity - 2009/ 125/ EC, establishing a framework for the setting of ecodesign requirements for energy-related products",
+          "type": "integer"
+        },
+        "S2011_65_EU": {
+          "description": "Directives of the EU Declaration of Conformity - 2011/ 65/ EU, restriction of the use of certain hazardous substances in electrical and electronic equipment",
+          "type": "integer"
+        },
+        "S2014_35_EU": {
+          "description": "Directives of the EU Declaration of Conformity - 2014/ 35/ EU, harmonisation of the laws of the Member States on the provision of electrical equipment for use within certain voltage limits on the market",
+          "type": "integer"
+        },
+        "S2014_34_EU": {
+          "description": "Directives of the EU Declaration of Conformity - 2014/ 34/ EU, harmonisation of the laws of the Member States concerning equipment and protective systems intended for use in potentially explosive atmospheres",
+          "type": "integer"
+        },
+        "S2014_30_EU": {
+          "description": "Directives of the EU Declaration of Conformity - 2014/ 30/ EU, harmonisation of the laws of the Member States on electromagnetic compatibility",
+          "type": "integer"
+        },
+        "S2014_68_EU": {
+          "description": "Directives of the EU Declaration of Conformity - 2014/ 68/ EU, harmonisation of Member States' legislation on the provision of pressure equipment on the market",
+          "type": "integer"
+        },
+        "S2014_29_EU": {
+          "description": "Directives of the EU Declaration of Conformity - 2014/ 29/ EU, harmonisation of the laws of the Member States relating to the making available on the market of simple pressure vessels",
+          "type": "integer"
+        }
+      }
+    },
+    "DeviceTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DeviceTypeEnum",
+      "const": {
+        "RotodynamicPump": 0,
+        "PositiveDisplacementPump": 1,
+        "ProcessVacuumPump": 2,
+        "TurboVacuumPump": 3,
+        "VacuumPump": 4,
+        "LiquidPump": 5,
+        "Pump": 6
+      },
+      "description": "defines possible pump types",
+      "properties": {
+        "RotodynamicPump": {
+          "description": "Rotodynamic pump",
+          "type": "integer"
+        },
+        "PositiveDisplacementPump": {
+          "description": "Positive displacement pump",
+          "type": "integer"
+        },
+        "ProcessVacuumPump": {
+          "description": "Process vacuum pump",
+          "type": "integer"
+        },
+        "TurboVacuumPump": {
+          "description": "Turbo vacuum pump",
+          "type": "integer"
+        },
+        "VacuumPump": {
+          "description": "Vacuum pump",
+          "type": "integer"
+        },
+        "LiquidPump": {
+          "description": "Liquid pump",
+          "type": "integer"
+        },
+        "Pump": {
+          "description": "Pump",
+          "type": "integer"
+        }
+      }
+    },
+    "ExplosionProtectionOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ExplosionProtectionOptionSet",
+      "const": {
+        "M1": 0,
+        "M2": 1,
+        "S1G": 2,
+        "S2G": 3,
+        "S3G": 4,
+        "S1D": 5,
+        "S2D": 6,
+        "S3D": 7
+      },
+      "description": "defines flags for the category of explosion protection for devices according to EU Directive 2014/34/EU (ATEX)",
+      "properties": {
+        "M1": {
+          "description": "This category is intended for use in underground mines and their surface installations which may be endangered by firedamp and/or combustible dust. Category 1 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a very high level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "M2": {
+          "description": "This category is intended for use in underground mines and their surface installations which may be endangered by firedamp and/or combustible dust. Category 2 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a high level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "S1G": {
+          "description": "Devices in this category are intended for use in areas in which an explosive atmosphere consisting of a mixture of air and gases, vapours or mists is present. Category 1 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a very high level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "S2G": {
+          "description": "Devices in this category are intended for use in areas in which an explosive atmosphere consisting of a mixture of air and gases, vapours or mists is present. Category 2 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a high level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "S3G": {
+          "description": "Devices in this category are intended for use in areas in which an explosive atmosphere consisting of a mixture of air and gases, vapours or mists is present. Category 3 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a normal level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "S1D": {
+          "description": "Devices in this category are intended for use in areas in which an explosive atmosphere consisting of a mixture of air and dust is present. Category 1 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a very high level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "S2D": {
+          "description": "Devices in this category are intended for use in areas in which an explosive atmosphere consisting of a mixture of air and dust is present. Category 2 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a high level of safety. (2014/34/EU)",
+          "type": "integer"
+        },
+        "S3D": {
+          "description": "Devices in this category are intended for use in areas in which an explosive atmosphere consisting of a mixture of air and dust is present. Category 3 comprises devices designed to be capable of functioning in conformity with the parameters specified by the manufacturer and ensuring a normal level of safety. (2014/34/EU)",
+          "type": "integer"
+        }
+      }
+    },
+    "OfferedControlModesOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OfferedControlModesOptionSet",
+      "const": {
+        "Constant_pressure_control": 0,
+        "Constant_temperature_control": 1,
+        "Differential_pressure_control": 2,
+        "Constant_differential_pressure_control": 3,
+        "Variable_differential_pressure_control": 4,
+        "Flow_dependent_differential_pressure_control": 5,
+        "Return_flow_temperature_control": 6,
+        "Flow_temperature_control": 7,
+        "Flow_rate_control": 8,
+        "Automatic": 9,
+        "Uncontrolled": 10,
+        "Speed_control": 11
+      },
+      "description": "defines flags for offerd control modes supported by the manufacturer for the product",
+      "properties": {
+        "Constant_pressure_control": {
+          "description": "Constant pressure control mode",
+          "type": "integer"
+        },
+        "Constant_temperature_control": {
+          "description": "Constant temperature control mode",
+          "type": "integer"
+        },
+        "Differential_pressure_control": {
+          "description": "Differential pressure control mode",
+          "type": "integer"
+        },
+        "Constant_differential_pressure_control": {
+          "description": "Constant differential pressure control mode",
+          "type": "integer"
+        },
+        "Variable_differential_pressure_control": {
+          "description": "Variable differential pressure control mode",
+          "type": "integer"
+        },
+        "Flow_dependent_differential_pressure_control": {
+          "description": "Flow-dependent differential pressure control mode",
+          "type": "integer"
+        },
+        "Return_flow_temperature_control": {
+          "description": "Return flow temperature control mode",
+          "type": "integer"
+        },
+        "Flow_temperature_control": {
+          "description": "Flow temperature control mode",
+          "type": "integer"
+        },
+        "Flow_rate_control": {
+          "description": "Flow rate control mode",
+          "type": "integer"
+        },
+        "Automatic": {
+          "description": "Automatic control mode",
+          "type": "integer"
+        },
+        "Uncontrolled": {
+          "description": "None / uncontrolled mode",
+          "type": "integer"
+        },
+        "Speed_control": {
+          "description": "Speed control mode",
+          "type": "integer"
+        }
+      }
+    },
+    "OfferedFieldbusesOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OfferedFieldbusesOptionSet",
+      "const": {
+        "Other": 0,
+        "ARCNET": 1,
+        "AS_Interface": 2,
+        "BACnet_IP": 3,
+        "BACnet_MSTP": 4,
+        "Bluetooth": 5,
+        "Bluetooth_Low_Energy": 6,
+        "CAN": 7,
+        "CANopen": 8,
+        "CC_Link": 9,
+        "ControlNet": 10,
+        "DALI": 11,
+        "DECT_ULE": 12,
+        "DeviceNet": 13,
+        "DMX": 14,
+        "KNX": 15,
+        "EnOcean": 16,
+        "EtherCAT": 17,
+        "Ethernet_IP": 18,
+        "Ethernet_TCP_IP": 19,
+        "IEEE1588": 20,
+        "GSM": 21,
+        "Interbus": 22,
+        "IO_Link": 23,
+        "HART": 24,
+        "LON": 25,
+        "LoRaWAN": 26,
+        "LIN_Bus": 27,
+        "LTE": 28,
+        "LTE_M": 29,
+        "M_Bus": 30,
+        "Modbus_TCP": 31,
+        "Modbus_RTU": 32,
+        "MP_Bus": 33,
+        "NB_IOT": 34,
+        "NFC": 35,
+        "OPC_UA": 36,
+        "OPC_DA": 37,
+        "PROFIBUS_DP": 38,
+        "PROFINET_RT": 39,
+        "Powerlink": 40,
+        "SERCOS": 41,
+        "SMI": 42,
+        "Thread": 43,
+        "UMTS": 44,
+        "WIFI": 45,
+        "X2X_Link": 46,
+        "VARAN": 47,
+        "ZigBee": 48,
+        "Z_Wave": 49
+      },
+      "description": "defines flags for fieldbuses supported by the manufacturer for the product",
+      "properties": {
+        "Other": {
+          "description": "Additional fieldbuses listed in the AdditionalFieldbuses variable",
+          "type": "integer"
+        },
+        "ARCNET": {
+          "description": "ARCNET",
+          "type": "integer"
+        },
+        "AS_Interface": {
+          "description": "AS-Interface",
+          "type": "integer"
+        },
+        "BACnet_IP": {
+          "description": "BACnet/IP",
+          "type": "integer"
+        },
+        "BACnet_MSTP": {
+          "description": "BACnet/MSTP",
+          "type": "integer"
+        },
+        "Bluetooth": {
+          "description": "Bluetooth",
+          "type": "integer"
+        },
+        "Bluetooth_Low_Energy": {
+          "description": "Bluetooth Low Energy",
+          "type": "integer"
+        },
+        "CAN": {
+          "description": "CAN",
+          "type": "integer"
+        },
+        "CANopen": {
+          "description": "CANopen",
+          "type": "integer"
+        },
+        "CC_Link": {
+          "description": "CC-Link",
+          "type": "integer"
+        },
+        "ControlNet": {
+          "description": "ControlNet",
+          "type": "integer"
+        },
+        "DALI": {
+          "description": "DALI",
+          "type": "integer"
+        },
+        "DECT_ULE": {
+          "description": "DECT ULE",
+          "type": "integer"
+        },
+        "DeviceNet": {
+          "description": "DeviceNet",
+          "type": "integer"
+        },
+        "DMX": {
+          "description": "DMX",
+          "type": "integer"
+        },
+        "KNX": {
+          "description": "KNX",
+          "type": "integer"
+        },
+        "EnOcean": {
+          "description": "EnOcean",
+          "type": "integer"
+        },
+        "EtherCAT": {
+          "description": "EtherCAT",
+          "type": "integer"
+        },
+        "Ethernet_IP": {
+          "description": "Ethernet/IP",
+          "type": "integer"
+        },
+        "Ethernet_TCP_IP": {
+          "description": "Ethernet TCP/IP",
+          "type": "integer"
+        },
+        "IEEE1588": {
+          "description": "IEEE1588",
+          "type": "integer"
+        },
+        "GSM": {
+          "description": "GSM",
+          "type": "integer"
+        },
+        "Interbus": {
+          "description": "Interbus",
+          "type": "integer"
+        },
+        "IO_Link": {
+          "description": "IO-Link",
+          "type": "integer"
+        },
+        "HART": {
+          "description": "HART",
+          "type": "integer"
+        },
+        "LON": {
+          "description": "LON",
+          "type": "integer"
+        },
+        "LoRaWAN": {
+          "description": "LoRaWAN",
+          "type": "integer"
+        },
+        "LIN_Bus": {
+          "description": "LIN-Bus",
+          "type": "integer"
+        },
+        "LTE": {
+          "description": "LTE",
+          "type": "integer"
+        },
+        "LTE_M": {
+          "description": "LTE-M",
+          "type": "integer"
+        },
+        "M_Bus": {
+          "description": "M-Bus",
+          "type": "integer"
+        },
+        "Modbus_TCP": {
+          "description": "Modbus TCP",
+          "type": "integer"
+        },
+        "Modbus_RTU": {
+          "description": "Modbus RTU",
+          "type": "integer"
+        },
+        "MP_Bus": {
+          "description": "MP-Bus",
+          "type": "integer"
+        },
+        "NB_IOT": {
+          "description": "NB-IOT",
+          "type": "integer"
+        },
+        "NFC": {
+          "description": "NFC",
+          "type": "integer"
+        },
+        "OPC_UA": {
+          "description": "OPC UA",
+          "type": "integer"
+        },
+        "OPC_DA": {
+          "description": "OPC DA",
+          "type": "integer"
+        },
+        "PROFIBUS_DP": {
+          "description": "PROFIBUS DP",
+          "type": "integer"
+        },
+        "PROFINET_RT": {
+          "description": "PROFINET RT",
+          "type": "integer"
+        },
+        "Powerlink": {
+          "description": "Powerlink",
+          "type": "integer"
+        },
+        "SERCOS": {
+          "description": "SERCOS",
+          "type": "integer"
+        },
+        "SMI": {
+          "description": "SMI",
+          "type": "integer"
+        },
+        "Thread": {
+          "description": "Thread",
+          "type": "integer"
+        },
+        "UMTS": {
+          "description": "UMTS",
+          "type": "integer"
+        },
+        "WIFI": {
+          "description": "WIFI",
+          "type": "integer"
+        },
+        "X2X_Link": {
+          "description": "X2X_Link",
+          "type": "integer"
+        },
+        "VARAN": {
+          "description": "VARAN",
+          "type": "integer"
+        },
+        "ZigBee": {
+          "description": "ZigBee",
+          "type": "integer"
+        },
+        "Z_Wave": {
+          "description": "Z-Wave",
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/AdditionalFieldbuses",
+    "/properties/BalancingRateOfFlow",
+    "/properties/BasePressure",
+    "/properties/ClearanceVolume",
+    "/properties/ClockwiseRotation",
+    "/properties/Controllable",
+    "/properties/Cool_DownTimeForAVaporJetPumpOrADiffusionPump",
+    "/properties/Counter_ClockwiseRotation",
+    "/properties/CriticalSpeed",
+    "/properties/DeclarationOfConformity",
+    "/properties/DeclarationOfConformityAvailable",
+    "/properties/DesignAxialLoad",
+    "/properties/DesignRadialLoad",
+    "/properties/DirectivesOfEUDeclarationOfConformity",
+    "/properties/DryCriticalSpeed",
+    "/properties/ExplosionProtection",
+    "/properties/GeometricalFlow",
+    "/properties/GeometricDisplacementVolume",
+    "/properties/HeadAtPeakPoint",
+    "/properties/LeakageRateOfFlow",
+    "/properties/MaximumAllowableAmbientTemperature",
+    "/properties/MaximumAllowableCasingWorkingPressure",
+    "/properties/MaximumAllowableContinuousSpeed",
+    "/properties/MaximumAllowableHead",
+    "/properties/MaximumAllowableRelativeHumidity",
+    "/properties/MaximumAllowableTemperature",
+    "/properties/MaximumAllowableThroughput",
+    "/properties/MaximumAllowableWorkingPressure",
+    "/properties/MaximumAxialLoad",
+    "/properties/MaximumPumpPowerInput",
+    "/properties/MaximumRadialLoad",
+    "/properties/MaximumStaticSealingPressure",
+    "/properties/MeanTimebetweenFailures",
+    "/properties/MinimumAllowableAmbientTemperature",
+    "/properties/MinimumAllowableContinuousSpeed",
+    "/properties/MinimumAllowableHead",
+    "/properties/MinimumAllowableRelativeHumidity",
+    "/properties/MinimumAllowableTemperature",
+    "/properties/MinimumAllowableThermalFlow",
+    "/properties/MinimumContinuousStableFlow",
+    "/properties/MinimumContinuousThermalFlow",
+    "/properties/NetPositiveSuctionHeadRequired",
+    "/properties/NetPositiveSuctionHeadRequiredForADropOf3_",
+    "/properties/OfferedControlModes",
+    "/properties/OfferedFieldbuses",
+    "/properties/OptimumHead",
+    "/properties/OptimumPumpPowerInput",
+    "/properties/OptimumRateOfFlow",
+    "/properties/PistonVelocity",
+    "/properties/PossibleFluids",
+    "/properties/Pre_ChargePressure",
+    "/properties/PumpClass",
+    "/properties/Shut_OffHead",
+    "/properties/Shut_OffPumpPowerInput",
+    "/properties/SlipFlow",
+    "/properties/SoundEnergy",
+    "/properties/SoundEnergyLevel",
+    "/properties/SoundPower",
+    "/properties/SoundPowerLevel",
+    "/properties/SoundPressure",
+    "/properties/SoundPressureLevel",
+    "/properties/SpecificSpeed",
+    "/properties/StandardGasFlowrate",
+    "/properties/StartingPressure",
+    "/properties/Suction_SpecificSpeed",
+    "/properties/SweptVolume",
+    "/properties/TripSpeed",
+    "/properties/TypeNumber",
+    "/properties/VolumeFlowRate",
+    "/properties/VolumeFlowRateOfBackingPump",
+    "/properties/WarmUpTimeForAVaporJetPumpOrADiffusionPump",
+    "/properties/WaterVaporTolerableLoad",
+    "/properties/WetCriticalSpeed",
+    "/properties/BalancingRateOfFlow_EngineeringUnits",
+    "/properties/BasePressure_EngineeringUnits",
+    "/properties/ClearanceVolume_EngineeringUnits",
+    "/properties/Cool_DownTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits",
+    "/properties/CriticalSpeed_EngineeringUnits",
+    "/properties/DesignAxialLoad_EngineeringUnits",
+    "/properties/DesignRadialLoad_EngineeringUnits",
+    "/properties/DryCriticalSpeed_EngineeringUnits",
+    "/properties/GeometricalFlow_EngineeringUnits",
+    "/properties/GeometricDisplacementVolume_EngineeringUnits",
+    "/properties/HeadAtPeakPoint_EngineeringUnits",
+    "/properties/LeakageRateOfFlow_EngineeringUnits",
+    "/properties/MaximumAllowableAmbientTemperature_EngineeringUnits",
+    "/properties/MaximumAllowableCasingWorkingPressure_EngineeringUnits",
+    "/properties/MaximumAllowableContinuousSpeed_EngineeringUnits",
+    "/properties/MaximumAllowableHead_EngineeringUnits",
+    "/properties/MaximumAllowableRelativeHumidity_EngineeringUnits",
+    "/properties/MaximumAllowableTemperature_EngineeringUnits",
+    "/properties/MaximumAllowableThroughput_EngineeringUnits",
+    "/properties/MaximumAllowableWorkingPressure_EngineeringUnits",
+    "/properties/MaximumAxialLoad_EngineeringUnits",
+    "/properties/MaximumPumpPowerInput_EngineeringUnits",
+    "/properties/MaximumRadialLoad_EngineeringUnits",
+    "/properties/MaximumStaticSealingPressure_EngineeringUnits",
+    "/properties/MeanTimebetweenFailures_EngineeringUnits",
+    "/properties/MinimumAllowableAmbientTemperature_EngineeringUnits",
+    "/properties/MinimumAllowableContinuousSpeed_EngineeringUnits",
+    "/properties/MinimumAllowableHead_EngineeringUnits",
+    "/properties/MinimumAllowableRelativeHumidity_EngineeringUnits",
+    "/properties/MinimumAllowableTemperature_EngineeringUnits",
+    "/properties/MinimumAllowableThermalFlow_EngineeringUnits",
+    "/properties/MinimumContinuousStableFlow_EngineeringUnits",
+    "/properties/MinimumContinuousThermalFlow_EngineeringUnits",
+    "/properties/NetPositiveSuctionHeadRequired_EngineeringUnits",
+    "/properties/NetPositiveSuctionHeadRequiredForADropOf3__EngineeringUnits",
+    "/properties/OptimumHead_EngineeringUnits",
+    "/properties/OptimumPumpPowerInput_EngineeringUnits",
+    "/properties/OptimumRateOfFlow_EngineeringUnits",
+    "/properties/PistonVelocity_EngineeringUnits",
+    "/properties/Pre_ChargePressure_EngineeringUnits",
+    "/properties/Shut_OffHead_EngineeringUnits",
+    "/properties/Shut_OffPumpPowerInput_EngineeringUnits",
+    "/properties/SlipFlow_EngineeringUnits",
+    "/properties/SoundEnergy_EngineeringUnits",
+    "/properties/SoundEnergyLevel_EngineeringUnits",
+    "/properties/SoundPower_EngineeringUnits",
+    "/properties/SoundPowerLevel_EngineeringUnits",
+    "/properties/SoundPressure_EngineeringUnits",
+    "/properties/SoundPressureLevel_EngineeringUnits",
+    "/properties/SpecificSpeed_EngineeringUnits",
+    "/properties/StandardGasFlowrate_EngineeringUnits",
+    "/properties/StartingPressure_EngineeringUnits",
+    "/properties/Suction_SpecificSpeed_EngineeringUnits",
+    "/properties/SweptVolume_EngineeringUnits",
+    "/properties/TripSpeed_EngineeringUnits",
+    "/properties/VolumeFlowRate_EngineeringUnits",
+    "/properties/VolumeFlowRateOfBackingPump_EngineeringUnits",
+    "/properties/WarmUpTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits",
+    "/properties/WaterVaporTolerableLoad_EngineeringUnits",
+    "/properties/WetCriticalSpeed_EngineeringUnits",
+    "/events/AdditionalFieldbuses",
+    "/events/BalancingRateOfFlow",
+    "/events/BasePressure",
+    "/events/ClearanceVolume",
+    "/events/ClockwiseRotation",
+    "/events/Controllable",
+    "/events/Cool_DownTimeForAVaporJetPumpOrADiffusionPump",
+    "/events/Counter_ClockwiseRotation",
+    "/events/CriticalSpeed",
+    "/events/DeclarationOfConformity",
+    "/events/DeclarationOfConformityAvailable",
+    "/events/DesignAxialLoad",
+    "/events/DesignRadialLoad",
+    "/events/DirectivesOfEUDeclarationOfConformity",
+    "/events/DryCriticalSpeed",
+    "/events/ExplosionProtection",
+    "/events/GeometricalFlow",
+    "/events/GeometricDisplacementVolume",
+    "/events/HeadAtPeakPoint",
+    "/events/LeakageRateOfFlow",
+    "/events/MaximumAllowableAmbientTemperature",
+    "/events/MaximumAllowableCasingWorkingPressure",
+    "/events/MaximumAllowableContinuousSpeed",
+    "/events/MaximumAllowableHead",
+    "/events/MaximumAllowableRelativeHumidity",
+    "/events/MaximumAllowableTemperature",
+    "/events/MaximumAllowableThroughput",
+    "/events/MaximumAllowableWorkingPressure",
+    "/events/MaximumAxialLoad",
+    "/events/MaximumPumpPowerInput",
+    "/events/MaximumRadialLoad",
+    "/events/MaximumStaticSealingPressure",
+    "/events/MeanTimebetweenFailures",
+    "/events/MinimumAllowableAmbientTemperature",
+    "/events/MinimumAllowableContinuousSpeed",
+    "/events/MinimumAllowableHead",
+    "/events/MinimumAllowableRelativeHumidity",
+    "/events/MinimumAllowableTemperature",
+    "/events/MinimumAllowableThermalFlow",
+    "/events/MinimumContinuousStableFlow",
+    "/events/MinimumContinuousThermalFlow",
+    "/events/NetPositiveSuctionHeadRequired",
+    "/events/NetPositiveSuctionHeadRequiredForADropOf3_",
+    "/events/OfferedControlModes",
+    "/events/OfferedFieldbuses",
+    "/events/OptimumHead",
+    "/events/OptimumPumpPowerInput",
+    "/events/OptimumRateOfFlow",
+    "/events/PistonVelocity",
+    "/events/PossibleFluids",
+    "/events/Pre_ChargePressure",
+    "/events/PumpClass",
+    "/events/Shut_OffHead",
+    "/events/Shut_OffPumpPowerInput",
+    "/events/SlipFlow",
+    "/events/SoundEnergy",
+    "/events/SoundEnergyLevel",
+    "/events/SoundPower",
+    "/events/SoundPowerLevel",
+    "/events/SoundPressure",
+    "/events/SoundPressureLevel",
+    "/events/SpecificSpeed",
+    "/events/StandardGasFlowrate",
+    "/events/StartingPressure",
+    "/events/Suction_SpecificSpeed",
+    "/events/SweptVolume",
+    "/events/TripSpeed",
+    "/events/TypeNumber",
+    "/events/VolumeFlowRate",
+    "/events/VolumeFlowRateOfBackingPump",
+    "/events/WarmUpTimeForAVaporJetPumpOrADiffusionPump",
+    "/events/WaterVaporTolerableLoad",
+    "/events/WetCriticalSpeed"
+  ],
+  "properties": {
+    "AdditionalFieldbuses": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Additional fieldbuses supported by the product.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "BalancingRateOfFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rate of flow which is extracted to activate a balance device",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/BalancingRateOfFlow_EngineeringUnits"
+    },
+    "BasePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pressure obtained in the test dome after conditioning the vacuum pump and the test dome",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/BasePressure_EngineeringUnits"
+    },
+    "ClearanceVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Volume remaining unswept at the end of the discharge stroke.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/ClearanceVolume_EngineeringUnits"
+    },
+    "ClockwiseRotation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "Controllable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "Cool_DownTimeForAVaporJetPumpOrADiffusionPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The cool-down time is the time required to cool the propellant from the working temperature to a temperature at which the propellant can be exposed to atmospheric air without risk after the heating has been switched off.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/Cool_DownTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits"
+    },
+    "Counter_ClockwiseRotation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "CriticalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Speed of rotation at which the frequency of vibration (or its multiples) corresponds to the rotor resonant (lateral or torsional)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/CriticalSpeed_EngineeringUnits"
+    },
+    "DeclarationOfConformity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Publicly accessible attestation of conformity, commonly available on websites.",
+      "type": "string",
+      "readOnly": true
+    },
+    "DeclarationOfConformityAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "DesignAxialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Residual axial thrust on the pump rotor on which the thrust-bearing selection is based.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/DesignAxialLoad_EngineeringUnits"
+    },
+    "DesignRadialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Radial load of the pump rotor for which the bearing system is selected.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/DesignRadialLoad_EngineeringUnits"
+    },
+    "DirectivesOfEUDeclarationOfConformity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "DeclarationOfConformityOptionSet",
+      "description": "Set of directives on the basis of which conformity was determined.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DeclarationOfConformityOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DryCriticalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rotor resonant frequency calculated assuming that the rotor is supported only at its bearings and that the bearings are of infinite stiffness",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/DryCriticalSpeed_EngineeringUnits"
+    },
+    "ExplosionProtection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "ExplosionProtectionOptionSet",
+      "description": "Device category for explosion protection according to 2014/34/EU (ATEX).",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ExplosionProtectionOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "GeometricalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Product of geometrical displacement volume and speed of rotation or stroke frequency",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/GeometricalFlow_EngineeringUnits"
+    },
+    "GeometricDisplacementVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Displacement volume for one stroke or one cycle.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/GeometricDisplacementVolume_EngineeringUnits"
+    },
+    "HeadAtPeakPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest total head developed by a pump when this does not occur at a zero rate of flow",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeadAtPeakPoint_EngineeringUnits"
+    },
+    "LeakageRateOfFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rate of flow leaking from shaft seals",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/LeakageRateOfFlow_EngineeringUnits"
+    },
+    "MaximumAllowableAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest allowable ambient temperature for which the equipment (or any part to which the term refers) is suitable",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumAllowableAmbientTemperature_EngineeringUnits"
+    },
+    "MaximumAllowableCasingWorkingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Greatest outlet pressure at the specified operating temperature at which the pump casing can be used",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableCasingWorkingPressure_EngineeringUnits"
+    },
+    "MaximumAllowableContinuousSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest rotational speed for continuous operation recommended by the manufacturer",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MaximumAllowableContinuousSpeed_EngineeringUnits"
+    },
+    "MaximumAllowableHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Maximum permissible head at which the pump can be continuously operated without suffering damage",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MaximumAllowableHead_EngineeringUnits"
+    },
+    "MaximumAllowableRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest allowable relative humidity for which the equipment (or any part to which the term refers) is suitable",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MaximumAllowableRelativeHumidity_EngineeringUnits"
+    },
+    "MaximumAllowableTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest allowable continuous fluid temperature for which the equipment (or any part to which the term refers) is suitable when handling the specified operating fluid at the specified operating pressure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumAllowableTemperature_EngineeringUnits"
+    },
+    "MaximumAllowableThroughput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Maximum pV flow the pump can withstand without damage",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/MaximumAllowableThroughput_EngineeringUnits"
+    },
+    "MaximumAllowableWorkingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pressure for a component on the basis of materials used and on the basis of calculation rules at the specified operating temperature",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableWorkingPressure_EngineeringUnits"
+    },
+    "MaximumAxialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Greatest value of the residual axial thrust on the pump rotor resulting from operating the pump at any condition within its allowable operating range.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/MaximumAxialLoad_EngineeringUnits"
+    },
+    "MaximumPumpPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest value of the pump power input at any rate of flow at any allowable operating condition",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/MaximumPumpPowerInput_EngineeringUnits"
+    },
+    "MaximumRadialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Greatest radial load of the pump rotor resulting from operating the pump at any condition within its allowable operating range.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/MaximumRadialLoad_EngineeringUnits"
+    },
+    "MaximumStaticSealingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest pressure, excluding hydrostatic testing, to which the seal can be subjected while the pump is shut down",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumStaticSealingPressure_EngineeringUnits"
+    },
+    "MeanTimebetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Average of the times between failures.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanTimebetweenFailures_EngineeringUnits"
+    },
+    "MinimumAllowableAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest allowable ambient temperature for which the equipment (or any part to which the term refers) is suitable",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumAllowableAmbientTemperature_EngineeringUnits"
+    },
+    "MinimumAllowableContinuousSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest speed for continuous operation recommended by the manufacturer",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MinimumAllowableContinuousSpeed_EngineeringUnits"
+    },
+    "MinimumAllowableHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Minimum permissible head at which the pump can be operated without suffering damage",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MinimumAllowableHead_EngineeringUnits"
+    },
+    "MinimumAllowableRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest allowable relative humidity for which the equipment (or any part to which the term refers) is suitable",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MinimumAllowableRelativeHumidity_EngineeringUnits"
+    },
+    "MinimumAllowableTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest allowable continuous temperature for which the equipment (or any part to which the term refers) is suitable when handling the specified operating fluid at the specified operating pressure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumAllowableTemperature_EngineeringUnits"
+    },
+    "MinimumAllowableThermalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest flow at which the pump can operate without its operation being impaired by the temperature rise of the pumped liquid",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumAllowableThermalFlow_EngineeringUnits"
+    },
+    "MinimumContinuousStableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest flow at which the pump can be operated without it adversely affecting its performance in terms of life expectancy, noise and vibrations",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumContinuousStableFlow_EngineeringUnits"
+    },
+    "MinimumContinuousThermalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest flow at which the pump can operate without its operation being impaired by the temperature rise of the pumped liquid",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumContinuousThermalFlow_EngineeringUnits"
+    },
+    "NetPositiveSuctionHeadRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Minimum NPSH at the pump inlet connection required to give the rated or operating performance at the specified conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NetPositiveSuctionHeadRequired_EngineeringUnits"
+    },
+    "NetPositiveSuctionHeadRequiredForADropOf3_": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "NPSH required for a drop of 3 % in the total head of the first stage of the pump as a standard basis for use in performance curves",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NetPositiveSuctionHeadRequiredForADropOf3__EngineeringUnits"
+    },
+    "OfferedControlModes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "OfferedControlModesOptionSet",
+      "description": "Control modes supported by the manufacturer for the product.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OfferedControlModesOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "OfferedFieldbuses": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "OfferedFieldbusesOptionSet",
+      "description": "Fieldbuses supported by the manufacturer for the product.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OfferedFieldbusesOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "OptimumHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Total head developed by the pump at a rate of flow corresponding to the best efficiency",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/OptimumHead_EngineeringUnits"
+    },
+    "OptimumPumpPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pump power input at the rate of flow corresponding to the best efficiency",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/OptimumPumpPowerInput_EngineeringUnits"
+    },
+    "OptimumRateOfFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rate of flow at the point of best efficiency",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/OptimumRateOfFlow_EngineeringUnits"
+    },
+    "PistonVelocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Average speed given by the stroke length multiplied with the number of complete pumping cycles of the piston, plunger or piston attached to the diaphragm per minute (stroke per minute or pump crank speed)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/PistonVelocity_EngineeringUnits"
+    },
+    "PossibleFluids": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Fluids that can be pumped by the pump.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "Pre_ChargePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pressure to which the pulsation dampener is charged with dry gas prior to start of operation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/Pre_ChargePressure_EngineeringUnits"
+    },
+    "PumpClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "DeviceTypeEnum",
+      "description": "Pump type according to functional principle and pumped fluid",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DeviceTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Shut_OffHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Total head developed by the pump in a zero rate of flow",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/Shut_OffHead_EngineeringUnits"
+    },
+    "Shut_OffPumpPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pump power input at zero rate of flow",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/Shut_OffPumpPowerInput_EngineeringUnits"
+    },
+    "SlipFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Flow lost internally through clearances",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/SlipFlow_EngineeringUnits"
+    },
+    "SoundEnergy": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Integral of the sound power, P, over a stated time interval of duration T (starting at t1 and ending at t2).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/SoundEnergy_EngineeringUnits"
+    },
+    "SoundEnergyLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ten times the logarithm to the base 10 of the ratio of the sound energy, J, to a reference value, J0, expressed in decibels.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/SoundPressureLevel",
+      "dov:withUnit": "properties/SoundEnergyLevel_EngineeringUnits"
+    },
+    "SoundPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Through a surface, product of the sound pressure, p, and the component of the particle velocity, un, at a point on the surface in the direction normal to the surface, integrated over that surface.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/SoundPower_EngineeringUnits"
+    },
+    "SoundPowerLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ten times the logarithm to the base 10 of the ratio of the sound power of a source, P, to a reference value, P0, expressed in decibels.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/SoundPressureLevel",
+      "dov:withUnit": "properties/SoundPowerLevel_EngineeringUnits"
+    },
+    "SoundPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Difference between instantaneous pressure and static pressure.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/SoundPressure_EngineeringUnits"
+    },
+    "SoundPressureLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ten times the logarithm to the base 10 of the ratio of the square of the sound pressure, p, to the square of a reference value, p0, expressed in decibels.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/SoundPressureLevel",
+      "dov:withUnit": "properties/SoundPressureLevel_EngineeringUnits"
+    },
+    "SpecificSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Speed that characterizes a pump in terms of its speed, flow rate per impeller eye, i.e. total flow for single-flow impeller, half flow for double-flow impeller, at the best efficiency point and head per stage at maximum impeller diameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/SpecificSpeed_EngineeringUnits"
+    },
+    "StandardGasFlowrate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Volume flow rate at standard reference conditions, i.e. 0 °C and 101 325 Pa",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/StandardGasFlowrate_EngineeringUnits"
+    },
+    "StartingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The starting pressure is the pressure at which a vacuum pump can be switched on and a pumping effect is achieved without damage occurring.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/StartingPressure_EngineeringUnits"
+    },
+    "Suction_SpecificSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Speed that characterizes a pump's cavitation performance in terms of its speed, optimum rate of flow per impeller eye at best efficiency point and NPSH3 at best efficiency point for the first stage at maximum impeller diameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/Suction_SpecificSpeed_EngineeringUnits"
+    },
+    "SweptVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Volume traversed by a single stroke of piston, plunger or diaphragm.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/SweptVolume_EngineeringUnits"
+    },
+    "TripSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Speed at which the independent emergency overspeed devices operate to shut down a prime mover",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/TripSpeed_EngineeringUnits"
+    },
+    "TypeNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pure number calculated at the point of best efficiency",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Volume flow rate of the gas removed by the pump from the gas phase within the evacuated chamber.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/VolumeFlowRate_EngineeringUnits"
+    },
+    "VolumeFlowRateOfBackingPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Maximum volume flow rate for which the conditions are defined in the instruction manual or in a specific standard for the particular vacuum pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/VolumeFlowRateOfBackingPump_EngineeringUnits"
+    },
+    "WarmUpTimeForAVaporJetPumpOrADiffusionPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The warm-up time is the time required to heat the blowing agent in the boiling vessel to its working temperature. The initial temperature can either be equal to the ambient temperature or equal to the temperature at which the blowing agent of the vacuum pump can be exposed to atmospheric air without risk.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/WarmUpTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits"
+    },
+    "WaterVaporTolerableLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The mass flow rate for water vapor, in a gas ballast pump, in continuous operation and under normal ambient conditions, if the pumped gas is pure water vapor.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MassFlowRate",
+      "dov:withUnit": "properties/WaterVaporTolerableLoad_EngineeringUnits"
+    },
+    "WetCriticalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rotor resonant frequency calculated considering the additional support and damping produced by the action of the pumped fluid within rotor",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/WetCriticalSpeed_EngineeringUnits"
+    },
+    "BalancingRateOfFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name BalancingRateOfFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "BasePressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name BasePressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ClearanceVolume_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ClearanceVolume, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Cool_DownTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Cool_DownTimeForAVaporJetPumpOrADiffusionPump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "CriticalSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name CriticalSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DesignAxialLoad_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DesignAxialLoad, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DesignRadialLoad_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DesignRadialLoad, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DryCriticalSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DryCriticalSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "GeometricalFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name GeometricalFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "GeometricDisplacementVolume_EngineeringUnits": {
+      "description": "Unit designator for property and event with name GeometricDisplacementVolume, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeadAtPeakPoint_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeadAtPeakPoint, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "LeakageRateOfFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name LeakageRateOfFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableAmbientTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableAmbientTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableCasingWorkingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableCasingWorkingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableContinuousSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableContinuousSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableRelativeHumidity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableRelativeHumidity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableThroughput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableThroughput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableWorkingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableWorkingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAxialLoad_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAxialLoad, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumPumpPowerInput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumPumpPowerInput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumRadialLoad_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumRadialLoad, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumStaticSealingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumStaticSealingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanTimebetweenFailures_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanTimebetweenFailures, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableAmbientTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableAmbientTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableContinuousSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableContinuousSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableRelativeHumidity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableRelativeHumidity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableThermalFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableThermalFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumContinuousStableFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumContinuousStableFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumContinuousThermalFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumContinuousThermalFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NetPositiveSuctionHeadRequired_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NetPositiveSuctionHeadRequired, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NetPositiveSuctionHeadRequiredForADropOf3__EngineeringUnits": {
+      "description": "Unit designator for property and event with name NetPositiveSuctionHeadRequiredForADropOf3_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OptimumHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OptimumHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OptimumPumpPowerInput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OptimumPumpPowerInput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OptimumRateOfFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OptimumRateOfFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PistonVelocity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PistonVelocity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Pre_ChargePressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Pre_ChargePressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Shut_OffHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Shut_OffHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Shut_OffPumpPowerInput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Shut_OffPumpPowerInput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SlipFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SlipFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoundEnergy_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SoundEnergy, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoundEnergyLevel_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SoundEnergyLevel, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoundPower_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SoundPower, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoundPowerLevel_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SoundPowerLevel, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoundPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SoundPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoundPressureLevel_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SoundPressureLevel, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SpecificSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SpecificSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "StandardGasFlowrate_EngineeringUnits": {
+      "description": "Unit designator for property and event with name StandardGasFlowrate, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "StartingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name StartingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Suction_SpecificSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Suction_SpecificSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SweptVolume_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SweptVolume, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TripSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TripSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "VolumeFlowRate_EngineeringUnits": {
+      "description": "Unit designator for property and event with name VolumeFlowRate, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "VolumeFlowRateOfBackingPump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name VolumeFlowRateOfBackingPump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "WarmUpTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name WarmUpTimeForAVaporJetPumpOrADiffusionPump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "WaterVaporTolerableLoad_EngineeringUnits": {
+      "description": "Unit designator for property and event with name WaterVaporTolerableLoad, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "WetCriticalSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name WetCriticalSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AdditionalFieldbuses": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Additional fieldbuses supported by the product.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "BalancingRateOfFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rate of flow which is extracted to activate a balance device",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/BalancingRateOfFlow_EngineeringUnits"
+    },
+    "BasePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pressure obtained in the test dome after conditioning the vacuum pump and the test dome",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/BasePressure_EngineeringUnits"
+    },
+    "ClearanceVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Volume remaining unswept at the end of the discharge stroke.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/ClearanceVolume_EngineeringUnits"
+    },
+    "ClockwiseRotation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "Controllable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "Cool_DownTimeForAVaporJetPumpOrADiffusionPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The cool-down time is the time required to cool the propellant from the working temperature to a temperature at which the propellant can be exposed to atmospheric air without risk after the heating has been switched off.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/Cool_DownTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits"
+    },
+    "Counter_ClockwiseRotation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "CriticalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Speed of rotation at which the frequency of vibration (or its multiples) corresponds to the rotor resonant (lateral or torsional)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/CriticalSpeed_EngineeringUnits"
+    },
+    "DeclarationOfConformity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Publicly accessible attestation of conformity, commonly available on websites.",
+        "type": "string"
+      }
+    },
+    "DeclarationOfConformityAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "DesignAxialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Residual axial thrust on the pump rotor on which the thrust-bearing selection is based.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/DesignAxialLoad_EngineeringUnits"
+    },
+    "DesignRadialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Radial load of the pump rotor for which the bearing system is selected.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/DesignRadialLoad_EngineeringUnits"
+    },
+    "DirectivesOfEUDeclarationOfConformity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "DeclarationOfConformityOptionSet",
+        "description": "Set of directives on the basis of which conformity was determined.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.DeclarationOfConformityOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DryCriticalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rotor resonant frequency calculated assuming that the rotor is supported only at its bearings and that the bearings are of infinite stiffness",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/DryCriticalSpeed_EngineeringUnits"
+    },
+    "ExplosionProtection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "ExplosionProtectionOptionSet",
+        "description": "Device category for explosion protection according to 2014/34/EU (ATEX).",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.ExplosionProtectionOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "GeometricalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Product of geometrical displacement volume and speed of rotation or stroke frequency",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/GeometricalFlow_EngineeringUnits"
+    },
+    "GeometricDisplacementVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Displacement volume for one stroke or one cycle.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/GeometricDisplacementVolume_EngineeringUnits"
+    },
+    "HeadAtPeakPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest total head developed by a pump when this does not occur at a zero rate of flow",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeadAtPeakPoint_EngineeringUnits"
+    },
+    "LeakageRateOfFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rate of flow leaking from shaft seals",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/LeakageRateOfFlow_EngineeringUnits"
+    },
+    "MaximumAllowableAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest allowable ambient temperature for which the equipment (or any part to which the term refers) is suitable",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumAllowableAmbientTemperature_EngineeringUnits"
+    },
+    "MaximumAllowableCasingWorkingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Greatest outlet pressure at the specified operating temperature at which the pump casing can be used",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableCasingWorkingPressure_EngineeringUnits"
+    },
+    "MaximumAllowableContinuousSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest rotational speed for continuous operation recommended by the manufacturer",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MaximumAllowableContinuousSpeed_EngineeringUnits"
+    },
+    "MaximumAllowableHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Maximum permissible head at which the pump can be continuously operated without suffering damage",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MaximumAllowableHead_EngineeringUnits"
+    },
+    "MaximumAllowableRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest allowable relative humidity for which the equipment (or any part to which the term refers) is suitable",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MaximumAllowableRelativeHumidity_EngineeringUnits"
+    },
+    "MaximumAllowableTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest allowable continuous fluid temperature for which the equipment (or any part to which the term refers) is suitable when handling the specified operating fluid at the specified operating pressure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumAllowableTemperature_EngineeringUnits"
+    },
+    "MaximumAllowableThroughput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Maximum pV flow the pump can withstand without damage",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/MaximumAllowableThroughput_EngineeringUnits"
+    },
+    "MaximumAllowableWorkingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pressure for a component on the basis of materials used and on the basis of calculation rules at the specified operating temperature",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumAllowableWorkingPressure_EngineeringUnits"
+    },
+    "MaximumAxialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Greatest value of the residual axial thrust on the pump rotor resulting from operating the pump at any condition within its allowable operating range.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/MaximumAxialLoad_EngineeringUnits"
+    },
+    "MaximumPumpPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest value of the pump power input at any rate of flow at any allowable operating condition",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/MaximumPumpPowerInput_EngineeringUnits"
+    },
+    "MaximumRadialLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Greatest radial load of the pump rotor resulting from operating the pump at any condition within its allowable operating range.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Force",
+      "dov:withUnit": "properties/MaximumRadialLoad_EngineeringUnits"
+    },
+    "MaximumStaticSealingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest pressure, excluding hydrostatic testing, to which the seal can be subjected while the pump is shut down",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumStaticSealingPressure_EngineeringUnits"
+    },
+    "MeanTimebetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Average of the times between failures.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanTimebetweenFailures_EngineeringUnits"
+    },
+    "MinimumAllowableAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest allowable ambient temperature for which the equipment (or any part to which the term refers) is suitable",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumAllowableAmbientTemperature_EngineeringUnits"
+    },
+    "MinimumAllowableContinuousSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest speed for continuous operation recommended by the manufacturer",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/MinimumAllowableContinuousSpeed_EngineeringUnits"
+    },
+    "MinimumAllowableHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Minimum permissible head at which the pump can be operated without suffering damage",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MinimumAllowableHead_EngineeringUnits"
+    },
+    "MinimumAllowableRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest allowable relative humidity for which the equipment (or any part to which the term refers) is suitable",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MinimumAllowableRelativeHumidity_EngineeringUnits"
+    },
+    "MinimumAllowableTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest allowable continuous temperature for which the equipment (or any part to which the term refers) is suitable when handling the specified operating fluid at the specified operating pressure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumAllowableTemperature_EngineeringUnits"
+    },
+    "MinimumAllowableThermalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest flow at which the pump can operate without its operation being impaired by the temperature rise of the pumped liquid",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumAllowableThermalFlow_EngineeringUnits"
+    },
+    "MinimumContinuousStableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest flow at which the pump can be operated without it adversely affecting its performance in terms of life expectancy, noise and vibrations",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumContinuousStableFlow_EngineeringUnits"
+    },
+    "MinimumContinuousThermalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest flow at which the pump can operate without its operation being impaired by the temperature rise of the pumped liquid",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumContinuousThermalFlow_EngineeringUnits"
+    },
+    "NetPositiveSuctionHeadRequired": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Minimum NPSH at the pump inlet connection required to give the rated or operating performance at the specified conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NetPositiveSuctionHeadRequired_EngineeringUnits"
+    },
+    "NetPositiveSuctionHeadRequiredForADropOf3_": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "NPSH required for a drop of 3 % in the total head of the first stage of the pump as a standard basis for use in performance curves",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NetPositiveSuctionHeadRequiredForADropOf3__EngineeringUnits"
+    },
+    "OfferedControlModes": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "OfferedControlModesOptionSet",
+        "description": "Control modes supported by the manufacturer for the product.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.OfferedControlModesOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "OfferedFieldbuses": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "OfferedFieldbusesOptionSet",
+        "description": "Fieldbuses supported by the manufacturer for the product.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.OfferedFieldbusesOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "OptimumHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Total head developed by the pump at a rate of flow corresponding to the best efficiency",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/OptimumHead_EngineeringUnits"
+    },
+    "OptimumPumpPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pump power input at the rate of flow corresponding to the best efficiency",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/OptimumPumpPowerInput_EngineeringUnits"
+    },
+    "OptimumRateOfFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rate of flow at the point of best efficiency",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/OptimumRateOfFlow_EngineeringUnits"
+    },
+    "PistonVelocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Average speed given by the stroke length multiplied with the number of complete pumping cycles of the piston, plunger or piston attached to the diaphragm per minute (stroke per minute or pump crank speed)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/PistonVelocity_EngineeringUnits"
+    },
+    "PossibleFluids": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Fluids that can be pumped by the pump.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "Pre_ChargePressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pressure to which the pulsation dampener is charged with dry gas prior to start of operation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/Pre_ChargePressure_EngineeringUnits"
+    },
+    "PumpClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "DeviceTypeEnum",
+        "description": "Pump type according to functional principle and pumped fluid",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.DeviceTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Shut_OffHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Total head developed by the pump in a zero rate of flow",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/Shut_OffHead_EngineeringUnits"
+    },
+    "Shut_OffPumpPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pump power input at zero rate of flow",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/Shut_OffPumpPowerInput_EngineeringUnits"
+    },
+    "SlipFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Flow lost internally through clearances",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/SlipFlow_EngineeringUnits"
+    },
+    "SoundEnergy": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Integral of the sound power, P, over a stated time interval of duration T (starting at t1 and ending at t2).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/SoundEnergy_EngineeringUnits"
+    },
+    "SoundEnergyLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ten times the logarithm to the base 10 of the ratio of the sound energy, J, to a reference value, J0, expressed in decibels.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/SoundPressureLevel",
+      "dov:withUnit": "properties/SoundEnergyLevel_EngineeringUnits"
+    },
+    "SoundPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Through a surface, product of the sound pressure, p, and the component of the particle velocity, un, at a point on the surface in the direction normal to the surface, integrated over that surface.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/SoundPower_EngineeringUnits"
+    },
+    "SoundPowerLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ten times the logarithm to the base 10 of the ratio of the sound power of a source, P, to a reference value, P0, expressed in decibels.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/SoundPressureLevel",
+      "dov:withUnit": "properties/SoundPowerLevel_EngineeringUnits"
+    },
+    "SoundPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Difference between instantaneous pressure and static pressure.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/SoundPressure_EngineeringUnits"
+    },
+    "SoundPressureLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ten times the logarithm to the base 10 of the ratio of the square of the sound pressure, p, to the square of a reference value, p0, expressed in decibels.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/SoundPressureLevel",
+      "dov:withUnit": "properties/SoundPressureLevel_EngineeringUnits"
+    },
+    "SpecificSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Speed that characterizes a pump in terms of its speed, flow rate per impeller eye, i.e. total flow for single-flow impeller, half flow for double-flow impeller, at the best efficiency point and head per stage at maximum impeller diameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/SpecificSpeed_EngineeringUnits"
+    },
+    "StandardGasFlowrate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Volume flow rate at standard reference conditions, i.e. 0 °C and 101 325 Pa",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/StandardGasFlowrate_EngineeringUnits"
+    },
+    "StartingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The starting pressure is the pressure at which a vacuum pump can be switched on and a pumping effect is achieved without damage occurring.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/StartingPressure_EngineeringUnits"
+    },
+    "Suction_SpecificSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Speed that characterizes a pump's cavitation performance in terms of its speed, optimum rate of flow per impeller eye at best efficiency point and NPSH3 at best efficiency point for the first stage at maximum impeller diameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/Suction_SpecificSpeed_EngineeringUnits"
+    },
+    "SweptVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Volume traversed by a single stroke of piston, plunger or diaphragm.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/SweptVolume_EngineeringUnits"
+    },
+    "TripSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Speed at which the independent emergency overspeed devices operate to shut down a prime mover",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/TripSpeed_EngineeringUnits"
+    },
+    "TypeNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pure number calculated at the point of best efficiency",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Volume flow rate of the gas removed by the pump from the gas phase within the evacuated chamber.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/VolumeFlowRate_EngineeringUnits"
+    },
+    "VolumeFlowRateOfBackingPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Maximum volume flow rate for which the conditions are defined in the instruction manual or in a specific standard for the particular vacuum pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/VolumeFlowRateOfBackingPump_EngineeringUnits"
+    },
+    "WarmUpTimeForAVaporJetPumpOrADiffusionPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The warm-up time is the time required to heat the blowing agent in the boiling vessel to its working temperature. The initial temperature can either be equal to the ambient temperature or equal to the temperature at which the blowing agent of the vacuum pump can be exposed to atmospheric air without risk.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/WarmUpTimeForAVaporJetPumpOrADiffusionPump_EngineeringUnits"
+    },
+    "WaterVaporTolerableLoad": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The mass flow rate for water vapor, in a gas ballast pump, in continuous operation and under normal ambient conditions, if the pumped gas is pure water vapor.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/MassFlowRate",
+      "dov:withUnit": "properties/WaterVaporTolerableLoad_EngineeringUnits"
+    },
+    "WetCriticalSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rotor resonant frequency calculated considering the additional support and damping produced by the action of the pumped fluid within rotor",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/WetCriticalSpeed_EngineeringUnits"
+    }
+  }
+}

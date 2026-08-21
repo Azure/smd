@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_OutletConnectionImplementationType",
+  "title": "Pumps_OutletConnectionImplementationType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.OutletConnectionImplementationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_ConnectionImplementationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/HeightOfTheOutletConnection",
+    "/properties/MeanRatedVelocityAtOutlet",
+    "/properties/RatedOutletPressure",
+    "/properties/TotalHeadAtOutletAreaOfThePump",
+    "/properties/HeightOfTheOutletConnection_EngineeringUnits",
+    "/properties/MeanRatedVelocityAtOutlet_EngineeringUnits",
+    "/properties/RatedOutletPressure_EngineeringUnits",
+    "/properties/TotalHeadAtOutletAreaOfThePump_EngineeringUnits",
+    "/events/HeightOfTheOutletConnection",
+    "/events/MeanRatedVelocityAtOutlet",
+    "/events/RatedOutletPressure",
+    "/events/TotalHeadAtOutletAreaOfThePump"
+  ],
+  "properties": {
+    "HeightOfTheOutletConnection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the center of the outlet connection of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheOutletConnection_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtOutlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rated flow at pump outlet connection divided by the inlet area of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtOutlet_EngineeringUnits"
+    },
+    "RatedOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Outlet pressure of the pump at the guarantee point with rated flow and rated speed, as well as rated inlet pressure, for rotodynamic pumps only.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedOutletPressure_EngineeringUnits"
+    },
+    "TotalHeadAtOutletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Head observed at outlet area of the pump, corresponding to the sum of the height, pressure head and velocity head.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtOutletAreaOfThePump_EngineeringUnits"
+    },
+    "HeightOfTheOutletConnection_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheOutletConnection, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanRatedVelocityAtOutlet_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanRatedVelocityAtOutlet, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedOutletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedOutletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TotalHeadAtOutletAreaOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TotalHeadAtOutletAreaOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "HeightOfTheOutletConnection": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the center of the outlet connection of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheOutletConnection_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtOutlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rated flow at pump outlet connection divided by the inlet area of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtOutlet_EngineeringUnits"
+    },
+    "RatedOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Outlet pressure of the pump at the guarantee point with rated flow and rated speed, as well as rated inlet pressure, for rotodynamic pumps only.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedOutletPressure_EngineeringUnits"
+    },
+    "TotalHeadAtOutletAreaOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Head observed at outlet area of the pump, corresponding to the sum of the height, pressure head and velocity head.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtOutletAreaOfThePump_EngineeringUnits"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JoiningProcessIdentificationDataType",
+  "title": "IJT_Base_JoiningProcessIdentificationDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "JoiningProcessIdentificationDataType": {
+      "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+      "properties": {
+        "JoiningProcessId": {
+          "description": "It is the system-wide unique identifier of the joining process.",
+          "type": "string"
+        },
+        "JoiningProcessOriginId": {
+          "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+          "type": "string"
+        },
+        "SelectionName": {
+          "description": "It is the configured selection name of the joining process in the system.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

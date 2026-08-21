@@ -1,0 +1,187 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_CatchweigherProductType",
+  "title": "Scales_V2_CatchweigherProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.CatchweigherProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Zones",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ZoneType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "LastItem",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_WeighingItemType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "TargetItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/actions/AddZone",
+    "/actions/RemoveZone",
+    "/properties/PresetHeight",
+    "/properties/PresetLength",
+    "/properties/PresetWidth",
+    "/properties/TargetThroughput",
+    "/events/PresetHeight",
+    "/events/PresetLength",
+    "/events/PresetWidth",
+    "/events/TargetThroughput"
+  ],
+  "actions": {
+    "AddZone": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Adds a zone to the zone array.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ZoneName",
+          "LowerLimit",
+          "UpperLimit",
+          "EngineeringUnits"
+        ],
+        "properties": {
+          "ZoneName": {
+            "type": "string"
+          },
+          "LowerLimit": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "UpperLimit": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "EngineeringUnits": {
+            "title": "EUInformation",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ZoneNodeId"
+        ],
+        "properties": {
+          "ZoneNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveZone": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Removes a zone from the zone array.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ZoneNodeId"
+        ],
+        "properties": {
+          "ZoneNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "PresetHeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "PresetLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "PresetWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "TargetThroughput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/TargetItemType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "PresetHeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "PresetLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "PresetWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "TargetThroughput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TargetItemType"
+      }
+    }
+  }
+}

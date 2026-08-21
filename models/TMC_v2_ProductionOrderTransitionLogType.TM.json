@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionOrderTransitionLogType",
+  "title": "TMC_v2_ProductionOrderTransitionLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProductionOrderTransitionLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "PONumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The PO active when the production order state machine performed a transition.",
+      "type": "string",
+      "readOnly": true
+    },
+    "UserMachineName": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The user name for the machine producing the production order.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

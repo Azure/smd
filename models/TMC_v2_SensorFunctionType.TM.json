@@ -1,0 +1,202 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_SensorFunctionType",
+  "title": "TMC_v2_SensorFunctionType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.SensorFunctionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DefectReason",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_DefectReasonType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UIInfo",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_UIInformationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/actions/LoadReferenceFeatures",
+    "/actions/SetDetectionMode",
+    "/properties/SensorValue",
+    "/events/SensorValue"
+  ],
+  "actions": {
+    "LoadReferenceFeatures": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Method LoadReferenceFeatures loads binary profiles to be used as references for defect detection.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Features"
+        ],
+        "properties": {
+          "Features": {
+            "description": "The list of binary profiles to be used as references for a detection system.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetDetectionMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The method SetDetectionMode enables or disables the detection function and the underneath defect reasons.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Enable"
+        ],
+        "properties": {
+          "Enable": {
+            "description": "Specifies if the method enables or disables the defect detection sensor",
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DetectionMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "When DetectionMode is True, the sensor function measures the sensor value and the inner  defect reasons are enabled, meaning they can be active or not.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SensorValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SensorValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    }
+  }
+}

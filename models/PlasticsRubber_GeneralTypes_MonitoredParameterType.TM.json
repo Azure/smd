@@ -1,0 +1,284 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+  "title": "PlasticsRubber_GeneralTypes_MonitoredParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MonitoredParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ResetMonitoring",
+    "/properties/AlarmSuppression",
+    "/properties/AutomaticMonitoring",
+    "/properties/LowerTolerance",
+    "/properties/LowerTolerance2",
+    "/properties/MaxValue",
+    "/properties/MinValue",
+    "/properties/MonitoringSensitivity",
+    "/properties/SetRampDown",
+    "/properties/SetRampUp",
+    "/properties/SetValue",
+    "/properties/Status",
+    "/properties/UpperTolerance",
+    "/properties/UpperTolerance2",
+    "/events/AlarmSuppression",
+    "/events/LowerTolerance",
+    "/events/LowerTolerance2",
+    "/events/MaxValue",
+    "/events/MinValue",
+    "/events/MonitoringSensitivity",
+    "/events/SetRampDown",
+    "/events/SetRampUp",
+    "/events/SetValue",
+    "/events/Status",
+    "/events/UpperTolerance",
+    "/events/UpperTolerance2"
+  ],
+  "actions": {
+    "ResetMonitoring": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "With this method the tolerance values are set according to the actual value and the set monitoring sensitivity"
+    }
+  },
+  "properties": {
+    "ActualValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Actual value of the monitored parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "AlarmSuppression": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "The start-up alarm suppression deactivates alarms of a monitored parameter during start up or a setpoint jump",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "AutomaticMonitoring": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Determination if monitoring tolerance parameters are determined by auto-tuning itself (TRUE) or can be manually adjusted (FALSE)",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "LowerTolerance": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Lower relative tolerance value of the process parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "LowerTolerance2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Second lower relative tolerance value of the process parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MaxValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Maximum absolute value of the process parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MinValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Minimum absolute value of the process parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MonitoringSensitivity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Defines how closely the tolerances are set during the automatic limit setting",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "SetRampDown": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if SetValue that is lower than the actual value shall be reached as fast as possible (SetRampDown = 0) or within a given value change per time",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SetRampUp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Indication if a SetValue that is higher than the actual value shall be reached as fast as possible (SetRampUp = 0) or within a given value change per time",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Set/nominal/target value of the monitored parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Information if the ActualValue is within the tolerances or has passed a tolerance or min/max value",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "UpperTolerance": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Upper relative tolerance value of the process parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "UpperTolerance2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Second upper relative tolerance value of the process parameter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Actual value of the monitored parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "AlarmSuppression": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "The start-up alarm suppression deactivates alarms of a monitored parameter during start up or a setpoint jump",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "LowerTolerance": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Lower relative tolerance value of the process parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LowerTolerance2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Second lower relative tolerance value of the process parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MaxValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Maximum absolute value of the process parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MinValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Minimum absolute value of the process parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MonitoringSensitivity": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Defines how closely the tolerances are set during the automatic limit setting",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "SetRampDown": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Indication if SetValue that is lower than the actual value shall be reached as fast as possible (SetRampDown = 0) or within a given value change per time",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetRampUp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Indication if a SetValue that is higher than the actual value shall be reached as fast as possible (SetRampUp = 0) or within a given value change per time",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Set/nominal/target value of the monitored parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Information if the ActualValue is within the tolerances or has passed a tolerance or min/max value",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "UpperTolerance": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Upper relative tolerance value of the process parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UpperTolerance2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Second upper relative tolerance value of the process parameter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

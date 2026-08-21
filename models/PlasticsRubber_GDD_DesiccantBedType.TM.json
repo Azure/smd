@@ -1,0 +1,146 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_DesiccantBedType",
+  "title": "PlasticsRubber_GDD_DesiccantBedType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DesiccantBedType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AirFlow",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DewPoint",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureBackToDesiccantBed",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureDesiccantBedOut",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureOfDesiccantBed",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TotalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FunctionStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "const": {
+        "OFF": 0,
+        "ON": 1,
+        "REQUESTED_OFF": 2,
+        "REQUESTED_ON": 3
+      },
+      "description": "Provides information about the current operation state of a function.",
+      "properties": {
+        "OFF": {
+          "description": "Function is switched off",
+          "type": "integer"
+        },
+        "ON": {
+          "description": "Function is switched on",
+          "type": "integer"
+        },
+        "REQUESTED_OFF": {
+          "description": "Function is switched on AND requested to be switched off by the client",
+          "type": "integer"
+        },
+        "REQUESTED_ON": {
+          "description": "Function is switched off AND requested to be switched on by the client",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ActivateDesiccantBedController",
+    "/actions/DeactivateDesiccantBedController",
+    "/properties/DesiccantBedControllerStatus",
+    "/properties/EnergyConsumptionResettable",
+    "/events/DesiccantBedControllerStatus",
+    "/events/EnergyConsumptionResettable"
+  ],
+  "actions": {
+    "ActivateDesiccantBedController": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to request the desiccant bed controller to be switched on."
+    },
+    "DeactivateDesiccantBedController": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to request the desiccant bed controller to be switched off."
+    }
+  },
+  "properties": {
+    "DesiccantBedControllerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "description": "Provides information about the current operation state of the desiccant bed controller.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "EnergyConsumptionResettable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Monitored energy consumption of the heater in the desiccant bed.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DesiccantBedControllerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current operation state of the desiccant bed controller.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "EnergyConsumptionResettable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Monitored energy consumption of the heater in the desiccant bed.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

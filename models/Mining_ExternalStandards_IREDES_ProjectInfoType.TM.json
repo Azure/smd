@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_ProjectInfoType",
+  "title": "Mining_ExternalStandards_IREDES_ProjectInfoType",
+  "dov:typeRef": "org.opcfoundation.UA.ProjectInfoType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Comment",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Signature",
+    "/events/Comment",
+    "/events/Signature"
+  ],
+  "properties": {
+    "Comment": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Comments concerning the project can be added here.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Signature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Project signature.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Comment": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Comments concerning the project can be added here.",
+        "type": "string"
+      }
+    },
+    "Signature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Project signature.",
+        "type": "string"
+      }
+    }
+  }
+}

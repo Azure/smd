@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtInputFilterAttributesType",
+  "title": "Powertrain_PtInputFilterAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtInputFilterAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/LineFilterEmcCategory",
+    "/properties/LineFilterEmcClass",
+    "/properties/LineFilterEmcGroup",
+    "/properties/LineFilterPowerLoss",
+    "/events/LineFilterEmcCategory",
+    "/events/LineFilterEmcClass",
+    "/events/LineFilterEmcGroup",
+    "/events/LineFilterPowerLoss"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "LineFilterEmcCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "LineFilterEmcClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "LineFilterEmcGroup": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "LineFilterPowerLoss": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LineFilterEmcCategory": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "LineFilterEmcClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "LineFilterEmcGroup": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "LineFilterPowerLoss": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

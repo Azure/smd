@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetTrendLogBaseType",
+  "title": "BACnet_V2_BACnetTrendLogBaseType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetTrendLogBaseType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetLoggingType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLoggingType",
+      "const": {
+        "Polled": 0,
+        "COV": 1,
+        "Triggered": 2
+      },
+      "properties": {
+        "Polled": {
+          "type": "integer"
+        },
+        "COV": {
+          "type": "integer"
+        },
+        "Triggered": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Align_Intervals",
+    "/properties/Interval_Offset",
+    "/properties/Log_Interval",
+    "/properties/Logging_Type",
+    "/properties/Trigger"
+  ],
+  "properties": {
+    "Align_Intervals": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Interval_Offset": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Log_Interval": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Logging_Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetLoggingType",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLoggingType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Trigger": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  }
+}

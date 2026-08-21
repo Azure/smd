@@ -1,0 +1,223 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_IAssetRevisionType",
+  "title": "FX_AC_IAssetRevisionType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.IAssetRevisionType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AssetVerificationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+      "const": {
+        "AssetCompatibility": 0,
+        "AssetIdentity": 1,
+        "AssetIdentityAndCompatibility": 2
+      },
+      "properties": {
+        "AssetCompatibility": {
+          "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentity": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentityAndCompatibility": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        }
+      }
+    },
+    "AssetVerificationResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+      "const": {
+        "NotSet": 0,
+        "Match": 1,
+        "Compatible": 2,
+        "Mismatch": 3
+      },
+      "properties": {
+        "NotSet": {
+          "description": "The verification result is not set.",
+          "type": "integer"
+        },
+        "Match": {
+          "description": "Asset matches expectation.",
+          "type": "integer"
+        },
+        "Compatible": {
+          "description": "Asset does not match expectation but is compatible.",
+          "type": "integer"
+        },
+        "Mismatch": {
+          "description": "Asset does not match expectation and is not compatible.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/VerifyAsset",
+    "/properties/BuildAssetNumber",
+    "/properties/MajorAssetVersion",
+    "/properties/MinorAssetVersion",
+    "/properties/SubBuildAssetNumber"
+  ],
+  "actions": {
+    "VerifyAsset": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VerificationMode",
+          "ExpectedVerificationVariables",
+          "ExpectedAdditionalVerificationVariables"
+        ],
+        "properties": {
+          "VerificationMode": {
+            "title": "AssetVerificationModeEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ExpectedVerificationVariables": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ExpectedAdditionalVerificationVariables": {
+            "type": "array",
+            "items": {
+              "title": "NodeIdValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "title": "NodeIdArray",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                  "required": [
+                    "Node",
+                    "ArrayIndex"
+                  ],
+                  "properties": {
+                    "Node": {
+                      "type": "string"
+                    },
+                    "ArrayIndex": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      }
+                    }
+                  }
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "VerificationResult",
+          "VerificationVariablesErrors",
+          "VerificationAdditionalVariablesErrors"
+        ],
+        "properties": {
+          "VerificationResult": {
+            "title": "AssetVerificationResultEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "VerificationVariablesErrors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "VerificationAdditionalVariablesErrors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "BuildAssetNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "MajorAssetVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "MinorAssetVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "SubBuildAssetNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    }
+  }
+}

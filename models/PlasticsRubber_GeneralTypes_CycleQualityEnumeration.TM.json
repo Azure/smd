@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_CycleQualityEnumeration",
+  "title": "PlasticsRubber_GeneralTypes_CycleQualityEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CycleQualityEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "CycleQualityEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.CycleQualityEnumeration",
+      "const": {
+        "GOOD_CYCLE": 0,
+        "BAD_CYCLE": 1,
+        "TEST_SAMPLE_CYCLE": 2,
+        "FAILED_CYCLE": 3
+      },
+      "description": "Quality of the whole cycle",
+      "properties": {
+        "GOOD_CYCLE": {
+          "description": "The machine has detected no failures during the cycle and the part quality (for all cavities) is assumed as good",
+          "type": "integer"
+        },
+        "BAD_CYCLE": {
+          "description": "The quality of the part(s) is assumed as bad",
+          "type": "integer"
+        },
+        "TEST_SAMPLE_CYCLE": {
+          "description": "A cycle is separated as a test sample",
+          "type": "integer"
+        },
+        "FAILED_CYCLE": {
+          "description": "The machine has detected failures during the cycle and the part quality is assumed as bad. Further information is provided by the MessageCondition fired in this case.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

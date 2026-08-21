@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_ContinuousComponentType",
+  "title": "PlasticsRubber_Dosing_ContinuousComponentType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.ContinuousComponentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DrivePercentage",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Percentage",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "WeighingProcess",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_WeighingProcessType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/StartPriming",
+    "/actions/StopPriming"
+  ],
+  "actions": {
+    "StartPriming": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to start the priming function on the component."
+    },
+    "StopPriming": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/",
+      "description": "Method to stop the priming function on the component."
+    }
+  }
+}

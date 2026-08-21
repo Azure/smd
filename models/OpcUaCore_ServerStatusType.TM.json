@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerStatusType",
+  "title": "OpcUaCore_ServerStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerStatusType",
+  "links": [],
+  "schemaDefinitions": {
+    "ServerStatusType": {
+      "title": "ServerStatusDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerStatusType",
+      "required": [
+        "StartTime",
+        "CurrentTime",
+        "State",
+        "BuildInfo",
+        "SecondsTillShutdown",
+        "ShutdownReason"
+      ],
+      "properties": {
+        "StartTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "CurrentTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "State": {
+          "title": "ServerState",
+          "dov:typeRef": "org.opcfoundation.UA.ServerState",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "BuildInfo": {
+          "title": "BuildInfo",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BuildInfo",
+          "required": [
+            "ProductUri",
+            "ManufacturerName",
+            "ProductName",
+            "SoftwareVersion",
+            "BuildNumber",
+            "BuildDate"
+          ],
+          "properties": {
+            "ProductUri": {
+              "type": "string"
+            },
+            "ManufacturerName": {
+              "type": "string"
+            },
+            "ProductName": {
+              "type": "string"
+            },
+            "SoftwareVersion": {
+              "type": "string"
+            },
+            "BuildNumber": {
+              "type": "string"
+            },
+            "BuildDate": {
+              "type": "string",
+              "format": "time"
+            }
+          }
+        },
+        "SecondsTillShutdown": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "ShutdownReason": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_WriterGroupType",
+  "title": "OpcUaCore_WriterGroupType",
+  "dov:typeRef": "org.opcfoundation.UA.WriterGroupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TransportSettings",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_WriterGroupTransportType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MessageSettings",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_WriterGroupMessageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubDiagnosticsWriterGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DataSetFieldContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+      "const": {
+        "StatusCode": 0,
+        "SourceTimestamp": 1,
+        "ServerTimestamp": 2,
+        "SourcePicoSeconds": 3,
+        "ServerPicoSeconds": 4,
+        "RawData": 5
+      },
+      "properties": {
+        "StatusCode": {
+          "type": "integer"
+        },
+        "SourceTimestamp": {
+          "type": "integer"
+        },
+        "ServerTimestamp": {
+          "type": "integer"
+        },
+        "SourcePicoSeconds": {
+          "type": "integer"
+        },
+        "ServerPicoSeconds": {
+          "type": "integer"
+        },
+        "RawData": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AddDataSetWriter",
+    "/actions/RemoveDataSetWriter"
+  ],
+  "actions": {
+    "AddDataSetWriter": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Configuration"
+        ],
+        "properties": {
+          "Configuration": {
+            "title": "DataSetWriterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.DataSetWriterDataType",
+            "required": [
+              "Name",
+              "Enabled",
+              "DataSetWriterId",
+              "DataSetFieldContentMask",
+              "KeyFrameCount",
+              "DataSetName",
+              "DataSetWriterProperties",
+              "TransportSettings",
+              "MessageSettings"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "Enabled": {
+                "type": "boolean"
+              },
+              "DataSetWriterId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "DataSetFieldContentMask": {
+                "title": "DataSetFieldContentMask",
+                "dov:typeRef": "org.opcfoundation.UA.DataSetFieldContentMask",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "KeyFrameCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "DataSetName": {
+                "type": "string"
+              },
+              "DataSetWriterProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "TransportSettings": {
+                "type": "string"
+              },
+              "MessageSettings": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "DataSetWriterNodeId"
+        ],
+        "properties": {
+          "DataSetWriterNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveDataSetWriter": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "DataSetWriterNodeId"
+        ],
+        "properties": {
+          "DataSetWriterNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "HeaderLayoutUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "KeepAliveTime": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "LocaleIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "Priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "PublishingInterval": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "WriterGroupId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

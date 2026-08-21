@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_IAdministrationType",
+  "title": "PADIM_IAdministrationType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.IAdministrationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ResetModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.ResetModeEnum",
+      "const": {
+        "Application": 1,
+        "Communication": 2712,
+        "Factory": 2713
+      },
+      "properties": {
+        "Application": {
+          "type": "integer"
+        },
+        "Communication": {
+          "type": "integer"
+        },
+        "Factory": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/FactoryReset",
+    "/properties/DateOfLastChange",
+    "/properties/DisplayLanguage",
+    "/events/DateOfLastChange",
+    "/events/DisplayLanguage"
+  ],
+  "actions": {
+    "FactoryReset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ResetMode"
+        ],
+        "properties": {
+          "ResetMode": {
+            "title": "ResetModeEnum",
+            "dov:typeRef": "org.opcfoundation.UA.PADIM.ResetModeEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DateOfLastChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "DisplayLanguage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DateOfLastChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "DisplayLanguage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/#ISA95_JOBCONTROL_V2_ISA95WorkMasterDataType",
+  "title": "ISA95_JOBCONTROL_V2_ISA95WorkMasterDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95WorkMasterDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ISA95WorkMasterDataType": {
+      "description": "Defines a Work Master ID and the defined parameters for the Work Master.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95WorkMasterDataType",
+      "required": [
+        "ID"
+      ],
+      "properties": {
+        "ID": {
+          "description": "An identification of the Work Master.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Additional information and description about the Work Master.",
+          "type": "string"
+        },
+        "Parameters": {
+          "description": "Defined parameters for the Work Master.",
+          "type": "array",
+          "items": {
+            "title": "ISA95ParameterDataType",
+            "description": "A subtype of OPC UA Structure that defines three linked data items: the ID, which is a unique identifier for a property, the value, which is the data that is identified, and an optional description of the parameter.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ISA95-JOBCONTROL_V2.ISA95ParameterDataType",
+            "required": [
+              "ID",
+              "Value"
+            ],
+            "properties": {
+              "ID": {
+                "description": "A unique identifier for a parameter",
+                "type": "string"
+              },
+              "Value": {
+                "description": "Value of the parameter.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "An optional description of the parameter. The array allows to provide descriptions in different languages when writing. When accessing, the server shall only provide one entry in the array.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "EngineeringUnits": {
+                "title": "EUInformation",
+                "description": "The Unit Of Measure of the value",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "Subparameters": {
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for the infinite remainder of this data structure, which is recursively defined.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/POWERLINK/#POWERLINK_PowerlinkAttribute",
+  "title": "POWERLINK_PowerlinkAttribute",
+  "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkAttribute",
+  "links": [],
+  "schemaDefinitions": {
+    "PowerlinkAttribute": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkAttribute",
+      "const": {
+        "CONST": 0,
+        "R": 1,
+        "W": 2,
+        "I": 3,
+        "O": 4,
+        "S": 5,
+        "VR": 6,
+        "DEF": 7,
+        "RPDO": 8,
+        "TPDO": 9
+      },
+      "description": "Represents the POWERLINK entry attributes",
+      "properties": {
+        "CONST": {
+          "description": "Read access only, the value is not changing",
+          "type": "integer"
+        },
+        "R": {
+          "description": "Read access",
+          "type": "integer"
+        },
+        "W": {
+          "description": "Write access",
+          "type": "integer"
+        },
+        "I": {
+          "description": "Represents process input data, object can be used in PDO mapping",
+          "type": "integer"
+        },
+        "O": {
+          "description": "Represents process output data, object can be used in PDO mapping",
+          "type": "integer"
+        },
+        "S": {
+          "description": "Can be stored to non-volatile memory",
+          "type": "integer"
+        },
+        "VR": {
+          "description": "Only valid after reset",
+          "type": "integer"
+        },
+        "DEF": {
+          "description": "Variable is included in default mapping",
+          "type": "integer"
+        },
+        "RPDO": {
+          "description": "Variable may be mapped into receive PDO",
+          "type": "integer"
+        },
+        "TPDO": {
+          "description": "Variable may be mapped into transmit PDO",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

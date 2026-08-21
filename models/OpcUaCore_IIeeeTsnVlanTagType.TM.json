@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeTsnVlanTagType",
+  "title": "OpcUaCore_IIeeeTsnVlanTagType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeTsnVlanTagType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "PriorityCodePoint": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "VlanId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "PriorityCodePoint": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      }
+    },
+    "VlanId": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

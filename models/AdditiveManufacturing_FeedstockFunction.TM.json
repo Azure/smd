@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AdditiveManufacturing/#AdditiveManufacturing_FeedstockFunction",
+  "title": "AdditiveManufacturing_FeedstockFunction",
+  "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockFunction",
+  "links": [],
+  "schemaDefinitions": {
+    "FeedstockFunction": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AdditiveManufacturing.FeedstockFunction",
+      "const": {
+        "Undefined": 0,
+        "Main": 1,
+        "Ancillary": 2,
+        "Consumable": 3
+      },
+      "description": "This enumeration indicates the function of a specific feedstock.",
+      "properties": {
+        "Undefined": {
+          "description": "The function of the feedstock is unknown.",
+          "type": "integer"
+        },
+        "Main": {
+          "description": "The feedstock is used for production and is part of the finished part.",
+          "type": "integer"
+        },
+        "Ancillary": {
+          "description": "The feedstock is used for production but removed before the part is finished.",
+          "type": "integer"
+        },
+        "Consumable": {
+          "description": "The feedstock is consumed during the production e.g., process gas.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

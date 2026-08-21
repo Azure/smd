@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_MCSConfigurationType",
+  "title": "CAS_MCSConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.MCSConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_ConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CommunicationSettings",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_CommunicationSettingsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ConfigurationFile",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/LoadConfigurationFile",
+    "/actions/SaveConfigurationFile"
+  ],
+  "actions": {
+    "LoadConfigurationFile": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Loads the configuration stored in ConfigurationFile to the MCS."
+    },
+    "SaveConfigurationFile": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Saves the current configuration of the MCS to the stored ConfigurationFile."
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_EdgeTriggeredSleepType",
+  "title": "Scales_V2_EdgeTriggeredSleepType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.EdgeTriggeredSleepType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ConditionSleepType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EdgeOperator": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.EdgeOperator",
+      "const": {
+        "Rising_0": 0,
+        "Falling_1": 1
+      },
+      "properties": {
+        "Rising_0": {
+          "type": "integer"
+        },
+        "Falling_1": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConditionMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "title": "EdgeOperator",
+      "description": "Defines the type of condition operator that is used.",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.EdgeOperator",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "TargetThresholdValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "The target value with which the threshold value is compared.",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TargetThresholdValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "The target value with which the threshold value is compared.",
+        "type": "boolean"
+      }
+    }
+  }
+}

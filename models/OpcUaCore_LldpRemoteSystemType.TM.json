@@ -1,0 +1,503 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_LldpRemoteSystemType",
+  "title": "OpcUaCore_LldpRemoteSystemType",
+  "dov:typeRef": "org.opcfoundation.UA.LldpRemoteSystemType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ChassisIdSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ChassisIdSubtype",
+      "const": {
+        "ChassisComponent": 1,
+        "InterfaceAlias": 2,
+        "PortComponent": 3,
+        "MacAddress": 4,
+        "NetworkAddress": 5,
+        "InterfaceName": 6,
+        "Local": 7
+      },
+      "properties": {
+        "ChassisComponent": {
+          "description": "Represents a chassis identifier based on the value of entPhysicalAlias object (defined in IETF RFC 2737) for a chassis component (i.e., an entPhysicalClass value of chassis(3))",
+          "type": "integer"
+        },
+        "InterfaceAlias": {
+          "description": "Represents a chassis identifier based on the value of ifAlias object (defined in IETF RFC 2863) for an interface on the containing chassis.",
+          "type": "integer"
+        },
+        "PortComponent": {
+          "description": "Represents a chassis identifier based on the value of entPhysicalAlias object (defined in IETF RFC 2737) for a port or backplane component (i.e., entPhysicalClass has a value of port(10), or backplane(4)), within the containing chassis.",
+          "type": "integer"
+        },
+        "MacAddress": {
+          "description": "Represents a chassis identifier based on the value of a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) of a port on the containing chassis as defined in IEEE Std 802-2014.",
+          "type": "integer"
+        },
+        "NetworkAddress": {
+          "description": "Represents a chassis identifier based on a network address associated with a particular chassis. The encoded address is actually composed of two fields. The first field is a single octet, representing the IANA AddressFamilyNumbers value for the specific address type, and the second field is the network address value.",
+          "type": "integer"
+        },
+        "InterfaceName": {
+          "description": "Represents a chassis identifier based on the value of ifName object (defined in IETF RFC 2863) for an interface on the containing chassis.",
+          "type": "integer"
+        },
+        "Local": {
+          "description": "Represents a chassis identifier based on a locally defined value.",
+          "type": "integer"
+        }
+      }
+    },
+    "LldpSystemCapabilitiesMap": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LldpSystemCapabilitiesMap",
+      "const": {
+        "Other": 0,
+        "Repeater": 1,
+        "Bridge": 2,
+        "WlanAccessPoint": 3,
+        "Router": 4,
+        "Telephone": 5,
+        "DocsisCableDevice": 6,
+        "StationOnly": 7,
+        "CvlanComponent": 8,
+        "SvlanComponent": 9,
+        "TwoPortMacRelay": 10
+      },
+      "properties": {
+        "Other": {
+          "description": "System has capabilities other than those listed below",
+          "type": "integer"
+        },
+        "Repeater": {
+          "description": "System has repeater capability",
+          "type": "integer"
+        },
+        "Bridge": {
+          "description": "System has bridge capability",
+          "type": "integer"
+        },
+        "WlanAccessPoint": {
+          "description": "System has WLAN access point capability",
+          "type": "integer"
+        },
+        "Router": {
+          "description": "System has router capability",
+          "type": "integer"
+        },
+        "Telephone": {
+          "description": "System has telephone capability",
+          "type": "integer"
+        },
+        "DocsisCableDevice": {
+          "description": "System has DOCSIS cable device capability (IETF RFC 4639)",
+          "type": "integer"
+        },
+        "StationOnly": {
+          "description": "System has only station capability",
+          "type": "integer"
+        },
+        "CvlanComponent": {
+          "description": "System has C-VLAN component functionality",
+          "type": "integer"
+        },
+        "SvlanComponent": {
+          "description": "System has S-VLAN component functionality",
+          "type": "integer"
+        },
+        "TwoPortMacRelay": {
+          "description": "System has Two-port MAC Relay (TPMR) functionality.",
+          "type": "integer"
+        }
+      }
+    },
+    "ManAddrIfSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+      "const": {
+        "None": 0,
+        "Unknown": 1,
+        "PortRef": 2,
+        "SystemPortNumber": 3
+      },
+      "properties": {
+        "None": {
+          "description": "Optional variable is not set.",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "Interface is not known.",
+          "type": "integer"
+        },
+        "PortRef": {
+          "description": "Interface based on the port-ref MIB object.",
+          "type": "integer"
+        },
+        "SystemPortNumber": {
+          "description": "Interface based on the system port number.",
+          "type": "integer"
+        }
+      }
+    },
+    "PortIdSubtype": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+      "const": {
+        "InterfaceAlias": 1,
+        "PortComponent": 2,
+        "MacAddress": 3,
+        "NetworkAddress": 4,
+        "InterfaceName": 5,
+        "AgentCircuitId": 6,
+        "Local": 7
+      },
+      "properties": {
+        "InterfaceAlias": {
+          "description": "Represents a port identifier based on the ifAlias MIB object defined in IETF RFC 2863.",
+          "type": "integer"
+        },
+        "PortComponent": {
+          "description": "Represents a port identifier based on the value of entPhysicalAlias (defined in IETF RFC 2737) for a port component (i.e., entPhysicalClass value of port(10) or backplane(4)), within the containing chassis.",
+          "type": "integer"
+        },
+        "MacAddress": {
+          "description": "Represents a port identifier based on a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) which has been detected by the agent and associated with a particular port (IEEE Std 802-2014).",
+          "type": "integer"
+        },
+        "NetworkAddress": {
+          "description": "Represents a port identifier based on a network address, detected by the agent and associated with a particular port.",
+          "type": "integer"
+        },
+        "InterfaceName": {
+          "description": "Represents a port identifier based on the ifName MIB object, defined in IETF RFC 2863.",
+          "type": "integer"
+        },
+        "AgentCircuitId": {
+          "description": "Represents a port identifier based on the agent-local identifier of the circuit (defined in IETF RFC 3046), detected by the agent and associated with a particular port.",
+          "type": "integer"
+        },
+        "Local": {
+          "description": "Represents a port identifier based on a value locally assigned.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ManagementAddress",
+    "/properties/PortDescription",
+    "/properties/RemoteChanges",
+    "/properties/RemoteTooManyNeighbors",
+    "/properties/RemoteUnknownTlv",
+    "/properties/SystemCapabilitiesEnabled",
+    "/properties/SystemCapabilitiesSupported",
+    "/properties/SystemDescription",
+    "/properties/SystemName",
+    "/events/ManagementAddress",
+    "/events/PortDescription",
+    "/events/RemoteChanges",
+    "/events/RemoteTooManyNeighbors",
+    "/events/RemoteUnknownTlv",
+    "/events/SystemCapabilitiesEnabled",
+    "/events/SystemCapabilitiesSupported",
+    "/events/SystemDescription",
+    "/events/SystemName"
+  ],
+  "properties": {
+    "ChassisId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ChassisIdSubtype": {
+      "title": "ChassisIdSubtype",
+      "dov:typeRef": "org.opcfoundation.UA.ChassisIdSubtype",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ManagementAddress": {
+      "type": "array",
+      "items": {
+        "title": "LldpManagementAddressType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.LldpManagementAddressType",
+        "required": [
+          "AddressSubtype",
+          "Address",
+          "IfSubtype",
+          "IfId"
+        ],
+        "properties": {
+          "AddressSubtype": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Address": {
+            "type": "string"
+          },
+          "IfSubtype": {
+            "title": "ManAddrIfSubtype",
+            "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "IfId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "PortDescription": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PortId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PortIdSubtype": {
+      "title": "PortIdSubtype",
+      "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "RemoteChanges": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RemoteIndex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "RemoteTooManyNeighbors": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RemoteUnknownTlv": {
+      "type": "array",
+      "items": {
+        "title": "LldpTlvType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.LldpTlvType",
+        "required": [
+          "TlvType",
+          "TlvInfo"
+        ],
+        "properties": {
+          "TlvType": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "TlvInfo": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SystemCapabilitiesEnabled": {
+      "title": "LldpSystemCapabilitiesMap",
+      "dov:typeRef": "org.opcfoundation.UA.LldpSystemCapabilitiesMap",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SystemCapabilitiesSupported": {
+      "title": "LldpSystemCapabilitiesMap",
+      "dov:typeRef": "org.opcfoundation.UA.LldpSystemCapabilitiesMap",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SystemDescription": {
+      "type": "string",
+      "readOnly": true
+    },
+    "SystemName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeMark": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ChassisId": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "ChassisIdSubtype": {
+      "data": {
+        "title": "ChassisIdSubtype",
+        "dov:typeRef": "org.opcfoundation.UA.ChassisIdSubtype",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ManagementAddress": {
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "LldpManagementAddressType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.LldpManagementAddressType",
+          "required": [
+            "AddressSubtype",
+            "Address",
+            "IfSubtype",
+            "IfId"
+          ],
+          "properties": {
+            "AddressSubtype": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Address": {
+              "type": "string"
+            },
+            "IfSubtype": {
+              "title": "ManAddrIfSubtype",
+              "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "IfId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      }
+    },
+    "PortDescription": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "PortId": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "PortIdSubtype": {
+      "data": {
+        "title": "PortIdSubtype",
+        "dov:typeRef": "org.opcfoundation.UA.PortIdSubtype",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RemoteChanges": {
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "RemoteIndex": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "RemoteTooManyNeighbors": {
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "RemoteUnknownTlv": {
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "LldpTlvType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.LldpTlvType",
+          "required": [
+            "TlvType",
+            "TlvInfo"
+          ],
+          "properties": {
+            "TlvType": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "TlvInfo": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        }
+      }
+    },
+    "SystemCapabilitiesEnabled": {
+      "data": {
+        "title": "LldpSystemCapabilitiesMap",
+        "dov:typeRef": "org.opcfoundation.UA.LldpSystemCapabilitiesMap",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SystemCapabilitiesSupported": {
+      "data": {
+        "title": "LldpSystemCapabilitiesMap",
+        "dov:typeRef": "org.opcfoundation.UA.LldpSystemCapabilitiesMap",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SystemDescription": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "SystemName": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "TimeMark": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

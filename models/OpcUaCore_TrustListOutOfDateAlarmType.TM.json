@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TrustListOutOfDateAlarmType",
+  "title": "OpcUaCore_TrustListOutOfDateAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.TrustListOutOfDateAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SystemOffNormalAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "LastUpdateTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "TrustListId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "UpdateFrequency": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

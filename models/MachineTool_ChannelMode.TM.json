@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ChannelMode",
+  "title": "MachineTool_ChannelMode",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ChannelMode",
+  "links": [],
+  "schemaDefinitions": {
+    "ChannelMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ChannelMode",
+      "const": {
+        "Automatic": 0,
+        "MdaMdi": 1,
+        "JogManual": 2,
+        "JogIncrement": 3,
+        "TeachingHandle": 4,
+        "Remote": 5,
+        "Reference": 6,
+        "Other": 7
+      },
+      "properties": {
+        "Automatic": {
+          "description": "NC channel mode Automatic – execute CNC part programs.",
+          "type": "integer"
+        },
+        "MdaMdi": {
+          "description": "NC channel mode Mda/Mdi – manual data input and execution.",
+          "type": "integer"
+        },
+        "JogManual": {
+          "description": "NC channel mode Jog Manual – axis movement triggered by user.",
+          "type": "integer"
+        },
+        "JogIncrement": {
+          "description": "NC channel mode Jog Increment – incremental axis movement triggered by user.",
+          "type": "integer"
+        },
+        "TeachingHandle": {
+          "description": "NC channel mode Teaching Handle – teaching a machine tool by moving axes of the machine tool by hand.",
+          "type": "integer"
+        },
+        "Remote": {
+          "description": "NC channel mode Remote – the machine tool can receive CNC files via a remote access mechanism.",
+          "type": "integer"
+        },
+        "Reference": {
+          "description": "NC channel mode Reference – The machine tool returns to its reference point/ zero position.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "NC channel mode is different from the values defined in this enumeration.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

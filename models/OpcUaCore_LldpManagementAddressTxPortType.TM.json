@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_LldpManagementAddressTxPortType",
+  "title": "OpcUaCore_LldpManagementAddressTxPortType",
+  "dov:typeRef": "org.opcfoundation.UA.LldpManagementAddressTxPortType",
+  "links": [],
+  "schemaDefinitions": {
+    "LldpManagementAddressTxPortType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.LldpManagementAddressTxPortType",
+      "required": [
+        "AddressSubtype",
+        "ManAddress",
+        "TxEnable",
+        "AddrLen",
+        "IfSubtype",
+        "IfId"
+      ],
+      "properties": {
+        "AddressSubtype": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "ManAddress": {
+          "type": "string"
+        },
+        "TxEnable": {
+          "type": "boolean"
+        },
+        "AddrLen": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "IfSubtype": {
+          "title": "ManAddrIfSubtype",
+          "dov:typeRef": "org.opcfoundation.UA.ManAddrIfSubtype",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "IfId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

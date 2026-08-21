@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_TaskControlType",
+  "title": "Robotics_TaskControlType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.TaskControlType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "MotionDeviceIdentifier",
+      "dov:refType": "Controls",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_MotionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ParameterSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TaskControlOperation",
+      "href": "http://opcfoundation.org/UA/Robotics/#Robotics_TaskControlOperationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "TaskModules",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "ComponentName": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A user writable name provided by the vendor, integrator or user of the device.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

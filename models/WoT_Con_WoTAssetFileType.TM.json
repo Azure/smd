@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WoT-Con/#WoT_Con_WoTAssetFileType",
+  "title": "WoT_Con_WoTAssetFileType",
+  "dov:typeRef": "org.opcfoundation.UA.WoT-Con.WoTAssetFileType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "CloseAndUpdate": {
+      "dov:namespace": "http://opcfoundation.org/UA/WoT-Con/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileHandle"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  }
+}

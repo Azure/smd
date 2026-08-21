@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_EnergyMeasurementType",
+  "title": "ECM_EnergyMeasurementType",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.EnergyMeasurementType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EnergyMeasurementValueType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.ECM.EnergyMeasurementValueType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/ResetStatistics",
+    "/properties/StartTime"
+  ],
+  "actions": {
+    "ResetStatistics": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/"
+    }
+  },
+  "properties": {
+    "ApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "string",
+      "readOnly": false
+    },
+    "MeasurementValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "tm:ref": "#/schemaDefinitions/EnergyMeasurementValueType",
+      "readOnly": true,
+      "dov:placeholder": true,
+      "dov:contains": [
+        "MeasurementValue_AccuracyClass",
+        "MeasurementValue_Resource"
+      ]
+    },
+    "MeasurementValue_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "MeasurementValue"
+    },
+    "MeasurementValue_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "MeasurementValue"
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "MeasurementValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/EnergyMeasurementValueType"
+      },
+      "dov:placeholder": true,
+      "dov:contains": [
+        "MeasurementValue_AccuracyClass",
+        "MeasurementValue_Resource"
+      ]
+    },
+    "MeasurementValue_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "MeasurementValue"
+    },
+    "MeasurementValue_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "MeasurementValue"
+    }
+  }
+}

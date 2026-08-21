@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_IJoiningAdditionalInformationType",
+  "title": "IJT_Base_IJoiningAdditionalInformationType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.IJoiningAdditionalInformationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Description",
+    "/properties/JoiningTechnology",
+    "/properties/SupplierCode"
+  ],
+  "properties": {
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "Description is the system specific description of the asset.",
+      "type": "string",
+      "readOnly": true
+    },
+    "JoiningTechnology": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "JoiningTechnology is a human readable text to identify the joining technology.",
+      "type": "string",
+      "readOnly": true
+    },
+    "SupplierCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "SupplierCode is the SAP or ERP Supplier Code of the asset.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

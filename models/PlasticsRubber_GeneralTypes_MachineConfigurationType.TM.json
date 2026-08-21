@@ -1,0 +1,186 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineConfigurationType",
+  "title": "PlasticsRubber_GeneralTypes_MachineConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MachineConfigurationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/GetCurrentPage",
+    "/actions/GetPage",
+    "/properties/PageDirectory"
+  ],
+  "actions": {
+    "GetCurrentPage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for retrieving a screenshot of the control system with the currently shown contents",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VisualisationUnit"
+        ],
+        "properties": {
+          "VisualisationUnit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Page"
+        ],
+        "properties": {
+          "Page": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "GetPage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for retrieving the image of a page of the control system",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Page"
+        ],
+        "properties": {
+          "Page": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    },
+    "SetMachineTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for setting the server time together with TimeZoneOffset",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "DateTime",
+          "TimeZoneOffset"
+        ],
+        "properties": {
+          "DateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TimeZoneOffset": {
+            "title": "TimeZoneDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+            "required": [
+              "Offset",
+              "DaylightSavingInOffset"
+            ],
+            "properties": {
+              "Offset": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "DaylightSavingInOffset": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "LocationName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Description of the location of the machine given by the machine operator or OPC client",
+      "type": "string",
+      "readOnly": false
+    },
+    "PageDirectory": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "List of the pages that are implemented in the machine control system and are shown on the screen of the machine",
+      "type": "array",
+      "items": {
+        "title": "PageEntryDataType",
+        "description": "Information on a page that is implemented in the machine control system and shown on the screen of the machine",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.PageEntryDataType",
+        "required": [
+          "Id",
+          "Title"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier defined by manufacturer",
+            "type": "string"
+          },
+          "Title": {
+            "description": "Page name",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "TimeZoneOffset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "TimeZoneDataType",
+      "description": "Difference of the local time to Coordinated Universal Time (UTC) given by the machine operator or OPC client",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      },
+      "readOnly": false
+    },
+    "UserMachineName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Description of the machine given by the machine operator or OPC client",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

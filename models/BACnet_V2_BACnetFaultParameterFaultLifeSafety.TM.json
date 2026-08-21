@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetFaultParameterFaultLifeSafety",
+  "title": "BACnet_V2_BACnetFaultParameterFaultLifeSafety",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetFaultParameterFaultLifeSafety",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetFaultParameterFaultLifeSafety": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetFaultParameterFaultLifeSafety",
+      "required": [
+        "List-of-fault-values",
+        "Mode-property-reference"
+      ],
+      "properties": {
+        "List-of-fault-values": {
+          "type": "array",
+          "items": {
+            "title": "BACnetLifeSafetyState",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyState",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        },
+        "Mode-property-reference": {
+          "title": "BACnetDeviceObjectPropertyReference",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceObjectPropertyReference",
+          "required": [
+            "ObjectIdentifier"
+          ],
+          "properties": {
+            "ObjectIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "PropertyIdentifier": {
+              "title": "BACnetPropertyIdentifier",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyIdentifier",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "PropertyArrayIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "DeviceIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      }
+    }
+  }
+}

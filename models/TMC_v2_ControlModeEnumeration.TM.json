@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModeEnumeration",
+  "title": "TMC_v2_ControlModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ControlModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ControlModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "PRODUCTION": 1,
+        "MAINTENANCE": 2,
+        "MANUAL": 3,
+        "CHANGE_OVER": 4,
+        "CLEAN": 5,
+        "SET_UP": 6,
+        "EMPTY_OUT": 7,
+        "REMOTE_SERVICE": 8
+      },
+      "description": "The ControlModeEnumeration contains the PackML modes of operation of a machine.",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if no other state below applies.",
+          "type": "integer"
+        },
+        "PRODUCTION": {
+          "description": "Primary Mode used for all production activities, All PackML model states will be utilized. The unit/machine executes relevant logic in response to commands which are mainly coming from External Systems, or entered directly by the operator.",
+          "type": "integer"
+        },
+        "MAINTENANCE": {
+          "description": "Used for routine preventive Maintenance or planned maintenance. Shall be utilized to document planned maintenance occurrence and duration. This mode allows authorized personnel to run the unit/machine independent of other systems. This mode would typically be used for fault finding, machine trials, or testing operational improvements. For example: The cleaning of a print head is maintenance.",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "Used for fault diagnosis of unplanned technical intervention.",
+          "type": "integer"
+        },
+        "CHANGE_OVER": {
+          "description": "Used specifically for format or recipe change over, includes “cleaning” operations.",
+          "type": "integer"
+        },
+        "CLEAN": {
+          "description": "Used for Routine Cleaning requirements example: as specified by factory maintenance procedures.",
+          "type": "integer"
+        },
+        "SET_UP": {
+          "description": "Used for set up or adjustments example: mechanical adjustments and testing.",
+          "type": "integer"
+        },
+        "EMPTY_OUT": {
+          "description": "Used to empty out machine example: end of a block of shifts prior to factory weekend shut down, empty out resident product within the machine that could be sent to finished product and minimize part finished “rework”.",
+          "type": "integer"
+        },
+        "REMOTE_SERVICE": {
+          "description": "Used when the machine is serviced remotely, which is a form of remote maintenance. Remark. The Remote Service mode fulfil the safety requirements of the harmonized norm EN415-10:2011 (Safety of packaging machines).",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

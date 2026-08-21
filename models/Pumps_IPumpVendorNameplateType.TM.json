@@ -1,0 +1,123 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_IPumpVendorNameplateType",
+  "title": "Pumps_IPumpVendorNameplateType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.IPumpVendorNameplateType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_IMachineVendorNameplateType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ArticleNumber",
+    "/properties/CountryOfOrigin",
+    "/properties/DayOfConstruction",
+    "/properties/FabricationNumber",
+    "/properties/GTINCode",
+    "/properties/NationalStockNumber",
+    "/properties/OrderProductCode",
+    "/properties/PhysicalAddress",
+    "/properties/Supplier",
+    "/properties/TypeOfProduct"
+  ],
+  "properties": {
+    "ArticleNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Alphanumeric character sequence identifying a manufactured, non-configurable product.",
+      "type": "string",
+      "readOnly": true
+    },
+    "CountryOfOrigin": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Country in which the product is manufactured.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DayOfConstruction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The optional DayOfConstrucition provides the day of the month in which the manufacturing process of the machine has been completed. It shall be a number and never change during the life-cycle of a machine.",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "FabricationNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Alphanumeric character sequence assigned to a fabricated product, which allows the date, time and circumstances of fabrication to be traced.",
+      "type": "string",
+      "readOnly": true
+    },
+    "GTINCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Bar code number that identifies the device based on the Global Trade Item Number system.",
+      "type": "string",
+      "readOnly": true
+    },
+    "NationalStockNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "13-digit numeric code, identifying all 'standardized material items of supply' as recognized by the United States Department of Defense.",
+      "type": "string",
+      "readOnly": true
+    },
+    "OrderProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Unique combination of numbers and letters used to order the device.",
+      "type": "string",
+      "readOnly": true
+    },
+    "PhysicalAddress": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "PhysicalAddressDataType",
+      "description": "Physical address of the manufacturer.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PhysicalAddressDataType",
+      "properties": {
+        "Street": {
+          "description": "Street name where the manufacturer is located.",
+          "type": "string"
+        },
+        "Number": {
+          "description": "Street number where the manufacturer is located.",
+          "type": "string"
+        },
+        "City": {
+          "description": "City where the manufacturer is located.",
+          "type": "string"
+        },
+        "PostalCode": {
+          "description": "Postal code where the manufacturer is located.",
+          "type": "string"
+        },
+        "State": {
+          "description": "State where the manufacturer is located.",
+          "type": "string"
+        },
+        "Country": {
+          "description": "Country where the manufacturer is located.",
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "Supplier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Name of the supplier or vendor of a device.",
+      "type": "string",
+      "readOnly": true
+    },
+    "TypeOfProduct": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Characterization of the device based on its usage, operation principle, and its fabricated form.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

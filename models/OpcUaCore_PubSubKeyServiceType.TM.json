@@ -1,0 +1,126 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PubSubKeyServiceType",
+  "title": "OpcUaCore_PubSubKeyServiceType",
+  "dov:typeRef": "org.opcfoundation.UA.PubSubKeyServiceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SecurityGroups",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SecurityGroupFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "KeyPushTargets",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_PubSubKeyPushTargetFolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/GetSecurityGroup",
+    "/actions/GetSecurityKeys"
+  ],
+  "actions": {
+    "GetSecurityGroup": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupId"
+        ],
+        "properties": {
+          "SecurityGroupId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "SecurityGroupNodeId"
+        ],
+        "properties": {
+          "SecurityGroupNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetSecurityKeys": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupId",
+          "StartingTokenId",
+          "RequestedKeyCount"
+        ],
+        "properties": {
+          "SecurityGroupId": {
+            "type": "string"
+          },
+          "StartingTokenId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "RequestedKeyCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "SecurityPolicyUri",
+          "FirstTokenId",
+          "Keys",
+          "TimeToNextKey",
+          "KeyLifetime"
+        ],
+        "properties": {
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "FirstTokenId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          },
+          "TimeToNextKey": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "KeyLifetime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      }
+    }
+  }
+}

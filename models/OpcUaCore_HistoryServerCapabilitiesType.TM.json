@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_HistoryServerCapabilitiesType",
+  "title": "OpcUaCore_HistoryServerCapabilitiesType",
+  "dov:typeRef": "org.opcfoundation.UA.HistoryServerCapabilitiesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "AggregateFunctions",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ServerTimestampSupported"
+  ],
+  "properties": {
+    "AccessHistoryDataCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "AccessHistoryEventsCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DeleteAtTimeCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DeleteEventCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DeleteRawCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "InsertAnnotationCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "InsertDataCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "InsertEventCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaxReturnDataValues": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaxReturnEventValues": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "ReplaceDataCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ReplaceEventCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ServerTimestampSupported": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "UpdateDataCapability": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "UpdateEventCapability": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

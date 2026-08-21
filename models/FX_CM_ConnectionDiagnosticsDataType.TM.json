@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionDiagnosticsDataType",
+  "title": "FX_CM_ConnectionDiagnosticsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionDiagnosticsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ConnectionDiagnosticsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionDiagnosticsDataType",
+      "required": [
+        "Name",
+        "LastActivity",
+        "ConnectionState",
+        "ErrorEndpoint1",
+        "Endpoint1Status",
+        "ErrorEndpoint2",
+        "Endpoint2Status"
+      ],
+      "properties": {
+        "Name": {
+          "description": "BrowseName of the related <Connection> Node in the ConnectionConfigurationSet",
+          "type": "string"
+        },
+        "LastActivity": {
+          "title": "LastActivityMask",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.LastActivityMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ConnectionState": {
+          "title": "ConnectionStateEnum",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionStateEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ErrorEndpoint1": {
+          "title": "FxErrorEnum",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxErrorEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Endpoint1Status": {
+          "type": "string"
+        },
+        "ErrorEndpoint2": {
+          "title": "FxErrorEnum",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxErrorEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Endpoint2Status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

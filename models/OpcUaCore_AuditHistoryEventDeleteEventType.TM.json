@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryEventDeleteEventType",
+  "title": "OpcUaCore_AuditHistoryEventDeleteEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditHistoryEventDeleteEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryDeleteEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "EventIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "contentEncoding": "base64"
+      },
+      "readOnly": true
+    },
+    "OldValues": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

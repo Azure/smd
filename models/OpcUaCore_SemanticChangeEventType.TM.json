@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SemanticChangeEventType",
+  "title": "OpcUaCore_SemanticChangeEventType",
+  "dov:typeRef": "org.opcfoundation.UA.SemanticChangeEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Changes": {
+      "type": "array",
+      "items": {
+        "title": "SemanticChangeStructureDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SemanticChangeStructureDataType",
+        "required": [
+          "Affected",
+          "AffectedType"
+        ],
+        "properties": {
+          "Affected": {
+            "type": "string"
+          },
+          "AffectedType": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

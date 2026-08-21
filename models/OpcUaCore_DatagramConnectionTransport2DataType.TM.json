@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DatagramConnectionTransport2DataType",
+  "title": "OpcUaCore_DatagramConnectionTransport2DataType",
+  "dov:typeRef": "org.opcfoundation.UA.DatagramConnectionTransport2DataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DatagramConnectionTransport2DataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DatagramConnectionTransport2DataType",
+      "required": [
+        "DiscoveryAddress",
+        "DiscoveryAnnounceRate",
+        "DiscoveryMaxMessageSize",
+        "QosCategory",
+        "DatagramQos"
+      ],
+      "properties": {
+        "DiscoveryAddress": {
+          "title": "NetworkAddressDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+          "required": [
+            "NetworkInterface"
+          ],
+          "properties": {
+            "NetworkInterface": {
+              "type": "string"
+            }
+          }
+        },
+        "DiscoveryAnnounceRate": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "DiscoveryMaxMessageSize": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "QosCategory": {
+          "type": "string"
+        },
+        "DatagramQos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionEndpointParameterType",
+  "title": "FX_CM_ConnectionEndpointParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionEndpointParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CommunicationLinks",
+    "/properties/InputVariableIds",
+    "/properties/OutputVariableIds",
+    "/properties/PreconfiguredPublishedDataSet",
+    "/properties/PreconfiguredSubscribedDataSet",
+    "/events/CommunicationLinks",
+    "/events/InputVariableIds",
+    "/events/OutputVariableIds",
+    "/events/PreconfiguredPublishedDataSet",
+    "/events/PreconfiguredSubscribedDataSet"
+  ],
+  "properties": {
+    "CleanupTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "CommunicationLinks": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.CommunicationLinkConfigurationDataType",
+      "type": "string",
+      "readOnly": false
+    },
+    "ConnectionEndpointTypeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "title": "PortableNodeId",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+      "required": [
+        "NamespaceUri",
+        "Identifier"
+      ],
+      "properties": {
+        "NamespaceUri": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "InputVariableIds": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "array",
+      "items": {
+        "title": "PortableNodeIdentifier",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableNodeIdentifier",
+        "properties": {
+          "Node": {
+            "title": "PortableNodeId",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+            "required": [
+              "NamespaceUri",
+              "Identifier"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "Identifier": {
+                "type": "string"
+              }
+            }
+          },
+          "Alias": {
+            "type": "string"
+          },
+          "IdentifierBrowsePath": {
+            "title": "PortableRelativePath",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePath",
+            "required": [
+              "Elements"
+            ],
+            "properties": {
+              "Elements": {
+                "type": "array",
+                "items": {
+                  "title": "PortableRelativePathElement",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+                  "required": [
+                    "ReferenceTypeId",
+                    "IsInverse",
+                    "IncludeSubtypes",
+                    "TargetName"
+                  ],
+                  "properties": {
+                    "ReferenceTypeId": {
+                      "title": "PortableNodeId",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+                      "required": [
+                        "NamespaceUri",
+                        "Identifier"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "Identifier": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "IsInverse": {
+                      "type": "boolean"
+                    },
+                    "IncludeSubtypes": {
+                      "type": "boolean"
+                    },
+                    "TargetName": {
+                      "title": "PortableQualifiedName",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                      "required": [
+                        "NamespaceUri",
+                        "Name"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "Name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "IsPersistent": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "IsPreconfigured": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "readOnly": false
+    },
+    "OutputVariableIds": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "array",
+      "items": {
+        "title": "PortableNodeIdentifier",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableNodeIdentifier",
+        "properties": {
+          "Node": {
+            "title": "PortableNodeId",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+            "required": [
+              "NamespaceUri",
+              "Identifier"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "Identifier": {
+                "type": "string"
+              }
+            }
+          },
+          "Alias": {
+            "type": "string"
+          },
+          "IdentifierBrowsePath": {
+            "title": "PortableRelativePath",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePath",
+            "required": [
+              "Elements"
+            ],
+            "properties": {
+              "Elements": {
+                "type": "array",
+                "items": {
+                  "title": "PortableRelativePathElement",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+                  "required": [
+                    "ReferenceTypeId",
+                    "IsInverse",
+                    "IncludeSubtypes",
+                    "TargetName"
+                  ],
+                  "properties": {
+                    "ReferenceTypeId": {
+                      "title": "PortableNodeId",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+                      "required": [
+                        "NamespaceUri",
+                        "Identifier"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "Identifier": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "IsInverse": {
+                      "type": "boolean"
+                    },
+                    "IncludeSubtypes": {
+                      "type": "boolean"
+                    },
+                    "TargetName": {
+                      "title": "PortableQualifiedName",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                      "required": [
+                        "NamespaceUri",
+                        "Name"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "Name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "PreconfiguredPublishedDataSet": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "readOnly": false
+    },
+    "PreconfiguredSubscribedDataSet": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CleanupTimeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "CommunicationLinks": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.CommunicationLinkConfigurationDataType",
+        "type": "string"
+      }
+    },
+    "ConnectionEndpointTypeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "title": "PortableNodeId",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+        "required": [
+          "NamespaceUri",
+          "Identifier"
+        ],
+        "properties": {
+          "NamespaceUri": {
+            "type": "string"
+          },
+          "Identifier": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "InputVariableIds": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PortableNodeIdentifier",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableNodeIdentifier",
+          "properties": {
+            "Node": {
+              "title": "PortableNodeId",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+              "required": [
+                "NamespaceUri",
+                "Identifier"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "Identifier": {
+                  "type": "string"
+                }
+              }
+            },
+            "Alias": {
+              "type": "string"
+            },
+            "IdentifierBrowsePath": {
+              "title": "PortableRelativePath",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePath",
+              "required": [
+                "Elements"
+              ],
+              "properties": {
+                "Elements": {
+                  "type": "array",
+                  "items": {
+                    "title": "PortableRelativePathElement",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+                    "required": [
+                      "ReferenceTypeId",
+                      "IsInverse",
+                      "IncludeSubtypes",
+                      "TargetName"
+                    ],
+                    "properties": {
+                      "ReferenceTypeId": {
+                        "title": "PortableNodeId",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+                        "required": [
+                          "NamespaceUri",
+                          "Identifier"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "Identifier": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "IsInverse": {
+                        "type": "boolean"
+                      },
+                      "IncludeSubtypes": {
+                        "type": "boolean"
+                      },
+                      "TargetName": {
+                        "title": "PortableQualifiedName",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                        "required": [
+                          "NamespaceUri",
+                          "Name"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "Name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "IsPersistent": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "IsPreconfigured": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "OutputVariableIds": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PortableNodeIdentifier",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableNodeIdentifier",
+          "properties": {
+            "Node": {
+              "title": "PortableNodeId",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+              "required": [
+                "NamespaceUri",
+                "Identifier"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "Identifier": {
+                  "type": "string"
+                }
+              }
+            },
+            "Alias": {
+              "type": "string"
+            },
+            "IdentifierBrowsePath": {
+              "title": "PortableRelativePath",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePath",
+              "required": [
+                "Elements"
+              ],
+              "properties": {
+                "Elements": {
+                  "type": "array",
+                  "items": {
+                    "title": "PortableRelativePathElement",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+                    "required": [
+                      "ReferenceTypeId",
+                      "IsInverse",
+                      "IncludeSubtypes",
+                      "TargetName"
+                    ],
+                    "properties": {
+                      "ReferenceTypeId": {
+                        "title": "PortableNodeId",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+                        "required": [
+                          "NamespaceUri",
+                          "Identifier"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "Identifier": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "IsInverse": {
+                        "type": "boolean"
+                      },
+                      "IncludeSubtypes": {
+                        "type": "boolean"
+                      },
+                      "TargetName": {
+                        "title": "PortableQualifiedName",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                        "required": [
+                          "NamespaceUri",
+                          "Name"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "Name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "PreconfiguredPublishedDataSet": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "PreconfiguredSubscribedDataSet": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

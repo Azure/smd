@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_InletConnectionMeasurementsType",
+  "title": "Pumps_InletConnectionMeasurementsType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.InletConnectionMeasurementsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/InletTemperatureOfThePump",
+    "/properties/MeanVelocityAtInlet",
+    "/properties/InletTemperatureOfThePump_EngineeringUnits",
+    "/properties/MeanVelocityAtInlet_EngineeringUnits",
+    "/events/InletTemperatureOfThePump",
+    "/events/MeanVelocityAtInlet"
+  ],
+  "properties": {
+    "InletTemperatureOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured temperature acting at the inlet area of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/InletTemperatureOfThePump_EngineeringUnits"
+    },
+    "MeanVelocityAtInlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured rate of flow at pump inlet connection divided by the inlet area of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanVelocityAtInlet_EngineeringUnits"
+    },
+    "InletTemperatureOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name InletTemperatureOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanVelocityAtInlet_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanVelocityAtInlet, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "InletTemperatureOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured temperature acting at the inlet area of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/InletTemperatureOfThePump_EngineeringUnits"
+    },
+    "MeanVelocityAtInlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured rate of flow at pump inlet connection divided by the inlet area of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanVelocityAtInlet_EngineeringUnits"
+    }
+  }
+}

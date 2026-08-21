@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_PortableRelativePathElement",
+  "title": "FX_CM_PortableRelativePathElement",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+  "links": [],
+  "schemaDefinitions": {
+    "PortableRelativePathElement": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.PortableRelativePathElement",
+      "required": [
+        "ReferenceTypeId",
+        "IsInverse",
+        "IncludeSubtypes",
+        "TargetName"
+      ],
+      "properties": {
+        "ReferenceTypeId": {
+          "title": "PortableNodeId",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+          "required": [
+            "NamespaceUri",
+            "Identifier"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "Identifier": {
+              "type": "string"
+            }
+          }
+        },
+        "IsInverse": {
+          "type": "boolean"
+        },
+        "IncludeSubtypes": {
+          "type": "boolean"
+        },
+        "TargetName": {
+          "title": "PortableQualifiedName",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+          "required": [
+            "NamespaceUri",
+            "Name"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

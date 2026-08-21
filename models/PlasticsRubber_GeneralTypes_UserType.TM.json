@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UserType",
+  "title": "PlasticsRubber_GeneralTypes_UserType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.UserType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CardUid",
+    "/properties/Language",
+    "/properties/UserLevel",
+    "/properties/UserRole"
+  ],
+  "properties": {
+    "CardUid": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Uid of the identification card used by the operator for logging in to the machine",
+      "type": "string",
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id of the user",
+      "type": "string",
+      "readOnly": true
+    },
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "The machine can have instances for the maximum number of users that can be simultaneously logged in. TRUE if the instance of UserType represents a user that is currently logged in.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Language": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Currently selected language on the machine control unit",
+      "type": "string",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the user",
+      "type": "string",
+      "readOnly": true
+    },
+    "UserLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Level of the user",
+      "type": "string",
+      "readOnly": true
+    },
+    "UserRole": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Role of the user",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

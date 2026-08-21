@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+  "title": "OpcUaCore_StateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.StateMachineType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "StateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.StateVariableType",
+      "type": "string"
+    },
+    "TransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TransitionVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/LastTransition",
+    "/events/LastTransition"
+  ],
+  "properties": {
+    "CurrentState": {
+      "tm:ref": "#/schemaDefinitions/StateVariableType",
+      "readOnly": true
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/TransitionVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CurrentState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/StateVariableType"
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TransitionVariableType"
+      }
+    }
+  }
+}

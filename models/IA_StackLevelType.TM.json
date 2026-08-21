@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_StackLevelType",
+  "title": "IA_StackLevelType",
+  "dov:typeRef": "org.opcfoundation.UA.IA.StackLevelType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "LevelDisplayMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.LevelDisplayMode",
+      "const": {
+        "Dimmed": 0,
+        "Blinking": 1,
+        "Other": 2
+      },
+      "description": "Contains the values used to indicate how a percentual value is displayed if the stacklight unit works in Levelmeter mode.",
+      "properties": {
+        "Dimmed": {
+          "description": "Uses dimming to display fractions.",
+          "type": "integer"
+        },
+        "Blinking": {
+          "description": "Uses blinking to display fractions.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "Display fractions in a way not defined in this version of the specification.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "DisplayMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "title": "LevelDisplayMode",
+      "description": "Indicates in what way the percentual value is displayed with the stacklight.",
+      "dov:typeRef": "org.opcfoundation.UA.IA.LevelDisplayMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "LevelPercent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Shows the percentual value the stacklight is representing. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DisplayMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "title": "LevelDisplayMode",
+        "description": "Indicates in what way the percentual value is displayed with the stacklight.",
+        "dov:typeRef": "org.opcfoundation.UA.IA.LevelDisplayMode",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "LevelPercent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "data": {
+        "description": "Shows the percentual value the stacklight is representing. The mandatory EURange Property of the Variable indicates the lowest and highest value and thereby allows to calculate the percentage represented by the value. The lowest value is interpreted as 0 percent, the highest is interpreted as 100 percent.",
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

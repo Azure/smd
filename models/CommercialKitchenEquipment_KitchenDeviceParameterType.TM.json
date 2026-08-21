@@ -1,0 +1,70 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+  "title": "CommercialKitchenEquipment_KitchenDeviceParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.KitchenDeviceParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ProgramId",
+    "/properties/ProgramName",
+    "/properties/ProgramUId",
+    "/events/ProgramId",
+    "/events/ProgramName",
+    "/events/ProgramUId"
+  ],
+  "properties": {
+    "ProgramId": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "ProgramName": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProgramUId": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ProgramId": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ProgramName": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "ProgramUId": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "string",
+        "format": "uuid"
+      }
+    }
+  }
+}

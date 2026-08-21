@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_HealthStateEnum",
+  "title": "CAS_HealthStateEnum",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.HealthStateEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "HealthStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.HealthStateEnum",
+      "const": {
+        "OK": 0,
+        "Warning": 1,
+        "Error": 2,
+        "Critical": 3
+      },
+      "properties": {
+        "OK": {
+          "description": "The main function can be fulfilled.",
+          "type": "integer"
+        },
+        "Warning": {
+          "description": "Check required, possibly there is a problem that leads to an Error.",
+          "type": "integer"
+        },
+        "Error": {
+          "description": "Immediate action needed to avoid Critical.",
+          "type": "integer"
+        },
+        "Critical": {
+          "description": "The main function cannot be fulfilled.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

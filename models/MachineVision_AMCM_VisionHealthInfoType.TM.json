@@ -1,0 +1,161 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision/AMCM/#MachineVision_AMCM_VisionHealthInfoType",
+  "title": "MachineVision_AMCM_VisionHealthInfoType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.VisionHealthInfoType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceHealthAlarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DeviceHealthEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "const": {
+        "NORMAL": 0,
+        "FAILURE": 1,
+        "CHECK_FUNCTION": 2,
+        "OFF_SPEC": 3,
+        "MAINTENANCE_REQUIRED": 4
+      },
+      "properties": {
+        "NORMAL": {
+          "description": "This device functions normally.",
+          "type": "integer"
+        },
+        "FAILURE": {
+          "description": "Malfunction of the device or any of its peripherals.",
+          "type": "integer"
+        },
+        "CHECK_FUNCTION": {
+          "description": "Functional checks are currently performed.",
+          "type": "integer"
+        },
+        "OFF_SPEC": {
+          "description": "The device is currently working outside of its specified range or that internal diagnoses indicate deviations from measured or set values.",
+          "type": "integer"
+        },
+        "MAINTENANCE_REQUIRED": {
+          "description": "This element is working, but a maintenance operation is required.",
+          "type": "integer"
+        }
+      }
+    },
+    "LifetimeVariableType": {
+      "description": "Remaining lifetime",
+      "dov:typeRef": "org.opcfoundation.UA.DI.LifetimeVariableType",
+      "type": "number"
+    },
+    "SEMI_E10SystemStateType": {
+      "title": "SEMI_E10SystemStateDataType",
+      "description": "It is used to denote a single level with one or multiple SEMI E10 states that might be active in an item",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.SEMI_E10SystemStateType",
+      "required": [
+        "Id",
+        "Priority"
+      ],
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DeviceHealth",
+    "/properties/RemainingLifeTime",
+    "/properties/State",
+    "/properties/Temperature",
+    "/events/DeviceHealth",
+    "/events/RemainingLifeTime",
+    "/events/State",
+    "/events/Temperature"
+  ],
+  "properties": {
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "title": "DeviceHealthEnumeration",
+      "description": "indicates the status as defined by NAMUR Recommendation NE107. The DeviceHealthEnumeration DataType is formally defined in OPC 10000-100 Device Model",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "RemainingLifeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "tm:ref": "#/schemaDefinitions/LifetimeVariableType",
+      "readOnly": false
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "tm:ref": "#/schemaDefinitions/SEMI_E10SystemStateType",
+      "readOnly": false
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the temperature value (along with its unit) of the item",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "title": "DeviceHealthEnumeration",
+        "description": "indicates the status as defined by NAMUR Recommendation NE107. The DeviceHealthEnumeration DataType is formally defined in OPC 10000-100 Device Model",
+        "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RemainingLifeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/LifetimeVariableType"
+      }
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/SEMI_E10SystemStateType"
+      }
+    },
+    "Temperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "data": {
+        "description": "denotes the temperature value (along with its unit) of the item",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

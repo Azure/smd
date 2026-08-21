@@ -1,0 +1,179 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_EnergySavingModeStatusType",
+  "title": "PNEM_EnergySavingModeStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.EnergySavingModeStatusType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CurrentTransitionData",
+    "/events/CurrentTransitionData"
+  ],
+  "properties": {
+    "CurrentTransitionData": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "StandbyModeTransitionDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.StandbyModeTransitionDataType",
+      "required": [
+        "IDDestination",
+        "CurrentTimeToDestination",
+        "CurrentTimeToOperate",
+        "EnergyConsumptionToDestination"
+      ],
+      "properties": {
+        "IDDestination": {
+          "description": "Identification of destination energy saving mode.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "CurrentTimeToDestination": {
+          "description": "Time needed to reach the mode IDDestination. Shall be a “Worst case” value if ongoing (dynamic) time value is not supported. Shall be 0 if destination energy saving mode is reached.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "CurrentTimeToOperate": {
+          "description": "Time needed to reach READY_TO_OPERATE if the energy saving mode is not regularly terminated. The server might update the value after reaching the destination state as long as the TimeMinLengthOfStay of the destination state is not reached.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "EnergyConsumptionToDestination": {
+          "description": "Energy consumption for actual transition. Shall be 0 if not in a transition state.",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": true
+    },
+    "StateInformation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "title": "EnergyStateInformationDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.EnergyStateInformationDataType",
+      "required": [
+        "IDSource",
+        "IDDestination",
+        "RegularTimeToOperate",
+        "ModePowerConsumption"
+      ],
+      "properties": {
+        "IDSource": {
+          "description": "PROFIenergy mode ID of current energy saving mode. Servers not implementing PROFIenergy shall always set this field to 0.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "IDDestination": {
+          "description": "PROFIenergy mode ID of destination energy saving mode. Servers not implementing PROFIenergy shall always set this field to 0.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "RegularTimeToOperate": {
+          "description": "Time needed to reach READY_TO_OPERATE if the energy saving mode is regularly terminated. Shall be 0 if IDSource is equal to 0xFF (The StandbyManagementStatus variable has the value READY_TO_OPERATE).",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "ModePowerConsumption": {
+          "description": "Power consumption in actual state.",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CurrentTransitionData": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "StandbyModeTransitionDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.StandbyModeTransitionDataType",
+        "required": [
+          "IDDestination",
+          "CurrentTimeToDestination",
+          "CurrentTimeToOperate",
+          "EnergyConsumptionToDestination"
+        ],
+        "properties": {
+          "IDDestination": {
+            "description": "Identification of destination energy saving mode.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "CurrentTimeToDestination": {
+            "description": "Time needed to reach the mode IDDestination. Shall be a “Worst case” value if ongoing (dynamic) time value is not supported. Shall be 0 if destination energy saving mode is reached.",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "CurrentTimeToOperate": {
+            "description": "Time needed to reach READY_TO_OPERATE if the energy saving mode is not regularly terminated. The server might update the value after reaching the destination state as long as the TimeMinLengthOfStay of the destination state is not reached.",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "EnergyConsumptionToDestination": {
+            "description": "Energy consumption for actual transition. Shall be 0 if not in a transition state.",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      }
+    },
+    "StateInformation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "title": "EnergyStateInformationDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNEM.EnergyStateInformationDataType",
+        "required": [
+          "IDSource",
+          "IDDestination",
+          "RegularTimeToOperate",
+          "ModePowerConsumption"
+        ],
+        "properties": {
+          "IDSource": {
+            "description": "PROFIenergy mode ID of current energy saving mode. Servers not implementing PROFIenergy shall always set this field to 0.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "IDDestination": {
+            "description": "PROFIenergy mode ID of destination energy saving mode. Servers not implementing PROFIenergy shall always set this field to 0.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "RegularTimeToOperate": {
+            "description": "Time needed to reach READY_TO_OPERATE if the energy saving mode is regularly terminated. Shall be 0 if IDSource is equal to 0xFF (The StandbyManagementStatus variable has the value READY_TO_OPERATE).",
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "ModePowerConsumption": {
+            "description": "Power consumption in actual state.",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_CheckweigherType",
+  "title": "Scales_V2_CheckweigherType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.CheckweigherType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_CatchweigherType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionPreset",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductionPresetType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/TU1Percent",
+    "/events/TU1Percent"
+  ],
+  "properties": {
+    "TU1Percent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Permitted percentage of items with weight less than TU1",
+      "type": "number",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TU1Percent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Permitted percentage of items with weight less than TU1",
+        "type": "number"
+      }
+    }
+  }
+}

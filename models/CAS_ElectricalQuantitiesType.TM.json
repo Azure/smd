@@ -1,0 +1,135 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_ElectricalQuantitiesType",
+  "title": "CAS_ElectricalQuantitiesType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.ElectricalQuantitiesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ResetStatistics",
+    "/properties/ApparentPower",
+    "/properties/Current",
+    "/properties/Energy",
+    "/properties/Power",
+    "/properties/StartTime",
+    "/properties/Voltage",
+    "/events/ApparentPower",
+    "/events/Current",
+    "/events/Energy",
+    "/events/Power",
+    "/events/Voltage"
+  ],
+  "actions": {
+    "ResetStatistics": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Restarts all statistical data, including a reset of the StartTime to the current time."
+    }
+  },
+  "properties": {
+    "ApparentPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual apparent power consumption including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Current": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual root mean square of the electric power consumption including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Energy": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated accumulated electrical energy consumed including all auxiliary components (e.g. on a compressor including fans, controller, …) since last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Power": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual electric real power consumption including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates the point in time at which the collection of the statistical data has been started.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "Voltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Measured or calculated actual root mean square of the voltage applied including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ApparentPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual apparent power consumption including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Current": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual root mean square of the electric power consumption including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Energy": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated accumulated electrical energy consumed including all auxiliary components (e.g. on a compressor including fans, controller, …) since last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Power": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual electric real power consumption including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Voltage": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Measured or calculated actual root mean square of the voltage applied including all auxiliary components (e.g. on a compressor including fans, controller, …).",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

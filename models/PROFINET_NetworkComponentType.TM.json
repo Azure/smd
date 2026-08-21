@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_NetworkComponentType",
+  "title": "PROFINET_NetworkComponentType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.NetworkComponentType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "ComponentName",
+      "dov:refType": "CommLinkTo",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_NetworkComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FeatureName",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_NetworkComponentFeatureType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Enabled",
+    "/events/Enabled"
+  ],
+  "properties": {
+    "Enabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Enabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

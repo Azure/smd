@@ -1,0 +1,163 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_ExternalChannelType",
+  "title": "PlasticsRubber_TCD_ExternalChannelType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.ExternalChannelType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FlowRate",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureDifference",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Temperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureDifference",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/SwitchOff",
+    "/actions/SwitchOn",
+    "/properties/ControlMode",
+    "/properties/PressureMainLine",
+    "/properties/PressureReturnLine",
+    "/properties/SwitchedOn",
+    "/properties/TemperatureMainLine",
+    "/properties/TemperatureReturnLine",
+    "/events/ControlMode",
+    "/events/PressureMainLine",
+    "/events/PressureReturnLine",
+    "/events/TemperatureMainLine",
+    "/events/TemperatureReturnLine"
+  ],
+  "actions": {
+    "SwitchOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Switch method of the external channel for switching off"
+    },
+    "SwitchOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Switch method of the external channel for switching on"
+    }
+  },
+  "properties": {
+    "ControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Defines to which setpoint the external channel is controlled",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "PressureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual value of the pressure in the main line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PressureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual value of the pressure in the return line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SwitchedOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Information if the external channel is switched on",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "TemperatureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual temperature in the main line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TemperatureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Actual temperature in the return line",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Defines to which setpoint the external channel is controlled",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "PressureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual value of the pressure in the main line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PressureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual value of the pressure in the return line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TemperatureMainLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual temperature in the main line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TemperatureReturnLine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Actual temperature in the return line",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

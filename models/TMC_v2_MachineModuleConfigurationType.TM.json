@@ -1,0 +1,985 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineModuleConfigurationType",
+  "title": "TMC_v2_MachineModuleConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MachineModuleConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ParameterDependencyEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+      "const": {
+        "Machine": 0,
+        "Brand": 1,
+        "Machine_and_Brand": 2
+      },
+      "description": "The ParameterDependencyEnumeration contains what a parameter is depending upon.",
+      "properties": {
+        "Machine": {
+          "description": "The parameter depends solely from the machine and does not vary with the brand.",
+          "type": "integer"
+        },
+        "Brand": {
+          "description": "The parameter depends solely from the brand being produced and does not vary with the machine.",
+          "type": "integer"
+        },
+        "Machine_and_Brand": {
+          "description": "The parameter depends both from the machine and the brand being produced.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/GetDataSetList",
+    "/properties/DataSetList"
+  ],
+  "actions": {
+    "GetDataSetList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The GetDatasetList Method returns the list of descriptions for parameters of the dataset filtered  by the dependency and subset created by the user.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Dependency",
+          "UserSubset",
+          "CompleteSet"
+        ],
+        "properties": {
+          "Dependency": {
+            "title": "ParameterDependencyEnumeration",
+            "description": "Dependency specifies how to select (filter) a subset of the dataset based on dependency.",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "UserSubset": {
+            "description": "UserSubset specifies how to select (filter) a subset of the dataset based on the user-defined UserSubset.",
+            "type": "boolean"
+          },
+          "CompleteSet": {
+            "description": "If CompleteSet is True, then the method returns the complete dataset without considering the input  parameters Dependency and UserSubset.",
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "DataSetList",
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "DataSetList": {
+            "title": "DataSetDefinitionType",
+            "description": "The DataSetDefinition structure contains the description and other necessary metadata of the  complete set of machine settings required for production.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetDefinitionType",
+            "required": [
+              "ID",
+              "Description",
+              "Definitions"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the whole data set list.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "Plain English description of the whole data set list.",
+                "type": "string"
+              },
+              "Definitions": {
+                "description": "An array containing the definition of each data point belonging to the  data set.",
+                "type": "array",
+                "items": {
+                  "title": "DataDefinitionType",
+                  "description": "The DataDefinitionType structure contains the metadata that describes a parameter.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDefinitionType",
+                  "required": [
+                    "ID",
+                    "MES_ID",
+                    "Description",
+                    "EngineeringUnits",
+                    "DisplayFormat",
+                    "Dependency",
+                    "DataType",
+                    "UserSubset",
+                    "ControlRange",
+                    "AlarmRange"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the metadata description.",
+                      "type": "string"
+                    },
+                    "MES_ID": {
+                      "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "The metadata description.",
+                      "type": "string"
+                    },
+                    "EngineeringUnits": {
+                      "title": "EUInformation",
+                      "description": "Unit of measure for the parameter.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                      "required": [
+                        "NamespaceUri",
+                        "UnitId",
+                        "DisplayName",
+                        "Description"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "UnitId": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "DisplayFormat": {
+                      "description": "Display format for visualization. The same display format shall be  used in the HMI.",
+                      "type": "string"
+                    },
+                    "Dependency": {
+                      "title": "ParameterDependencyEnumeration",
+                      "description": "The dependency of the parameter with respect to machine and  brand.",
+                      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DataType": {
+                      "description": "Describes the data type of the data point, e.g. FLOAT, INT, STRING,  etc.",
+                      "type": "string"
+                    },
+                    "UserSubset": {
+                      "description": "Used by the user to identify a subset of the dataset that is of  interest.",
+                      "type": "boolean"
+                    },
+                    "ControlRange": {
+                      "title": "Range",
+                      "description": "The range where the parameter actual values is considered in  control.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.Range",
+                      "required": [
+                        "Low",
+                        "High"
+                      ],
+                      "properties": {
+                        "Low": {
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "High": {
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        }
+                      }
+                    },
+                    "AlarmRange": {
+                      "title": "Range",
+                      "description": "Outside this range, the underlying system generates an alarm for the  parameter.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.Range",
+                      "required": [
+                        "Low",
+                        "High"
+                      ],
+                      "properties": {
+                        "Low": {
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "High": {
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetRootCauseGroupList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The GetRootCauseGroupList Method returns the complete list of root cause groups as persisted  by the server.",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RootCauseGroupList",
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "RootCauseGroupList": {
+            "description": "The complete list of root cause groups.",
+            "type": "array",
+            "items": {
+              "title": "RootCauseGroupType",
+              "description": "The RootCauseGroupType structure contains a root cause message and its group identifier.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseGroupType",
+              "required": [
+                "ID",
+                "ParentID",
+                "Description"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the root cause group.",
+                  "type": "string"
+                },
+                "ParentID": {
+                  "description": "The ID of the group containing the root cause group identified by Id. By  means of the ParentID, multiple nested groups are allowed.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "The human-readable description of the root cause group identified by  the unique identifier.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetRootCauseList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The GetRootCauseList Method returns the complete list of root causes as persisted by the  server.",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RootCauseList",
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "RootCauseList": {
+            "description": "The complete list of root cause messages.",
+            "type": "array",
+            "items": {
+              "title": "RootCauseMessageType",
+              "description": "The RootCauseMessageType structure contains a root cause message and its group identifier.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseMessageType",
+              "required": [
+                "ID",
+                "LocalText",
+                "GroupID"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the localised text.",
+                  "type": "string"
+                },
+                "LocalText": {
+                  "description": "The localized text.",
+                  "type": "string"
+                },
+                "GroupID": {
+                  "description": "GroupID identifies uniquely each group of root causes which are  grouped in families, e.g. electrical, mechanical, controls, etc.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "GetStopReasonList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The GetStopReasonList Method returns the complete list of stop reasons as persisted by the  server.",
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "StopReasonList",
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "StopReasonList": {
+            "description": "The complete list of stop reason messages.",
+            "type": "array",
+            "items": {
+              "title": "MessageType",
+              "description": "The MessageType provides a uniquely identified localised text.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+              "required": [
+                "ID",
+                "LocalText"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the localised text.",
+                  "type": "string"
+                },
+                "LocalText": {
+                  "description": "The localized text.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetDataSetListMESID": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The SetDataSetListMESID Method sets the MES_ID of one or more items of the array Definitions contained in the DataSetList. Each item of Definitions is identified by its ID.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "IDs",
+          "MESIDs"
+        ],
+        "properties": {
+          "IDs": {
+            "description": "The IDs of the elements of the Definitions array whose MES_ID shall be changed if the method executes successfully.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "MESIDs": {
+            "description": "The values of the MES_IDs to be set.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SetRootCauseLists": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The SetRootCauseLists Method sets both the RootCauseList and RootCauseGroupList  according to the input arguments.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RootCauseList",
+          "RootCauseGroupList"
+        ],
+        "properties": {
+          "RootCauseList": {
+            "description": "The list of root causes to be transferred to and used by the server.",
+            "type": "array",
+            "items": {
+              "title": "RootCauseMessageType",
+              "description": "The RootCauseMessageType structure contains a root cause message and its group identifier.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseMessageType",
+              "required": [
+                "ID",
+                "LocalText",
+                "GroupID"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the localised text.",
+                  "type": "string"
+                },
+                "LocalText": {
+                  "description": "The localized text.",
+                  "type": "string"
+                },
+                "GroupID": {
+                  "description": "GroupID identifies uniquely each group of root causes which are  grouped in families, e.g. electrical, mechanical, controls, etc.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "RootCauseGroupList": {
+            "description": "The list of root cause groups to be transferred to and used by the server.",
+            "type": "array",
+            "items": {
+              "title": "RootCauseGroupType",
+              "description": "The RootCauseGroupType structure contains a root cause message and its group identifier.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseGroupType",
+              "required": [
+                "ID",
+                "ParentID",
+                "Description"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "Unique identifier for the root cause group.",
+                  "type": "string"
+                },
+                "ParentID": {
+                  "description": "The ID of the group containing the root cause group identified by Id. By  means of the ParentID, multiple nested groups are allowed.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "The human-readable description of the root cause group identified by  the unique identifier.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ExecutionFeedback"
+        ],
+        "properties": {
+          "ExecutionFeedback": {
+            "title": "MethodExecutionFeedbackType",
+            "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+            "required": [
+              "Success",
+              "Message"
+            ],
+            "properties": {
+              "Success": {
+                "description": "Returns True in case of successful execution.",
+                "type": "boolean"
+              },
+              "Message": {
+                "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+                "type": "array",
+                "items": {
+                  "title": "MessageType",
+                  "description": "The MessageType provides a uniquely identified localised text.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+                  "required": [
+                    "ID",
+                    "LocalText"
+                  ],
+                  "properties": {
+                    "ID": {
+                      "description": "Unique identifier for the localised text.",
+                      "type": "string"
+                    },
+                    "LocalText": {
+                      "description": "The localized text.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DataSetList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "title": "DataSetDefinitionType",
+      "description": "The DataSetDefinition structure contains the description and other necessary metadata of the  complete set of machine settings required for production.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetDefinitionType",
+      "required": [
+        "ID",
+        "Description",
+        "Definitions"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the whole data set list.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "Plain English description of the whole data set list.",
+          "type": "string"
+        },
+        "Definitions": {
+          "description": "An array containing the definition of each data point belonging to the  data set.",
+          "type": "array",
+          "items": {
+            "title": "DataDefinitionType",
+            "description": "The DataDefinitionType structure contains the metadata that describes a parameter.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDefinitionType",
+            "required": [
+              "ID",
+              "MES_ID",
+              "Description",
+              "EngineeringUnits",
+              "DisplayFormat",
+              "Dependency",
+              "DataType",
+              "UserSubset",
+              "ControlRange",
+              "AlarmRange"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the metadata description.",
+                "type": "string"
+              },
+              "MES_ID": {
+                "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "The metadata description.",
+                "type": "string"
+              },
+              "EngineeringUnits": {
+                "title": "EUInformation",
+                "description": "Unit of measure for the parameter.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "DisplayFormat": {
+                "description": "Display format for visualization. The same display format shall be  used in the HMI.",
+                "type": "string"
+              },
+              "Dependency": {
+                "title": "ParameterDependencyEnumeration",
+                "description": "The dependency of the parameter with respect to machine and  brand.",
+                "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DataType": {
+                "description": "Describes the data type of the data point, e.g. FLOAT, INT, STRING,  etc.",
+                "type": "string"
+              },
+              "UserSubset": {
+                "description": "Used by the user to identify a subset of the dataset that is of  interest.",
+                "type": "boolean"
+              },
+              "ControlRange": {
+                "title": "Range",
+                "description": "The range where the parameter actual values is considered in  control.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.Range",
+                "required": [
+                  "Low",
+                  "High"
+                ],
+                "properties": {
+                  "Low": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "High": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  }
+                }
+              },
+              "AlarmRange": {
+                "title": "Range",
+                "description": "Outside this range, the underlying system generates an alarm for the  parameter.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.Range",
+                "required": [
+                  "Low",
+                  "High"
+                ],
+                "properties": {
+                  "Low": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "High": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "LastChangeDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property LastChangeDate is the date and time of the last change applied to the machine  module configuration and the effective date of the modification.",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "LongestMicroStopDuration": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property LongestMicroStopDuration is the maximum duration of a micro-stop in seconds,  longer stops are not micro-stops. Operators are not required to enter a root cause for micro-stops.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "RootCauseGroupList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property RootCauseGroupList is the list of groups that root causes can be grouped in.  They are defined by the end user.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseGroupType",
+        "description": "The RootCauseGroupType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseGroupType",
+        "required": [
+          "ID",
+          "ParentID",
+          "Description"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the root cause group.",
+            "type": "string"
+          },
+          "ParentID": {
+            "description": "The ID of the group containing the root cause group identified by Id. By  means of the ParentID, multiple nested groups are allowed.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "The human-readable description of the root cause group identified by  the unique identifier.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "RootCauseList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property RootCauseList is the complete list of the root causes that the end user has defined  to classify and organize the downtime due to the machine module stops. The RootCauseList is  user defined.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseMessageType",
+        "description": "The RootCauseMessageType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseMessageType",
+        "required": [
+          "ID",
+          "LocalText",
+          "GroupID"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the localised text.",
+            "type": "string"
+          },
+          "LocalText": {
+            "description": "The localized text.",
+            "type": "string"
+          },
+          "GroupID": {
+            "description": "GroupID identifies uniquely each group of root causes which are  grouped in families, e.g. electrical, mechanical, controls, etc.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "RootCauseListInputIsMandatory": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property RootCauseListInputIsMandatory is true when the operator is mandatorily required  to select the root cause that best describes the current stop situation. For micro- stops such  requirement does not apply.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "StopReasonList": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The Property StopReasonList is a list containing the descriptors for all the possible machine  module messages, including alarms and warnings. Messages include their localization. The list is  defined, created and maintained by the OEM.",
+      "type": "array",
+      "items": {
+        "title": "MessageType",
+        "description": "The MessageType provides a uniquely identified localised text.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+        "required": [
+          "ID",
+          "LocalText"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the localised text.",
+            "type": "string"
+          },
+          "LocalText": {
+            "description": "The localized text.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

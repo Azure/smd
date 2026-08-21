@@ -1,0 +1,113 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://fdi-cooperation.com/OPCUA/FDI5/#Fdi_cooperation_OPCUA_FDI5_DirectDeviceAccessType",
+  "title": "Fdi_cooperation_OPCUA_FDI5_DirectDeviceAccessType",
+  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.DirectDeviceAccessType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "EndDirectAccess": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "InvalidateCache"
+        ],
+        "properties": {
+          "InvalidateCache": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "EndDirectAccessError"
+        ],
+        "properties": {
+          "EndDirectAccessError": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "InitDirectAccess": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Context"
+        ],
+        "properties": {
+          "Context": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "InitDirectAccessError"
+        ],
+        "properties": {
+          "InitDirectAccessError": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "Transfer": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SendData",
+          "ReceiveData"
+        ],
+        "properties": {
+          "SendData": {
+            "type": "string"
+          },
+          "ReceiveData": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "TransferError"
+        ],
+        "properties": {
+          "TransferError": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_IceMachineParameterType",
+  "title": "CommercialKitchenEquipment_IceMachineParameterType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.IceMachineParameterType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "StatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.StatusEnumeration",
+      "const": {
+        "INIT": 0,
+        "WATER_PURGE": 1,
+        "PRE_CHILL": 2,
+        "FREEZE": 3,
+        "HARVEST": 4,
+        "BIN_FULL": 5,
+        "CLEAN": 6,
+        "OFF": 7,
+        "SLEEP_MODE": 8,
+        "STANDBY": 9,
+        "SAFE_MODE": 10,
+        "WATER_OUTAGE": 11,
+        "HPCO_DELAY_ACTIVE": 12,
+        "CURTAIN_OPEN": 13,
+        "PRODUCTION_TEST": 14,
+        "SAFE_MODE_PRECHILL": 15,
+        "SAFE_MODE_FREEZE": 16,
+        "SAFE_MODE_HARVEST": 17,
+        "SAFE_MODE_FULL_BIN": 18
+      },
+      "properties": {
+        "INIT": {
+          "type": "integer"
+        },
+        "WATER_PURGE": {
+          "type": "integer"
+        },
+        "PRE_CHILL": {
+          "type": "integer"
+        },
+        "FREEZE": {
+          "type": "integer"
+        },
+        "HARVEST": {
+          "type": "integer"
+        },
+        "BIN_FULL": {
+          "type": "integer"
+        },
+        "CLEAN": {
+          "type": "integer"
+        },
+        "OFF": {
+          "type": "integer"
+        },
+        "SLEEP_MODE": {
+          "type": "integer"
+        },
+        "STANDBY": {
+          "type": "integer"
+        },
+        "SAFE_MODE": {
+          "type": "integer"
+        },
+        "WATER_OUTAGE": {
+          "type": "integer"
+        },
+        "HPCO_DELAY_ACTIVE": {
+          "type": "integer"
+        },
+        "CURTAIN_OPEN": {
+          "type": "integer"
+        },
+        "PRODUCTION_TEST": {
+          "type": "integer"
+        },
+        "SAFE_MODE_PRECHILL": {
+          "type": "integer"
+        },
+        "SAFE_MODE_FREEZE": {
+          "type": "integer"
+        },
+        "SAFE_MODE_HARVEST": {
+          "type": "integer"
+        },
+        "SAFE_MODE_FULL_BIN": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/LastFreezeTime",
+    "/properties/LastHarvestTime",
+    "/properties/Status",
+    "/properties/Temperature_No_",
+    "/properties/WaterFillTime",
+    "/properties/LastFreezeTime_EngineeringUnits",
+    "/properties/LastHarvestTime_EngineeringUnits",
+    "/properties/Temperature_No__EngineeringUnits",
+    "/properties/WaterFillTime_EngineeringUnits",
+    "/events/LastFreezeTime",
+    "/events/LastHarvestTime",
+    "/events/Status",
+    "/events/Temperature_No_",
+    "/events/WaterFillTime"
+  ],
+  "properties": {
+    "LastFreezeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/LastFreezeTime_EngineeringUnits"
+    },
+    "LastHarvestTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/LastHarvestTime_EngineeringUnits"
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "StatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.StatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Temperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/Temperature_No__EngineeringUnits"
+    },
+    "WaterFillTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/WaterFillTime_EngineeringUnits"
+    },
+    "LastFreezeTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name LastFreezeTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "LastHarvestTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name LastHarvestTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Temperature_No__EngineeringUnits": {
+      "description": "Unit designator for property and event with name Temperature_No_, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "WaterFillTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name WaterFillTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LastFreezeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/LastFreezeTime_EngineeringUnits"
+    },
+    "LastHarvestTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/LastHarvestTime_EngineeringUnits"
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "StatusEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.StatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Temperature_No_": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:placeholder": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/Temperature_No__EngineeringUnits"
+    },
+    "WaterFillTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/WaterFillTime_EngineeringUnits"
+    }
+  }
+}

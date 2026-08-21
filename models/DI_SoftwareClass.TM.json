@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_SoftwareClass",
+  "title": "DI_SoftwareClass",
+  "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareClass",
+  "links": [],
+  "schemaDefinitions": {
+    "SoftwareClass": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareClass",
+      "const": {
+        "Firmware": 0,
+        "Application": 1,
+        "Configuration": 2,
+        "Solution": 3
+      },
+      "properties": {
+        "Firmware": {
+          "description": "The software update is used for the firmware of a physical device.",
+          "type": "integer"
+        },
+        "Application": {
+          "description": "The software update is used for an executable software.",
+          "type": "integer"
+        },
+        "Configuration": {
+          "description": "The software update is used for the configuration of a device or application.",
+          "type": "integer"
+        },
+        "Solution": {
+          "description": "The software update is used to install a solution with several software package to several components.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

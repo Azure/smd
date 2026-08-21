@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_OutletConnectionSystemRequirementsType",
+  "title": "Pumps_OutletConnectionSystemRequirementsType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.OutletConnectionSystemRequirementsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BackingPressure",
+    "/properties/BackingPressure_EngineeringUnits",
+    "/events/BackingPressure"
+  ],
+  "properties": {
+    "BackingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Pressure at the outlet of a vacuum pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/BackingPressure_EngineeringUnits"
+    },
+    "BackingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name BackingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "BackingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Pressure at the outlet of a vacuum pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/BackingPressure_EngineeringUnits"
+    }
+  }
+}

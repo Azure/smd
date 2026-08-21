@@ -1,0 +1,148 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_FxErrorEnum",
+  "title": "FX_CM_FxErrorEnum",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxErrorEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "FxErrorEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxErrorEnum",
+      "const": {
+        "NoError": 0,
+        "UnknownStatus": 1,
+        "Rollback": 2,
+        "ProcessingStopped": 3,
+        "ConnectionConfigurationSetInvalid": 4,
+        "GdsConnectionError": 5,
+        "GdsProcessingError": 6,
+        "AliasNameProcessingError": 7,
+        "ExternalSksConnectionError": 8,
+        "ExternalSksProcessingError": 9,
+        "TargetServerConnectionError": 10,
+        "ResolvingNamespacesError": 11,
+        "ResolvingPathsError": 12,
+        "VerifyAssetError": 13,
+        "VerifyFunctionalEntityError": 14,
+        "CreateConnectionEndpointError": 15,
+        "EstablishControlError": 16,
+        "SetConfigurationDataError": 17,
+        "ReassignControlError": 18,
+        "ReserveCommunicationIdsError": 19,
+        "SetCommunicationConfigurationError": 20,
+        "EnableCommunicationError": 21,
+        "CloseConnectionError": 22,
+        "LocalSksKeyPushError": 23,
+        "RuntimeError": 24
+      },
+      "properties": {
+        "NoError": {
+          "description": "This is returned if no processing has been done or no error exists",
+          "type": "integer"
+        },
+        "UnknownStatus": {
+          "description": "The Connection is not monitored and its status is unknown",
+          "type": "integer"
+        },
+        "Rollback": {
+          "description": "The Connection was successfully established but was rolled back due to errors in related Connections in this ConnectionConfigurationSet",
+          "type": "integer"
+        },
+        "ProcessingStopped": {
+          "description": "This Connection processing was stopped due to some other error in the ConnectionConfigurationSet",
+          "type": "integer"
+        },
+        "ConnectionConfigurationSetInvalid": {
+          "description": "The ConnectionManager could not process this ConnectionConfigurationSet due to a configuration error",
+          "type": "integer"
+        },
+        "GdsConnectionError": {
+          "description": "There was an error related to establishing a session to the GDS",
+          "type": "integer"
+        },
+        "GdsProcessingError": {
+          "description": "There was an error related to processing commands with the GDS",
+          "type": "integer"
+        },
+        "AliasNameProcessingError": {
+          "description": "There was an error related to resolving AliasNames",
+          "type": "integer"
+        },
+        "ExternalSksConnectionError": {
+          "description": "There was an error related to establishing a session to the SKS",
+          "type": "integer"
+        },
+        "ExternalSksProcessingError": {
+          "description": "There was an error related to configuring the SKS",
+          "type": "integer"
+        },
+        "TargetServerConnectionError": {
+          "description": "There was an error related to establishing a session to the target Server",
+          "type": "integer"
+        },
+        "ResolvingNamespacesError": {
+          "description": "There was an error resolving Namespaces",
+          "type": "integer"
+        },
+        "ResolvingPathsError": {
+          "description": "There was an error resolving BrowsePaths",
+          "type": "integer"
+        },
+        "VerifyAssetError": {
+          "description": "There was a verification error on an Asset",
+          "type": "integer"
+        },
+        "VerifyFunctionalEntityError": {
+          "description": "There was a verification error on a FunctionalEntity",
+          "type": "integer"
+        },
+        "CreateConnectionEndpointError": {
+          "description": "There was an error creating a ConnectionEndpoint",
+          "type": "integer"
+        },
+        "EstablishControlError": {
+          "description": "There was an error establishing control of a FunctionalEntity",
+          "type": "integer"
+        },
+        "SetConfigurationDataError": {
+          "description": "There was an error setting configuration information in the FunctionalEntity",
+          "type": "integer"
+        },
+        "ReassignControlError": {
+          "description": "There was an error reassigning the control of a FunctionalEntity",
+          "type": "integer"
+        },
+        "ReserveCommunicationIdsError": {
+          "description": "There was an error related to reserving ids",
+          "type": "integer"
+        },
+        "SetCommunicationConfigurationError": {
+          "description": "There was an error related to configuring communication",
+          "type": "integer"
+        },
+        "EnableCommunicationError": {
+          "description": "There was an error enabling communication",
+          "type": "integer"
+        },
+        "CloseConnectionError": {
+          "description": "There was an error closing a connection",
+          "type": "integer"
+        },
+        "LocalSksKeyPushError": {
+          "description": "The internal SKS is having a problem with pushing keys to a target Server",
+          "type": "integer"
+        },
+        "RuntimeError": {
+          "description": "There was an error in a running operation",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

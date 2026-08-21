@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_AirnetOperatingStateEnum",
+  "title": "CAS_AirnetOperatingStateEnum",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetOperatingStateEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "AirnetOperatingStateEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.AirnetOperatingStateEnum",
+      "const": {
+        "Other": 0,
+        "Stopped": 1,
+        "Starting": 2,
+        "Stopping": 3,
+        "Operational": 4
+      },
+      "properties": {
+        "Other": {
+          "description": "The airnet is in a state not specified by this enumeration.",
+          "type": "integer"
+        },
+        "Stopped": {
+          "description": "The requirements shall not be fulfilled.",
+          "type": "integer"
+        },
+        "Starting": {
+          "description": "Transition phase to end in Operational state.",
+          "type": "integer"
+        },
+        "Stopping": {
+          "description": "Transition phase to end in Stopped state.",
+          "type": "integer"
+        },
+        "Operational": {
+          "description": "The requirements should be fulfilled.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

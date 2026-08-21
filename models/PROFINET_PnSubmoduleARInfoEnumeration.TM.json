@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnSubmoduleARInfoEnumeration",
+  "title": "PROFINET_PnSubmoduleARInfoEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleARInfoEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnSubmoduleARInfoEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnSubmoduleARInfoEnumeration",
+      "const": {
+        "OWN": 0,
+        "APPLICATION_READY_PENDING": 128,
+        "SUPERORDINATED_LOCKED": 256,
+        "LOCKED_BY_IO_CONTROLLER": 384,
+        "LOCKED_BY_IO_SUPERVISOR": 512
+      },
+      "properties": {
+        "OWN": {
+          "description": "This AR is owner of the submodule",
+          "type": "integer"
+        },
+        "APPLICATION_READY_PENDING": {
+          "description": "This AR is owner of the submodule but it is blocked. For example parameter checking pending",
+          "type": "integer"
+        },
+        "SUPERORDINATED_LOCKED": {
+          "description": "This AR is not owner of the submodule. It is blocked by superordinated means",
+          "type": "integer"
+        },
+        "LOCKED_BY_IO_CONTROLLER": {
+          "description": "This AR is not owner of the submodule. It is owned by another IOAR",
+          "type": "integer"
+        },
+        "LOCKED_BY_IO_SUPERVISOR": {
+          "description": "This AR is not owner of the submodule. It is owned by another IOSAR",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

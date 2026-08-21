@@ -1,0 +1,67 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_UserLoginType",
+  "title": "PlasticsRubber_GDD_UserLoginType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.UserLoginType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ActualUser",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_UserType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "LoginMachineUser": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "When the Method LoginMachineUser from the GDD is called by the machine, the requested user can be logged in to the device system.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id",
+          "Name",
+          "CardUid",
+          "UserLevel",
+          "UserRole",
+          "Language"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "CardUid": {
+            "type": "string"
+          },
+          "UserLevel": {
+            "type": "string"
+          },
+          "UserRole": {
+            "type": "string"
+          },
+          "Language": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "LogoutMachineUser": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "The machine shall report to the device via the Method LogoutMachineUser when a user is logged out. The IsPresent property of the ActualUser then becomes false again."
+    }
+  }
+}

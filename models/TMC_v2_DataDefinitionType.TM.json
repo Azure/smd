@@ -1,0 +1,138 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_DataDefinitionType",
+  "title": "TMC_v2_DataDefinitionType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDefinitionType",
+  "links": [],
+  "schemaDefinitions": {
+    "DataDefinitionType": {
+      "description": "The DataDefinitionType structure contains the metadata that describes a parameter.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDefinitionType",
+      "required": [
+        "ID",
+        "MES_ID",
+        "Description",
+        "EngineeringUnits",
+        "DisplayFormat",
+        "Dependency",
+        "DataType",
+        "UserSubset",
+        "ControlRange",
+        "AlarmRange"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the metadata description.",
+          "type": "string"
+        },
+        "MES_ID": {
+          "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "The metadata description.",
+          "type": "string"
+        },
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "description": "Unit of measure for the parameter.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "DisplayFormat": {
+          "description": "Display format for visualization. The same display format shall be  used in the HMI.",
+          "type": "string"
+        },
+        "Dependency": {
+          "title": "ParameterDependencyEnumeration",
+          "description": "The dependency of the parameter with respect to machine and  brand.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ParameterDependencyEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "DataType": {
+          "description": "Describes the data type of the data point, e.g. FLOAT, INT, STRING,  etc.",
+          "type": "string"
+        },
+        "UserSubset": {
+          "description": "Used by the user to identify a subset of the dataset that is of  interest.",
+          "type": "boolean"
+        },
+        "ControlRange": {
+          "title": "Range",
+          "description": "The range where the parameter actual values is considered in  control.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Range",
+          "required": [
+            "Low",
+            "High"
+          ],
+          "properties": {
+            "Low": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "High": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        },
+        "AlarmRange": {
+          "title": "Range",
+          "description": "Outside this range, the underlying system generates an alarm for the  parameter.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Range",
+          "required": [
+            "Low",
+            "High"
+          ],
+          "properties": {
+            "Low": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            },
+            "High": {
+              "type": "number",
+              "minimum": -1.80e+308,
+              "maximum": 1.80e+308
+            }
+          }
+        }
+      }
+    }
+  }
+}

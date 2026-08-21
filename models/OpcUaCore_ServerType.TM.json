@@ -1,0 +1,589 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServerType",
+  "title": "OpcUaCore_ServerType",
+  "dov:typeRef": "org.opcfoundation.UA.ServerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ServerCapabilities",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ServerCapabilitiesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ServerDiagnostics",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ServerDiagnosticsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "VendorServerInfo",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_VendorServerInfoType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ServerRedundancy",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ServerRedundancyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Namespaces",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NamespacesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ServerState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerState",
+      "const": {
+        "Running": 0,
+        "Failed": 1,
+        "NoConfiguration": 2,
+        "Suspended": 3,
+        "Shutdown": 4,
+        "Test": 5,
+        "CommunicationFault": 6,
+        "Unknown": 7
+      },
+      "properties": {
+        "Running": {
+          "type": "integer"
+        },
+        "Failed": {
+          "type": "integer"
+        },
+        "NoConfiguration": {
+          "type": "integer"
+        },
+        "Suspended": {
+          "type": "integer"
+        },
+        "Shutdown": {
+          "type": "integer"
+        },
+        "Test": {
+          "type": "integer"
+        },
+        "CommunicationFault": {
+          "type": "integer"
+        },
+        "Unknown": {
+          "type": "integer"
+        }
+      }
+    },
+    "BuildInfoType": {
+      "title": "BuildInfo",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BuildInfoType",
+      "required": [
+        "ProductUri",
+        "ManufacturerName",
+        "ProductName",
+        "SoftwareVersion",
+        "BuildNumber",
+        "BuildDate"
+      ],
+      "properties": {
+        "ProductUri": {
+          "type": "string"
+        },
+        "ManufacturerName": {
+          "type": "string"
+        },
+        "ProductName": {
+          "type": "string"
+        },
+        "SoftwareVersion": {
+          "type": "string"
+        },
+        "BuildNumber": {
+          "type": "string"
+        },
+        "BuildDate": {
+          "type": "string",
+          "format": "time"
+        }
+      }
+    },
+    "ServerStatusType": {
+      "title": "ServerStatusDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerStatusType",
+      "required": [
+        "StartTime",
+        "CurrentTime",
+        "State",
+        "BuildInfo",
+        "SecondsTillShutdown",
+        "ShutdownReason"
+      ],
+      "properties": {
+        "StartTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "CurrentTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "State": {
+          "title": "ServerState",
+          "dov:typeRef": "org.opcfoundation.UA.ServerState",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "BuildInfo": {
+          "title": "BuildInfo",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BuildInfo",
+          "required": [
+            "ProductUri",
+            "ManufacturerName",
+            "ProductName",
+            "SoftwareVersion",
+            "BuildNumber",
+            "BuildDate"
+          ],
+          "properties": {
+            "ProductUri": {
+              "type": "string"
+            },
+            "ManufacturerName": {
+              "type": "string"
+            },
+            "ProductName": {
+              "type": "string"
+            },
+            "SoftwareVersion": {
+              "type": "string"
+            },
+            "BuildNumber": {
+              "type": "string"
+            },
+            "BuildDate": {
+              "type": "string",
+              "format": "time"
+            }
+          }
+        },
+        "SecondsTillShutdown": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "ShutdownReason": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/GetMonitoredItems",
+    "/actions/RequestServerStateChange",
+    "/actions/ResendData",
+    "/actions/SetSubscriptionDurable",
+    "/properties/EstimatedReturnTime",
+    "/properties/LocalTime",
+    "/properties/UrisVersion"
+  ],
+  "actions": {
+    "GetMonitoredItems": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SubscriptionId"
+        ],
+        "properties": {
+          "SubscriptionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ServerHandles",
+          "ClientHandles"
+        ],
+        "properties": {
+          "ServerHandles": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          },
+          "ClientHandles": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        }
+      }
+    },
+    "RequestServerStateChange": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "State",
+          "EstimatedReturnTime",
+          "SecondsTillShutdown",
+          "Reason",
+          "Restart"
+        ],
+        "properties": {
+          "State": {
+            "title": "ServerState",
+            "dov:typeRef": "org.opcfoundation.UA.ServerState",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "EstimatedReturnTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "SecondsTillShutdown": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Reason": {
+            "type": "string"
+          },
+          "Restart": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "ResendData": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SubscriptionId"
+        ],
+        "properties": {
+          "SubscriptionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "SetSubscriptionDurable": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SubscriptionId",
+          "LifetimeInHours"
+        ],
+        "properties": {
+          "SubscriptionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "LifetimeInHours": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RevisedLifetimeInHours"
+        ],
+        "properties": {
+          "RevisedLifetimeInHours": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Auditing": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "EstimatedReturnTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "LocalTime": {
+      "title": "TimeZoneDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      },
+      "readOnly": true
+    },
+    "NamespaceArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ServerArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ServerStatus": {
+      "tm:ref": "#/schemaDefinitions/ServerStatusType",
+      "readOnly": true,
+      "dov:contains": [
+        "ServerStatus_StartTime",
+        "ServerStatus_CurrentTime",
+        "ServerStatus_State",
+        "ServerStatus_BuildInfo",
+        "ServerStatus_SecondsTillShutdown",
+        "ServerStatus_ShutdownReason"
+      ]
+    },
+    "ServerStatus_BuildInfo": {
+      "tm:ref": "#/schemaDefinitions/BuildInfoType",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus",
+      "dov:contains": [
+        "ServerStatus_BuildInfo_ProductUri",
+        "ServerStatus_BuildInfo_ManufacturerName",
+        "ServerStatus_BuildInfo_ProductName",
+        "ServerStatus_BuildInfo_SoftwareVersion",
+        "ServerStatus_BuildInfo_BuildNumber",
+        "ServerStatus_BuildInfo_BuildDate"
+      ]
+    },
+    "ServerStatus_BuildInfo_BuildDate": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_BuildNumber": {
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_ManufacturerName": {
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_ProductName": {
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_ProductUri": {
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_SoftwareVersion": {
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_CurrentTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_SecondsTillShutdown": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_ShutdownReason": {
+      "type": "string",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_StartTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_State": {
+      "title": "ServerState",
+      "dov:typeRef": "org.opcfoundation.UA.ServerState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServiceLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "UrisVersion": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ServerStatus": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/ServerStatusType"
+      },
+      "dov:contains": [
+        "ServerStatus_StartTime",
+        "ServerStatus_CurrentTime",
+        "ServerStatus_State",
+        "ServerStatus_BuildInfo",
+        "ServerStatus_SecondsTillShutdown",
+        "ServerStatus_ShutdownReason"
+      ]
+    },
+    "ServerStatus_BuildInfo": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BuildInfoType"
+      },
+      "dov:containedIn": "ServerStatus",
+      "dov:contains": [
+        "ServerStatus_BuildInfo_ProductUri",
+        "ServerStatus_BuildInfo_ManufacturerName",
+        "ServerStatus_BuildInfo_ProductName",
+        "ServerStatus_BuildInfo_SoftwareVersion",
+        "ServerStatus_BuildInfo_BuildNumber",
+        "ServerStatus_BuildInfo_BuildDate"
+      ]
+    },
+    "ServerStatus_BuildInfo_BuildDate": {
+      "data": {
+        "type": "string",
+        "format": "time"
+      },
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_BuildNumber": {
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_ManufacturerName": {
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_ProductName": {
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_ProductUri": {
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_BuildInfo_SoftwareVersion": {
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "ServerStatus_BuildInfo"
+    },
+    "ServerStatus_CurrentTime": {
+      "data": {
+        "type": "string",
+        "format": "time"
+      },
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_SecondsTillShutdown": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_ShutdownReason": {
+      "data": {
+        "type": "string"
+      },
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_StartTime": {
+      "data": {
+        "type": "string",
+        "format": "time"
+      },
+      "dov:containedIn": "ServerStatus"
+    },
+    "ServerStatus_State": {
+      "data": {
+        "title": "ServerState",
+        "dov:typeRef": "org.opcfoundation.UA.ServerState",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "dov:containedIn": "ServerStatus"
+    }
+  }
+}

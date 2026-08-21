@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_DeviceHealthOptionSet",
+  "title": "FX_AC_DeviceHealthOptionSet",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+  "links": [],
+  "schemaDefinitions": {
+    "DeviceHealthOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+      "const": {
+        "DeviceFailure": 0,
+        "DeviceCheckFunction": 1,
+        "DeviceMaintenanceRequired": 2,
+        "DeviceOffSpec": 3
+      },
+      "properties": {
+        "DeviceFailure": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to Failure.",
+          "type": "integer"
+        },
+        "DeviceCheckFunction": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to CheckFunction.",
+          "type": "integer"
+        },
+        "DeviceMaintenanceRequired": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to MaintenanceRequired.",
+          "type": "integer"
+        },
+        "DeviceOffSpec": {
+          "description": "At least one of the top-level Assets has its DeviceHealth set to OffSpec.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

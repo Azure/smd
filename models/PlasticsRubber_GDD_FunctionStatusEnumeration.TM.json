@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_FunctionStatusEnumeration",
+  "title": "PlasticsRubber_GDD_FunctionStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "FunctionStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "const": {
+        "OFF": 0,
+        "ON": 1,
+        "REQUESTED_OFF": 2,
+        "REQUESTED_ON": 3
+      },
+      "description": "Provides information about the current operation state of a function.",
+      "properties": {
+        "OFF": {
+          "description": "Function is switched off",
+          "type": "integer"
+        },
+        "ON": {
+          "description": "Function is switched on",
+          "type": "integer"
+        },
+        "REQUESTED_OFF": {
+          "description": "Function is switched on AND requested to be switched off by the client",
+          "type": "integer"
+        },
+        "REQUESTED_ON": {
+          "description": "Function is switched off AND requested to be switched on by the client",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

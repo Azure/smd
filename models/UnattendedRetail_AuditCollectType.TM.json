@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_AuditCollectType",
+  "title": "UnattendedRetail_AuditCollectType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.AuditCollectType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Components",
+      "href": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_BaseComponentsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Configuration",
+      "href": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_BaseConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_IdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "IsCollectingAudit": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "IsCollectingAudit": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

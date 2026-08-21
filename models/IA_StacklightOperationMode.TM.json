@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IA/#IA_StacklightOperationMode",
+  "title": "IA_StacklightOperationMode",
+  "dov:typeRef": "org.opcfoundation.UA.IA.StacklightOperationMode",
+  "links": [],
+  "schemaDefinitions": {
+    "StacklightOperationMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IA.StacklightOperationMode",
+      "const": {
+        "Segmented": 0,
+        "Levelmeter": 1,
+        "Running_Light": 2,
+        "Other": 3
+      },
+      "description": "Contains the values used to indicate how a stacklight (as a whole unit) is used.",
+      "properties": {
+        "Segmented": {
+          "description": "Stacklight is used as stack of individual lights",
+          "type": "integer"
+        },
+        "Levelmeter": {
+          "description": "Stacklight is used as level meter",
+          "type": "integer"
+        },
+        "Running_Light": {
+          "description": "The whole stack acts as a running light",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "Stacklight is used in a way not defined in this version of the specification",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

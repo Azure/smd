@@ -1,0 +1,140 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Woodworking/#Woodworking_IWwUnitOverviewType",
+  "title": "Woodworking_IWwUnitOverviewType",
+  "dov:typeRef": "org.opcfoundation.UA.Woodworking.IWwUnitOverviewType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "WwUnitModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "AUTOMATIC": 1,
+        "SEMIAUTOMATIC": 2,
+        "MANUAL": 3,
+        "SETUP": 4,
+        "SLEEP": 5
+      },
+      "description": "This enumeration represents the generalized mode of a unit.",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below applies.",
+          "type": "integer"
+        },
+        "AUTOMATIC": {
+          "description": "The unit is in automatic mode.",
+          "type": "integer"
+        },
+        "SEMIAUTOMATIC": {
+          "description": "The unit is in semi-automatic mode.",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "The unit is in manual mode.",
+          "type": "integer"
+        },
+        "SETUP": {
+          "description": "The unit is in setup mode.",
+          "type": "integer"
+        },
+        "SLEEP": {
+          "description": "The unit is in sleep mode. Component is still switched on, energy consumption reduced by e.g. reducing heating, switching drives off. Production is not possible.",
+          "type": "integer"
+        }
+      }
+    },
+    "WwUnitStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitStateEnumeration",
+      "const": {
+        "OFFLINE": 0,
+        "STANDBY": 1,
+        "READY": 2,
+        "WORKING": 3,
+        "ERROR": 4
+      },
+      "description": "This enumeration represents the generalized state of a unit.",
+      "properties": {
+        "OFFLINE": {
+          "description": "The component is offline.",
+          "type": "integer"
+        },
+        "STANDBY": {
+          "description": "The unit is in standby.",
+          "type": "integer"
+        },
+        "READY": {
+          "description": "The unit is ready to start working.",
+          "type": "integer"
+        },
+        "WORKING": {
+          "description": "The unit is working.",
+          "type": "integer"
+        },
+        "ERROR": {
+          "description": "The unit is not able to start working because there is an error. The cause can be an alarm or error or user intervention.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "CurrentMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "title": "WwUnitModeEnumeration",
+      "description": "The CurrentMode Variable provides the generalized mode of the component.",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "CurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "title": "WwUnitStateEnumeration",
+      "description": "The CurrentState Variable provides the generalized state of the component.",
+      "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CurrentMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "title": "WwUnitModeEnumeration",
+        "description": "The CurrentMode Variable provides the generalized mode of the component.",
+        "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "CurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/Woodworking/",
+      "data": {
+        "title": "WwUnitStateEnumeration",
+        "description": "The CurrentState Variable provides the generalized state of the component.",
+        "dov:typeRef": "org.opcfoundation.UA.Woodworking.WwUnitStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

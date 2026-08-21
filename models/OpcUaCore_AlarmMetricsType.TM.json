@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AlarmMetricsType",
+  "title": "OpcUaCore_AlarmMetricsType",
+  "dov:typeRef": "org.opcfoundation.UA.AlarmMetricsType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AlarmRateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.AlarmRateVariableType",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308
+    }
+  },
+  "actions": {
+    "Reset": {}
+  },
+  "properties": {
+    "AlarmCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "AverageAlarmRate": {
+      "tm:ref": "#/schemaDefinitions/AlarmRateVariableType",
+      "readOnly": true
+    },
+    "CurrentAlarmRate": {
+      "tm:ref": "#/schemaDefinitions/AlarmRateVariableType",
+      "readOnly": true
+    },
+    "MaximumActiveState": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "MaximumAlarmRate": {
+      "tm:ref": "#/schemaDefinitions/AlarmRateVariableType",
+      "readOnly": true
+    },
+    "MaximumReAlarmCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "MaximumUnAck": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "StartTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AlarmCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "AverageAlarmRate": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AlarmRateVariableType"
+      }
+    },
+    "CurrentAlarmRate": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AlarmRateVariableType"
+      }
+    },
+    "MaximumActiveState": {
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "MaximumAlarmRate": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AlarmRateVariableType"
+      }
+    },
+    "MaximumReAlarmCount": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "MaximumUnAck": {
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "StartTime": {
+      "data": {
+        "type": "string",
+        "format": "time"
+      }
+    }
+  }
+}

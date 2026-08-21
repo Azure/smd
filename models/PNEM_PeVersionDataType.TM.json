@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_PeVersionDataType",
+  "title": "PNEM_PeVersionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.PeVersionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PeVersionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.PeVersionDataType",
+      "required": [
+        "MajorVersion",
+        "MinorVersion",
+        "Revision"
+      ],
+      "properties": {
+        "MajorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "MinorVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

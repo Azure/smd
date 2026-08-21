@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetDcBusModuleType",
+  "title": "Powertrain_PtAssetDcBusModuleType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtAssetDcBusModuleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAssetType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "PtCapacitanceAttributes",
+      "dov:refType": "HasPtAttributes",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCapacitanceAttributesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "PtDcBusAttributes",
+      "dov:refType": "HasPtAttributes",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtDcBusAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

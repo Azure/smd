@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GPOS/#GPOS_GlobalPositionDataType",
+  "title": "GPOS_GlobalPositionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.GPOS.GlobalPositionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "GlobalPositionDataType": {
+      "description": "Represents a global position",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.GPOS.GlobalPositionDataType",
+      "required": [
+        "Longitude",
+        "Latitude"
+      ],
+      "properties": {
+        "Longitude": {
+          "description": "MUST be interpreted according to the CoordinateReferenceSystem",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Latitude": {
+          "description": "MUST be interpreted according to the CoordinateReferenceSystem",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Elevation": {
+          "description": "MUST be interpreted according to the ElevationReference. If floor, the height relative to specific floor in meter",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Accuracy": {
+          "description": "The horizontal accuracy of the position in meters.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Floor": {
+          "description": "A logical and non-localized representation for a building floor. Floor 0 represents the floor designated as 'ground'. Negative numbers indicate floors below the ground floor and positive numbers indicate floors above the ground floor. When implemented, the floor value MUST match described logical numbering scheme, which can be different from any numbering used within a building. Values can be expressed as an integer value, or as a float as required for mezzanine floor levels.",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

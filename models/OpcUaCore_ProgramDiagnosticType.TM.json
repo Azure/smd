@@ -1,0 +1,153 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ProgramDiagnosticType",
+  "title": "OpcUaCore_ProgramDiagnosticType",
+  "dov:typeRef": "org.opcfoundation.UA.ProgramDiagnosticType",
+  "links": [],
+  "schemaDefinitions": {
+    "ProgramDiagnosticType": {
+      "title": "ProgramDiagnosticDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ProgramDiagnosticType",
+      "required": [
+        "CreateSessionId",
+        "CreateClientName",
+        "InvocationCreationTime",
+        "LastTransitionTime",
+        "LastMethodCall",
+        "LastMethodSessionId",
+        "LastMethodInputArguments",
+        "LastMethodOutputArguments",
+        "LastMethodCallTime",
+        "LastMethodReturnStatus"
+      ],
+      "properties": {
+        "CreateSessionId": {
+          "type": "string"
+        },
+        "CreateClientName": {
+          "type": "string"
+        },
+        "InvocationCreationTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "LastTransitionTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "LastMethodCall": {
+          "type": "string"
+        },
+        "LastMethodSessionId": {
+          "type": "string"
+        },
+        "LastMethodInputArguments": {
+          "type": "array",
+          "items": {
+            "title": "Argument",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Argument",
+            "required": [
+              "Name",
+              "DataType",
+              "ValueRank",
+              "ArrayDimensions",
+              "Description"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "DataType": {
+                "type": "string"
+              },
+              "ValueRank": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ArrayDimensions": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "LastMethodOutputArguments": {
+          "type": "array",
+          "items": {
+            "title": "Argument",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Argument",
+            "required": [
+              "Name",
+              "DataType",
+              "ValueRank",
+              "ArrayDimensions",
+              "Description"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "DataType": {
+                "type": "string"
+              },
+              "ValueRank": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ArrayDimensions": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "LastMethodCallTime": {
+          "type": "string",
+          "format": "time"
+        },
+        "LastMethodReturnStatus": {
+          "title": "StatusResult",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.StatusResult",
+          "required": [
+            "StatusCode",
+            "DiagnosticInfo"
+          ],
+          "properties": {
+            "StatusCode": {
+              "type": "string"
+            },
+            "DiagnosticInfo": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

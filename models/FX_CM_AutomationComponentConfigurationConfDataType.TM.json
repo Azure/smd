@@ -1,0 +1,434 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_AutomationComponentConfigurationConfDataType",
+  "title": "FX_CM_AutomationComponentConfigurationConfDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.AutomationComponentConfigurationConfDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AutomationComponentConfigurationConfDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.AutomationComponentConfigurationConfDataType",
+      "required": [
+        "BrowseName",
+        "AutomationComponentNode",
+        "AutomationComponentNodeSelection",
+        "AutomationComponentNodeModify",
+        "CommandBundleRequired",
+        "AssetVerification",
+        "CommunicationModelConfig",
+        "AutomationComponentProperties",
+        "ServerAddressIndex"
+      ],
+      "properties": {
+        "BrowseName": {
+          "type": "string"
+        },
+        "AutomationComponentNode": {
+          "title": "NodeIdentifier",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifier",
+          "properties": {
+            "Node": {
+              "type": "string"
+            },
+            "Alias": {
+              "type": "string"
+            },
+            "IdentifierBrowsePath": {
+              "title": "RelativePath",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+              "required": [
+                "Elements"
+              ],
+              "properties": {
+                "Elements": {
+                  "type": "array",
+                  "items": {
+                    "title": "RelativePathElement",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                    "required": [
+                      "ReferenceTypeId",
+                      "IsInverse",
+                      "IncludeSubtypes",
+                      "TargetName"
+                    ],
+                    "properties": {
+                      "ReferenceTypeId": {
+                        "type": "string"
+                      },
+                      "IsInverse": {
+                        "type": "boolean"
+                      },
+                      "IncludeSubtypes": {
+                        "type": "boolean"
+                      },
+                      "TargetName": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "AutomationComponentNodeSelection": {
+          "type": "array",
+          "items": {
+            "title": "NodeIdentifier",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifier",
+            "properties": {
+              "Node": {
+                "type": "string"
+              },
+              "Alias": {
+                "type": "string"
+              },
+              "IdentifierBrowsePath": {
+                "title": "RelativePath",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+                "required": [
+                  "Elements"
+                ],
+                "properties": {
+                  "Elements": {
+                    "type": "array",
+                    "items": {
+                      "title": "RelativePathElement",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                      "required": [
+                        "ReferenceTypeId",
+                        "IsInverse",
+                        "IncludeSubtypes",
+                        "TargetName"
+                      ],
+                      "properties": {
+                        "ReferenceTypeId": {
+                          "type": "string"
+                        },
+                        "IsInverse": {
+                          "type": "boolean"
+                        },
+                        "IncludeSubtypes": {
+                          "type": "boolean"
+                        },
+                        "TargetName": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "AutomationComponentNodeModify": {
+          "type": "boolean"
+        },
+        "CommandBundleRequired": {
+          "type": "boolean"
+        },
+        "AssetVerification": {
+          "type": "array",
+          "items": {
+            "title": "AssetVerificationConfDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.FX.CM.AssetVerificationConfDataType",
+            "required": [
+              "AssetToVerify",
+              "VerificationMode",
+              "ExpectedVerificationResult",
+              "ExpectedVerificationVariables",
+              "ExpectedAdditionalVerificationVariables"
+            ],
+            "properties": {
+              "AssetToVerify": {
+                "title": "NodeIdentifier",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifier",
+                "properties": {
+                  "Node": {
+                    "type": "string"
+                  },
+                  "Alias": {
+                    "type": "string"
+                  },
+                  "IdentifierBrowsePath": {
+                    "title": "RelativePath",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+                    "required": [
+                      "Elements"
+                    ],
+                    "properties": {
+                      "Elements": {
+                        "type": "array",
+                        "items": {
+                          "title": "RelativePathElement",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                          "required": [
+                            "ReferenceTypeId",
+                            "IsInverse",
+                            "IncludeSubtypes",
+                            "TargetName"
+                          ],
+                          "properties": {
+                            "ReferenceTypeId": {
+                              "type": "string"
+                            },
+                            "IsInverse": {
+                              "type": "boolean"
+                            },
+                            "IncludeSubtypes": {
+                              "type": "boolean"
+                            },
+                            "TargetName": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "VerificationMode": {
+                "title": "AssetVerificationModeEnum",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ExpectedVerificationResult": {
+                "title": "AssetVerificationResultEnum",
+                "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ExpectedVerificationVariables": {
+                "type": "array",
+                "items": {
+                  "title": "NodeIdentifierValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifierValuePair",
+                  "required": [
+                    "Key",
+                    "ArrayIndex",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "title": "NodeIdentifier",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifier",
+                      "properties": {
+                        "Node": {
+                          "type": "string"
+                        },
+                        "Alias": {
+                          "type": "string"
+                        },
+                        "IdentifierBrowsePath": {
+                          "title": "RelativePath",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+                          "required": [
+                            "Elements"
+                          ],
+                          "properties": {
+                            "Elements": {
+                              "type": "array",
+                              "items": {
+                                "title": "RelativePathElement",
+                                "type": "object",
+                                "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                                "required": [
+                                  "ReferenceTypeId",
+                                  "IsInverse",
+                                  "IncludeSubtypes",
+                                  "TargetName"
+                                ],
+                                "properties": {
+                                  "ReferenceTypeId": {
+                                    "type": "string"
+                                  },
+                                  "IsInverse": {
+                                    "type": "boolean"
+                                  },
+                                  "IncludeSubtypes": {
+                                    "type": "boolean"
+                                  },
+                                  "TargetName": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "ArrayIndex": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      }
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "ExpectedAdditionalVerificationVariables": {
+                "type": "array",
+                "items": {
+                  "title": "NodeIdentifierValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifierValuePair",
+                  "required": [
+                    "Key",
+                    "ArrayIndex",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "title": "NodeIdentifier",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.FX.CM.NodeIdentifier",
+                      "properties": {
+                        "Node": {
+                          "type": "string"
+                        },
+                        "Alias": {
+                          "type": "string"
+                        },
+                        "IdentifierBrowsePath": {
+                          "title": "RelativePath",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+                          "required": [
+                            "Elements"
+                          ],
+                          "properties": {
+                            "Elements": {
+                              "type": "array",
+                              "items": {
+                                "title": "RelativePathElement",
+                                "type": "object",
+                                "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                                "required": [
+                                  "ReferenceTypeId",
+                                  "IsInverse",
+                                  "IncludeSubtypes",
+                                  "TargetName"
+                                ],
+                                "properties": {
+                                  "ReferenceTypeId": {
+                                    "type": "string"
+                                  },
+                                  "IsInverse": {
+                                    "type": "boolean"
+                                  },
+                                  "IncludeSubtypes": {
+                                    "type": "boolean"
+                                  },
+                                  "TargetName": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "ArrayIndex": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      }
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "AssetProperties": {
+                "type": "array",
+                "items": {
+                  "title": "KeyValuePair",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+                  "required": [
+                    "Key",
+                    "Value"
+                  ],
+                  "properties": {
+                    "Key": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "description": "Stand-in for an unspecified data type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "CommunicationModelConfig": {
+          "type": "string"
+        },
+        "AutomationComponentProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ServerAddressIndex": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

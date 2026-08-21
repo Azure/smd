@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioSpecifierEnumeration",
+  "title": "PNRIO_RioSpecifierEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSpecifierEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "RioSpecifierEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSpecifierEnumeration",
+      "const": {
+        "NORMAL": 0,
+        "FAILURE": 1,
+        "FUNCTION_CHECK": 2,
+        "MAINTENANCE_REQUEST": 3,
+        "OUT_OF_SPECIFICATION": 4,
+        "UNSPECIFIED": 255
+      },
+      "properties": {
+        "NORMAL": {
+          "description": "Good signal.",
+          "type": "integer"
+        },
+        "FAILURE": {
+          "description": "Invalid signal due to malfunction of a sensor or actuator.",
+          "type": "integer"
+        },
+        "FUNCTION_CHECK": {
+          "description": "Temporarily invalid signal.",
+          "type": "integer"
+        },
+        "MAINTENANCE_REQUEST": {
+          "description": "Valid signal, but function could drop or cease soon.",
+          "type": "integer"
+        },
+        "OUT_OF_SPECIFICATION": {
+          "description": "Device is running beyond permissible range of some other parameter.",
+          "type": "integer"
+        },
+        "UNSPECIFIED": {
+          "description": "No information about the status is given.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

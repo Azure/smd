@@ -1,0 +1,685 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetChangeOfStateNotificationType",
+  "title": "BACnet_V2_BACnetChangeOfStateNotificationType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetChangeOfStateNotificationType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventNotificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetBinaryPV": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetBinaryPV",
+      "const": {
+        "Inactive": 0,
+        "Active": 1
+      },
+      "properties": {
+        "Inactive": {
+          "type": "integer"
+        },
+        "Active": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetDeviceStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceStatus",
+      "const": {
+        "Operational": 0,
+        "OperationalReadOnly": 1,
+        "DownloadRequired": 2,
+        "DownloadInProgress": 3,
+        "NonOperational": 4,
+        "BackupInProgress": 5
+      },
+      "properties": {
+        "Operational": {
+          "type": "integer"
+        },
+        "OperationalReadOnly": {
+          "type": "integer"
+        },
+        "DownloadRequired": {
+          "type": "integer"
+        },
+        "DownloadInProgress": {
+          "type": "integer"
+        },
+        "NonOperational": {
+          "type": "integer"
+        },
+        "BackupInProgress": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetEventEnumType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventEnumType",
+      "const": {
+        "ChangeOfBitstring": 0,
+        "ChangeOfState": 1,
+        "ChangeOfValue": 2,
+        "CommandFailure": 3,
+        "FloatingLimit": 4,
+        "OutOfRange": 5,
+        "ChangeOfLifeSafety": 8,
+        "Extended": 9,
+        "BufferReady": 10,
+        "UnsignedRange": 11
+      },
+      "properties": {
+        "ChangeOfBitstring": {
+          "type": "integer"
+        },
+        "ChangeOfState": {
+          "type": "integer"
+        },
+        "ChangeOfValue": {
+          "type": "integer"
+        },
+        "CommandFailure": {
+          "type": "integer"
+        },
+        "FloatingLimit": {
+          "type": "integer"
+        },
+        "OutOfRange": {
+          "type": "integer"
+        },
+        "ChangeOfLifeSafety": {
+          "type": "integer"
+        },
+        "Extended": {
+          "type": "integer"
+        },
+        "BufferReady": {
+          "type": "integer"
+        },
+        "UnsignedRange": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetEventState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventState",
+      "const": {
+        "Normal": 0,
+        "Fault": 1,
+        "OffNormal": 2,
+        "HighLimit": 3,
+        "LowLimit": 4,
+        "LifeSafetyAlarm": 5
+      },
+      "properties": {
+        "Normal": {
+          "type": "integer"
+        },
+        "Fault": {
+          "type": "integer"
+        },
+        "OffNormal": {
+          "type": "integer"
+        },
+        "HighLimit": {
+          "type": "integer"
+        },
+        "LowLimit": {
+          "type": "integer"
+        },
+        "LifeSafetyAlarm": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetLifeSafetyMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyMode",
+      "const": {
+        "Off": 0,
+        "On": 1,
+        "Test": 2,
+        "Manned": 3,
+        "UnManned": 4,
+        "Armed": 5,
+        "Disarmed": 6,
+        "Prearmed": 7,
+        "Slow": 8,
+        "Fast": 9,
+        "Disconnected": 10,
+        "Enabled": 11,
+        "Disabled": 12,
+        "AutomaticReleaseDisabled": 13,
+        "Default": 14
+      },
+      "properties": {
+        "Off": {
+          "type": "integer"
+        },
+        "On": {
+          "type": "integer"
+        },
+        "Test": {
+          "type": "integer"
+        },
+        "Manned": {
+          "type": "integer"
+        },
+        "UnManned": {
+          "type": "integer"
+        },
+        "Armed": {
+          "type": "integer"
+        },
+        "Disarmed": {
+          "type": "integer"
+        },
+        "Prearmed": {
+          "type": "integer"
+        },
+        "Slow": {
+          "type": "integer"
+        },
+        "Fast": {
+          "type": "integer"
+        },
+        "Disconnected": {
+          "type": "integer"
+        },
+        "Enabled": {
+          "type": "integer"
+        },
+        "Disabled": {
+          "type": "integer"
+        },
+        "AutomaticReleaseDisabled": {
+          "type": "integer"
+        },
+        "Default": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetLifeSafetyState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyState",
+      "const": {
+        "Quiet": 0,
+        "PreAlarm": 1,
+        "Alarm": 2,
+        "Fault": 3,
+        "FaultPreAlarm": 4,
+        "FaultAlarm": 5,
+        "NotReady": 6,
+        "Active": 7,
+        "Tamper": 8,
+        "TestAlarm": 9,
+        "TestActive": 10,
+        "TestFault": 11,
+        "TestFaultAlarm": 12,
+        "Holdup": 13,
+        "Duress": 14,
+        "TamperAlarm": 15,
+        "Abnormal": 16,
+        "EmergencyPower": 17,
+        "Delayed": 18,
+        "Blocked": 19,
+        "LocalAlarm": 20,
+        "GeneralAlarm": 21,
+        "Supervisory": 22,
+        "TestSupervisory": 23
+      },
+      "properties": {
+        "Quiet": {
+          "type": "integer"
+        },
+        "PreAlarm": {
+          "type": "integer"
+        },
+        "Alarm": {
+          "type": "integer"
+        },
+        "Fault": {
+          "type": "integer"
+        },
+        "FaultPreAlarm": {
+          "type": "integer"
+        },
+        "FaultAlarm": {
+          "type": "integer"
+        },
+        "NotReady": {
+          "type": "integer"
+        },
+        "Active": {
+          "type": "integer"
+        },
+        "Tamper": {
+          "type": "integer"
+        },
+        "TestAlarm": {
+          "type": "integer"
+        },
+        "TestActive": {
+          "type": "integer"
+        },
+        "TestFault": {
+          "type": "integer"
+        },
+        "TestFaultAlarm": {
+          "type": "integer"
+        },
+        "Holdup": {
+          "type": "integer"
+        },
+        "Duress": {
+          "type": "integer"
+        },
+        "TamperAlarm": {
+          "type": "integer"
+        },
+        "Abnormal": {
+          "type": "integer"
+        },
+        "EmergencyPower": {
+          "type": "integer"
+        },
+        "Delayed": {
+          "type": "integer"
+        },
+        "Blocked": {
+          "type": "integer"
+        },
+        "LocalAlarm": {
+          "type": "integer"
+        },
+        "GeneralAlarm": {
+          "type": "integer"
+        },
+        "Supervisory": {
+          "type": "integer"
+        },
+        "TestSupervisory": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetPolarity": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPolarity",
+      "const": {
+        "Normal": 0,
+        "Reverse": 1
+      },
+      "properties": {
+        "Normal": {
+          "type": "integer"
+        },
+        "Reverse": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetProgramError": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramError",
+      "const": {
+        "Normal": 0,
+        "LoadFailed": 1,
+        "Internal": 2,
+        "Program": 3,
+        "Other": 4
+      },
+      "properties": {
+        "Normal": {
+          "type": "integer"
+        },
+        "LoadFailed": {
+          "type": "integer"
+        },
+        "Internal": {
+          "type": "integer"
+        },
+        "Program": {
+          "type": "integer"
+        },
+        "Other": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetProgramRequest": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramRequest",
+      "const": {
+        "Ready": 0,
+        "Load": 1,
+        "Run": 2,
+        "Halt": 3,
+        "Restart": 4,
+        "Unload": 5
+      },
+      "properties": {
+        "Ready": {
+          "type": "integer"
+        },
+        "Load": {
+          "type": "integer"
+        },
+        "Run": {
+          "type": "integer"
+        },
+        "Halt": {
+          "type": "integer"
+        },
+        "Restart": {
+          "type": "integer"
+        },
+        "Unload": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetProgramStates": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramStates",
+      "const": {
+        "Idle": 0,
+        "Loading": 1,
+        "Running": 2,
+        "Waiting": 3,
+        "Halted": 4,
+        "Unloading": 5
+      },
+      "properties": {
+        "Idle": {
+          "type": "integer"
+        },
+        "Loading": {
+          "type": "integer"
+        },
+        "Running": {
+          "type": "integer"
+        },
+        "Waiting": {
+          "type": "integer"
+        },
+        "Halted": {
+          "type": "integer"
+        },
+        "Unloading": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetReliability": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetReliability",
+      "const": {
+        "NoFaultDetected": 0,
+        "NoSensor": 1,
+        "OverRange": 2,
+        "UnderRange": 3,
+        "OpenLoop": 4,
+        "ShortedLoop": 5,
+        "NoOutput": 6,
+        "UnreliableOther": 7,
+        "ProcessError": 8,
+        "MultiStateFault": 9,
+        "ConfigurationError": 10,
+        "CommunicationFailure": 12,
+        "MemberFault": 13,
+        "MONITORED_OBJECT_FAULT": 14,
+        "TRIPPED": 15
+      },
+      "properties": {
+        "NoFaultDetected": {
+          "description": "The present value is reliable; that is, no other fault has been detected.",
+          "type": "integer"
+        },
+        "NoSensor": {
+          "description": "No sensor is connected to the Input object.",
+          "type": "integer"
+        },
+        "OverRange": {
+          "description": "The sensor connected to the Input is reading a value higher than the normal operating range. If the object is a Binary Input, this is possible when the Binary state is derived from an analog sensor or a binary input equipped with electrical loop supervision circuits.",
+          "type": "integer"
+        },
+        "UnderRange": {
+          "description": "The sensor connected to the Input is reading a value lower than the normal operating range. If the object is a Binary Input, this is possible when the Binary Input is actually a binary state calculated from an analog sensor.",
+          "type": "integer"
+        },
+        "OpenLoop": {
+          "description": "The connection between the defined object and the physical device is providing a value indicating an open circuit condition.",
+          "type": "integer"
+        },
+        "ShortedLoop": {
+          "description": "The connection between the defined object and the physical device is providing a value indicating a short circuit condition.",
+          "type": "integer"
+        },
+        "NoOutput": {
+          "description": "No physical device is connected to the Output object.",
+          "type": "integer"
+        },
+        "UnreliableOther": {
+          "description": "The controller has detected that the present value is unreliable, but none of the other conditions describe the nature of the problem. A generic fault other than those listed above has been detected, e.g., a Binary Input is not cycling as expected.",
+          "type": "integer"
+        },
+        "ProcessError": {
+          "description": "A processing error was encountered.",
+          "type": "integer"
+        },
+        "MultiStateFault": {
+          "description": "The FAULT_STATE, FAULT_LIFE_SAFETY or FAULT_CHARACTERSTRING fault algorithm has evaluated a fault condition.",
+          "type": "integer"
+        },
+        "ConfigurationError": {
+          "description": "The object's properties are not in a consistent state.",
+          "type": "integer"
+        },
+        "CommunicationFailure": {
+          "description": "Proper operation of the object is dependent on communication with a remote sensor or device and communication with the remote sensor or device has been lost.",
+          "type": "integer"
+        },
+        "MemberFault": {
+          "description": "Indicates that the set of referenced member objects includes one or more Status_Flags properties whose FAULT flag value is equal to TRUE.",
+          "type": "integer"
+        },
+        "MONITORED_OBJECT_FAULT": {
+          "description": "Indicates that the monitored object is in fault.",
+          "type": "integer"
+        },
+        "TRIPPED": {
+          "description": "The end device, such as an actuator, is not responding to commands, prevented by a tripped condition or by being mechanically held open.",
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetStatusFlags": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetStatusFlags",
+      "const": {
+        "InAlarm": 0,
+        "Fault": 1,
+        "Overriden": 2,
+        "OutOfService": 3
+      },
+      "properties": {
+        "InAlarm": {
+          "type": "integer"
+        },
+        "Fault": {
+          "type": "integer"
+        },
+        "Overriden": {
+          "type": "integer"
+        },
+        "OutOfService": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "NewState": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetPropertyStates",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyStates",
+      "required": [
+        "BooleanValue",
+        "BinaryValue",
+        "EventType",
+        "Polarity",
+        "ProgramChange",
+        "ProgramState",
+        "ProgramError",
+        "Reliability",
+        "State",
+        "SystemStatus",
+        "Units",
+        "UnsignedValue",
+        "LifeSafetyMode",
+        "LifeSafetyState"
+      ],
+      "properties": {
+        "BooleanValue": {
+          "type": "boolean"
+        },
+        "BinaryValue": {
+          "title": "BACnetBinaryPV",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetBinaryPV",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "EventType": {
+          "title": "BACnetEventEnumType",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventEnumType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Polarity": {
+          "title": "BACnetPolarity",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPolarity",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ProgramChange": {
+          "title": "BACnetProgramRequest",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramRequest",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ProgramState": {
+          "title": "BACnetProgramStates",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramStates",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ProgramError": {
+          "title": "BACnetProgramError",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramError",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Reliability": {
+          "title": "BACnetReliability",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetReliability",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "State": {
+          "title": "BACnetEventState",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventState",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SystemStatus": {
+          "title": "BACnetDeviceStatus",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceStatus",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Units": {
+          "title": "EUInformation",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "UnsignedValue": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "LifeSafetyMode": {
+          "title": "BACnetLifeSafetyMode",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyMode",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "LifeSafetyState": {
+          "title": "BACnetLifeSafetyState",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetLifeSafetyState",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      },
+      "readOnly": false
+    },
+    "StatusFlags": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetStatusFlags",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetStatusFlags",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

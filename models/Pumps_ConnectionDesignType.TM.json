@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_ConnectionDesignType",
+  "title": "Pumps_ConnectionDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.ConnectionDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/NominalPressure",
+    "/events/NominalPressure"
+  ],
+  "properties": {
+    "NominalPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Alphanumeric parameter for reference purposes, referring to a combination of mechanical and dimensional properties of a component of a piping system. It comprises the letters PN followed by a dimensionless number.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "NominalPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Alphanumeric parameter for reference purposes, referring to a combination of mechanical and dimensional properties of a component of a piping system. It comprises the letters PN followed by a dimensionless number.",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ConfigurationFileType",
+  "title": "OpcUaCore_ConfigurationFileType",
+  "dov:typeRef": "org.opcfoundation.UA.ConfigurationFileType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ConfigurationUpdateType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ConfigurationUpdateType",
+      "const": {
+        "Insert": 1,
+        "Replace": 2,
+        "InsertOrReplace": 3,
+        "Delete": 4
+      },
+      "properties": {
+        "Insert": {
+          "description": "The target is added. An error occurs if a name conflict occurs.",
+          "type": "integer"
+        },
+        "Replace": {
+          "description": "Existing records are updated. An error occurs if a name cannot be matched to an existing record.",
+          "type": "integer"
+        },
+        "InsertOrReplace": {
+          "description": "Existing records are updated. New records are created if no match to an exising record.",
+          "type": "integer"
+        },
+        "Delete": {
+          "description": "Existing records are deleted. An error occurs if a name cannot be matched to an existing record.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "CloseAndUpdate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "FileHandle",
+          "VersionToUpdate",
+          "Targets",
+          "RevertAfterTime",
+          "RestartDelayTime"
+        ],
+        "properties": {
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "VersionToUpdate": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Targets": {
+            "type": "array",
+            "items": {
+              "title": "ConfigurationUpdateTargetType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.ConfigurationUpdateTargetType",
+              "required": [
+                "Path",
+                "UpdateType"
+              ],
+              "properties": {
+                "Path": {
+                  "type": "string"
+                },
+                "UpdateType": {
+                  "title": "ConfigurationUpdateType",
+                  "dov:typeRef": "org.opcfoundation.UA.ConfigurationUpdateType",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          },
+          "RevertAfterTime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "RestartDelayTime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "UpdateResults",
+          "NewVersion",
+          "UpdateId"
+        ],
+        "properties": {
+          "UpdateResults": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "NewVersion": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "UpdateId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    },
+    "ConfirmUpdate": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "UpdateId"
+        ],
+        "properties": {
+          "UpdateId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ActivityTimeout": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "CurrentVersion": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "LastUpdateTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "SupportedDataType": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

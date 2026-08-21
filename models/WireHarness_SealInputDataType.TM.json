@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_SealInputDataType",
+  "title": "WireHarness_SealInputDataType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.SealInputDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SealInputDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.SealInputDataType",
+      "required": [
+        "ToolType",
+        "ProcessDescription",
+        "Id",
+        "ReferencedElement",
+        "MonitorSealPosition"
+      ],
+      "properties": {
+        "ToolType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ProcessDescription": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Id": {
+          "type": "string"
+        },
+        "ReferencedElement": {
+          "title": "WireMountingIdDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireMountingIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "MonitorSealPosition": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

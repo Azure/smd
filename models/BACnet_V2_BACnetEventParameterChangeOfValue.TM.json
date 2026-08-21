@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventParameterChangeOfValue",
+  "title": "BACnet_V2_BACnetEventParameterChangeOfValue",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfValue",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventParameterChangeOfValue": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterChangeOfValue",
+      "required": [
+        "Time-delay",
+        "Cov-criteria-bitmask",
+        "Cov-criteria-referenced-property-increment"
+      ],
+      "properties": {
+        "Time-delay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Cov-criteria-bitmask": {
+          "title": "OptionSet",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.OptionSet",
+          "required": [
+            "Value",
+            "ValidBits"
+          ],
+          "properties": {
+            "Value": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "ValidBits": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          }
+        },
+        "Cov-criteria-referenced-property-increment": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

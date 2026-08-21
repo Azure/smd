@@ -1,0 +1,1432 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_SystemRequirementsType",
+  "title": "Pumps_SystemRequirementsType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.SystemRequirementsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ControlModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+      "const": {
+        "ConstantPressureControl": 0,
+        "ConstantTemperatureControl": 1,
+        "DifferentialPressureControl": 2,
+        "ConstantDifferentialPressureControl": 3,
+        "VariableDifferentialPressureControl": 4,
+        "FlowDependentDifferentialPressureControl": 5,
+        "ReturnFlowTemperatureControl": 6,
+        "FlowTemperatureControl": 7,
+        "FlowRateControl": 8,
+        "SpeedControl": 9,
+        "Automatic": 10,
+        "Uncontrolled": 11
+      },
+      "description": "describes the possible control modes of the pump",
+      "properties": {
+        "ConstantPressureControl": {
+          "description": "Constant pressure control mode",
+          "type": "integer"
+        },
+        "ConstantTemperatureControl": {
+          "description": "Constant temperature control mode",
+          "type": "integer"
+        },
+        "DifferentialPressureControl": {
+          "description": "Differential pressure control mode",
+          "type": "integer"
+        },
+        "ConstantDifferentialPressureControl": {
+          "description": "Constant differential pressure control mode",
+          "type": "integer"
+        },
+        "VariableDifferentialPressureControl": {
+          "description": "Variable differential pressure control mode",
+          "type": "integer"
+        },
+        "FlowDependentDifferentialPressureControl": {
+          "description": "Flow-dependent differential pressure control mode",
+          "type": "integer"
+        },
+        "ReturnFlowTemperatureControl": {
+          "description": "Return flow temperature control mode",
+          "type": "integer"
+        },
+        "FlowTemperatureControl": {
+          "description": "Flow temperature control mode",
+          "type": "integer"
+        },
+        "FlowRateControl": {
+          "description": "Flow rate control mode",
+          "type": "integer"
+        },
+        "SpeedControl": {
+          "description": "Speed control mode",
+          "type": "integer"
+        },
+        "Automatic": {
+          "description": "Automatic control mode",
+          "type": "integer"
+        },
+        "Uncontrolled": {
+          "description": "None / uncontrolled mode",
+          "type": "integer"
+        }
+      }
+    },
+    "ExplosionZoneOptionSet": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ExplosionZoneOptionSet",
+      "const": {
+        "Zone_0": 0,
+        "Zone_1": 1,
+        "Zone_2": 2,
+        "Zone_20": 3,
+        "Zone_21": 4,
+        "Zone_22": 5
+      },
+      "description": "defines flags for the category of explosion zones for devices",
+      "properties": {
+        "Zone_0": {
+          "description": "A zone in which an explosive atmosphere consisting of a mixture with air of flammable substances in the form of gas, vapour or mist is present continuously or for long periods or frequently.",
+          "type": "integer"
+        },
+        "Zone_1": {
+          "description": "A zone in which an explosive atmosphere consisting of a mixture with air of flammable substances in the form of gas, vapour or mist is likely to occur in normal operation occasionally.",
+          "type": "integer"
+        },
+        "Zone_2": {
+          "description": "A zone in which an explosive atmosphere consisting of a mixture with air of flammable substances in the form of gas, vapour or mist is not likely to occur in normal operation but, if it does occur, will persist for a short period only.",
+          "type": "integer"
+        },
+        "Zone_20": {
+          "description": "A zone in which an explosive atmosphere in the form of a cloud of combustible dust in air is present continuously, for long periods or frequently.",
+          "type": "integer"
+        },
+        "Zone_21": {
+          "description": "A zone in which an explosive atmosphere in the form of a cloud of combustible dust in air is likely to occur in normal operation occasionally.",
+          "type": "integer"
+        },
+        "Zone_22": {
+          "description": "A zone in which an explosive atmosphere in the form of a cloud of combustible dust in air is not likely to occur in normal operation but, if it does occur, will persist for a short period only.",
+          "type": "integer"
+        }
+      }
+    },
+    "FieldbusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.FieldbusEnum",
+      "const": {
+        "Other": 0,
+        "ARCNET": 1,
+        "AS_Interface": 2,
+        "BACnet_IP": 3,
+        "BACnet_MSTP": 4,
+        "Bluetooth": 5,
+        "BluetoothLowEnergy": 6,
+        "CAN": 7,
+        "CANopen": 8,
+        "CC_Link": 9,
+        "ControlNet": 10,
+        "DALI": 11,
+        "DECTULE": 12,
+        "DeviceNet": 13,
+        "DMX": 14,
+        "KNX": 15,
+        "EnOcean": 16,
+        "EtherCAT": 17,
+        "Ethernet_IP": 18,
+        "EthernetTCP_IP": 19,
+        "IEEE1588": 20,
+        "GSM": 21,
+        "Interbus": 22,
+        "IO_Link": 23,
+        "HART": 24,
+        "LON": 25,
+        "LoRaWAN": 26,
+        "LIN_Bus": 27,
+        "LTE": 28,
+        "LTE_M": 29,
+        "M_Bus": 30,
+        "ModbusTCP": 31,
+        "ModbusRTU": 32,
+        "MP_Bus": 33,
+        "NB_IOT": 34,
+        "NFC": 35,
+        "OPCUA": 36,
+        "OPCDA": 37,
+        "PROFIBUSDP": 38,
+        "PROFINETRT": 39,
+        "Powerlink": 40,
+        "SERCOS": 41,
+        "SMI": 42,
+        "Thread": 43,
+        "UMTS": 44,
+        "WIFI": 45,
+        "X2X_Link": 46,
+        "VARAN": 47,
+        "ZigBee": 48,
+        "Z_Wave": 49
+      },
+      "description": "defines possible field buses",
+      "properties": {
+        "Other": {
+          "description": "Fieldbus is not specified in this enumeration",
+          "type": "integer"
+        },
+        "ARCNET": {
+          "description": "ARCNET",
+          "type": "integer"
+        },
+        "AS_Interface": {
+          "description": "AS-Interface",
+          "type": "integer"
+        },
+        "BACnet_IP": {
+          "description": "BACnet/IP",
+          "type": "integer"
+        },
+        "BACnet_MSTP": {
+          "description": "BACnet/MSTP",
+          "type": "integer"
+        },
+        "Bluetooth": {
+          "description": "Bluetooth",
+          "type": "integer"
+        },
+        "BluetoothLowEnergy": {
+          "description": "Bluetooth Low Energy",
+          "type": "integer"
+        },
+        "CAN": {
+          "description": "CAN",
+          "type": "integer"
+        },
+        "CANopen": {
+          "description": "CANopen",
+          "type": "integer"
+        },
+        "CC_Link": {
+          "description": "CC-Link",
+          "type": "integer"
+        },
+        "ControlNet": {
+          "description": "ControlNet",
+          "type": "integer"
+        },
+        "DALI": {
+          "description": "DALI",
+          "type": "integer"
+        },
+        "DECTULE": {
+          "description": "DECT ULE",
+          "type": "integer"
+        },
+        "DeviceNet": {
+          "description": "DeviceNet",
+          "type": "integer"
+        },
+        "DMX": {
+          "description": "DMX",
+          "type": "integer"
+        },
+        "KNX": {
+          "description": "KNX",
+          "type": "integer"
+        },
+        "EnOcean": {
+          "description": "EnOcean",
+          "type": "integer"
+        },
+        "EtherCAT": {
+          "description": "EtherCAT",
+          "type": "integer"
+        },
+        "Ethernet_IP": {
+          "description": "Ethernet/IP",
+          "type": "integer"
+        },
+        "EthernetTCP_IP": {
+          "description": "Ethernet TCP/IP",
+          "type": "integer"
+        },
+        "IEEE1588": {
+          "description": "IEEE1588",
+          "type": "integer"
+        },
+        "GSM": {
+          "description": "GSM",
+          "type": "integer"
+        },
+        "Interbus": {
+          "description": "Interbus",
+          "type": "integer"
+        },
+        "IO_Link": {
+          "description": "IO-Link",
+          "type": "integer"
+        },
+        "HART": {
+          "description": "HART",
+          "type": "integer"
+        },
+        "LON": {
+          "description": "LON",
+          "type": "integer"
+        },
+        "LoRaWAN": {
+          "description": "LoRaWAN",
+          "type": "integer"
+        },
+        "LIN_Bus": {
+          "description": "LIN-Bus",
+          "type": "integer"
+        },
+        "LTE": {
+          "description": "LTE",
+          "type": "integer"
+        },
+        "LTE_M": {
+          "description": "LTE-M",
+          "type": "integer"
+        },
+        "M_Bus": {
+          "description": "M-Bus",
+          "type": "integer"
+        },
+        "ModbusTCP": {
+          "description": "Modbus TCP",
+          "type": "integer"
+        },
+        "ModbusRTU": {
+          "description": "Modbus RTU",
+          "type": "integer"
+        },
+        "MP_Bus": {
+          "description": "MP-Bus",
+          "type": "integer"
+        },
+        "NB_IOT": {
+          "description": "NB-IOT",
+          "type": "integer"
+        },
+        "NFC": {
+          "description": "NFC",
+          "type": "integer"
+        },
+        "OPCUA": {
+          "description": "OPC UA",
+          "type": "integer"
+        },
+        "OPCDA": {
+          "description": "OPC DA",
+          "type": "integer"
+        },
+        "PROFIBUSDP": {
+          "description": "PROFIBUS DP",
+          "type": "integer"
+        },
+        "PROFINETRT": {
+          "description": "PROFINET RT",
+          "type": "integer"
+        },
+        "Powerlink": {
+          "description": "Powerlink",
+          "type": "integer"
+        },
+        "SERCOS": {
+          "description": "SERCOS",
+          "type": "integer"
+        },
+        "SMI": {
+          "description": "SMI",
+          "type": "integer"
+        },
+        "Thread": {
+          "description": "Thread",
+          "type": "integer"
+        },
+        "UMTS": {
+          "description": "UMTS",
+          "type": "integer"
+        },
+        "WIFI": {
+          "description": "WIFI",
+          "type": "integer"
+        },
+        "X2X_Link": {
+          "description": "X2X-Link",
+          "type": "integer"
+        },
+        "VARAN": {
+          "description": "VARAN",
+          "type": "integer"
+        },
+        "ZigBee": {
+          "description": "ZigBee",
+          "type": "integer"
+        },
+        "Z_Wave": {
+          "description": "Z-Wave",
+          "type": "integer"
+        }
+      }
+    },
+    "OperatingModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OperatingModeEnum",
+      "const": {
+        "SingleOperation": 0,
+        "SeriesOperation": 1,
+        "ParallelOperation": 2
+      },
+      "description": "specifies whether the pump is to be operated in single, parallel or series connection",
+      "properties": {
+        "SingleOperation": {
+          "description": "Single operating mode",
+          "type": "integer"
+        },
+        "SeriesOperation": {
+          "description": "Series operating mode",
+          "type": "integer"
+        },
+        "ParallelOperation": {
+          "description": "Parallel operating mode",
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/CompressionRatio",
+    "/properties/ExplosionZone",
+    "/properties/Fieldbus",
+    "/properties/Fluid",
+    "/properties/GasContent",
+    "/properties/HeightOfTheInletSideOfTheInstallation",
+    "/properties/HeightOfTheOutletSideOfTheInstallation",
+    "/properties/HeightOfThePump",
+    "/properties/MaximumAmbientTemperature",
+    "/properties/MaximumFlow",
+    "/properties/MaximumHead",
+    "/properties/MaximumInletPressure",
+    "/properties/MaximumOutletPressure",
+    "/properties/MaximumRelativeHumidity",
+    "/properties/MaximumTemperature",
+    "/properties/MeanTimeBetweenFailures",
+    "/properties/MinimumAmbientTemperature",
+    "/properties/MinimumFlow",
+    "/properties/MinimumHead",
+    "/properties/MinimumInletPressure",
+    "/properties/MinimumOutletPressure",
+    "/properties/MinimumRelativeHumidity",
+    "/properties/MinimumTemperature",
+    "/properties/Multi_Phase",
+    "/properties/NetPositiveInletPressureAvailable",
+    "/properties/NormalFlow",
+    "/properties/NpshDatumPlane",
+    "/properties/OperatingMode",
+    "/properties/RatedInletPressureOfTheInstallation",
+    "/properties/RatedPumpUnitTotalHead",
+    "/properties/ReferencePlane",
+    "/properties/RequiredControlMode",
+    "/properties/RequiredTime",
+    "/properties/SolidContent",
+    "/properties/Throughput",
+    "/properties/UltimatePressureOfAVacuumPump",
+    "/properties/WorkingTemperature",
+    "/properties/GasContent_EngineeringUnits",
+    "/properties/HeightOfTheInletSideOfTheInstallation_EngineeringUnits",
+    "/properties/HeightOfTheOutletSideOfTheInstallation_EngineeringUnits",
+    "/properties/HeightOfThePump_EngineeringUnits",
+    "/properties/MaximumAmbientTemperature_EngineeringUnits",
+    "/properties/MaximumFlow_EngineeringUnits",
+    "/properties/MaximumHead_EngineeringUnits",
+    "/properties/MaximumInletPressure_EngineeringUnits",
+    "/properties/MaximumOutletPressure_EngineeringUnits",
+    "/properties/MaximumRelativeHumidity_EngineeringUnits",
+    "/properties/MaximumTemperature_EngineeringUnits",
+    "/properties/MeanTimeBetweenFailures_EngineeringUnits",
+    "/properties/MinimumAmbientTemperature_EngineeringUnits",
+    "/properties/MinimumFlow_EngineeringUnits",
+    "/properties/MinimumHead_EngineeringUnits",
+    "/properties/MinimumInletPressure_EngineeringUnits",
+    "/properties/MinimumOutletPressure_EngineeringUnits",
+    "/properties/MinimumRelativeHumidity_EngineeringUnits",
+    "/properties/MinimumTemperature_EngineeringUnits",
+    "/properties/NetPositiveInletPressureAvailable_EngineeringUnits",
+    "/properties/NormalFlow_EngineeringUnits",
+    "/properties/NpshDatumPlane_EngineeringUnits",
+    "/properties/RatedInletPressureOfTheInstallation_EngineeringUnits",
+    "/properties/RatedPumpUnitTotalHead_EngineeringUnits",
+    "/properties/ReferencePlane_EngineeringUnits",
+    "/properties/RequiredTime_EngineeringUnits",
+    "/properties/SolidContent_EngineeringUnits",
+    "/properties/Throughput_EngineeringUnits",
+    "/properties/UltimatePressureOfAVacuumPump_EngineeringUnits",
+    "/properties/WorkingTemperature_EngineeringUnits",
+    "/events/CompressionRatio",
+    "/events/ExplosionZone",
+    "/events/Fieldbus",
+    "/events/Fluid",
+    "/events/GasContent",
+    "/events/HeightOfTheInletSideOfTheInstallation",
+    "/events/HeightOfTheOutletSideOfTheInstallation",
+    "/events/HeightOfThePump",
+    "/events/MaximumAmbientTemperature",
+    "/events/MaximumFlow",
+    "/events/MaximumHead",
+    "/events/MaximumInletPressure",
+    "/events/MaximumOutletPressure",
+    "/events/MaximumRelativeHumidity",
+    "/events/MaximumTemperature",
+    "/events/MeanTimeBetweenFailures",
+    "/events/MinimumAmbientTemperature",
+    "/events/MinimumFlow",
+    "/events/MinimumHead",
+    "/events/MinimumInletPressure",
+    "/events/MinimumOutletPressure",
+    "/events/MinimumRelativeHumidity",
+    "/events/MinimumTemperature",
+    "/events/Multi_Phase",
+    "/events/NetPositiveInletPressureAvailable",
+    "/events/NormalFlow",
+    "/events/NpshDatumPlane",
+    "/events/OperatingMode",
+    "/events/RatedInletPressureOfTheInstallation",
+    "/events/RatedPumpUnitTotalHead",
+    "/events/ReferencePlane",
+    "/events/RequiredControlMode",
+    "/events/RequiredTime",
+    "/events/SolidContent",
+    "/events/Throughput",
+    "/events/UltimatePressureOfAVacuumPump",
+    "/events/WorkingTemperature"
+  ],
+  "properties": {
+    "CompressionRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ratio of the backing pressure, p3, to the inlet pressure, p1, of the vacuum pump without throughput",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "ExplosionZone": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "ExplosionZoneOptionSet",
+      "description": "Categories of explosion zones for devices according to 2014/34/EU (ATEX).",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ExplosionZoneOptionSet",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Fieldbus": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "FieldbusEnum",
+      "description": "Selected fieldbus for the product",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.FieldbusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Fluid": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Fluid that is handled by the pump at specified operating conditions",
+      "type": "string",
+      "readOnly": false
+    },
+    "GasContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of gaseous substance in the liquid to be pumped, either as a contaminant or as vapor from the main body of liquid",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/GasContent_EngineeringUnits"
+    },
+    "HeightOfTheInletSideOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the fluid level on the inlet side of the installation, or in the center of the inlet manifold",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheInletSideOfTheInstallation_EngineeringUnits"
+    },
+    "HeightOfTheOutletSideOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the fluid level on the outlet side of the installation or in the center of the outlet manifold",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheOutletSideOfTheInstallation_EngineeringUnits"
+    },
+    "HeightOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the center of the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfThePump_EngineeringUnits"
+    },
+    "MaximumAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest ambient temperature to be expected under normal circumstances",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumAmbientTemperature_EngineeringUnits"
+    },
+    "MaximumFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Greatest rate of flow which is expected at operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MaximumFlow_EngineeringUnits"
+    },
+    "MaximumHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest total head developed by a pump at any rate of flow",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MaximumHead_EngineeringUnits"
+    },
+    "MaximumInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest inlet pressure to which the pump is subjected during operation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumInletPressure_EngineeringUnits"
+    },
+    "MaximumOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Maximum possible pressure at outlet, due either to internal energy increase (rotodynamic pumps) or external downstream restrictions (volumetric pumps)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumOutletPressure_EngineeringUnits"
+    },
+    "MaximumRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest relative humidity that can be expected under normal circumstances.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MaximumRelativeHumidity_EngineeringUnits"
+    },
+    "MaximumTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest fluid temperature to be expected under operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumTemperature_EngineeringUnits"
+    },
+    "MeanTimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Average of the times between failures",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanTimeBetweenFailures_EngineeringUnits"
+    },
+    "MinimumAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest ambient temperature to be expected under normal circumstances",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumAmbientTemperature_EngineeringUnits"
+    },
+    "MinimumFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Smallest rate of flow which is expected at operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumFlow_EngineeringUnits"
+    },
+    "MinimumHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Smallest total head developed by a pump at any rate of flow",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MinimumHead_EngineeringUnits"
+    },
+    "MinimumInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest inlet pressure that can occur during operation for the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumInletPressure_EngineeringUnits"
+    },
+    "MinimumOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest outlet pressure that can occur during operation for the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumOutletPressure_EngineeringUnits"
+    },
+    "MinimumRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest relative humidity to be expected under normal circumstances.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MinimumRelativeHumidity_EngineeringUnits"
+    },
+    "MinimumTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest fluid temperature to be expected under operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumTemperature_EngineeringUnits"
+    },
+    "Multi_Phase": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "NetPositiveInletPressureAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Total pressure (including velocity pressure) at the pump inlet connection less the liquid vapor pressure at the present temperature of the liquid",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/NetPositiveInletPressureAvailable_EngineeringUnits"
+    },
+    "NormalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rate of flow at which usual operation is expected",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/NormalFlow_EngineeringUnits"
+    },
+    "NpshDatumPlane": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Horizontal plane through the center of the circle described by the external points of the entrance edges of the impeller blades, in the first stage in the case of multi-stage pumps",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NpshDatumPlane_EngineeringUnits"
+    },
+    "OperatingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "OperatingModeEnum",
+      "description": "Specifies whether the pump is to be operated in single, parallel or series connection.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.OperatingModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "RatedInletPressureOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Inlet pressure of the installation for the working conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedInletPressureOfTheInstallation_EngineeringUnits"
+    },
+    "RatedPumpUnitTotalHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Difference of the total head, at the outlet side of the pump unit from the total head at the inlet side of the pump unit, at which usual operation is expected",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/RatedPumpUnitTotalHead_EngineeringUnits"
+    },
+    "ReferencePlane": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Any horizontal plane for use as the datum for height measurement",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/ReferencePlane_EngineeringUnits"
+    },
+    "RequiredControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "ControlModeEnum",
+      "description": "Specifies which control mode is to be used for the use case.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "RequiredTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Time interval throughout which an item is required to be in an up state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RequiredTime_EngineeringUnits"
+    },
+    "SolidContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of solids contained in the fluid to be pumped, either as a contaminant or as a deliberate useful burden or suspension",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/SolidContent_EngineeringUnits"
+    },
+    "Throughput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Amount of fluid flowing through a duct",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/Throughput_EngineeringUnits"
+    },
+    "UltimatePressureOfAVacuumPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The ultimate pressure is the value to which the pressure in a standardized test dome approaches asymptotically during normal operation of the vacuum pump and without gas inlet. A difference can be made between the final pressure caused by gases and the final pressure caused by gases and vapors.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/UltimatePressureOfAVacuumPump_EngineeringUnits"
+    },
+    "WorkingTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Temperature determined by the given application and fluid.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/WorkingTemperature_EngineeringUnits"
+    },
+    "GasContent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name GasContent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeightOfTheInletSideOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheInletSideOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeightOfTheOutletSideOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheOutletSideOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeightOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAmbientTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAmbientTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumInletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumInletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumOutletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumOutletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumRelativeHumidity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumRelativeHumidity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanTimeBetweenFailures_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanTimeBetweenFailures, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAmbientTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAmbientTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumInletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumInletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumOutletPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumOutletPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumRelativeHumidity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumRelativeHumidity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NetPositiveInletPressureAvailable_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NetPositiveInletPressureAvailable, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NormalFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NormalFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NpshDatumPlane_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NpshDatumPlane, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedInletPressureOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedInletPressureOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedPumpUnitTotalHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedPumpUnitTotalHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ReferencePlane_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ReferencePlane, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RequiredTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RequiredTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SolidContent_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SolidContent, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Throughput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Throughput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "UltimatePressureOfAVacuumPump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name UltimatePressureOfAVacuumPump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "WorkingTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name WorkingTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CompressionRatio": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ratio of the backing pressure, p3, to the inlet pressure, p1, of the vacuum pump without throughput",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ExplosionZone": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "ExplosionZoneOptionSet",
+        "description": "Categories of explosion zones for devices according to 2014/34/EU (ATEX).",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.ExplosionZoneOptionSet",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Fieldbus": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "FieldbusEnum",
+        "description": "Selected fieldbus for the product",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.FieldbusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Fluid": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Fluid that is handled by the pump at specified operating conditions",
+        "type": "string"
+      }
+    },
+    "GasContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of gaseous substance in the liquid to be pumped, either as a contaminant or as vapor from the main body of liquid",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/GasContent_EngineeringUnits"
+    },
+    "HeightOfTheInletSideOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the fluid level on the inlet side of the installation, or in the center of the inlet manifold",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheInletSideOfTheInstallation_EngineeringUnits"
+    },
+    "HeightOfTheOutletSideOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the fluid level on the outlet side of the installation or in the center of the outlet manifold",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheOutletSideOfTheInstallation_EngineeringUnits"
+    },
+    "HeightOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the center of the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfThePump_EngineeringUnits"
+    },
+    "MaximumAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest ambient temperature to be expected under normal circumstances",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumAmbientTemperature_EngineeringUnits"
+    },
+    "MaximumFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Greatest rate of flow which is expected at operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MaximumFlow_EngineeringUnits"
+    },
+    "MaximumHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest total head developed by a pump at any rate of flow",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MaximumHead_EngineeringUnits"
+    },
+    "MaximumInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest inlet pressure to which the pump is subjected during operation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumInletPressure_EngineeringUnits"
+    },
+    "MaximumOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Maximum possible pressure at outlet, due either to internal energy increase (rotodynamic pumps) or external downstream restrictions (volumetric pumps)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumOutletPressure_EngineeringUnits"
+    },
+    "MaximumRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest relative humidity that can be expected under normal circumstances.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MaximumRelativeHumidity_EngineeringUnits"
+    },
+    "MaximumTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest fluid temperature to be expected under operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MaximumTemperature_EngineeringUnits"
+    },
+    "MeanTimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Average of the times between failures",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanTimeBetweenFailures_EngineeringUnits"
+    },
+    "MinimumAmbientTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest ambient temperature to be expected under normal circumstances",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumAmbientTemperature_EngineeringUnits"
+    },
+    "MinimumFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Smallest rate of flow which is expected at operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumFlow_EngineeringUnits"
+    },
+    "MinimumHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Smallest total head developed by a pump at any rate of flow",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/MinimumHead_EngineeringUnits"
+    },
+    "MinimumInletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest inlet pressure that can occur during operation for the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumInletPressure_EngineeringUnits"
+    },
+    "MinimumOutletPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest outlet pressure that can occur during operation for the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MinimumOutletPressure_EngineeringUnits"
+    },
+    "MinimumRelativeHumidity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest relative humidity to be expected under normal circumstances.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MinimumRelativeHumidity_EngineeringUnits"
+    },
+    "MinimumTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest fluid temperature to be expected under operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/MinimumTemperature_EngineeringUnits"
+    },
+    "Multi_Phase": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "NetPositiveInletPressureAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Total pressure (including velocity pressure) at the pump inlet connection less the liquid vapor pressure at the present temperature of the liquid",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/NetPositiveInletPressureAvailable_EngineeringUnits"
+    },
+    "NormalFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rate of flow at which usual operation is expected",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/NormalFlow_EngineeringUnits"
+    },
+    "NpshDatumPlane": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Horizontal plane through the center of the circle described by the external points of the entrance edges of the impeller blades, in the first stage in the case of multi-stage pumps",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NpshDatumPlane_EngineeringUnits"
+    },
+    "OperatingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "OperatingModeEnum",
+        "description": "Specifies whether the pump is to be operated in single, parallel or series connection.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.OperatingModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RatedInletPressureOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Inlet pressure of the installation for the working conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedInletPressureOfTheInstallation_EngineeringUnits"
+    },
+    "RatedPumpUnitTotalHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Difference of the total head, at the outlet side of the pump unit from the total head at the inlet side of the pump unit, at which usual operation is expected",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/RatedPumpUnitTotalHead_EngineeringUnits"
+    },
+    "ReferencePlane": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Any horizontal plane for use as the datum for height measurement",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/ReferencePlane_EngineeringUnits"
+    },
+    "RequiredControlMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "ControlModeEnum",
+        "description": "Specifies which control mode is to be used for the use case.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.ControlModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RequiredTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Time interval throughout which an item is required to be in an up state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RequiredTime_EngineeringUnits"
+    },
+    "SolidContent": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of solids contained in the fluid to be pumped, either as a contaminant or as a deliberate useful burden or suspension",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/SolidContent_EngineeringUnits"
+    },
+    "Throughput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Amount of fluid flowing through a duct",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/Throughput_EngineeringUnits"
+    },
+    "UltimatePressureOfAVacuumPump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The ultimate pressure is the value to which the pressure in a standardized test dome approaches asymptotically during normal operation of the vacuum pump and without gas inlet. A difference can be made between the final pressure caused by gases and the final pressure caused by gases and vapors.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/UltimatePressureOfAVacuumPump_EngineeringUnits"
+    },
+    "WorkingTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Temperature determined by the given application and fluid.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/WorkingTemperature_EngineeringUnits"
+    }
+  }
+}

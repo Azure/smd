@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_ConnectionImplementationType",
+  "title": "Pumps_ConnectionImplementationType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.ConnectionImplementationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/NominalSize",
+    "/events/NominalSize"
+  ],
+  "properties": {
+    "NominalSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "An alphanumeric designation of size for components of a pipework system, which is used for reference purposes. It comprises the letters DN followed by a dimensionless whole number which is indirectly related to the physical size, in millimeters, of the bore or outside diameter of the end connections.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "NominalSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "An alphanumeric designation of size for components of a pipework system, which is used for reference purposes. It comprises the letters DN followed by a dimensionless whole number which is indirectly related to the physical size, in millimeters, of the bore or outside diameter of the end connections.",
+        "type": "string"
+      }
+    }
+  }
+}

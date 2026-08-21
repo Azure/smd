@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISCounterObjectType",
+  "title": "MDIS_MDISCounterObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISCounterObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/SetCount"
+  ],
+  "actions": {
+    "SetCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Initial"
+        ],
+        "properties": {
+          "Initial": {
+            "description": "The value to initialize the Object Count to, default is 0",
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Count": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "type": "number",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Count": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "data": {
+        "type": "number"
+      }
+    }
+  }
+}

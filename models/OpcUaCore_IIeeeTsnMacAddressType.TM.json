@@ -1,0 +1,65 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeTsnMacAddressType",
+  "title": "OpcUaCore_IIeeeTsnMacAddressType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeTsnMacAddressType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/SourceAddress",
+    "/events/SourceAddress"
+  ],
+  "properties": {
+    "DestinationAddress": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    },
+    "SourceAddress": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 255
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DestinationAddress": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    },
+    "SourceAddress": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

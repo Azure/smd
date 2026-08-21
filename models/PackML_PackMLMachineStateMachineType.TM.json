@@ -1,0 +1,119 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLMachineStateMachineType",
+  "title": "PackML_PackMLMachineStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLMachineStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Clearing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ClearingToStopped",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ExecuteState",
+      "href": "http://opcfoundation.org/UA/PackML/#PackML_PackMLExecuteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Running",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "RunningToStopping",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Stopped",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StoppedToRunning",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Stopping",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StoppingToStopped",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/Reset",
+    "/actions/Stop"
+  ],
+  "actions": {
+    "Reset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Stop": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    }
+  },
+  "properties": {
+    "AvailableStates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "AvailableTransitions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AvailableStates": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "AvailableTransitions": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

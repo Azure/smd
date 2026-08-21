@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TrustListDataType",
+  "title": "OpcUaCore_TrustListDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TrustListDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "TrustListDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TrustListDataType",
+      "required": [
+        "SpecifiedLists",
+        "TrustedCertificates",
+        "TrustedCrls",
+        "IssuerCertificates",
+        "IssuerCrls"
+      ],
+      "properties": {
+        "SpecifiedLists": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "TrustedCertificates": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        },
+        "TrustedCrls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        },
+        "IssuerCertificates": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        },
+        "IssuerCrls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "contentEncoding": "base64"
+          }
+        }
+      }
+    }
+  }
+}

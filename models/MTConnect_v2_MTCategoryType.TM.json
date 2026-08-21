@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_MTCategoryType",
+  "title": "MTConnect_v2_MTCategoryType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTCategoryType",
+  "links": [],
+  "schemaDefinitions": {
+    "MTCategoryType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.MTCategoryType",
+      "const": {
+        "EVENT": 0,
+        "CONDITION": 1,
+        "SAMPLE": 2
+      },
+      "description": "Represents the \\gls{category} attribute of the MTConnect \\gls{MTDataItem}.",
+      "properties": {
+        "EVENT": {
+          "description": "           An event category is a data item representing a discrete piece of           information from the piece of equipment.          ",
+          "type": "integer"
+        },
+        "CONDITION": {
+          "description": "           A condition category is a data item that communicates information           about the health of a piece of equipment and its ability to function.          ",
+          "type": "integer"
+        },
+        "SAMPLE": {
+          "description": "           A sample category is the reading of the value of a continuously           variable or analog data value.         ",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

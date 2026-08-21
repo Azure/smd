@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_DowntimeLogType",
+  "title": "TMC_v2_DowntimeLogType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DowntimeLogType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionContextLogType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/RootCauses"
+  ],
+  "properties": {
+    "Duration": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The duration of the downtime in seconds until the machine restarts.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "RootCauses": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The root causes reported by the machine during the downtime.",
+      "type": "array",
+      "items": {
+        "title": "RootCauseMessageType",
+        "description": "The RootCauseMessageType structure contains a root cause message and its group identifier.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.RootCauseMessageType",
+        "required": [
+          "ID",
+          "LocalText",
+          "GroupID"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the localised text.",
+            "type": "string"
+          },
+          "LocalText": {
+            "description": "The localized text.",
+            "type": "string"
+          },
+          "GroupID": {
+            "description": "GroupID identifies uniquely each group of root causes which are  grouped in families, e.g. electrical, mechanical, controls, etc.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "StopReasons": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The stop reasons reported by the machine during the downtime.",
+      "type": "array",
+      "items": {
+        "title": "MessageType",
+        "description": "The MessageType provides a uniquely identified localised text.",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+        "required": [
+          "ID",
+          "LocalText"
+        ],
+        "properties": {
+          "ID": {
+            "description": "Unique identifier for the localised text.",
+            "type": "string"
+          },
+          "LocalText": {
+            "description": "The localized text.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

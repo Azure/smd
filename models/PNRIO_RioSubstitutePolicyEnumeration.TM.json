@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioSubstitutePolicyEnumeration",
+  "title": "PNRIO_RioSubstitutePolicyEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "RioSubstitutePolicyEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioSubstitutePolicyEnumeration",
+      "const": {
+        "USE_SUBSTITUTE_VALUE": 0,
+        "USE_LAST_VALID_VALUE": 1,
+        "USE_ACTUAL_VALUE": 2,
+        "Unspecified": 255
+      },
+      "properties": {
+        "USE_SUBSTITUTE_VALUE": {
+          "description": "The value of the SubstituteValue configuration property is used as substitute value if an error condition is detected.",
+          "type": "integer"
+        },
+        "USE_LAST_VALID_VALUE": {
+          "description": "The last valid value is used as substitute value if an error condition is detected.",
+          "type": "integer"
+        },
+        "USE_ACTUAL_VALUE": {
+          "description": "No substitute value is used, the process value can have the wrong calculated value and status even if the error condition is detected.",
+          "type": "integer"
+        },
+        "Unspecified": {
+          "description": "No information about the status is given.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

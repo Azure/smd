@@ -1,0 +1,143 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_IEnergyProfileE0Type",
+  "title": "ECM_IEnergyProfileE0Type",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.IEnergyProfileE0Type",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AcCurrentPe_EngineeringUnits"
+  ],
+  "properties": {
+    "AcCurrentPe": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "title": "AcPeDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ECM.AcPeDataType",
+      "required": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "properties": {
+        "L1": {
+          "description": "Phase L1-N (or phase a-n)",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "L2": {
+          "description": "Phase L2-N (or phase b-n)",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "L3": {
+          "description": "Phase L3-N (or phase c-n)",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      },
+      "readOnly": false,
+      "dov:contains": [
+        "AcCurrentPe_AccuracyClass",
+        "AcCurrentPe_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/AcCurrentPe_EngineeringUnits"
+    },
+    "AcCurrentPe_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "AcCurrentPe"
+    },
+    "AcCurrentPe_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "AcCurrentPe"
+    },
+    "AcCurrentPe_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcCurrentPe, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AcCurrentPe": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "title": "AcPeDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.ECM.AcPeDataType",
+        "required": [
+          "L1",
+          "L2",
+          "L3"
+        ],
+        "properties": {
+          "L1": {
+            "description": "Phase L1-N (or phase a-n)",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "L2": {
+            "description": "Phase L2-N (or phase b-n)",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          },
+          "L3": {
+            "description": "Phase L3-N (or phase c-n)",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "dov:contains": [
+        "AcCurrentPe_AccuracyClass",
+        "AcCurrentPe_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ElectricCurrent",
+      "dov:withUnit": "properties/AcCurrentPe_EngineeringUnits"
+    },
+    "AcCurrentPe_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "AcCurrentPe"
+    },
+    "AcCurrentPe_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "AcCurrentPe"
+    }
+  }
+}

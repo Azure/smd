@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ClampBlockType",
+  "title": "FX_AC_ClampBlockType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.ClampBlockType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AssetConnectorType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Clamp",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ClampType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BlockSize",
+    "/properties/Kind",
+    "/events/Kind"
+  ],
+  "properties": {
+    "BlockSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Kind": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Kind": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    }
+  }
+}

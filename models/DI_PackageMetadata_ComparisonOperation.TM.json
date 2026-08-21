@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/PackageMetadata/#DI_PackageMetadata_ComparisonOperation",
+  "title": "DI_PackageMetadata_ComparisonOperation",
+  "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.ComparisonOperation",
+  "links": [],
+  "schemaDefinitions": {
+    "ComparisonOperation": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.ComparisonOperation",
+      "const": {
+        "EqualTo": 0,
+        "GreaterThan": 1,
+        "GreaterEqual": 2,
+        "LessThen": 3,
+        "LessEqual": 4,
+        "RegularExpression": 5,
+        "OneOf": 6,
+        "Exist": 7
+      },
+      "properties": {
+        "EqualTo": {
+          "description": "Value[0] = Variable",
+          "type": "integer"
+        },
+        "GreaterThan": {
+          "description": "Value[0] > Variable",
+          "type": "integer"
+        },
+        "GreaterEqual": {
+          "description": "Value[0] >= Variable",
+          "type": "integer"
+        },
+        "LessThen": {
+          "description": "Value[0] < Variable",
+          "type": "integer"
+        },
+        "LessEqual": {
+          "description": "Value[0] <= Variable",
+          "type": "integer"
+        },
+        "RegularExpression": {
+          "description": "Value[0] contains a regular expression which must match the value of the Variable",
+          "type": "integer"
+        },
+        "OneOf": {
+          "description": "Value[0] contains a regular expression which must match the value of the Variable",
+          "type": "integer"
+        },
+        "Exist": {
+          "description": "The Node that is described by the Variable must exist. The Values array shall be empty",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

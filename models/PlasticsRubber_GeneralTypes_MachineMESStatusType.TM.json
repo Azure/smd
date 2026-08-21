@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineMESStatusType",
+  "title": "PlasticsRubber_GeneralTypes_MachineMESStatusType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MachineMESStatusType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MESMessage",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MESMessageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ProductionControl",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionControlType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "StandstillMessage",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StandstillMessageType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "ClearMESMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for clearing the MESMessage"
+    },
+    "SetMESMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Method for setting the MESMessage",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id",
+          "Message",
+          "Severity"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Message": {
+            "type": "string"
+          },
+          "Severity": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "StandstillReasonId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Id of the StandstillReason set by the operator after a standstill occurs",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

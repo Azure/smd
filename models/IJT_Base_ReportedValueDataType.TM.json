@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_ReportedValueDataType",
+  "title": "IJT_Base_ReportedValueDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ReportedValueDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ReportedValueDataType": {
+      "description": "This structure provides the given value and corresponding limits for a given physical quantity (if applicable).",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ReportedValueDataType",
+      "required": [
+        "CurrentValue"
+      ],
+      "properties": {
+        "PhysicalQuantity": {
+          "description": "It is the physical quantity of the value. Example: Torque, Angle, etc.  Note: It may not be applicable for few reported values such as Software Version, etc.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Name": {
+          "description": "It is the name of the given value.",
+          "type": "string"
+        },
+        "CurrentValue": {
+          "description": "It is the current value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the recommended data type is Double.",
+          "type": "string"
+        },
+        "PreviousValue": {
+          "description": "It is the previous value (if available). The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+          "type": "string"
+        },
+        "LowLimit": {
+          "description": "It is the low limit of the given value. It is not applicable for values which do not have PhysicalQuantity.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "HighLimit": {
+          "description": "It is the high limit of the given value. It is not applicable for values which do not have PhysicalQuantity.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "description": "It is the engineering unit of the CurrentValue, PreviousValue, LowLimit, HighLimit. It is not applicable for values which does not have PhysicalQuantity.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

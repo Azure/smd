@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetEventParameterFloatingLimit",
+  "title": "BACnet_V2_BACnetEventParameterFloatingLimit",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterFloatingLimit",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetEventParameterFloatingLimit": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetEventParameterFloatingLimit",
+      "required": [
+        "Time-delay",
+        "Setpoint-reference",
+        "Low-diff-limit",
+        "High-diff-limit",
+        "Deadband"
+      ],
+      "properties": {
+        "Time-delay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "Setpoint-reference": {
+          "title": "BACnetDeviceObjectPropertyReference",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceObjectPropertyReference",
+          "required": [
+            "ObjectIdentifier"
+          ],
+          "properties": {
+            "ObjectIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "PropertyIdentifier": {
+              "title": "BACnetPropertyIdentifier",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyIdentifier",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "PropertyArrayIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "DeviceIdentifier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          }
+        },
+        "Low-diff-limit": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High-diff-limit": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Deadband": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  }
+}

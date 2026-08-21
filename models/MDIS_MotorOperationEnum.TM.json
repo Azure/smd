@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MotorOperationEnum",
+  "title": "MDIS_MotorOperationEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MotorOperationEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "MotorOperationEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.MotorOperationEnum",
+      "const": {
+        "Off": 1,
+        "Auto": 2,
+        "Manual": 4
+      },
+      "properties": {
+        "Off": {
+          "description": "The Motor cannot be started either automatically or manually",
+          "type": "integer"
+        },
+        "Auto": {
+          "description": "The Motor works automatically",
+          "type": "integer"
+        },
+        "Manual": {
+          "description": "The Motor is controlled manually",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

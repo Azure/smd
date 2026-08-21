@@ -1,0 +1,146 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SecurityGroupFolderType",
+  "title": "OpcUaCore_SecurityGroupFolderType",
+  "dov:typeRef": "org.opcfoundation.UA.SecurityGroupFolderType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SecurityGroupName_Placeholder",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SecurityGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddSecurityGroupFolder",
+    "/actions/RemoveSecurityGroupFolder",
+    "/properties/SupportedSecurityPolicyUris"
+  ],
+  "actions": {
+    "AddSecurityGroup": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupName",
+          "KeyLifetime",
+          "SecurityPolicyUri",
+          "MaxFutureKeyCount",
+          "MaxPastKeyCount"
+        ],
+        "properties": {
+          "SecurityGroupName": {
+            "type": "string"
+          },
+          "KeyLifetime": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          },
+          "MaxFutureKeyCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MaxPastKeyCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "SecurityGroupId",
+          "SecurityGroupNodeId"
+        ],
+        "properties": {
+          "SecurityGroupId": {
+            "type": "string"
+          },
+          "SecurityGroupNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "AddSecurityGroupFolder": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Name"
+        ],
+        "properties": {
+          "Name": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "SecurityGroupFolderNodeId"
+        ],
+        "properties": {
+          "SecurityGroupFolderNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveSecurityGroup": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupNodeId"
+        ],
+        "properties": {
+          "SecurityGroupNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveSecurityGroupFolder": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SecurityGroupFolderNodeId"
+        ],
+        "properties": {
+          "SecurityGroupFolderNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "SupportedSecurityPolicyUris": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

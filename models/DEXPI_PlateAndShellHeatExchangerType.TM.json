@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_PlateAndShellHeatExchangerType",
+  "title": "DEXPI_PlateAndShellHeatExchangerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.PlateAndShellHeatExchangerType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_HeatExchangerType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/NumberOfPlates",
+    "/properties/PlateHeight",
+    "/properties/PlateWidth",
+    "/events/NumberOfPlates",
+    "/events/PlateHeight",
+    "/events/PlateWidth"
+  ],
+  "properties": {
+    "NumberOfPlates": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The number of plates in the PlateAndShellHeatExchanger.",
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807,
+      "readOnly": false
+    },
+    "PlateHeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The height of the plates in the PlateAndShellHeatExchanger.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "PlateWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The width of the plates in the PlateAndShellHeatExchanger.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "NumberOfPlates": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The number of plates in the PlateAndShellHeatExchanger.",
+        "type": "integer",
+        "minimum": -9223372036854775808,
+        "maximum": 9223372036854775807
+      }
+    },
+    "PlateHeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The height of the plates in the PlateAndShellHeatExchanger.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlateWidth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The width of the plates in the PlateAndShellHeatExchanger.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

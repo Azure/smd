@@ -1,0 +1,227 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_PubSubCommunicationFlowConfigurationType",
+  "title": "FX_CM_PubSubCommunicationFlowConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.PubSubCommunicationFlowConfigurationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/FX/CM/#FX_CM_CommunicationFlowConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SubscriberConfiguration",
+      "href": "http://opcfoundation.org/UA/FX/CM/#FX_CM_SubscriberConfigurationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MessageSecurityMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+      "const": {
+        "Invalid": 0,
+        "None": 1,
+        "Sign": 2,
+        "SignAndEncrypt": 3
+      },
+      "properties": {
+        "Invalid": {
+          "type": "integer"
+        },
+        "None": {
+          "type": "integer"
+        },
+        "Sign": {
+          "type": "integer"
+        },
+        "SignAndEncrypt": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Address",
+    "/properties/HeaderLayoutUri",
+    "/properties/PublishingInterval",
+    "/properties/Qos",
+    "/properties/SecurityGroupId",
+    "/properties/SecurityMode",
+    "/properties/TransportProfileUri",
+    "/events/Address",
+    "/events/HeaderLayoutUri",
+    "/events/PublishingInterval",
+    "/events/Qos",
+    "/events/SecurityGroupId",
+    "/events/SecurityMode",
+    "/events/TransportProfileUri"
+  ],
+  "properties": {
+    "Address": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "title": "NetworkAddressDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+      "required": [
+        "NetworkInterface"
+      ],
+      "properties": {
+        "NetworkInterface": {
+          "type": "string"
+        }
+      },
+      "readOnly": false
+    },
+    "HeaderLayoutUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "readOnly": false
+    },
+    "PublishingInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "Qos": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "title": "CommunicationFlowQosDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.CommunicationFlowQosDataType",
+      "required": [
+        "QosCategory",
+        "TransmitQos",
+        "ReceiveQos"
+      ],
+      "properties": {
+        "QosCategory": {
+          "type": "string"
+        },
+        "TransmitQos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReceiveQos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "SecurityGroupId": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "readOnly": false
+    },
+    "SecurityMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "title": "MessageSecurityMode",
+      "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "TransportProfileUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Address": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "title": "NetworkAddressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+        "required": [
+          "NetworkInterface"
+        ],
+        "properties": {
+          "NetworkInterface": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "HeaderLayoutUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "PublishingInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "Qos": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "title": "CommunicationFlowQosDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.CM.CommunicationFlowQosDataType",
+        "required": [
+          "QosCategory",
+          "TransmitQos",
+          "ReceiveQos"
+        ],
+        "properties": {
+          "QosCategory": {
+            "type": "string"
+          },
+          "TransmitQos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ReceiveQos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "SecurityGroupId": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "SecurityMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "title": "MessageSecurityMode",
+        "dov:typeRef": "org.opcfoundation.UA.MessageSecurityMode",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "TransportProfileUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

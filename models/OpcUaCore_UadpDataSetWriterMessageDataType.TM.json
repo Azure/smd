@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UadpDataSetWriterMessageDataType",
+  "title": "OpcUaCore_UadpDataSetWriterMessageDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UadpDataSetWriterMessageDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "UadpDataSetWriterMessageDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UadpDataSetWriterMessageDataType",
+      "required": [
+        "DataSetMessageContentMask",
+        "ConfiguredSize",
+        "NetworkMessageNumber",
+        "DataSetOffset"
+      ],
+      "properties": {
+        "DataSetMessageContentMask": {
+          "title": "UadpDataSetMessageContentMask",
+          "dov:typeRef": "org.opcfoundation.UA.UadpDataSetMessageContentMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "ConfiguredSize": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "NetworkMessageNumber": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "DataSetOffset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}

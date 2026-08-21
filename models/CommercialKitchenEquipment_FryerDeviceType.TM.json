@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_FryerDeviceType",
+  "title": "CommercialKitchenEquipment_FryerDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.FryerDeviceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_CommercialKitchenDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FryerCup__No__",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_FryerParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EnergySourceEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.EnergySourceEnumeration",
+      "const": {
+        "Electric": 0,
+        "Gas": 1,
+        "Steam": 2
+      },
+      "properties": {
+        "Electric": {
+          "type": "integer"
+        },
+        "Gas": {
+          "type": "integer"
+        },
+        "Steam": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "EnergySource": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "EnergySourceEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.EnergySourceEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "IsWithLift": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

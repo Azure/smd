@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnDeviceStateEnumeration",
+  "title": "PROFINET_PnDeviceStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnDeviceStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceStateEnumeration",
+      "const": {
+        "OFFLINE": 0,
+        "OFFLINE_DOCKING": 1,
+        "ONLINE": 2,
+        "ONLINE_DOCKING": 3
+      },
+      "properties": {
+        "OFFLINE": {
+          "description": "The device is not online, or no information is available. The device is offline if no ARs other than possible Device Access AR’s exist.",
+          "type": "integer"
+        },
+        "OFFLINE_DOCKING": {
+          "description": "The device is a docking device and currently not online.",
+          "type": "integer"
+        },
+        "ONLINE": {
+          "description": "The device is online. This is the case if at least one AR other than possible Device Access AR’s exists.",
+          "type": "integer"
+        },
+        "ONLINE_DOCKING": {
+          "description": "The device is a docking device and currently online.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

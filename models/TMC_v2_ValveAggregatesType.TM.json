@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ValveAggregatesType",
+  "title": "TMC_v2_ValveAggregatesType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ValveAggregatesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleAggregatesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "CycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The total number of times the solenoid valve was energized and de-energised.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CycleCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The total number of times the solenoid valve was energized and de-energised.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

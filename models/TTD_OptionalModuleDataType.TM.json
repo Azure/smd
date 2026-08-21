@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_OptionalModuleDataType",
+  "title": "TTD_OptionalModuleDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.OptionalModuleDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "OptionalModuleDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.OptionalModuleDataType",
+      "required": [
+        "ModuleName",
+        "ModuleType",
+        "IsInstalled"
+      ],
+      "properties": {
+        "ModuleName": {
+          "description": "The name of the module.",
+          "type": "string"
+        },
+        "ModuleType": {
+          "description": "The type of the module. E.g. hardware/software.",
+          "type": "string"
+        },
+        "IsInstalled": {
+          "description": "Flag that indicates if the module is installed.",
+          "type": "boolean"
+        },
+        "Version": {
+          "description": "Version of the soft-/hardware module.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

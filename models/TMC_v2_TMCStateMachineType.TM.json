@@ -1,0 +1,135 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCStateMachineType",
+  "title": "TMC_v2_TMCStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.TMCStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PackML/#PackML_PackMLBaseStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Aborted",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "AbortedSubstate",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AbortedToCleared",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Aborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AbortingToAborted",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Cleared",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ClearedToAborting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineState",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCMachineStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    },
+    "BooleanGuardVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/Abort",
+    "/actions/Clear"
+  ],
+  "actions": {
+    "Abort": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Clear": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    }
+  },
+  "properties": {
+    "AbortedToClearedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": false
+    },
+    "AbortingToAbortedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": false
+    },
+    "ClearedToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": false
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AbortedToClearedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "AbortingToAbortedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ClearedToAbortingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    }
+  }
+}

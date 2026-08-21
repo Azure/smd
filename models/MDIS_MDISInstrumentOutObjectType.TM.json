@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_MDISInstrumentOutObjectType",
+  "title": "MDIS_MDISInstrumentOutObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.MDISInstrumentOutObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MDIS#MDIS_MDISInstrumentObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "WriteValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/MDIS",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Value"
+        ],
+        "properties": {
+          "Value": {
+            "description": "Float value that is being written to the object",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      }
+    }
+  }
+}

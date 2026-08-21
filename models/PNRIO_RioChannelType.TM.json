@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioChannelType",
+  "title": "PNRIO_RioChannelType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Lock",
+      "href": "http://opcfoundation.org/UA/DI/#DI_LockingServicesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/SetApplicationTag",
+    "/properties/LastParameterChange"
+  ],
+  "actions": {
+    "SetApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ApplicationTag"
+        ],
+        "properties": {
+          "ApplicationTag": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "string",
+      "readOnly": true
+    },
+    "LastParameterChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "RioChannelNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

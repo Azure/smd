@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionJobEndPrognosisType",
+  "title": "MachineTool_ProductionJobEndPrognosisType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProductionJobEndPrognosisType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_PrognosisType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/JobNodeId",
+    "/events/JobNodeId"
+  ],
+  "properties": {
+    "JobNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SourceIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "JobNodeId": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "SourceIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

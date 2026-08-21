@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GPOS/#GPOS_S3DGeographicCoordinateDataType",
+  "title": "GPOS_S3DGeographicCoordinateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.GPOS.S3DGeographicCoordinateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "S3DGeographicCoordinateDataType": {
+      "description": "Represents a geographic coordinate",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.GPOS.S3DGeographicCoordinateDataType",
+      "required": [
+        "Longitude",
+        "Latitude"
+      ],
+      "properties": {
+        "Longitude": {
+          "description": "MUST be interpreted according to the CoordinateReferenceSystem",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Latitude": {
+          "description": "MUST be interpreted according to the CoordinateReferenceSystem",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Elevation": {
+          "description": "MUST be interpreted according to the ElevationReference. If floor, the height relative to specific floor in meter",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  }
+}

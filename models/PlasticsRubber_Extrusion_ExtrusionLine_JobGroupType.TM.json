@@ -1,0 +1,461 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_JobGroupType",
+  "title": "PlasticsRubber_Extrusion_ExtrusionLine_JobGroupType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.ExtrusionLine.JobGroupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Job__Nr_",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/#PlasticsRubber_Extrusion_ExtrusionLine_JobType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "JobStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "const": {
+        "OTHER": 0,
+        "TRANSFERRED_ASSIGNED": 1,
+        "SET_UP_ACTIVE": 2,
+        "SET_UP_INTERRUPTED": 3,
+        "SET_UP_FINISHED": 4,
+        "START_UP_ACTIVE": 5,
+        "JOB_IN_PRODUCTION": 6,
+        "JOB_INTERRUPTED": 7,
+        "JOB_FINISHED": 8,
+        "TEAR_DOWN_ACTIVE": 9,
+        "TEAR_DOWN_INTERRUPTED": 10,
+        "TEAR_DOWN_FINISHED": 11
+      },
+      "description": "Current status of the job",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "TRANSFERRED_ASSIGNED": {
+          "description": "The job has been transferred to the machine and assigned as current job",
+          "type": "integer"
+        },
+        "SET_UP_ACTIVE": {
+          "description": "The operator prepares the machine for the job",
+          "type": "integer"
+        },
+        "SET_UP_INTERRUPTED": {
+          "description": "The operator has interrupted but not finished the preparation of the machine for the job",
+          "type": "integer"
+        },
+        "SET_UP_FINISHED": {
+          "description": "The operator has finished the preparation of the machine for the job",
+          "type": "integer"
+        },
+        "START_UP_ACTIVE": {
+          "description": "The operator is setting the machine in the start-up phase",
+          "type": "integer"
+        },
+        "JOB_IN_PRODUCTION": {
+          "description": "The machine is producing parts/products for the job",
+          "type": "integer"
+        },
+        "JOB_INTERRUPTED": {
+          "description": "The job is interrupted. The nominal output is not reached",
+          "type": "integer"
+        },
+        "JOB_FINISHED": {
+          "description": "Nominal output reached",
+          "type": "integer"
+        },
+        "TEAR_DOWN_ACTIVE": {
+          "description": "The operator tears the machine down",
+          "type": "integer"
+        },
+        "TEAR_DOWN_INTERRUPTED": {
+          "description": "Tear-down is interrupted but not finished",
+          "type": "integer"
+        },
+        "TEAR_DOWN_FINISHED": {
+          "description": "Tear-down is finished",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AddJob",
+    "/actions/FinishJobById",
+    "/actions/InterruptJobById",
+    "/actions/RemoveJobById",
+    "/actions/StartJobById",
+    "/properties/ElectricalEnergyConsumption",
+    "/properties/FluidEnergyConsumption",
+    "/properties/PressureAirConsumption",
+    "/events/ElectricalEnergyConsumption",
+    "/events/FluidEnergyConsumption",
+    "/events/PressureAirConsumption"
+  ],
+  "actions": {
+    "AddJob": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id",
+          "Description",
+          "CustomerName",
+          "ProductName",
+          "ProductDescription",
+          "Strand",
+          "Sequence",
+          "ParameterSetting",
+          "SetOutput",
+          "LotSize"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "CustomerName": {
+            "type": "string"
+          },
+          "ProductName": {
+            "type": "string"
+          },
+          "ProductDescription": {
+            "type": "string"
+          },
+          "Strand": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Sequence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ParameterSetting": {
+            "type": "array",
+            "items": {
+              "title": "ParameterSettingType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ParameterSettingType",
+              "required": [
+                "Id",
+                "Value"
+              ],
+              "properties": {
+                "Id": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "SetOutput": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "LotSize": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JobNodeId"
+        ],
+        "properties": {
+          "JobNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FinishJobById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "InterruptJobById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveJobById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartJobById": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Id"
+        ],
+        "properties": {
+          "Id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "ConfigurationParameters": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "array",
+      "items": {
+        "title": "ConfigurationParameterType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.ConfigurationParameterType",
+        "required": [
+          "Id",
+          "Description",
+          "DefaultValue",
+          "Unit"
+        ],
+        "properties": {
+          "Id": {
+            "description": "Unique identifier",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Description": {
+            "description": "Description of the parameter",
+            "type": "string"
+          },
+          "DefaultValue": {
+            "description": "Default value of the parameter",
+            "type": "string"
+          },
+          "Unit": {
+            "title": "EUInformation",
+            "description": "Engineering unit of the parameter. If the Type of Defaultvalue is not a Number, then the Unit shall be empty",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "Description": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ElectricalEnergyConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "EquipmentDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "readOnly": true
+    },
+    "FluidEnergyConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "readOnly": true
+    },
+    "LatestEnd": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "MaterialMapping": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "array",
+      "items": {
+        "title": "MaterialMappingType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.ExtrusionLine.MaterialMappingType",
+        "required": [
+          "MaterialId",
+          "MaterialLot",
+          "HopperId"
+        ],
+        "properties": {
+          "MaterialId": {
+            "type": "string"
+          },
+          "MaterialLot": {
+            "type": "string"
+          },
+          "HopperId": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "NodeVersion": {
+      "type": "string",
+      "readOnly": true
+    },
+    "PlannedProductionTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PlannedSetUpTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PlannedStart": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "PressureAirConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Priority": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "ProductionDatasetName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "title": "JobStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.JobStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ElectricalEnergyConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "FluidEnergyConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PressureAirConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/ExtrusionLine/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

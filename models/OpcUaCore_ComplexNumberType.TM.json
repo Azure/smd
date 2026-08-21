@@ -1,0 +1,35 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ComplexNumberType",
+  "title": "OpcUaCore_ComplexNumberType",
+  "dov:typeRef": "org.opcfoundation.UA.ComplexNumberType",
+  "links": [],
+  "schemaDefinitions": {
+    "ComplexNumberType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ComplexNumberType",
+      "required": [
+        "Real",
+        "Imaginary"
+      ],
+      "properties": {
+        "Real": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "Imaginary": {
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_StatisticResultContentDataType",
+  "title": "TTD_StatisticResultContentDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.StatisticResultContentDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StatisticResultContentDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.StatisticResultContentDataType",
+      "required": [
+        "ResultKey",
+        "ItemCount",
+        "MeanValue",
+        "StandardDeviation",
+        "CoefficientOfVariation",
+        "MinValue",
+        "MaxValue",
+        "ConfidenceInterval95"
+      ],
+      "properties": {
+        "ResultKey": {
+          "description": "Unique identifier of the measured property defined by the tester application.",
+          "type": "string"
+        },
+        "ItemCount": {
+          "description": "Number of valid tests that were calculated in the statistics.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "MeanValue": {
+          "description": "Mean value of the valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "StandardDeviation": {
+          "description": "Standard-Deviation of the valid tets.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "CoefficientOfVariation": {
+          "description": "Coefficient of variation of valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "MinValue": {
+          "description": "The minimum value of the valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "MaxValue": {
+          "description": "The maximum value of the valid tests.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "ConfidenceInterval95": {
+          "description": "Confidence interval (95%) of the measurement.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  }
+}

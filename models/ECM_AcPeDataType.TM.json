@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_AcPeDataType",
+  "title": "ECM_AcPeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.AcPeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AcPeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ECM.AcPeDataType",
+      "required": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "properties": {
+        "L1": {
+          "description": "Phase L1-N (or phase a-n)",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "L2": {
+          "description": "Phase L2-N (or phase b-n)",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "L3": {
+          "description": "Phase L3-N (or phase c-n)",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        }
+      }
+    }
+  }
+}

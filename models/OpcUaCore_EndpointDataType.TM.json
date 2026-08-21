@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_EndpointDataType",
+  "title": "OpcUaCore_EndpointDataType",
+  "dov:typeRef": "org.opcfoundation.UA.EndpointDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "EndpointDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EndpointDataType",
+      "required": [
+        "Name",
+        "RecordProperties",
+        "DiscoveryUrls",
+        "NetworkName",
+        "Port"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "DiscoveryUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "NetworkName": {
+          "type": "string"
+        },
+        "Port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}

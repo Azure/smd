@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Robotics/#Robotics_UserType",
+  "title": "Robotics_UserType",
+  "dov:typeRef": "org.opcfoundation.UA.Robotics.UserType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Name"
+  ],
+  "properties": {
+    "Level": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "Provides information about the access rights and determines what can be viewed, updated, or deleted by a user",
+      "type": "string",
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/Robotics/",
+      "description": "The name for the current user within the control system.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetFaultParameterFaultState",
+  "title": "BACnet_V2_BACnetFaultParameterFaultState",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetFaultParameterFaultState",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetFaultParameterFaultState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetFaultParameterFaultState",
+      "required": [
+        "List-of-fault-values"
+      ],
+      "properties": {
+        "List-of-fault-values": {
+          "type": "array",
+          "items": {
+            "title": "BACnetProgramStates",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetProgramStates",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  }
+}

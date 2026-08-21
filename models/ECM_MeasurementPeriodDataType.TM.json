@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/ECM/#ECM_MeasurementPeriodDataType",
+  "title": "ECM_MeasurementPeriodDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ECM.MeasurementPeriodDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "MeasurementPeriodDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ECM.MeasurementPeriodDataType",
+      "required": [
+        "Duration",
+        "Definition"
+      ],
+      "properties": {
+        "Duration": {
+          "description": "The duration of the measurement period in ms.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "Definition": {
+          "title": "MeasurementPeriodEnum",
+          "description": "Defines how to interpret the duration of the measurement period.",
+          "dov:typeRef": "org.opcfoundation.UA.ECM.MeasurementPeriodEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

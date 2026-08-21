@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DatagramConnectionTransportDataType",
+  "title": "OpcUaCore_DatagramConnectionTransportDataType",
+  "dov:typeRef": "org.opcfoundation.UA.DatagramConnectionTransportDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DatagramConnectionTransportDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DatagramConnectionTransportDataType",
+      "required": [
+        "DiscoveryAddress"
+      ],
+      "properties": {
+        "DiscoveryAddress": {
+          "title": "NetworkAddressDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+          "required": [
+            "NetworkInterface"
+          ],
+          "properties": {
+            "NetworkInterface": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

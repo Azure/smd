@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Glass/Flat/v2/#Glass_Flat_v2_GlassEventType",
+  "title": "Glass_Flat_v2_GlassEventType",
+  "dov:typeRef": "org.opcfoundation.UA.Glass.Flat.v2.GlassEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PropertyType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.PropertyType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/Identifier",
+    "/properties/JobdIdentifier",
+    "/properties/Location",
+    "/properties/MaterialIdentifier"
+  ],
+  "properties": {
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/v2/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": false
+    },
+    "JobdIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/v2/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": false
+    },
+    "Location": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/v2/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": false
+    },
+    "MaterialIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Glass/Flat/v2/",
+      "tm:ref": "#/schemaDefinitions/PropertyType",
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_ExchangeablePartDataType",
+  "title": "TTD_ExchangeablePartDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.ExchangeablePartDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ExchangeablePartDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TTD.ExchangeablePartDataType",
+      "required": [
+        "PartType",
+        "Mounted"
+      ],
+      "properties": {
+        "PartType": {
+          "description": "Name of the machine part.",
+          "type": "string"
+        },
+        "Mounted": {
+          "description": "Flag stating if the part is currently mounted or not.",
+          "type": "boolean"
+        },
+        "Traceable": {
+          "description": "Flag stating if the part is traceable (e.g. has an id or serial number).",
+          "type": "boolean"
+        },
+        "PartId": {
+          "description": "Id or serial number of the part.",
+          "type": "string"
+        },
+        "MachineReadable": {
+          "description": "Flag stating if the PartId is machine readable.",
+          "type": "boolean"
+        },
+        "LastCalibrationDate": {
+          "description": "Date of the last calibration of this part if available.",
+          "type": "string",
+          "format": "time"
+        }
+      }
+    }
+  }
+}

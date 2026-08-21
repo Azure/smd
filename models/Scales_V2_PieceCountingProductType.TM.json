@@ -1,0 +1,358 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_PieceCountingProductType",
+  "title": "Scales_V2_PieceCountingProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.PieceCountingProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogItemType",
+      "type": "number"
+    },
+    "WeightItemType": {
+      "title": "WeightType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.WeightItemType",
+      "required": [
+        "Gross",
+        "Net",
+        "Tare"
+      ],
+      "properties": {
+        "Gross": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Net": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "Tare": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetTargetItemCount",
+    "/actions/SetTargetPieceCount",
+    "/properties/CurrentItemCount",
+    "/properties/FeedRateMeasuringInterval",
+    "/properties/FillingTime",
+    "/properties/FineFeedCount",
+    "/properties/InFlightCount",
+    "/properties/JogFeed",
+    "/properties/MinimumDeltaPerFeedRateMeasuringInterval",
+    "/properties/SettlingTime",
+    "/properties/TareId",
+    "/properties/TargetItemCount",
+    "/properties/TargetPieceCount",
+    "/properties/TotalizedItemCount",
+    "/properties/TotalizedWeight",
+    "/events/CurrentItemCount",
+    "/events/FeedRateMeasuringInterval",
+    "/events/FillingTime",
+    "/events/FineFeedCount",
+    "/events/InFlightCount",
+    "/events/JogFeed",
+    "/events/MinimumDeltaPerFeedRateMeasuringInterval",
+    "/events/SettlingTime",
+    "/events/TareId",
+    "/events/TargetItemCount",
+    "/events/TargetPieceCount",
+    "/events/TotalizedItemCount",
+    "/events/TotalizedWeight"
+  ],
+  "actions": {
+    "SetTargetItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Set the number of TargetItemCount.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TargetItemCount"
+        ],
+        "properties": {
+          "TargetItemCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "SetTargetPieceCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Sets the value of TargetPieceCount. See TargetPieceCount.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TargetPieceCount",
+          "PlusTolerance",
+          "MinusTolerance"
+        ],
+        "properties": {
+          "TargetPieceCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "PlusTolerance": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MinusTolerance": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "CurrentItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the current number of items that are captured by the scale.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "FeedRateMeasuringInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the measurement interval for evaluating the current flowrate.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "FillingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the interval during which the filling has to be completed.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "FineFeedCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "InFlightCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the number of items that is behind valve / in flight after feeding is stopped.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "JogFeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if an additional dosage is necessary.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "MinimumDeltaPerFeedRateMeasuringInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogItemType",
+      "readOnly": false
+    },
+    "NumberOfReferencePieces": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the number of pieces that need to be used for reference process.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "ReferencePieceWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogItemType",
+      "readOnly": false
+    },
+    "RegisteredPieceCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the number of pieces that were actually counted related to the ReferencePieceWeight.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "SettlingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the time that needs to be passed before measurement process can be triggered.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "TareId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the Id of tare value for the current product or item.",
+      "type": "string",
+      "readOnly": false
+    },
+    "TargetItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the number of items that are supposed to be counted during the measurement process.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "TargetPieceCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the number of pieces that need to be counted.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "TotalizedItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the summed up number of items. Will be reset either triggered by the user or a different product selection.",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "TotalizedWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/WeightItemType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CurrentItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the current number of items that are captured by the scale.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "FeedRateMeasuringInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the measurement interval for evaluating the current flowrate.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "FillingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the interval during which the filling has to be completed.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "FineFeedCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "InFlightCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the number of items that is behind valve / in flight after feeding is stopped.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "JogFeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines if an additional dosage is necessary.",
+        "type": "boolean"
+      }
+    },
+    "MinimumDeltaPerFeedRateMeasuringInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogItemType"
+      }
+    },
+    "NumberOfReferencePieces": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the number of pieces that need to be used for reference process.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "ReferencePieceWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogItemType"
+      }
+    },
+    "RegisteredPieceCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the number of pieces that were actually counted related to the ReferencePieceWeight.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "SettlingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the time that needs to be passed before measurement process can be triggered.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "TareId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the Id of tare value for the current product or item.",
+        "type": "string"
+      }
+    },
+    "TargetItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the number of items that are supposed to be counted during the measurement process.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "TargetPieceCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the number of pieces that need to be counted.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "TotalizedItemCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the summed up number of items. Will be reset either triggered by the user or a different product selection.",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "TotalizedWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/WeightItemType"
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_CleaningUnitValveType",
+  "title": "PAEFS_CleaningUnitValveType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.CleaningUnitValveType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Malfunction",
+    "/properties/Open"
+  ],
+  "properties": {
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the cleaning unit valve is malfunctioning. True in case of error. Malfunctions can be, for example, that the valve does not open or close.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "Open": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the valve is open.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

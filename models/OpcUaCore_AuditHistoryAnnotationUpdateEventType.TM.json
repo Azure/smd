@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryAnnotationUpdateEventType",
+  "title": "OpcUaCore_AuditHistoryAnnotationUpdateEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditHistoryAnnotationUpdateEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryUpdateEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PerformUpdateType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "const": {
+        "Insert": 1,
+        "Replace": 2,
+        "Update": 3,
+        "Remove": 4
+      },
+      "properties": {
+        "Insert": {
+          "description": "Data was inserted.",
+          "type": "integer"
+        },
+        "Replace": {
+          "description": "Data was replaced.",
+          "type": "integer"
+        },
+        "Update": {
+          "description": "Data was inserted or replaced.",
+          "type": "integer"
+        },
+        "Remove": {
+          "description": "Data was deleted.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "NewValues": {
+      "type": "array",
+      "items": {
+        "title": "Annotation",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Annotation",
+        "required": [
+          "Message",
+          "UserName",
+          "AnnotationTime"
+        ],
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "UserName": {
+            "type": "string"
+          },
+          "AnnotationTime": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "OldValues": {
+      "type": "array",
+      "items": {
+        "title": "Annotation",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Annotation",
+        "required": [
+          "Message",
+          "UserName",
+          "AnnotationTime"
+        ],
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "UserName": {
+            "type": "string"
+          },
+          "AnnotationTime": {
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "PerformInsertReplace": {
+      "title": "PerformUpdateType",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision/AMCM/#MachineVision_AMCM_VisionMaintenanceInfoType",
+  "title": "MachineVision_AMCM_VisionMaintenanceInfoType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.VisionMaintenanceInfoType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "OperationCounters",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryOperationCounterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MultiStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.MultiStateDiscreteType",
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "tm:optional": [
+    "/properties/CalibrationNeeded",
+    "/properties/FirmwareInfo",
+    "/properties/LastCalibration",
+    "/properties/LastService",
+    "/properties/MaintenanceRecord",
+    "/properties/NextCalibration",
+    "/properties/NextService",
+    "/properties/ServiceClass",
+    "/properties/StartOfWarranty",
+    "/events/ServiceClass"
+  ],
+  "properties": {
+    "CalibrationNeeded": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "a flag that if True denotes that the item needs calibration",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "FirmwareInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the information about the firmware of the Item",
+      "type": "string",
+      "readOnly": false
+    },
+    "LastCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the time when the previous calibration was carried out on the item",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "LastService": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the last moment in time when the most recent service was carried out on the item",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "MaintenanceRecord": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "provides the most recent note that was recorded while performing maintenance. This property can be historized if a history of previous maintenance notes is to be made available",
+      "type": "string",
+      "readOnly": false
+    },
+    "NextCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the planned time when the next calibration is to be carried out on the item.",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "NextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the planned moment in time when the next service is to be carried out on the item",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    },
+    "ServiceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType",
+      "readOnly": false
+    },
+    "StartOfWarranty": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "denotes the beginning of the warranty period of the item",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ServiceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MultiStateDiscreteType"
+      }
+    }
+  }
+}

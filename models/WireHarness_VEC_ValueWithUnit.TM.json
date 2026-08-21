@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_ValueWithUnit",
+  "title": "WireHarness_VEC_ValueWithUnit",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ValueWithUnit",
+  "links": [],
+  "schemaDefinitions": {
+    "ValueWithUnit": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ValueWithUnit",
+      "required": [
+        "UnitComponent"
+      ],
+      "properties": {
+        "UnitComponent": {
+          "title": "EUInformation",
+          "description": "References the unit of the value.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

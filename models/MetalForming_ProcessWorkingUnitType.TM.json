@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MetalForming/#MetalForming_ProcessWorkingUnitType",
+  "title": "MetalForming_ProcessWorkingUnitType",
+  "dov:typeRef": "org.opcfoundation.UA.MetalForming.ProcessWorkingUnitType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_WorkingUnitMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "CyclicProcessValue_Placeholder",
+      "href": "http://opcfoundation.org/UA/MetalForming/#MetalForming_CyclicProcessValueType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ProcessValue",
+      "href": "http://opcfoundation.org/UA/Machinery/ProcessValues/#Machinery_ProcessValues_ProcessValueType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    }
+  ]
+}

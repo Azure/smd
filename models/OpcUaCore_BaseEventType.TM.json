@@ -1,0 +1,107 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+  "title": "OpcUaCore_BaseEventType",
+  "dov:typeRef": "org.opcfoundation.UA.BaseEventType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ConditionClassId",
+    "/properties/ConditionClassName",
+    "/properties/ConditionSubClassId",
+    "/properties/ConditionSubClassName",
+    "/properties/LocalTime"
+  ],
+  "properties": {
+    "ConditionClassId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionClassName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionSubClassId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ConditionSubClassName": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "EventId": {
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "EventType": {
+      "type": "string",
+      "readOnly": true
+    },
+    "LocalTime": {
+      "title": "TimeZoneDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TimeZoneDataType",
+      "required": [
+        "Offset",
+        "DaylightSavingInOffset"
+      ],
+      "properties": {
+        "Offset": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "DaylightSavingInOffset": {
+          "type": "boolean"
+        }
+      },
+      "readOnly": true
+    },
+    "Message": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ReceiveTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Severity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SourceName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "SourceNode": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Time": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    }
+  }
+}

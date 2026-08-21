@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/General/#Mining_General_MiningEquipmentIdentificationType",
+  "title": "Mining_General_MiningEquipmentIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.General.MiningEquipmentIdentificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceTypeImage",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Documentation",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ImageSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ProtocolSupport",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "To be used by end users to store a unique identification in the context of their overall application. Servers shall support at least 40 Unicode characters for the clients writing this value, this means clients can expect to be able to write strings with a length of 40 Unicode characters into that field.",
+      "type": "string",
+      "readOnly": true
+    },
+    "DefaultInstanceBrowseName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/General/",
+      "description": "The default BrowseName for instances of this type",
+      "type": "string",
+      "readOnly": true
+    },
+    "DeviceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Indicates in which domain or for what purpose the MachineryItem is used.",
+      "type": "string",
+      "readOnly": true
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A globally unique identifier of the manufacturer of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A human-readable, localized name of the model of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_GapType",
+  "title": "PlasticsRubber_Extrusion_GeneralTypes_GapType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.GeneralTypes.GapType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ContactForce",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DistanceLeft",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DistanceRight",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/IsClosed",
+    "/properties/StockingGuideIsPresent",
+    "/events/IsClosed"
+  ],
+  "properties": {
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IsClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "RollId1": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    },
+    "RollId2": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    },
+    "StockingGuideIsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "IsClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

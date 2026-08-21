@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+  "title": "Machinery_MachineIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.MachineIdentificationType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Location"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Location": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "To be used by end users to store the location of the machine in a scheme specific to the end user. Servers shall support at least 60 Unicode characters for the clients writing this value, this means clients can expect to be able to write strings with a length of 60 Unicode characters into that field.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProductInstanceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A globally unique resource identifier provided by the manufacturer of the machine",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

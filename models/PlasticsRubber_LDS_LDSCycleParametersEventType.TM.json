@@ -1,0 +1,389 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/LDS/#PlasticsRubber_LDS_LDSCycleParametersEventType",
+  "title": "PlasticsRubber_LDS_LDSCycleParametersEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.LDS.LDSCycleParametersEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AdditivesPressure",
+    "/properties/AdditivesRatioActual",
+    "/properties/AdditivesRatioTarget",
+    "/properties/DosingTime",
+    "/properties/FilterPressurePrimary",
+    "/properties/FilterPressureSecondary",
+    "/properties/MixingPointPressureA",
+    "/properties/MixingPointPressureB",
+    "/properties/MixingPointPressureBlender",
+    "/properties/MixingRatioActual",
+    "/properties/MixingRatioTarget",
+    "/properties/ResidualAmountA",
+    "/properties/ResidualAmountB",
+    "/properties/VolumeA",
+    "/properties/VolumeAB",
+    "/properties/VolumeAdditives",
+    "/properties/VolumeB",
+    "/properties/VolumeTotal",
+    "/events/AdditivesPressure",
+    "/events/AdditivesRatioActual",
+    "/events/AdditivesRatioTarget",
+    "/events/FilterPressurePrimary",
+    "/events/FilterPressureSecondary",
+    "/events/MixingPointPressureA",
+    "/events/MixingPointPressureB",
+    "/events/MixingPointPressureBlender",
+    "/events/MixingRatioActual",
+    "/events/MixingRatioTarget",
+    "/events/ResidualAmountA",
+    "/events/ResidualAmountB",
+    "/events/VolumeA",
+    "/events/VolumeAB",
+    "/events/VolumeAdditives",
+    "/events/VolumeB",
+    "/events/VolumeTotal"
+  ],
+  "properties": {
+    "AdditivesPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Average pressure of the additive during the last cycle at the measuring point",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "readOnly": true
+    },
+    "AdditivesRatioActual": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Actual ratios of additive in percentage",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "readOnly": true
+    },
+    "AdditivesRatioTarget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Target ratios of additives in percentage which are set in AdditiveFraction of AdditiveType",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "readOnly": true
+    },
+    "CycleNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Number of the dosing cycle",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "DosingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Duration of the dosing cycle",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "FilterPressurePrimary": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Average material pressure during the last cycle before the filter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "FilterPressureSecondary": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Average material pressure during the last cycle after the filter",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MixingPointPressureA": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Average pressure of component A during the last cycle at the blender",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MixingPointPressureB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Average pressure of component B during the last cycle at the blender",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MixingPointPressureBlender": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Average pressure of components A and B during the last cycle at the blender",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MixingRatioActual": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Actual mixing ratio of the components",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "MixingRatioTarget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Target mixing ratio of the last cycle (includes ratio change when MaterialBalanceSystem is active)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ResidualAmountA": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Residual weight amount of component A at the end of the dosing cycle",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ResidualAmountB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Residual weight amount of component B at the end of the dosing cycle",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeA": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Volume of component A that was added to the process in the last cycle",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeAB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Volume of components A + B that was added to the process in the last cycle",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeAdditives": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Volumes of the additives that were added to the process in the last cycle",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "readOnly": true
+    },
+    "VolumeB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Volume of component B that was added to the process in the last cycle",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VolumeTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "description": "Volume of all components (A + B + all additives)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AdditivesPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Average pressure of the additive during the last cycle at the measuring point",
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    },
+    "AdditivesRatioActual": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Actual ratios of additive in percentage",
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    },
+    "AdditivesRatioTarget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Target ratios of additives in percentage which are set in AdditiveFraction of AdditiveType",
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    },
+    "FilterPressurePrimary": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Average material pressure during the last cycle before the filter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "FilterPressureSecondary": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Average material pressure during the last cycle after the filter",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MixingPointPressureA": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Average pressure of component A during the last cycle at the blender",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MixingPointPressureB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Average pressure of component B during the last cycle at the blender",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MixingPointPressureBlender": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Average pressure of components A and B during the last cycle at the blender",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MixingRatioActual": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Actual mixing ratio of the components",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MixingRatioTarget": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Target mixing ratio of the last cycle (includes ratio change when MaterialBalanceSystem is active)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ResidualAmountA": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Residual weight amount of component A at the end of the dosing cycle",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ResidualAmountB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Residual weight amount of component B at the end of the dosing cycle",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeA": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Volume of component A that was added to the process in the last cycle",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeAB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Volume of components A + B that was added to the process in the last cycle",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeAdditives": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Volumes of the additives that were added to the process in the last cycle",
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      }
+    },
+    "VolumeB": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Volume of component B that was added to the process in the last cycle",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VolumeTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/LDS/",
+      "data": {
+        "description": "Volume of all components (A + B + all additives)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

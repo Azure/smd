@@ -1,0 +1,131 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/#PlasticsRubber_Extrusion_Cutter_Cutter_InterfaceType",
+  "title": "PlasticsRubber_Extrusion_Cutter_Cutter_InterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Cutter.Cutter_InterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "CuttingProducts",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/#PlasticsRubber_Extrusion_Cutter_CuttingProductsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CuttingProgram",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StartDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ProductSpeed",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ManualCut",
+    "/actions/SampleCut",
+    "/properties/SampleCuttingLength",
+    "/properties/SideClampClosed",
+    "/properties/TotalWasteLength",
+    "/properties/WasteCuttingLength",
+    "/properties/WasteIndicator",
+    "/events/SampleCuttingLength",
+    "/events/SideClampClosed",
+    "/events/TotalWasteLength",
+    "/events/WasteCuttingLength",
+    "/events/WasteIndicator"
+  ],
+  "actions": {
+    "ManualCut": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/"
+    },
+    "SampleCut": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/"
+    }
+  },
+  "properties": {
+    "SampleCuttingLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SideClampClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "TotalWasteLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "WasteCuttingLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "WasteIndicator": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "SampleCuttingLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SideClampClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "TotalWasteLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "WasteCuttingLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "WasteIndicator": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "boolean"
+      }
+    }
+  }
+}

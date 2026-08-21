@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/PackageMetadata/#DI_PackageMetadata_FileDescriptor",
+  "title": "DI_PackageMetadata_FileDescriptor",
+  "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FileDescriptor",
+  "links": [],
+  "schemaDefinitions": {
+    "FileDescriptor": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FileDescriptor",
+      "required": [
+        "FileType",
+        "FileName"
+      ],
+      "properties": {
+        "FileType": {
+          "title": "FileType",
+          "dov:typeRef": "org.opcfoundation.UA.DI.PackageMetadata.FileType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "FileName": {
+          "type": "string"
+        },
+        "MimeType": {
+          "type": "string"
+        },
+        "Language": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnIM5DataType",
+  "title": "PROFINET_PnIM5DataType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnIM5DataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PnIM5DataType": {
+      "description": "Contains the fields of the APDU element I&M5 | I&M5Data",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnIM5DataType",
+      "required": [
+        "Annotation",
+        "OrderId",
+        "VendorId",
+        "SerialNumber",
+        "HardwareRevision",
+        "SoftwareRevision"
+      ],
+      "properties": {
+        "Annotation": {
+          "description": "I&M5Data | IM_Annotation",
+          "type": "string"
+        },
+        "OrderId": {
+          "description": "I&M5Data | IM_OrderID",
+          "type": "string"
+        },
+        "VendorId": {
+          "description": "I&M5Data | VendorID",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "SerialNumber": {
+          "description": "I&M5Data | IM_Serial_Number",
+          "type": "string"
+        },
+        "HardwareRevision": {
+          "description": "I&M5Data | IM_Hardware_Revision",
+          "type": "string"
+        },
+        "SoftwareRevision": {
+          "description": "I&M5Data | IM_Software_Revision",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

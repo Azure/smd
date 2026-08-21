@@ -1,0 +1,86 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ApplicationConfigurationType",
+  "title": "OpcUaCore_ApplicationConfigurationType",
+  "dov:typeRef": "org.opcfoundation.UA.ApplicationConfigurationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ServerConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "KeyCredentials",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_KeyCredentialConfigurationFolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AuthorizationServices",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuthorizationServicesConfigurationFolderType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ApplicationType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "const": {
+        "Server": 0,
+        "Client": 1,
+        "ClientAndServer": 2,
+        "DiscoveryServer": 3
+      },
+      "properties": {
+        "Server": {
+          "type": "integer"
+        },
+        "Client": {
+          "type": "integer"
+        },
+        "ClientAndServer": {
+          "type": "integer"
+        },
+        "DiscoveryServer": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/IsNonUaApplication"
+  ],
+  "properties": {
+    "ApplicationType": {
+      "title": "ApplicationType",
+      "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ApplicationUri": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Enabled": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IsNonUaApplication": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ProductUri": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

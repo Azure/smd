@@ -1,0 +1,155 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DI/#DI_SoftwareUpdateType",
+  "title": "DI_SoftwareUpdateType",
+  "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareUpdateType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Loading",
+      "href": "http://opcfoundation.org/UA/DI/#DI_SoftwareLoadingType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "PrepareForUpdate",
+      "href": "http://opcfoundation.org/UA/DI/#DI_PrepareForUpdateStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Installation",
+      "href": "http://opcfoundation.org/UA/DI/#DI_InstallationStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "PowerCycle",
+      "href": "http://opcfoundation.org/UA/DI/#DI_PowerCycleStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Confirmation",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ConfirmationStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Parameters",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TemporaryFileTransferType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "SoftwareClass": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareClass",
+      "const": {
+        "Firmware": 0,
+        "Application": 1,
+        "Configuration": 2,
+        "Solution": 3
+      },
+      "properties": {
+        "Firmware": {
+          "description": "The software update is used for the firmware of a physical device.",
+          "type": "integer"
+        },
+        "Application": {
+          "description": "The software update is used for an executable software.",
+          "type": "integer"
+        },
+        "Configuration": {
+          "description": "The software update is used for the configuration of a device or application.",
+          "type": "integer"
+        },
+        "Solution": {
+          "description": "The software update is used to install a solution with several software package to several components.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/SoftwareClass",
+    "/properties/SoftwareName",
+    "/properties/SoftwareSubclass",
+    "/properties/UnsignedPackageAllowed",
+    "/properties/UpdateStatus",
+    "/properties/VendorErrorCode",
+    "/events/UpdateStatus",
+    "/events/VendorErrorCode"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "SoftwareClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "title": "SoftwareClass",
+      "dov:typeRef": "org.opcfoundation.UA.DI.SoftwareClass",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SoftwareName": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoftwareSubclass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "UnsignedPackageAllowed": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "UpdateStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "VendorErrorCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "UpdateStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "type": "string"
+      }
+    },
+    "VendorErrorCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

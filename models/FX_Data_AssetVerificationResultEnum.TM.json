@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_AssetVerificationResultEnum",
+  "title": "FX_Data_AssetVerificationResultEnum",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "AssetVerificationResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+      "const": {
+        "NotSet": 0,
+        "Match": 1,
+        "Compatible": 2,
+        "Mismatch": 3
+      },
+      "properties": {
+        "NotSet": {
+          "description": "The verification result is not set.",
+          "type": "integer"
+        },
+        "Match": {
+          "description": "Asset matches expectation.",
+          "type": "integer"
+        },
+        "Compatible": {
+          "description": "Asset does not match expectation but is compatible.",
+          "type": "integer"
+        },
+        "Mismatch": {
+          "description": "Asset does not match expectation and is not compatible.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

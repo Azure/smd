@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UadpWriterGroupMessageType",
+  "title": "OpcUaCore_UadpWriterGroupMessageType",
+  "dov:typeRef": "org.opcfoundation.UA.UadpWriterGroupMessageType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_WriterGroupMessageType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DataSetOrderingType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetOrderingType",
+      "const": {
+        "Undefined": 0,
+        "AscendingWriterId": 1,
+        "AscendingWriterIdSingle": 2
+      },
+      "properties": {
+        "Undefined": {
+          "type": "integer"
+        },
+        "AscendingWriterId": {
+          "type": "integer"
+        },
+        "AscendingWriterIdSingle": {
+          "type": "integer"
+        }
+      }
+    },
+    "UadpNetworkMessageContentMask": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UadpNetworkMessageContentMask",
+      "const": {
+        "PublisherId": 0,
+        "GroupHeader": 1,
+        "WriterGroupId": 2,
+        "GroupVersion": 3,
+        "NetworkMessageNumber": 4,
+        "SequenceNumber": 5,
+        "PayloadHeader": 6,
+        "Timestamp": 7,
+        "PicoSeconds": 8,
+        "DataSetClassId": 9,
+        "PromotedFields": 10
+      },
+      "properties": {
+        "PublisherId": {
+          "type": "integer"
+        },
+        "GroupHeader": {
+          "type": "integer"
+        },
+        "WriterGroupId": {
+          "type": "integer"
+        },
+        "GroupVersion": {
+          "type": "integer"
+        },
+        "NetworkMessageNumber": {
+          "type": "integer"
+        },
+        "SequenceNumber": {
+          "type": "integer"
+        },
+        "PayloadHeader": {
+          "type": "integer"
+        },
+        "Timestamp": {
+          "type": "integer"
+        },
+        "PicoSeconds": {
+          "type": "integer"
+        },
+        "DataSetClassId": {
+          "type": "integer"
+        },
+        "PromotedFields": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/SamplingOffset"
+  ],
+  "properties": {
+    "DataSetOrdering": {
+      "title": "DataSetOrderingType",
+      "dov:typeRef": "org.opcfoundation.UA.DataSetOrderingType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "GroupVersion": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "NetworkMessageContentMask": {
+      "title": "UadpNetworkMessageContentMask",
+      "dov:typeRef": "org.opcfoundation.UA.UadpNetworkMessageContentMask",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "PublishingOffset": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      },
+      "readOnly": true
+    },
+    "SamplingOffset": {
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    }
+  }
+}

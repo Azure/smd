@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AliasUpdateDataType",
+  "title": "OpcUaCore_AliasUpdateDataType",
+  "dov:typeRef": "org.opcfoundation.UA.AliasUpdateDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AliasUpdateDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AliasUpdateDataType",
+      "required": [
+        "ApplicationUri",
+        "Categories"
+      ],
+      "properties": {
+        "ApplicationUri": {
+          "type": "string"
+        },
+        "Categories": {
+          "type": "array",
+          "items": {
+            "title": "AliasCategoryUpdateDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.AliasCategoryUpdateDataType",
+            "required": [
+              "Category",
+              "LastChange"
+            ],
+            "properties": {
+              "Category": {
+                "title": "PortableNodeId",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.PortableNodeId",
+                "required": [
+                  "NamespaceUri",
+                  "Identifier"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "Identifier": {
+                    "type": "string"
+                  }
+                }
+              },
+              "LastChange": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

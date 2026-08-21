@@ -1,0 +1,115 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JointDataType",
+  "title": "IJT_Base_JointDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "JointDataType": {
+      "description": "This structure provides the joint information. Joint is the physical outcome of the joining operation which determines the properties of the point where multiple parts are assembled.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDataType",
+      "required": [
+        "JointId"
+      ],
+      "properties": {
+        "JointId": {
+          "description": "It is the identifier of the joint.",
+          "type": "string"
+        },
+        "JointOriginId": {
+          "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+          "type": "string"
+        },
+        "JointDesignId": {
+          "description": "It is the identifier of the associated joint design.",
+          "type": "string"
+        },
+        "CreationTime": {
+          "description": "It is the time when the joint was created.",
+          "type": "string",
+          "format": "time"
+        },
+        "LastUpdatedTime": {
+          "description": "It is the time when the joint was updated last time. If it is not available, it can be same as CreationTime.",
+          "type": "string",
+          "format": "time"
+        },
+        "Name": {
+          "description": "It is the name of the joint.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "It is the description of the joint.",
+          "type": "string"
+        },
+        "Classification": {
+          "description": "It is the classification of the joint.",
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "ClassificationDetails": {
+          "description": "It is the details of the classification. It can also be used to provide any other type of classification.  Examples: Safety Critical, etc.",
+          "type": "string"
+        },
+        "JointStatus": {
+          "description": "It is the status of the joint. Examples: Ok, InUse, NotInUse, NotYetDone, etc.",
+          "type": "string"
+        },
+        "AssociatedEntities": {
+          "description": "It is the list of entities associated to the joint. Examples: JoiningProcessId, JobId, QualityProcessId, SimulationProcessId, etc.",
+          "type": "array",
+          "items": {
+            "title": "EntityDataType",
+            "description": "This structure provides the identification data for a given entity in the system.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+            "required": [
+              "EntityId",
+              "EntityType"
+            ],
+            "properties": {
+              "Name": {
+                "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                "type": "string"
+              },
+              "EntityId": {
+                "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                "type": "string"
+              },
+              "EntityOriginId": {
+                "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                "type": "string"
+              },
+              "IsExternal": {
+                "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                "type": "boolean"
+              },
+              "EntityType": {
+                "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              }
+            }
+          }
+        },
+        "JoiningTechnology": {
+          "description": "It is a human readable text to identify the joining technology.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

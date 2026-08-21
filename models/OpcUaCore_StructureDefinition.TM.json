@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_StructureDefinition",
+  "title": "OpcUaCore_StructureDefinition",
+  "dov:typeRef": "org.opcfoundation.UA.StructureDefinition",
+  "links": [],
+  "schemaDefinitions": {
+    "StructureDefinition": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.StructureDefinition",
+      "required": [
+        "DefaultEncodingId",
+        "BaseDataType",
+        "StructureType",
+        "Fields"
+      ],
+      "properties": {
+        "DefaultEncodingId": {
+          "type": "string"
+        },
+        "BaseDataType": {
+          "type": "string"
+        },
+        "StructureType": {
+          "title": "StructureType",
+          "dov:typeRef": "org.opcfoundation.UA.StructureType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "Fields": {
+          "type": "array",
+          "items": {
+            "title": "StructureField",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.StructureField",
+            "required": [
+              "Name",
+              "Description",
+              "DataType",
+              "ValueRank",
+              "ArrayDimensions",
+              "MaxStringLength",
+              "IsOptional"
+            ],
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              },
+              "DataType": {
+                "type": "string"
+              },
+              "ValueRank": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ArrayDimensions": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              },
+              "MaxStringLength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "IsOptional": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

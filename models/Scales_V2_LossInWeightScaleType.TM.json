@@ -1,0 +1,101 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_LossInWeightScaleType",
+  "title": "Scales_V2_LossInWeightScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.LossInWeightScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ContinuousScaleType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "MeasuredItemType": {
+      "description": "Stand-in for an unspecified data type.",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.MeasuredItemType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/BinWeight",
+    "/events/BinWeight"
+  ],
+  "actions": {
+    "DischargeStart": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Starts a discharging process."
+    },
+    "DischargeStop": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Stops a discharging process."
+    },
+    "RefillStart": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Starts a refilling process."
+    },
+    "RefillStop": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Stops a refilling process."
+    }
+  },
+  "properties": {
+    "BinWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/MeasuredItemType",
+      "readOnly": false
+    },
+    "Discharging": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Indicates that a discharging process is taking place.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "HopperFillLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "HopperWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/MeasuredItemType",
+      "readOnly": false
+    },
+    "Refilling": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "boolean",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "BinWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MeasuredItemType"
+      }
+    },
+    "HopperFillLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "HopperWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/MeasuredItemType"
+      }
+    }
+  }
+}

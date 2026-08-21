@@ -1,0 +1,149 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioChannelDiagnosisAlarmType",
+  "title": "PNRIO_RioChannelDiagnosisAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AlarmConditionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "RioChannelDiagnosisReasonEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisReasonEnumeration",
+      "const": {
+        "ALL_DISAPPEARS": 0,
+        "APPEARS": 1,
+        "DISAPPEARS": 2,
+        "DISAPPEARS_OTHER_REMAIN": 3
+      },
+      "properties": {
+        "ALL_DISAPPEARS": {
+          "description": "No diagnosis condition of any severity is persisting.",
+          "type": "integer"
+        },
+        "APPEARS": {
+          "description": "The diagnosis condition indicated arises and/or persists. ",
+          "type": "integer"
+        },
+        "DISAPPEARS": {
+          "description": "The diagnosis condition indicated does not longer persist. No diagnosis condition of the same severity is persisting for the affected channel.",
+          "type": "integer"
+        },
+        "DISAPPEARS_OTHER_REMAIN": {
+          "description": "The diagnosis condition indicated does not longer persist. Other diagnosis conditions of the same severity are persisting.",
+          "type": "integer"
+        }
+      }
+    },
+    "RioChannelDiagnosisStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisStatusEnumeration",
+      "const": {
+        "HI_LIM_EXCEEDED": 0,
+        "LO_LIM_EXCEEDED": 1,
+        "SIMULATION_ACTIVE": 2,
+        "MODE_CHANGED": 3,
+        "SUBSTITUTE_VALUE_USED": 4,
+        "Q_BAD_SUBSTITUTE_VALUE_USED": 5,
+        "OUT_OF_SERVICE": 6
+      },
+      "properties": {
+        "HI_LIM_EXCEEDED": {
+          "description": "Upper limit value exceeded. Only supported by RIOforPA channels. ",
+          "type": "integer"
+        },
+        "LO_LIM_EXCEEDED": {
+          "description": "Lower limit value underrun. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "SIMULATION_ACTIVE": {
+          "description": "Simulation is active. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "MODE_CHANGED": {
+          "description": "Mode of block has changed. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "SUBSTITUTE_VALUE_USED": {
+          "description": "Substitute value used. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "Q_BAD_SUBSTITUTE_VALUE_USED": {
+          "description": "Process Image Qualifier = 0. Substitute value used by (Sub)Module. Only supported by RIOforFA channels.",
+          "type": "integer"
+        },
+        "OUT_OF_SERVICE": {
+          "description": "The channel has ceased operation.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ApplicationTag",
+    "/properties/HelpText",
+    "/properties/ManufacturerData",
+    "/properties/PnChannelNumber"
+  ],
+  "properties": {
+    "ApplicationTag": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "string",
+      "readOnly": true
+    },
+    "HelpText": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ManufacturerData": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "PnChannelNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Reason": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "title": "RioChannelDiagnosisReasonEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisReasonEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "RioChannelNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "title": "RioChannelDiagnosisStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

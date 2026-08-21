@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeTsnInterfaceConfigurationTalkerType",
+  "title": "OpcUaCore_IIeeeTsnInterfaceConfigurationTalkerType",
+  "dov:typeRef": "org.opcfoundation.UA.IIeeeTsnInterfaceConfigurationTalkerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_IIeeeTsnInterfaceConfigurationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/TimeAwareOffset",
+    "/events/TimeAwareOffset"
+  ],
+  "properties": {
+    "TimeAwareOffset": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "TimeAwareOffset": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

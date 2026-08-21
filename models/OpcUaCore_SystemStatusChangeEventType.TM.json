@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SystemStatusChangeEventType",
+  "title": "OpcUaCore_SystemStatusChangeEventType",
+  "dov:typeRef": "org.opcfoundation.UA.SystemStatusChangeEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_SystemEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ServerState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServerState",
+      "const": {
+        "Running": 0,
+        "Failed": 1,
+        "NoConfiguration": 2,
+        "Suspended": 3,
+        "Shutdown": 4,
+        "Test": 5,
+        "CommunicationFault": 6,
+        "Unknown": 7
+      },
+      "properties": {
+        "Running": {
+          "type": "integer"
+        },
+        "Failed": {
+          "type": "integer"
+        },
+        "NoConfiguration": {
+          "type": "integer"
+        },
+        "Suspended": {
+          "type": "integer"
+        },
+        "Shutdown": {
+          "type": "integer"
+        },
+        "Test": {
+          "type": "integer"
+        },
+        "CommunicationFault": {
+          "type": "integer"
+        },
+        "Unknown": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "SystemState": {
+      "title": "ServerState",
+      "dov:typeRef": "org.opcfoundation.UA.ServerState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

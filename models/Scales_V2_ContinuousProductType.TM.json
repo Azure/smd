@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ContinuousProductType",
+  "title": "Scales_V2_ContinuousProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.ContinuousProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ProductType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogUnitType": {
+      "dov:typeRef": "org.opcfoundation.UA.AnalogUnitType",
+      "type": "number"
+    },
+    "TargetItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+      "type": "number"
+    }
+  },
+  "tm:optional": [
+    "/properties/MaterialDensity",
+    "/properties/TargetFlowRate",
+    "/properties/TargetWeight",
+    "/events/MaterialDensity",
+    "/events/TargetFlowRate",
+    "/events/TargetWeight"
+  ],
+  "properties": {
+    "MaterialDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/AnalogUnitType",
+      "readOnly": false
+    },
+    "TargetFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/TargetItemType",
+      "readOnly": false
+    },
+    "TargetWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/TargetItemType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "MaterialDensity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/AnalogUnitType"
+      }
+    },
+    "TargetFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TargetItemType"
+      }
+    },
+    "TargetWeight": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TargetItemType"
+      }
+    }
+  }
+}

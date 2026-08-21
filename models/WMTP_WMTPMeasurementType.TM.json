@@ -1,0 +1,206 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WMTP/#WMTP_WMTPMeasurementType",
+  "title": "WMTP_WMTPMeasurementType",
+  "dov:typeRef": "org.opcfoundation.UA.WMTP.WMTPMeasurementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/ProcessValues/#Machinery_ProcessValues_ProcessValueType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "LimitCounters",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryOperationCounterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AbsoluteUncertainty",
+    "/properties/Index",
+    "/properties/InternalUpdateInterval",
+    "/properties/MeasurementPeriod",
+    "/properties/RelativeUncertainty",
+    "/properties/Status",
+    "/properties/Timestamp",
+    "/events/AbsoluteUncertainty",
+    "/events/RelativeUncertainty",
+    "/events/Status"
+  ],
+  "actions": {
+    "SetDeltaCondition": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "DeltaValue"
+        ],
+        "properties": {
+          "DeltaValue": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "SetTriggerSettings": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TriggerDuration"
+        ],
+        "properties": {
+          "TriggerDuration": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AbsoluteUncertainty": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "DeltaCondition": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Index": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "InternalUpdateInterval": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "MeasurementPeriod": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "RelativeUncertainty": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/ProcessValues/",
+      "description": "Indicates if a limit has been reached.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Timestamp": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "TriggerSettings": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "TypeOfMeasurement": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "TypeOfSample": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AbsoluteUncertainty": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DeltaCondition": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RelativeUncertainty": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/ProcessValues/",
+      "data": {
+        "description": "Indicates if a limit has been reached.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "TriggerSettings": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "TypeOfMeasurement": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "TypeOfSample": {
+      "dov:namespace": "http://opcfoundation.org/UA/WMTP/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

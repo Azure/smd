@@ -1,0 +1,35 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ServiceCounterDataType",
+  "title": "OpcUaCore_ServiceCounterDataType",
+  "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ServiceCounterDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+      "required": [
+        "TotalCount",
+        "ErrorCount"
+      ],
+      "properties": {
+        "TotalCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "ErrorCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

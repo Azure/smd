@@ -1,0 +1,471 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://fdi-cooperation.com/OPCUA/FDI5/#Fdi_cooperation_OPCUA_FDI5_EditContextType",
+  "title": "Fdi_cooperation_OPCUA_FDI5_EditContextType",
+  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.EditContextType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "WindowModeType": {
+      "type": "object",
+      "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.WindowModeType",
+      "const": {
+        "ModalWindow": 1,
+        "NonModalWindow": 2,
+        "UIP": 3
+      },
+      "properties": {
+        "ModalWindow": {
+          "type": "integer"
+        },
+        "NonModalWindow": {
+          "type": "integer"
+        },
+        "UIP": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Apply": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EditContextId"
+        ],
+        "properties": {
+          "EditContextId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ApplyStatus"
+        ],
+        "properties": {
+          "ApplyStatus": {
+            "title": "ApplyResult",
+            "type": "object",
+            "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.ApplyResult",
+            "required": [
+              "Status",
+              "TransferIncidents"
+            ],
+            "properties": {
+              "Status": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "TransferIncidents": {
+                "type": "array",
+                "items": {
+                  "title": "TransferIncident",
+                  "type": "object",
+                  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.TransferIncident",
+                  "required": [
+                    "ContextNodeId",
+                    "StatusCode",
+                    "Diagnostics"
+                  ],
+                  "properties": {
+                    "ContextNodeId": {
+                      "type": "string"
+                    },
+                    "StatusCode": {
+                      "type": "string"
+                    },
+                    "Diagnostics": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Discard": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EditContextId"
+        ],
+        "properties": {
+          "EditContextId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "DiscardStatus"
+        ],
+        "properties": {
+          "DiscardStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "GetEditContext": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ParentId",
+          "TargetWindowMode"
+        ],
+        "properties": {
+          "ParentId": {
+            "type": "string"
+          },
+          "TargetWindowMode": {
+            "title": "WindowModeType",
+            "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.WindowModeType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "EditContextId",
+          "GetEditContextStatus"
+        ],
+        "properties": {
+          "EditContextId": {
+            "type": "string"
+          },
+          "GetEditContextStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "RegisterNodesById": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EditContextId",
+          "NodesToRegister"
+        ],
+        "properties": {
+          "EditContextId": {
+            "type": "string"
+          },
+          "NodesToRegister": {
+            "type": "array",
+            "items": {
+              "title": "RegistrationParameters",
+              "type": "object",
+              "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegistrationParameters",
+              "required": [
+                "Path",
+                "SelectionFlags"
+              ],
+              "properties": {
+                "Path": {
+                  "title": "RelativePath",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+                  "required": [
+                    "Elements"
+                  ],
+                  "properties": {
+                    "Elements": {
+                      "type": "array",
+                      "items": {
+                        "title": "RelativePathElement",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                        "required": [
+                          "ReferenceTypeId",
+                          "IsInverse",
+                          "IncludeSubtypes",
+                          "TargetName"
+                        ],
+                        "properties": {
+                          "ReferenceTypeId": {
+                            "type": "string"
+                          },
+                          "IsInverse": {
+                            "type": "boolean"
+                          },
+                          "IncludeSubtypes": {
+                            "type": "boolean"
+                          },
+                          "TargetName": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "SelectionFlags": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RegisterNodesStatus"
+        ],
+        "properties": {
+          "RegisterNodesStatus": {
+            "title": "RegisterNodesResult",
+            "type": "object",
+            "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisterNodesResult",
+            "required": [
+              "Status",
+              "RegisteredNodes"
+            ],
+            "properties": {
+              "Status": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "RegisteredNodes": {
+                "type": "array",
+                "items": {
+                  "title": "RegisteredNode",
+                  "type": "object",
+                  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisteredNode",
+                  "required": [
+                    "NodeStatus",
+                    "OnlineContextNodeId",
+                    "OnlineDeviceNodeId",
+                    "OfflineContextNodeId",
+                    "OfflineDeviceNodeId"
+                  ],
+                  "properties": {
+                    "NodeStatus": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "OnlineContextNodeId": {
+                      "type": "string"
+                    },
+                    "OnlineDeviceNodeId": {
+                      "type": "string"
+                    },
+                    "OfflineContextNodeId": {
+                      "type": "string"
+                    },
+                    "OfflineDeviceNodeId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "RegisterNodesByRelativePath": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EditContextId",
+          "NodesToRegister"
+        ],
+        "properties": {
+          "EditContextId": {
+            "type": "string"
+          },
+          "NodesToRegister": {
+            "type": "array",
+            "items": {
+              "title": "RegistrationParameters",
+              "type": "object",
+              "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegistrationParameters",
+              "required": [
+                "Path",
+                "SelectionFlags"
+              ],
+              "properties": {
+                "Path": {
+                  "title": "RelativePath",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.RelativePath",
+                  "required": [
+                    "Elements"
+                  ],
+                  "properties": {
+                    "Elements": {
+                      "type": "array",
+                      "items": {
+                        "title": "RelativePathElement",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.RelativePathElement",
+                        "required": [
+                          "ReferenceTypeId",
+                          "IsInverse",
+                          "IncludeSubtypes",
+                          "TargetName"
+                        ],
+                        "properties": {
+                          "ReferenceTypeId": {
+                            "type": "string"
+                          },
+                          "IsInverse": {
+                            "type": "boolean"
+                          },
+                          "IncludeSubtypes": {
+                            "type": "boolean"
+                          },
+                          "TargetName": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "SelectionFlags": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RegisterNodesStatus"
+        ],
+        "properties": {
+          "RegisterNodesStatus": {
+            "title": "RegisterNodesResult",
+            "type": "object",
+            "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisterNodesResult",
+            "required": [
+              "Status",
+              "RegisteredNodes"
+            ],
+            "properties": {
+              "Status": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "RegisteredNodes": {
+                "type": "array",
+                "items": {
+                  "title": "RegisteredNode",
+                  "type": "object",
+                  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.RegisteredNode",
+                  "required": [
+                    "NodeStatus",
+                    "OnlineContextNodeId",
+                    "OnlineDeviceNodeId",
+                    "OfflineContextNodeId",
+                    "OfflineDeviceNodeId"
+                  ],
+                  "properties": {
+                    "NodeStatus": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "OnlineContextNodeId": {
+                      "type": "string"
+                    },
+                    "OnlineDeviceNodeId": {
+                      "type": "string"
+                    },
+                    "OfflineContextNodeId": {
+                      "type": "string"
+                    },
+                    "OfflineDeviceNodeId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Reset": {
+      "dov:namespace": "http://fdi-cooperation.com/OPCUA/FDI5/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EditContextId"
+        ],
+        "properties": {
+          "EditContextId": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "ResetStatus"
+        ],
+        "properties": {
+          "ResetStatus": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  }
+}

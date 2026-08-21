@@ -1,0 +1,109 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_TemperatureZoneCycleParametersType",
+  "title": "PlasticsRubber_GeneralTypes_TemperatureZoneCycleParametersType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.TemperatureZoneCycleParametersType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TemperatureZoneClassificationEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.TemperatureZoneClassificationEnumeration",
+      "const": {
+        "OTHER": 0,
+        "HEATING": 1,
+        "COOLING": 2,
+        "TEMPERATURE_CONTROL": 3,
+        "HOT_RUNNER": 4,
+        "MEASURING": 5
+      },
+      "description": "Type of the temperature zone",
+      "properties": {
+        "OTHER": {
+          "description": "This value is used if none of the other values below apply",
+          "type": "integer"
+        },
+        "HEATING": {
+          "description": "The zone is a heating zone",
+          "type": "integer"
+        },
+        "COOLING": {
+          "description": "The zone is a cooling zone",
+          "type": "integer"
+        },
+        "TEMPERATURE_CONTROL": {
+          "description": "The zone is controlled by a temperature control device",
+          "type": "integer"
+        },
+        "HOT_RUNNER": {
+          "description": "The zone is a hot runner zone",
+          "type": "integer"
+        },
+        "MEASURING": {
+          "description": "The zone has no heating or cooling, Only the temperature is measured.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Classification"
+  ],
+  "properties": {
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Current temperature of the zone",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Classification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "title": "TemperatureZoneClassificationEnumeration",
+      "description": "Type of the temperature zone",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.TemperatureZoneClassificationEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Index": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Number of the zone",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "description": "Name of the zone",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+      "data": {
+        "description": "Current temperature of the zone",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

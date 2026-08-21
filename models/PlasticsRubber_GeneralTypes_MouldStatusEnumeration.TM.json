@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MouldStatusEnumeration",
+  "title": "PlasticsRubber_GeneralTypes_MouldStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MouldStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "MouldStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.MouldStatusEnumeration",
+      "const": {
+        "OTHER": 0,
+        "MOULD_NOT_INSTALLED": 1,
+        "MOULD_CHANGE": 2,
+        "MOULD_INSTALLED": 3
+      },
+      "description": "Current (physical) status of the mould",
+      "properties": {
+        "OTHER": {
+          "description": "This state is used if none of the other states below apply",
+          "type": "integer"
+        },
+        "MOULD_NOT_INSTALLED": {
+          "description": "The mould is not installed on the machine",
+          "type": "integer"
+        },
+        "MOULD_CHANGE": {
+          "description": "During installation or changing of the mould",
+          "type": "integer"
+        },
+        "MOULD_INSTALLED": {
+          "description": "The mould is installed and ready for production",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

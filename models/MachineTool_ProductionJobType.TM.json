@@ -1,0 +1,130 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionJobType",
+  "title": "MachineTool_ProductionJobType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ProductionJobType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "PartSets",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ProductionPrograms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_OrderedListType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "State",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ProductionJobStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CustomerOrderIdentifier",
+    "/properties/OrderIdentifier",
+    "/properties/PartsCompleted",
+    "/properties/PartsGood",
+    "/events/PartsCompleted",
+    "/events/PartsGood"
+  ],
+  "properties": {
+    "CustomerOrderIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "NumberInList": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "OrderIdentifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "string",
+      "readOnly": true
+    },
+    "PartsCompleted": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "PartsGood": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "RunsCompleted": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "RunsPlanned": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "PartsCompleted": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "PartsGood": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "RunsCompleted": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "RunsPlanned": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineTool/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    }
+  }
+}

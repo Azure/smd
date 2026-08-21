@@ -1,0 +1,309 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AutoID/#AutoID_OpticalVerifierScanResult",
+  "title": "AutoID_OpticalVerifierScanResult",
+  "dov:typeRef": "org.opcfoundation.UA.AutoID.OpticalVerifierScanResult",
+  "links": [],
+  "schemaDefinitions": {
+    "OpticalVerifierScanResult": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AutoID.OpticalVerifierScanResult",
+      "required": [
+        "CodeType",
+        "ScanData",
+        "Timestamp",
+        "IsoGrade",
+        "RMin",
+        "SymbolContrast",
+        "ECMin",
+        "Modulation",
+        "Defects",
+        "Decodability",
+        "Decode",
+        "PrintGain"
+      ],
+      "properties": {
+        "CodeType": {
+          "description": "Defines the format of the ScanData as string.",
+          "type": "string"
+        },
+        "ScanData": {
+          "title": "ScanData",
+          "description": "Holds the information about the detected objects e.g. the detected transponders.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanData",
+          "properties": {
+            "ByteString": {
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "String": {
+              "type": "string"
+            },
+            "Epc": {
+              "title": "ScanDataEpc",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AutoID.ScanDataEpc",
+              "required": [
+                "PC",
+                "UId",
+                "XPC_W1",
+                "XPC_W2"
+              ],
+              "properties": {
+                "PC": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "UId": {
+                  "type": "string",
+                  "contentEncoding": "base64"
+                },
+                "XPC_W1": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "XPC_W2": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                }
+              }
+            },
+            "Custom": {
+              "description": "Stand-in for an unspecified data type.",
+              "type": "string"
+            }
+          }
+        },
+        "Timestamp": {
+          "description": "Timestamp of the ScanResult creation.",
+          "type": "string",
+          "format": "time"
+        },
+        "Location": {
+          "title": "Location",
+          "description": "Returns the location of the object detection.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.Location",
+          "properties": {
+            "NMEA": {
+              "type": "string"
+            },
+            "Local": {
+              "title": "LocalCoordinate",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AutoID.LocalCoordinate",
+              "required": [
+                "X",
+                "Y",
+                "Z",
+                "Timestamp",
+                "DilutionOfPrecision",
+                "UsefulPrecision"
+              ],
+              "properties": {
+                "X": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "Y": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "Z": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "Timestamp": {
+                  "description": "Optional",
+                  "type": "string",
+                  "format": "time"
+                },
+                "DilutionOfPrecision": {
+                  "description": "Optional",
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "UsefulPrecision": {
+                  "description": "Optional",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "WGS84": {
+              "title": "WGS84Coordinate",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.AutoID.WGS84Coordinate",
+              "required": [
+                "N/S Hemisphere",
+                "Latitude",
+                "E/W Hemisphere",
+                "Longitude",
+                "Altitude",
+                "Timestamp",
+                "DilutionOfPrecision",
+                "UsefulPrecisionLatLon",
+                "UsefulPrecisionAlt"
+              ],
+              "properties": {
+                "N/S Hemisphere": {
+                  "type": "string"
+                },
+                "Latitude": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "E/W Hemisphere": {
+                  "type": "string"
+                },
+                "Longitude": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "Altitude": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "Timestamp": {
+                  "type": "string",
+                  "format": "time"
+                },
+                "DilutionOfPrecision": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                },
+                "UsefulPrecisionLatLon": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "UsefulPrecisionAlt": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "Name": {
+              "type": "string"
+            }
+          }
+        },
+        "Grade": {
+          "description": "Returns the quality of the 1D/2D code.",
+          "type": "number",
+          "minimum": -3.40e+38,
+          "maximum": 3.40e+38
+        },
+        "Position": {
+          "title": "Position",
+          "description": "Returns the position of the text within the image.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.AutoID.Position",
+          "required": [
+            "PositionX",
+            "PositionY",
+            "SizeX",
+            "SizeY",
+            "Rotation"
+          ],
+          "properties": {
+            "PositionX": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "PositionY": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "SizeX": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "SizeY": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Rotation": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "Symbology": {
+          "type": "string"
+        },
+        "ImageId": {
+          "type": "string"
+        },
+        "IsoGrade": {
+          "type": "string"
+        },
+        "RMin": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "SymbolContrast": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "ECMin": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "Modulation": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "Defects": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "Decodability": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "Decode": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        },
+        "PrintGain": {
+          "type": "integer",
+          "minimum": -32768,
+          "maximum": 32767
+        }
+      }
+    }
+  }
+}

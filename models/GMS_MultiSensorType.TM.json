@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/GMS/#GMS_MultiSensorType",
+  "title": "GMS_MultiSensorType",
+  "dov:typeRef": "org.opcfoundation.UA.GMS.MultiSensorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_MultiToolType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Tool",
+      "href": "http://opcfoundation.org/UA/GMS/#GMS_SensorType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ToolAlignmentState": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.ToolAlignmentState",
+      "const": {
+        "Fixed": 0,
+        "Indexed": 1,
+        "Continuous": 2
+      },
+      "properties": {
+        "Fixed": {
+          "type": "integer"
+        },
+        "Indexed": {
+          "type": "integer"
+        },
+        "Continuous": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Alignment",
+    "/properties/Axes"
+  ],
+  "properties": {
+    "Alignment": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "title": "ToolAlignmentState",
+      "dov:typeRef": "org.opcfoundation.UA.GMS.ToolAlignmentState",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Axes": {
+      "dov:namespace": "http://opcfoundation.org/UA/GMS/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  }
+}

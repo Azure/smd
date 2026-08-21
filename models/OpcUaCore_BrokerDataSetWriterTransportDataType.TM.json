@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BrokerDataSetWriterTransportDataType",
+  "title": "OpcUaCore_BrokerDataSetWriterTransportDataType",
+  "dov:typeRef": "org.opcfoundation.UA.BrokerDataSetWriterTransportDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "BrokerDataSetWriterTransportDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BrokerDataSetWriterTransportDataType",
+      "required": [
+        "QueueName",
+        "ResourceUri",
+        "AuthenticationProfileUri",
+        "RequestedDeliveryGuarantee",
+        "MetaDataQueueName",
+        "MetaDataUpdateTime"
+      ],
+      "properties": {
+        "QueueName": {
+          "type": "string"
+        },
+        "ResourceUri": {
+          "type": "string"
+        },
+        "AuthenticationProfileUri": {
+          "type": "string"
+        },
+        "RequestedDeliveryGuarantee": {
+          "title": "BrokerTransportQualityOfService",
+          "dov:typeRef": "org.opcfoundation.UA.BrokerTransportQualityOfService",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "MetaDataQueueName": {
+          "type": "string"
+        },
+        "MetaDataUpdateTime": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        }
+      }
+    }
+  }
+}

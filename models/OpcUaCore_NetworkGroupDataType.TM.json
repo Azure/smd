@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NetworkGroupDataType",
+  "title": "OpcUaCore_NetworkGroupDataType",
+  "dov:typeRef": "org.opcfoundation.UA.NetworkGroupDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "NetworkGroupDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.NetworkGroupDataType",
+      "required": [
+        "ServerUri",
+        "NetworkPaths"
+      ],
+      "properties": {
+        "ServerUri": {
+          "type": "string"
+        },
+        "NetworkPaths": {
+          "type": "array",
+          "items": {
+            "title": "EndpointUrlListDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EndpointUrlListDataType",
+            "required": [
+              "EndpointUrlList"
+            ],
+            "properties": {
+              "EndpointUrlList": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

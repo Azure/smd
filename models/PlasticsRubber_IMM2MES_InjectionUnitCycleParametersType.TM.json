@@ -1,0 +1,646 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/#PlasticsRubber_IMM2MES_InjectionUnitCycleParametersType",
+  "title": "PlasticsRubber_IMM2MES_InjectionUnitCycleParametersType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.IMM2MES.InjectionUnitCycleParametersType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BackPressure",
+    "/properties/CavityPressureMaximum",
+    "/properties/CushionStroke",
+    "/properties/DecompressionVolumeAfterPlastification",
+    "/properties/DecompressionVolumeBeforePlastification",
+    "/properties/FlowIndex",
+    "/properties/HoldHydraulicPressureAverage",
+    "/properties/HoldHydraulicPressureMaximum",
+    "/properties/HoldSpecificPressureAverage",
+    "/properties/HoldSpecificPressureMaximum",
+    "/properties/HydraulicPressureMaximum",
+    "/properties/InjectionSpeedAverage",
+    "/properties/InjectionSpeedMaximum",
+    "/properties/InjectionStartPosition",
+    "/properties/PlastificationCircumferentialSpeedAverage",
+    "/properties/PlastificationCircumferentialSpeedMaximum",
+    "/properties/PlastificationHydraulicPressureAverage",
+    "/properties/PlastificationHydraulicPressureMaximum",
+    "/properties/PlastificationRotationalSpeedAverage",
+    "/properties/PlastificationRotationalSpeedMaximum",
+    "/properties/PlastificationSpecificPressureAverage",
+    "/properties/PlastificationSpecificPressureMaximum",
+    "/properties/TransferCavityPressure",
+    "/properties/TransferHydraulicPressure",
+    "/properties/TransferSpecificPressure",
+    "/properties/TransferStroke",
+    "/properties/TransferVolume",
+    "/properties/VPChangeOverPosition",
+    "/events/BackPressure",
+    "/events/CavityPressureMaximum",
+    "/events/CushionStroke",
+    "/events/DecompressionVolumeAfterPlastification",
+    "/events/DecompressionVolumeBeforePlastification",
+    "/events/FlowIndex",
+    "/events/HoldHydraulicPressureAverage",
+    "/events/HoldHydraulicPressureMaximum",
+    "/events/HoldSpecificPressureAverage",
+    "/events/HoldSpecificPressureMaximum",
+    "/events/HydraulicPressureMaximum",
+    "/events/InjectionSpeedAverage",
+    "/events/InjectionSpeedMaximum",
+    "/events/InjectionStartPosition",
+    "/events/PlastificationCircumferentialSpeedAverage",
+    "/events/PlastificationCircumferentialSpeedMaximum",
+    "/events/PlastificationHydraulicPressureAverage",
+    "/events/PlastificationHydraulicPressureMaximum",
+    "/events/PlastificationRotationalSpeedAverage",
+    "/events/PlastificationRotationalSpeedMaximum",
+    "/events/PlastificationSpecificPressureAverage",
+    "/events/PlastificationSpecificPressureMaximum",
+    "/events/TransferCavityPressure",
+    "/events/TransferHydraulicPressure",
+    "/events/TransferSpecificPressure",
+    "/events/TransferStroke",
+    "/events/TransferVolume",
+    "/events/VPChangeOverPosition"
+  ],
+  "properties": {
+    "BackPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Back pressure is the melt-pressure against the screw movement during dosage",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "CavityPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum pressure during the injection process in the cavity or mould",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "CushionStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Stroke position at cushion",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "CushionVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Material volume remained in front of the screw after injection and holding pressure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DecompressionVolumeAfterPlastification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Decompression after plastification is the movement of the screw in the opposite direction to injection",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DecompressionVolumeBeforePlastification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Decompression before plastification is the movement of the screw in the opposite direction to injection",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DosingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Time to melt-up the plastic granulates and feed the melt for the next injection shot to the front of the screw",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "FlowIndex": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Flow index",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HoldHydraulicPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average holding pressure in the hydraulic cylinder",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HoldHydraulicPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum holding pressure in the hydraulic cylinder",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HoldSpecificPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average holding pressure in front of the screw",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HoldSpecificPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum holding pressure in front of the screw",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "HydraulicPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum pressure in the hydraulic cylinder",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "Index": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Index of the injection unit",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "InjectionSpeedAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average injection speed (e.g. mm/s)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "InjectionSpeedMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum injection speed (e.g. mm/s)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "InjectionStartPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Start position of the injection",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "InjectionTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Time required to fill the cavity or mould",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "PlastificationCircumferentialSpeedAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average screw circumferential speed for plastification (e.g. mm/s)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationCircumferentialSpeedMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum screw circumferential speed for plastification (e.g. mm/s)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationHydraulicPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average plastification pressure in cylinder",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationHydraulicPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum plastification pressure in cylinder ",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationRotationalSpeedAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average plastification speed of the injection unit (RPM)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationRotationalSpeedMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum plastification speed of the injection unit (RPM)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationSpecificPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Average plastification pressure in front of the screw tip",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationSpecificPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Maximum plastification pressure in front of the screw tip",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "PlastificationVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Volume dosed by the machine for the next injection shot",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "SpecificPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Pressure in front of the screw tip",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TransferCavityPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Cavity pressure in the mould during switch-over to the holding pressure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TransferHydraulicPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Hydraulic pressure in the cylinder during switch-over to the holding pressure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TransferSpecificPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Pressure in front of the screw tip during switch-over to the holding pressure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TransferStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Switch-over point to the holding pressure via stroke",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "TransferVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Switch-over point to the holding pressure via volume",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "VPChangeOverPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "description": "Screw position at switching between injection (V) and holding pressure (P)",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "BackPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Back pressure is the melt-pressure against the screw movement during dosage",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CavityPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum pressure during the injection process in the cavity or mould",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CushionStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Stroke position at cushion",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "CushionVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Material volume remained in front of the screw after injection and holding pressure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DecompressionVolumeAfterPlastification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Decompression after plastification is the movement of the screw in the opposite direction to injection",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DecompressionVolumeBeforePlastification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Decompression before plastification is the movement of the screw in the opposite direction to injection",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DosingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Time to melt-up the plastic granulates and feed the melt for the next injection shot to the front of the screw",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "FlowIndex": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Flow index",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HoldHydraulicPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average holding pressure in the hydraulic cylinder",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HoldHydraulicPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum holding pressure in the hydraulic cylinder",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HoldSpecificPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average holding pressure in front of the screw",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HoldSpecificPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum holding pressure in front of the screw",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "HydraulicPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum pressure in the hydraulic cylinder",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InjectionSpeedAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average injection speed (e.g. mm/s)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InjectionSpeedMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum injection speed (e.g. mm/s)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InjectionStartPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Start position of the injection",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InjectionTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Time required to fill the cavity or mould",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "PlastificationCircumferentialSpeedAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average screw circumferential speed for plastification (e.g. mm/s)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationCircumferentialSpeedMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum screw circumferential speed for plastification (e.g. mm/s)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationHydraulicPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average plastification pressure in cylinder",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationHydraulicPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum plastification pressure in cylinder ",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationRotationalSpeedAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average plastification speed of the injection unit (RPM)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationRotationalSpeedMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum plastification speed of the injection unit (RPM)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationSpecificPressureAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Average plastification pressure in front of the screw tip",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationSpecificPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Maximum plastification pressure in front of the screw tip",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "PlastificationVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Volume dosed by the machine for the next injection shot",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SpecificPressureMaximum": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Pressure in front of the screw tip",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TransferCavityPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Cavity pressure in the mould during switch-over to the holding pressure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TransferHydraulicPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Hydraulic pressure in the cylinder during switch-over to the holding pressure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TransferSpecificPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Pressure in front of the screw tip during switch-over to the holding pressure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TransferStroke": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Switch-over point to the holding pressure via stroke",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TransferVolume": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Switch-over point to the holding pressure via volume",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "VPChangeOverPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+      "data": {
+        "description": "Screw position at switching between injection (V) and holding pressure (P)",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

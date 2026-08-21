@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteInputObjectType",
+  "title": "Pumps_DiscreteInputObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.DiscreteInputObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Pumps/#Pumps_DiscreteObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "properties": {
+    "DiscreteInputValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DiscreteInputValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    }
+  }
+}

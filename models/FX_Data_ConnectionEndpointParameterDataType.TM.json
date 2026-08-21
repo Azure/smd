@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_ConnectionEndpointParameterDataType",
+  "title": "FX_Data_ConnectionEndpointParameterDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointParameterDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ConnectionEndpointParameterDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointParameterDataType",
+      "required": [
+        "Name",
+        "ConnectionEndpointTypeId",
+        "InputVariableIds",
+        "OutputVariableIds",
+        "IsPersistent",
+        "CleanupTimeout",
+        "RelatedEndpoint",
+        "IsPreconfigured"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "ConnectionEndpointTypeId": {
+          "type": "string"
+        },
+        "InputVariableIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "OutputVariableIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "IsPersistent": {
+          "type": "boolean"
+        },
+        "CleanupTimeout": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "RelatedEndpoint": {
+          "title": "RelatedEndpointDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.RelatedEndpointDataType",
+          "required": [
+            "Address",
+            "ConnectionEndpointPath",
+            "ConnectionEndpointName"
+          ],
+          "properties": {
+            "Address": {
+              "type": "string"
+            },
+            "ConnectionEndpointPath": {
+              "type": "array",
+              "items": {
+                "title": "PortableQualifiedName",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.PortableQualifiedName",
+                "required": [
+                  "NamespaceUri",
+                  "Name"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "ConnectionEndpointName": {
+              "type": "string"
+            }
+          }
+        },
+        "IsPreconfigured": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

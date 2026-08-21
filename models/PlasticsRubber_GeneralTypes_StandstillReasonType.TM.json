@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StandstillReasonType",
+  "title": "PlasticsRubber_GeneralTypes_StandstillReasonType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StandstillReasonType",
+  "links": [],
+  "schemaDefinitions": {
+    "StandstillReasonType": {
+      "description": "Description of a standstill reason",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.StandstillReasonType",
+      "required": [
+        "Id",
+        "Text",
+        "LockedByMES"
+      ],
+      "properties": {
+        "Id": {
+          "description": "Id of the standstill reason",
+          "type": "string"
+        },
+        "Text": {
+          "description": "Text of the standstill reason",
+          "type": "string"
+        },
+        "LockedByMES": {
+          "description": "LockedByMES means that this StandstillReason has been set or modified by the MES and so this may not be changed by the machine",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

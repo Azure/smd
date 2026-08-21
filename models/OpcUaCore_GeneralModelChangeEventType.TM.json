@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_GeneralModelChangeEventType",
+  "title": "OpcUaCore_GeneralModelChangeEventType",
+  "dov:typeRef": "org.opcfoundation.UA.GeneralModelChangeEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseModelChangeEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "Changes": {
+      "type": "array",
+      "items": {
+        "title": "ModelChangeStructureDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.ModelChangeStructureDataType",
+        "required": [
+          "Affected",
+          "AffectedType",
+          "Verb"
+        ],
+        "properties": {
+          "Affected": {
+            "type": "string"
+          },
+          "AffectedType": {
+            "type": "string"
+          },
+          "Verb": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

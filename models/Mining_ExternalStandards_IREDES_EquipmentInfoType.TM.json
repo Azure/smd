@@ -1,0 +1,102 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_EquipmentInfoType",
+  "title": "Mining_ExternalStandards_IREDES_EquipmentInfoType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.EquipmentInfoType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/EqpInfo",
+    "/properties/EqpModel",
+    "/properties/EqpName",
+    "/properties/EqpSerNo",
+    "/properties/EqpSysVer",
+    "/events/EqpInfo",
+    "/events/EqpName",
+    "/events/EqpSysVer"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EqpInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Other equipment specific information. Free text.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EqpManufact": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Name of the manufacturer.",
+      "type": "string",
+      "readOnly": true
+    },
+    "EqpModel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Equipment model describing the model in the specified EqpType. To be stated if required for unequivocal machine type identification.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EqpName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Used for designation of the machine.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EqpSerNo": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Serial number of the machine.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EqpSysVer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Version Info Automation System / Software.",
+      "type": "string",
+      "readOnly": false
+    },
+    "EqpType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Manufacturer internal type name of the machine.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "EqpInfo": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Other equipment specific information. Free text.",
+        "type": "string"
+      }
+    },
+    "EqpName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Used for designation of the machine.",
+        "type": "string"
+      }
+    },
+    "EqpSysVer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Version Info Automation System / Software.",
+        "type": "string"
+      }
+    }
+  }
+}

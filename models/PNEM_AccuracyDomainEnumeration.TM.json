@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_AccuracyDomainEnumeration",
+  "title": "PNEM_AccuracyDomainEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.AccuracyDomainEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "AccuracyDomainEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNEM.AccuracyDomainEnumeration",
+      "const": {
+        "ACCURACY_DOMAIN_RESERVED": 0,
+        "ACCURACY_DOMAIN_PERCENT_FULL_SCALE": 1,
+        "ACCURACY_DOMAIN_PERCENT_ACTUAL_READING": 2,
+        "ACCURACY_DOMAIN_IEC": 3,
+        "ACCURACY_DOMAIN_EN": 4
+      },
+      "properties": {
+        "ACCURACY_DOMAIN_RESERVED": {
+          "description": "Reserved",
+          "type": "integer"
+        },
+        "ACCURACY_DOMAIN_PERCENT_FULL_SCALE": {
+          "description": "The accuracy is given as percent of the full-scale reading. ",
+          "type": "integer"
+        },
+        "ACCURACY_DOMAIN_PERCENT_ACTUAL_READING": {
+          "description": "The accuracy is given as percent of the actual reading.",
+          "type": "integer"
+        },
+        "ACCURACY_DOMAIN_IEC": {
+          "description": "The accuracy is given according to IEC 61557-12. ",
+          "type": "integer"
+        },
+        "ACCURACY_DOMAIN_EN": {
+          "description": "The accuracy is given as specified in the EN 50470-3, Chapter 8.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

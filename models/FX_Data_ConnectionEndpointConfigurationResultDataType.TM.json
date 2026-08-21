@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/Data/#FX_Data_ConnectionEndpointConfigurationResultDataType",
+  "title": "FX_Data_ConnectionEndpointConfigurationResultDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointConfigurationResultDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ConnectionEndpointConfigurationResultDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.ConnectionEndpointConfigurationResultDataType",
+      "required": [
+        "ConnectionEndpointId",
+        "FunctionalEntityNodeResult",
+        "ConnectionEndpointResult",
+        "VerificationResult",
+        "VerificationStatus",
+        "VerificationVariablesErrors",
+        "EstablishControlResult",
+        "ConfigurationDataResult",
+        "ReassignControlResult",
+        "CommunicationLinksResult",
+        "EnableCommunicationResult"
+      ],
+      "properties": {
+        "ConnectionEndpointId": {
+          "type": "string"
+        },
+        "FunctionalEntityNodeResult": {
+          "type": "string"
+        },
+        "ConnectionEndpointResult": {
+          "type": "string"
+        },
+        "VerificationResult": {
+          "title": "FunctionalEntityVerificationResultEnum",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.FunctionalEntityVerificationResultEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "VerificationStatus": {
+          "type": "string"
+        },
+        "VerificationVariablesErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "EstablishControlResult": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ConfigurationDataResult": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReassignControlResult": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CommunicationLinksResult": {
+          "type": "string"
+        },
+        "EnableCommunicationResult": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

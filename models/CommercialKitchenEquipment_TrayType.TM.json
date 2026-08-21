@@ -1,0 +1,251 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_TrayType",
+  "title": "CommercialKitchenEquipment_TrayType",
+  "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CommercialKitchenEquipment/#CommercialKitchenEquipment_KitchenDeviceParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TrayModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayModeEnumeration",
+      "const": {
+        "Off": 0,
+        "PreHeat": 1,
+        "PreCool": 2,
+        "HoldWarm": 3,
+        "HoldCool": 4,
+        "Regenerating": 5
+      },
+      "properties": {
+        "Off": {
+          "type": "integer"
+        },
+        "PreHeat": {
+          "type": "integer"
+        },
+        "PreCool": {
+          "type": "integer"
+        },
+        "HoldWarm": {
+          "type": "integer"
+        },
+        "HoldCool": {
+          "type": "integer"
+        },
+        "Regenerating": {
+          "type": "integer"
+        }
+      }
+    },
+    "TrayTypeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayTypeEnumeration",
+      "const": {
+        "Generic": 0,
+        "HeaterPlate": 1,
+        "CoolingPlate": 2,
+        "CombiPlate": 3,
+        "BainMarie": 4,
+        "HeaterCabinet": 5,
+        "CoolingCabinet": 6,
+        "HeatBridge": 7,
+        "CombiCabinet": 8,
+        "RegenCabinet": 9
+      },
+      "properties": {
+        "Generic": {
+          "type": "integer"
+        },
+        "HeaterPlate": {
+          "type": "integer"
+        },
+        "CoolingPlate": {
+          "type": "integer"
+        },
+        "CombiPlate": {
+          "type": "integer"
+        },
+        "BainMarie": {
+          "type": "integer"
+        },
+        "HeaterCabinet": {
+          "type": "integer"
+        },
+        "CoolingCabinet": {
+          "type": "integer"
+        },
+        "HeatBridge": {
+          "type": "integer"
+        },
+        "CombiCabinet": {
+          "type": "integer"
+        },
+        "RegenCabinet": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ActiveSince_EngineeringUnits",
+    "/properties/ActualTemperature_EngineeringUnits",
+    "/properties/OperatingCounter_EngineeringUnits",
+    "/properties/SetTemperature_EngineeringUnits"
+  ],
+  "properties": {
+    "ActiveSince": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ActiveSince_EngineeringUnits"
+    },
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperature_EngineeringUnits"
+    },
+    "Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "string",
+      "readOnly": false
+    },
+    "OperatingCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingCounter_EngineeringUnits"
+    },
+    "ProgramMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "TrayModeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "title": "TrayTypeEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayTypeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "ActiveSince_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActiveSince, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ActualTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActualTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OperatingCounter_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OperatingCounter, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "SetTemperature_EngineeringUnits": {
+      "description": "Unit designator for property and event with name SetTemperature, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveSince": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ActiveSince_EngineeringUnits"
+    },
+    "ActualTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/ActualTemperature_EngineeringUnits"
+    },
+    "OperatingCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingCounter_EngineeringUnits"
+    },
+    "ProgramMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "TrayModeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "SetTemperature": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/SetTemperature_EngineeringUnits"
+    },
+    "Type": {
+      "dov:namespace": "http://opcfoundation.org/UA/CommercialKitchenEquipment/",
+      "data": {
+        "title": "TrayTypeEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.CommercialKitchenEquipment.TrayTypeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

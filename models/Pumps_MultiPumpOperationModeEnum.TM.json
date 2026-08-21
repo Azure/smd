@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_MultiPumpOperationModeEnum",
+  "title": "Pumps_MultiPumpOperationModeEnum",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.MultiPumpOperationModeEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "MultiPumpOperationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.MultiPumpOperationModeEnum",
+      "const": {
+        "Standalone": 0,
+        "RedundancyOperation": 1,
+        "AdditionOperation": 2,
+        "MixedRedundancy": 3
+      },
+      "description": "specifies the actual multi pump operation mode",
+      "properties": {
+        "Standalone": {
+          "description": "Standalone mode",
+          "type": "integer"
+        },
+        "RedundancyOperation": {
+          "description": "pump fulfils the process function of another pump",
+          "type": "integer"
+        },
+        "AdditionOperation": {
+          "description": "supplementary fulfilling of the process function",
+          "type": "integer"
+        },
+        "MixedRedundancy": {
+          "description": "Redundancy and addition operation mixed",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

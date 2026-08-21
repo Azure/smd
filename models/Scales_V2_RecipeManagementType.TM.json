@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeManagementType",
+  "title": "Scales_V2_RecipeManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.RecipeManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Recipe_No",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_RecipeType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddRecipe",
+    "/actions/RemoveRecipe"
+  ],
+  "actions": {
+    "AddRecipe": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to add an additional recipe of RecipeType.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeId",
+          "RecipeName"
+        ],
+        "properties": {
+          "RecipeId": {
+            "type": "string"
+          },
+          "RecipeName": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "RecipeNodeId"
+        ],
+        "properties": {
+          "RecipeNodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveRecipe": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to remove a recipe of RecipeType.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "RecipeId"
+        ],
+        "properties": {
+          "RecipeId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

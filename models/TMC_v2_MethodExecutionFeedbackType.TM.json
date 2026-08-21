@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MethodExecutionFeedbackType",
+  "title": "TMC_v2_MethodExecutionFeedbackType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+  "links": [],
+  "schemaDefinitions": {
+    "MethodExecutionFeedbackType": {
+      "description": "The MethodExecutionFeedbackType provides suitable feedback, both positive and negative, to an OPC UA client invoking a method.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MethodExecutionFeedbackType",
+      "required": [
+        "Success",
+        "Message"
+      ],
+      "properties": {
+        "Success": {
+          "description": "Returns True in case of successful execution.",
+          "type": "boolean"
+        },
+        "Message": {
+          "description": "Array of detailed messages describing the reason for the unsuccessful execution or notice to the user.",
+          "type": "array",
+          "items": {
+            "title": "MessageType",
+            "description": "The MessageType provides a uniquely identified localised text.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MessageType",
+            "required": [
+              "ID",
+              "LocalText"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the localised text.",
+                "type": "string"
+              },
+              "LocalText": {
+                "description": "The localized text.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

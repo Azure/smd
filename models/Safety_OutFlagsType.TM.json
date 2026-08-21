@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Safety#Safety_OutFlagsType",
+  "title": "Safety_OutFlagsType",
+  "dov:typeRef": "org.opcfoundation.UA.Safety.OutFlagsType",
+  "links": [],
+  "schemaDefinitions": {
+    "OutFlagsType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Safety.OutFlagsType",
+      "const": {
+        "OperatorAckProvider": 0,
+        "ActivateFSV": 1,
+        "TestModeActivated": 2
+      },
+      "description": "Byte with Safety Flags from SafetyProvider",
+      "properties": {
+        "OperatorAckProvider": {
+          "description": "Operator acknowledgment at the provider, hereby forwarded to the SafetyConsumer.",
+          "type": "integer"
+        },
+        "ActivateFSV": {
+          "description": "Activation of fail-safe values by the safety application at the SafetyProvider, hereby forwarded to the SafetyConsumer.",
+          "type": "integer"
+        },
+        "TestModeActivated": {
+          "description": "Enabling and disabling of test mode in the SafetyProvider, hereby forwarded to the SafetyConsumer.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

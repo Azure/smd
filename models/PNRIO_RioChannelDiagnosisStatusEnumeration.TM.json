@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioChannelDiagnosisStatusEnumeration",
+  "title": "PNRIO_RioChannelDiagnosisStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "RioChannelDiagnosisStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioChannelDiagnosisStatusEnumeration",
+      "const": {
+        "HI_LIM_EXCEEDED": 0,
+        "LO_LIM_EXCEEDED": 1,
+        "SIMULATION_ACTIVE": 2,
+        "MODE_CHANGED": 3,
+        "SUBSTITUTE_VALUE_USED": 4,
+        "Q_BAD_SUBSTITUTE_VALUE_USED": 5,
+        "OUT_OF_SERVICE": 6
+      },
+      "properties": {
+        "HI_LIM_EXCEEDED": {
+          "description": "Upper limit value exceeded. Only supported by RIOforPA channels. ",
+          "type": "integer"
+        },
+        "LO_LIM_EXCEEDED": {
+          "description": "Lower limit value underrun. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "SIMULATION_ACTIVE": {
+          "description": "Simulation is active. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "MODE_CHANGED": {
+          "description": "Mode of block has changed. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "SUBSTITUTE_VALUE_USED": {
+          "description": "Substitute value used. Only supported by RIOforPA channels.",
+          "type": "integer"
+        },
+        "Q_BAD_SUBSTITUTE_VALUE_USED": {
+          "description": "Process Image Qualifier = 0. Substitute value used by (Sub)Module. Only supported by RIOforFA channels.",
+          "type": "integer"
+        },
+        "OUT_OF_SERVICE": {
+          "description": "The channel has ceased operation.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

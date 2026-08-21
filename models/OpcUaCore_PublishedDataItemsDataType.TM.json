@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PublishedDataItemsDataType",
+  "title": "OpcUaCore_PublishedDataItemsDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PublishedDataItemsDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PublishedDataItemsDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PublishedDataItemsDataType",
+      "required": [
+        "PublishedData"
+      ],
+      "properties": {
+        "PublishedData": {
+          "type": "array",
+          "items": {
+            "title": "PublishedVariableDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.PublishedVariableDataType",
+            "required": [
+              "PublishedVariable",
+              "AttributeId",
+              "SamplingIntervalHint",
+              "DeadbandType",
+              "DeadbandValue",
+              "IndexRange",
+              "SubstituteValue",
+              "MetaDataProperties"
+            ],
+            "properties": {
+              "PublishedVariable": {
+                "type": "string"
+              },
+              "AttributeId": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "SamplingIntervalHint": {
+                "type": "string",
+                "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+              },
+              "DeadbandType": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "DeadbandValue": {
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "IndexRange": {
+                "type": "string"
+              },
+              "SubstituteValue": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              },
+              "MetaDataProperties": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

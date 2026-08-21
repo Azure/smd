@@ -1,0 +1,1400 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JointManagementType",
+  "title": "IJT_Base_JointManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/DeleteJoint",
+    "/actions/DeleteJointComponent",
+    "/actions/DeleteJointDesign",
+    "/actions/GetJoint",
+    "/actions/GetJointComponent",
+    "/actions/GetJointComponentList",
+    "/actions/GetJointDesign",
+    "/actions/GetJointDesignList",
+    "/actions/GetJointList",
+    "/actions/GetJointRevisionList",
+    "/actions/SelectJoint",
+    "/actions/SendJoint",
+    "/actions/SendJointComponent",
+    "/actions/SendJointDesign",
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "actions": {
+    "DeleteJoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method DeleteJoint is used to delete the joint based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointId",
+          "JointOriginId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointId": {
+            "description": "It is the identifier of the joint.",
+            "type": "string"
+          },
+          "JointOriginId": {
+            "description": "With this argument the Client can provide the common identifier of the joint which should be selected for performing the next joining operation.  It is optional and can be empty if the underlying system does not manage revisions of a joint. If jointId is provided, then this argument shall be ignored.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeleteJointComponent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method DeleteJointComponent is used to delete the joint component based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointComponentId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointComponentId": {
+            "description": "It is the identifier of the joint component.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeleteJointDesign": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method DeleteJointDesign is used to delete the joint design based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointDesignId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointDesignId": {
+            "description": "It is the identifier of the joint design.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJoint is used to get the joint based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointId": {
+            "description": "It is the identifier of the joint.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Joint",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Joint": {
+            "title": "JointDataType",
+            "description": "This structure provides the joint information. Joint is the physical outcome of the joining operation which determines the properties of the point where multiple parts are assembled.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDataType",
+            "required": [
+              "JointId"
+            ],
+            "properties": {
+              "JointId": {
+                "description": "It is the identifier of the joint.",
+                "type": "string"
+              },
+              "JointOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                "type": "string"
+              },
+              "JointDesignId": {
+                "description": "It is the identifier of the associated joint design.",
+                "type": "string"
+              },
+              "CreationTime": {
+                "description": "It is the time when the joint was created.",
+                "type": "string",
+                "format": "time"
+              },
+              "LastUpdatedTime": {
+                "description": "It is the time when the joint was updated last time. If it is not available, it can be same as CreationTime.",
+                "type": "string",
+                "format": "time"
+              },
+              "Name": {
+                "description": "It is the name of the joint.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joint.",
+                "type": "string"
+              },
+              "Classification": {
+                "description": "It is the classification of the joint.",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "ClassificationDetails": {
+                "description": "It is the details of the classification. It can also be used to provide any other type of classification.  Examples: Safety Critical, etc.",
+                "type": "string"
+              },
+              "JointStatus": {
+                "description": "It is the status of the joint. Examples: Ok, InUse, NotInUse, NotYetDone, etc.",
+                "type": "string"
+              },
+              "AssociatedEntities": {
+                "description": "It is the list of entities associated to the joint. Examples: JoiningProcessId, JobId, QualityProcessId, SimulationProcessId, etc.",
+                "type": "array",
+                "items": {
+                  "title": "EntityDataType",
+                  "description": "This structure provides the identification data for a given entity in the system.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                  "required": [
+                    "EntityId",
+                    "EntityType"
+                  ],
+                  "properties": {
+                    "Name": {
+                      "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                      "type": "string"
+                    },
+                    "EntityId": {
+                      "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                      "type": "string"
+                    },
+                    "EntityOriginId": {
+                      "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                      "type": "string"
+                    },
+                    "IsExternal": {
+                      "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                      "type": "boolean"
+                    },
+                    "EntityType": {
+                      "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                      "type": "integer",
+                      "minimum": -32768,
+                      "maximum": 32767
+                    }
+                  }
+                }
+              },
+              "JoiningTechnology": {
+                "description": "It is a human readable text to identify the joining technology.",
+                "type": "string"
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJointComponent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJointComponent is used to get the joint component based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointComponentId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointComponentId": {
+            "description": "It is the identifier of the joint component.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JointComponent",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JointComponent": {
+            "title": "JointComponentDataType",
+            "description": "This structure is the base container for any joint component such as Bolt, Rivet, Gasket, Glue string, etc.  Note: The concrete definition of joint component is not defined in this version of the specification.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointComponentDataType",
+            "required": [
+              "JointComponentId"
+            ],
+            "properties": {
+              "JointComponentId": {
+                "description": "It is the identifier of the joint component. Examples: BoltId, RivetId, GasketId, etc.",
+                "type": "string"
+              },
+              "Name": {
+                "description": "It is the name of the joint component.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joint component.",
+                "type": "string"
+              },
+              "Manufacturer": {
+                "description": "It is the manufacturer of the joint component.",
+                "type": "string"
+              },
+              "ManufacturerUri": {
+                "description": "It is the identifier of the manufacturer.",
+                "type": "string"
+              },
+              "JointComponentContent": {
+                "description": "It is the content of the joint component. Examples: Bolt, Rivet, Gasket, etc. ",
+                "type": "string"
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJointComponentList": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJointComponentList is used to get the list of available joint components in the system.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JointComponentList",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JointComponentList": {
+            "description": "It is the list of joint components available in the system.",
+            "type": "array",
+            "items": {
+              "title": "JointComponentDataType",
+              "description": "This structure is the base container for any joint component such as Bolt, Rivet, Gasket, Glue string, etc.  Note: The concrete definition of joint component is not defined in this version of the specification.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointComponentDataType",
+              "required": [
+                "JointComponentId"
+              ],
+              "properties": {
+                "JointComponentId": {
+                  "description": "It is the identifier of the joint component. Examples: BoltId, RivetId, GasketId, etc.",
+                  "type": "string"
+                },
+                "Name": {
+                  "description": "It is the name of the joint component.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the joint component.",
+                  "type": "string"
+                },
+                "Manufacturer": {
+                  "description": "It is the manufacturer of the joint component.",
+                  "type": "string"
+                },
+                "ManufacturerUri": {
+                  "description": "It is the identifier of the manufacturer.",
+                  "type": "string"
+                },
+                "JointComponentContent": {
+                  "description": "It is the content of the joint component. Examples: Bolt, Rivet, Gasket, etc. ",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJointDesign": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJointDesign is used to get the joint design based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointDesignId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointDesignId": {
+            "description": "It is the joint design based on the input identifier.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JointDesign",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JointDesign": {
+            "title": "JointDesignDataType",
+            "description": "This structure provides the design information of a given joint.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDesignDataType",
+            "required": [
+              "JointDesignId"
+            ],
+            "properties": {
+              "JointDesignId": {
+                "description": "It is the identifier of the joint design.",
+                "type": "string"
+              },
+              "Name": {
+                "description": "It is the name of the joint design.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joint design.",
+                "type": "string"
+              },
+              "JointDesignContent": {
+                "description": "It is the list of design values.",
+                "type": "array",
+                "items": {
+                  "title": "DesignValueDataType",
+                  "description": "This structure provides the design value for a given physical quantity. It is used in JointDesignDataType.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.DesignValueDataType",
+                  "properties": {
+                    "PhysicalQuantity": {
+                      "description": "It is the physical quantity of the value. Example: Force, Angle, etc.",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 255
+                    },
+                    "Name": {
+                      "description": "It is the name of the given value.",
+                      "type": "string"
+                    },
+                    "DesignValue": {
+                      "description": "It is the design value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+                      "type": "string"
+                    },
+                    "EngineeringUnits": {
+                      "title": "EUInformation",
+                      "description": "It is the engineering unit of the design value.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                      "required": [
+                        "NamespaceUri",
+                        "UnitId",
+                        "DisplayName",
+                        "Description"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "UnitId": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "JointComponentIdList": {
+                "description": "It is the list of joint components associated to the joint design. Examples: BoltId, RivetId, GasketId, etc.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJointDesignList": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJointDesignList is used to get the list of available joint designs in the system.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JointDesignList",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JointDesignList": {
+            "description": "It is the list of joint designs available in the system.",
+            "type": "array",
+            "items": {
+              "title": "JointDesignDataType",
+              "description": "This structure provides the design information of a given joint.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDesignDataType",
+              "required": [
+                "JointDesignId"
+              ],
+              "properties": {
+                "JointDesignId": {
+                  "description": "It is the identifier of the joint design.",
+                  "type": "string"
+                },
+                "Name": {
+                  "description": "It is the name of the joint design.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the joint design.",
+                  "type": "string"
+                },
+                "JointDesignContent": {
+                  "description": "It is the list of design values.",
+                  "type": "array",
+                  "items": {
+                    "title": "DesignValueDataType",
+                    "description": "This structure provides the design value for a given physical quantity. It is used in JointDesignDataType.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.IJT.Base.DesignValueDataType",
+                    "properties": {
+                      "PhysicalQuantity": {
+                        "description": "It is the physical quantity of the value. Example: Force, Angle, etc.",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                      },
+                      "Name": {
+                        "description": "It is the name of the given value.",
+                        "type": "string"
+                      },
+                      "DesignValue": {
+                        "description": "It is the design value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+                        "type": "string"
+                      },
+                      "EngineeringUnits": {
+                        "title": "EUInformation",
+                        "description": "It is the engineering unit of the design value.",
+                        "type": "object",
+                        "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                        "required": [
+                          "NamespaceUri",
+                          "UnitId",
+                          "DisplayName",
+                          "Description"
+                        ],
+                        "properties": {
+                          "NamespaceUri": {
+                            "type": "string"
+                          },
+                          "UnitId": {
+                            "type": "integer",
+                            "minimum": -2147483648,
+                            "maximum": 2147483647
+                          },
+                          "DisplayName": {
+                            "type": "string"
+                          },
+                          "Description": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "JointComponentIdList": {
+                  "description": "It is the list of joint components associated to the joint design. Examples: BoltId, RivetId, GasketId, etc.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJointList": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJointList is used to get the list of available joints in the system.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JointList",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JointList": {
+            "description": "It is the list of joints available in the system.",
+            "type": "array",
+            "items": {
+              "title": "JointDataType",
+              "description": "This structure provides the joint information. Joint is the physical outcome of the joining operation which determines the properties of the point where multiple parts are assembled.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDataType",
+              "required": [
+                "JointId"
+              ],
+              "properties": {
+                "JointId": {
+                  "description": "It is the identifier of the joint.",
+                  "type": "string"
+                },
+                "JointOriginId": {
+                  "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                  "type": "string"
+                },
+                "JointDesignId": {
+                  "description": "It is the identifier of the associated joint design.",
+                  "type": "string"
+                },
+                "CreationTime": {
+                  "description": "It is the time when the joint was created.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "LastUpdatedTime": {
+                  "description": "It is the time when the joint was updated last time. If it is not available, it can be same as CreationTime.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "Name": {
+                  "description": "It is the name of the joint.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the joint.",
+                  "type": "string"
+                },
+                "Classification": {
+                  "description": "It is the classification of the joint.",
+                  "type": "integer",
+                  "minimum": -32768,
+                  "maximum": 32767
+                },
+                "ClassificationDetails": {
+                  "description": "It is the details of the classification. It can also be used to provide any other type of classification.  Examples: Safety Critical, etc.",
+                  "type": "string"
+                },
+                "JointStatus": {
+                  "description": "It is the status of the joint. Examples: Ok, InUse, NotInUse, NotYetDone, etc.",
+                  "type": "string"
+                },
+                "AssociatedEntities": {
+                  "description": "It is the list of entities associated to the joint. Examples: JoiningProcessId, JobId, QualityProcessId, SimulationProcessId, etc.",
+                  "type": "array",
+                  "items": {
+                    "title": "EntityDataType",
+                    "description": "This structure provides the identification data for a given entity in the system.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                    "required": [
+                      "EntityId",
+                      "EntityType"
+                    ],
+                    "properties": {
+                      "Name": {
+                        "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                        "type": "string"
+                      },
+                      "EntityId": {
+                        "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                        "type": "string"
+                      },
+                      "EntityOriginId": {
+                        "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                        "type": "string"
+                      },
+                      "IsExternal": {
+                        "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                        "type": "boolean"
+                      },
+                      "EntityType": {
+                        "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                        "type": "integer",
+                        "minimum": -32768,
+                        "maximum": 32767
+                      }
+                    }
+                  }
+                },
+                "JoiningTechnology": {
+                  "description": "It is a human readable text to identify the joining technology.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJointRevisionList": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJointRevisionList is used to get the list available revisions of a specific joint based on the JointOriginId.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointOriginId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointOriginId": {
+            "description": "It is the origin identifier of the joint which is used to manage the revisions of a given joint.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JointList",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JointList": {
+            "description": "It is the list of joints available in the system.",
+            "type": "array",
+            "items": {
+              "title": "JointDataType",
+              "description": "This structure provides the joint information. Joint is the physical outcome of the joining operation which determines the properties of the point where multiple parts are assembled.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDataType",
+              "required": [
+                "JointId"
+              ],
+              "properties": {
+                "JointId": {
+                  "description": "It is the identifier of the joint.",
+                  "type": "string"
+                },
+                "JointOriginId": {
+                  "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                  "type": "string"
+                },
+                "JointDesignId": {
+                  "description": "It is the identifier of the associated joint design.",
+                  "type": "string"
+                },
+                "CreationTime": {
+                  "description": "It is the time when the joint was created.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "LastUpdatedTime": {
+                  "description": "It is the time when the joint was updated last time. If it is not available, it can be same as CreationTime.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "Name": {
+                  "description": "It is the name of the joint.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the joint.",
+                  "type": "string"
+                },
+                "Classification": {
+                  "description": "It is the classification of the joint.",
+                  "type": "integer",
+                  "minimum": -32768,
+                  "maximum": 32767
+                },
+                "ClassificationDetails": {
+                  "description": "It is the details of the classification. It can also be used to provide any other type of classification.  Examples: Safety Critical, etc.",
+                  "type": "string"
+                },
+                "JointStatus": {
+                  "description": "It is the status of the joint. Examples: Ok, InUse, NotInUse, NotYetDone, etc.",
+                  "type": "string"
+                },
+                "AssociatedEntities": {
+                  "description": "It is the list of entities associated to the joint. Examples: JoiningProcessId, JobId, QualityProcessId, SimulationProcessId, etc.",
+                  "type": "array",
+                  "items": {
+                    "title": "EntityDataType",
+                    "description": "This structure provides the identification data for a given entity in the system.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                    "required": [
+                      "EntityId",
+                      "EntityType"
+                    ],
+                    "properties": {
+                      "Name": {
+                        "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                        "type": "string"
+                      },
+                      "EntityId": {
+                        "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                        "type": "string"
+                      },
+                      "EntityOriginId": {
+                        "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                        "type": "string"
+                      },
+                      "IsExternal": {
+                        "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                        "type": "boolean"
+                      },
+                      "EntityType": {
+                        "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                        "type": "integer",
+                        "minimum": -32768,
+                        "maximum": 32767
+                      }
+                    }
+                  }
+                },
+                "JoiningTechnology": {
+                  "description": "It is a human readable text to identify the joining technology.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SelectJoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SelectJoint is used to select the joint and the associated joining process.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointId",
+          "JointOriginId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointId": {
+            "description": "With this argument the Client can provide the identifier of the joint which should be selected for performing the next joining operation.",
+            "type": "string"
+          },
+          "JointOriginId": {
+            "description": "With this argument the Client can provide the common identifier of the joint which should be selected for performing the next joining operation.  It is optional and can be empty if the underlying system does not manage revisions of a joint. If JointId is provided, then this argument shall be ignored.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SendJoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SendJoint is used to send a joint to a joining system. If the input joint already exists in the system, it shall be overwritten.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "Joint"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "Joint": {
+            "title": "JointDataType",
+            "description": "This structure provides the joint information. Joint is the physical outcome of the joining operation which determines the properties of the point where multiple parts are assembled.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDataType",
+            "required": [
+              "JointId"
+            ],
+            "properties": {
+              "JointId": {
+                "description": "It is the identifier of the joint.",
+                "type": "string"
+              },
+              "JointOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                "type": "string"
+              },
+              "JointDesignId": {
+                "description": "It is the identifier of the associated joint design.",
+                "type": "string"
+              },
+              "CreationTime": {
+                "description": "It is the time when the joint was created.",
+                "type": "string",
+                "format": "time"
+              },
+              "LastUpdatedTime": {
+                "description": "It is the time when the joint was updated last time. If it is not available, it can be same as CreationTime.",
+                "type": "string",
+                "format": "time"
+              },
+              "Name": {
+                "description": "It is the name of the joint.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joint.",
+                "type": "string"
+              },
+              "Classification": {
+                "description": "It is the classification of the joint.",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "ClassificationDetails": {
+                "description": "It is the details of the classification. It can also be used to provide any other type of classification.  Examples: Safety Critical, etc.",
+                "type": "string"
+              },
+              "JointStatus": {
+                "description": "It is the status of the joint. Examples: Ok, InUse, NotInUse, NotYetDone, etc.",
+                "type": "string"
+              },
+              "AssociatedEntities": {
+                "description": "It is the list of entities associated to the joint. Examples: JoiningProcessId, JobId, QualityProcessId, SimulationProcessId, etc.",
+                "type": "array",
+                "items": {
+                  "title": "EntityDataType",
+                  "description": "This structure provides the identification data for a given entity in the system.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                  "required": [
+                    "EntityId",
+                    "EntityType"
+                  ],
+                  "properties": {
+                    "Name": {
+                      "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                      "type": "string"
+                    },
+                    "EntityId": {
+                      "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                      "type": "string"
+                    },
+                    "EntityOriginId": {
+                      "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                      "type": "string"
+                    },
+                    "IsExternal": {
+                      "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                      "type": "boolean"
+                    },
+                    "EntityType": {
+                      "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                      "type": "integer",
+                      "minimum": -32768,
+                      "maximum": 32767
+                    }
+                  }
+                }
+              },
+              "JoiningTechnology": {
+                "description": "It is a human readable text to identify the joining technology.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SendJointComponent": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SendJointComponent is used to send a joint component to a joining system. If the input joint component already exists in the system, it shall be overwritten.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointComponent"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointComponent": {
+            "title": "JointComponentDataType",
+            "description": "This structure is the base container for any joint component such as Bolt, Rivet, Gasket, Glue string, etc.  Note: The concrete definition of joint component is not defined in this version of the specification.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointComponentDataType",
+            "required": [
+              "JointComponentId"
+            ],
+            "properties": {
+              "JointComponentId": {
+                "description": "It is the identifier of the joint component. Examples: BoltId, RivetId, GasketId, etc.",
+                "type": "string"
+              },
+              "Name": {
+                "description": "It is the name of the joint component.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joint component.",
+                "type": "string"
+              },
+              "Manufacturer": {
+                "description": "It is the manufacturer of the joint component.",
+                "type": "string"
+              },
+              "ManufacturerUri": {
+                "description": "It is the identifier of the manufacturer.",
+                "type": "string"
+              },
+              "JointComponentContent": {
+                "description": "It is the content of the joint component. Examples: Bolt, Rivet, Gasket, etc. ",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SendJointDesign": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SendJointDesign is used to send a joint design to a joining system. If the input joint design already exists in the system, it shall be overwritten.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JointDesign"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JointDesign": {
+            "title": "JointDesignDataType",
+            "description": "This structure provides the design information of a given joint.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JointDesignDataType",
+            "required": [
+              "JointDesignId"
+            ],
+            "properties": {
+              "JointDesignId": {
+                "description": "It is the identifier of the joint design.",
+                "type": "string"
+              },
+              "Name": {
+                "description": "It is the name of the joint design.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joint design.",
+                "type": "string"
+              },
+              "JointDesignContent": {
+                "description": "It is the list of design values.",
+                "type": "array",
+                "items": {
+                  "title": "DesignValueDataType",
+                  "description": "This structure provides the design value for a given physical quantity. It is used in JointDesignDataType.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.DesignValueDataType",
+                  "properties": {
+                    "PhysicalQuantity": {
+                      "description": "It is the physical quantity of the value. Example: Force, Angle, etc.",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 255
+                    },
+                    "Name": {
+                      "description": "It is the name of the given value.",
+                      "type": "string"
+                    },
+                    "DesignValue": {
+                      "description": "It is the design value. The data type can be any simple data type such as Integer, String, Double, DateTime, etc. If the value is corresponding to the physical quantity, then the data type should be Double.",
+                      "type": "string"
+                    },
+                    "EngineeringUnits": {
+                      "title": "EUInformation",
+                      "description": "It is the engineering unit of the design value.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                      "required": [
+                        "NamespaceUri",
+                        "UnitId",
+                        "DisplayName",
+                        "Description"
+                      ],
+                      "properties": {
+                        "NamespaceUri": {
+                          "type": "string"
+                        },
+                        "UnitId": {
+                          "type": "integer",
+                          "minimum": -2147483648,
+                          "maximum": 2147483647
+                        },
+                        "DisplayName": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "JointComponentIdList": {
+                "description": "It is the list of joint components associated to the joint design. Examples: BoltId, RivetId, GasketId, etc.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

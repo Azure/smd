@@ -1,0 +1,121 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtAnalogOutputElectricalAttributesType",
+  "title": "Powertrain_PtAnalogOutputElectricalAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtAnalogOutputElectricalAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AnalogOutputElectricalType",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/FrequencyRange",
+    "/properties/LoadResistance",
+    "/properties/NumberOfChannels",
+    "/events/AnalogOutputElectricalType",
+    "/events/FrequencyRange",
+    "/events/LoadResistance"
+  ],
+  "properties": {
+    "AnalogOutputElectricalType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "FrequencyRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "title": "Range",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": true
+    },
+    "LoadResistance": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "NumberOfChannels": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AnalogOutputElectricalType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "FrequencyRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "title": "Range",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Range",
+        "required": [
+          "Low",
+          "High"
+        ],
+        "properties": {
+          "Low": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "High": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "LoadResistance": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    }
+  }
+}

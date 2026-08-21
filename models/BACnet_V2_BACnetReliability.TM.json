@@ -1,0 +1,98 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetReliability",
+  "title": "BACnet_V2_BACnetReliability",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetReliability",
+  "links": [],
+  "schemaDefinitions": {
+    "BACnetReliability": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetReliability",
+      "const": {
+        "NoFaultDetected": 0,
+        "NoSensor": 1,
+        "OverRange": 2,
+        "UnderRange": 3,
+        "OpenLoop": 4,
+        "ShortedLoop": 5,
+        "NoOutput": 6,
+        "UnreliableOther": 7,
+        "ProcessError": 8,
+        "MultiStateFault": 9,
+        "ConfigurationError": 10,
+        "CommunicationFailure": 12,
+        "MemberFault": 13,
+        "MONITORED_OBJECT_FAULT": 14,
+        "TRIPPED": 15
+      },
+      "properties": {
+        "NoFaultDetected": {
+          "description": "The present value is reliable; that is, no other fault has been detected.",
+          "type": "integer"
+        },
+        "NoSensor": {
+          "description": "No sensor is connected to the Input object.",
+          "type": "integer"
+        },
+        "OverRange": {
+          "description": "The sensor connected to the Input is reading a value higher than the normal operating range. If the object is a Binary Input, this is possible when the Binary state is derived from an analog sensor or a binary input equipped with electrical loop supervision circuits.",
+          "type": "integer"
+        },
+        "UnderRange": {
+          "description": "The sensor connected to the Input is reading a value lower than the normal operating range. If the object is a Binary Input, this is possible when the Binary Input is actually a binary state calculated from an analog sensor.",
+          "type": "integer"
+        },
+        "OpenLoop": {
+          "description": "The connection between the defined object and the physical device is providing a value indicating an open circuit condition.",
+          "type": "integer"
+        },
+        "ShortedLoop": {
+          "description": "The connection between the defined object and the physical device is providing a value indicating a short circuit condition.",
+          "type": "integer"
+        },
+        "NoOutput": {
+          "description": "No physical device is connected to the Output object.",
+          "type": "integer"
+        },
+        "UnreliableOther": {
+          "description": "The controller has detected that the present value is unreliable, but none of the other conditions describe the nature of the problem. A generic fault other than those listed above has been detected, e.g., a Binary Input is not cycling as expected.",
+          "type": "integer"
+        },
+        "ProcessError": {
+          "description": "A processing error was encountered.",
+          "type": "integer"
+        },
+        "MultiStateFault": {
+          "description": "The FAULT_STATE, FAULT_LIFE_SAFETY or FAULT_CHARACTERSTRING fault algorithm has evaluated a fault condition.",
+          "type": "integer"
+        },
+        "ConfigurationError": {
+          "description": "The object's properties are not in a consistent state.",
+          "type": "integer"
+        },
+        "CommunicationFailure": {
+          "description": "Proper operation of the object is dependent on communication with a remote sensor or device and communication with the remote sensor or device has been lost.",
+          "type": "integer"
+        },
+        "MemberFault": {
+          "description": "Indicates that the set of referenced member objects includes one or more Status_Flags properties whose FAULT flag value is equal to TRUE.",
+          "type": "integer"
+        },
+        "MONITORED_OBJECT_FAULT": {
+          "description": "Indicates that the monitored object is in fault.",
+          "type": "integer"
+        },
+        "TRIPPED": {
+          "description": "The end device, such as an actuator, is not responding to commands, prevented by a tripped condition or by being mechanically held open.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

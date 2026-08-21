@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialValidationStatusEnumeration",
+  "title": "TMC_v2_MaterialValidationStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialValidationStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "MaterialValidationStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialValidationStatusEnumeration",
+      "const": {
+        "None": 0,
+        "Waiting": 1,
+        "Passed": 2,
+        "Failed": 3
+      },
+      "description": "The MaterialValidationStatusEnumeration describes the status of the material validation  process.",
+      "properties": {
+        "None": {
+          "description": "No validation process status known.",
+          "type": "integer"
+        },
+        "Waiting": {
+          "description": "A material has been presented and not validation status is communicated by the material integrity agent.",
+          "type": "integer"
+        },
+        "Passed": {
+          "description": "The presented material is validated.",
+          "type": "integer"
+        },
+        "Failed": {
+          "description": "The presented material did not pass the validation.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

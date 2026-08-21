@@ -1,0 +1,781 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PackML/#PackML_PackMLAdminObjectType",
+  "title": "PackML_PackMLAdminObjectType",
+  "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLAdminObjectType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AccTimeSinceReset",
+    "/properties/AlarmExtent",
+    "/properties/AlarmHistoryExtent",
+    "/properties/MachDesignSpeed",
+    "/properties/ModeCumulativeTime",
+    "/properties/ModeCurrentTime",
+    "/properties/Parameter",
+    "/properties/ProdConsumedCount",
+    "/properties/ProdDefectiveCount",
+    "/properties/ProdProcessedCount",
+    "/properties/StateCumulativeTime",
+    "/properties/StateCurrentTime",
+    "/properties/StopReasonExtent",
+    "/properties/WarningExtent",
+    "/events/AccTimeSinceReset",
+    "/events/AlarmExtent",
+    "/events/AlarmHistoryExtent",
+    "/events/MachDesignSpeed",
+    "/events/ModeCumulativeTime",
+    "/events/ModeCurrentTime",
+    "/events/Parameter",
+    "/events/ProdConsumedCount",
+    "/events/ProdDefectiveCount",
+    "/events/ProdProcessedCount",
+    "/events/StateCumulativeTime",
+    "/events/StateCurrentTime",
+    "/events/StopReasonExtent",
+    "/events/WarningExtent"
+  ],
+  "properties": {
+    "AccTimeSinceReset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "AlarmExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "AlarmHistoryExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MachDesignSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": true
+    },
+    "ModeCumulativeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": true
+    },
+    "ModeCurrentTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": true
+    },
+    "Parameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "title": "PackMLDescriptorDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLDescriptorDataType",
+        "required": [
+          "ID",
+          "Name",
+          "Unit",
+          "Value"
+        ],
+        "properties": {
+          "ID": {
+            "description": "A unique number assigned to the parameter",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Name": {
+            "description": "The name of the parameter",
+            "type": "string"
+          },
+          "Unit": {
+            "title": "EUInformation",
+            "description": "OPC UA engineering unit information",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          },
+          "Value": {
+            "description": "This is the numeric value of the parameter",
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "ProdConsumedCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "title": "PackMLCountDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+        "required": [
+          "ID",
+          "Name",
+          "Unit",
+          "Count",
+          "AccCount"
+        ],
+        "properties": {
+          "ID": {
+            "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Name": {
+            "description": "A string description of the material.",
+            "type": "string"
+          },
+          "Unit": {
+            "title": "EUInformation",
+            "description": "OPC UA engineering unit information for the count.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          },
+          "Count": {
+            "description": "The amount of consumed (processed or defective) material on the current production job.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "AccCount": {
+            "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "ProdDefectiveCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "title": "PackMLCountDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+        "required": [
+          "ID",
+          "Name",
+          "Unit",
+          "Count",
+          "AccCount"
+        ],
+        "properties": {
+          "ID": {
+            "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Name": {
+            "description": "A string description of the material.",
+            "type": "string"
+          },
+          "Unit": {
+            "title": "EUInformation",
+            "description": "OPC UA engineering unit information for the count.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          },
+          "Count": {
+            "description": "The amount of consumed (processed or defective) material on the current production job.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "AccCount": {
+            "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "ProdProcessedCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "title": "PackMLCountDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+        "required": [
+          "ID",
+          "Name",
+          "Unit",
+          "Count",
+          "AccCount"
+        ],
+        "properties": {
+          "ID": {
+            "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Name": {
+            "description": "A string description of the material.",
+            "type": "string"
+          },
+          "Unit": {
+            "title": "EUInformation",
+            "description": "OPC UA engineering unit information for the count.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+            "required": [
+              "NamespaceUri",
+              "UnitId",
+              "DisplayName",
+              "Description"
+            ],
+            "properties": {
+              "NamespaceUri": {
+                "type": "string"
+              },
+              "UnitId": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "DisplayName": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              }
+            }
+          },
+          "Count": {
+            "description": "The amount of consumed (processed or defective) material on the current production job.",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "AccCount": {
+            "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "StateCumulativeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      },
+      "readOnly": true
+    },
+    "StateCurrentTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      },
+      "readOnly": true
+    },
+    "StopReasonExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "WarningExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AccTimeSinceReset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "AlarmExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "AlarmHistoryExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "MachDesignSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      }
+    },
+    "ModeCumulativeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "ModeCurrentTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "Parameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PackMLDescriptorDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLDescriptorDataType",
+          "required": [
+            "ID",
+            "Name",
+            "Unit",
+            "Value"
+          ],
+          "properties": {
+            "ID": {
+              "description": "A unique number assigned to the parameter",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Name": {
+              "description": "The name of the parameter",
+              "type": "string"
+            },
+            "Unit": {
+              "title": "EUInformation",
+              "description": "OPC UA engineering unit information",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "Value": {
+              "description": "This is the numeric value of the parameter",
+              "type": "number",
+              "minimum": -3.40e+38,
+              "maximum": 3.40e+38
+            }
+          }
+        }
+      }
+    },
+    "ProdConsumedCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PackMLCountDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+          "required": [
+            "ID",
+            "Name",
+            "Unit",
+            "Count",
+            "AccCount"
+          ],
+          "properties": {
+            "ID": {
+              "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Name": {
+              "description": "A string description of the material.",
+              "type": "string"
+            },
+            "Unit": {
+              "title": "EUInformation",
+              "description": "OPC UA engineering unit information for the count.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "Count": {
+              "description": "The amount of consumed (processed or defective) material on the current production job.",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "AccCount": {
+              "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    },
+    "ProdDefectiveCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PackMLCountDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+          "required": [
+            "ID",
+            "Name",
+            "Unit",
+            "Count",
+            "AccCount"
+          ],
+          "properties": {
+            "ID": {
+              "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Name": {
+              "description": "A string description of the material.",
+              "type": "string"
+            },
+            "Unit": {
+              "title": "EUInformation",
+              "description": "OPC UA engineering unit information for the count.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "Count": {
+              "description": "The amount of consumed (processed or defective) material on the current production job.",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "AccCount": {
+              "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    },
+    "ProdProcessedCount": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "PackMLCountDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLCountDataType",
+          "required": [
+            "ID",
+            "Name",
+            "Unit",
+            "Count",
+            "AccCount"
+          ],
+          "properties": {
+            "ID": {
+              "description": "A user defined value that represents the consumed (processed or defective) material. Typically this is an SKU number or a user material master number.",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "Name": {
+              "description": "A string description of the material.",
+              "type": "string"
+            },
+            "Unit": {
+              "title": "EUInformation",
+              "description": "OPC UA engineering unit information for the count.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "Count": {
+              "description": "The amount of consumed (processed or defective) material on the current production job.",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "AccCount": {
+              "description": "The cumulative count value of the material produced (or consumed). This counter gives the user a non-resetting counter that may be used for OEE calculations",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    },
+    "StateCumulativeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "StateCurrentTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "StopReasonExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "WarningExtent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "data": {
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

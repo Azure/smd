@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_PortType",
+  "title": "Pumps_PortType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.PortType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PortDirectionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PortDirectionEnum",
+      "const": {
+        "In": 0,
+        "Out": 1,
+        "InOut": 2
+      },
+      "description": "determines whether the port is an inlet and outlet or both",
+      "properties": {
+        "In": {
+          "description": "Ports with the direction “In” can only be connected to ports with the direction “Out” or “InOut”.",
+          "type": "integer"
+        },
+        "Out": {
+          "description": "Ports with the direction “Out” can only be connected to ports with the direction “In” or “InOut”.",
+          "type": "integer"
+        },
+        "InOut": {
+          "description": "Ports with the direction “InOut” can be connected to ports with arbitrary directions.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Category",
+    "/properties/Direction",
+    "/properties/IdCarrier",
+    "/events/Category",
+    "/events/Direction",
+    "/events/IdCarrier"
+  ],
+  "properties": {
+    "Category": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "The category property describes the Port type. The value of this attribute is user-defined. Only ports with the same category value are allowed to be connected.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Direction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "PortDirectionEnum",
+      "description": "Ports with the direction “In” can only be connected to ports with the direction “Out” or “InOut” and ports with the direction “Out” can only be connected with ports with the direction “In” or “InOut”. Ports with the direction “InOut” can be connected to Ports of arbitrary direction.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PortDirectionEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "IdCarrier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property contains the ID of the asset to which the port is assigned.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Category": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "The category property describes the Port type. The value of this attribute is user-defined. Only ports with the same category value are allowed to be connected.",
+        "type": "string"
+      }
+    },
+    "Direction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "PortDirectionEnum",
+        "description": "Ports with the direction “In” can only be connected to ports with the direction “Out” or “InOut” and ports with the direction “Out” can only be connected with ports with the direction “In” or “InOut”. Ports with the direction “InOut” can be connected to Ports of arbitrary direction.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.PortDirectionEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "IdCarrier": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property contains the ID of the asset to which the port is assigned.",
+        "type": "string"
+      }
+    }
+  }
+}

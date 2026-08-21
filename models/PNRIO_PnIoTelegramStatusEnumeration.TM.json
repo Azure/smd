@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_PnIoTelegramStatusEnumeration",
+  "title": "PNRIO_PnIoTelegramStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.PnIoTelegramStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnIoTelegramStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.PnIoTelegramStatusEnumeration",
+      "const": {
+        "GOOD": 0,
+        "BAD_BY_SUBSLOT": 1,
+        "BAD_BY_SLOT": 2,
+        "BAD_BY_DEVICE": 3,
+        "BAD_BY_CONTROLLER": 4
+      },
+      "properties": {
+        "GOOD": {
+          "description": "For ConsumerStatus: The submodule’s IO data object could be successfully processed by the application process. For ProviderStatus: The content of the submodule’s IO data object is valid. ",
+          "type": "integer"
+        },
+        "BAD_BY_SUBSLOT": {
+          "description": "For ConsumerStatus: not used. For ProviderStatus: The content of the submodule’s IO data object is invalid. The condition was detected by the submodule. ",
+          "type": "integer"
+        },
+        "BAD_BY_SLOT": {
+          "description": "For ConsumerStatus: not used. For ProviderStatus: . The content of the submodule’s IO data object is invalid. The condition was detected by the module. ",
+          "type": "integer"
+        },
+        "BAD_BY_DEVICE": {
+          "description": "For ConsumerStatus: The IO device has locally detected problems to convey data. For ProviderStatus: The content of the submodule’s IO data object is invalid. The condition was detected by the device. ",
+          "type": "integer"
+        },
+        "BAD_BY_CONTROLLER": {
+          "description": "For ConsumerStatus: The submodule’s IO data object could not be successfully processed by the application of the Controller (e.g. because of the operation state “stop”). For ProviderStatus: The content of the submodule’s IO data object is invalid. The condition was only locally detected by the Controller. ",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

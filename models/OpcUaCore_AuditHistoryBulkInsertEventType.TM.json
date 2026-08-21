@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_AuditHistoryBulkInsertEventType",
+  "title": "OpcUaCore_AuditHistoryBulkInsertEventType",
+  "dov:typeRef": "org.opcfoundation.UA.AuditHistoryBulkInsertEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AuditEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "EndTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "StartTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "UpdatedNode": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

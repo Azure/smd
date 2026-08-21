@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ResultTransferType",
+  "title": "Machinery_Result_ResultTransferType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultTransferType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TemporaryFileTransferType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "GenerateFileForRead": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "GenerateOptions"
+        ],
+        "properties": {
+          "GenerateOptions": {
+            "title": "BaseResultTransferOptionsDataType",
+            "description": "Abstract type containing information which file should be provided.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.BaseResultTransferOptionsDataType",
+            "required": [
+              "ResultId"
+            ],
+            "properties": {
+              "ResultId": {
+                "description": "The Id of the result to be transferred to the Clients",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FileNodeId",
+          "FileHandle",
+          "CompletionStateMachine"
+        ],
+        "properties": {
+          "FileNodeId": {
+            "description": "NodeId of the temporary file.",
+            "type": "string"
+          },
+          "FileHandle": {
+            "description": "The FileHandle of the opened TransferFile. The FileHandle can be used to access the TransferFile methods Read and Close. ",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CompletionStateMachine": {
+            "description": "If the creation of the file is completed asynchronously, the parameter returns the NodeId of the corresponding FileTransferStateMachineType Object. If the creation of the file is already completed, the parameter is null. If a FileTransferStateMachineType object NodeId is returned, the Read Method of the file fails until the TransferState changed to ReadTransfer. ",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

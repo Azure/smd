@@ -1,0 +1,92 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/SurfaceTechnology/GeneralTypes/#SurfaceTechnology_GeneralTypes_STJobManagementType",
+  "title": "SurfaceTechnology_GeneralTypes_STJobManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.SurfaceTechnology.GeneralTypes.STJobManagementType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/Jobs/#Machinery_Jobs_JobManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "STJobManagementAliases",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_AliasNameCategoryType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddAlias",
+    "/actions/RemoveAlias"
+  ],
+  "actions": {
+    "AddAlias": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/GeneralTypes/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AliasName",
+          "ReferenceID",
+          "Target"
+        ],
+        "properties": {
+          "AliasName": {
+            "description": "The alias to be assigned to a particular node",
+            "type": "string"
+          },
+          "ReferenceID": {
+            "description": "The ID of the reference that should apply to the new alias",
+            "type": "string"
+          },
+          "Target": {
+            "description": "The exact node to which the alias should be assigned to",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "AliasNode"
+        ],
+        "properties": {
+          "AliasNode": {
+            "description": "The ID of the node that has now been assigned the alias",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveAlias": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/GeneralTypes/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AliasName",
+          "ReferenceID"
+        ],
+        "properties": {
+          "AliasName": {
+            "description": "The alias that has to be removed",
+            "type": "string"
+          },
+          "ReferenceID": {
+            "description": "The ID of the reference that has to be removed",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

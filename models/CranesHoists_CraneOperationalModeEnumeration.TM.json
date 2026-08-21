@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CranesHoists/#CranesHoists_CraneOperationalModeEnumeration",
+  "title": "CranesHoists_CraneOperationalModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.CranesHoists.CraneOperationalModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "CraneOperationalModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CranesHoists.CraneOperationalModeEnumeration",
+      "const": {
+        "OTHER": 0,
+        "MANUAL": 1,
+        "SEMIAUTOMATIC": 2,
+        "FULLAUTOMATIC": 3,
+        "BYPASS_ON": 4,
+        "MAINTENANCE": 5
+      },
+      "properties": {
+        "OTHER": {
+          "description": "Use if vendor specific",
+          "type": "integer"
+        },
+        "MANUAL": {
+          "description": "Crane is operated manually by a human operator",
+          "type": "integer"
+        },
+        "SEMIAUTOMATIC": {
+          "description": "Some or all of crane motions are automated, but a human operator is required in the loop.",
+          "type": "integer"
+        },
+        "FULLAUTOMATIC": {
+          "description": "All of the crane motions are automated. No human intervention is required.",
+          "type": "integer"
+        },
+        "BYPASS_ON": {
+          "description": "A function, such as an assistive feature, is bypassed on the crane, e. g. to continue productive work in case a non-critical function suffers a fault.",
+          "type": "integer"
+        },
+        "MAINTENANCE": {
+          "description": "Crane is in maintenance mode, typically operating at reduced speed and possibly with some protective functions disabled so they will not hinder or prohibit service activities.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

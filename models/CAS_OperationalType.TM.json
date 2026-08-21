@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_OperationalType",
+  "title": "CAS_OperationalType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.OperationalType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/HealthState",
+    "/properties/IntegratedState",
+    "/properties/OnOff",
+    "/properties/OperatingState",
+    "/events/HealthState",
+    "/events/IntegratedState",
+    "/events/OnOff",
+    "/events/OperatingState"
+  ],
+  "properties": {
+    "HealthState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Actual health state of the part.",
+      "type": "string",
+      "readOnly": true
+    },
+    "IntegratedState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Actual integrated state of the part.",
+      "type": "string",
+      "readOnly": true
+    },
+    "OnOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Actual operating state of the part.",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "HealthState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Actual health state of the part.",
+        "type": "string"
+      }
+    },
+    "IntegratedState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Actual integrated state of the part.",
+        "type": "string"
+      }
+    },
+    "OnOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "OperatingState": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Actual operating state of the part.",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASEntityType",
+  "title": "I4AAS_AASEntityType",
+  "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASEntityType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASSubmodelElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SubmodelElement",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASSubmodelElementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Asset",
+      "href": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASReferenceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AASEntityTypeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASEntityTypeDataType",
+      "const": {
+        "CoManagedEntity": 0,
+        "SelfManagedEntity": 1
+      },
+      "properties": {
+        "CoManagedEntity": {
+          "description": "Self-Managed Entities have their own AAS. This is why a reference to this asset is specified as well (Entity/asset). Additionally, further property statements (compare to [15]) can be added to the asset that are not specified in the AAS of the asset itself because they are specified in relation to the complex I4.0 Component only.",
+          "type": "integer"
+        },
+        "SelfManagedEntity": {
+          "description": "For co-managed entities there is no separate AAS. The relationships and property statements of such entities are managed within the AAS of the composite I4.0 Component.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "EntityType": {
+      "dov:namespace": "http://opcfoundation.org/UA/I4AAS/",
+      "title": "AASEntityTypeDataType",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASEntityTypeDataType",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  }
+}

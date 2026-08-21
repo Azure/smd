@@ -1,0 +1,236 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionManagerType",
+  "title": "FX_CM_ConnectionManagerType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.ConnectionManagerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Capabilities",
+      "href": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionManagerCapabilitiesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ConnectionConfigurationSets",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ConnectionManagerConfiguration",
+      "href": "http://opcfoundation.org/UA/FX/CM/#FX_CM_ConnectionManagerConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ConnectionManagerLog",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_LogObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FxEditEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxEditEnum",
+      "const": {
+        "StartEditing": 0,
+        "CommitUpdates": 1,
+        "DiscardUpdates": 2
+      },
+      "properties": {
+        "StartEditing": {
+          "description": "The ConnectionManager shall allow editing of the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "CommitUpdates": {
+          "description": "The ConnectionManager shall commit all updates from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "DiscardUpdates": {
+          "description": "The ConnectionManager shall discard the updates to the ConnectionConfigurationSets.",
+          "type": "integer"
+        }
+      }
+    },
+    "FxProcessEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxProcessEnum",
+      "const": {
+        "ActionEstablishConnectionsEnabled": 0,
+        "ActionEstablishConnectionsDisabled": 1,
+        "ActionEstablishConnections": 2,
+        "ActionRemoveConnections": 3,
+        "ActionEnableConnections": 4,
+        "ActionDisableConnections": 5
+      },
+      "properties": {
+        "ActionEstablishConnectionsEnabled": {
+          "description": "The ConnectionManager shall establish enabled Connections from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "ActionEstablishConnectionsDisabled": {
+          "description": "The ConnectionManager shall establish disabled Connections from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "ActionEstablishConnections": {
+          "description": "The ConnectionManager shall establish Connections from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "ActionRemoveConnections": {
+          "description": "The ConnectionManager shall disable and remove Connections from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "ActionEnableConnections": {
+          "description": "The ConnectionManager shall enable Connections from the ConnectionConfigurationSets.",
+          "type": "integer"
+        },
+        "ActionDisableConnections": {
+          "description": "The ConnectionManager shall disable Connections from the ConnectionConfigurationSets.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/EditConnectionConfigurationSets",
+    "/actions/ProcessConnectionConfigurationSets",
+    "/properties/AggregatedCurrentState",
+    "/properties/GlobalDiscoveryServers",
+    "/events/AggregatedCurrentState",
+    "/events/GlobalDiscoveryServers"
+  ],
+  "actions": {
+    "EditConnectionConfigurationSets": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Action",
+          "ConnectionConfigurationSets"
+        ],
+        "properties": {
+          "Action": {
+            "title": "FxEditEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxEditEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ConnectionConfigurationSets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ProcessConnectionConfigurationSets": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Action",
+          "ConnectionConfigurationSets"
+        ],
+        "properties": {
+          "Action": {
+            "title": "FxProcessEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.CM.FxProcessEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ConnectionConfigurationSets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Results"
+        ],
+        "properties": {
+          "Results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AggregatedCurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "GlobalDiscoveryServers": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AggregatedCurrentState": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "GlobalDiscoveryServers": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/CM/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

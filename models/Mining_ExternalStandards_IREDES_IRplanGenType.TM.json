@@ -1,0 +1,101 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_IRplanGenType",
+  "title": "Mining_ExternalStandards_IREDES_IRplanGenType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.IRplanGenType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "IREDES",
+      "href": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_IREDESType_1",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Comment",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Project",
+    "/properties/WorkOrder",
+    "/events/Comment",
+    "/events/Project",
+    "/events/WorkOrder"
+  ],
+  "properties": {
+    "Comment": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Comments to the plan for example type of plan, purpose, tools to use.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "PlanId": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "IREDES internal production plan ID used for reference e.g. by Production Quality data sets basing on a particular production plan.",
+      "type": "string",
+      "readOnly": false
+    },
+    "PlanName": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Plan logical name to identify this specific plan to the human user. Useful to help the operator of a machine to logical identify a specific plan.",
+      "type": "string",
+      "readOnly": false
+    },
+    "Project": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Project ID code. To identify the target project for this plan.",
+      "type": "string",
+      "readOnly": false
+    },
+    "WorkOrder": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Work order ID code. To identify the work order associated with this plan.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Comment": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Comments to the plan for example type of plan, purpose, tools to use.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "Project": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Project ID code. To identify the target project for this plan.",
+        "type": "string"
+      }
+    },
+    "WorkOrder": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Work order ID code. To identify the work order associated with this plan.",
+        "type": "string"
+      }
+    }
+  }
+}

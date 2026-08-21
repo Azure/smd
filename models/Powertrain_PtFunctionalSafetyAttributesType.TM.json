@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtFunctionalSafetyAttributesType",
+  "title": "Powertrain_PtFunctionalSafetyAttributesType",
+  "dov:typeRef": "org.opcfoundation.UA.Powertrain.PtFunctionalSafetyAttributesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtCommonAssetAttributesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "SafetyFunctionsAttributes",
+      "dov:refType": "HasPtAttributes",
+      "href": "http://opcfoundation.org/UA/Powertrain/#Powertrain_PtSafetyFunctionsAttributesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/SafetyAssessor",
+    "/properties/SafetyTransportProtocols"
+  ],
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "SafetyAssessor": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SafetyTransportProtocols": {
+      "dov:namespace": "http://opcfoundation.org/UA/Powertrain/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    }
+  }
+}

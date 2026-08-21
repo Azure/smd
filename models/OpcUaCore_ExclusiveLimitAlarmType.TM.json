@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ExclusiveLimitAlarmType",
+  "title": "OpcUaCore_ExclusiveLimitAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.ExclusiveLimitAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_LimitAlarmType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "LimitState",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ExclusiveLimitStateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateVariableType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "ActiveState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    }
+  }
+}

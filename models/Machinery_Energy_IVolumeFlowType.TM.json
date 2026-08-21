@@ -1,0 +1,164 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Energy/#Machinery_Energy_IVolumeFlowType",
+  "title": "Machinery_Energy_IVolumeFlowType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Energy.IVolumeFlowType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/Energy/#Machinery_Energy_IBaseFlowType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Volume",
+    "/properties/VolumeFlowRate",
+    "/properties/Volume_EngineeringUnits",
+    "/properties/VolumeFlowRate_EngineeringUnits",
+    "/events/Volume",
+    "/events/VolumeFlowRate"
+  ],
+  "properties": {
+    "Volume": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:contains": [
+        "Volume_AccuracyClass",
+        "Volume_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/Volume_EngineeringUnits"
+    },
+    "Volume_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "Volume"
+    },
+    "Volume_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "Volume"
+    },
+    "VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "dov:contains": [
+        "VolumeFlowRate_AccuracyClass",
+        "VolumeFlowRate_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/VolumeFlowRate_EngineeringUnits"
+    },
+    "VolumeFlowRate_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true,
+      "dov:containedIn": "VolumeFlowRate"
+    },
+    "VolumeFlowRate_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "VolumeFlowRate"
+    },
+    "Volume_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Volume, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "VolumeFlowRate_EngineeringUnits": {
+      "description": "Unit designator for property and event with name VolumeFlowRate, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Volume": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "Volume_AccuracyClass",
+        "Volume_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Volume",
+      "dov:withUnit": "properties/Volume_EngineeringUnits"
+    },
+    "Volume_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Volume"
+    },
+    "Volume_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "Volume"
+    },
+    "VolumeFlowRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "dov:contains": [
+        "VolumeFlowRate_AccuracyClass",
+        "VolumeFlowRate_Resource"
+      ],
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/VolumeFlowRate_EngineeringUnits"
+    },
+    "VolumeFlowRate_AccuracyClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "VolumeFlowRate"
+    },
+    "VolumeFlowRate_Resource": {
+      "dov:namespace": "http://opcfoundation.org/UA/ECM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "VolumeFlowRate"
+    }
+  }
+}

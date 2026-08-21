@@ -1,0 +1,185 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/#PlasticsRubber_Extrusion_v2_GeneralTypes_ExtrusionDeviceType",
+  "title": "PlasticsRubber_Extrusion_v2_GeneralTypes_ExtrusionDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion_v2.GeneralTypes.ExtrusionDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AdditionalMeasuringDevices",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ElectricalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FluidEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MachineConfiguration",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MachineConfigurationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Maintenance",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MaintenanceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PressureAir",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ProductionDatasetManagement",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ProductionDatasetManagementType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartDevice",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_StartDeviceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "LogbookEventsEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.LogbookEventsEnumeration",
+      "const": {
+        "PARAMETER_CHANGE": 0,
+        "USER": 1,
+        "REMOTE_ACCESS": 2,
+        "SEQUENCE_CHANGE": 3,
+        "MACHINE_MODE_CHANGE": 4,
+        "PRODUCTION_STATUS_CHANGE": 5,
+        "PRODUCTION_DATASET_CHANGE": 6,
+        "PRODUCTION_DATASET_FROZEN": 7,
+        "STANDSTILL_REASON": 8,
+        "MESSAGE": 9,
+        "USER_FEEDBACK": 10
+      },
+      "description": "Information which LogbookEvents are supported by the machine",
+      "properties": {
+        "PARAMETER_CHANGE": {
+          "description": "Support of ParameterChangeLogType",
+          "type": "integer"
+        },
+        "USER": {
+          "description": "Support of UserLogType ",
+          "type": "integer"
+        },
+        "REMOTE_ACCESS": {
+          "description": "Support of RemoteAccessLogType",
+          "type": "integer"
+        },
+        "SEQUENCE_CHANGE": {
+          "description": "Support of SequenceChangeLogType",
+          "type": "integer"
+        },
+        "MACHINE_MODE_CHANGE": {
+          "description": "Support of MachineModeChangeLogType",
+          "type": "integer"
+        },
+        "PRODUCTION_STATUS_CHANGE": {
+          "description": "Support of ProductionStatusChangeLogType",
+          "type": "integer"
+        },
+        "PRODUCTION_DATASET_CHANGE": {
+          "description": "Support of ProductionDatasetChangeLogType",
+          "type": "integer"
+        },
+        "PRODUCTION_DATASET_FROZEN": {
+          "description": "Support of ProductionDatasetFrozenLogType",
+          "type": "integer"
+        },
+        "STANDSTILL_REASON": {
+          "description": "Support of StandstillReasonLogType",
+          "type": "integer"
+        },
+        "MESSAGE": {
+          "description": "Support of MessageLogType",
+          "type": "integer"
+        },
+        "USER_FEEDBACK": {
+          "description": "Support of UserFeedbackLogType",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/Strand",
+    "/properties/Target"
+  ],
+  "properties": {
+    "IsPresent": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "LineId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Strand": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "SupportedLogbookEvents": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/",
+      "type": "array",
+      "items": {
+        "title": "LogbookEventsEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GeneralTypes.LogbookEventsEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      },
+      "readOnly": true
+    },
+    "Target": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

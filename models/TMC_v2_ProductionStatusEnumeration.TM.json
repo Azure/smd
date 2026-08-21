@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionStatusEnumeration",
+  "title": "TMC_v2_ProductionStatusEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProductionStatusEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "ProductionStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProductionStatusEnumeration",
+      "const": {
+        "Other": 0,
+        "BrandChange": 1,
+        "Production": 2,
+        "NoProduction": 3
+      },
+      "description": "The ProductionStatusEnumeration contains the production state of a machine module.",
+      "properties": {
+        "Other": {
+          "description": "None of the states below.",
+          "type": "integer"
+        },
+        "BrandChange": {
+          "description": "No production order is running, but some materials are being removed in preparation for a different brand.",
+          "type": "integer"
+        },
+        "Production": {
+          "description": "A production order is being produced.",
+          "type": "integer"
+        },
+        "NoProduction": {
+          "description": "No production order is running and no activity to remove materials is ongoing.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

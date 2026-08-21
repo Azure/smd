@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/#WireHarness_WireHarnessMachineIdentificationType",
+  "title": "WireHarness_WireHarnessMachineIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.WireHarnessMachineIdentificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "To be used by end users to store a unique identification in the context of their overall application. Servers shall support at least 40 Unicode characters for the clients writing this value, this means clients can expect to be able to write strings with a length of 40 Unicode characters into that field.",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

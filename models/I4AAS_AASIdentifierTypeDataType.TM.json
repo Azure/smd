@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/I4AAS/#I4AAS_AASIdentifierTypeDataType",
+  "title": "I4AAS_AASIdentifierTypeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASIdentifierTypeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AASIdentifierTypeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.I4AAS.AASIdentifierTypeDataType",
+      "const": {
+        "IRDI": 0,
+        "IRI": 1,
+        "Custom": 2
+      },
+      "properties": {
+        "IRDI": {
+          "description": "IRDI according to ISO29002-5 as an Identifier scheme for properties and classifications",
+          "type": "integer"
+        },
+        "IRI": {
+          "description": "Internationalized Resource Identifier according to RFC3305",
+          "type": "integer"
+        },
+        "Custom": {
+          "description": "Custom identifiers like GUIDs (globally unique Identifiers)",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

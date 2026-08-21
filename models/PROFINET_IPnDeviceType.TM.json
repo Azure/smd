@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnDeviceType",
+  "title": "PROFINET_IPnDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.IPnDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PROFINET/#PROFINET_IPnEquipmentType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PnDeviceStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceStateEnumeration",
+      "const": {
+        "OFFLINE": 0,
+        "OFFLINE_DOCKING": 1,
+        "ONLINE": 2,
+        "ONLINE_DOCKING": 3
+      },
+      "properties": {
+        "OFFLINE": {
+          "description": "The device is not online, or no information is available. The device is offline if no ARs other than possible Device Access AR’s exist.",
+          "type": "integer"
+        },
+        "OFFLINE_DOCKING": {
+          "description": "The device is a docking device and currently not online.",
+          "type": "integer"
+        },
+        "ONLINE": {
+          "description": "The device is online. This is the case if at least one AR other than possible Device Access AR’s exists.",
+          "type": "integer"
+        },
+        "ONLINE_DOCKING": {
+          "description": "The device is a docking device and currently online.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/GSDDescription",
+    "/properties/State",
+    "/events/State"
+  ],
+  "properties": {
+    "GSDDescription": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "title": "PnDeviceStateEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceStateEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "State": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "data": {
+        "title": "PnDeviceStateEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnDeviceStateEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

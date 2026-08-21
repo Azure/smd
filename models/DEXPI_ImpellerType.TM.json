@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ImpellerType",
+  "title": "DEXPI_ImpellerType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.ImpellerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Diameter",
+    "/properties/MaterialOfConstructionCodeAssignmentClass",
+    "/properties/StageIdentifierAssignmentClass",
+    "/events/Diameter",
+    "/events/MaterialOfConstructionCodeAssignmentClass",
+    "/events/StageIdentifierAssignmentClass"
+  ],
+  "properties": {
+    "Diameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The diameter of the Impeller.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A code that gives the material of construction of the Impeller.",
+      "type": "string",
+      "readOnly": false
+    },
+    "StageIdentifierAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The stage identfifier of of the Impeller.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Diameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The diameter of the Impeller.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A code that gives the material of construction of the Impeller.",
+        "type": "string"
+      }
+    },
+    "StageIdentifierAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The stage identfifier of of the Impeller.",
+        "type": "string"
+      }
+    }
+  }
+}

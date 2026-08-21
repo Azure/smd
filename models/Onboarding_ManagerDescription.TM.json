@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Onboarding/#Onboarding_ManagerDescription",
+  "title": "Onboarding_ManagerDescription",
+  "dov:typeRef": "org.opcfoundation.UA.Onboarding.ManagerDescription",
+  "links": [],
+  "schemaDefinitions": {
+    "ManagerDescription": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Onboarding.ManagerDescription",
+      "required": [
+        "Name",
+        "IsRequired",
+        "PurposeUri",
+        "ProtocolUri",
+        "EndpointUrls"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "IsRequired": {
+          "type": "boolean"
+        },
+        "PurposeUri": {
+          "type": "string"
+        },
+        "ProtocolUri": {
+          "type": "string"
+        },
+        "EndpointUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

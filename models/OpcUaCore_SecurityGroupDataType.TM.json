@@ -1,0 +1,106 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SecurityGroupDataType",
+  "title": "OpcUaCore_SecurityGroupDataType",
+  "dov:typeRef": "org.opcfoundation.UA.SecurityGroupDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SecurityGroupDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.SecurityGroupDataType",
+      "required": [
+        "Name",
+        "SecurityGroupFolder",
+        "KeyLifetime",
+        "SecurityPolicyUri",
+        "MaxFutureKeyCount",
+        "MaxPastKeyCount",
+        "SecurityGroupId",
+        "RolePermissions",
+        "GroupProperties"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "SecurityGroupFolder": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "KeyLifetime": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "SecurityPolicyUri": {
+          "type": "string"
+        },
+        "MaxFutureKeyCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "MaxPastKeyCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "SecurityGroupId": {
+          "type": "string"
+        },
+        "RolePermissions": {
+          "type": "array",
+          "items": {
+            "title": "RolePermissionType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.RolePermissionType",
+            "required": [
+              "RoleId",
+              "Permissions"
+            ],
+            "properties": {
+              "RoleId": {
+                "type": "string"
+              },
+              "Permissions": {
+                "title": "PermissionType",
+                "dov:typeRef": "org.opcfoundation.UA.PermissionType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              }
+            }
+          }
+        },
+        "GroupProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

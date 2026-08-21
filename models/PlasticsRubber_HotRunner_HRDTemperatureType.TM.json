@@ -1,0 +1,151 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/#PlasticsRubber_HotRunner_HRDTemperatureType",
+  "title": "PlasticsRubber_HotRunner_HRDTemperatureType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.HRDTemperatureType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_ControlledParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BoostSetValue",
+    "/properties/BoostTime",
+    "/properties/SecondSetValue",
+    "/properties/StandbySetValue",
+    "/properties/TimeMethodPIDParameters",
+    "/events/BoostSetValue",
+    "/events/SecondSetValue",
+    "/events/StandbySetValue"
+  ],
+  "properties": {
+    "ActiveSetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Current active set temperature for the temperature zone ",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "BoostSetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Set value for boost mode",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "BoostTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Duration of the boost mode after which the set value which was active before boost is becoming active again",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "SecondSetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Second set value for fast switch-over",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "StandbySetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Set value for standby mode",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TimeMethodPIDParameters": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "description": "Setting of PID parameters with time method",
+      "type": "array",
+      "items": {
+        "title": "TimeMethodPIDParametersDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.HotRunner.TimeMethodPIDParametersDataType",
+        "required": [
+          "Xp",
+          "Tn",
+          "Tv",
+          "Ts"
+        ],
+        "properties": {
+          "Xp": {
+            "description": "proportional band",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tn": {
+            "description": "reset time",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Tv": {
+            "description": "derivative time",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "Ts": {
+            "description": "sample time",
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActiveSetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Current active set temperature for the temperature zone ",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "BoostSetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Set value for boost mode",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SecondSetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Second set value for fast switch-over",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "StandbySetValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/HotRunner/",
+      "data": {
+        "description": "Set value for standby mode",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

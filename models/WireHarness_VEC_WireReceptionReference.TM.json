@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_WireReceptionReference",
+  "title": "WireHarness_VEC_WireReceptionReference",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireReceptionReference",
+  "links": [],
+  "schemaDefinitions": {
+    "WireReceptionReference": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireReceptionReference",
+      "required": [
+        "id",
+        "Identification",
+        "WireReception"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>Specifies a unique<i>identification</i>of the<i>WireReceptionReference</i>. The<i>identification</i>is guaranteed to be unique within the<i>TerminalRole</i>(this might be for example a reception number).</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "WireReception": {
+          "title": "WireReceptionIdDataType",
+          "description": "<p>References the<i>WireReception</i>that is instanced by this<i>WireReceptionReference.</i></p>",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireReceptionIdDataType",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

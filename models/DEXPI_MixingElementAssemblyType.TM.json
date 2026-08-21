@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_MixingElementAssemblyType",
+  "title": "DEXPI_MixingElementAssemblyType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.MixingElementAssemblyType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_BaseDEXPIObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MaterialOfConstructionCodeAssignmentClass",
+    "/properties/MixingElementAssembly",
+    "/events/MaterialOfConstructionCodeAssignmentClass",
+    "/events/MixingElementAssembly"
+  ],
+  "properties": {
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "A code that gives the material of construction of the MixingElementAssembly.",
+      "type": "string",
+      "readOnly": false
+    },
+    "MixingElementAssembly": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The number of mixing elements in the MixingElementAssembly.",
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "MaterialOfConstructionCodeAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "A code that gives the material of construction of the MixingElementAssembly.",
+        "type": "string"
+      }
+    },
+    "MixingElementAssembly": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The number of mixing elements in the MixingElementAssembly.",
+        "type": "integer",
+        "minimum": -9223372036854775808,
+        "maximum": 9223372036854775807
+      }
+    }
+  }
+}

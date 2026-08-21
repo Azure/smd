@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Jobs/#Machinery_Jobs_OutputInformationDataType",
+  "title": "Machinery_Jobs_OutputInformationDataType",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.OutputInformationDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "OutputInformationDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.OutputInformationDataType",
+      "required": [
+        "ItemNumber",
+        "OutputInfo"
+      ],
+      "properties": {
+        "ItemNumber": {
+          "description": "ItemNumber defines an Identifier to identify the Type of the item (Material Identifier).",
+          "type": "string"
+        },
+        "OutputInfo": {
+          "title": "OutputInfoType",
+          "description": "Bitmask indicating which of the optional fields are used for identification. If none is selected, only ItemNumber is used. Each selected optional field shall provide a value.",
+          "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.OutputInfoType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "OrderNumber": {
+          "description": "OrderNumber defines an Identifier to identify the order. Shall be provided if defined in OutputInfo.",
+          "type": "string"
+        },
+        "LotNumber": {
+          "description": "LotNumber defines an Identifier to identify the production-group of the item (Lot Identifier). Shall be provided if defined in OutputInfo.",
+          "type": "string"
+        },
+        "SerialNumber": {
+          "description": "SerialNumber defines an Identifier to identify the one entity of the item (Product Identifier). Shall be provided if defined in OutputInfo.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_TwoStateDiscreteControlSignalType",
+  "title": "PADIM_TwoStateDiscreteControlSignalType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.TwoStateDiscreteControlSignalType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    },
+    "TwoStateDiscreteControlVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.TwoStateDiscreteControlVariableType",
+      "type": "boolean"
+    }
+  },
+  "properties": {
+    "ControlSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteControlVariableType",
+      "readOnly": false,
+      "dov:contains": [
+        "ControlSignal_OperatingDirection",
+        "ControlSignal_Setpoint"
+      ]
+    },
+    "ControlSignal_OperatingDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false,
+      "dov:containedIn": "ControlSignal"
+    },
+    "ControlSignal_Setpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false,
+      "dov:containedIn": "ControlSignal"
+    }
+  },
+  "events": {
+    "ControlSignal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteControlVariableType"
+      },
+      "dov:contains": [
+        "ControlSignal_OperatingDirection",
+        "ControlSignal_Setpoint"
+      ]
+    },
+    "ControlSignal_OperatingDirection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "dov:containedIn": "ControlSignal"
+    },
+    "ControlSignal_Setpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      },
+      "dov:containedIn": "ControlSignal"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioPaDigitalChannelGroupType",
+  "title": "PNRIO_RioPaDigitalChannelGroupType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalChannelGroupType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioChannelGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/SetSimulation",
+    "/actions/SetSimulationValue",
+    "/properties/SimulationEnabled",
+    "/properties/SimulationValues",
+    "/events/SimulationEnabled"
+  ],
+  "actions": {
+    "SetSimulation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SimulationEnabled",
+          "Index"
+        ],
+        "properties": {
+          "SimulationEnabled": {
+            "description": "Value used to set the Value of one SimulationEnabled array element.",
+            "type": "boolean"
+          },
+          "Index": {
+            "description": "Index of array element to set. If -1, the SimulationEnabled parameter is assigned to all array elements.",
+            "type": "integer",
+            "minimum": -32768,
+            "maximum": 32767
+          }
+        }
+      }
+    },
+    "SetSimulationValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Value",
+          "Qualifier",
+          "Index"
+        ],
+        "properties": {
+          "Value": {
+            "description": "Value used to set the Value member of the array element.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Value used to set the Qualifier member of the array element.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Index": {
+            "description": "Index of array element to set. If -1, the parameters are assigned to all array elements.",
+            "type": "integer",
+            "minimum": -32768,
+            "maximum": 32767
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "SimulationEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "array",
+      "items": {
+        "type": "boolean"
+      },
+      "readOnly": true
+    },
+    "SimulationValues": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "type": "array",
+      "items": {
+        "title": "RioPaDigitalValueDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalValueDataType",
+        "required": [
+          "Value",
+          "Qualifier"
+        ],
+        "properties": {
+          "Value": {
+            "description": "Current value.",
+            "type": "boolean"
+          },
+          "Qualifier": {
+            "description": "Current status.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        }
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "SimulationEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNRIO/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

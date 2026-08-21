@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_UadpWriterGroupMessageDataType",
+  "title": "OpcUaCore_UadpWriterGroupMessageDataType",
+  "dov:typeRef": "org.opcfoundation.UA.UadpWriterGroupMessageDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "UadpWriterGroupMessageDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UadpWriterGroupMessageDataType",
+      "required": [
+        "GroupVersion",
+        "DataSetOrdering",
+        "NetworkMessageContentMask",
+        "SamplingOffset",
+        "PublishingOffset"
+      ],
+      "properties": {
+        "GroupVersion": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "DataSetOrdering": {
+          "title": "DataSetOrderingType",
+          "dov:typeRef": "org.opcfoundation.UA.DataSetOrderingType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "NetworkMessageContentMask": {
+          "title": "UadpNetworkMessageContentMask",
+          "dov:typeRef": "org.opcfoundation.UA.UadpNetworkMessageContentMask",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "SamplingOffset": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "PublishingOffset": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        }
+      }
+    }
+  }
+}

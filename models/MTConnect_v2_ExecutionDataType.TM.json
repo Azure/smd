@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_ExecutionDataType",
+  "title": "MTConnect_v2_ExecutionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.ExecutionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "ExecutionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.ExecutionDataType",
+      "const": {
+        "ACTIVE": 0,
+        "FEED_HOLD": 1,
+        "INTERRUPTED": 2,
+        "OPTIONAL_STOP": 3,
+        "READY": 4,
+        "PROGRAM_COMPLETED": 5,
+        "PROGRAM_STOPPED": 6,
+        "STOPPED": 7
+      },
+      "description": "",
+      "properties": {
+        "ACTIVE": {
+          "description": "The value of the data entity that is engaging.",
+          "type": "integer"
+        },
+        "FEED_HOLD": {
+          "description": "Motion of a component has been commanded to stop at its current position.",
+          "type": "integer"
+        },
+        "INTERRUPTED": {
+          "description": "The action of a component has been suspended due to an external signal.",
+          "type": "integer"
+        },
+        "OPTIONAL_STOP": {
+          "description": "The controllers program has been intentionally stopped",
+          "type": "integer"
+        },
+        "READY": {
+          "description": "A component is ready to engage.",
+          "type": "integer"
+        },
+        "PROGRAM_COMPLETED": {
+          "description": "           The execution of the controllers program has been stopped by a command           from within the program.         ",
+          "type": "integer"
+        },
+        "PROGRAM_STOPPED": {
+          "description": "           The execution of the controller's program has been stopped by a           command from within the program.         ",
+          "type": "integer"
+        },
+        "STOPPED": {
+          "description": "The component is stopped.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

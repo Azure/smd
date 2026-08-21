@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionTemperatureZoneType",
+  "title": "PlasticsRubber_Extrusion_GeneralTypes_ExtrusionTemperatureZoneType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.GeneralTypes.ExtrusionTemperatureZoneType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ElectricalCurrent",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ControllerOutput",
+    "/properties/NominalCoolingPower",
+    "/properties/NominalHeatingPower",
+    "/events/ControllerOutput",
+    "/events/NominalCoolingPower",
+    "/events/NominalHeatingPower"
+  ],
+  "properties": {
+    "ControllerOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "NominalCoolingPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "NominalHeatingPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ControllerOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "NominalCoolingPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "NominalHeatingPower": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

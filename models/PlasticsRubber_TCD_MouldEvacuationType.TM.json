@@ -1,0 +1,122 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/TCD/#PlasticsRubber_TCD_MouldEvacuationType",
+  "title": "PlasticsRubber_TCD_MouldEvacuationType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.TCD.MouldEvacuationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Mode",
+    "/properties/Sink",
+    "/properties/TemperatureLimit",
+    "/properties/Time",
+    "/properties/Time_EngineeringUnits",
+    "/events/Mode",
+    "/events/Sink",
+    "/events/TemperatureLimit",
+    "/events/Time"
+  ],
+  "actions": {
+    "Off": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Deactivate evacuation mode"
+    },
+    "On": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Activate evacuation mode"
+    }
+  },
+  "properties": {
+    "Mode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Defines how the medium is to be emptied",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Sink": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Defines where the medium is to be emptied",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "TemperatureLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Temperature Limitation of the mould evacuation. TCD is cooled to this temperature first if necessary.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "Time": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "description": "Duration of the mould evacuation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/Time_EngineeringUnits"
+    },
+    "Time_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Time, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Mode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Defines how the medium is to be emptied",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "Sink": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Defines where the medium is to be emptied",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "TemperatureLimit": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Temperature Limitation of the mould evacuation. TCD is cooled to this temperature first if necessary.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "Time": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/TCD/",
+      "data": {
+        "description": "Duration of the mould evacuation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/Time_EngineeringUnits"
+    }
+  }
+}

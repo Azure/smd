@@ -1,0 +1,186 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MaterialStorageBufferDataType",
+  "title": "TMC_v2_MaterialStorageBufferDataType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStorageBufferDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "MaterialStorageBufferDataType": {
+      "description": "The MaterialStorageBufferDataType structure provides the description of the capability of a  material storage buffer.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialStorageBufferDataType",
+      "required": [
+        "ID",
+        "StoredMaterial",
+        "EngineeringUnits",
+        "TotalStorageCapacity",
+        "StorageLogic",
+        "MixingLogic"
+      ],
+      "properties": {
+        "ID": {
+          "description": "Unique identifier for the material storage buffer.",
+          "type": "string"
+        },
+        "StoredMaterial": {
+          "title": "MaterialDefinitionType",
+          "description": "The MaterialDefinitionType structure contains the definition of a material. It is harmonised with  ISA 95 Material Definition.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MaterialDefinitionType",
+          "required": [
+            "ID",
+            "MES_ID",
+            "Description",
+            "BaseUnitOfMeasure",
+            "BatchManaged"
+          ],
+          "properties": {
+            "ID": {
+              "description": "Unique identifier for the material definition.",
+              "type": "string"
+            },
+            "MES_ID": {
+              "description": "Unique identifier for the material definition in an external system, e.g.  MES.",
+              "type": "string"
+            },
+            "Description": {
+              "description": "Description of the material definition.",
+              "type": "string"
+            },
+            "BaseUnitOfMeasure": {
+              "title": "EUInformation",
+              "description": "The base unit of measure for the material definition.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+              "required": [
+                "NamespaceUri",
+                "UnitId",
+                "DisplayName",
+                "Description"
+              ],
+              "properties": {
+                "NamespaceUri": {
+                  "type": "string"
+                },
+                "UnitId": {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "DisplayName": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            },
+            "BatchManaged": {
+              "description": "If BatchManaged is True, the material lots of this material definition  require a unique identification, often called BatchID. The material lots are  also called batches in some contexts.",
+              "type": "boolean"
+            },
+            "GroupID": {
+              "description": "The material group the material definition belongs to.",
+              "type": "string"
+            },
+            "ParentGroupID": {
+              "description": "The parent group of the material group the material definition belongs to.",
+              "type": "string"
+            },
+            "ShelfLife": {
+              "description": "The number of days of usable life for the material definition. The usable  life is counted from the production date.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Properties": {
+              "description": "An array containing additional properties that can be additionally  required for the material definition.",
+              "type": "array",
+              "items": {
+                "title": "DataDescriptionType",
+                "description": "The DataDescriptionType structure contains a metadata, i.e. a description.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataDescriptionType",
+                "required": [
+                  "ID",
+                  "MES_ID",
+                  "Description"
+                ],
+                "properties": {
+                  "ID": {
+                    "description": "Unique identifier for the metadata description.",
+                    "type": "string"
+                  },
+                  "MES_ID": {
+                    "description": "Unique identifier for the metadata description in an external system,  e.g. MES.",
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "The metadata description.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EngineeringUnits": {
+          "title": "EUInformation",
+          "description": "The unit of measure for the material stored in the buffer.",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+          "required": [
+            "NamespaceUri",
+            "UnitId",
+            "DisplayName",
+            "Description"
+          ],
+          "properties": {
+            "NamespaceUri": {
+              "type": "string"
+            },
+            "UnitId": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "DisplayName": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "TotalStorageCapacity": {
+          "description": "The total capacity of the material storage buffer.",
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "StorageLogic": {
+          "title": "StorageLogicEnumeration",
+          "description": "The logic by which product is loaded and unloaded from the material storage buffer.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageLogicEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "MixingLogic": {
+          "title": "StorageMixingLogicEnumeration",
+          "description": "How different material loaded into the material storage buffer mix.",
+          "dov:typeRef": "org.opcfoundation.UA.TMC.v2.StorageMixingLogicEnumeration",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

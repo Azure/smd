@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NonExclusiveRateOfChangeAlarmType",
+  "title": "OpcUaCore_NonExclusiveRateOfChangeAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.NonExclusiveRateOfChangeAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NonExclusiveLimitAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/EngineeringUnits"
+  ],
+  "properties": {
+    "EngineeringUnits": {
+      "title": "EUInformation",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+      "required": [
+        "NamespaceUri",
+        "UnitId",
+        "DisplayName",
+        "Description"
+      ],
+      "properties": {
+        "NamespaceUri": {
+          "type": "string"
+        },
+        "UnitId": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

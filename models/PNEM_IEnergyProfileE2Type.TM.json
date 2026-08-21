@@ -1,0 +1,101 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNEM/#PNEM_IEnergyProfileE2Type",
+  "title": "PNEM_IEnergyProfileE2Type",
+  "dov:typeRef": "org.opcfoundation.UA.PNEM.IEnergyProfileE2Type",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseInterfaceType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AcActiveEnergyTotalExportLp_EngineeringUnits",
+    "/properties/AcActiveEnergyTotalImportLp_EngineeringUnits",
+    "/properties/AcActivePowerTotal_EngineeringUnits"
+  ],
+  "properties": {
+    "AcActiveEnergyTotalExportLp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalExportLp_EngineeringUnits"
+    },
+    "AcActiveEnergyTotalImportLp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalImportLp_EngineeringUnits"
+    },
+    "AcActivePowerTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "type": "number",
+      "minimum": -3.40e+38,
+      "maximum": 3.40e+38,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/AcActivePowerTotal_EngineeringUnits"
+    },
+    "AcActiveEnergyTotalExportLp_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcActiveEnergyTotalExportLp, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcActiveEnergyTotalImportLp_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcActiveEnergyTotalImportLp, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "AcActivePowerTotal_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AcActivePowerTotal, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AcActiveEnergyTotalExportLp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalExportLp_EngineeringUnits"
+    },
+    "AcActiveEnergyTotalImportLp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Energy",
+      "dov:withUnit": "properties/AcActiveEnergyTotalImportLp_EngineeringUnits"
+    },
+    "AcActivePowerTotal": {
+      "dov:namespace": "http://opcfoundation.org/UA/PNEM/",
+      "data": {
+        "type": "number",
+        "minimum": -3.40e+38,
+        "maximum": 3.40e+38
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/AcActivePowerTotal_EngineeringUnits"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/#PlasticsRubber_Extrusion_Filter_Filter_InterfaceType",
+  "title": "PlasticsRubber_Extrusion_Filter_Filter_InterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Filter.Filter_InterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AdditionalMeasuringDevices",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Drive",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DriveType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "FilterPackage__Nr_",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/#PlasticsRubber_Extrusion_Filter_FilterPackageType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "HydraulicPressure",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MeltPressureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MeltTemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MeasuringDevicesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "SpecificWasteOutput",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "TemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/GeneralTypes/#PlasticsRubber_Extrusion_GeneralTypes_ExtrusionTemperatureZonesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "WasteOutput",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Area",
+    "/properties/BackflushPressure",
+    "/events/Area",
+    "/events/BackflushPressure"
+  ],
+  "properties": {
+    "Area": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "BackflushPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "FiltrationFineness": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Area": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "BackflushPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "FiltrationFineness": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Filter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

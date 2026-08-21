@@ -1,0 +1,33 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_NonExclusiveDeviationAlarmType",
+  "title": "OpcUaCore_NonExclusiveDeviationAlarmType",
+  "dov:typeRef": "org.opcfoundation.UA.NonExclusiveDeviationAlarmType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_NonExclusiveLimitAlarmType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/BaseSetpointNode"
+  ],
+  "properties": {
+    "BaseSetpointNode": {
+      "type": "string",
+      "readOnly": true
+    },
+    "SetpointNode": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

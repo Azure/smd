@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES#Mining_ExternalStandards_IREDES_DisplayToOperatorType",
+  "title": "Mining_ExternalStandards_IREDES_DisplayToOperatorType",
+  "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.DisplayToOperatorType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DispFlag": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.DispFlag",
+      "const": {
+        "MachStart": 0,
+        "FileLoad": 1
+      },
+      "properties": {
+        "MachStart": {
+          "description": "To be displayed when the machine is started. Machine start is defined as switching on the main power supply or power generation.",
+          "type": "integer"
+        },
+        "FileLoad": {
+          "description": "To be displayed as soon as the file is loaded (activated) in the machine’s automation system (applicable especially to plan files originating from the mine!).",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/AckFlag",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/DispFlag",
+    "/properties/DispText",
+    "/events/AckFlag",
+    "/events/DispFlag",
+    "/events/DispText"
+  ],
+  "properties": {
+    "AckFlag": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Acknowledgement by the operator that he has read the message. (Will be transferred back as soon as the SiteHead is returned to the mine’s computer system with the next protocol exchange. Contains the name of the operator (user name in the Automation system) or simply ACK if automation system does not work with user logins.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of this type.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DispFlag": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "title": "DispFlag",
+      "description": "States under which circumstances the line (message) has to be displayed to the operator.",
+      "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.DispFlag",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "DispText": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "description": "Text to be displayed.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "AckFlag": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Acknowledgement by the operator that he has read the message. (Will be transferred back as soon as the SiteHead is returned to the mine’s computer system with the next protocol exchange. Contains the name of the operator (user name in the Automation system) or simply ACK if automation system does not work with user logins.",
+        "type": "string"
+      }
+    },
+    "DispFlag": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "title": "DispFlag",
+        "description": "States under which circumstances the line (message) has to be displayed to the operator.",
+        "dov:typeRef": "org.opcfoundation.UA.Mining.ExternalStandards.IREDES.DispFlag",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DispText": {
+      "dov:namespace": "http://opcfoundation.org/UA/Mining/ExternalStandards/IREDES",
+      "data": {
+        "description": "Text to be displayed.",
+        "type": "string"
+      }
+    }
+  }
+}

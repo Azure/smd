@@ -1,0 +1,132 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_SubscriberConfigurationConfDataType",
+  "title": "FX_CM_SubscriberConfigurationConfDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.SubscriberConfigurationConfDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SubscriberConfigurationConfDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.SubscriberConfigurationConfDataType",
+      "required": [
+        "BrowseName",
+        "MessageReceiveTimeout"
+      ],
+      "properties": {
+        "BrowseName": {
+          "type": "string"
+        },
+        "Address": {
+          "title": "AddressSelectionDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.AddressSelectionDataType",
+          "required": [
+            "Address",
+            "AddressSelection",
+            "AddressModify"
+          ],
+          "properties": {
+            "Address": {
+              "title": "NetworkAddressDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+              "required": [
+                "NetworkInterface"
+              ],
+              "properties": {
+                "NetworkInterface": {
+                  "type": "string"
+                }
+              }
+            },
+            "AddressSelection": {
+              "type": "array",
+              "items": {
+                "title": "NetworkAddressDataType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.NetworkAddressDataType",
+                "required": [
+                  "NetworkInterface"
+                ],
+                "properties": {
+                  "NetworkInterface": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "AddressModify": {
+              "type": "boolean"
+            }
+          }
+        },
+        "MessageReceiveTimeout": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "MessageReceiveTimeoutSelection": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          }
+        },
+        "MessageReceiveTimeoutModify": {
+          "type": "boolean"
+        },
+        "ReceiveQos": {
+          "title": "ReceiveQosSelectionDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.CM.ReceiveQosSelectionDataType",
+          "required": [
+            "ReceiveQos",
+            "ReceiveQosSelection",
+            "ReceiveQosModify"
+          ],
+          "properties": {
+            "ReceiveQos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "ReceiveQosSelection": {
+              "description": "Stand-in for an unspecified data type.",
+              "type": "string"
+            },
+            "ReceiveQosModify": {
+              "type": "boolean"
+            }
+          }
+        },
+        "SubscriberProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

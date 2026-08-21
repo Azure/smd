@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_AnalogConditionSleepType",
+  "title": "Scales_V2_AnalogConditionSleepType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AnalogConditionSleepType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_ConditionSleepType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "EqualityAndRelationalOperator": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.EqualityAndRelationalOperator",
+      "const": {
+        "Equal_0": 0,
+        "NotEqual_1": 1,
+        "LessOrEqualThan_2": 2,
+        "GreaterOrEqualThan_3": 3,
+        "LessThan_4": 4,
+        "GreaterThan_5": 5
+      },
+      "description": "This enumeration describes the different condition modes for an analog condition.",
+      "properties": {
+        "Equal_0": {
+          "type": "integer"
+        },
+        "NotEqual_1": {
+          "type": "integer"
+        },
+        "LessOrEqualThan_2": {
+          "type": "integer"
+        },
+        "GreaterOrEqualThan_3": {
+          "type": "integer"
+        },
+        "LessThan_4": {
+          "type": "integer"
+        },
+        "GreaterThan_5": {
+          "type": "integer"
+        }
+      }
+    },
+    "TargetItemType": {
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TargetItemType",
+      "type": "number"
+    }
+  },
+  "properties": {
+    "ConditionMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "title": "EqualityAndRelationalOperator",
+      "description": "Defines the type of condition operator that is used.",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.EqualityAndRelationalOperator",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "TargetThresholdValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "tm:ref": "#/schemaDefinitions/TargetItemType",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "TargetThresholdValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TargetItemType"
+      }
+    }
+  }
+}

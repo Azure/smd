@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoTimeStampDataType",
+  "title": "PNGSDGM_GsdGenIoTimeStampDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoTimeStampDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "GsdGenIoTimeStampDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoTimeStampDataType",
+      "required": [
+        "Status",
+        "Seconds",
+        "Nanoseconds"
+      ],
+      "properties": {
+        "Status": {
+          "description": "Time source",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Seconds": {
+          "description": "Number of seconds",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        "Nanoseconds": {
+          "description": "Number of nanoseconds",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

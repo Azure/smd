@@ -1,0 +1,32 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_X509IdentityToken",
+  "title": "OpcUaCore_X509IdentityToken",
+  "dov:typeRef": "org.opcfoundation.UA.X509IdentityToken",
+  "links": [],
+  "schemaDefinitions": {
+    "X509IdentityToken": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.X509IdentityToken",
+      "required": [
+        "PolicyId",
+        "CertificateData"
+      ],
+      "properties": {
+        "PolicyId": {
+          "type": "string"
+        },
+        "CertificateData": {
+          "type": "string",
+          "contentEncoding": "base64"
+        }
+      }
+    }
+  }
+}

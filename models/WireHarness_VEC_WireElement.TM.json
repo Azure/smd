@@ -1,0 +1,892 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/WireHarness/VEC/#WireHarness_VEC_WireElement",
+  "title": "WireHarness_VEC_WireElement",
+  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireElement",
+  "links": [],
+  "schemaDefinitions": {
+    "WireElement": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireElement",
+      "required": [
+        "id",
+        "Identification",
+        "WireElementSpecification",
+        "SubWireElement"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "Identification": {
+          "description": "<p>The identification of the WireElement. The identification is guaranteed to be unique within a wire and immutable. The identification is guaranteed to be the same for the same WireElement over different VEC documents.</p>",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "WireElementSpecification": {
+          "title": "WireElementSpecification",
+          "description": "<p>Reference the<i>WireElementSpecification</i>that is represented by the<i>WireElement.</i></p>",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireElementSpecification",
+          "required": [
+            "id",
+            "Identification",
+            "OutsideDiameter",
+            "ConductorSpecification",
+            "InsulationSpecification"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "Identification": {
+              "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "OutsideDiameter": {
+              "description": "<p>Specifies the outside diameter of the WireElement.</p>",
+              "type": "array",
+              "items": {
+                "title": "NumericalValue",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                "required": [
+                  "UnitComponent",
+                  "ValueComponent",
+                  "Tolerance"
+                ],
+                "properties": {
+                  "UnitComponent": {
+                    "title": "EUInformation",
+                    "description": "References the unit of the value.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                    "required": [
+                      "NamespaceUri",
+                      "UnitId",
+                      "DisplayName",
+                      "Description"
+                    ],
+                    "properties": {
+                      "NamespaceUri": {
+                        "type": "string"
+                      },
+                      "UnitId": {
+                        "type": "integer",
+                        "minimum": -2147483648,
+                        "maximum": 2147483647
+                      },
+                      "DisplayName": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ValueComponent": {
+                    "description": "<p>Specifies the value of the numerical value.</p>",
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  },
+                  "Tolerance": {
+                    "description": "<p>Specifies the tolerance for the dimension.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "Tolerance",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                      "required": [
+                        "id",
+                        "LowerBoundary",
+                        "UpperBoundary"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "LowerBoundary": {
+                          "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "UpperBoundary": {
+                          "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "ConductorSpecification": {
+              "description": "<p>If the<i>WireElement</i>has a core then the specification of the core is referenced here.</p>",
+              "type": "array",
+              "items": {
+                "title": "ConductorSpecification",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ConductorSpecification",
+                "required": [
+                  "id",
+                  "Identification",
+                  "CrossSectionArea",
+                  "Type"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "Identification": {
+                    "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "CrossSectionArea": {
+                    "description": "<p>Specifies the cross-section area of the conductor (e.g. 0,5 mm²). The cross-section area is a nominal value, which refers to the conducting properties of the conductor normalized to the properties of a full material core.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "NumericalValue",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                      "required": [
+                        "UnitComponent",
+                        "ValueComponent",
+                        "Tolerance"
+                      ],
+                      "properties": {
+                        "UnitComponent": {
+                          "title": "EUInformation",
+                          "description": "References the unit of the value.",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                          "required": [
+                            "NamespaceUri",
+                            "UnitId",
+                            "DisplayName",
+                            "Description"
+                          ],
+                          "properties": {
+                            "NamespaceUri": {
+                              "type": "string"
+                            },
+                            "UnitId": {
+                              "type": "integer",
+                              "minimum": -2147483648,
+                              "maximum": 2147483647
+                            },
+                            "DisplayName": {
+                              "type": "string"
+                            },
+                            "Description": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "ValueComponent": {
+                          "description": "<p>Specifies the value of the numerical value.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "Tolerance": {
+                          "description": "<p>Specifies the tolerance for the dimension.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "Tolerance",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                            "required": [
+                              "id",
+                              "LowerBoundary",
+                              "UpperBoundary"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "LowerBoundary": {
+                                "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              },
+                              "UpperBoundary": {
+                                "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Type": {
+                    "description": "<p>Specifies the type of the conductor, e.g. if it is rigid or stranded.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "ConductorType",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ConductorType",
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    }
+                  }
+                }
+              }
+            },
+            "InsulationSpecification": {
+              "description": "<p>If the<i>WireElement</i>has an insulation then the specification of the insulation is referenced here.</p>",
+              "type": "array",
+              "items": {
+                "title": "InsulationSpecification",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.InsulationSpecification",
+                "required": [
+                  "id",
+                  "Identification",
+                  "BaseColor",
+                  "FirstIdentificationColor",
+                  "SecondIdentificationColor",
+                  "Thickness"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "Identification": {
+                    "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "BaseColor": {
+                    "title": "ARGB32ColorType",
+                    "description": "<p>Specifies the base color of the insulation.</p>",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+                    "required": [
+                      "Value",
+                      "Name"
+                    ],
+                    "properties": {
+                      "Value": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      },
+                      "Name": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "FirstIdentificationColor": {
+                    "description": "<p>Specifies the first identification color of the insulation.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "ARGB32ColorType",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+                      "required": [
+                        "Value",
+                        "Name"
+                      ],
+                      "properties": {
+                        "Value": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 4294967295
+                        },
+                        "Name": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "SecondIdentificationColor": {
+                    "description": "<p>Specifies the second identification color of the insulation.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "ARGB32ColorType",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+                      "required": [
+                        "Value",
+                        "Name"
+                      ],
+                      "properties": {
+                        "Value": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 4294967295
+                        },
+                        "Name": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Thickness": {
+                    "description": "<p>Specifies the thickness of the insulation.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "NumericalValue",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                      "required": [
+                        "UnitComponent",
+                        "ValueComponent",
+                        "Tolerance"
+                      ],
+                      "properties": {
+                        "UnitComponent": {
+                          "title": "EUInformation",
+                          "description": "References the unit of the value.",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                          "required": [
+                            "NamespaceUri",
+                            "UnitId",
+                            "DisplayName",
+                            "Description"
+                          ],
+                          "properties": {
+                            "NamespaceUri": {
+                              "type": "string"
+                            },
+                            "UnitId": {
+                              "type": "integer",
+                              "minimum": -2147483648,
+                              "maximum": 2147483647
+                            },
+                            "DisplayName": {
+                              "type": "string"
+                            },
+                            "Description": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "ValueComponent": {
+                          "description": "<p>Specifies the value of the numerical value.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "Tolerance": {
+                          "description": "<p>Specifies the tolerance for the dimension.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "Tolerance",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                            "required": [
+                              "id",
+                              "LowerBoundary",
+                              "UpperBoundary"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "LowerBoundary": {
+                                "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              },
+                              "UpperBoundary": {
+                                "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "SubWireElement": {
+          "description": "<p>Defines the<i>subWireElements</i>of this<i>WireElement</i>. The<i>subWireElements</i>shall be consistent with the<i>subWireElementSpecifications</i>of the<i>WireElementSpecification</i>referenced by this<i>WireElement</i>and shall resemble that hierarchy.</p>",
+          "type": "array",
+          "items": {
+            "title": "WireElement",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireElement",
+            "required": [
+              "id",
+              "Identification",
+              "WireElementSpecification",
+              "SubWireElement"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Identification": {
+                "description": "<p>The identification of the WireElement. The identification is guaranteed to be unique within a wire and immutable. The identification is guaranteed to be the same for the same WireElement over different VEC documents.</p>",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "WireElementSpecification": {
+                "title": "WireElementSpecification",
+                "description": "<p>Reference the<i>WireElementSpecification</i>that is represented by the<i>WireElement.</i></p>",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.WireElementSpecification",
+                "required": [
+                  "id",
+                  "Identification",
+                  "OutsideDiameter",
+                  "ConductorSpecification",
+                  "InsulationSpecification"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "Identification": {
+                    "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "OutsideDiameter": {
+                    "description": "<p>Specifies the outside diameter of the WireElement.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "NumericalValue",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                      "required": [
+                        "UnitComponent",
+                        "ValueComponent",
+                        "Tolerance"
+                      ],
+                      "properties": {
+                        "UnitComponent": {
+                          "title": "EUInformation",
+                          "description": "References the unit of the value.",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                          "required": [
+                            "NamespaceUri",
+                            "UnitId",
+                            "DisplayName",
+                            "Description"
+                          ],
+                          "properties": {
+                            "NamespaceUri": {
+                              "type": "string"
+                            },
+                            "UnitId": {
+                              "type": "integer",
+                              "minimum": -2147483648,
+                              "maximum": 2147483647
+                            },
+                            "DisplayName": {
+                              "type": "string"
+                            },
+                            "Description": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "ValueComponent": {
+                          "description": "<p>Specifies the value of the numerical value.</p>",
+                          "type": "number",
+                          "minimum": -1.80e+308,
+                          "maximum": 1.80e+308
+                        },
+                        "Tolerance": {
+                          "description": "<p>Specifies the tolerance for the dimension.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "Tolerance",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                            "required": [
+                              "id",
+                              "LowerBoundary",
+                              "UpperBoundary"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "LowerBoundary": {
+                                "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              },
+                              "UpperBoundary": {
+                                "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ConductorSpecification": {
+                    "description": "<p>If the<i>WireElement</i>has a core then the specification of the core is referenced here.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "ConductorSpecification",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ConductorSpecification",
+                      "required": [
+                        "id",
+                        "Identification",
+                        "CrossSectionArea",
+                        "Type"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "Identification": {
+                          "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "CrossSectionArea": {
+                          "description": "<p>Specifies the cross-section area of the conductor (e.g. 0,5 mm²). The cross-section area is a nominal value, which refers to the conducting properties of the conductor normalized to the properties of a full material core.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "NumericalValue",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                            "required": [
+                              "UnitComponent",
+                              "ValueComponent",
+                              "Tolerance"
+                            ],
+                            "properties": {
+                              "UnitComponent": {
+                                "title": "EUInformation",
+                                "description": "References the unit of the value.",
+                                "type": "object",
+                                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                "required": [
+                                  "NamespaceUri",
+                                  "UnitId",
+                                  "DisplayName",
+                                  "Description"
+                                ],
+                                "properties": {
+                                  "NamespaceUri": {
+                                    "type": "string"
+                                  },
+                                  "UnitId": {
+                                    "type": "integer",
+                                    "minimum": -2147483648,
+                                    "maximum": 2147483647
+                                  },
+                                  "DisplayName": {
+                                    "type": "string"
+                                  },
+                                  "Description": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "ValueComponent": {
+                                "description": "<p>Specifies the value of the numerical value.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              },
+                              "Tolerance": {
+                                "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                "type": "array",
+                                "items": {
+                                  "title": "Tolerance",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                  "required": [
+                                    "id",
+                                    "LowerBoundary",
+                                    "UpperBoundary"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "LowerBoundary": {
+                                      "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "UpperBoundary": {
+                                      "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Type": {
+                          "description": "<p>Specifies the type of the conductor, e.g. if it is rigid or stranded.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "ConductorType",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ConductorType",
+                            "type": "integer",
+                            "minimum": -2147483648,
+                            "maximum": 2147483647
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "InsulationSpecification": {
+                    "description": "<p>If the<i>WireElement</i>has an insulation then the specification of the insulation is referenced here.</p>",
+                    "type": "array",
+                    "items": {
+                      "title": "InsulationSpecification",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.InsulationSpecification",
+                      "required": [
+                        "id",
+                        "Identification",
+                        "BaseColor",
+                        "FirstIdentificationColor",
+                        "SecondIdentificationColor",
+                        "Thickness"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "Identification": {
+                          "description": "<p>Specifies a unique identification of the specification. The identification is guaranteed to be unique within the document containing the specification. For all VEC-documents a Specification-instance can be trusted to be identical if the DocumentVersion-instance is the same (see DocumentVersion) and the identification of the Specification is the same.</p>",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "BaseColor": {
+                          "title": "ARGB32ColorType",
+                          "description": "<p>Specifies the base color of the insulation.</p>",
+                          "type": "object",
+                          "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+                          "required": [
+                            "Value",
+                            "Name"
+                          ],
+                          "properties": {
+                            "Value": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 4294967295
+                            },
+                            "Name": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "FirstIdentificationColor": {
+                          "description": "<p>Specifies the first identification color of the insulation.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "ARGB32ColorType",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+                            "required": [
+                              "Value",
+                              "Name"
+                            ],
+                            "properties": {
+                              "Value": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 4294967295
+                              },
+                              "Name": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "SecondIdentificationColor": {
+                          "description": "<p>Specifies the second identification color of the insulation.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "ARGB32ColorType",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.ARGB32ColorType",
+                            "required": [
+                              "Value",
+                              "Name"
+                            ],
+                            "properties": {
+                              "Value": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 4294967295
+                              },
+                              "Name": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Thickness": {
+                          "description": "<p>Specifies the thickness of the insulation.</p>",
+                          "type": "array",
+                          "items": {
+                            "title": "NumericalValue",
+                            "type": "object",
+                            "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.NumericalValue",
+                            "required": [
+                              "UnitComponent",
+                              "ValueComponent",
+                              "Tolerance"
+                            ],
+                            "properties": {
+                              "UnitComponent": {
+                                "title": "EUInformation",
+                                "description": "References the unit of the value.",
+                                "type": "object",
+                                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                                "required": [
+                                  "NamespaceUri",
+                                  "UnitId",
+                                  "DisplayName",
+                                  "Description"
+                                ],
+                                "properties": {
+                                  "NamespaceUri": {
+                                    "type": "string"
+                                  },
+                                  "UnitId": {
+                                    "type": "integer",
+                                    "minimum": -2147483648,
+                                    "maximum": 2147483647
+                                  },
+                                  "DisplayName": {
+                                    "type": "string"
+                                  },
+                                  "Description": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "ValueComponent": {
+                                "description": "<p>Specifies the value of the numerical value.</p>",
+                                "type": "number",
+                                "minimum": -1.80e+308,
+                                "maximum": 1.80e+308
+                              },
+                              "Tolerance": {
+                                "description": "<p>Specifies the tolerance for the dimension.</p>",
+                                "type": "array",
+                                "items": {
+                                  "title": "Tolerance",
+                                  "type": "object",
+                                  "dov:typeRef": "org.opcfoundation.UA.WireHarness.VEC.Tolerance",
+                                  "required": [
+                                    "id",
+                                    "LowerBoundary",
+                                    "UpperBoundary"
+                                  ],
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "LowerBoundary": {
+                                      "description": "<p>Specifies the lower boundary for the tolerance.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    },
+                                    "UpperBoundary": {
+                                      "description": "<p>Specifies the upper boundary for the tolerance.</p>",
+                                      "type": "number",
+                                      "minimum": -1.80e+308,
+                                      "maximum": 1.80e+308
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "SubWireElement": {
+                "description": "<p>Defines the<i>subWireElements</i>of this<i>WireElement</i>. The<i>subWireElements</i>shall be consistent with the<i>subWireElementSpecifications</i>of the<i>WireElementSpecification</i>referenced by this<i>WireElement</i>and shall resemble that hierarchy.</p>",
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for the infinite remainder of this data structure, which is recursively defined.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

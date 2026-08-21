@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Dosing/#PlasticsRubber_Dosing_DosingModeEnumeration",
+  "title": "PlasticsRubber_Dosing_DosingModeEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.DosingModeEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "DosingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Dosing.DosingModeEnumeration",
+      "const": {
+        "ONLY_CONVEYING": 0,
+        "VOLUMETRIC": 1,
+        "GRAVIMETRIC": 2,
+        "OTHER": 3
+      },
+      "properties": {
+        "ONLY_CONVEYING": {
+          "description": "The throughput is not controlled. The feeder only transports the material (e.g. by screw, conveyor belt) or the material is only falling through a feed opening.",
+          "type": "integer"
+        },
+        "VOLUMETRIC": {
+          "description": "The throughput is controlled by a volumetric dosing system.",
+          "type": "integer"
+        },
+        "GRAVIMETRIC": {
+          "description": "The throughput is controlled by a gravimetric dosing system.",
+          "type": "integer"
+        },
+        "OTHER": {
+          "description": "Throughput is controlled, but in another mode than these above.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

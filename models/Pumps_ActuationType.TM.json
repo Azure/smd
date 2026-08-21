@@ -1,0 +1,167 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_ActuationType",
+  "title": "Pumps_ActuationType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.ActuationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/FaultAction",
+    "/properties/FaultValue",
+    "/properties/FeedbackVariable",
+    "/properties/ManipulatedValue",
+    "/properties/OnOff",
+    "/properties/ReferenceVariable",
+    "/properties/Status",
+    "/properties/FeedbackVariable_EngineeringUnits",
+    "/properties/ReferenceVariable_EngineeringUnits",
+    "/events/FaultAction",
+    "/events/FaultValue",
+    "/events/FeedbackVariable",
+    "/events/ManipulatedValue",
+    "/events/OnOff",
+    "/events/ReferenceVariable",
+    "/events/Status"
+  ],
+  "properties": {
+    "FaultAction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "FaultValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property specifies a user-defined value for use with Fault action property",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "FeedbackVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Variable quantity, which represents the controlled variable and is returned to the comparing element",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/FeedbackVariable_EngineeringUnits"
+    },
+    "ManipulatedValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Output variable of the controlling system, which is also an input variable of the controlled system",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "OnOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": false
+    },
+    "ReferenceVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Input variable to a comparing element in a controlling system, which sets the desired value of the controlled variable and is deducted from the command variable",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ReferenceVariable_EngineeringUnits"
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "FeedbackVariable_EngineeringUnits": {
+      "description": "Unit designator for property and event with name FeedbackVariable, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ReferenceVariable_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ReferenceVariable, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "FaultAction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "FaultValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property specifies a user-defined value for use with Fault action property",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "FeedbackVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Variable quantity, which represents the controlled variable and is returned to the comparing element",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/FeedbackVariable_EngineeringUnits"
+    },
+    "ManipulatedValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Output variable of the controlling system, which is also an input variable of the controlled system",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "OnOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "ReferenceVariable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Input variable to a comparing element in a controlling system, which sets the desired value of the controlled variable and is deducted from the command variable",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/ReferenceVariable_EngineeringUnits"
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    }
+  }
+}

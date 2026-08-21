@@ -1,0 +1,128 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ApplicationConfigurationFileType",
+  "title": "OpcUaCore_ApplicationConfigurationFileType",
+  "dov:typeRef": "org.opcfoundation.UA.ApplicationConfigurationFileType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_ConfigurationFileType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "UserTokenType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+      "const": {
+        "Anonymous": 0,
+        "UserName": 1,
+        "Certificate": 2,
+        "IssuedToken": 3
+      },
+      "properties": {
+        "Anonymous": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "Certificate": {
+          "type": "integer"
+        },
+        "IssuedToken": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "properties": {
+    "AvailableNetworks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "AvailablePorts": {
+      "type": "string",
+      "readOnly": true
+    },
+    "CertificateGroupPurposes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "CertificateTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "MaxCertificateGroups": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "MaxEndpoints": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SecurityPolicyUris": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "UserTokenTypes": {
+      "type": "array",
+      "items": {
+        "title": "UserTokenPolicy",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UserTokenPolicy",
+        "required": [
+          "PolicyId",
+          "TokenType",
+          "IssuedTokenType",
+          "IssuerEndpointUrl",
+          "SecurityPolicyUri"
+        ],
+        "properties": {
+          "PolicyId": {
+            "type": "string"
+          },
+          "TokenType": {
+            "title": "UserTokenType",
+            "dov:typeRef": "org.opcfoundation.UA.UserTokenType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "IssuedTokenType": {
+            "type": "string"
+          },
+          "IssuerEndpointUrl": {
+            "type": "string"
+          },
+          "SecurityPolicyUri": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

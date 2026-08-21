@@ -1,0 +1,2722 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetDeviceType",
+  "title": "BACnet_V2_BACnetDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "BackupRestore",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetBackupRestoreType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DeviceRestart",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetDeviceRestartType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "MstpMaster",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetMstpMasterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Object_List",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Structured_Object_List",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TimeManagement",
+      "href": "http://opcfoundation.org/UA/BACnet_V2/#BACnet_V2_BACnetTimeManagementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "BACnetDeviceCommunicationEnabled": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceCommunicationEnabled",
+      "const": {
+        "Enable": 0,
+        "Disable": 1,
+        "DisableInitiation": 2
+      },
+      "properties": {
+        "Enable": {
+          "type": "integer"
+        },
+        "Disable": {
+          "type": "integer"
+        },
+        "DisableInitiation": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetDeviceStatus": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceStatus",
+      "const": {
+        "Operational": 0,
+        "OperationalReadOnly": 1,
+        "DownloadRequired": 2,
+        "DownloadInProgress": 3,
+        "NonOperational": 4,
+        "BackupInProgress": 5
+      },
+      "properties": {
+        "Operational": {
+          "type": "integer"
+        },
+        "OperationalReadOnly": {
+          "type": "integer"
+        },
+        "DownloadRequired": {
+          "type": "integer"
+        },
+        "DownloadInProgress": {
+          "type": "integer"
+        },
+        "NonOperational": {
+          "type": "integer"
+        },
+        "BackupInProgress": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetMessagePriority": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMessagePriority",
+      "const": {
+        "normal": 0,
+        "urgent": 1
+      },
+      "properties": {
+        "normal": {
+          "type": "integer"
+        },
+        "urgent": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetObjectTypeSupportedBits": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetObjectTypeSupportedBits",
+      "const": {
+        "analog_input": 0,
+        "analog_output": 1,
+        "analog_value": 2,
+        "binary_input": 3,
+        "binary_output": 4,
+        "binary_value": 5,
+        "calendar": 6,
+        "command": 7,
+        "device": 8,
+        "event_enrollment": 9,
+        "file": 10,
+        "group": 11,
+        "loop": 12,
+        "multi_state_input": 13,
+        "multi_state_output": 14,
+        "notification_class": 15,
+        "program": 16,
+        "schedule": 17,
+        "averaging": 18,
+        "multi_state_value": 19,
+        "trend_log": 20,
+        "life_safety_point": 21,
+        "life_safety_zone": 22,
+        "accumulator": 23,
+        "pulse_converter": 24,
+        "event_log": 25,
+        "global_group": 26,
+        "trend_log_multiple": 27,
+        "load_control": 28,
+        "structured_view": 29,
+        "access_door": 30,
+        "UNASSIGNED_31": 31,
+        "access_credential": 32,
+        "access_point": 33,
+        "access_rights": 34,
+        "access_user": 35,
+        "access_zone": 36,
+        "credential_data_input": 37,
+        "network_security": 38,
+        "bitstring_value": 39,
+        "characterstring_value": 40,
+        "date_pattern_value": 41,
+        "date_value": 42,
+        "datetime_pattern_value": 43,
+        "datetime_value": 44,
+        "integer_value": 45,
+        "large_analog_value": 46,
+        "octetstring_value": 47,
+        "positive_integer_value": 48,
+        "time_pattern_value": 49,
+        "time_value": 50,
+        "notification_forwarder": 51,
+        "alert_enrollment": 52,
+        "channel": 53,
+        "lighting_output": 54
+      },
+      "properties": {
+        "analog_input": {
+          "type": "integer"
+        },
+        "analog_output": {
+          "type": "integer"
+        },
+        "analog_value": {
+          "type": "integer"
+        },
+        "binary_input": {
+          "type": "integer"
+        },
+        "binary_output": {
+          "type": "integer"
+        },
+        "binary_value": {
+          "type": "integer"
+        },
+        "calendar": {
+          "type": "integer"
+        },
+        "command": {
+          "type": "integer"
+        },
+        "device": {
+          "type": "integer"
+        },
+        "event_enrollment": {
+          "type": "integer"
+        },
+        "file": {
+          "type": "integer"
+        },
+        "group": {
+          "type": "integer"
+        },
+        "loop": {
+          "type": "integer"
+        },
+        "multi_state_input": {
+          "type": "integer"
+        },
+        "multi_state_output": {
+          "type": "integer"
+        },
+        "notification_class": {
+          "type": "integer"
+        },
+        "program": {
+          "type": "integer"
+        },
+        "schedule": {
+          "type": "integer"
+        },
+        "averaging": {
+          "type": "integer"
+        },
+        "multi_state_value": {
+          "type": "integer"
+        },
+        "trend_log": {
+          "type": "integer"
+        },
+        "life_safety_point": {
+          "type": "integer"
+        },
+        "life_safety_zone": {
+          "type": "integer"
+        },
+        "accumulator": {
+          "type": "integer"
+        },
+        "pulse_converter": {
+          "type": "integer"
+        },
+        "event_log": {
+          "type": "integer"
+        },
+        "global_group": {
+          "type": "integer"
+        },
+        "trend_log_multiple": {
+          "type": "integer"
+        },
+        "load_control": {
+          "type": "integer"
+        },
+        "structured_view": {
+          "type": "integer"
+        },
+        "access_door": {
+          "type": "integer"
+        },
+        "UNASSIGNED_31": {
+          "type": "integer"
+        },
+        "access_credential": {
+          "type": "integer"
+        },
+        "access_point": {
+          "type": "integer"
+        },
+        "access_rights": {
+          "type": "integer"
+        },
+        "access_user": {
+          "type": "integer"
+        },
+        "access_zone": {
+          "type": "integer"
+        },
+        "credential_data_input": {
+          "type": "integer"
+        },
+        "network_security": {
+          "type": "integer"
+        },
+        "bitstring_value": {
+          "type": "integer"
+        },
+        "characterstring_value": {
+          "type": "integer"
+        },
+        "date_pattern_value": {
+          "type": "integer"
+        },
+        "date_value": {
+          "type": "integer"
+        },
+        "datetime_pattern_value": {
+          "type": "integer"
+        },
+        "datetime_value": {
+          "type": "integer"
+        },
+        "integer_value": {
+          "type": "integer"
+        },
+        "large_analog_value": {
+          "type": "integer"
+        },
+        "octetstring_value": {
+          "type": "integer"
+        },
+        "positive_integer_value": {
+          "type": "integer"
+        },
+        "time_pattern_value": {
+          "type": "integer"
+        },
+        "time_value": {
+          "type": "integer"
+        },
+        "notification_forwarder": {
+          "type": "integer"
+        },
+        "alert_enrollment": {
+          "type": "integer"
+        },
+        "channel": {
+          "type": "integer"
+        },
+        "lighting_output": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetPropertyIdentifier": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyIdentifier",
+      "const": {
+        "AckedTransitions": 0,
+        "AckRequired": 1,
+        "Action": 2,
+        "ActionText": 3,
+        "ActiveText": 4,
+        "ActiveVtSessions": 5,
+        "AlarmValue": 6,
+        "AlarmValues": 7,
+        "All": 8,
+        "AllWritesSuccessful": 9,
+        "ApduSegmentTimeout": 10,
+        "ApduTimeout": 11,
+        "ApplicationSoftwareVersion": 12,
+        "Archive": 13,
+        "Bias": 14,
+        "ChangeOfStateCount": 15,
+        "ChangeOfStateTime": 16,
+        "NotificationClass": 17,
+        "this_property_deleted": 18,
+        "ControlledVariableReference": 19,
+        "ControlledVariableUnits": 20,
+        "ControlledVariableValue": 21,
+        "CovIncrement": 22,
+        "DateList": 23,
+        "DaylightSavingsStatus": 24,
+        "Deadband": 25,
+        "DerivativeConstant": 26,
+        "DerivativeConstantUnits": 27,
+        "Description": 28,
+        "DescriptionOfHalt": 29,
+        "DeviceAddressBinding": 30,
+        "DeviceType": 31,
+        "EffectivePeriod": 32,
+        "ElapsedActiveTime": 33,
+        "ErrorLimit": 34,
+        "EventEnable": 35,
+        "EventState": 36,
+        "EventType": 37,
+        "ExceptionSchedule": 38,
+        "FaultValues": 39,
+        "FeedbackValue": 40,
+        "FileAccessMethod": 41,
+        "FileSize": 42,
+        "FileType": 43,
+        "FirmwareRevision": 44,
+        "HighLimit": 45,
+        "InactiveText": 46,
+        "InProcess": 47,
+        "InstanceOf": 48,
+        "IntegralConstant": 49,
+        "IntegralConstantUnits": 50,
+        "Removed_In_Version_1_Revision_4_51": 51,
+        "LimitEnable": 52,
+        "ListOfGroupMembers": 53,
+        "ListOfObjectPropertyReferences": 54,
+        "Unassigned_55": 55,
+        "LocalDate": 56,
+        "LocalTime": 57,
+        "Location": 58,
+        "LowLimit": 59,
+        "ManipulatedVariableReference": 60,
+        "MaximumOutput": 61,
+        "MaxApduLengthAccepted": 62,
+        "MaxInfoFrames": 63,
+        "MaxMaster": 64,
+        "MaxPresValue": 65,
+        "MinimumOffTime": 66,
+        "MinimumOnTime": 67,
+        "MinimumOutput": 68,
+        "MinPresValue": 69,
+        "ModelName": 70,
+        "ModificationDate": 71,
+        "NotifyType": 72,
+        "NumberOfApduRetries": 73,
+        "NumberOfStates": 74,
+        "ObjectIdentifier": 75,
+        "ObjectList": 76,
+        "ObjectName": 77,
+        "ObjectPropertyReference": 78,
+        "ObjectType": 79,
+        "Optional": 80,
+        "OutOfService": 81,
+        "OutputUnits": 82,
+        "EventParameters": 83,
+        "Polarity": 84,
+        "PresentValue": 85,
+        "Priority": 86,
+        "PriorityArray": 87,
+        "PriorityForWriting": 88,
+        "ProcessIdentifier": 89,
+        "ProgramChange": 90,
+        "ProgramLocation": 91,
+        "ProgramState": 92,
+        "ProportionalConstant": 93,
+        "ProportionalConstantUnits": 94,
+        "Removed_In_Version_1_Revision_2_95": 95,
+        "ProtocolObjectTypesSupported": 96,
+        "ProtocolServicesSupported": 97,
+        "ProtocolVersion": 98,
+        "ReadOnly": 99,
+        "ReasonForHalt": 100,
+        "Removed_In_Version_1_Revision_4x": 101,
+        "RecipientList": 102,
+        "Reliability": 103,
+        "RelinquishDefault": 104,
+        "Required": 105,
+        "Resolution": 106,
+        "SegmentationSupported": 107,
+        "Setpoint": 108,
+        "SetpointReference": 109,
+        "StateText": 110,
+        "StatusFlags": 111,
+        "SystemStatus": 112,
+        "TimeDelay": 113,
+        "TimeOfActiveTimeReset": 114,
+        "TimeOfStateCountReset": 115,
+        "TimeSynchronizationRecipients": 116,
+        "Units": 117,
+        "UpdateInterval": 118,
+        "UtcOffset": 119,
+        "VendorIdentifier": 120,
+        "VendorName": 121,
+        "VtClassesSupported": 122,
+        "WeeklySchedule": 123,
+        "AttemptedSamples": 124,
+        "AverageValue": 125,
+        "BufferSize": 126,
+        "ClientCovIncrement": 127,
+        "CovResubscriptionInterval": 128,
+        "Removed_In_Version_1_Revision_3_129": 129,
+        "EventTimeStamps": 130,
+        "LogBuffer": 131,
+        "LogDeviceObjectProperty": 132,
+        "Enable": 133,
+        "LogInterval": 134,
+        "MaximumValue": 135,
+        "MinimumValue": 136,
+        "NotificationThreshold": 137,
+        "Removed_In_Version_1_Revision_3_138": 138,
+        "ProtocolRevision": 139,
+        "RecordsSinceNotification": 140,
+        "RecordCount": 141,
+        "StartTime": 142,
+        "StopTime": 143,
+        "StopWhenFull": 144,
+        "TotalRecordCount": 145,
+        "ValidSamples": 146,
+        "WindowInterval": 147,
+        "WindowSamples": 148,
+        "MaximumValueTimestamp": 149,
+        "MinimumValueTimestamp": 150,
+        "VarianceValue": 151,
+        "ActiveCovSubscriptions": 152,
+        "BackupFailureTimeout": 153,
+        "ConfigurationFiles": 154,
+        "DatabaseRevision": 155,
+        "DirectReading": 156,
+        "LastRestoreTime": 157,
+        "MaintenanceRequired": 158,
+        "MemberOf": 159,
+        "Mode": 160,
+        "OperationExpected": 161,
+        "Setting": 162,
+        "Silenced": 163,
+        "TrackingValue": 164,
+        "ZoneMembers": 165,
+        "LifeSafetyAlarmValues": 166,
+        "MaxSegmentsAccepted": 167,
+        "ProfileName": 168,
+        "AutoSlaveDiscovery": 169,
+        "ManualSlaveAddressBinding": 170,
+        "SlaveAddressBinding": 171,
+        "SlaveProxyEnable": 172,
+        "LastNotifyRecord": 173,
+        "ScheduleDefault": 174,
+        "AcceptedModes": 175,
+        "AdjustValue": 176,
+        "Count": 177,
+        "CountBeforeChange": 178,
+        "CountChangeTime": 179,
+        "CovPeriod": 180,
+        "InputReference": 181,
+        "LimitMonitoringInterval": 182,
+        "LoggingObject": 183,
+        "LoggingRecord": 184,
+        "Prescale": 185,
+        "PulseRate": 186,
+        "Scale": 187,
+        "ScaleFactor": 188,
+        "UpdateTime": 189,
+        "ValueBeforeChange": 190,
+        "ValueSet": 191,
+        "ValueChangeTime": 192,
+        "AlignIntervals": 193,
+        "Unassigned_194": 194,
+        "IntervalOffset": 195,
+        "LastRestartReason": 196,
+        "LoggingType": 197,
+        "Unassigned_198": 198,
+        "Unassigned_199": 199,
+        "Unassigned_200": 200,
+        "Unassigned_201": 201,
+        "RestartNotificationRecipients": 202,
+        "TimeOfDeviceRestart": 203,
+        "TimeSynchronizationInterval": 204,
+        "Trigger": 205,
+        "UtcTimeSynchronizationRecipients": 206,
+        "NodeSubtype": 207,
+        "NodeType": 208,
+        "StructuredObjectList": 209,
+        "SubordinateAnnotations": 210,
+        "SubordinateList": 211,
+        "ActualShedLevel": 212,
+        "DutyWindow": 213,
+        "ExpectedShedLevel": 214,
+        "FullDutyBaseline": 215,
+        "Unassigned_216": 216,
+        "Unassigned_217": 217,
+        "RequestedShedLevel": 218,
+        "ShedDuration": 219,
+        "ShedLevelDescriptions": 220,
+        "ShedLevels": 221,
+        "StateDescription": 222,
+        "Unassigned_223": 223,
+        "Unassigned_224": 224,
+        "Unassigned_225": 225,
+        "DoorAlarmState": 226,
+        "DoorExtendedPulseTime": 227,
+        "DoorMembers": 228,
+        "DoorOpenTooLongTime": 229,
+        "DoorPulseTime": 230,
+        "DoorStatus": 231,
+        "DoorUnlockDelayTime": 232,
+        "LockStatus": 233,
+        "MaskedAlarmValues": 234,
+        "SecuredStatus": 235,
+        "Unassigned_236": 236,
+        "Unassigned_237": 237,
+        "Unassigned_238": 238,
+        "Unassigned_239": 239,
+        "Unassigned_240": 240,
+        "Unassigned_241": 241,
+        "Unassigned_242": 242,
+        "Unassigned_243": 243,
+        "AbsenteeLimit": 244,
+        "AccessAlarmEvents": 245,
+        "AccessDoors": 246,
+        "AccessEvent": 247,
+        "AccessEventAuthenticationFactor": 248,
+        "AccessEventCredential": 249,
+        "AccessEventTime": 250,
+        "AccessTransactionEvents": 251,
+        "Accompaniment": 252,
+        "AccompanimentTime": 253,
+        "ActivationTime": 254,
+        "ActiveAuthenticationPolicy": 255,
+        "AssignedAccessRights": 256,
+        "AuthenticationFactors": 257,
+        "AuthenticationPolicyList": 258,
+        "AuthenticationPolicyNames": 259,
+        "AuthenticationStatus": 260,
+        "AuthorizationMode": 261,
+        "BelongsTo": 262,
+        "CredentialDisable": 263,
+        "CredentialStatus": 264,
+        "Credentials": 265,
+        "CredentialsInZone": 266,
+        "DaysRemaining": 267,
+        "EntryPoints": 268,
+        "ExitPoints": 269,
+        "ExpiryTime": 270,
+        "ExtendedTimeEnable": 271,
+        "FailedAttemptEvents": 272,
+        "FailedAttempts": 273,
+        "FailedAttemptsTime": 274,
+        "LastAccessEvent": 275,
+        "LastAccessPoint": 276,
+        "LastCredentialAdded": 277,
+        "LastCredentialAddedTime": 278,
+        "LastCredentialRemoved": 279,
+        "LastCredentialRemovedTime": 280,
+        "LastUseTime": 281,
+        "Lockout": 282,
+        "LockoutRelinquishTime": 283,
+        "Removed_In_Version_1_Revision_13_284": 284,
+        "MaxFailedAttempts": 285,
+        "Members": 286,
+        "MusterPoint": 287,
+        "NegativeAccessRules": 288,
+        "NumberOfAuthenticationPolicies": 289,
+        "OccupancyCount": 290,
+        "OccupancyCountAdjust": 291,
+        "OccupancyCountEnable": 292,
+        "Removed_In_Version_1_Revision_13_293": 293,
+        "OccupancyLowerLimit": 294,
+        "OccupancyLowerLimitEnforced": 295,
+        "OccupancyState": 296,
+        "OccupancyUpperLimit": 297,
+        "OccupancyUpperLimitEnforced": 298,
+        "Removed_In_Version_1_Revision_13_299": 299,
+        "PassbackMode": 300,
+        "PassbackTimeout": 301,
+        "PositiveAccessRules": 302,
+        "ReasonForDisable": 303,
+        "SupportedFormats": 304,
+        "SupportedFormatClasses": 305,
+        "ThreatAuthority": 306,
+        "ThreatLevel": 307,
+        "TraceFlag": 308,
+        "TransactionNotificationClass": 309,
+        "UserExternalIdentifier": 310,
+        "UserInformationReference": 311,
+        "Unassigned_312": 312,
+        "Unassigned_313": 313,
+        "Unassigned_314": 314,
+        "Unassigned_315": 315,
+        "Unassigned_316": 316,
+        "UserName": 317,
+        "UserType": 318,
+        "UsesRemaining": 319,
+        "ZoneFrom": 320,
+        "ZoneTo": 321,
+        "AccessEventTag": 322,
+        "GlobalIdentifier": 323,
+        "Unassigned_324": 324,
+        "Unassigned_325": 325,
+        "VerificationTime": 326,
+        "BaseDeviceSecurityPolicy": 327,
+        "DistributionKeyRevision": 328,
+        "DoNotHide": 329,
+        "KeySets": 330,
+        "LastKeyServer": 331,
+        "NetworkAccessSecurityPolicies": 332,
+        "PacketReorderTime": 333,
+        "SecurityPduTimeout": 334,
+        "SecurityTimeWindow": 335,
+        "SupportedSecurityAlgorithms": 336,
+        "UpdateKeySetTimeout": 337,
+        "BackupAndRestoreState": 338,
+        "BackupPreparationTime": 339,
+        "RestoreCompletionTime": 340,
+        "RestorePreparationTime": 341,
+        "BitMask": 342,
+        "BitText": 343,
+        "IsUtc": 344,
+        "GroupMembers": 345,
+        "GroupMemberNames": 346,
+        "MemberStatusFlags": 347,
+        "RequestedUpdateInterval": 348,
+        "CovuPeriod": 349,
+        "CovuRecipients": 350,
+        "EventMessageTexts": 351,
+        "EventMessageTextsConfig": 352,
+        "EventDetectionEnable": 353,
+        "EventAlgorithmInhibit": 354,
+        "EventAlgorithmInhibitRef": 355,
+        "TimeDelayNormal": 356,
+        "ReliabilityEvaluationInhibit": 357,
+        "FaultParameters": 358,
+        "FaultType": 359,
+        "LocalForwardingOnly": 360,
+        "ProcessIdentifierFilter": 361,
+        "SubscribedRecipients": 362,
+        "PortFilter": 363,
+        "AuthorizationExemptions": 364,
+        "AllowGroupDelayInhibit": 365,
+        "ChannelNumber": 366,
+        "ControlGroups": 367,
+        "ExecutionDelay": 368,
+        "LastPriority": 369,
+        "WriteStatus": 370,
+        "PropertyList": 371,
+        "SerialNumber": 372,
+        "BlinkWarnEnable": 373,
+        "DefaultFadeTime": 374,
+        "DefaultRampRate": 375,
+        "DefaultStepIncrement": 376,
+        "EgressTime": 377,
+        "InProgress": 378,
+        "InstantaneousPower": 379,
+        "LightingCommand": 380,
+        "LightingCommandDefaultPriority": 381,
+        "MaxActualValue": 382,
+        "MinActualValue": 383,
+        "Power": 384,
+        "Transition": 385,
+        "EgressActive": 386
+      },
+      "properties": {
+        "AckedTransitions": {
+          "type": "integer"
+        },
+        "AckRequired": {
+          "type": "integer"
+        },
+        "Action": {
+          "type": "integer"
+        },
+        "ActionText": {
+          "type": "integer"
+        },
+        "ActiveText": {
+          "type": "integer"
+        },
+        "ActiveVtSessions": {
+          "type": "integer"
+        },
+        "AlarmValue": {
+          "type": "integer"
+        },
+        "AlarmValues": {
+          "type": "integer"
+        },
+        "All": {
+          "type": "integer"
+        },
+        "AllWritesSuccessful": {
+          "type": "integer"
+        },
+        "ApduSegmentTimeout": {
+          "type": "integer"
+        },
+        "ApduTimeout": {
+          "type": "integer"
+        },
+        "ApplicationSoftwareVersion": {
+          "type": "integer"
+        },
+        "Archive": {
+          "type": "integer"
+        },
+        "Bias": {
+          "type": "integer"
+        },
+        "ChangeOfStateCount": {
+          "type": "integer"
+        },
+        "ChangeOfStateTime": {
+          "type": "integer"
+        },
+        "NotificationClass": {
+          "type": "integer"
+        },
+        "this_property_deleted": {
+          "type": "integer"
+        },
+        "ControlledVariableReference": {
+          "type": "integer"
+        },
+        "ControlledVariableUnits": {
+          "type": "integer"
+        },
+        "ControlledVariableValue": {
+          "type": "integer"
+        },
+        "CovIncrement": {
+          "type": "integer"
+        },
+        "DateList": {
+          "type": "integer"
+        },
+        "DaylightSavingsStatus": {
+          "type": "integer"
+        },
+        "Deadband": {
+          "type": "integer"
+        },
+        "DerivativeConstant": {
+          "type": "integer"
+        },
+        "DerivativeConstantUnits": {
+          "type": "integer"
+        },
+        "Description": {
+          "type": "integer"
+        },
+        "DescriptionOfHalt": {
+          "type": "integer"
+        },
+        "DeviceAddressBinding": {
+          "type": "integer"
+        },
+        "DeviceType": {
+          "type": "integer"
+        },
+        "EffectivePeriod": {
+          "type": "integer"
+        },
+        "ElapsedActiveTime": {
+          "type": "integer"
+        },
+        "ErrorLimit": {
+          "type": "integer"
+        },
+        "EventEnable": {
+          "type": "integer"
+        },
+        "EventState": {
+          "type": "integer"
+        },
+        "EventType": {
+          "type": "integer"
+        },
+        "ExceptionSchedule": {
+          "type": "integer"
+        },
+        "FaultValues": {
+          "type": "integer"
+        },
+        "FeedbackValue": {
+          "type": "integer"
+        },
+        "FileAccessMethod": {
+          "type": "integer"
+        },
+        "FileSize": {
+          "type": "integer"
+        },
+        "FileType": {
+          "type": "integer"
+        },
+        "FirmwareRevision": {
+          "type": "integer"
+        },
+        "HighLimit": {
+          "type": "integer"
+        },
+        "InactiveText": {
+          "type": "integer"
+        },
+        "InProcess": {
+          "type": "integer"
+        },
+        "InstanceOf": {
+          "type": "integer"
+        },
+        "IntegralConstant": {
+          "type": "integer"
+        },
+        "IntegralConstantUnits": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_4_51": {
+          "type": "integer"
+        },
+        "LimitEnable": {
+          "type": "integer"
+        },
+        "ListOfGroupMembers": {
+          "type": "integer"
+        },
+        "ListOfObjectPropertyReferences": {
+          "type": "integer"
+        },
+        "Unassigned_55": {
+          "type": "integer"
+        },
+        "LocalDate": {
+          "type": "integer"
+        },
+        "LocalTime": {
+          "type": "integer"
+        },
+        "Location": {
+          "type": "integer"
+        },
+        "LowLimit": {
+          "type": "integer"
+        },
+        "ManipulatedVariableReference": {
+          "type": "integer"
+        },
+        "MaximumOutput": {
+          "type": "integer"
+        },
+        "MaxApduLengthAccepted": {
+          "type": "integer"
+        },
+        "MaxInfoFrames": {
+          "type": "integer"
+        },
+        "MaxMaster": {
+          "type": "integer"
+        },
+        "MaxPresValue": {
+          "type": "integer"
+        },
+        "MinimumOffTime": {
+          "type": "integer"
+        },
+        "MinimumOnTime": {
+          "type": "integer"
+        },
+        "MinimumOutput": {
+          "type": "integer"
+        },
+        "MinPresValue": {
+          "type": "integer"
+        },
+        "ModelName": {
+          "type": "integer"
+        },
+        "ModificationDate": {
+          "type": "integer"
+        },
+        "NotifyType": {
+          "type": "integer"
+        },
+        "NumberOfApduRetries": {
+          "type": "integer"
+        },
+        "NumberOfStates": {
+          "type": "integer"
+        },
+        "ObjectIdentifier": {
+          "type": "integer"
+        },
+        "ObjectList": {
+          "type": "integer"
+        },
+        "ObjectName": {
+          "type": "integer"
+        },
+        "ObjectPropertyReference": {
+          "type": "integer"
+        },
+        "ObjectType": {
+          "type": "integer"
+        },
+        "Optional": {
+          "type": "integer"
+        },
+        "OutOfService": {
+          "type": "integer"
+        },
+        "OutputUnits": {
+          "type": "integer"
+        },
+        "EventParameters": {
+          "type": "integer"
+        },
+        "Polarity": {
+          "type": "integer"
+        },
+        "PresentValue": {
+          "type": "integer"
+        },
+        "Priority": {
+          "type": "integer"
+        },
+        "PriorityArray": {
+          "type": "integer"
+        },
+        "PriorityForWriting": {
+          "type": "integer"
+        },
+        "ProcessIdentifier": {
+          "type": "integer"
+        },
+        "ProgramChange": {
+          "type": "integer"
+        },
+        "ProgramLocation": {
+          "type": "integer"
+        },
+        "ProgramState": {
+          "type": "integer"
+        },
+        "ProportionalConstant": {
+          "type": "integer"
+        },
+        "ProportionalConstantUnits": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_2_95": {
+          "type": "integer"
+        },
+        "ProtocolObjectTypesSupported": {
+          "type": "integer"
+        },
+        "ProtocolServicesSupported": {
+          "type": "integer"
+        },
+        "ProtocolVersion": {
+          "type": "integer"
+        },
+        "ReadOnly": {
+          "type": "integer"
+        },
+        "ReasonForHalt": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_4x": {
+          "type": "integer"
+        },
+        "RecipientList": {
+          "type": "integer"
+        },
+        "Reliability": {
+          "type": "integer"
+        },
+        "RelinquishDefault": {
+          "type": "integer"
+        },
+        "Required": {
+          "type": "integer"
+        },
+        "Resolution": {
+          "type": "integer"
+        },
+        "SegmentationSupported": {
+          "type": "integer"
+        },
+        "Setpoint": {
+          "type": "integer"
+        },
+        "SetpointReference": {
+          "type": "integer"
+        },
+        "StateText": {
+          "type": "integer"
+        },
+        "StatusFlags": {
+          "type": "integer"
+        },
+        "SystemStatus": {
+          "type": "integer"
+        },
+        "TimeDelay": {
+          "type": "integer"
+        },
+        "TimeOfActiveTimeReset": {
+          "type": "integer"
+        },
+        "TimeOfStateCountReset": {
+          "type": "integer"
+        },
+        "TimeSynchronizationRecipients": {
+          "type": "integer"
+        },
+        "Units": {
+          "type": "integer"
+        },
+        "UpdateInterval": {
+          "type": "integer"
+        },
+        "UtcOffset": {
+          "type": "integer"
+        },
+        "VendorIdentifier": {
+          "type": "integer"
+        },
+        "VendorName": {
+          "type": "integer"
+        },
+        "VtClassesSupported": {
+          "type": "integer"
+        },
+        "WeeklySchedule": {
+          "type": "integer"
+        },
+        "AttemptedSamples": {
+          "type": "integer"
+        },
+        "AverageValue": {
+          "type": "integer"
+        },
+        "BufferSize": {
+          "type": "integer"
+        },
+        "ClientCovIncrement": {
+          "type": "integer"
+        },
+        "CovResubscriptionInterval": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_3_129": {
+          "type": "integer"
+        },
+        "EventTimeStamps": {
+          "type": "integer"
+        },
+        "LogBuffer": {
+          "type": "integer"
+        },
+        "LogDeviceObjectProperty": {
+          "type": "integer"
+        },
+        "Enable": {
+          "type": "integer"
+        },
+        "LogInterval": {
+          "type": "integer"
+        },
+        "MaximumValue": {
+          "type": "integer"
+        },
+        "MinimumValue": {
+          "type": "integer"
+        },
+        "NotificationThreshold": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_3_138": {
+          "type": "integer"
+        },
+        "ProtocolRevision": {
+          "type": "integer"
+        },
+        "RecordsSinceNotification": {
+          "type": "integer"
+        },
+        "RecordCount": {
+          "type": "integer"
+        },
+        "StartTime": {
+          "type": "integer"
+        },
+        "StopTime": {
+          "type": "integer"
+        },
+        "StopWhenFull": {
+          "type": "integer"
+        },
+        "TotalRecordCount": {
+          "type": "integer"
+        },
+        "ValidSamples": {
+          "type": "integer"
+        },
+        "WindowInterval": {
+          "type": "integer"
+        },
+        "WindowSamples": {
+          "type": "integer"
+        },
+        "MaximumValueTimestamp": {
+          "type": "integer"
+        },
+        "MinimumValueTimestamp": {
+          "type": "integer"
+        },
+        "VarianceValue": {
+          "type": "integer"
+        },
+        "ActiveCovSubscriptions": {
+          "type": "integer"
+        },
+        "BackupFailureTimeout": {
+          "type": "integer"
+        },
+        "ConfigurationFiles": {
+          "type": "integer"
+        },
+        "DatabaseRevision": {
+          "type": "integer"
+        },
+        "DirectReading": {
+          "type": "integer"
+        },
+        "LastRestoreTime": {
+          "type": "integer"
+        },
+        "MaintenanceRequired": {
+          "type": "integer"
+        },
+        "MemberOf": {
+          "type": "integer"
+        },
+        "Mode": {
+          "type": "integer"
+        },
+        "OperationExpected": {
+          "type": "integer"
+        },
+        "Setting": {
+          "type": "integer"
+        },
+        "Silenced": {
+          "type": "integer"
+        },
+        "TrackingValue": {
+          "type": "integer"
+        },
+        "ZoneMembers": {
+          "type": "integer"
+        },
+        "LifeSafetyAlarmValues": {
+          "type": "integer"
+        },
+        "MaxSegmentsAccepted": {
+          "type": "integer"
+        },
+        "ProfileName": {
+          "type": "integer"
+        },
+        "AutoSlaveDiscovery": {
+          "type": "integer"
+        },
+        "ManualSlaveAddressBinding": {
+          "type": "integer"
+        },
+        "SlaveAddressBinding": {
+          "type": "integer"
+        },
+        "SlaveProxyEnable": {
+          "type": "integer"
+        },
+        "LastNotifyRecord": {
+          "type": "integer"
+        },
+        "ScheduleDefault": {
+          "type": "integer"
+        },
+        "AcceptedModes": {
+          "type": "integer"
+        },
+        "AdjustValue": {
+          "type": "integer"
+        },
+        "Count": {
+          "type": "integer"
+        },
+        "CountBeforeChange": {
+          "type": "integer"
+        },
+        "CountChangeTime": {
+          "type": "integer"
+        },
+        "CovPeriod": {
+          "type": "integer"
+        },
+        "InputReference": {
+          "type": "integer"
+        },
+        "LimitMonitoringInterval": {
+          "type": "integer"
+        },
+        "LoggingObject": {
+          "type": "integer"
+        },
+        "LoggingRecord": {
+          "type": "integer"
+        },
+        "Prescale": {
+          "type": "integer"
+        },
+        "PulseRate": {
+          "type": "integer"
+        },
+        "Scale": {
+          "type": "integer"
+        },
+        "ScaleFactor": {
+          "type": "integer"
+        },
+        "UpdateTime": {
+          "type": "integer"
+        },
+        "ValueBeforeChange": {
+          "type": "integer"
+        },
+        "ValueSet": {
+          "type": "integer"
+        },
+        "ValueChangeTime": {
+          "type": "integer"
+        },
+        "AlignIntervals": {
+          "type": "integer"
+        },
+        "Unassigned_194": {
+          "type": "integer"
+        },
+        "IntervalOffset": {
+          "type": "integer"
+        },
+        "LastRestartReason": {
+          "type": "integer"
+        },
+        "LoggingType": {
+          "type": "integer"
+        },
+        "Unassigned_198": {
+          "type": "integer"
+        },
+        "Unassigned_199": {
+          "type": "integer"
+        },
+        "Unassigned_200": {
+          "type": "integer"
+        },
+        "Unassigned_201": {
+          "type": "integer"
+        },
+        "RestartNotificationRecipients": {
+          "type": "integer"
+        },
+        "TimeOfDeviceRestart": {
+          "type": "integer"
+        },
+        "TimeSynchronizationInterval": {
+          "type": "integer"
+        },
+        "Trigger": {
+          "type": "integer"
+        },
+        "UtcTimeSynchronizationRecipients": {
+          "type": "integer"
+        },
+        "NodeSubtype": {
+          "type": "integer"
+        },
+        "NodeType": {
+          "type": "integer"
+        },
+        "StructuredObjectList": {
+          "type": "integer"
+        },
+        "SubordinateAnnotations": {
+          "type": "integer"
+        },
+        "SubordinateList": {
+          "type": "integer"
+        },
+        "ActualShedLevel": {
+          "type": "integer"
+        },
+        "DutyWindow": {
+          "type": "integer"
+        },
+        "ExpectedShedLevel": {
+          "type": "integer"
+        },
+        "FullDutyBaseline": {
+          "type": "integer"
+        },
+        "Unassigned_216": {
+          "type": "integer"
+        },
+        "Unassigned_217": {
+          "type": "integer"
+        },
+        "RequestedShedLevel": {
+          "type": "integer"
+        },
+        "ShedDuration": {
+          "type": "integer"
+        },
+        "ShedLevelDescriptions": {
+          "type": "integer"
+        },
+        "ShedLevels": {
+          "type": "integer"
+        },
+        "StateDescription": {
+          "type": "integer"
+        },
+        "Unassigned_223": {
+          "type": "integer"
+        },
+        "Unassigned_224": {
+          "type": "integer"
+        },
+        "Unassigned_225": {
+          "type": "integer"
+        },
+        "DoorAlarmState": {
+          "type": "integer"
+        },
+        "DoorExtendedPulseTime": {
+          "type": "integer"
+        },
+        "DoorMembers": {
+          "type": "integer"
+        },
+        "DoorOpenTooLongTime": {
+          "type": "integer"
+        },
+        "DoorPulseTime": {
+          "type": "integer"
+        },
+        "DoorStatus": {
+          "type": "integer"
+        },
+        "DoorUnlockDelayTime": {
+          "type": "integer"
+        },
+        "LockStatus": {
+          "type": "integer"
+        },
+        "MaskedAlarmValues": {
+          "type": "integer"
+        },
+        "SecuredStatus": {
+          "type": "integer"
+        },
+        "Unassigned_236": {
+          "type": "integer"
+        },
+        "Unassigned_237": {
+          "type": "integer"
+        },
+        "Unassigned_238": {
+          "type": "integer"
+        },
+        "Unassigned_239": {
+          "type": "integer"
+        },
+        "Unassigned_240": {
+          "type": "integer"
+        },
+        "Unassigned_241": {
+          "type": "integer"
+        },
+        "Unassigned_242": {
+          "type": "integer"
+        },
+        "Unassigned_243": {
+          "type": "integer"
+        },
+        "AbsenteeLimit": {
+          "type": "integer"
+        },
+        "AccessAlarmEvents": {
+          "type": "integer"
+        },
+        "AccessDoors": {
+          "type": "integer"
+        },
+        "AccessEvent": {
+          "type": "integer"
+        },
+        "AccessEventAuthenticationFactor": {
+          "type": "integer"
+        },
+        "AccessEventCredential": {
+          "type": "integer"
+        },
+        "AccessEventTime": {
+          "type": "integer"
+        },
+        "AccessTransactionEvents": {
+          "type": "integer"
+        },
+        "Accompaniment": {
+          "type": "integer"
+        },
+        "AccompanimentTime": {
+          "type": "integer"
+        },
+        "ActivationTime": {
+          "type": "integer"
+        },
+        "ActiveAuthenticationPolicy": {
+          "type": "integer"
+        },
+        "AssignedAccessRights": {
+          "type": "integer"
+        },
+        "AuthenticationFactors": {
+          "type": "integer"
+        },
+        "AuthenticationPolicyList": {
+          "type": "integer"
+        },
+        "AuthenticationPolicyNames": {
+          "type": "integer"
+        },
+        "AuthenticationStatus": {
+          "type": "integer"
+        },
+        "AuthorizationMode": {
+          "type": "integer"
+        },
+        "BelongsTo": {
+          "type": "integer"
+        },
+        "CredentialDisable": {
+          "type": "integer"
+        },
+        "CredentialStatus": {
+          "type": "integer"
+        },
+        "Credentials": {
+          "type": "integer"
+        },
+        "CredentialsInZone": {
+          "type": "integer"
+        },
+        "DaysRemaining": {
+          "type": "integer"
+        },
+        "EntryPoints": {
+          "type": "integer"
+        },
+        "ExitPoints": {
+          "type": "integer"
+        },
+        "ExpiryTime": {
+          "type": "integer"
+        },
+        "ExtendedTimeEnable": {
+          "type": "integer"
+        },
+        "FailedAttemptEvents": {
+          "type": "integer"
+        },
+        "FailedAttempts": {
+          "type": "integer"
+        },
+        "FailedAttemptsTime": {
+          "type": "integer"
+        },
+        "LastAccessEvent": {
+          "type": "integer"
+        },
+        "LastAccessPoint": {
+          "type": "integer"
+        },
+        "LastCredentialAdded": {
+          "type": "integer"
+        },
+        "LastCredentialAddedTime": {
+          "type": "integer"
+        },
+        "LastCredentialRemoved": {
+          "type": "integer"
+        },
+        "LastCredentialRemovedTime": {
+          "type": "integer"
+        },
+        "LastUseTime": {
+          "type": "integer"
+        },
+        "Lockout": {
+          "type": "integer"
+        },
+        "LockoutRelinquishTime": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_13_284": {
+          "type": "integer"
+        },
+        "MaxFailedAttempts": {
+          "type": "integer"
+        },
+        "Members": {
+          "type": "integer"
+        },
+        "MusterPoint": {
+          "type": "integer"
+        },
+        "NegativeAccessRules": {
+          "type": "integer"
+        },
+        "NumberOfAuthenticationPolicies": {
+          "type": "integer"
+        },
+        "OccupancyCount": {
+          "type": "integer"
+        },
+        "OccupancyCountAdjust": {
+          "type": "integer"
+        },
+        "OccupancyCountEnable": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_13_293": {
+          "type": "integer"
+        },
+        "OccupancyLowerLimit": {
+          "type": "integer"
+        },
+        "OccupancyLowerLimitEnforced": {
+          "type": "integer"
+        },
+        "OccupancyState": {
+          "type": "integer"
+        },
+        "OccupancyUpperLimit": {
+          "type": "integer"
+        },
+        "OccupancyUpperLimitEnforced": {
+          "type": "integer"
+        },
+        "Removed_In_Version_1_Revision_13_299": {
+          "type": "integer"
+        },
+        "PassbackMode": {
+          "type": "integer"
+        },
+        "PassbackTimeout": {
+          "type": "integer"
+        },
+        "PositiveAccessRules": {
+          "type": "integer"
+        },
+        "ReasonForDisable": {
+          "type": "integer"
+        },
+        "SupportedFormats": {
+          "type": "integer"
+        },
+        "SupportedFormatClasses": {
+          "type": "integer"
+        },
+        "ThreatAuthority": {
+          "type": "integer"
+        },
+        "ThreatLevel": {
+          "type": "integer"
+        },
+        "TraceFlag": {
+          "type": "integer"
+        },
+        "TransactionNotificationClass": {
+          "type": "integer"
+        },
+        "UserExternalIdentifier": {
+          "type": "integer"
+        },
+        "UserInformationReference": {
+          "type": "integer"
+        },
+        "Unassigned_312": {
+          "type": "integer"
+        },
+        "Unassigned_313": {
+          "type": "integer"
+        },
+        "Unassigned_314": {
+          "type": "integer"
+        },
+        "Unassigned_315": {
+          "type": "integer"
+        },
+        "Unassigned_316": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "integer"
+        },
+        "UserType": {
+          "type": "integer"
+        },
+        "UsesRemaining": {
+          "type": "integer"
+        },
+        "ZoneFrom": {
+          "type": "integer"
+        },
+        "ZoneTo": {
+          "type": "integer"
+        },
+        "AccessEventTag": {
+          "type": "integer"
+        },
+        "GlobalIdentifier": {
+          "type": "integer"
+        },
+        "Unassigned_324": {
+          "type": "integer"
+        },
+        "Unassigned_325": {
+          "type": "integer"
+        },
+        "VerificationTime": {
+          "type": "integer"
+        },
+        "BaseDeviceSecurityPolicy": {
+          "type": "integer"
+        },
+        "DistributionKeyRevision": {
+          "type": "integer"
+        },
+        "DoNotHide": {
+          "type": "integer"
+        },
+        "KeySets": {
+          "type": "integer"
+        },
+        "LastKeyServer": {
+          "type": "integer"
+        },
+        "NetworkAccessSecurityPolicies": {
+          "type": "integer"
+        },
+        "PacketReorderTime": {
+          "type": "integer"
+        },
+        "SecurityPduTimeout": {
+          "type": "integer"
+        },
+        "SecurityTimeWindow": {
+          "type": "integer"
+        },
+        "SupportedSecurityAlgorithms": {
+          "type": "integer"
+        },
+        "UpdateKeySetTimeout": {
+          "type": "integer"
+        },
+        "BackupAndRestoreState": {
+          "type": "integer"
+        },
+        "BackupPreparationTime": {
+          "type": "integer"
+        },
+        "RestoreCompletionTime": {
+          "type": "integer"
+        },
+        "RestorePreparationTime": {
+          "type": "integer"
+        },
+        "BitMask": {
+          "type": "integer"
+        },
+        "BitText": {
+          "type": "integer"
+        },
+        "IsUtc": {
+          "type": "integer"
+        },
+        "GroupMembers": {
+          "type": "integer"
+        },
+        "GroupMemberNames": {
+          "type": "integer"
+        },
+        "MemberStatusFlags": {
+          "type": "integer"
+        },
+        "RequestedUpdateInterval": {
+          "type": "integer"
+        },
+        "CovuPeriod": {
+          "type": "integer"
+        },
+        "CovuRecipients": {
+          "type": "integer"
+        },
+        "EventMessageTexts": {
+          "type": "integer"
+        },
+        "EventMessageTextsConfig": {
+          "type": "integer"
+        },
+        "EventDetectionEnable": {
+          "type": "integer"
+        },
+        "EventAlgorithmInhibit": {
+          "type": "integer"
+        },
+        "EventAlgorithmInhibitRef": {
+          "type": "integer"
+        },
+        "TimeDelayNormal": {
+          "type": "integer"
+        },
+        "ReliabilityEvaluationInhibit": {
+          "type": "integer"
+        },
+        "FaultParameters": {
+          "type": "integer"
+        },
+        "FaultType": {
+          "type": "integer"
+        },
+        "LocalForwardingOnly": {
+          "type": "integer"
+        },
+        "ProcessIdentifierFilter": {
+          "type": "integer"
+        },
+        "SubscribedRecipients": {
+          "type": "integer"
+        },
+        "PortFilter": {
+          "type": "integer"
+        },
+        "AuthorizationExemptions": {
+          "type": "integer"
+        },
+        "AllowGroupDelayInhibit": {
+          "type": "integer"
+        },
+        "ChannelNumber": {
+          "type": "integer"
+        },
+        "ControlGroups": {
+          "type": "integer"
+        },
+        "ExecutionDelay": {
+          "type": "integer"
+        },
+        "LastPriority": {
+          "type": "integer"
+        },
+        "WriteStatus": {
+          "type": "integer"
+        },
+        "PropertyList": {
+          "type": "integer"
+        },
+        "SerialNumber": {
+          "type": "integer"
+        },
+        "BlinkWarnEnable": {
+          "type": "integer"
+        },
+        "DefaultFadeTime": {
+          "type": "integer"
+        },
+        "DefaultRampRate": {
+          "type": "integer"
+        },
+        "DefaultStepIncrement": {
+          "type": "integer"
+        },
+        "EgressTime": {
+          "type": "integer"
+        },
+        "InProgress": {
+          "type": "integer"
+        },
+        "InstantaneousPower": {
+          "type": "integer"
+        },
+        "LightingCommand": {
+          "type": "integer"
+        },
+        "LightingCommandDefaultPriority": {
+          "type": "integer"
+        },
+        "MaxActualValue": {
+          "type": "integer"
+        },
+        "MinActualValue": {
+          "type": "integer"
+        },
+        "Power": {
+          "type": "integer"
+        },
+        "Transition": {
+          "type": "integer"
+        },
+        "EgressActive": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetReinitializedStateofDevice": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetReinitializedStateofDevice",
+      "const": {
+        "Coldstart": 0,
+        "Warmstart": 1,
+        "Startbackup": 2,
+        "Endbackup": 3,
+        "Startrestore": 4,
+        "Endrestore": 5,
+        "Abortrestore": 6
+      },
+      "properties": {
+        "Coldstart": {
+          "type": "integer"
+        },
+        "Warmstart": {
+          "type": "integer"
+        },
+        "Startbackup": {
+          "type": "integer"
+        },
+        "Endbackup": {
+          "type": "integer"
+        },
+        "Startrestore": {
+          "type": "integer"
+        },
+        "Endrestore": {
+          "type": "integer"
+        },
+        "Abortrestore": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetSegmentation": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetSegmentation",
+      "const": {
+        "segmented_both": 0,
+        "segmented_transmit": 1,
+        "segmented_receive": 2,
+        "no_segmentation": 3
+      },
+      "properties": {
+        "segmented_both": {
+          "type": "integer"
+        },
+        "segmented_transmit": {
+          "type": "integer"
+        },
+        "segmented_receive": {
+          "type": "integer"
+        },
+        "no_segmentation": {
+          "type": "integer"
+        }
+      }
+    },
+    "BACnetServicesSupportedBits": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetServicesSupportedBits",
+      "const": {
+        "acknowledgeAlarm": 0,
+        "confirmedCOVNotification": 1,
+        "confirmedEventNotification": 2,
+        "getAlarmSummary": 3,
+        "getEnrollmentSummary": 4,
+        "subscribeCOV": 5,
+        "atomicReadFile": 6,
+        "atomicWriteFile": 7,
+        "addListElement": 8,
+        "removeListElement": 9,
+        "createObject": 10,
+        "deleteObject": 11,
+        "readProperty": 12,
+        "UNASSIGNED_13": 13,
+        "readPropertyMultiple": 14,
+        "writeProperty": 15,
+        "writePropertyMultiple": 16,
+        "deviceCommunicationControl": 17,
+        "confirmedPrivateTransfer": 18,
+        "reinitializeDevice": 19,
+        "vtOpen": 20,
+        "vtClose": 21,
+        "vtData": 22,
+        "UNASSIGNED_24": 23,
+        "UNASSIGNED_25": 24,
+        "i_Am": 25,
+        "i_Have": 26,
+        "unconfirmedCOVNotification": 27,
+        "unconfirmedEventNotification": 28,
+        "unconfirmedPrivateTransfer": 29,
+        "unconfirmedTextMessage": 30,
+        "timeSynchronization": 31,
+        "who_Has": 32,
+        "who_Is": 33,
+        "readRange": 34,
+        "utcTimeSynchronization": 35,
+        "lifeSafetyOperation": 36,
+        "subscribeCOVProperty": 37,
+        "getEventInformation": 38,
+        "writeGroup": 39
+      },
+      "properties": {
+        "acknowledgeAlarm": {
+          "type": "integer"
+        },
+        "confirmedCOVNotification": {
+          "type": "integer"
+        },
+        "confirmedEventNotification": {
+          "type": "integer"
+        },
+        "getAlarmSummary": {
+          "type": "integer"
+        },
+        "getEnrollmentSummary": {
+          "type": "integer"
+        },
+        "subscribeCOV": {
+          "type": "integer"
+        },
+        "atomicReadFile": {
+          "type": "integer"
+        },
+        "atomicWriteFile": {
+          "type": "integer"
+        },
+        "addListElement": {
+          "type": "integer"
+        },
+        "removeListElement": {
+          "type": "integer"
+        },
+        "createObject": {
+          "type": "integer"
+        },
+        "deleteObject": {
+          "type": "integer"
+        },
+        "readProperty": {
+          "type": "integer"
+        },
+        "UNASSIGNED_13": {
+          "type": "integer"
+        },
+        "readPropertyMultiple": {
+          "type": "integer"
+        },
+        "writeProperty": {
+          "type": "integer"
+        },
+        "writePropertyMultiple": {
+          "type": "integer"
+        },
+        "deviceCommunicationControl": {
+          "type": "integer"
+        },
+        "confirmedPrivateTransfer": {
+          "type": "integer"
+        },
+        "reinitializeDevice": {
+          "type": "integer"
+        },
+        "vtOpen": {
+          "type": "integer"
+        },
+        "vtClose": {
+          "type": "integer"
+        },
+        "vtData": {
+          "type": "integer"
+        },
+        "UNASSIGNED_24": {
+          "type": "integer"
+        },
+        "UNASSIGNED_25": {
+          "type": "integer"
+        },
+        "i_Am": {
+          "type": "integer"
+        },
+        "i_Have": {
+          "type": "integer"
+        },
+        "unconfirmedCOVNotification": {
+          "type": "integer"
+        },
+        "unconfirmedEventNotification": {
+          "type": "integer"
+        },
+        "unconfirmedPrivateTransfer": {
+          "type": "integer"
+        },
+        "unconfirmedTextMessage": {
+          "type": "integer"
+        },
+        "timeSynchronization": {
+          "type": "integer"
+        },
+        "who_Has": {
+          "type": "integer"
+        },
+        "who_Is": {
+          "type": "integer"
+        },
+        "readRange": {
+          "type": "integer"
+        },
+        "utcTimeSynchronization": {
+          "type": "integer"
+        },
+        "lifeSafetyOperation": {
+          "type": "integer"
+        },
+        "subscribeCOVProperty": {
+          "type": "integer"
+        },
+        "getEventInformation": {
+          "type": "integer"
+        },
+        "writeGroup": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/AddDeviceAddressBindings",
+    "/actions/CreateObject",
+    "/actions/DeleteObject",
+    "/actions/DeviceCommunicationControl",
+    "/actions/ReinitializeDevice",
+    "/actions/RemoveDeviceAddressBindings",
+    "/actions/TextMessage",
+    "/properties/Active_COV_Subscriptions",
+    "/properties/APDU_Segment_Timeout",
+    "/properties/Location",
+    "/properties/Max_Segments_Accepted"
+  ],
+  "actions": {
+    "AddDeviceAddressBindings": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AddressBindings"
+        ],
+        "properties": {
+          "AddressBindings": {
+            "type": "array",
+            "items": {
+              "title": "BACnetAddressBinding",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddressBinding",
+              "required": [
+                "DeviceObjectIdentifier",
+                "DeviceAddress"
+              ],
+              "properties": {
+                "DeviceObjectIdentifier": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "DeviceAddress": {
+                  "title": "BACnetAddress",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+                  "required": [
+                    "NetworkNumber",
+                    "MacAddress"
+                  ],
+                  "properties": {
+                    "NetworkNumber": {
+                      "description": "A value 0 indicates the local network",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "MacAddress": {
+                      "description": "A string of length 0 indicates a broadcast",
+                      "type": "string",
+                      "contentEncoding": "base64"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FirstFailedElementNumber"
+        ],
+        "properties": {
+          "FirstFailedElementNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "CreateObject": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ObjectSpecifier",
+          "ListOfInitialValues"
+        ],
+        "properties": {
+          "ObjectSpecifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ListOfInitialValues": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "DeleteObject": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ObjectIdentifier"
+        ],
+        "properties": {
+          "ObjectIdentifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "DeviceCommunicationControl": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "description": "ToDo",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TimeDurationInMinutes",
+          "EnableDisable",
+          "Password"
+        ],
+        "properties": {
+          "TimeDurationInMinutes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "EnableDisable": {
+            "title": "BACnetDeviceCommunicationEnabled",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceCommunicationEnabled",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ReinitializeDevice": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ReinitializedStateofDevice",
+          "Password"
+        ],
+        "properties": {
+          "ReinitializedStateofDevice": {
+            "title": "BACnetReinitializedStateofDevice",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetReinitializedStateofDevice",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveDeviceAddressBindings": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "AddressBindings"
+        ],
+        "properties": {
+          "AddressBindings": {
+            "type": "array",
+            "items": {
+              "title": "BACnetAddressBinding",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddressBinding",
+              "required": [
+                "DeviceObjectIdentifier",
+                "DeviceAddress"
+              ],
+              "properties": {
+                "DeviceObjectIdentifier": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "DeviceAddress": {
+                  "title": "BACnetAddress",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+                  "required": [
+                    "NetworkNumber",
+                    "MacAddress"
+                  ],
+                  "properties": {
+                    "NetworkNumber": {
+                      "description": "A value 0 indicates the local network",
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "MacAddress": {
+                      "description": "A string of length 0 indicates a broadcast",
+                      "type": "string",
+                      "contentEncoding": "base64"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FirstFailedElementNumber"
+        ],
+        "properties": {
+          "FirstFailedElementNumber": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "TextMessage": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SendUnconfirmed",
+          "TextMessageSourceDevice",
+          "MessageClass",
+          "MessagePriority",
+          "Message"
+        ],
+        "properties": {
+          "SendUnconfirmed": {
+            "type": "boolean"
+          },
+          "TextMessageSourceDevice": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MessageClass": {
+            "title": "BACnetMessageClass",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMessageClass",
+            "properties": {
+              "Unsigned": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "String": {
+                "type": "string"
+              }
+            }
+          },
+          "MessagePriority": {
+            "title": "BACnetMessagePriority",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetMessagePriority",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Active_COV_Subscriptions": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "array",
+      "items": {
+        "title": "BACnetCOVSubscription",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetCOVSubscription",
+        "required": [
+          "Recipient",
+          "MonitoredPropertyReference",
+          "IssueConfirmedNotifications",
+          "TimeRemaining"
+        ],
+        "properties": {
+          "Recipient": {
+            "title": "BACnetRecipientProcess",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipientProcess",
+            "required": [
+              "Recipient",
+              "ProcessIdentifier"
+            ],
+            "properties": {
+              "Recipient": {
+                "title": "BACnetRecipient",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetRecipient",
+                "properties": {
+                  "Device": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 4294967295
+                  },
+                  "Address": {
+                    "title": "BACnetAddress",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+                    "required": [
+                      "NetworkNumber",
+                      "MacAddress"
+                    ],
+                    "properties": {
+                      "NetworkNumber": {
+                        "description": "A value 0 indicates the local network",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 65535
+                      },
+                      "MacAddress": {
+                        "description": "A string of length 0 indicates a broadcast",
+                        "type": "string",
+                        "contentEncoding": "base64"
+                      }
+                    }
+                  }
+                }
+              },
+              "ProcessIdentifier": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "MonitoredPropertyReference": {
+            "title": "BACnetDeviceObjectPropertyReference",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceObjectPropertyReference",
+            "required": [
+              "ObjectIdentifier"
+            ],
+            "properties": {
+              "ObjectIdentifier": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "PropertyIdentifier": {
+                "title": "BACnetPropertyIdentifier",
+                "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetPropertyIdentifier",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "PropertyArrayIndex": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "DeviceIdentifier": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "IssueConfirmedNotifications": {
+            "type": "boolean"
+          },
+          "TimeRemaining": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CovIncrement": {
+            "type": "number",
+            "minimum": -3.40e+38,
+            "maximum": 3.40e+38
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "APDU_Segment_Timeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "APDU_Timeout": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Application_Software_Version": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Database_Revision": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Device_Address_Binding": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "array",
+      "items": {
+        "title": "BACnetAddressBinding",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddressBinding",
+        "required": [
+          "DeviceObjectIdentifier",
+          "DeviceAddress"
+        ],
+        "properties": {
+          "DeviceObjectIdentifier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "DeviceAddress": {
+            "title": "BACnetAddress",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetAddress",
+            "required": [
+              "NetworkNumber",
+              "MacAddress"
+            ],
+            "properties": {
+              "NetworkNumber": {
+                "description": "A value 0 indicates the local network",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "MacAddress": {
+                "description": "A string of length 0 indicates a broadcast",
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "Firmware_Revision": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Location": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Max_APDU_Length_Accepted": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Max_Segments_Accepted": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Model_Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "Number_Of_APDU_Retries": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Protocol_Object_Types_Supported": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetObjectTypeSupportedBits",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetObjectTypeSupportedBits",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Protocol_Revision": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Protocol_Services_Supported": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetServicesSupportedBits",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetServicesSupportedBits",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Protocol_Version": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "readOnly": false
+    },
+    "Segmentation_Supported": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetSegmentation",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetSegmentation",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Serial_Number": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    },
+    "System_Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "title": "BACnetDeviceStatus",
+      "dov:typeRef": "org.opcfoundation.UA.BACnet_V2.BACnetDeviceStatus",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "Vendor_Identifier": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Vendor_Name": {
+      "dov:namespace": "http://opcfoundation.org/UA/BACnet_V2/",
+      "type": "string",
+      "readOnly": false
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/HaulOff/#PlasticsRubber_Extrusion_v2_HaulOff_HaulOff_InterfaceType",
+  "title": "PlasticsRubber_Extrusion_v2_HaulOff_HaulOff_InterfaceType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion_v2.HaulOff.HaulOff_InterfaceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/#PlasticsRubber_Extrusion_v2_GeneralTypes_ExtrusionDeviceType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Drives",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_DrivesType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Force",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TemperatureZones",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/GeneralTypes/#PlasticsRubber_Extrusion_v2_GeneralTypes_ExtrusionTemperatureZonesType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/CloseClamp",
+    "/actions/OpenClamp"
+  ],
+  "actions": {
+    "CloseClamp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/HaulOff/"
+    },
+    "OpenClamp": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/HaulOff/"
+    }
+  },
+  "properties": {
+    "ClampClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion_v2/HaulOff/",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_CertificateGroupDataType",
+  "title": "OpcUaCore_CertificateGroupDataType",
+  "dov:typeRef": "org.opcfoundation.UA.CertificateGroupDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "CertificateGroupDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CertificateGroupDataType",
+      "required": [
+        "Name",
+        "RecordProperties",
+        "Purpose",
+        "CertificateTypes",
+        "IsCertificateAssigned",
+        "ValidationOptions"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "RecordProperties": {
+          "type": "array",
+          "items": {
+            "title": "KeyValuePair",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+            "required": [
+              "Key",
+              "Value"
+            ],
+            "properties": {
+              "Key": {
+                "type": "string"
+              },
+              "Value": {
+                "description": "Stand-in for an unspecified data type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Purpose": {
+          "type": "string"
+        },
+        "CertificateTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "IsCertificateAssigned": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "ValidationOptions": {
+          "title": "TrustListValidationOptions",
+          "dov:typeRef": "org.opcfoundation.UA.TrustListValidationOptions",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

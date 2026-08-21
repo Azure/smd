@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/POWERLINK/#POWERLINK_PowerlinkPDOMappingEntryDataType",
+  "title": "POWERLINK_PowerlinkPDOMappingEntryDataType",
+  "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkPDOMappingEntryDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "PowerlinkPDOMappingEntryDataType": {
+      "description": "Structure DataType PowerlinkPDOMappingEntryDataType to represent the entries of POWERLINK Objects like PDO_RxCommParam_00h_REC",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkPDOMappingEntryDataType",
+      "required": [
+        "length",
+        "offset",
+        "reserved",
+        "subIndex",
+        "index"
+      ],
+      "properties": {
+        "length": {
+          "description": "Index of the object to be mapped",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "offset": {
+          "description": "Sub-Index of the object to be mapped",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "reserved": {
+          "description": "for alignment purpose",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "subIndex": {
+          "description": "Offset related to start of PDO payload (Bit count)",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "index": {
+          "description": "Length of the mapped object (Bit count)",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,983 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_ImplementationType",
+  "title": "Pumps_ImplementationType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.ImplementationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AtmosphericPressure",
+    "/properties/Density",
+    "/properties/DynamicViscosity",
+    "/properties/HeightOfTheInletManometer",
+    "/properties/HeightOfTheNpshDatumPlane",
+    "/properties/HeightOfTheOutletManometer",
+    "/properties/HydraulicEfficiency",
+    "/properties/InstallationTotalHead",
+    "/properties/KinematicViscosity",
+    "/properties/MaximumAllowableFlow",
+    "/properties/MaximumDynamicSealingPressure",
+    "/properties/MeanRatedVelocityAtInletAreaOfTheInstallation",
+    "/properties/MeanRatedVelocityAtOutletAreaOfTheInstallation",
+    "/properties/MechanicalEfficiency",
+    "/properties/MinimumAllowableFlow",
+    "/properties/MinimumAllowableStableFlow",
+    "/properties/NetPositiveSuctionHeadAvailable",
+    "/properties/OverallEfficiency",
+    "/properties/PumpBestEfficiency",
+    "/properties/PumpEfficiency",
+    "/properties/PumpMechanicalPowerLosses",
+    "/properties/PumpRatedPowerInput",
+    "/properties/PumpTotalHead",
+    "/properties/RatedDifferentialPressure",
+    "/properties/RatedFlow",
+    "/properties/RatedSpeed",
+    "/properties/TotalHeadAtInletAreaOfTheInstallation",
+    "/properties/TotalHeadAtOutletAreaOfTheInstallation",
+    "/properties/UsefulLife",
+    "/properties/ValveSeatVelocity",
+    "/properties/ValveSpillVelocity",
+    "/properties/VaporPressureOfThePumpedLiquid",
+    "/properties/VolumetricEfficiency",
+    "/properties/AtmosphericPressure_EngineeringUnits",
+    "/properties/Density_EngineeringUnits",
+    "/properties/DynamicViscosity_EngineeringUnits",
+    "/properties/HeightOfTheInletManometer_EngineeringUnits",
+    "/properties/HeightOfTheNpshDatumPlane_EngineeringUnits",
+    "/properties/HeightOfTheOutletManometer_EngineeringUnits",
+    "/properties/HydraulicEfficiency_EngineeringUnits",
+    "/properties/InstallationTotalHead_EngineeringUnits",
+    "/properties/KinematicViscosity_EngineeringUnits",
+    "/properties/MaximumAllowableFlow_EngineeringUnits",
+    "/properties/MaximumDynamicSealingPressure_EngineeringUnits",
+    "/properties/MeanRatedVelocityAtInletAreaOfTheInstallation_EngineeringUnits",
+    "/properties/MeanRatedVelocityAtOutletAreaOfTheInstallation_EngineeringUnits",
+    "/properties/MechanicalEfficiency_EngineeringUnits",
+    "/properties/MinimumAllowableFlow_EngineeringUnits",
+    "/properties/MinimumAllowableStableFlow_EngineeringUnits",
+    "/properties/NetPositiveSuctionHeadAvailable_EngineeringUnits",
+    "/properties/OverallEfficiency_EngineeringUnits",
+    "/properties/PumpBestEfficiency_EngineeringUnits",
+    "/properties/PumpEfficiency_EngineeringUnits",
+    "/properties/PumpMechanicalPowerLosses_EngineeringUnits",
+    "/properties/PumpRatedPowerInput_EngineeringUnits",
+    "/properties/PumpTotalHead_EngineeringUnits",
+    "/properties/RatedDifferentialPressure_EngineeringUnits",
+    "/properties/RatedFlow_EngineeringUnits",
+    "/properties/RatedSpeed_EngineeringUnits",
+    "/properties/TotalHeadAtInletAreaOfTheInstallation_EngineeringUnits",
+    "/properties/TotalHeadAtOutletAreaOfTheInstallation_EngineeringUnits",
+    "/properties/UsefulLife_EngineeringUnits",
+    "/properties/ValveSeatVelocity_EngineeringUnits",
+    "/properties/ValveSpillVelocity_EngineeringUnits",
+    "/properties/VaporPressureOfThePumpedLiquid_EngineeringUnits",
+    "/properties/VolumetricEfficiency_EngineeringUnits",
+    "/events/AtmosphericPressure",
+    "/events/Density",
+    "/events/DynamicViscosity",
+    "/events/HeightOfTheInletManometer",
+    "/events/HeightOfTheNpshDatumPlane",
+    "/events/HeightOfTheOutletManometer",
+    "/events/HydraulicEfficiency",
+    "/events/InstallationTotalHead",
+    "/events/KinematicViscosity",
+    "/events/MaximumAllowableFlow",
+    "/events/MaximumDynamicSealingPressure",
+    "/events/MeanRatedVelocityAtInletAreaOfTheInstallation",
+    "/events/MeanRatedVelocityAtOutletAreaOfTheInstallation",
+    "/events/MechanicalEfficiency",
+    "/events/MinimumAllowableFlow",
+    "/events/MinimumAllowableStableFlow",
+    "/events/NetPositiveSuctionHeadAvailable",
+    "/events/OverallEfficiency",
+    "/events/PumpBestEfficiency",
+    "/events/PumpEfficiency",
+    "/events/PumpMechanicalPowerLosses",
+    "/events/PumpRatedPowerInput",
+    "/events/PumpTotalHead",
+    "/events/RatedDifferentialPressure",
+    "/events/RatedFlow",
+    "/events/RatedSpeed",
+    "/events/TotalHeadAtInletAreaOfTheInstallation",
+    "/events/TotalHeadAtOutletAreaOfTheInstallation",
+    "/events/UsefulLife",
+    "/events/ValveSeatVelocity",
+    "/events/ValveSpillVelocity",
+    "/events/VaporPressureOfThePumpedLiquid",
+    "/events/VolumetricEfficiency"
+  ],
+  "properties": {
+    "AtmosphericPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Mean absolute pressure of the atmosphere measured at the place of installation (2.1.1.3) of the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/AtmosphericPressure_EngineeringUnits"
+    },
+    "Density": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Volumetric mass at a stated temperature",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Density",
+      "dov:withUnit": "properties/Density_EngineeringUnits"
+    },
+    "DynamicViscosity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ratio of the shear stress to the shear velocity acting in a liquid subjected to a plane shear motion",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DynamicViscosity",
+      "dov:withUnit": "properties/DynamicViscosity_EngineeringUnits"
+    },
+    "HeightOfTheInletManometer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the zero or center position of the inlet manometer, or other point as defined by the manometer calibration",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheInletManometer_EngineeringUnits"
+    },
+    "HeightOfTheNpshDatumPlane": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Difference between the NPSH datum plane and the reference plane",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheNpshDatumPlane_EngineeringUnits"
+    },
+    "HeightOfTheOutletManometer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Height of the zero or center position of the outlet manometer, or other point as defined by the manometer calibration",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheOutletManometer_EngineeringUnits"
+    },
+    "HydraulicEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of pump available power input, Pa, which is delivered as pump power output, Pu, after satisfying the losses resulting from friction due to the relative motion of internal surfaces and internal leakage",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/HydraulicEfficiency_EngineeringUnits"
+    },
+    "InstallationTotalHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Difference between the total head at the outlet side of the installation and the total head at the inlet side of the installation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/InstallationTotalHead_EngineeringUnits"
+    },
+    "KinematicViscosity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ratio of the dynamic viscosity to the density of the pumped liquid",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/AreaPerTime",
+      "dov:withUnit": "properties/KinematicViscosity_EngineeringUnits"
+    },
+    "MaximumAllowableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Greatest rate of flow that the pump can be expected to deliver continuously without risk of internal damage when operated at the rated speed and on the liquid for which it was supplied",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MaximumAllowableFlow_EngineeringUnits"
+    },
+    "MaximumDynamicSealingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Highest pressure expected at the shaft seals during any specified operating condition and during startup and shutdown",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumDynamicSealingPressure_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtInletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rated flow at the inlet area of the installation divided by the inlet area of the installation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtInletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtOutletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rated flow at the outlet area of the installation divided by the inlet area of the installation",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtOutletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "MechanicalEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of the pump power input, P, available after satisfying the mechanical power losses, PJ,ab, at given operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MechanicalEfficiency_EngineeringUnits"
+    },
+    "MinimumAllowableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Smallest rate of flow that the pump can be expected to deliver continuously without risk of internal damage when operated at the rated speed and on the liquid for which it was supplied",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumAllowableFlow_EngineeringUnits"
+    },
+    "MinimumAllowableStableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Lowest flow at which the pump can operate without exceeding the noise and vibration limits imposed in the order",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumAllowableStableFlow_EngineeringUnits"
+    },
+    "NetPositiveSuctionHeadAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Minimum NPSH available at the inlet area of the pump as determined by the conditions of the installation for a specified rate of flow",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NetPositiveSuctionHeadAvailable_EngineeringUnits"
+    },
+    "OverallEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of the driver power input, Pmot, delivered as pump power output, Pu",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/OverallEfficiency_EngineeringUnits"
+    },
+    "PumpBestEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Greatest value of pump efficiency obtained at given operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/PumpBestEfficiency_EngineeringUnits"
+    },
+    "PumpEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Proportion of the pump power input, P, delivered as pump power output, Pu, at given operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/PumpEfficiency_EngineeringUnits"
+    },
+    "PumpMechanicalPowerLosses": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Power absorbed by friction in bearings and shaft seal at given operating conditions of the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/PumpMechanicalPowerLosses_EngineeringUnits"
+    },
+    "PumpRatedPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Power required by the pump at the rated conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/PumpRatedPowerInput_EngineeringUnits"
+    },
+    "PumpTotalHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Difference between the total head at the outlet side of the pump and the total head at the inlet side of the pump",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/PumpTotalHead_EngineeringUnits"
+    },
+    "RatedDifferentialPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Differential pressure for the operating conditions at the guarantee point",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedDifferentialPressure_EngineeringUnits"
+    },
+    "RatedFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Rate of flow at the guarantee point",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/RatedFlow_EngineeringUnits"
+    },
+    "RatedSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Number of revolutions of the pump in a given time required to meet the rated conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/RatedSpeed_EngineeringUnits"
+    },
+    "TotalHeadAtInletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Head observed at inlet area of the installation, corresponding to the sum of the height, pressure head and velocity head",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtInletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "TotalHeadAtOutletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Head observed at outlet area of the installation, corresponding to the sum of the height, pressure head and velocity head",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtOutletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "UsefulLife": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Time interval from first use until the instant when a limiting state is reached",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/UsefulLife_EngineeringUnits"
+    },
+    "ValveSeatVelocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Mean velocity of the flow through the valve seat at the specified operating conditions",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/ValveSeatVelocity_EngineeringUnits"
+    },
+    "ValveSpillVelocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Mean velocity of the flow through the valve spill area",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/ValveSpillVelocity_EngineeringUnits"
+    },
+    "VaporPressureOfThePumpedLiquid": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Absolute pressure at which the fluid vaporizes corresponding to the temperature of the liquid",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/VaporPressureOfThePumpedLiquid_EngineeringUnits"
+    },
+    "VolumetricEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Ratio of the actual delivered volume at maximum pressure to the geometric displacement volume",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/VolumetricEfficiency_EngineeringUnits"
+    },
+    "AtmosphericPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name AtmosphericPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "Density_EngineeringUnits": {
+      "description": "Unit designator for property and event with name Density, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DynamicViscosity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DynamicViscosity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeightOfTheInletManometer_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheInletManometer, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeightOfTheNpshDatumPlane_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheNpshDatumPlane, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HeightOfTheOutletManometer_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HeightOfTheOutletManometer, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "HydraulicEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name HydraulicEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "InstallationTotalHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name InstallationTotalHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "KinematicViscosity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name KinematicViscosity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumAllowableFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumAllowableFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaximumDynamicSealingPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaximumDynamicSealingPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanRatedVelocityAtInletAreaOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanRatedVelocityAtInletAreaOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanRatedVelocityAtOutletAreaOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanRatedVelocityAtOutletAreaOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MechanicalEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MechanicalEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MinimumAllowableStableFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MinimumAllowableStableFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "NetPositiveSuctionHeadAvailable_EngineeringUnits": {
+      "description": "Unit designator for property and event with name NetPositiveSuctionHeadAvailable, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OverallEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OverallEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PumpBestEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpBestEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PumpEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PumpMechanicalPowerLosses_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpMechanicalPowerLosses, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PumpRatedPowerInput_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpRatedPowerInput, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "PumpTotalHead_EngineeringUnits": {
+      "description": "Unit designator for property and event with name PumpTotalHead, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedDifferentialPressure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedDifferentialPressure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedFlow_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedFlow, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RatedSpeed_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RatedSpeed, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TotalHeadAtInletAreaOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TotalHeadAtInletAreaOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TotalHeadAtOutletAreaOfTheInstallation_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TotalHeadAtOutletAreaOfTheInstallation, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "UsefulLife_EngineeringUnits": {
+      "description": "Unit designator for property and event with name UsefulLife, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ValveSeatVelocity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ValveSeatVelocity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ValveSpillVelocity_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ValveSpillVelocity, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "VaporPressureOfThePumpedLiquid_EngineeringUnits": {
+      "description": "Unit designator for property and event with name VaporPressureOfThePumpedLiquid, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "VolumetricEfficiency_EngineeringUnits": {
+      "description": "Unit designator for property and event with name VolumetricEfficiency, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AtmosphericPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Mean absolute pressure of the atmosphere measured at the place of installation (2.1.1.3) of the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/AtmosphericPressure_EngineeringUnits"
+    },
+    "Density": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Volumetric mass at a stated temperature",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Density",
+      "dov:withUnit": "properties/Density_EngineeringUnits"
+    },
+    "DynamicViscosity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ratio of the shear stress to the shear velocity acting in a liquid subjected to a plane shear motion",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DynamicViscosity",
+      "dov:withUnit": "properties/DynamicViscosity_EngineeringUnits"
+    },
+    "HeightOfTheInletManometer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the zero or center position of the inlet manometer, or other point as defined by the manometer calibration",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheInletManometer_EngineeringUnits"
+    },
+    "HeightOfTheNpshDatumPlane": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Difference between the NPSH datum plane and the reference plane",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheNpshDatumPlane_EngineeringUnits"
+    },
+    "HeightOfTheOutletManometer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Height of the zero or center position of the outlet manometer, or other point as defined by the manometer calibration",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/HeightOfTheOutletManometer_EngineeringUnits"
+    },
+    "HydraulicEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of pump available power input, Pa, which is delivered as pump power output, Pu, after satisfying the losses resulting from friction due to the relative motion of internal surfaces and internal leakage",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/HydraulicEfficiency_EngineeringUnits"
+    },
+    "InstallationTotalHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Difference between the total head at the outlet side of the installation and the total head at the inlet side of the installation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/InstallationTotalHead_EngineeringUnits"
+    },
+    "KinematicViscosity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ratio of the dynamic viscosity to the density of the pumped liquid",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/AreaPerTime",
+      "dov:withUnit": "properties/KinematicViscosity_EngineeringUnits"
+    },
+    "MaximumAllowableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Greatest rate of flow that the pump can be expected to deliver continuously without risk of internal damage when operated at the rated speed and on the liquid for which it was supplied",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MaximumAllowableFlow_EngineeringUnits"
+    },
+    "MaximumDynamicSealingPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Highest pressure expected at the shaft seals during any specified operating condition and during startup and shutdown",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/MaximumDynamicSealingPressure_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtInletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rated flow at the inlet area of the installation divided by the inlet area of the installation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtInletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "MeanRatedVelocityAtOutletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rated flow at the outlet area of the installation divided by the inlet area of the installation",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanRatedVelocityAtOutletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "MechanicalEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of the pump power input, P, available after satisfying the mechanical power losses, PJ,ab, at given operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/MechanicalEfficiency_EngineeringUnits"
+    },
+    "MinimumAllowableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Smallest rate of flow that the pump can be expected to deliver continuously without risk of internal damage when operated at the rated speed and on the liquid for which it was supplied",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumAllowableFlow_EngineeringUnits"
+    },
+    "MinimumAllowableStableFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Lowest flow at which the pump can operate without exceeding the noise and vibration limits imposed in the order",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/MinimumAllowableStableFlow_EngineeringUnits"
+    },
+    "NetPositiveSuctionHeadAvailable": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Minimum NPSH available at the inlet area of the pump as determined by the conditions of the installation for a specified rate of flow",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/NetPositiveSuctionHeadAvailable_EngineeringUnits"
+    },
+    "OverallEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of the driver power input, Pmot, delivered as pump power output, Pu",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/OverallEfficiency_EngineeringUnits"
+    },
+    "PumpBestEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Greatest value of pump efficiency obtained at given operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/PumpBestEfficiency_EngineeringUnits"
+    },
+    "PumpEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Proportion of the pump power input, P, delivered as pump power output, Pu, at given operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/PumpEfficiency_EngineeringUnits"
+    },
+    "PumpMechanicalPowerLosses": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Power absorbed by friction in bearings and shaft seal at given operating conditions of the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/PumpMechanicalPowerLosses_EngineeringUnits"
+    },
+    "PumpRatedPowerInput": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Power required by the pump at the rated conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Power",
+      "dov:withUnit": "properties/PumpRatedPowerInput_EngineeringUnits"
+    },
+    "PumpTotalHead": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Difference between the total head at the outlet side of the pump and the total head at the inlet side of the pump",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/PumpTotalHead_EngineeringUnits"
+    },
+    "RatedDifferentialPressure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Differential pressure for the operating conditions at the guarantee point",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/RatedDifferentialPressure_EngineeringUnits"
+    },
+    "RatedFlow": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Rate of flow at the guarantee point",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+      "dov:withUnit": "properties/RatedFlow_EngineeringUnits"
+    },
+    "RatedSpeed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Number of revolutions of the pump in a given time required to meet the rated conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Frequency",
+      "dov:withUnit": "properties/RatedSpeed_EngineeringUnits"
+    },
+    "TotalHeadAtInletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Head observed at inlet area of the installation, corresponding to the sum of the height, pressure head and velocity head",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtInletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "TotalHeadAtOutletAreaOfTheInstallation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Head observed at outlet area of the installation, corresponding to the sum of the height, pressure head and velocity head",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Length",
+      "dov:withUnit": "properties/TotalHeadAtOutletAreaOfTheInstallation_EngineeringUnits"
+    },
+    "UsefulLife": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Time interval from first use until the instant when a limiting state is reached",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/UsefulLife_EngineeringUnits"
+    },
+    "ValveSeatVelocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Mean velocity of the flow through the valve seat at the specified operating conditions",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/ValveSeatVelocity_EngineeringUnits"
+    },
+    "ValveSpillVelocity": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Mean velocity of the flow through the valve spill area",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/ValveSpillVelocity_EngineeringUnits"
+    },
+    "VaporPressureOfThePumpedLiquid": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Absolute pressure at which the fluid vaporizes corresponding to the temperature of the liquid",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/ForcePerArea",
+      "dov:withUnit": "properties/VaporPressureOfThePumpedLiquid_EngineeringUnits"
+    },
+    "VolumetricEfficiency": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Ratio of the actual delivered volume at maximum pressure to the geometric displacement volume",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/VolumetricEfficiency_EngineeringUnits"
+    }
+  }
+}

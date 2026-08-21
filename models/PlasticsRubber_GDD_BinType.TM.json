@@ -1,0 +1,742 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/GDD/#PlasticsRubber_GDD_BinType",
+  "title": "PlasticsRubber_GDD_BinType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.BinType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AirFlow",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AmbientAirTemperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ConeTemperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CylinderTemperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DryAirTemperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Temperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TopTemperature",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_MonitoredParameterType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "TotalEnergy",
+      "href": "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/#PlasticsRubber_GeneralTypes_EnergyType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AirFlowModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+      "const": {
+        "CONTINUOUS": 0,
+        "INTERVAL": 1,
+        "OPTIMIZED": 2
+      },
+      "description": "Determines the air flow, either from a fan or from compressed air. ",
+      "properties": {
+        "CONTINUOUS": {
+          "description": "constant flow",
+          "type": "integer"
+        },
+        "INTERVAL": {
+          "description": "changing cyclic between low or no and high or normal flow  ",
+          "type": "integer"
+        },
+        "OPTIMIZED": {
+          "description": "Energy optimized mode (depending e.g. on throughput / humidity…)",
+          "type": "integer"
+        }
+      }
+    },
+    "AirSourceEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+      "const": {
+        "FRESH_AIR": 0,
+        "RETURN_AIR": 1
+      },
+      "description": "Determines the source of the air.",
+      "properties": {
+        "FRESH_AIR": {
+          "description": "The dryer is working with fresh air",
+          "type": "integer"
+        },
+        "RETURN_AIR": {
+          "description": "The dryer is working with return air, closed loop",
+          "type": "integer"
+        }
+      }
+    },
+    "DryingLevelEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+      "const": {
+        "LOW": 0,
+        "MEDIUM": 1,
+        "HIGH": 2
+      },
+      "description": "Indicates how much drying is required.",
+      "properties": {
+        "LOW": {
+          "description": "The granulate requires a low level drying.",
+          "type": "integer"
+        },
+        "MEDIUM": {
+          "description": "The granulate requires a medium level drying.",
+          "type": "integer"
+        },
+        "HIGH": {
+          "description": "The granulate requires a high level drying.",
+          "type": "integer"
+        }
+      }
+    },
+    "DryingModeEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+      "const": {
+        "BATCH": 0,
+        "CONTINUOUS": 1,
+        "COMBINED": 2
+      },
+      "description": "The drying mode determines the drying process.",
+      "properties": {
+        "BATCH": {
+          "description": "The granulate in the dryer is dried for a certain period of time and then switched to drying protection.",
+          "type": "integer"
+        },
+        "CONTINUOUS": {
+          "description": "The granulate in the dryer is dried continuously.",
+          "type": "integer"
+        },
+        "COMBINED": {
+          "description": "The very wet granulate in the dryer is dried for a certain period of time, after which it is dried continuously.",
+          "type": "integer"
+        }
+      }
+    },
+    "FunctionStatusEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "const": {
+        "OFF": 0,
+        "ON": 1,
+        "REQUESTED_OFF": 2,
+        "REQUESTED_ON": 3
+      },
+      "description": "Provides information about the current operation state of a function.",
+      "properties": {
+        "OFF": {
+          "description": "Function is switched off",
+          "type": "integer"
+        },
+        "ON": {
+          "description": "Function is switched on",
+          "type": "integer"
+        },
+        "REQUESTED_OFF": {
+          "description": "Function is switched on AND requested to be switched off by the client",
+          "type": "integer"
+        },
+        "REQUESTED_ON": {
+          "description": "Function is switched off AND requested to be switched on by the client",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ActivateAllFeeders",
+    "/actions/ActivateDryingProtection",
+    "/actions/ActivateDryingProtectionAirVolumeFlowReduction",
+    "/actions/ActivateMaterialFeederDryer",
+    "/actions/ActivateMaterialFeederMachine",
+    "/actions/ActivateTemperatureController",
+    "/actions/DeactivateAllFeeders",
+    "/actions/DeactivateDryingProtection",
+    "/actions/DeactivateDryingProtectionAirVolumeFlowReduction",
+    "/actions/DeactivateMaterialFeederDryer",
+    "/actions/DeactivateMaterialFeederMachine",
+    "/actions/DeactivateTemperatureController",
+    "/actions/ResetDryingTime",
+    "/properties/AirFlowMode",
+    "/properties/AirSource",
+    "/properties/AllFeedersStatus",
+    "/properties/BatchNumber",
+    "/properties/DewPoint",
+    "/properties/DryingLevel",
+    "/properties/DryingProtectionAirVolumeFlowMode",
+    "/properties/DryingProtectionStatus",
+    "/properties/DustRemovalPulses",
+    "/properties/EnergyConsumptionResettable",
+    "/properties/ExpiredDryingTime",
+    "/properties/InitialFillingActive",
+    "/properties/IntervalTimeOff",
+    "/properties/IntervalTimeOn",
+    "/properties/LooseningAid",
+    "/properties/MaterialAvailableDryer",
+    "/properties/MaterialAvailableMachine",
+    "/properties/MaterialDryingTime",
+    "/properties/MaterialFeederDryerStatus",
+    "/properties/MaterialFeederMachineStatus",
+    "/properties/MaterialIdentification",
+    "/properties/RemainingMaterialDryingTime",
+    "/properties/ResetDryingTimeResponseStatus",
+    "/properties/TemperatureControllerStatus",
+    "/properties/TemperatureReduction",
+    "/properties/TotalAirConsumption",
+    "/events/AirFlowMode",
+    "/events/AirSource",
+    "/events/AllFeedersStatus",
+    "/events/DewPoint",
+    "/events/DryingLevel",
+    "/events/DryingProtectionAirVolumeFlowMode",
+    "/events/DryingProtectionStatus",
+    "/events/DustRemovalPulses",
+    "/events/EnergyConsumptionResettable",
+    "/events/ExpiredDryingTime",
+    "/events/InitialFillingActive",
+    "/events/IntervalTimeOff",
+    "/events/IntervalTimeOn",
+    "/events/LooseningAid",
+    "/events/MaterialAvailableDryer",
+    "/events/MaterialAvailableMachine",
+    "/events/MaterialFeederDryerStatus",
+    "/events/MaterialFeederMachineStatus",
+    "/events/RemainingMaterialDryingTime",
+    "/events/ResetDryingTimeResponseStatus",
+    "/events/TemperatureControllerStatus",
+    "/events/TemperatureReduction",
+    "/events/TotalAirConsumption"
+  ],
+  "actions": {
+    "ActivateAllFeeders": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to activate all feeders at once."
+    },
+    "ActivateDryingProtection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to activate the drying protection."
+    },
+    "ActivateDryingProtectionAirVolumeFlowReduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Request to reduce the (compressed) air flow during drying protection or storage reduction."
+    },
+    "ActivateMaterialFeederDryer": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to activate the material feeder of the dryer."
+    },
+    "ActivateMaterialFeederMachine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to activate the material feeder of the machine."
+    },
+    "ActivateTemperatureController": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to request the activation of the temperature controller of the bin."
+    },
+    "DeactivateAllFeeders": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to deactivate all feeders at once."
+    },
+    "DeactivateDryingProtection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to deactivate the drying protection."
+    },
+    "DeactivateDryingProtectionAirVolumeFlowReduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Request to deactivate the use of reduced air flow during drying protection or storage reduction."
+    },
+    "DeactivateMaterialFeederDryer": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to deactivate the material feeder of the dryer."
+    },
+    "DeactivateMaterialFeederMachine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to deactivate the material feeder of the machine."
+    },
+    "DeactivateTemperatureController": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Method to request the deactivation of the temperature controller of the bin."
+    },
+    "ResetDryingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/"
+    }
+  },
+  "properties": {
+    "AirFlowMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "AirFlowModeEnumeration",
+      "description": "The AirFlowMode determines the air flow, either from a fan or from compressed air.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "AirSource": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "AirSourceEnumeration",
+      "description": "Determines the source of the air.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "AllFeedersStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "description": "Provides information about the current activation state of all feeders of the machine.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "BatchNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "A number for the specific production line and time.",
+      "type": "string",
+      "readOnly": false
+    },
+    "DewPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Dew point of the air used to dry the granulate.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "DryingLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "DryingLevelEnumeration",
+      "description": "The drying level indicates how much drying is required.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "DryingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "DryingModeEnumeration",
+      "description": "The drying mode determines the drying process.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "DryingProtectionAirVolumeFlowMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "description": "Response to the ActivateDryingProtectionAirVolumeFlowReduction Method.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DryingProtectionStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "description": "Provides information about the current activation state of the drying protection.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DustRemovalPulses": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Number of dust removal pulses, automatically triggered after filling.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "EnergyConsumptionResettable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Consumption of the Bin since the last reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ExpiredDryingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Elapsed drying time, useful for a continuous drying process.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "InitialFillingActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "True, while the initial filling process is active (e.g. to prevent conveyor timeout error).",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "IntervalTimeOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for no or low rotation.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "IntervalTimeOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for normal or high rotation.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "LooseningAid": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Number of air impulses as loosening aid at outlet of granulate dryer.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "MaterialAvailableDryer": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Provides information, if material is available to fill the dryer.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaterialAvailableMachine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Feedback from the dryer about the fill level of the conveyor for removal from the dryer to the injection molding machine (only if controlled via dryer).",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "MaterialDryingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "description": "Material manufacturer time value as setpoint to dry the material until ready for production.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "MaterialFeederDryerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "description": "Provides information about the current activation state of the material feeder of the dryer.",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaterialFeederMachineStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaterialIdentification": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "type": "string",
+      "readOnly": false
+    },
+    "RemainingMaterialDryingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": true
+    },
+    "ResetDryingTimeResponseStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "TemperatureControllerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "title": "FunctionStatusEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "TemperatureReduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TotalAirConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AirFlowMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "AirFlowModeEnumeration",
+        "description": "The AirFlowMode determines the air flow, either from a fan or from compressed air.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirFlowModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "AirSource": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "AirSourceEnumeration",
+        "description": "Determines the source of the air.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.AirSourceEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "AllFeedersStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current activation state of all feeders of the machine.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DewPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Dew point of the air used to dry the granulate.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "DryingLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "DryingLevelEnumeration",
+        "description": "The drying level indicates how much drying is required.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingLevelEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DryingMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "DryingModeEnumeration",
+        "description": "The drying mode determines the drying process.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.DryingModeEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DryingProtectionAirVolumeFlowMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "description": "Response to the ActivateDryingProtectionAirVolumeFlowReduction Method.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DryingProtectionStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current activation state of the drying protection.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DustRemovalPulses": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Number of dust removal pulses, automatically triggered after filling.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "EnergyConsumptionResettable": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Consumption of the Bin since the last reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "ExpiredDryingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Elapsed drying time, useful for a continuous drying process.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "InitialFillingActive": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "True, while the initial filling process is active (e.g. to prevent conveyor timeout error).",
+        "type": "boolean"
+      }
+    },
+    "IntervalTimeOff": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for no or low rotation.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "IntervalTimeOn": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "If AirFlowMode in INTERVAL mode is activated, this parameter determines the time for normal or high rotation.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "LooseningAid": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Number of air impulses as loosening aid at outlet of granulate dryer.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "MaterialAvailableDryer": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Provides information, if material is available to fill the dryer.",
+        "type": "boolean"
+      }
+    },
+    "MaterialAvailableMachine": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "description": "Feedback from the dryer about the fill level of the conveyor for removal from the dryer to the injection molding machine (only if controlled via dryer).",
+        "type": "boolean"
+      }
+    },
+    "MaterialFeederDryerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "description": "Provides information about the current activation state of the material feeder of the dryer.",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "MaterialFeederMachineStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RemainingMaterialDryingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "ResetDryingTimeResponseStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "type": "string",
+        "format": "time"
+      }
+    },
+    "TemperatureControllerStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "title": "FunctionStatusEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.GDD.FunctionStatusEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "TemperatureReduction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TotalAirConsumption": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/GDD/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

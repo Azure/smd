@@ -1,0 +1,255 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnIdentificationType",
+  "title": "PROFINET_PnIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnIdentificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "IMTagSelectorEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.IMTagSelectorEnumeration",
+      "const": {
+        "FUNCTION": 0,
+        "LOCATION": 1,
+        "BOTH": 2
+      },
+      "properties": {
+        "FUNCTION": {
+          "type": "integer"
+        },
+        "LOCATION": {
+          "type": "integer"
+        },
+        "BOTH": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/SetDate",
+    "/actions/SetDescriptor",
+    "/actions/SetTags",
+    "/properties/Date",
+    "/properties/Descriptor",
+    "/properties/IM5",
+    "/properties/IMSupported",
+    "/properties/RevisionCounter",
+    "/properties/Signature",
+    "/properties/TagFunction",
+    "/properties/TagLocation"
+  ],
+  "actions": {
+    "SetDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Date"
+        ],
+        "properties": {
+          "Date": {
+            "description": "New I&M2 | IM_Date to be written remanent to the device. ",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "SetDescriptor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Descriptor"
+        ],
+        "properties": {
+          "Descriptor": {
+            "description": "New I&M3 | IM_Descriptor to be written remanent to the device. ",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SetTags": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Tag_Selector",
+          "Tag_Function",
+          "Tag_Location"
+        ],
+        "properties": {
+          "Tag_Selector": {
+            "title": "IMTagSelectorEnumeration",
+            "description": "If 1, Tag_Function shall be written, If 2, Tag_Location shall be written, if 3 both.",
+            "dov:typeRef": "org.opcfoundation.UA.PROFINET.IMTagSelectorEnumeration",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "Tag_Function": {
+            "description": "String containing the new I&M1 | IM_Tag_Function to be written remanent to the device. ",
+            "type": "string"
+          },
+          "Tag_Location": {
+            "description": "String containing the new I&M1 | IM_Tag_Location to be written remanent to the device.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "Date": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "Descriptor": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "HardwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "IM5": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "array",
+      "items": {
+        "title": "PnIM5DataType",
+        "description": "Contains the fields of the APDU element I&M5 | I&M5Data",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnIM5DataType",
+        "required": [
+          "Annotation",
+          "OrderId",
+          "VendorId",
+          "SerialNumber",
+          "HardwareRevision",
+          "SoftwareRevision"
+        ],
+        "properties": {
+          "Annotation": {
+            "description": "I&M5Data | IM_Annotation",
+            "type": "string"
+          },
+          "OrderId": {
+            "description": "I&M5Data | IM_OrderID",
+            "type": "string"
+          },
+          "VendorId": {
+            "description": "I&M5Data | VendorID",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "SerialNumber": {
+            "description": "I&M5Data | IM_Serial_Number",
+            "type": "string"
+          },
+          "HardwareRevision": {
+            "description": "I&M5Data | IM_Hardware_Revision",
+            "type": "string"
+          },
+          "SoftwareRevision": {
+            "description": "I&M5Data | IM_Software_Revision",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "IMSupported": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "OrderId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProfileId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": true
+    },
+    "ProfileSpecificType": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "RevisionCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Signature": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "contentEncoding": "base64",
+      "readOnly": true
+    },
+    "SoftwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "TagFunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "TagLocation": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    },
+    "VendorId": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Version": {
+      "dov:namespace": "http://opcfoundation.org/UA/PROFINET/",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

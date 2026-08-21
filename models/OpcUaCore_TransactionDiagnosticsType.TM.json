@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_TransactionDiagnosticsType",
+  "title": "OpcUaCore_TransactionDiagnosticsType",
+  "dov:typeRef": "org.opcfoundation.UA.TransactionDiagnosticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "AffectedCertificateGroups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "AffectedTrustLists": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "EndTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    },
+    "Errors": {
+      "type": "array",
+      "items": {
+        "title": "TransactionErrorType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TransactionErrorType",
+        "required": [
+          "TargetId",
+          "Error",
+          "Message"
+        ],
+        "properties": {
+          "TargetId": {
+            "type": "string"
+          },
+          "Error": {
+            "type": "string"
+          },
+          "Message": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "Result": {
+      "type": "string",
+      "readOnly": true
+    },
+    "StartTime": {
+      "type": "string",
+      "format": "time",
+      "readOnly": true
+    }
+  }
+}

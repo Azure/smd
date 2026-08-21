@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+  "title": "PAEFS_SensorSetpointReadType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.SensorSetpointReadType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Signal",
+      "href": "http://opcfoundation.org/UA/Machinery/ProcessValues/#Machinery_ProcessValues_ProcessValueType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/IsActiveSetpoint"
+  ],
+  "properties": {
+    "IsActiveSetpoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the setpoint is currently active.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

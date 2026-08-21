@@ -1,0 +1,161 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_PaymentDeviceType",
+  "title": "UnattendedRetail_PaymentDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_IdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PaymentModeOrDeviceStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentModeOrDeviceStatusEnum",
+      "const": {
+        "Available": 0,
+        "Offline": 1,
+        "OutOfOrder": 2
+      },
+      "properties": {
+        "Available": {
+          "type": "integer"
+        },
+        "Offline": {
+          "type": "integer"
+        },
+        "OutOfOrder": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/SlotConfigurationList",
+    "/properties/SupportedAssetList",
+    "/properties/SupportedAssetListVersion"
+  ],
+  "properties": {
+    "IsEmulated": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "SlotConfigurationList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "SlotConfigurationDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.SlotConfigurationDataType",
+        "required": [
+          "SlotIndex",
+          "SupportedAssetListIndex"
+        ],
+        "properties": {
+          "SlotIndex": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "SupportedAssetListIndex": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "title": "PaymentModeOrDeviceStatusEnum",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentModeOrDeviceStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SupportedAssetList": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "PriceDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PriceDataType",
+        "required": [
+          "Amount",
+          "Currency"
+        ],
+        "properties": {
+          "Amount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Currency": {
+            "title": "CurrencyUnitType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.CurrencyUnitType",
+            "required": [
+              "NumericCode",
+              "Exponent",
+              "AlphabeticCode",
+              "Currency"
+            ],
+            "properties": {
+              "NumericCode": {
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "Exponent": {
+                "type": "integer",
+                "minimum": -128,
+                "maximum": 127
+              },
+              "AlphabeticCode": {
+                "type": "string"
+              },
+              "Currency": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "SupportedAssetListVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Status": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "title": "PaymentModeOrDeviceStatusEnum",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.PaymentModeOrDeviceStatusEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

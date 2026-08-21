@@ -1,0 +1,191 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_StepResultDataType",
+  "title": "IJT_Base_StepResultDataType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.StepResultDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "StepResultDataType": {
+      "description": "This structure represents the measurement values corresponding to a given step in the program. It is used in JoiningResultDataType.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.StepResultDataType",
+      "required": [
+        "StepResultId"
+      ],
+      "properties": {
+        "StepResultId": {
+          "description": "It is the system-wide unique identifier of the step result.",
+          "type": "string"
+        },
+        "ProgramStepId": {
+          "description": "It is the system-wide unique identifier of the Program Step.",
+          "type": "string"
+        },
+        "ProgramStep": {
+          "description": "It is the step number or name of the program step. Sometimes the step id is like 2A, 3B based on number of branches. Hence a string place holder is needed instead of number.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "It is the user-friendly name of the given step. This can be the name of the step in the configuration for ease of use and troubleshooting.",
+          "type": "string"
+        },
+        "ResultEvaluation": {
+          "title": "ResultEvaluationEnum",
+          "description": "It indicates if the StepResult is successful or not.",
+          "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultEvaluationEnum",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "StartTimeOffset": {
+          "description": "It is the offset to the ProcessingTimes.StartTime in Result, this value can be used to order the steps in execution order if same step is run multiple times.",
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        },
+        "StepTraceId": {
+          "description": "It is the system-wide unique identifier of the StepTrace associated to the StepResult.",
+          "type": "string"
+        },
+        "StepResultValues": {
+          "description": "It is the set of values which needs to be measured as per the program step.",
+          "type": "array",
+          "items": {
+            "title": "ResultValueDataType",
+            "description": "It is used to report measurement values of the joining operation. Those are meant to characterize the quality of the process. It is used in JoiningResultDataType and StepResultDataType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.ResultValueDataType",
+            "required": [
+              "MeasuredValue"
+            ],
+            "properties": {
+              "MeasuredValue": {
+                "description": "It is the measured value of the given result. The value corresponds to the PhysicalQuantity attribute of JoiningDataVariableType.",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "Name": {
+                "description": "It is a user readable name of the given measurement value.",
+                "type": "string"
+              },
+              "ResultEvaluation": {
+                "title": "ResultEvaluationEnum",
+                "description": "It indicates whether the measured value is as per the configured limits and corresponds to a successful result or not.",
+                "dov:typeRef": "org.opcfoundation.UA.Machinery.Result.ResultEvaluationEnum",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "ValueId": {
+                "description": "It is the identifier of the given value if it is available in the system.",
+                "type": "string"
+              },
+              "ValueTag": {
+                "description": "It is an associated tag to the given measurement value to classify it based on the joining domain. Examples: FINAL, YIELD, SNUG, etc.",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "TracePointIndex": {
+                "description": "It is the index to the trace sample array from which corresponds to this specific result.",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "TracePointTimeOffset": {
+                "description": "It is the time offset to point out the absolute time point in the array of trace samples. This may or may not match with an element in the TraceContent array. If it is not available in the TraceContent array, the value can be visualized in the trace graph via interpolation or some other plotting mechanisms.",
+                "type": "string",
+                "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+              },
+              "ParameterIdList": {
+                "description": "It is an array of parameter identifiers configured in the Program which is being monitored or sampled. Note: In most common cases, it can be a single identifier.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ViolationType": {
+                "description": "Indicates whether the measured value is above or below  the configured limit. It is only relevant if program or step configuration is violated.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "ViolationConsequence": {
+                "description": "It provides information on the consequence occurred due to the violation of the configurable limits. Examples: Step Transition, Abort Joining Operation. Is the consequence repairable or not, etc.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "SensorId": {
+                "description": "It is the system-wide unique identifier of the sensor which has reported the value.",
+                "type": "string"
+              },
+              "LowLimit": {
+                "description": "It provides the lower limit of the measured value as per the program.",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "HighLimit": {
+                "description": "It provides the upper limit of the measured value as per the program.",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "TargetValue": {
+                "description": "It provides the target value of the specific measurement in the program step.",
+                "type": "number",
+                "minimum": -1.80e+308,
+                "maximum": 1.80e+308
+              },
+              "ResultStep": {
+                "description": "It provides the step number or name of the program step which has generated the result.  Note: This is not applicable for StepResultValues in StepResultDataType. This is added for OverallResultValues in JoiningResultDataType to get the information of the step which has reported the specific value.",
+                "type": "string"
+              },
+              "PhysicalQuantity": {
+                "description": "It is to determine the type of the physical quantity associated to a given value(s).",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "EngineeringUnits": {
+                "title": "EUInformation",
+                "description": "It is the engineering unit of the measured value.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                "required": [
+                  "NamespaceUri",
+                  "UnitId",
+                  "DisplayName",
+                  "Description"
+                ],
+                "properties": {
+                  "NamespaceUri": {
+                    "type": "string"
+                  },
+                  "UnitId": {
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "DisplayName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_OutletConnectionMeasurementsType",
+  "title": "Pumps_OutletConnectionMeasurementsType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.OutletConnectionMeasurementsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/MeanVelocityAtOutlet",
+    "/properties/OutletTemperatureOfThePump",
+    "/properties/MeanVelocityAtOutlet_EngineeringUnits",
+    "/properties/OutletTemperatureOfThePump_EngineeringUnits",
+    "/events/MeanVelocityAtOutlet",
+    "/events/OutletTemperatureOfThePump"
+  ],
+  "properties": {
+    "MeanVelocityAtOutlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured rate of flow at pump outlet connection divided by the outlet area of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanVelocityAtOutlet_EngineeringUnits"
+    },
+    "OutletTemperatureOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured temperature acting at the outlet area of the pump.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/OutletTemperatureOfThePump_EngineeringUnits"
+    },
+    "MeanVelocityAtOutlet_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanVelocityAtOutlet, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OutletTemperatureOfThePump_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OutletTemperatureOfThePump, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "MeanVelocityAtOutlet": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured rate of flow at pump outlet connection divided by the outlet area of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+      "dov:withUnit": "properties/MeanVelocityAtOutlet_EngineeringUnits"
+    },
+    "OutletTemperatureOfThePump": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured temperature acting at the outlet area of the pump.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Temperature",
+      "dov:withUnit": "properties/OutletTemperatureOfThePump_EngineeringUnits"
+    }
+  }
+}

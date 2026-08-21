@@ -1,0 +1,149 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterAidDeviceType",
+  "title": "PAEFS_FilterAidDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterAidDeviceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "AirConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "DosageAmount",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointWriteType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "FillingLevel",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryComponentIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineryItemState",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "PowerConsumption",
+      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FilterAidDeviceStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterAidDeviceStatusEnum",
+      "const": {
+        "DeviceActive": 0,
+        "DeviceInactive": 1,
+        "FillingActive": 2,
+        "DischargeActive": 3
+      },
+      "description": "Describes the action performed by the device for filter aid",
+      "properties": {
+        "DeviceActive": {
+          "type": "integer"
+        },
+        "DeviceInactive": {
+          "type": "integer"
+        },
+        "FillingActive": {
+          "type": "integer"
+        },
+        "DischargeActive": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ResetFillingLevel",
+    "/actions/TriggerDosing",
+    "/properties/AutomaticDosingEnabled",
+    "/properties/CompressedAirSupplyInterrupted",
+    "/properties/ContainerOpen",
+    "/properties/DosingRequested",
+    "/properties/FilterAidDeviceStatus"
+  ],
+  "actions": {
+    "ResetFillingLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method ResetFillingLevel resets the filling level of the filter aid reservoir."
+    },
+    "TriggerDosing": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "The Method TriggerDosing triggers a single additional dosage."
+    }
+  },
+  "properties": {
+    "AutomaticDosingEnabled": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "If enabled, the filter aid device is allowed to perform dosing automatically.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "CompressedAirSupplyInterrupted": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the air supply is interrupted.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "ContainerOpen": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the filter aid reservoir is not closed.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "DosingRequested": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the filter system requests dosing.",
+      "type": "boolean",
+      "readOnly": true
+    },
+    "FilterAidDeviceStatus": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "title": "FilterAidDeviceStatusEnum",
+      "description": "Describes the action performed by the dosage unit (see FilterAidDeviceStatusEnum).",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterAidDeviceStatusEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Malfunction": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "description": "Indicates that the filter aid device is malfunctioning. True in case of error. Malfunctions can be, for example, that there is no more filter aid or that there is a malfunction in the subsystems of the filter aid device.",
+      "type": "boolean",
+      "readOnly": true
+    }
+  }
+}

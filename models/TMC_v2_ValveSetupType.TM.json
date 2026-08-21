@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ValveSetupType",
+  "title": "TMC_v2_ValveSetupType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ValveSetupType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ControlModuleSetupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/PositionSetPoint",
+    "/events/PositionSetPoint"
+  ],
+  "properties": {
+    "PositionSetPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "description": "The position set point for the valve to reach.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "PositionSetPoint": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "description": "The position set point for the valve to reach.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

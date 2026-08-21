@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/#PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType",
+  "title": "PlasticsRubber_FlexiblePURFoam_Cutting_FoamCuttingCycleInformationEventType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.FlexiblePURFoam.Cutting.FoamCuttingCycleInformationEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/CycleTime",
+    "/properties/FinishedParts",
+    "/properties/JobName",
+    "/properties/StartTime",
+    "/events/CycleTime",
+    "/events/FinishedParts",
+    "/events/JobName",
+    "/events/StartTime"
+  ],
+  "properties": {
+    "CycleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Duration of the cycle.",
+      "type": "string",
+      "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$",
+      "readOnly": false
+    },
+    "FinishedParts": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Number of finished parts in the period under review.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "JobName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Provides the name of the job.",
+      "type": "string",
+      "readOnly": false
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "description": "Start time of the cycle.",
+      "type": "string",
+      "format": "time",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "CycleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Duration of the cycle.",
+        "type": "string",
+        "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+      }
+    },
+    "FinishedParts": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Number of finished parts in the period under review.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "JobName": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Provides the name of the job.",
+        "type": "string"
+      }
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/FlexiblePURFoam/Cutting/",
+      "data": {
+        "description": "Start time of the cycle.",
+        "type": "string",
+        "format": "time"
+      }
+    }
+  }
+}

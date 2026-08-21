@@ -1,0 +1,47 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_TotalizerType",
+  "title": "Scales_V2_TotalizerType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.TotalizerType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ResetTotalizer"
+  ],
+  "actions": {
+    "ResetTotalizer": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Resets the TotalizedValue of this totalizer object. Only useful if reset is not related to a period of time."
+    }
+  },
+  "properties": {
+    "TotalizedValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines a summed up/totalized volume within a period of time.",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AbstractWeightType",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "TotalizedValue": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines a summed up/totalized volume within a period of time.",
+        "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AbstractWeightType",
+        "type": "string"
+      }
+    }
+  }
+}

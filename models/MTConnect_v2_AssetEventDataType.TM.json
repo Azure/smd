@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MTConnect/v2/#MTConnect_v2_AssetEventDataType",
+  "title": "MTConnect_v2_AssetEventDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.AssetEventDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AssetEventDataType": {
+      "description": "       A special \\gls{Variable} data type for asset change with a       \\mtmodel{AssetType} and \\mtmodel{AssetId}.     ",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MTConnect.v2.AssetEventDataType",
+      "required": [
+        "AssetId",
+        "AssetType"
+      ],
+      "properties": {
+        "AssetId": {
+          "description": "            The unique identifier for the mtconnect asset. The identifier MUST be           unique with respect to all other asset in an MTConnect installation.           The identifier SHOULD be globally unique with respect to all other           asset.         ",
+          "type": "string"
+        },
+        "AssetType": {
+          "description": " The type of asset that was updated.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

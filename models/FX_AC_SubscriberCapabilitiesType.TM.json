@@ -1,0 +1,346 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_SubscriberCapabilitiesType",
+  "title": "FX_AC_SubscriberCapabilitiesType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.SubscriberCapabilitiesType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FxTimeUnitsEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+      "const": {
+        "Nanosecond": 0,
+        "Microsecond": 1,
+        "Millisecond": 2,
+        "Second": 3
+      },
+      "description": "This enumeration describes the support units of time",
+      "properties": {
+        "Nanosecond": {
+          "type": "integer"
+        },
+        "Microsecond": {
+          "type": "integer"
+        },
+        "Millisecond": {
+          "type": "integer"
+        },
+        "Second": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/PreconfiguredDataSetOnly",
+    "/properties/PreconfiguredSubscribedDataSets",
+    "/properties/SupportedMessageReceiveTimeouts",
+    "/properties/SupportedPublishingIntervals",
+    "/properties/SupportedQos",
+    "/properties/SupportedTransportProtocolMappings",
+    "/events/PreconfiguredDataSetOnly",
+    "/events/PreconfiguredSubscribedDataSets",
+    "/events/SupportedMessageReceiveTimeouts",
+    "/events/SupportedPublishingIntervals",
+    "/events/SupportedQos",
+    "/events/SupportedTransportProtocolMappings"
+  ],
+  "properties": {
+    "PreconfiguredDataSetOnly": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "PreconfiguredSubscribedDataSets": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "SupportedMessageReceiveTimeouts": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "title": "IntervalRange",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+        "required": [
+          "Min",
+          "Max",
+          "Increment",
+          "Multiplier",
+          "Unit"
+        ],
+        "properties": {
+          "Min": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Max": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Increment": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Multiplier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Unit": {
+            "title": "FxTimeUnitsEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "SupportedPublishingIntervals": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "title": "IntervalRange",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+        "required": [
+          "Min",
+          "Max",
+          "Increment",
+          "Multiplier",
+          "Unit"
+        ],
+        "properties": {
+          "Min": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Max": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "Increment": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Multiplier": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "Unit": {
+            "title": "FxTimeUnitsEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "SupportedQos": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "title": "SubscriberQosDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.FX.AC.SubscriberQosDataType",
+        "required": [
+          "QosCategory",
+          "DatagramQos"
+        ],
+        "properties": {
+          "QosCategory": {
+            "type": "string"
+          },
+          "DatagramQos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "SupportedTransportProtocolMappings": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    }
+  },
+  "events": {
+    "PreconfiguredDataSetOnly": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "boolean"
+      }
+    },
+    "PreconfiguredSubscribedDataSets": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "SupportedMessageReceiveTimeouts": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "IntervalRange",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+          "required": [
+            "Min",
+            "Max",
+            "Increment",
+            "Multiplier",
+            "Unit"
+          ],
+          "properties": {
+            "Min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Max": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Increment": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Multiplier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Unit": {
+              "title": "FxTimeUnitsEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    },
+    "SupportedPublishingIntervals": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "IntervalRange",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.Data.IntervalRange",
+          "required": [
+            "Min",
+            "Max",
+            "Increment",
+            "Multiplier",
+            "Unit"
+          ],
+          "properties": {
+            "Min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Max": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "Increment": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Multiplier": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "Unit": {
+              "title": "FxTimeUnitsEnum",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.FxTimeUnitsEnum",
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        }
+      }
+    },
+    "SupportedQos": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "SubscriberQosDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.FX.AC.SubscriberQosDataType",
+          "required": [
+            "QosCategory",
+            "DatagramQos"
+          ],
+          "properties": {
+            "QosCategory": {
+              "type": "string"
+            },
+            "DatagramQos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SupportedTransportProtocolMappings": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

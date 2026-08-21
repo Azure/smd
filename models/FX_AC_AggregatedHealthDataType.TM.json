@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_AggregatedHealthDataType",
+  "title": "FX_AC_AggregatedHealthDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "AggregatedHealthDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.AC.AggregatedHealthDataType",
+      "required": [
+        "AggregatedDeviceHealth",
+        "AggregatedOperationalHealth"
+      ],
+      "properties": {
+        "AggregatedDeviceHealth": {
+          "title": "DeviceHealthOptionSet",
+          "dov:typeRef": "org.opcfoundation.UA.FX.AC.DeviceHealthOptionSet",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "AggregatedOperationalHealth": {
+          "title": "OperationalHealthOptionSet",
+          "dov:typeRef": "org.opcfoundation.UA.FX.AC.OperationalHealthOptionSet",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    }
+  }
+}

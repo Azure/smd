@@ -1,0 +1,389 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_FxAssetType",
+  "title": "FX_AC_FxAssetType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.FxAssetType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "Connectors",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceHealthAlarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Diagnostics",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SoftwareUpdate",
+      "href": "http://opcfoundation.org/UA/DI/#DI_SoftwareUpdateType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AssetVerificationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+      "const": {
+        "AssetCompatibility": 0,
+        "AssetIdentity": 1,
+        "AssetIdentityAndCompatibility": 2
+      },
+      "properties": {
+        "AssetCompatibility": {
+          "description": "Verify whether an Asset’s functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentity": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering.",
+          "type": "integer"
+        },
+        "AssetIdentityAndCompatibility": {
+          "description": "Verify whether an Asset’s identity meets the expectation of system engineering and whether its functionality matches or is compatible to the expectation of system engineering.",
+          "type": "integer"
+        }
+      }
+    },
+    "AssetVerificationResultEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+      "const": {
+        "NotSet": 0,
+        "Match": 1,
+        "Compatible": 2,
+        "Mismatch": 3
+      },
+      "properties": {
+        "NotSet": {
+          "description": "The verification result is not set.",
+          "type": "integer"
+        },
+        "Match": {
+          "description": "Asset matches expectation.",
+          "type": "integer"
+        },
+        "Compatible": {
+          "description": "Asset does not match expectation but is compatible.",
+          "type": "integer"
+        },
+        "Mismatch": {
+          "description": "Asset does not match expectation and is not compatible.",
+          "type": "integer"
+        }
+      }
+    },
+    "DeviceHealthEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "const": {
+        "NORMAL": 0,
+        "FAILURE": 1,
+        "CHECK_FUNCTION": 2,
+        "OFF_SPEC": 3,
+        "MAINTENANCE_REQUIRED": 4
+      },
+      "properties": {
+        "NORMAL": {
+          "description": "This device functions normally.",
+          "type": "integer"
+        },
+        "FAILURE": {
+          "description": "Malfunction of the device or any of its peripherals.",
+          "type": "integer"
+        },
+        "CHECK_FUNCTION": {
+          "description": "Functional checks are currently performed.",
+          "type": "integer"
+        },
+        "OFF_SPEC": {
+          "description": "The device is currently working outside of its specified range or that internal diagnoses indicate deviations from measured or set values.",
+          "type": "integer"
+        },
+        "MAINTENANCE_REQUIRED": {
+          "description": "This element is working, but a maintenance operation is required.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/VerifyAsset",
+    "/properties/AssetId",
+    "/properties/BuildAssetNumber",
+    "/properties/ComponentName",
+    "/properties/DeviceClass",
+    "/properties/DeviceHealth",
+    "/properties/DeviceManual",
+    "/properties/DeviceRevision",
+    "/properties/HardwareRevision",
+    "/properties/MajorAssetVersion",
+    "/properties/Manufacturer",
+    "/properties/ManufacturerUri",
+    "/properties/MinorAssetVersion",
+    "/properties/Model",
+    "/properties/ProductCode",
+    "/properties/ProductInstanceUri",
+    "/properties/RevisionCounter",
+    "/properties/SerialNumber",
+    "/properties/SoftwareRevision",
+    "/properties/SubBuildAssetNumber",
+    "/events/DeviceHealth"
+  ],
+  "actions": {
+    "VerifyAsset": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VerificationMode",
+          "ExpectedVerificationVariables",
+          "ExpectedAdditionalVerificationVariables"
+        ],
+        "properties": {
+          "VerificationMode": {
+            "title": "AssetVerificationModeEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationModeEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "ExpectedVerificationVariables": {
+            "type": "array",
+            "items": {
+              "title": "KeyValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.KeyValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "type": "string"
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ExpectedAdditionalVerificationVariables": {
+            "type": "array",
+            "items": {
+              "title": "NodeIdValuePair",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdValuePair",
+              "required": [
+                "Key",
+                "Value"
+              ],
+              "properties": {
+                "Key": {
+                  "title": "NodeIdArray",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.FX.Data.NodeIdArray",
+                  "required": [
+                    "Node",
+                    "ArrayIndex"
+                  ],
+                  "properties": {
+                    "Node": {
+                      "type": "string"
+                    },
+                    "ArrayIndex": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 4294967295
+                      }
+                    }
+                  }
+                },
+                "Value": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "VerificationResult",
+          "VerificationVariablesErrors",
+          "VerificationAdditionalVariablesErrors"
+        ],
+        "properties": {
+          "VerificationResult": {
+            "title": "AssetVerificationResultEnum",
+            "dov:typeRef": "org.opcfoundation.UA.FX.Data.AssetVerificationResultEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "VerificationVariablesErrors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "VerificationAdditionalVariablesErrors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "BuildAssetNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "ComponentName": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DeviceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "title": "DeviceHealthEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "DeviceManual": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DeviceRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "HardwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "MajorAssetVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "MinorAssetVersion": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ProductInstanceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "RevisionCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "SoftwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "SubBuildAssetNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "title": "DeviceHealthEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

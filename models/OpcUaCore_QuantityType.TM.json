@@ -1,0 +1,124 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_QuantityType",
+  "title": "OpcUaCore_QuantityType",
+  "dov:typeRef": "org.opcfoundation.UA.QuantityType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "ServerUnits",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Annotation",
+    "/properties/ConversionService",
+    "/properties/Symbol"
+  ],
+  "properties": {
+    "Annotation": {
+      "type": "array",
+      "items": {
+        "title": "AnnotationDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.AnnotationDataType",
+        "required": [
+          "Annotation",
+          "Discipline",
+          "Uri"
+        ],
+        "properties": {
+          "Annotation": {
+            "type": "string"
+          },
+          "Discipline": {
+            "type": "string"
+          },
+          "Uri": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "ConversionService": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Dimension": {
+      "title": "QuantityDimension",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.QuantityDimension",
+      "required": [
+        "MassExponent",
+        "LengthExponent",
+        "TimeExponent",
+        "ElectricCurrentExponent",
+        "AmountOfSubstanceExponent",
+        "LuminousIntensityExponent",
+        "AbsoluteTemperatureExponent",
+        "DimensionlessExponent"
+      ],
+      "properties": {
+        "MassExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "LengthExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "TimeExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "ElectricCurrentExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "AmountOfSubstanceExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "LuminousIntensityExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "AbsoluteTemperatureExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        },
+        "DimensionlessExponent": {
+          "type": "integer",
+          "minimum": -128,
+          "maximum": 127
+        }
+      },
+      "readOnly": true
+    },
+    "Symbol": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

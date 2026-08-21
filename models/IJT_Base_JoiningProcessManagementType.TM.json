@@ -1,0 +1,1486 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/IJT/Base/#IJT_Base_JoiningProcessManagementType",
+  "title": "IJT_Base_JoiningProcessManagementType",
+  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessManagementType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AbortJoiningProcess",
+    "/actions/DecrementJoiningProcessCounter",
+    "/actions/DeleteJoiningProcess",
+    "/actions/DeselectJoiningProcess",
+    "/actions/GetJoiningProcess",
+    "/actions/GetJoiningProcessList",
+    "/actions/GetJoiningProcessRevisionList",
+    "/actions/GetSelectedJoiningProgram",
+    "/actions/IncrementJoiningProcessCounter",
+    "/actions/ResetJoiningProcess",
+    "/actions/SelectJoiningProcess",
+    "/actions/SendJoiningProcess",
+    "/actions/SetJoiningProcessCounter",
+    "/actions/SetJoiningProcessMapping",
+    "/actions/SetJoiningProcessSize",
+    "/actions/StartJoiningProcess",
+    "/actions/StartSelectedJoining",
+    "/properties/DefaultInstanceBrowseName"
+  ],
+  "actions": {
+    "AbortJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method AbortJoiningProcess is used to abort the input joining process if it is under execution.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification",
+          "AbortMessage"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          },
+          "AbortMessage": {
+            "description": "It is an optional message sent from the Client to the joining system to indicate the reason for aborting the joining operation.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DecrementJoiningProcessCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method DecrementJoiningProcessCounter used to decrement the counter of the sequential joining processes such as Job, etc.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification",
+          "DecrementCount"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          },
+          "DecrementCount": {
+            "description": "It is the number of decrements to be done for the joining process counter. The default value is 1 if it is not provided.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeleteJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method DeleteJoiningProcess is used to delete the input joining process.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeselectJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method DeselectJoiningProcess is used to deselect any selected joining process.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJoiningProcess is used to get the joining process based on the input identifier.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessId": {
+            "description": "It is the identifier of the joining process.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JoiningProcess",
+          "SelectionName",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JoiningProcess": {
+            "title": "JoiningProcessDataType",
+            "description": "This structure provides the base container for any joining process in a joining system.  Note: This specification defines the meta data of a JoiningProcess, and the actual content of the Joining Process is application specific.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessDataType",
+            "required": [
+              "JoiningProcessMetaData",
+              "JoiningProcessContent"
+            ],
+            "properties": {
+              "JoiningProcessMetaData": {
+                "title": "JoiningProcessMetaDataType",
+                "description": "This structure provides the meta data which describes the joining process.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+                "required": [
+                  "JoiningProcessId"
+                ],
+                "properties": {
+                  "JoiningProcessId": {
+                    "description": "It is the system-wide unique identifier of the joining process.",
+                    "type": "string"
+                  },
+                  "JoiningProcessOriginId": {
+                    "description": "It is an identifier to track the changes made to the original instance in the system. Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                    "type": "string"
+                  },
+                  "CreationTime": {
+                    "description": "It is the time when the joining process was created.",
+                    "type": "string",
+                    "format": "time"
+                  },
+                  "LastUpdatedTime": {
+                    "description": "It is the time when the joining process was updated last time. If it is not available, it can be same as CreationTime.",
+                    "type": "string",
+                    "format": "time"
+                  },
+                  "Name": {
+                    "description": "It is the name of the joining process.",
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "It is the description of the joining process.",
+                    "type": "string"
+                  },
+                  "JoiningTechnology": {
+                    "description": "It is a human readable text to identify the joining technology.",
+                    "type": "string"
+                  },
+                  "Classification": {
+                    "description": "It is the classification of the joining process.",
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "AssociatedEntities": {
+                    "description": "It is the list of entities associated to the joining process. Examples: ProductInstanceUri of the Controller.",
+                    "type": "array",
+                    "items": {
+                      "title": "EntityDataType",
+                      "description": "This structure provides the identification data for a given entity in the system.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                      "required": [
+                        "EntityId",
+                        "EntityType"
+                      ],
+                      "properties": {
+                        "Name": {
+                          "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                          "type": "string"
+                        },
+                        "Description": {
+                          "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                          "type": "string"
+                        },
+                        "EntityId": {
+                          "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                          "type": "string"
+                        },
+                        "EntityOriginId": {
+                          "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                          "type": "string"
+                        },
+                        "IsExternal": {
+                          "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                          "type": "boolean"
+                        },
+                        "EntityType": {
+                          "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                          "type": "integer",
+                          "minimum": -32768,
+                          "maximum": 32767
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "JoiningProcessContent": {
+                "description": "It is the actual content of the joining process which is defined by JoiningProcessMetaData.Classification property. Examples: Joining Program, Joining Job, etc. Note: The content is application-specific and is not defined in this version of the specification.",
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "SelectionName": {
+            "description": "It is the selection name of the joining process configured in the system.",
+            "type": "string"
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJoiningProcessList": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJoiningProcessList is used to get the list of joining process meta data available in the system.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JoiningProcessList",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JoiningProcessList": {
+            "description": "It is the list of joining process meta data available in the system.",
+            "type": "array",
+            "items": {
+              "title": "JoiningProcessMetaDataType",
+              "description": "This structure provides the meta data which describes the joining process.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+              "required": [
+                "JoiningProcessId"
+              ],
+              "properties": {
+                "JoiningProcessId": {
+                  "description": "It is the system-wide unique identifier of the joining process.",
+                  "type": "string"
+                },
+                "JoiningProcessOriginId": {
+                  "description": "It is an identifier to track the changes made to the original instance in the system. Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                  "type": "string"
+                },
+                "CreationTime": {
+                  "description": "It is the time when the joining process was created.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "LastUpdatedTime": {
+                  "description": "It is the time when the joining process was updated last time. If it is not available, it can be same as CreationTime.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "Name": {
+                  "description": "It is the name of the joining process.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the joining process.",
+                  "type": "string"
+                },
+                "JoiningTechnology": {
+                  "description": "It is a human readable text to identify the joining technology.",
+                  "type": "string"
+                },
+                "Classification": {
+                  "description": "It is the classification of the joining process.",
+                  "type": "integer",
+                  "minimum": -32768,
+                  "maximum": 32767
+                },
+                "AssociatedEntities": {
+                  "description": "It is the list of entities associated to the joining process. Examples: ProductInstanceUri of the Controller.",
+                  "type": "array",
+                  "items": {
+                    "title": "EntityDataType",
+                    "description": "This structure provides the identification data for a given entity in the system.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                    "required": [
+                      "EntityId",
+                      "EntityType"
+                    ],
+                    "properties": {
+                      "Name": {
+                        "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                        "type": "string"
+                      },
+                      "EntityId": {
+                        "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                        "type": "string"
+                      },
+                      "EntityOriginId": {
+                        "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                        "type": "string"
+                      },
+                      "IsExternal": {
+                        "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                        "type": "boolean"
+                      },
+                      "EntityType": {
+                        "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                        "type": "integer",
+                        "minimum": -32768,
+                        "maximum": 32767
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetJoiningProcessRevisionList": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetJoiningProcessRevisionList is used to get the list available revisions of a specific joining process based on the joiningProcessOriginId.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessOriginId"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessOriginId": {
+            "description": "It is the origin identifier of the joining process which is used to manage the revisions of a given joining process.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "JoiningProcessList",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "JoiningProcessList": {
+            "description": "It is the list of joining process meta data available in the system.",
+            "type": "array",
+            "items": {
+              "title": "JoiningProcessMetaDataType",
+              "description": "This structure provides the meta data which describes the joining process.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+              "required": [
+                "JoiningProcessId"
+              ],
+              "properties": {
+                "JoiningProcessId": {
+                  "description": "It is the system-wide unique identifier of the joining process.",
+                  "type": "string"
+                },
+                "JoiningProcessOriginId": {
+                  "description": "It is an identifier to track the changes made to the original instance in the system. Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                  "type": "string"
+                },
+                "CreationTime": {
+                  "description": "It is the time when the joining process was created.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "LastUpdatedTime": {
+                  "description": "It is the time when the joining process was updated last time. If it is not available, it can be same as CreationTime.",
+                  "type": "string",
+                  "format": "time"
+                },
+                "Name": {
+                  "description": "It is the name of the joining process.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the joining process.",
+                  "type": "string"
+                },
+                "JoiningTechnology": {
+                  "description": "It is a human readable text to identify the joining technology.",
+                  "type": "string"
+                },
+                "Classification": {
+                  "description": "It is the classification of the joining process.",
+                  "type": "integer",
+                  "minimum": -32768,
+                  "maximum": 32767
+                },
+                "AssociatedEntities": {
+                  "description": "It is the list of entities associated to the joining process. Examples: ProductInstanceUri of the Controller.",
+                  "type": "array",
+                  "items": {
+                    "title": "EntityDataType",
+                    "description": "This structure provides the identification data for a given entity in the system.",
+                    "type": "object",
+                    "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                    "required": [
+                      "EntityId",
+                      "EntityType"
+                    ],
+                    "properties": {
+                      "Name": {
+                        "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                        "type": "string"
+                      },
+                      "Description": {
+                        "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                        "type": "string"
+                      },
+                      "EntityId": {
+                        "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                        "type": "string"
+                      },
+                      "EntityOriginId": {
+                        "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                        "type": "string"
+                      },
+                      "IsExternal": {
+                        "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                        "type": "boolean"
+                      },
+                      "EntityType": {
+                        "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                        "type": "integer",
+                        "minimum": -32768,
+                        "maximum": 32767
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetSelectedJoiningProgram": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method GetSelectedJoiningProgram is used to get the selected joining program for a given asset.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "SelectedJoiningProgram",
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "SelectedJoiningProgram": {
+            "title": "JoiningProcessMetaDataType",
+            "description": "This structure provides the meta data which describes the joining process.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+            "required": [
+              "JoiningProcessId"
+            ],
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system. Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                "type": "string"
+              },
+              "CreationTime": {
+                "description": "It is the time when the joining process was created.",
+                "type": "string",
+                "format": "time"
+              },
+              "LastUpdatedTime": {
+                "description": "It is the time when the joining process was updated last time. If it is not available, it can be same as CreationTime.",
+                "type": "string",
+                "format": "time"
+              },
+              "Name": {
+                "description": "It is the name of the joining process.",
+                "type": "string"
+              },
+              "Description": {
+                "description": "It is the description of the joining process.",
+                "type": "string"
+              },
+              "JoiningTechnology": {
+                "description": "It is a human readable text to identify the joining technology.",
+                "type": "string"
+              },
+              "Classification": {
+                "description": "It is the classification of the joining process.",
+                "type": "integer",
+                "minimum": -32768,
+                "maximum": 32767
+              },
+              "AssociatedEntities": {
+                "description": "It is the list of entities associated to the joining process. Examples: ProductInstanceUri of the Controller.",
+                "type": "array",
+                "items": {
+                  "title": "EntityDataType",
+                  "description": "This structure provides the identification data for a given entity in the system.",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                  "required": [
+                    "EntityId",
+                    "EntityType"
+                  ],
+                  "properties": {
+                    "Name": {
+                      "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                      "type": "string"
+                    },
+                    "Description": {
+                      "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                      "type": "string"
+                    },
+                    "EntityId": {
+                      "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                      "type": "string"
+                    },
+                    "EntityOriginId": {
+                      "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                      "type": "string"
+                    },
+                    "IsExternal": {
+                      "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                      "type": "boolean"
+                    },
+                    "EntityType": {
+                      "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                      "type": "integer",
+                      "minimum": -32768,
+                      "maximum": 32767
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "IncrementJoiningProcessCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method IncrementJoiningProcessCounter is used to increment the counter of the sequential joining processes such as Job, etc.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification",
+          "IncrementCount"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          },
+          "IncrementCount": {
+            "description": "It is the number of increments to be done for the joining process counter. The default value is 1 if it is not provided.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ResetJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method ResetJoiningProcess is used to reset/restart the sequential joining processes such as Job, etc.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SelectJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SelectJoiningProcess is used to select the joining process based on the input arguments.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SendJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SendJoiningProcess is used to send a joining process to the joining system. It can be used to insert a joining program or joining batch or joining job or any other process applicable to a joining system. It shall overwrite the joining process if it already exists in the joining system.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcess",
+          "SelectionName"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcess": {
+            "title": "JoiningProcessDataType",
+            "description": "This structure provides the base container for any joining process in a joining system.  Note: This specification defines the meta data of a JoiningProcess, and the actual content of the Joining Process is application specific.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessDataType",
+            "required": [
+              "JoiningProcessMetaData",
+              "JoiningProcessContent"
+            ],
+            "properties": {
+              "JoiningProcessMetaData": {
+                "title": "JoiningProcessMetaDataType",
+                "description": "This structure provides the meta data which describes the joining process.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessMetaDataType",
+                "required": [
+                  "JoiningProcessId"
+                ],
+                "properties": {
+                  "JoiningProcessId": {
+                    "description": "It is the system-wide unique identifier of the joining process.",
+                    "type": "string"
+                  },
+                  "JoiningProcessOriginId": {
+                    "description": "It is an identifier to track the changes made to the original instance in the system. Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in a joining system.",
+                    "type": "string"
+                  },
+                  "CreationTime": {
+                    "description": "It is the time when the joining process was created.",
+                    "type": "string",
+                    "format": "time"
+                  },
+                  "LastUpdatedTime": {
+                    "description": "It is the time when the joining process was updated last time. If it is not available, it can be same as CreationTime.",
+                    "type": "string",
+                    "format": "time"
+                  },
+                  "Name": {
+                    "description": "It is the name of the joining process.",
+                    "type": "string"
+                  },
+                  "Description": {
+                    "description": "It is the description of the joining process.",
+                    "type": "string"
+                  },
+                  "JoiningTechnology": {
+                    "description": "It is a human readable text to identify the joining technology.",
+                    "type": "string"
+                  },
+                  "Classification": {
+                    "description": "It is the classification of the joining process.",
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "AssociatedEntities": {
+                    "description": "It is the list of entities associated to the joining process. Examples: ProductInstanceUri of the Controller.",
+                    "type": "array",
+                    "items": {
+                      "title": "EntityDataType",
+                      "description": "This structure provides the identification data for a given entity in the system.",
+                      "type": "object",
+                      "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+                      "required": [
+                        "EntityId",
+                        "EntityType"
+                      ],
+                      "properties": {
+                        "Name": {
+                          "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                          "type": "string"
+                        },
+                        "Description": {
+                          "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                          "type": "string"
+                        },
+                        "EntityId": {
+                          "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                          "type": "string"
+                        },
+                        "EntityOriginId": {
+                          "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                          "type": "string"
+                        },
+                        "IsExternal": {
+                          "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                          "type": "boolean"
+                        },
+                        "EntityType": {
+                          "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                          "type": "integer",
+                          "minimum": -32768,
+                          "maximum": 32767
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "JoiningProcessContent": {
+                "description": "It is the actual content of the joining process which is defined by JoiningProcessMetaData.Classification property. Examples: Joining Program, Joining Job, etc. Note: The content is application-specific and is not defined in this version of the specification.",
+                "type": "array",
+                "items": {
+                  "description": "Stand-in for an unspecified data type.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "SelectionName": {
+            "description": "With this argument the Client can provide the required selection name for the given joining process. It is optional and can be empty.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SetJoiningProcessCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SetJoiningProcessCounter is used to set the counter of a sequential joining processes (such as Job, etc.) to the given input value.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification",
+          "CounterValue"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          },
+          "CounterValue": {
+            "description": "It is the new counter value for the joining process.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SetJoiningProcessMapping": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SetJoiningProcessMapping is used to set the mapping of the joining process in a joining system. It can be used to map a joining process to a selection name.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SetJoiningProcessSize": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method SetJoiningProcessSize is used to set the size of the batch joining process.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification",
+          "MaxCounterSize"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          },
+          "MaxCounterSize": {
+            "description": "It is the maximum counter size for the joining process.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartJoiningProcess": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method StartJoiningProcess is used to start the input joining process.  Note: It is not intended to be used in a hard real-time use case.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "JoiningProcessIdentification",
+          "AssociatedEntities"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "JoiningProcessIdentification": {
+            "title": "JoiningProcessIdentificationDataType",
+            "description": "This structure contains the identification information of a Joining Process. It is used in set of methods defined in JoiningProcessManagementType.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.IJT.Base.JoiningProcessIdentificationDataType",
+            "properties": {
+              "JoiningProcessId": {
+                "description": "It is the system-wide unique identifier of the joining process.",
+                "type": "string"
+              },
+              "JoiningProcessOriginId": {
+                "description": "It is an identifier to track the changes made to the original instance in the system.  Example: It can point to the identifier of the object when it was created for the first time. It should be an existing ID in the system if it is available else it can be NULL if it is not tracked in the system.",
+                "type": "string"
+              },
+              "SelectionName": {
+                "description": "It is the configured selection name of the joining process in the system.",
+                "type": "string"
+              }
+            }
+          },
+          "AssociatedEntities": {
+            "description": "It is the list of identifiers used for performing the joining operation. It is optional and can be empty.",
+            "type": "array",
+            "items": {
+              "title": "EntityDataType",
+              "description": "This structure provides the identification data for a given entity in the system.",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.IJT.Base.EntityDataType",
+              "required": [
+                "EntityId",
+                "EntityType"
+              ],
+              "properties": {
+                "Name": {
+                  "description": "It is the name of the entity identifier. Examples: VIN, Program Id, etc. Note: Application can send custom names which could be a combination of different terms in the system.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "It is the description of the entity. Any additional information for the entity can be sent using this property.  Examples: Name of the program in the given system.",
+                  "type": "string"
+                },
+                "EntityId": {
+                  "description": "It is the identifier of the given entity.  Examples: JoiningProcessId, JointId, etc.",
+                  "type": "string"
+                },
+                "EntityOriginId": {
+                  "description": "It is the origin identifier of the given entity. It is provided only when it is applicable and available for a given entity. Examples: JoiningProcessOriginId, JointOriginId, etc.",
+                  "type": "string"
+                },
+                "IsExternal": {
+                  "description": "It indicates if the EntityId is provided by the external system or not.  Example: VIN is provided by an external system.",
+                  "type": "boolean"
+                },
+                "EntityType": {
+                  "description": "It provides the type of the Entity. It has the following pre-defined values which shall be used for each instance of this type. Important Note: EntityType >=0 is defined as part of this specification. For application specific extensions, EntityType < 0 can be used.",
+                  "type": "integer",
+                  "minimum": -32768,
+                  "maximum": 32767
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StartSelectedJoining": {
+      "dov:namespace": "http://opcfoundation.org/UA/IJT/Base/",
+      "description": "The Method StartSelectedJoining is used to start the selected joining. The joining operation can be selected using SelectJoiningProcess or SelectJoint.  Note: It is not intended to be used in a hard real-time use case.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ProductInstanceUri",
+          "DeselectAfterJoining"
+        ],
+        "properties": {
+          "ProductInstanceUri": {
+            "description": "With this argument the Client can provide the identifier of the asset on which this method is applicable. It can be empty if the method is modelled directly under the required asset. If it is empty, the system can consider the identifier of the asset where the Server is running.",
+            "type": "string"
+          },
+          "DeselectAfterJoining": {
+            "description": "If True, it will deselect the existing joining process after the joining operation is completed. The default value is False.",
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status",
+          "StatusMessage"
+        ],
+        "properties": {
+          "Status": {
+            "description": "It provides the status of the Method execution.",
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          },
+          "StatusMessage": {
+            "description": "It provides the high-level status information in a user-friendly text.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "description": "The default BrowseName for instances of the type.",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

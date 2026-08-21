@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_DataSetType",
+  "title": "TMC_v2_DataSetType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetType",
+  "links": [],
+  "schemaDefinitions": {
+    "DataSetType": {
+      "description": "The DataSetType structure contains a set of data values.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetType",
+      "required": [
+        "ID",
+        "Description",
+        "Values"
+      ],
+      "properties": {
+        "ID": {
+          "description": "The unique Id of the dataset.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "The human-readable description of the dataset.",
+          "type": "string"
+        },
+        "Values": {
+          "description": "List of data values.",
+          "type": "array",
+          "items": {
+            "title": "DataSetEntryType",
+            "description": "The DataSetEntryType structure contains the value of a single parameter, or data value.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.TMC.v2.DataSetEntryType",
+            "required": [
+              "ID",
+              "Value"
+            ],
+            "properties": {
+              "ID": {
+                "description": "Unique identifier for the parameter value, or data value.",
+                "type": "string"
+              },
+              "Value": {
+                "description": "The value of the parameter.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

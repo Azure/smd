@@ -1,0 +1,185 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_ConditionType",
+  "title": "OpcUaCore_ConditionType",
+  "dov:typeRef": "org.opcfoundation.UA.ConditionType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "TwoStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/ConditionRefresh",
+    "/actions/ConditionRefresh2",
+    "/properties/ConditionSubClassId",
+    "/properties/ConditionSubClassName",
+    "/properties/SupportsFilteredRetain"
+  ],
+  "actions": {
+    "AddComment": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "EventId",
+          "Comment"
+        ],
+        "properties": {
+          "EventId": {
+            "description": "The identifier for the event to comment.",
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "Comment": {
+            "description": "The comment to add to the condition.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ConditionRefresh": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SubscriptionId"
+        ],
+        "properties": {
+          "SubscriptionId": {
+            "description": "The identifier for the subscription to refresh.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "ConditionRefresh2": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SubscriptionId",
+          "MonitoredItemId"
+        ],
+        "properties": {
+          "SubscriptionId": {
+            "description": "The identifier for the subscription to refresh.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "MonitoredItemId": {
+            "description": "The identifier for the monitored item to refresh.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    },
+    "Disable": {},
+    "Enable": {}
+  },
+  "properties": {
+    "BranchId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ClientUserId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Comment": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionClassId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionClassName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionSubClassId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "ConditionSubClassName": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "EnabledState": {
+      "tm:ref": "#/schemaDefinitions/TwoStateVariableType",
+      "readOnly": true
+    },
+    "LastSeverity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    },
+    "Quality": {
+      "type": "string",
+      "readOnly": true
+    },
+    "Retain": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "SupportsFilteredRetain": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "Comment": {
+      "data": {
+        "type": "string"
+      }
+    },
+    "EnabledState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateVariableType"
+      }
+    },
+    "LastSeverity": {
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      }
+    },
+    "Quality": {
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

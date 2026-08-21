@@ -1,0 +1,160 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TTD/#TTD_TextileTestingDeviceType",
+  "title": "TTD_TextileTestingDeviceType",
+  "dov:typeRef": "org.opcfoundation.UA.TTD.TextileTestingDeviceType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "MachineStatistics",
+      "href": "http://opcfoundation.org/UA/TTD/#TTD_MachineStatisticsType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Notification",
+      "href": "http://opcfoundation.org/UA/MachineTool/#MachineTool_NotificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "RecipeManagement",
+      "href": "http://opcfoundation.org/UA/TTD/#TTD_RecipeManagementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "AvailableExchangeableParts": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "type": "array",
+      "items": {
+        "title": "ExchangeablePartDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TTD.ExchangeablePartDataType",
+        "required": [
+          "PartType",
+          "Mounted"
+        ],
+        "properties": {
+          "PartType": {
+            "description": "Name of the machine part.",
+            "type": "string"
+          },
+          "Mounted": {
+            "description": "Flag stating if the part is currently mounted or not.",
+            "type": "boolean"
+          },
+          "Traceable": {
+            "description": "Flag stating if the part is traceable (e.g. has an id or serial number).",
+            "type": "boolean"
+          },
+          "PartId": {
+            "description": "Id or serial number of the part.",
+            "type": "string"
+          },
+          "MachineReadable": {
+            "description": "Flag stating if the PartId is machine readable.",
+            "type": "boolean"
+          },
+          "LastCalibrationDate": {
+            "description": "Date of the last calibration of this part if available.",
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "InstalledTesterModules": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "type": "array",
+      "items": {
+        "title": "OptionalModuleDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TTD.OptionalModuleDataType",
+        "required": [
+          "ModuleName",
+          "ModuleType",
+          "IsInstalled"
+        ],
+        "properties": {
+          "ModuleName": {
+            "description": "The name of the module.",
+            "type": "string"
+          },
+          "ModuleType": {
+            "description": "The type of the module. E.g. hardware/software.",
+            "type": "string"
+          },
+          "IsInstalled": {
+            "description": "Flag that indicates if the module is installed.",
+            "type": "boolean"
+          },
+          "Version": {
+            "description": "Version of the soft-/hardware module.",
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": false
+    },
+    "TestProcedureIds": {
+      "dov:namespace": "http://opcfoundation.org/UA/TTD/",
+      "type": "array",
+      "items": {
+        "title": "TestProcedureIdDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.TTD.TestProcedureIdDataType",
+        "required": [
+          "TestProcedureId"
+        ],
+        "properties": {
+          "TestProcedureId": {
+            "description": "The available test procedures are stored on the testing device and referenced by name (TestProcedureId).",
+            "type": "string"
+          },
+          "Description": {
+            "description": "Description of the test procedure.",
+            "type": "string"
+          },
+          "ProcedureReferences": {
+            "description": "An array of references to standards.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "IsProcedureLicensed": {
+            "description": "Flag to define the availability on the server.",
+            "type": "boolean"
+          }
+        }
+      },
+      "readOnly": false
+    }
+  }
+}

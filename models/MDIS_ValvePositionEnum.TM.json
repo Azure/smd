@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_ValvePositionEnum",
+  "title": "MDIS_ValvePositionEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "ValvePositionEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.ValvePositionEnum",
+      "const": {
+        "Closed": 1,
+        "Open": 2,
+        "Moving": 4,
+        "Unknown": 8
+      },
+      "properties": {
+        "Closed": {
+          "description": "The Valve is Closed",
+          "type": "integer"
+        },
+        "Open": {
+          "description": "The Valve is Open",
+          "type": "integer"
+        },
+        "Moving": {
+          "description": "The Valve is Moving",
+          "type": "integer"
+        },
+        "Unknown": {
+          "description": "The Valve is in an unknown state. This value can be used when a subsea vendor does not have any last command information and does not know the state of the valve.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

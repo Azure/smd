@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Machinery/Jobs/#Machinery_Jobs_JobExecutionMode",
+  "title": "Machinery_Jobs_JobExecutionMode",
+  "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobExecutionMode",
+  "links": [],
+  "schemaDefinitions": {
+    "JobExecutionMode": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Machinery.Jobs.JobExecutionMode",
+      "const": {
+        "SimulationMode": 0,
+        "TestMode": 1,
+        "ProductionMode": 2
+      },
+      "properties": {
+        "SimulationMode": {
+          "description": "Machine running in simulation mode with no workpiece involved.",
+          "type": "integer"
+        },
+        "TestMode": {
+          "description": "Machine running in test mode with a workpiece involved.",
+          "type": "integer"
+        },
+        "ProductionMode": {
+          "description": "Machine running in production mode.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

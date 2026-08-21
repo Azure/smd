@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PerformUpdateType",
+  "title": "OpcUaCore_PerformUpdateType",
+  "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+  "links": [],
+  "schemaDefinitions": {
+    "PerformUpdateType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PerformUpdateType",
+      "const": {
+        "Insert": 1,
+        "Replace": 2,
+        "Update": 3,
+        "Remove": 4
+      },
+      "properties": {
+        "Insert": {
+          "description": "Data was inserted.",
+          "type": "integer"
+        },
+        "Replace": {
+          "description": "Data was replaced.",
+          "type": "integer"
+        },
+        "Update": {
+          "description": "Data was inserted or replaced.",
+          "type": "integer"
+        },
+        "Remove": {
+          "description": "Data was deleted.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

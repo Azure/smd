@@ -1,0 +1,89 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_FiniteStateMachineType",
+  "title": "OpcUaCore_FiniteStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.FiniteStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteStateVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteStateVariableType",
+      "type": "string"
+    },
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/properties/AvailableStates",
+    "/properties/AvailableTransitions",
+    "/properties/LastTransition",
+    "/events/AvailableStates",
+    "/events/AvailableTransitions",
+    "/events/LastTransition"
+  ],
+  "properties": {
+    "AvailableStates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "AvailableTransitions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "CurrentState": {
+      "tm:ref": "#/schemaDefinitions/FiniteStateVariableType",
+      "readOnly": true
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "AvailableStates": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "AvailableTransitions": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "CurrentState": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteStateVariableType"
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    }
+  }
+}

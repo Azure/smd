@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_MaintenanceType",
+  "title": "CAS_MaintenanceType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.MaintenanceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "properties": {
+    "RealTimeSinceLastService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Real time passed since the sensor was last serviced.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "RealTimeToNextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Real time left until the sensor is scheduled for the next servicing.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "RealTimeSinceLastService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Real time passed since the sensor was last serviced.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RealTimeToNextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Real time left until the sensor is scheduled for the next servicing.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

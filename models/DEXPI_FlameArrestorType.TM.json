@@ -1,0 +1,154 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_FlameArrestorType",
+  "title": "DEXPI_FlameArrestorType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.FlameArrestorType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_SafetyValveOrFittingType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DetonationProofArtefactClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.DetonationProofArtefactClassification",
+      "const": {
+        "DetonationProofArtefact": 0,
+        "NonDetonationProofArtefact": 1
+      },
+      "description": "",
+      "properties": {
+        "DetonationProofArtefact": {
+          "description": "DetonationProofArtefact",
+          "type": "integer"
+        },
+        "NonDetonationProofArtefact": {
+          "description": "NonDetonationProofArtefact",
+          "type": "integer"
+        }
+      }
+    },
+    "ExplosionProofArtefactClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.ExplosionProofArtefactClassification",
+      "const": {
+        "ExplosionProofArtefact": 0,
+        "NonExplosionProofArtefact": 1
+      },
+      "description": "",
+      "properties": {
+        "ExplosionProofArtefact": {
+          "description": "ExplosionProofArtefact",
+          "type": "integer"
+        },
+        "NonExplosionProofArtefact": {
+          "description": "NonExplosionProofArtefact",
+          "type": "integer"
+        }
+      }
+    },
+    "FireResistantArtefactClassification": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.FireResistantArtefactClassification",
+      "const": {
+        "FireResistantArtefact": 0,
+        "NonFireResistantArtefact": 1
+      },
+      "description": "",
+      "properties": {
+        "FireResistantArtefact": {
+          "description": "FireResistantArtefact",
+          "type": "integer"
+        },
+        "NonFireResistantArtefact": {
+          "description": "NonFireResistantArtefact",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DetonationProofArtefactSpecialization",
+    "/properties/ExplosionProofArtefactSpecialization",
+    "/properties/FireResistantArtefactSpecialization",
+    "/events/DetonationProofArtefactSpecialization",
+    "/events/ExplosionProofArtefactSpecialization",
+    "/events/FireResistantArtefactSpecialization"
+  ],
+  "properties": {
+    "DetonationProofArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "DetonationProofArtefactClassification",
+      "description": "A specialization indicating if the FlameArrestor is detonation-proof.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.DetonationProofArtefactClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "ExplosionProofArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "ExplosionProofArtefactClassification",
+      "description": "A specialization indicating if the FlameArrestor is explosion-proof.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.ExplosionProofArtefactClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "FireResistantArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "title": "FireResistantArtefactClassification",
+      "description": "A specialization indicating if the FlameArrestor is fire-resistant.",
+      "dov:typeRef": "org.opcfoundation.UA.DEXPI.FireResistantArtefactClassification",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DetonationProofArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "DetonationProofArtefactClassification",
+        "description": "A specialization indicating if the FlameArrestor is detonation-proof.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.DetonationProofArtefactClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ExplosionProofArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "ExplosionProofArtefactClassification",
+        "description": "A specialization indicating if the FlameArrestor is explosion-proof.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.ExplosionProofArtefactClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "FireResistantArtefactSpecialization": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "title": "FireResistantArtefactClassification",
+        "description": "A specialization indicating if the FlameArrestor is fire-resistant.",
+        "dov:typeRef": "org.opcfoundation.UA.DEXPI.FireResistantArtefactClassification",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/CM/#FX_CM_CommunicationFlowQosDataType",
+  "title": "FX_CM_CommunicationFlowQosDataType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.CM.CommunicationFlowQosDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "CommunicationFlowQosDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.CM.CommunicationFlowQosDataType",
+      "required": [
+        "QosCategory",
+        "TransmitQos",
+        "ReceiveQos"
+      ],
+      "properties": {
+        "QosCategory": {
+          "type": "string"
+        },
+        "TransmitQos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReceiveQos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

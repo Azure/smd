@@ -1,0 +1,346 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/UnattendedRetail/#UnattendedRetail_MachineEngineDeliveryType",
+  "title": "UnattendedRetail_MachineEngineDeliveryType",
+  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.MachineEngineDeliveryType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DeliveryStatusEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryStatusEnum",
+      "const": {
+        "ReadyToDeliver": 0,
+        "DeliveryStarted": 1,
+        "DeliveryFinished": 2,
+        "DeliveryFailed": 3,
+        "DeliveryCannotStart": 4
+      },
+      "properties": {
+        "ReadyToDeliver": {
+          "type": "integer"
+        },
+        "DeliveryStarted": {
+          "type": "integer"
+        },
+        "DeliveryFinished": {
+          "type": "integer"
+        },
+        "DeliveryFailed": {
+          "type": "integer"
+        },
+        "DeliveryCannotStart": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Deliver": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "SelectionId",
+          "Options",
+          "TransactionId"
+        ],
+        "properties": {
+          "SelectionId": {
+            "type": "string"
+          },
+          "Options": {
+            "type": "array",
+            "items": {
+              "title": "OptionSelectionDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionSelectionDataType",
+              "required": [
+                "OptionId",
+                "Value"
+              ],
+              "properties": {
+                "OptionId": {
+                  "type": "string"
+                },
+                "Value": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                }
+              }
+            }
+          },
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "StopDelivery": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "TransactionId"
+        ],
+        "properties": {
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "Status"
+        ],
+        "properties": {
+          "Status": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DeliveryProgress": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "DeliveryProgressDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryProgressDataType",
+        "required": [
+          "ProgressInPercent",
+          "Status",
+          "TransactionId"
+        ],
+        "properties": {
+          "ProgressInPercent": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "Status": {
+            "type": "array",
+            "items": {
+              "title": "OutputDeliveryStatusDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputDeliveryStatusDataType",
+              "required": [
+                "Status",
+                "OutputId"
+              ],
+              "properties": {
+                "Status": {
+                  "title": "DeliveryStatusEnum",
+                  "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryStatusEnum",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "OutputId": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                }
+              }
+            }
+          },
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "DeliveryRequests": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "type": "array",
+      "items": {
+        "title": "DeliveryRequestDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryRequestDataType",
+        "required": [
+          "TransactionId",
+          "SelectionId",
+          "Options"
+        ],
+        "properties": {
+          "TransactionId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18446744073709551615
+          },
+          "SelectionId": {
+            "type": "string"
+          },
+          "Options": {
+            "type": "array",
+            "items": {
+              "title": "OptionSelectionDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionSelectionDataType",
+              "required": [
+                "OptionId",
+                "Value"
+              ],
+              "properties": {
+                "OptionId": {
+                  "type": "string"
+                },
+                "Value": {
+                  "type": "number",
+                  "minimum": -1.80e+308,
+                  "maximum": 1.80e+308
+                }
+              }
+            }
+          }
+        }
+      },
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DeliveryProgress": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "DeliveryProgressDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryProgressDataType",
+          "required": [
+            "ProgressInPercent",
+            "Status",
+            "TransactionId"
+          ],
+          "properties": {
+            "ProgressInPercent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Status": {
+              "type": "array",
+              "items": {
+                "title": "OutputDeliveryStatusDataType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OutputDeliveryStatusDataType",
+                "required": [
+                  "Status",
+                  "OutputId"
+                ],
+                "properties": {
+                  "Status": {
+                    "title": "DeliveryStatusEnum",
+                    "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryStatusEnum",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                  },
+                  "OutputId": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  }
+                }
+              }
+            },
+            "TransactionId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            }
+          }
+        }
+      }
+    },
+    "DeliveryRequests": {
+      "dov:namespace": "http://opcfoundation.org/UA/UnattendedRetail/",
+      "data": {
+        "type": "array",
+        "items": {
+          "title": "DeliveryRequestDataType",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.DeliveryRequestDataType",
+          "required": [
+            "TransactionId",
+            "SelectionId",
+            "Options"
+          ],
+          "properties": {
+            "TransactionId": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            "SelectionId": {
+              "type": "string"
+            },
+            "Options": {
+              "type": "array",
+              "items": {
+                "title": "OptionSelectionDataType",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.UnattendedRetail.OptionSelectionDataType",
+                "required": [
+                  "OptionId",
+                  "Value"
+                ],
+                "properties": {
+                  "OptionId": {
+                    "type": "string"
+                  },
+                  "Value": {
+                    "type": "number",
+                    "minimum": -1.80e+308,
+                    "maximum": 1.80e+308
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision/AMCM/#MachineVision_AMCM_VisionComponentIdentificationType",
+  "title": "MachineVision_AMCM_VisionComponentIdentificationType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.AMCM.VisionComponentIdentificationType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryComponentIdentificationType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/AssetId",
+    "/properties/ComponentName",
+    "/properties/ConfigurationCode",
+    "/properties/DeviceClass",
+    "/properties/DeviceRevision",
+    "/properties/HardwareRevision",
+    "/properties/InitialOperationDate",
+    "/properties/ManufacturerUri",
+    "/properties/Model",
+    "/properties/MonthOfConstruction",
+    "/properties/ProductCode",
+    "/properties/ProductInstanceUri",
+    "/properties/SoftwareRevision",
+    "/properties/YearOfConstruction"
+  ],
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "To be used by end users to store a unique identification in the context of their overall application. Servers shall support at least 40 Unicode characters for the clients writing this value, this means clients can expect to be able to write strings with a length of 40 Unicode characters into that field.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ComponentName": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "To be used by end users to store a human-readable localized text for the MachineryItem. The minimum number of locales supported for this property shall be two. Servers shall support at least 40 Unicode characters for the clients writing the text part of each locale, this means clients can expect to be able to write texts with a length of 40 Unicode characters into that field.",
+      "type": "string",
+      "readOnly": false
+    },
+    "ConfigurationCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/MachineVision/AMCM/",
+      "description": "provides the specific information how the machine vision system has been configured for a specific use case or application",
+      "type": "string",
+      "readOnly": false
+    },
+    "DeviceClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "Indicates in which domain or for what purpose the MachineryItem is used.",
+      "type": "string",
+      "readOnly": true
+    },
+    "DeviceRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A string representation of the overall revision level of the component. Often, it is increased when either the SoftwareRevision and / or the HardwareRevision of the component is increased. As an example, it can be used in ERP systems together with the ProductCode.",
+      "type": "string",
+      "readOnly": false
+    },
+    "HardwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "provides the revision level of the hardware of the machine vision system following the rules of Sematic Versioning 2.0.0",
+      "type": "string",
+      "readOnly": true
+    },
+    "InitialOperationDate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "The date, when the MachineryItem was switched on the first time after it has left the manufacturer plant.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A human-readable, localized name of the manufacturer of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A globally unique identifier of the manufacturer of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A human-readable, localized name of the model of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "MonthOfConstruction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "The month in which the manufacturing process of the MachineryItem has been completed. It shall be a number between 1 and 12, representing the month from January to December.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "readOnly": true
+    },
+    "ProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A machine-readable string of the model of the MachineryItem, that might include options like the hardware configuration of the model. This information might be provided by the ERP system of the vendor. For example, it can be used as order information.",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductInstanceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A globally unique resource identifier provided by the manufacturer of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "A string containing a unique production number of the manufacturer of the MachineryItem. The global uniqueness of the serial number is only given in the context of the manufacturer, and potentially the model. The value shall not change during the life-cycle of the MachineryItem.",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoftwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "description": "property provides the version or revision level of the software in the machine vision system following the rules of Semantic Versioning 2.0.0.",
+      "type": "string",
+      "readOnly": true
+    },
+    "YearOfConstruction": {
+      "dov:namespace": "http://opcfoundation.org/UA/Machinery/",
+      "description": "The year (Gregorian calendar) in which the manufacturing process of the MachineryItem has been completed. It shall be a four-digit number and never change during the life-cycle of a MachineryItem.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": true
+    }
+  }
+}

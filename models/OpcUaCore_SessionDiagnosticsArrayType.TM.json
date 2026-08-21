@@ -1,0 +1,779 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_SessionDiagnosticsArrayType",
+  "title": "OpcUaCore_SessionDiagnosticsArrayType",
+  "dov:typeRef": "org.opcfoundation.UA.SessionDiagnosticsArrayType",
+  "links": [],
+  "schemaDefinitions": {
+    "SessionDiagnosticsArrayType": {
+      "dov:typeRef": "org.opcfoundation.UA.SessionDiagnosticsArrayType",
+      "type": "array",
+      "items": {
+        "title": "SessionDiagnosticsDataType",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.SessionDiagnosticsDataType",
+        "required": [
+          "SessionId",
+          "SessionName",
+          "ClientDescription",
+          "ServerUri",
+          "EndpointUrl",
+          "LocaleIds",
+          "ActualSessionTimeout",
+          "MaxResponseMessageSize",
+          "ClientConnectionTime",
+          "ClientLastContactTime",
+          "CurrentSubscriptionsCount",
+          "CurrentMonitoredItemsCount",
+          "CurrentPublishRequestsInQueue",
+          "TotalRequestCount",
+          "UnauthorizedRequestCount",
+          "ReadCount",
+          "HistoryReadCount",
+          "WriteCount",
+          "HistoryUpdateCount",
+          "CallCount",
+          "CreateMonitoredItemsCount",
+          "ModifyMonitoredItemsCount",
+          "SetMonitoringModeCount",
+          "SetTriggeringCount",
+          "DeleteMonitoredItemsCount",
+          "CreateSubscriptionCount",
+          "ModifySubscriptionCount",
+          "SetPublishingModeCount",
+          "PublishCount",
+          "RepublishCount",
+          "TransferSubscriptionsCount",
+          "DeleteSubscriptionsCount",
+          "AddNodesCount",
+          "AddReferencesCount",
+          "DeleteNodesCount",
+          "DeleteReferencesCount",
+          "BrowseCount",
+          "BrowseNextCount",
+          "TranslateBrowsePathsToNodeIdsCount",
+          "QueryFirstCount",
+          "QueryNextCount",
+          "RegisterNodesCount",
+          "UnregisterNodesCount"
+        ],
+        "properties": {
+          "SessionId": {
+            "type": "string"
+          },
+          "SessionName": {
+            "type": "string"
+          },
+          "ClientDescription": {
+            "title": "ApplicationDescription",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ApplicationDescription",
+            "required": [
+              "ApplicationUri",
+              "ProductUri",
+              "ApplicationName",
+              "ApplicationType",
+              "GatewayServerUri",
+              "DiscoveryProfileUri",
+              "DiscoveryUrls"
+            ],
+            "properties": {
+              "ApplicationUri": {
+                "type": "string"
+              },
+              "ProductUri": {
+                "type": "string"
+              },
+              "ApplicationName": {
+                "type": "string"
+              },
+              "ApplicationType": {
+                "title": "ApplicationType",
+                "dov:typeRef": "org.opcfoundation.UA.ApplicationType",
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "GatewayServerUri": {
+                "type": "string"
+              },
+              "DiscoveryProfileUri": {
+                "type": "string"
+              },
+              "DiscoveryUrls": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ServerUri": {
+            "type": "string"
+          },
+          "EndpointUrl": {
+            "type": "string"
+          },
+          "LocaleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ActualSessionTimeout": {
+            "type": "string",
+            "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+          },
+          "MaxResponseMessageSize": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ClientConnectionTime": {
+            "type": "string",
+            "format": "time"
+          },
+          "ClientLastContactTime": {
+            "type": "string",
+            "format": "time"
+          },
+          "CurrentSubscriptionsCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CurrentMonitoredItemsCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CurrentPublishRequestsInQueue": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "TotalRequestCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "UnauthorizedRequestCount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "ReadCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "HistoryReadCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "WriteCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "HistoryUpdateCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "CallCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "CreateMonitoredItemsCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "ModifyMonitoredItemsCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "SetMonitoringModeCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "SetTriggeringCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "DeleteMonitoredItemsCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "CreateSubscriptionCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "ModifySubscriptionCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "SetPublishingModeCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "PublishCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "RepublishCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "TransferSubscriptionsCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "DeleteSubscriptionsCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "AddNodesCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "AddReferencesCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "DeleteNodesCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "DeleteReferencesCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "BrowseCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "BrowseNextCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "TranslateBrowsePathsToNodeIdsCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "QueryFirstCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "QueryNextCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "RegisterNodesCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          },
+          "UnregisterNodesCount": {
+            "title": "ServiceCounterDataType",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.ServiceCounterDataType",
+            "required": [
+              "TotalCount",
+              "ErrorCount"
+            ],
+            "properties": {
+              "TotalCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "ErrorCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

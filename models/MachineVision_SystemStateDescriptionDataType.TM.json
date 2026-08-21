@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_SystemStateDescriptionDataType",
+  "title": "MachineVision_SystemStateDescriptionDataType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.SystemStateDescriptionDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "SystemStateDescriptionDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineVision.SystemStateDescriptionDataType",
+      "required": [
+        "State"
+      ],
+      "properties": {
+        "State": {
+          "title": "SystemStateDataType",
+          "description": "Denotes one of the basic SEMI E10 states",
+          "dov:typeRef": "org.opcfoundation.UA.MachineVision.SystemStateDataType",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "StateDescription": {
+          "description": "Optional string describing the full state path, starting with the SEMI E10 state denoted by the state member; the string format is described in Section 11.5.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

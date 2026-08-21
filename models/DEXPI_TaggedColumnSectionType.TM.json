@@ -1,0 +1,130 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/DEXPI/#DEXPI_TaggedColumnSectionType",
+  "title": "DEXPI_TaggedColumnSectionType",
+  "dov:typeRef": "org.opcfoundation.UA.DEXPI.TaggedColumnSectionType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_EquipmentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "<Internal>",
+      "href": "http://opcfoundation.org/UA/DEXPI/#DEXPI_ColumnInternalsArrangementType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/Height",
+    "/properties/InsideDiameter",
+    "/properties/TagNameAssignmentClass",
+    "/properties/TagNamePrefixAssignmentClass",
+    "/properties/TagNameSequenceNumberAssignmentClass",
+    "/properties/TagNameSuffixAssignmentClass",
+    "/events/Height",
+    "/events/InsideDiameter",
+    "/events/TagNameAssignmentClass",
+    "/events/TagNamePrefixAssignmentClass",
+    "/events/TagNameSequenceNumberAssignmentClass",
+    "/events/TagNameSuffixAssignmentClass"
+  ],
+  "properties": {
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The height of the ColumnSection.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "InsideDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The inside diameter of the ColumnSection.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "TagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The tag number of the TaggedPlantItem. See also <owner.TagNamePrefixAssignmentClass>, <owner.TagNameSequenceNumberAssignmentClass>, and <owner.TagNameSuffixAssignmentClass>.",
+      "type": "string",
+      "readOnly": false
+    },
+    "TagNamePrefixAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The prefix part of the tag number of the TaggedPlantItem. For example, the prefix of the tag number 'P4714-A' is 'P'. The prefix often indicates the type of the equipment item, e.g., 'P' can indicate a pump. See also <owner.TagNameAssignmentClass>.",
+      "type": "string",
+      "readOnly": false
+    },
+    "TagNameSequenceNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The sequence number part of the tag number of the TaggedPlantItem. For example, the sequence number of the tag number 'P4714-A' is '4714'.",
+      "type": "string",
+      "readOnly": false
+    },
+    "TagNameSuffixAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "description": "The suffix part of the tag number of an TaggedPlantItem item. For example, the suffix of the tag number 'P4714-A' is 'A'.",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "Height": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The height of the ColumnSection.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "InsideDiameter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The inside diameter of the ColumnSection.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "TagNameAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The tag number of the TaggedPlantItem. See also <owner.TagNamePrefixAssignmentClass>, <owner.TagNameSequenceNumberAssignmentClass>, and <owner.TagNameSuffixAssignmentClass>.",
+        "type": "string"
+      }
+    },
+    "TagNamePrefixAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The prefix part of the tag number of the TaggedPlantItem. For example, the prefix of the tag number 'P4714-A' is 'P'. The prefix often indicates the type of the equipment item, e.g., 'P' can indicate a pump. See also <owner.TagNameAssignmentClass>.",
+        "type": "string"
+      }
+    },
+    "TagNameSequenceNumberAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The sequence number part of the tag number of the TaggedPlantItem. For example, the sequence number of the tag number 'P4714-A' is '4714'.",
+        "type": "string"
+      }
+    },
+    "TagNameSuffixAssignmentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/DEXPI/",
+      "data": {
+        "description": "The suffix part of the tag number of an TaggedPlantItem item. For example, the suffix of the tag number 'P4714-A' is 'A'.",
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_BaseLogEventType",
+  "title": "OpcUaCore_BaseLogEventType",
+  "dov:typeRef": "org.opcfoundation.UA.BaseLogEventType",
+  "dov:isEvent": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseEventType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ErrorCode",
+    "/properties/ErrorCodeNode",
+    "/properties/TraceContext"
+  ],
+  "properties": {
+    "ConditionClassId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ConditionClassName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ErrorCode": {
+      "type": "string",
+      "readOnly": true
+    },
+    "ErrorCodeNode": {
+      "type": "string",
+      "readOnly": true
+    },
+    "TraceContext": {
+      "title": "TraceContextDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.TraceContextDataType",
+      "required": [
+        "TraceId",
+        "SpanId",
+        "ParentSpanId",
+        "ParentIdentifier"
+      ],
+      "properties": {
+        "TraceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "SpanId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        "ParentSpanId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        "ParentIdentifier": {
+          "type": "string"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PROFINET/#PROFINET_PnPortStateEnumeration",
+  "title": "PROFINET_PnPortStateEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnPortStateEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PnPortStateEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PROFINET.PnPortStateEnumeration",
+      "const": {
+        "UNKNOWN": 0,
+        "DISABLED_DISCARDING": 1,
+        "BLOCKING": 2,
+        "LISTENING": 3,
+        "LEARNING": 4,
+        "FORWARDING": 5,
+        "BROKEN": 6
+      },
+      "properties": {
+        "UNKNOWN": {
+          "description": "Status cannot be determined",
+          "type": "integer"
+        },
+        "DISABLED_DISCARDING": {
+          "description": "The port is administratively disabled and discarding frames",
+          "type": "integer"
+        },
+        "BLOCKING": {
+          "description": "The port blocks incoming frames",
+          "type": "integer"
+        },
+        "LISTENING": {
+          "description": "The port is listening to and sending BPDUs (Bridge Protocol Data Units).",
+          "type": "integer"
+        },
+        "LEARNING": {
+          "type": "integer"
+        },
+        "FORWARDING": {
+          "type": "integer"
+        },
+        "BROKEN": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

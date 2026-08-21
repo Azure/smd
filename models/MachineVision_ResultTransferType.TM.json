@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineVision#MachineVision_ResultTransferType",
+  "title": "MachineVision_ResultTransferType",
+  "dov:typeRef": "org.opcfoundation.UA.MachineVision.ResultTransferType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TemporaryFileTransferType",
+      "type": "application/tm+json"
+    }
+  ],
+  "actions": {
+    "GenerateFileForRead": {
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "GenerateOptions"
+        ],
+        "properties": {
+          "GenerateOptions": {
+            "title": "ResultTransferOptions",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.MachineVision.ResultTransferOptions",
+            "required": [
+              "Id"
+            ],
+            "properties": {
+              "Id": {
+                "title": "ResultIdDataType",
+                "description": "The Id of the result to be transferred to the client.",
+                "type": "object",
+                "dov:typeRef": "org.opcfoundation.UA.MachineVision.ResultIdDataType",
+                "required": [
+                  "Id"
+                ],
+                "properties": {
+                  "Id": {
+                    "description": "Id is a system-wide unique identifier/name for identifying the generated result.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "FileNodeId",
+          "FileHandle",
+          "CompletionStateMachine"
+        ],
+        "properties": {
+          "FileNodeId": {
+            "type": "string"
+          },
+          "FileHandle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "CompletionStateMachine": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

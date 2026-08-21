@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_CompressorStatisticsType",
+  "title": "CAS_CompressorStatisticsType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.CompressorStatisticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_StatisticsType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/LoadedTime",
+    "/properties/UnloadedTime",
+    "/events/LoadedTime",
+    "/events/UnloadedTime"
+  ],
+  "properties": {
+    "LoadedTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Time spent in loaded state since last counter reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "UnloadedTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Time spent in unloaded state since last counter reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "LoadedTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Time spent in loaded state since last counter reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "UnloadedTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Time spent in unloaded state since last counter reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

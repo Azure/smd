@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNGSDGM/#PNGSDGM_GsdGenIoTimeDataType",
+  "title": "PNGSDGM_GsdGenIoTimeDataType",
+  "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoTimeDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "GsdGenIoTimeDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNGSDGM.GsdGenIoTimeDataType",
+      "required": [
+        "NumberOfMilliseconds",
+        "NumberOfDays"
+      ],
+      "properties": {
+        "NumberOfMilliseconds": {
+          "description": "Used for TimeOfDay: Number of milliseconds since midnight. Used for TimeDifference: Number of milliseconds.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "NumberOfDays": {
+          "description": "Used for TimeOfDay: Number of days since 1984-01-01 T 00:00 Z. Used for TimeDifference: Number of days. ",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}

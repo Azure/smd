@@ -1,0 +1,652 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_GeneralMaintenanceType",
+  "title": "Pumps_GeneralMaintenanceType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.GeneralMaintenanceType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "MaintenanceLevelEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.MaintenanceLevelEnum",
+      "const": {
+        "Level1": 0,
+        "Level2": 1,
+        "Level3": 2,
+        "Level4": 3,
+        "Level5": 4
+      },
+      "description": "defines maintenance levels for the pump",
+      "properties": {
+        "Level1": {
+          "description": "Level 1 is characterized by simple actions carried out with minimal training",
+          "type": "integer"
+        },
+        "Level2": {
+          "description": "Level 2 is characterized by basic actions which have to be carried out by qualified personnel using detailed procedures ",
+          "type": "integer"
+        },
+        "Level3": {
+          "description": "Level 3 is characterized by complex actions carried out by qualified technical personnel using detailed procedures",
+          "type": "integer"
+        },
+        "Level4": {
+          "description": "Level 4 is characterized by actions which imply the know-how of a technique or a technology and carried out by specialized technical personnel",
+          "type": "integer"
+        },
+        "Level5": {
+          "description": "Level 5 is characterized by actions which imply a knowledge held by the manufacturer or a specialized company with industrial logistic support equipment",
+          "type": "integer"
+        }
+      }
+    },
+    "StateOfTheItemEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.StateOfTheItemEnum",
+      "const": {
+        "IdleState": 0,
+        "StandByState": 1,
+        "OperatingState": 2,
+        "ExternalDisabledState": 3,
+        "DownState": 4
+      },
+      "description": "describes the state of the pump",
+      "properties": {
+        "IdleState": {
+          "description": "Item is in up state and non-operating outside required time",
+          "type": "integer"
+        },
+        "StandByState": {
+          "description": "Item is in up state and non-operating during required time",
+          "type": "integer"
+        },
+        "OperatingState": {
+          "description": "Item is in up state and operating as required",
+          "type": "integer"
+        },
+        "ExternalDisabledState": {
+          "description": "Item is in up state, but lacks required external resources or is disabled due to planned actions other than maintenance",
+          "type": "integer"
+        },
+        "DownState": {
+          "description": "Item is unable to perform a required function due to preventive maintenance or a fault",
+          "type": "integer"
+        }
+      }
+    },
+    "TwoStateDiscreteType": {
+      "dov:typeRef": "org.opcfoundation.UA.TwoStateDiscreteType",
+      "type": "boolean"
+    }
+  },
+  "tm:optional": [
+    "/properties/ActiveMaintenanceTime",
+    "/properties/DownTime",
+    "/properties/ExternalDisabledTime",
+    "/properties/FailureRate",
+    "/properties/IdleTime",
+    "/properties/MaintenanceLevel",
+    "/properties/MaintenanceTime",
+    "/properties/MeanOperatingTimeBetweenFailures",
+    "/properties/MeanRepairTime",
+    "/properties/MeanTimeToRestauration",
+    "/properties/Obsolescence",
+    "/properties/OperatingTime",
+    "/properties/OperatingTimeBetweenFailures",
+    "/properties/OperatingTimeToFailure",
+    "/properties/RepairTime",
+    "/properties/StandbyTime",
+    "/properties/StateOfTheItem",
+    "/properties/TimeBetweenFailures",
+    "/properties/TimeToRestoration",
+    "/properties/UpTime",
+    "/properties/ActiveMaintenanceTime_EngineeringUnits",
+    "/properties/DownTime_EngineeringUnits",
+    "/properties/ExternalDisabledTime_EngineeringUnits",
+    "/properties/FailureRate_EngineeringUnits",
+    "/properties/IdleTime_EngineeringUnits",
+    "/properties/MaintenanceTime_EngineeringUnits",
+    "/properties/MeanOperatingTimeBetweenFailures_EngineeringUnits",
+    "/properties/MeanRepairTime_EngineeringUnits",
+    "/properties/MeanTimeToRestauration_EngineeringUnits",
+    "/properties/OperatingTime_EngineeringUnits",
+    "/properties/OperatingTimeBetweenFailures_EngineeringUnits",
+    "/properties/OperatingTimeToFailure_EngineeringUnits",
+    "/properties/RepairTime_EngineeringUnits",
+    "/properties/StandbyTime_EngineeringUnits",
+    "/properties/TimeBetweenFailures_EngineeringUnits",
+    "/properties/TimeToRestoration_EngineeringUnits",
+    "/properties/UpTime_EngineeringUnits",
+    "/events/ActiveMaintenanceTime",
+    "/events/DownTime",
+    "/events/ExternalDisabledTime",
+    "/events/FailureRate",
+    "/events/IdleTime",
+    "/events/MaintenanceLevel",
+    "/events/MaintenanceTime",
+    "/events/MeanOperatingTimeBetweenFailures",
+    "/events/MeanRepairTime",
+    "/events/MeanTimeToRestauration",
+    "/events/Obsolescence",
+    "/events/OperatingTime",
+    "/events/OperatingTimeBetweenFailures",
+    "/events/OperatingTimeToFailure",
+    "/events/RepairTime",
+    "/events/StandbyTime",
+    "/events/StateOfTheItem",
+    "/events/TimeBetweenFailures",
+    "/events/TimeToRestoration",
+    "/events/UpTime"
+  ],
+  "properties": {
+    "ActiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Part of the maintenance time when active maintenance is carried out on an item.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ActiveMaintenanceTime_EngineeringUnits"
+    },
+    "DownTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured time interval throughout which an item is in a down state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/DownTime_EngineeringUnits"
+    },
+    "ExternalDisabledTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured time interval throughout which an item is in an external disabled state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ExternalDisabledTime_EngineeringUnits"
+    },
+    "FailureRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Number of failures within a population divided by the number of life units used by that population",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/FailureRate_EngineeringUnits"
+    },
+    "IdleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured time interval throughout which an item is in an idle state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/IdleTime_EngineeringUnits"
+    },
+    "MaintenanceLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "MaintenanceLevelEnum",
+      "description": "Maintenance task categorization by complexity",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.MaintenanceLevelEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "MaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Time interval when maintenance is carried out on an item including technical, logistic and internal administrative delays",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MaintenanceTime_EngineeringUnits"
+    },
+    "MeanOperatingTimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Average of the operating times between failures",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanOperatingTimeBetweenFailures_EngineeringUnits"
+    },
+    "MeanRepairTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Average of the repair times",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanRepairTime_EngineeringUnits"
+    },
+    "MeanTimeToRestauration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Average of the time to restauration",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanTimeToRestauration_EngineeringUnits"
+    },
+    "Obsolescence": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType",
+      "readOnly": true
+    },
+    "OperatingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured time interval throughout which an item is in operating state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingTime_EngineeringUnits"
+    },
+    "OperatingTimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Operating time between consecutive failures",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingTimeBetweenFailures_EngineeringUnits"
+    },
+    "OperatingTimeToFailure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Operating time accumulated from the first use, or from restoration, until failure",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingTimeToFailure_EngineeringUnits"
+    },
+    "RepairTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Part of corrective maintenance time when repair is carried out on an item.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RepairTime_EngineeringUnits"
+    },
+    "StandbyTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured time interval throughout which an item is in a standby state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/StandbyTime_EngineeringUnits"
+    },
+    "StateOfTheItem": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "StateOfTheItemEnum",
+      "description": "Current state of the item",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.StateOfTheItemEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "TimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Duration between consecutive failures",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeBetweenFailures_EngineeringUnits"
+    },
+    "TimeToRestoration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Time interval, from the instant of failure, until restoration",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeToRestoration_EngineeringUnits"
+    },
+    "UpTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "Measured time interval throughout which an item is in an up state",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/UpTime_EngineeringUnits"
+    },
+    "ActiveMaintenanceTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ActiveMaintenanceTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "DownTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name DownTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "ExternalDisabledTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ExternalDisabledTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "FailureRate_EngineeringUnits": {
+      "description": "Unit designator for property and event with name FailureRate, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "IdleTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name IdleTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MaintenanceTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MaintenanceTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanOperatingTimeBetweenFailures_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanOperatingTimeBetweenFailures, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanRepairTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanRepairTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "MeanTimeToRestauration_EngineeringUnits": {
+      "description": "Unit designator for property and event with name MeanTimeToRestauration, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OperatingTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OperatingTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OperatingTimeBetweenFailures_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OperatingTimeBetweenFailures, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "OperatingTimeToFailure_EngineeringUnits": {
+      "description": "Unit designator for property and event with name OperatingTimeToFailure, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "RepairTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name RepairTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "StandbyTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name StandbyTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeBetweenFailures_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TimeBetweenFailures, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "TimeToRestoration_EngineeringUnits": {
+      "description": "Unit designator for property and event with name TimeToRestoration, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    },
+    "UpTime_EngineeringUnits": {
+      "description": "Unit designator for property and event with name UpTime, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ActiveMaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Part of the maintenance time when active maintenance is carried out on an item.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ActiveMaintenanceTime_EngineeringUnits"
+    },
+    "DownTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured time interval throughout which an item is in a down state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/DownTime_EngineeringUnits"
+    },
+    "ExternalDisabledTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured time interval throughout which an item is in an external disabled state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ExternalDisabledTime_EngineeringUnits"
+    },
+    "FailureRate": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Number of failures within a population divided by the number of life units used by that population",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "dov:withUnit": "properties/FailureRate_EngineeringUnits"
+    },
+    "IdleTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured time interval throughout which an item is in an idle state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/IdleTime_EngineeringUnits"
+    },
+    "MaintenanceLevel": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "MaintenanceLevelEnum",
+        "description": "Maintenance task categorization by complexity",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.MaintenanceLevelEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "MaintenanceTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Time interval when maintenance is carried out on an item including technical, logistic and internal administrative delays",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MaintenanceTime_EngineeringUnits"
+    },
+    "MeanOperatingTimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Average of the operating times between failures",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanOperatingTimeBetweenFailures_EngineeringUnits"
+    },
+    "MeanRepairTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Average of the repair times",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanRepairTime_EngineeringUnits"
+    },
+    "MeanTimeToRestauration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Average of the time to restauration",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/MeanTimeToRestauration_EngineeringUnits"
+    },
+    "Obsolescence": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/TwoStateDiscreteType"
+      }
+    },
+    "OperatingTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured time interval throughout which an item is in operating state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingTime_EngineeringUnits"
+    },
+    "OperatingTimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Operating time between consecutive failures",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingTimeBetweenFailures_EngineeringUnits"
+    },
+    "OperatingTimeToFailure": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Operating time accumulated from the first use, or from restoration, until failure",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/OperatingTimeToFailure_EngineeringUnits"
+    },
+    "RepairTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Part of corrective maintenance time when repair is carried out on an item.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/RepairTime_EngineeringUnits"
+    },
+    "StandbyTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured time interval throughout which an item is in a standby state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/StandbyTime_EngineeringUnits"
+    },
+    "StateOfTheItem": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "StateOfTheItemEnum",
+        "description": "Current state of the item",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.StateOfTheItemEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "TimeBetweenFailures": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Duration between consecutive failures",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeBetweenFailures_EngineeringUnits"
+    },
+    "TimeToRestoration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Time interval, from the instant of failure, until restoration",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/TimeToRestoration_EngineeringUnits"
+    },
+    "UpTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "Measured time interval throughout which an item is in an up state",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/UpTime_EngineeringUnits"
+    }
+  }
+}

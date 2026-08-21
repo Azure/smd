@@ -1,0 +1,53 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MachineTool/#MachineTool_ToolLocked",
+  "title": "MachineTool_ToolLocked",
+  "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolLocked",
+  "links": [],
+  "schemaDefinitions": {
+    "ToolLocked": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MachineTool.ToolLocked",
+      "const": {
+        "CapabilityUnavailable": 0,
+        "ByOperator": 1,
+        "ToolBreak": 2,
+        "ToolLife": 3,
+        "MeasurementError": 4,
+        "Other": 5
+      },
+      "properties": {
+        "CapabilityUnavailable": {
+          "description": "The reason for locking the tool cannot be given.",
+          "type": "integer"
+        },
+        "ByOperator": {
+          "description": "The tool is locked by an operator.",
+          "type": "integer"
+        },
+        "ToolBreak": {
+          "description": "The tool is locked because a tool break has been detected.",
+          "type": "integer"
+        },
+        "ToolLife": {
+          "description": "The tool is locked because it reached a tool life limit.",
+          "type": "integer"
+        },
+        "MeasurementError": {
+          "description": "The tool is locked due to a measurement error of the tool.",
+          "type": "integer"
+        },
+        "Other": {
+          "description": "The tool is locked for another reason.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_DatagramWriterGroupTransportDataType",
+  "title": "OpcUaCore_DatagramWriterGroupTransportDataType",
+  "dov:typeRef": "org.opcfoundation.UA.DatagramWriterGroupTransportDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "DatagramWriterGroupTransportDataType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DatagramWriterGroupTransportDataType",
+      "required": [
+        "MessageRepeatCount",
+        "MessageRepeatDelay"
+      ],
+      "properties": {
+        "MessageRepeatCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "MessageRepeatDelay": {
+          "type": "string",
+          "pattern": "^P(?!$)(?:(?:(?:(?:\\d+Y)|(?:\\d+\\.\\d+Y$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?)|(?:(?:(?:\\d+W)|(?:\\d+\\.\\d+W$))?))(?:(?:\\d+D)|(?:\\d+\\.\\d+D$))?(?:T(?!$)(?:(?:\\d+H)|(?:\\d+\\.\\d+H$))?(?:(?:\\d+M)|(?:\\d+\\.\\d+M$))?(?:\\d+(?:\\.\\d+)?S)?)?$"
+        }
+      }
+    }
+  }
+}

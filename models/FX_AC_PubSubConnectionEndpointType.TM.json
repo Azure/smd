@@ -1,0 +1,122 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/FX/AC/#FX_AC_PubSubConnectionEndpointType",
+  "title": "FX_AC_PubSubConnectionEndpointType",
+  "dov:typeRef": "org.opcfoundation.UA.FX.AC.PubSubConnectionEndpointType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/FX/AC/#FX_AC_ConnectionEndpointType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "DataSetReaderName_Placeholder",
+      "dov:refType": "ToDataSetReader",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetReaderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:typedReference",
+      "dov:refName": "DataSetWriterName_Placeholder",
+      "dov:refType": "ToDataSetWriter",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_DataSetWriterType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "PubSubConnectionEndpointModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubConnectionEndpointModeEnum",
+      "const": {
+        "PublisherSubscriber": 1,
+        "Publisher": 2,
+        "Subscriber": 3
+      },
+      "properties": {
+        "PublisherSubscriber": {
+          "description": "reference to DataSetReader and DataSetWriter required.",
+          "type": "integer"
+        },
+        "Publisher": {
+          "description": "reference to DataSetWriter is required.",
+          "type": "integer"
+        },
+        "Subscriber": {
+          "description": "reference to DataSetReader is required.",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DataSetReaderPath",
+    "/properties/DataSetWriterPath",
+    "/events/DataSetReaderPath",
+    "/events/DataSetWriterPath"
+  ],
+  "properties": {
+    "DataSetReaderPath": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "DataSetWriterPath": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "Mode": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "title": "PubSubConnectionEndpointModeEnum",
+      "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubConnectionEndpointModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "DataSetReaderPath": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "DataSetWriterPath": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "Mode": {
+      "dov:namespace": "http://opcfoundation.org/UA/FX/AC/",
+      "data": {
+        "title": "PubSubConnectionEndpointModeEnum",
+        "dov:typeRef": "org.opcfoundation.UA.FX.Data.PubSubConnectionEndpointModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    }
+  }
+}

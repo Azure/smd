@@ -1,0 +1,123 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_StatisticsType",
+  "title": "CAS_StatisticsType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.StatisticsType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/ResetStatistics",
+    "/properties/RealTime",
+    "/properties/RealTimeToNextService",
+    "/properties/ResetCondition",
+    "/properties/RunningTime",
+    "/properties/RunningTimeToNextService",
+    "/properties/StartTime",
+    "/events/RealTime",
+    "/events/RealTimeToNextService",
+    "/events/RunningTime",
+    "/events/RunningTimeToNextService"
+  ],
+  "actions": {
+    "ResetStatistics": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Restarts all statistical data, including a reset of the StartTime to the current time."
+    }
+  },
+  "properties": {
+    "RealTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Real time passed since last counter reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "RealTimeToNextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Real time left until the real time of the next service level is exceeded.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "ResetCondition": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "The reason and context for the reset of the statistics, which is done without a trigger from an OPC UA Client, like calling the ResetStatistics Method. ResetCondition is a vendor-specific, human readable string. ResetCondition is non-localized and might contain an expression that can be parsed by certain clients. Examples are: “AFTER 4 HOURS”, “AFTER 1000 ITEMS”, “OPERATOR”. “OPERATOR” means, that an operator resets the statistics on a local HMI.",
+      "type": "string",
+      "readOnly": true
+    },
+    "RunningTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Time spent running since last counter reset.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "RunningTimeToNextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Running time left until the running time of the next service level is exceeded.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    },
+    "StartTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/IA/",
+      "description": "Indicates the point in time at which the collection of the statistical data has been started.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "RealTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Real time passed since last counter reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RealTimeToNextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Real time left until the real time of the next service level is exceeded.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RunningTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Time spent running since last counter reset.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "RunningTimeToNextService": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Running time left until the running time of the next service level is exceeded.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/CAS/#CAS_ReceiverDesignType",
+  "title": "CAS_ReceiverDesignType",
+  "dov:typeRef": "org.opcfoundation.UA.CAS.ReceiverDesignType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/CAS/#CAS_DesignType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "ReceiverTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.ReceiverTypeEnum",
+      "const": {
+        "Other": 0,
+        "DryReceiver": 1,
+        "WetReceiver": 2
+      },
+      "description": "possible receiver types",
+      "properties": {
+        "Other": {
+          "description": "Not specified in this enumeration",
+          "type": "integer"
+        },
+        "DryReceiver": {
+          "description": "Dry Receiver",
+          "type": "integer"
+        },
+        "WetReceiver": {
+          "description": "Wet Receiver",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/ComponentClass",
+    "/properties/Volume",
+    "/events/ComponentClass",
+    "/events/Volume"
+  ],
+  "properties": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "title": "ReceiverTypeEnum",
+      "description": "Enumeration of possible receiver types.",
+      "dov:typeRef": "org.opcfoundation.UA.CAS.ReceiverTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "Volume": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "description": "Total volume of the receiver.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": true
+    }
+  },
+  "events": {
+    "ComponentClass": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "title": "ReceiverTypeEnum",
+        "description": "Enumeration of possible receiver types.",
+        "dov:typeRef": "org.opcfoundation.UA.CAS.ReceiverTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "Volume": {
+      "dov:namespace": "http://opcfoundation.org/UA/CAS/",
+      "data": {
+        "description": "Total volume of the receiver.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

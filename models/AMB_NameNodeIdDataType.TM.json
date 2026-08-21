@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AMB/#AMB_NameNodeIdDataType",
+  "title": "AMB_NameNodeIdDataType",
+  "dov:typeRef": "org.opcfoundation.UA.AMB.NameNodeIdDataType",
+  "links": [],
+  "schemaDefinitions": {
+    "NameNodeIdDataType": {
+      "description": "A human-readable name of something plus optionally the NodeId in case the something is represented in the AddressSpace",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.AMB.NameNodeIdDataType",
+      "required": [
+        "Name",
+        "NodeId"
+      ],
+      "properties": {
+        "Name": {
+          "description": "The human-readable name. Shall be the DisplayName of the NodeId field, in case the NodeId is provided",
+          "type": "string"
+        },
+        "NodeId": {
+          "description": "Optionally provided NodeId, in case the referenced thing is represented as Node in the AddressSpace.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

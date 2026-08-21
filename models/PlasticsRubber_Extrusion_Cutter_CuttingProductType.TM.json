@@ -1,0 +1,166 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/#PlasticsRubber_Extrusion_Cutter_CuttingProductType",
+  "title": "PlasticsRubber_Extrusion_Cutter_CuttingProductType",
+  "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Cutter.CuttingProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "WallThickeningEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Cutter.WallThickeningEnumeration",
+      "const": {
+        "NO": 0,
+        "FRONT": 1,
+        "END": 2,
+        "BOTH": 3
+      },
+      "properties": {
+        "NO": {
+          "type": "integer"
+        },
+        "FRONT": {
+          "type": "integer"
+        },
+        "END": {
+          "type": "integer"
+        },
+        "BOTH": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/ResetOutput",
+    "/properties/LengthCorrection",
+    "/properties/WallThickeningLength",
+    "/properties/WallThickeningPosition",
+    "/events/LengthCorrection",
+    "/events/WallThickeningLength"
+  ],
+  "actions": {
+    "ResetOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/"
+    }
+  },
+  "properties": {
+    "ActualOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "Id": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "LengthCorrection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "SetOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": false
+    },
+    "TotalOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615,
+      "readOnly": true
+    },
+    "WallThickeningLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "WallThickeningPosition": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "title": "WallThickeningEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.PlasticsRubber.Extrusion.Cutter.WallThickeningEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    },
+    "Length": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "LengthCorrection": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "SetOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    },
+    "TotalOutput": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 18446744073709551615
+      }
+    },
+    "WallThickeningLength": {
+      "dov:namespace": "http://opcfoundation.org/UA/PlasticsRubber/Extrusion/Cutter/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    }
+  }
+}

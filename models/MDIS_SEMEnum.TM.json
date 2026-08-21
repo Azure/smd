@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/MDIS#MDIS_SEMEnum",
+  "title": "MDIS_SEMEnum",
+  "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+  "links": [],
+  "schemaDefinitions": {
+    "SEMEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.MDIS.SEMEnum",
+      "const": {
+        "SEM_A": 1,
+        "SEM_B": 2,
+        "Auto": 4
+      },
+      "properties": {
+        "SEM_A": {
+          "description": "Valve move command selection SEM A",
+          "type": "integer"
+        },
+        "SEM_B": {
+          "description": "Valve move command selection SEM B",
+          "type": "integer"
+        },
+        "Auto": {
+          "description": "Subsea equipment vendor decides how to send the command. In some cases, this would be both SEMs, in others it would mean a subsea system’s choice of a SEM.",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

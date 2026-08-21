@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://fdi-cooperation.com/OPCUA/FDI5/#Fdi_cooperation_OPCUA_FDI5_ApplyResult",
+  "title": "Fdi_cooperation_OPCUA_FDI5_ApplyResult",
+  "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.ApplyResult",
+  "links": [],
+  "schemaDefinitions": {
+    "ApplyResult": {
+      "type": "object",
+      "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.ApplyResult",
+      "required": [
+        "Status",
+        "TransferIncidents"
+      ],
+      "properties": {
+        "Status": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "TransferIncidents": {
+          "type": "array",
+          "items": {
+            "title": "TransferIncident",
+            "type": "object",
+            "dov:typeRef": "com.fdi-cooperation.OPCUA.FDI5.TransferIncident",
+            "required": [
+              "ContextNodeId",
+              "StatusCode",
+              "Diagnostics"
+            ],
+            "properties": {
+              "ContextNodeId": {
+                "type": "string"
+              },
+              "StatusCode": {
+                "type": "string"
+              },
+              "Diagnostics": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

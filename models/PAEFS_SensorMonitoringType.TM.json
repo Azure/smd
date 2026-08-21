@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+  "title": "PAEFS_SensorMonitoringType",
+  "dov:typeRef": "org.opcfoundation.UA.PAEFS.SensorMonitoringType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Identification",
+      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryComponentIdentificationType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "MachineryBuildingBlocks",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "Signal",
+      "href": "http://opcfoundation.org/UA/Machinery/ProcessValues/#Machinery_ProcessValues_ProcessValueType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "AnalogDigitalEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.AnalogDigitalEnum",
+      "const": {
+        "Analog": 0,
+        "Digital": 1
+      },
+      "description": "Specifies the type of a sensor",
+      "properties": {
+        "Analog": {
+          "type": "integer"
+        },
+        "Digital": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/SignalForm"
+  ],
+  "properties": {
+    "SignalForm": {
+      "dov:namespace": "http://opcfoundation.org/UA/PAEFS/",
+      "title": "AnalogDigitalEnum",
+      "description": "Specifies whether the sensor is an analog or a digital sensor.",
+      "dov:typeRef": "org.opcfoundation.UA.PAEFS.AnalogDigitalEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    }
+  }
+}

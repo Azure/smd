@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/#OpcUaCore_PriorityMappingEntryType",
+  "title": "OpcUaCore_PriorityMappingEntryType",
+  "dov:typeRef": "org.opcfoundation.UA.PriorityMappingEntryType",
+  "links": [],
+  "schemaDefinitions": {
+    "PriorityMappingEntryType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PriorityMappingEntryType",
+      "required": [
+        "MappingUri",
+        "PriorityLabel",
+        "PriorityValue_PCP",
+        "PriorityValue_DSCP"
+      ],
+      "properties": {
+        "MappingUri": {
+          "type": "string"
+        },
+        "PriorityLabel": {
+          "type": "string"
+        },
+        "PriorityValue_PCP": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "PriorityValue_DSCP": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      }
+    }
+  }
+}

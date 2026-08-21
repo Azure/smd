@@ -1,0 +1,589 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCExecuteStateMachineType",
+  "title": "TMC_v2_TMCExecuteStateMachineType",
+  "dov:typeRef": "org.opcfoundation.UA.TMC.v2.TMCExecuteStateMachineType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/PackML/#PackML_PackMLExecuteStateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Complete",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "CompleteSubstate",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CompleteToResetting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Completing",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "CompletingToComplete",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Execute",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "ExecuteSubstate",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecuteToCompleting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecuteToHolding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ExecuteToSuspending",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Held",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "HeldToUnholding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Holding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "HoldingToHeld",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Idle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:capability",
+      "dov:refName": "IdleSubstate",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateMachineType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "IdleToStarting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Resetting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "ResettingToIdle",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Starting",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartingToExecute",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "StartingToHolding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Suspended",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SuspendedToHolding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SuspendedToUnsuspending",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Suspending",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SuspendingToHolding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SuspendingToSuspended",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Unholding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnholdingToExecute",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnholdingToHolding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "Unsuspending",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_StateType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnsuspendingToExecute",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "UnsuspendingToHolding",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_TransitionType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "FiniteTransitionVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.FiniteTransitionVariableType",
+      "type": "string"
+    },
+    "BooleanGuardVariableType": {
+      "dov:typeRef": "org.opcfoundation.UA.TMC.v2.BooleanGuardVariableType",
+      "type": "string"
+    }
+  },
+  "tm:optional": [
+    "/actions/Hold",
+    "/actions/Reset",
+    "/actions/Start",
+    "/actions/Suspend",
+    "/actions/ToComplete",
+    "/actions/Unhold",
+    "/actions/Unsuspend",
+    "/properties/CompleteToResettingGuard",
+    "/properties/CompletingToCompleteGuard",
+    "/properties/ExecuteToCompletingGuard",
+    "/properties/ExecuteToHoldingGuard",
+    "/properties/ExecuteToSuspendingGuard",
+    "/properties/HeldToUnholdingGuard",
+    "/properties/HoldingToHeldGuard",
+    "/properties/StartingToHoldingGuard",
+    "/properties/SuspendedToHoldingGuard",
+    "/properties/SuspendedToUnsuspendingGuard",
+    "/properties/SuspendingToHoldingGuard",
+    "/properties/SuspendingToSuspendedGuard",
+    "/properties/UnholdingToExecuteGuard",
+    "/properties/UnholdingToHoldingGuard",
+    "/properties/UnsuspendingToExecuteGuard",
+    "/properties/UnsuspendingToHoldingGuard",
+    "/events/CompleteToResettingGuard",
+    "/events/CompletingToCompleteGuard",
+    "/events/ExecuteToCompletingGuard",
+    "/events/ExecuteToHoldingGuard",
+    "/events/ExecuteToSuspendingGuard",
+    "/events/HeldToUnholdingGuard",
+    "/events/HoldingToHeldGuard",
+    "/events/StartingToHoldingGuard",
+    "/events/SuspendedToHoldingGuard",
+    "/events/SuspendedToUnsuspendingGuard",
+    "/events/SuspendingToHoldingGuard",
+    "/events/SuspendingToSuspendedGuard",
+    "/events/UnholdingToExecuteGuard",
+    "/events/UnholdingToHoldingGuard",
+    "/events/UnsuspendingToExecuteGuard",
+    "/events/UnsuspendingToHoldingGuard"
+  ],
+  "actions": {
+    "Hold": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Reset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Start": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Parameter"
+        ],
+        "properties": {
+          "Parameter": {
+            "description": "The array of parameter that can be used by the method",
+            "type": "array",
+            "items": {
+              "title": "PackMLDescriptorDataType",
+              "type": "object",
+              "dov:typeRef": "org.opcfoundation.UA.PackML.PackMLDescriptorDataType",
+              "required": [
+                "ID",
+                "Name",
+                "Unit",
+                "Value"
+              ],
+              "properties": {
+                "ID": {
+                  "description": "A unique number assigned to the parameter",
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                "Name": {
+                  "description": "The name of the parameter",
+                  "type": "string"
+                },
+                "Unit": {
+                  "title": "EUInformation",
+                  "description": "OPC UA engineering unit information",
+                  "type": "object",
+                  "dov:typeRef": "org.opcfoundation.UA.EUInformation",
+                  "required": [
+                    "NamespaceUri",
+                    "UnitId",
+                    "DisplayName",
+                    "Description"
+                  ],
+                  "properties": {
+                    "NamespaceUri": {
+                      "type": "string"
+                    },
+                    "UnitId": {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    "DisplayName": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "Value": {
+                  "description": "This is the numeric value of the parameter",
+                  "type": "number",
+                  "minimum": -3.40e+38,
+                  "maximum": 3.40e+38
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Suspend": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "ToComplete": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Unhold": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    },
+    "Unsuspend": {
+      "dov:namespace": "http://opcfoundation.org/UA/PackML/"
+    }
+  },
+  "properties": {
+    "CompleteToResettingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "CompletingToCompleteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ExecuteToCompletingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ExecuteToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "ExecuteToSuspendingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "HeldToUnholdingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "HoldingToHeldGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "IdleToStartingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "LastTransition": {
+      "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType",
+      "readOnly": true
+    },
+    "ResettingToIdleGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "StartingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "StartingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "SuspendedToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "SuspendedToUnsuspendingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "SuspendingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "SuspendingToSuspendedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnholdingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnholdingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnsuspendingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    },
+    "UnsuspendingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "CompleteToResettingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "CompletingToCompleteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ExecuteToCompletingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ExecuteToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "ExecuteToSuspendingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "HeldToUnholdingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "HoldingToHeldGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "IdleToStartingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "LastTransition": {
+      "data": {
+        "tm:ref": "#/schemaDefinitions/FiniteTransitionVariableType"
+      }
+    },
+    "ResettingToIdleGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "StartingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "StartingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "SuspendedToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "SuspendedToUnsuspendingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "SuspendingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "SuspendingToSuspendedGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnholdingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnholdingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnsuspendingToExecuteGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    },
+    "UnsuspendingToHoldingGuard": {
+      "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
+      "data": {
+        "tm:ref": "#/schemaDefinitions/BooleanGuardVariableType"
+      }
+    }
+  }
+}

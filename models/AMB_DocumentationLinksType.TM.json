@@ -1,0 +1,114 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/AMB/#AMB_DocumentationLinksType",
+  "title": "AMB_DocumentationLinksType",
+  "dov:typeRef": "org.opcfoundation.UA.AMB.DocumentationLinksType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/actions/AddLink",
+    "/actions/RemoveLink",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/Link",
+    "/events/Link"
+  ],
+  "actions": {
+    "AddLink": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Method to add an end-user specific link that is stored persistently in the server.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "LinkToExternalSource",
+          "BrowseName",
+          "DisplayName",
+          "Description"
+        ],
+        "properties": {
+          "LinkToExternalSource": {
+            "description": "Link to an external source. The server might or might not check if a correct URI is provided, or if the URI is available/reachable.",
+            "type": "string"
+          },
+          "BrowseName": {
+            "description": "The BrowseName of the new created Node. Method fails if a Variable with the same BrowseName already exists.",
+            "type": "string"
+          },
+          "DisplayName": {
+            "description": "The DisplayName of the new created Node. If the server supports multiple locales, and the Client wants to provide more than one locale, the Write operation on the Variable shall be used.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "The Description of the new created Node. If the server supports multiple locales, and the Client wants to provide more than one locale, the Write operation on the Variable shall be used.",
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "required": [
+          "LinkVariable"
+        ],
+        "properties": {
+          "LinkVariable": {
+            "description": "The NodeId of the newly created Variable.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoveLink": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Method to remove an end-user specific link that is managed in the server.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "VariableToBeDeleted"
+        ],
+        "properties": {
+          "VariableToBeDeleted": {
+            "description": "NodeId of the Variable containing a link, that should be deleted. Variable shall be referenced from the Object with a HasComponent Reference where the Method is called on.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": false
+    },
+    "Link": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "description": "Represents links to externally managed documentation, typically URLs.",
+      "type": "string",
+      "readOnly": false,
+      "dov:placeholder": true
+    }
+  },
+  "events": {
+    "Link": {
+      "dov:namespace": "http://opcfoundation.org/UA/AMB/",
+      "data": {
+        "description": "Represents links to externally managed documentation, typically URLs.",
+        "type": "string"
+      },
+      "dov:placeholder": true
+    }
+  }
+}

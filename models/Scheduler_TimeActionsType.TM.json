@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scheduler/#Scheduler_TimeActionsType",
+  "title": "Scheduler_TimeActionsType",
+  "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeActionsType",
+  "links": [],
+  "schemaDefinitions": {
+    "TimeActionsType": {
+      "description": "This structure contains a time and an array of actions. It is used to define actions to be executed at a specific point in time.",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeActionsType",
+      "required": [
+        "Time",
+        "Actions"
+      ],
+      "properties": {
+        "Time": {
+          "title": "TimeType",
+          "description": "This structure that represents a point in time during a day",
+          "type": "object",
+          "dov:typeRef": "org.opcfoundation.UA.Scheduler.TimeType",
+          "required": [
+            "Hour",
+            "Minute",
+            "Second"
+          ],
+          "properties": {
+            "Hour": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Minute": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "Second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            }
+          }
+        },
+        "Actions": {
+          "type": "array",
+          "items": {
+            "title": "BaseActionType",
+            "description": "This abstract structure defines the base of an action. The base only contains information, if the last execution of the action was successful.",
+            "type": "object",
+            "dov:typeRef": "org.opcfoundation.UA.Scheduler.BaseActionType",
+            "required": [
+              "LastActionResult"
+            ],
+            "properties": {
+              "LastActionResult": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

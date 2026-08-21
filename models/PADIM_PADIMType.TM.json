@@ -1,0 +1,237 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PADIM/#PADIM_PADIMType",
+  "title": "PADIM_PADIMType",
+  "dov:typeRef": "org.opcfoundation.UA.PADIM.PADIMType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ComponentType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SignalSet_no_",
+      "href": "http://opcfoundation.org/UA/PADIM/#PADIM_SignalSetType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceHealthAlarms",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "SubDevices",
+      "href": "http://opcfoundation.org/UA/DI/#DI_ConfigurableObjectType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:component",
+      "dov:refName": "DeviceConditionSet",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DeviceHealthEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "const": {
+        "NORMAL": 0,
+        "FAILURE": 1,
+        "CHECK_FUNCTION": 2,
+        "OFF_SPEC": 3,
+        "MAINTENANCE_REQUIRED": 4
+      },
+      "properties": {
+        "NORMAL": {
+          "description": "This device functions normally.",
+          "type": "integer"
+        },
+        "FAILURE": {
+          "description": "Malfunction of the device or any of its peripherals.",
+          "type": "integer"
+        },
+        "CHECK_FUNCTION": {
+          "description": "Functional checks are currently performed.",
+          "type": "integer"
+        },
+        "OFF_SPEC": {
+          "description": "The device is currently working outside of its specified range or that internal diagnoses indicate deviations from measured or set values.",
+          "type": "integer"
+        },
+        "MAINTENANCE_REQUIRED": {
+          "description": "This element is working, but a maintenance operation is required.",
+          "type": "integer"
+        }
+      }
+    },
+    "ResetModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PADIM.ResetModeEnum",
+      "const": {
+        "Application": 1,
+        "Communication": 2712,
+        "Factory": 2713
+      },
+      "properties": {
+        "Application": {
+          "type": "integer"
+        },
+        "Communication": {
+          "type": "integer"
+        },
+        "Factory": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/FactoryReset",
+    "/properties/DateOfLastChange",
+    "/properties/DefaultInstanceBrowseName",
+    "/properties/DeviceRevision",
+    "/properties/DisplayLanguage",
+    "/events/DateOfLastChange",
+    "/events/DisplayLanguage"
+  ],
+  "actions": {
+    "FactoryReset": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "ResetMode"
+        ],
+        "properties": {
+          "ResetMode": {
+            "title": "ResetModeEnum",
+            "dov:typeRef": "org.opcfoundation.UA.PADIM.ResetModeEnum",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "AssetId": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": false
+    },
+    "DateOfLastChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "DefaultInstanceBrowseName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "title": "DeviceHealthEnumeration",
+      "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "DeviceRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "DisplayLanguage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "type": "string",
+      "readOnly": false
+    },
+    "HardwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Manufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ManufacturerUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "Model": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductCode": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "ProductInstanceUri": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "RevisionCounter": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": true
+    },
+    "SerialNumber": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    },
+    "SoftwareRevision": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DateOfLastChange": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "DeviceHealth": {
+      "dov:namespace": "http://opcfoundation.org/UA/DI/",
+      "data": {
+        "title": "DeviceHealthEnumeration",
+        "dov:typeRef": "org.opcfoundation.UA.DI.DeviceHealthEnumeration",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "DisplayLanguage": {
+      "dov:namespace": "http://opcfoundation.org/UA/PADIM/",
+      "data": {
+        "type": "string"
+      }
+    }
+  }
+}

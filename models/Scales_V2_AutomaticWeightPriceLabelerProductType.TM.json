@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_AutomaticWeightPriceLabelerProductType",
+  "title": "Scales_V2_AutomaticWeightPriceLabelerProductType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.AutomaticWeightPriceLabelerProductType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_CatchweigherProductType",
+      "type": "application/tm+json"
+    },
+    {
+      "rel": "dov:reference",
+      "dov:refName": "LastItem",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_PriceItemType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/UnitPrice",
+    "/events/UnitPrice"
+  ],
+  "properties": {
+    "UnitPrice": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines the price per weight unit.",
+      "type": "number",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "UnitPrice": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "data": {
+        "description": "Defines the price per weight unit.",
+        "type": "number"
+      }
+    }
+  }
+}

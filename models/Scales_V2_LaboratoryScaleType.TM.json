@@ -1,0 +1,162 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_LaboratoryScaleType",
+  "title": "Scales_V2_LaboratoryScaleType",
+  "dov:typeRef": "org.opcfoundation.UA.Scales.V2.LaboratoryScaleType",
+  "dov:isComposite": true,
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/Scales/V2/#Scales_V2_SimpleScaleType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DraftShieldType": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Scales.V2.DraftShieldType",
+      "const": {
+        "Right_0": 0,
+        "Left_1": 1,
+        "Top_2": 2,
+        "All_3": 3
+      },
+      "properties": {
+        "Right_0": {
+          "type": "integer"
+        },
+        "Left_1": {
+          "type": "integer"
+        },
+        "Top_2": {
+          "type": "integer"
+        },
+        "All_3": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/actions/CloseDraftShields",
+    "/actions/OpenDraftShields",
+    "/actions/StartCalibration",
+    "/actions/StartIonisator",
+    "/actions/StartLeveling",
+    "/actions/StopIonisator",
+    "/properties/CalibrationNeeded",
+    "/properties/CalibrationRunning",
+    "/properties/DraftShieldLeftClosed",
+    "/properties/DraftShieldRightClosed",
+    "/properties/DraftShieldTopClosed",
+    "/properties/IonisatorRunning",
+    "/properties/LevelingRunning"
+  ],
+  "actions": {
+    "CloseDraftShields": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to close a certain or all draft shields.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Shield"
+        ],
+        "properties": {
+          "Shield": {
+            "title": "DraftShieldType",
+            "dov:typeRef": "org.opcfoundation.UA.Scales.V2.DraftShieldType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "OpenDraftShields": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to open a certain or all draft shields.",
+      "input": {
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "required": [
+          "Shield"
+        ],
+        "properties": {
+          "Shield": {
+            "title": "DraftShieldType",
+            "dov:typeRef": "org.opcfoundation.UA.Scales.V2.DraftShieldType",
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          }
+        }
+      }
+    },
+    "StartCalibration": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to start the automatic calibration procedure."
+    },
+    "StartIonisator": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to start the ionization process."
+    },
+    "StartLeveling": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to start the automatic leveling procedure of the scale."
+    },
+    "StopIonisator": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Method to stop the ionization process."
+    }
+  },
+  "properties": {
+    "CalibrationNeeded": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if a calibration procedure is needed and the current process should be paused.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "CalibrationRunning": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if a calibration procedure is running.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "DraftShieldLeftClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if the left draft shield is closed.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "DraftShieldRightClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if the right draft shield is closed.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "DraftShieldTopClosed": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if the top draft shield is closed.",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "IonisatorRunning": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "type": "boolean",
+      "readOnly": false
+    },
+    "LevelingRunning": {
+      "dov:namespace": "http://opcfoundation.org/UA/Scales/V2/",
+      "description": "Defines if a levelling process is running.",
+      "type": "boolean",
+      "readOnly": false
+    }
+  }
+}

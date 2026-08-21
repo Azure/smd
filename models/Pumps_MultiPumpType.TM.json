@@ -1,0 +1,373 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/Pumps/#Pumps_MultiPumpType",
+  "title": "Pumps_MultiPumpType",
+  "dov:typeRef": "org.opcfoundation.UA.Pumps.MultiPumpType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/DI/#DI_FunctionalGroupType",
+      "type": "application/tm+json"
+    }
+  ],
+  "schemaDefinitions": {
+    "DistributionTypeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DistributionTypeEnum",
+      "const": {
+        "ManufacturerSpecific": 0,
+        "OperatorSpecific": 1,
+        "ConcerningTimeDistribution": 2,
+        "ConcerningLoadDistribution": 3
+      },
+      "description": "describes the share of operation time of different pumps of the pump system in addition operation mode",
+      "properties": {
+        "ManufacturerSpecific": {
+          "description": "Manufacturer specific distribution of operation time",
+          "type": "integer"
+        },
+        "OperatorSpecific": {
+          "description": "Operator specific distribution of operation time",
+          "type": "integer"
+        },
+        "ConcerningTimeDistribution": {
+          "description": "Equivalent distribution of operation time, concerning time distribution",
+          "type": "integer"
+        },
+        "ConcerningLoadDistribution": {
+          "description": "Equivalent distribution of operation time, concerning load distribution",
+          "type": "integer"
+        }
+      }
+    },
+    "ExchangeModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ExchangeModeEnum",
+      "const": {
+        "ManufacturerSpecific": 0,
+        "ExchangeDisabled": 1,
+        "OperatorSpecific": 2
+      },
+      "description": "specifies the exchange mode of the pump",
+      "properties": {
+        "ManufacturerSpecific": {
+          "description": "Manufacturer specific pump exchange mode",
+          "type": "integer"
+        },
+        "ExchangeDisabled": {
+          "description": "Pump exchange disabled",
+          "type": "integer"
+        },
+        "OperatorSpecific": {
+          "description": "Operator specific pump exchange mode",
+          "type": "integer"
+        }
+      }
+    },
+    "MultiPumpOperationModeEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.MultiPumpOperationModeEnum",
+      "const": {
+        "Standalone": 0,
+        "RedundancyOperation": 1,
+        "AdditionOperation": 2,
+        "MixedRedundancy": 3
+      },
+      "description": "specifies the actual multi pump operation mode",
+      "properties": {
+        "Standalone": {
+          "description": "Standalone mode",
+          "type": "integer"
+        },
+        "RedundancyOperation": {
+          "description": "pump fulfils the process function of another pump",
+          "type": "integer"
+        },
+        "AdditionOperation": {
+          "description": "supplementary fulfilling of the process function",
+          "type": "integer"
+        },
+        "MixedRedundancy": {
+          "description": "Redundancy and addition operation mixed",
+          "type": "integer"
+        }
+      }
+    },
+    "PumpRoleEnum": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpRoleEnum",
+      "const": {
+        "Slave": 0,
+        "Master": 1,
+        "SlaveAndAuxiliaryMaster": 2
+      },
+      "description": "identifies the role rsp. task of the pump within the multi pump management",
+      "properties": {
+        "Slave": {
+          "description": "Slave",
+          "type": "integer"
+        },
+        "Master": {
+          "description": "Master",
+          "type": "integer"
+        },
+        "SlaveAndAuxiliaryMaster": {
+          "description": "Slave and auxiliary master",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tm:optional": [
+    "/properties/DistributionPriority",
+    "/properties/DistributionType",
+    "/properties/ExchangeMode",
+    "/properties/ExchangeTime",
+    "/properties/ExchangeTimeDifference",
+    "/properties/MaximumNumberOfPumpsInOperation",
+    "/properties/MultiPumpOperationMode",
+    "/properties/NumberOfPumps",
+    "/properties/PumpCollectiveIDs",
+    "/properties/PumpRole",
+    "/properties/RedundantPumpIDs",
+    "/properties/ExchangeTimeDifference_EngineeringUnits",
+    "/events/DistributionPriority",
+    "/events/DistributionType",
+    "/events/ExchangeMode",
+    "/events/ExchangeTime",
+    "/events/ExchangeTimeDifference",
+    "/events/MaximumNumberOfPumpsInOperation",
+    "/events/MultiPumpOperationMode",
+    "/events/NumberOfPumps",
+    "/events/PumpCollectiveIDs",
+    "/events/PumpRole",
+    "/events/RedundantPumpIDs"
+  ],
+  "properties": {
+    "DistributionPriority": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property describes in ascending order the priority of pumps in addition operation mode.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "DistributionType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "DistributionTypeEnum",
+      "description": "This property describes the share of operation time of different pumps of the pump system in addition operation mode.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.DistributionTypeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "ExchangeMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "ExchangeModeEnum",
+      "description": "This property specifies the exchange mode of the pump",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.ExchangeModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "ExchangeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property specifies the determination of the absolute time for the next exchange of the pump, if operator specific Pump Exchange Mode is activated.",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": false
+    },
+    "ExchangeTimeDifference": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property specifies the determination of the time for the next exchange of the pump relative to ExchangeTime, if operator specific Pump Exchange Mode is activated.",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ExchangeTimeDifference_EngineeringUnits"
+    },
+    "MaximumNumberOfPumpsInOperation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property specifies the maximum number of pumps in operation. The difference between NumberOfPumps and MaximumNumberOfPumpsInOperation identifies the redundant pumps.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "MultiPumpOperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "MultiPumpOperationModeEnum",
+      "description": "This property specifies the actual multi pump operation mode. In redundant operation mode a pump fulfils the process function of another pump. Addition operation mode characterizes the supplementary fulfilling of the process function. The mixed mode characterizes both operation tasks.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.MultiPumpOperationModeEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "NumberOfPumps": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property identifies the number of pumps in multi pump management",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295,
+      "readOnly": false
+    },
+    "PumpCollectiveIDs": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This element identifies the pumps within the pump system",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "PumpRole": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "title": "PumpRoleEnum",
+      "description": "This property identifies the role rsp. task of the pump within the multi pump management.",
+      "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpRoleEnum",
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647,
+      "readOnly": false
+    },
+    "RedundantPumpIDs": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "description": "This property identifies the actual redundant pumps within the pump system",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": false
+    },
+    "ExchangeTimeDifference_EngineeringUnits": {
+      "description": "Unit designator for property and event with name ExchangeTimeDifference, expressed as a 2- or 3-character UN/ECE code",
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "events": {
+    "DistributionPriority": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property describes in ascending order the priority of pumps in addition operation mode.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "DistributionType": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "DistributionTypeEnum",
+        "description": "This property describes the share of operation time of different pumps of the pump system in addition operation mode.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.DistributionTypeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ExchangeMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "ExchangeModeEnum",
+        "description": "This property specifies the exchange mode of the pump",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.ExchangeModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "ExchangeTime": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property specifies the determination of the absolute time for the next exchange of the pump, if operator specific Pump Exchange Mode is activated.",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "ExchangeTimeDifference": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property specifies the determination of the time for the next exchange of the pump relative to ExchangeTime, if operator specific Pump Exchange Mode is activated.",
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "qudt:hasQuantityKind": "http://qudt.org/vocab/quantitykind/Time",
+      "dov:withUnit": "properties/ExchangeTimeDifference_EngineeringUnits"
+    },
+    "MaximumNumberOfPumpsInOperation": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property specifies the maximum number of pumps in operation. The difference between NumberOfPumps and MaximumNumberOfPumpsInOperation identifies the redundant pumps.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "MultiPumpOperationMode": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "MultiPumpOperationModeEnum",
+        "description": "This property specifies the actual multi pump operation mode. In redundant operation mode a pump fulfils the process function of another pump. Addition operation mode characterizes the supplementary fulfilling of the process function. The mixed mode characterizes both operation tasks.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.MultiPumpOperationModeEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "NumberOfPumps": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property identifies the number of pumps in multi pump management",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "PumpCollectiveIDs": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This element identifies the pumps within the pump system",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "PumpRole": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "title": "PumpRoleEnum",
+        "description": "This property identifies the role rsp. task of the pump within the multi pump management.",
+        "dov:typeRef": "org.opcfoundation.UA.Pumps.PumpRoleEnum",
+        "type": "integer",
+        "minimum": -2147483648,
+        "maximum": 2147483647
+      }
+    },
+    "RedundantPumpIDs": {
+      "dov:namespace": "http://opcfoundation.org/UA/Pumps/",
+      "data": {
+        "description": "This property identifies the actual redundant pumps within the pump system",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

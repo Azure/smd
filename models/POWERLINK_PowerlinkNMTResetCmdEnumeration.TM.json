@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/POWERLINK/#POWERLINK_PowerlinkNMTResetCmdEnumeration",
+  "title": "POWERLINK_PowerlinkNMTResetCmdEnumeration",
+  "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkNMTResetCmdEnumeration",
+  "links": [],
+  "schemaDefinitions": {
+    "PowerlinkNMTResetCmdEnumeration": {
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.POWERLINK.PowerlinkNMTResetCmdEnumeration",
+      "const": {
+        "NMTResetNode": 40,
+        "NMTResetCommunication": 41,
+        "NMTResetConfiguration": 42,
+        "NMTSwReset": 43,
+        "NMTInvalidService": 255
+      },
+      "description": "This DataType is an Enumeration that represents the NMT reset commands for POWERLINK",
+      "properties": {
+        "NMTResetNode": {
+          "description": "start application initialisation",
+          "type": "integer"
+        },
+        "NMTResetCommunication": {
+          "description": "start communication initialisation",
+          "type": "integer"
+        },
+        "NMTResetConfiguration": {
+          "description": "activate device configuration",
+          "type": "integer"
+        },
+        "NMTSwReset": {
+          "description": "start basic node initialisation",
+          "type": "integer"
+        },
+        "NMTInvalidService": {
+          "description": "readback value for the POWERLINK Object NMT_ResetCmd_U8",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

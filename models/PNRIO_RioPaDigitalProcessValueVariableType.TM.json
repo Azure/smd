@@ -1,0 +1,57 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/PNRIO/#PNRIO_RioPaDigitalProcessValueVariableType",
+  "title": "PNRIO_RioPaDigitalProcessValueVariableType",
+  "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueVariableType",
+  "links": [],
+  "schemaDefinitions": {
+    "RioPaDigitalProcessValueVariableType": {
+      "title": "RioPaDigitalProcessValueDataType",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.PNRIO.RioPaDigitalProcessValueVariableType",
+      "required": [
+        "Value",
+        "Qualifier",
+        "Quality",
+        "NE_107",
+        "Status_full"
+      ],
+      "properties": {
+        "Value": {
+          "description": "Current value.",
+          "type": "boolean"
+        },
+        "Qualifier": {
+          "description": "Current status.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Quality": {
+          "description": "Status information encoded as RioQualityEnumeration",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "NE_107": {
+          "description": "Status information according to NAMUR 107 encoded as RioSpecifierEnumeration.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "Status_full": {
+          "description": "Status information according to PA-Profile V3 and PA-Profile V4 encoded as RioQualifierEnumeration. ",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    }
+  }
+}

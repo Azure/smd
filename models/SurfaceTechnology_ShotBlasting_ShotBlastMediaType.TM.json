@@ -1,0 +1,270 @@
+{
+  "@context": [
+    "https://www.w3.org/2022/wot/td/v1.1",
+    {
+      "dov": "http://azure.com/DigitalOperations/vocab#"
+    }
+  ],
+  "@type": "tm:ThingModel",
+  "id": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/#SurfaceTechnology_ShotBlasting_ShotBlastMediaType",
+  "title": "SurfaceTechnology_ShotBlasting_ShotBlastMediaType",
+  "dov:typeRef": "org.opcfoundation.UA.SurfaceTechnology.ShotBlasting.ShotBlastMediaType",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "type": "application/tm+json"
+    }
+  ],
+  "tm:optional": [
+    "/properties/ActualParticleSizeRange",
+    "/properties/NominalParticleSizeAverage",
+    "/properties/NominalParticleSizeRange",
+    "/properties/ShotBlastMediaBatch",
+    "/properties/ShotBlastMediaHardnessAverage",
+    "/properties/ShotBlastMediaHardnessRange",
+    "/properties/ShotBlastMediaManufacturer",
+    "/properties/ShotBlastMediaName",
+    "/events/ActualParticleSizeRange",
+    "/events/NominalParticleSizeAverage",
+    "/events/NominalParticleSizeRange",
+    "/events/ShotBlastMediaHardnessAverage",
+    "/events/ShotBlastMediaHardnessRange"
+  ],
+  "properties": {
+    "ActualParticleSizeRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "title": "Range",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": false
+    },
+    "NominalParticleSizeAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false
+    },
+    "NominalParticleSizeRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "title": "Range",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": false
+    },
+    "ShotBlastMediaBatch": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ShotBlastMediaHardnessAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "number",
+      "minimum": -1.80e+308,
+      "maximum": 1.80e+308,
+      "readOnly": false,
+      "dov:contains": [
+        "ShotBlastMediaHardnessAverage_ShotBlastMediaHardnessUnit"
+      ]
+    },
+    "ShotBlastMediaHardnessAverage_ShotBlastMediaHardnessUnit": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false,
+      "dov:containedIn": "ShotBlastMediaHardnessAverage"
+    },
+    "ShotBlastMediaHardnessRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "title": "Range",
+      "type": "object",
+      "dov:typeRef": "org.opcfoundation.UA.Range",
+      "required": [
+        "Low",
+        "High"
+      ],
+      "properties": {
+        "Low": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        },
+        "High": {
+          "type": "number",
+          "minimum": -1.80e+308,
+          "maximum": 1.80e+308
+        }
+      },
+      "readOnly": false,
+      "dov:contains": [
+        "ShotBlastMediaHardnessRange_ShotBlastMediaHardnessUnit"
+      ]
+    },
+    "ShotBlastMediaHardnessRange_ShotBlastMediaHardnessUnit": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535,
+      "readOnly": false,
+      "dov:containedIn": "ShotBlastMediaHardnessRange"
+    },
+    "ShotBlastMediaManufacturer": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "string",
+      "readOnly": false
+    },
+    "ShotBlastMediaName": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "type": "string",
+      "readOnly": false
+    }
+  },
+  "events": {
+    "ActualParticleSizeRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "title": "Range",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Range",
+        "required": [
+          "Low",
+          "High"
+        ],
+        "properties": {
+          "Low": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "High": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "NominalParticleSizeAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      }
+    },
+    "NominalParticleSizeRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "title": "Range",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Range",
+        "required": [
+          "Low",
+          "High"
+        ],
+        "properties": {
+          "Low": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "High": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      }
+    },
+    "ShotBlastMediaHardnessAverage": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "number",
+        "minimum": -1.80e+308,
+        "maximum": 1.80e+308
+      },
+      "dov:contains": [
+        "ShotBlastMediaHardnessAverage_ShotBlastMediaHardnessUnit"
+      ]
+    },
+    "ShotBlastMediaHardnessAverage_ShotBlastMediaHardnessUnit": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:containedIn": "ShotBlastMediaHardnessAverage"
+    },
+    "ShotBlastMediaHardnessRange": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "title": "Range",
+        "type": "object",
+        "dov:typeRef": "org.opcfoundation.UA.Range",
+        "required": [
+          "Low",
+          "High"
+        ],
+        "properties": {
+          "Low": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          },
+          "High": {
+            "type": "number",
+            "minimum": -1.80e+308,
+            "maximum": 1.80e+308
+          }
+        }
+      },
+      "dov:contains": [
+        "ShotBlastMediaHardnessRange_ShotBlastMediaHardnessUnit"
+      ]
+    },
+    "ShotBlastMediaHardnessRange_ShotBlastMediaHardnessUnit": {
+      "dov:namespace": "http://opcfoundation.org/UA/SurfaceTechnology/ShotBlasting/",
+      "data": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535
+      },
+      "dov:containedIn": "ShotBlastMediaHardnessRange"
+    }
+  }
+}
