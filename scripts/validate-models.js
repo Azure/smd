@@ -32,47 +32,36 @@ let hasErrors = false;
 
 for (const fileName of modelFiles) {
   const filePath = path.join(modelsDirectory, fileName);
-  let models;
+  let model;
 
   try {
-    models = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    model = JSON.parse(fs.readFileSync(filePath, "utf8"));
   } catch (error) {
     console.error(`${fileName}: invalid JSON: ${error.message}`);
     hasErrors = true;
     continue;
   }
 
-  if (models === null || typeof models !== "object") {
-    console.error(`${fileName}: expected a Thing Model object`);
+  if (model === null || typeof model !== "object" || Array.isArray(model)) {
+    console.error(`${fileName}: expected one top-level Thing Model object`);
     hasErrors = true;
     continue;
   }
 
-  const entries = Array.isArray(models) ? models : [models];
+  modelCount += 1;
 
-  if (entries.length === 0) {
-    console.error(`${fileName}: expected at least one Thing Model`);
-    hasErrors = true;
+  if (validate(model)) {
     continue;
   }
 
-  entries.forEach((model, index) => {
-    modelCount += 1;
+  hasErrors = true;
+  const title = typeof model.title === "string" ? ` (${model.title})` : "";
+  console.error(`${fileName}${title}: invalid Thing Model`);
 
-    if (validate(model)) {
-      return;
-    }
-
-    hasErrors = true;
-    const title = typeof model?.title === "string" ? ` (${model.title})` : "";
-    const location = Array.isArray(models) ? `[${index}]` : "";
-    console.error(`${fileName}${location}${title}: invalid Thing Model`);
-
-    for (const error of validate.errors ?? []) {
-      const location = error.instancePath || "/";
-      console.error(`  ${location}: ${error.message}`);
-    }
-  });
+  for (const error of validate.errors ?? []) {
+    const location = error.instancePath || "/";
+    console.error(`  ${location}: ${error.message}`);
+  }
 }
 
 if (hasErrors) {
