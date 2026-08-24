@@ -6,97 +6,97 @@
     }
   ],
   "@type": "tm:ThingModel",
-  "id": "http://opcfoundation.org/UA/PAEFS/#PAEFS_FilterUnitType",
+  "id": "urn:org.opcfoundation.UA.PAEFS.FilterUnitType",
   "title": "PAEFS_FilterUnitType",
   "dov:typeRef": "org.opcfoundation.UA.PAEFS.FilterUnitType",
   "links": [
     {
       "rel": "tm:extends",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "href": "urn:org.opcfoundation.UA.BaseObjectType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "CleaningUnit",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_CleaningUnitType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.CleaningUnitType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "DischargeSystem",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_DischargeSystemType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.DischargeSystemType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "Separator",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SeparatorType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.SeparatorType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:reference",
       "dov:refName": "AirConsumption",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.ConsumptionType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:reference",
       "dov:refName": "Airflow",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.SensorSetpointReadType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:capability",
       "dov:refName": "AirIntakeConnection",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.AirConnectionType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:capability",
       "dov:refName": "AirOutletConnection",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_AirConnectionType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.AirConnectionType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:capability",
       "dov:refName": "Identification",
-      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemIdentificationType",
+      "href": "urn:org.opcfoundation.UA.Machinery.MachineryItemIdentificationType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "MachineryBuildingBlocks",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "href": "urn:org.opcfoundation.UA.FolderType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:capability",
       "dov:refName": "MachineryItemState",
-      "href": "http://opcfoundation.org/UA/Machinery/#Machinery_MachineryItemState_StateMachineType",
+      "href": "urn:org.opcfoundation.UA.Machinery.MachineryItemState_StateMachineType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:reference",
       "dov:refName": "PowerConsumption",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_ConsumptionType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.ConsumptionType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:reference",
       "dov:refName": "Pressure",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.SensorSetpointReadType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:reference",
       "dov:refName": "PressureLoss",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorMonitoringType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.SensorMonitoringType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:reference",
       "dov:refName": "RotationalSpeed",
-      "href": "http://opcfoundation.org/UA/PAEFS/#PAEFS_SensorSetpointReadType",
+      "href": "urn:org.opcfoundation.UA.PAEFS.SensorSetpointReadType",
       "type": "application/tm+json"
     }
   ],
@@ -125,7 +125,7 @@
       "description": "The Method SetAirflowSetpoint sets a setpoint for the airflow. The value’s unit is the same as the one specified in object Airflow. Since setpoints are mutually exclusive, the method also sets the boolean IsActiveSetpoint of the setpoints for pressure and rotational speed to false.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.PAEFS.InputArguments",
         "required": [
           "Value"
         ],
@@ -143,7 +143,7 @@
       "description": "The Method SetPressureSetpoint sets a setpoint for the pressure. The value’s unit is the same as the one specified in object Pressure. Since setpoints are mutually exclusive, the method also sets the boolean IsActiveSetpoint of the setpoints for airflow and rotational speed to false.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.PAEFS.InputArguments",
         "required": [
           "Value"
         ],
@@ -161,7 +161,7 @@
       "description": "The Method SetRotationalSpeedSetpoint sets a setpoint for the rotational speed. The value’s unit is the same as the one specified in object RotationalSpeed. Since setpoints are mutually exclusive, the method also sets the boolean IsActiveSetpoint of the setpoints for airflow and pressure to false.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.PAEFS.InputArguments",
         "required": [
           "Value"
         ],

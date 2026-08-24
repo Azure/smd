@@ -6,20 +6,20 @@
     }
   ],
   "@type": "tm:ThingModel",
-  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_ProductionOrderOrchestrationLayerType",
+  "id": "urn:org.opcfoundation.UA.TMC.v2.ProductionOrderOrchestrationLayerType",
   "title": "TMC_v2_ProductionOrderOrchestrationLayerType",
   "dov:typeRef": "org.opcfoundation.UA.TMC.v2.ProductionOrderOrchestrationLayerType",
   "dov:isComposite": true,
   "links": [
     {
       "rel": "tm:extends",
-      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_TMCDeviceType",
+      "href": "urn:org.opcfoundation.UA.TMC.v2.TMCDeviceType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "ProductionOrders",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "href": "urn:org.opcfoundation.UA.FolderType",
       "type": "application/tm+json"
     }
   ],
@@ -55,7 +55,7 @@
       "description": "The AbortProductionOrder Method is used to abort a production order that is in execution or starting or  completing in the production line.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToAbort"
         ],
@@ -226,7 +226,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -279,7 +279,7 @@
       "description": "The AssignProductionOrder Method is used to assign a production order to one infeed machine module  where it shall be executed.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToAssign",
           "MachineModuleUserName"
@@ -458,7 +458,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -511,7 +511,7 @@
       "description": "The CompleteProductionOrder Method is used to complete a production order in execution.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToComplete",
           "MachineModuleUserName"
@@ -687,7 +687,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -740,7 +740,7 @@
       "description": "The GetDataset Method is used to retrieve the data set from a production order header.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POHeader",
           "MachineModuleUserName"
@@ -916,7 +916,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "DataSet",
           "ExecutionFeedback"
@@ -1015,7 +1015,7 @@
       "description": "The GetMaterialList Method is used to retrieve the material list information from a production order  header.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POHeader",
           "MachineModuleUserName"
@@ -1191,7 +1191,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "MaterialList",
           "ExecutionFeedback"
@@ -1770,7 +1770,7 @@
       "description": "The GetProductionOrder Method is used to retrieve the complete production order information starting  with a production order header as an input argument.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POHeader",
           "MachineModuleUserName"
@@ -1946,7 +1946,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ProductionOrder",
           "ExecutionFeedback"
@@ -2745,7 +2745,7 @@
       "description": "The ReleaseProductionOrder Method is used to make a production order available to a machine module  for orchestrated execution in a production line (Process Cell according to ANSI/ISA-88.00.01-2010  Physical Model).",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToRelease",
           "MachineModuleUserName"
@@ -3512,7 +3512,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -3565,7 +3565,7 @@
       "description": "The StartProductionOrder Method is used to start the execution of a production order at a machine  module specifying the loading points that input materials will be fed to and the output points where output  will be directed.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToStart",
           "MachineModuleUserName",
@@ -3757,7 +3757,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -3810,7 +3810,7 @@
       "description": "The UnAssignProductionOrder Method is used to unassign a production order previously assigned to  an infeed machine module.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToUnassign"
         ],
@@ -3981,7 +3981,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -4034,7 +4034,7 @@
       "description": "The UnreleaseProductionOrder Method is used to reverse the effect of the ReleaseProductionOrder method and make a previously released production order unavailable for assignment and production.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToUnrelease"
         ],
@@ -4205,7 +4205,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],

@@ -6,25 +6,25 @@
     }
   ],
   "@type": "tm:ThingModel",
-  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineModuleSetupType",
+  "id": "urn:org.opcfoundation.UA.TMC.v2.MachineModuleSetupType",
   "title": "TMC_v2_MachineModuleSetupType",
   "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MachineModuleSetupType",
   "links": [
     {
       "rel": "tm:extends",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "href": "urn:org.opcfoundation.UA.BaseObjectType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "DataSetFolder",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "href": "urn:org.opcfoundation.UA.FolderType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "MechanicalAdjustments",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "href": "urn:org.opcfoundation.UA.FolderType",
       "type": "application/tm+json"
     }
   ],
@@ -66,7 +66,7 @@
       "description": "The LoadDataSet Method loads the dataset to the underlying system after having validated that (a) the dataset is complete when IsCompleteDataset is True and (b) the dataset is valid.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "DataSet",
           "IsCompleteDataSet"
@@ -125,7 +125,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -178,7 +178,7 @@
       "description": "The LoadMaterialList Method loads the material list to the underlying system after having validated that  (a) the material list is complete and (b) the material list is valid.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "MaterialList"
         ],
@@ -712,7 +712,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -765,7 +765,7 @@
       "description": "The ValidateDataSet Method transfers a dataset, complete when IsCompleteDataSet is True, to the underlying system and returns the result of the validation, i.e. verifying that the dataset is complete and can run in production.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "DataSet",
           "IsCompleteDataSet"
@@ -824,7 +824,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "FailedValidationEntries",
           "FailedValidationMessages",
@@ -927,7 +927,7 @@
       "description": "The ValidateMaterialList Method transfers a material list to the underlying system and returns the result  of the validation.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "MaterialList"
         ],
@@ -1461,7 +1461,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "FailedValidationEntries",
           "FailedValidationMessages",

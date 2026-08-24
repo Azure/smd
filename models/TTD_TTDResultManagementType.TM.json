@@ -6,25 +6,25 @@
     }
   ],
   "@type": "tm:ThingModel",
-  "id": "http://opcfoundation.org/UA/TTD/#TTD_TTDResultManagementType",
+  "id": "urn:org.opcfoundation.UA.TTD.TTDResultManagementType",
   "title": "TTD_TTDResultManagementType",
   "dov:typeRef": "org.opcfoundation.UA.TTD.TTDResultManagementType",
   "links": [
     {
       "rel": "tm:extends",
-      "href": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ResultManagementType",
+      "href": "urn:org.opcfoundation.UA.Machinery.Result.ResultManagementType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "Results",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "href": "urn:org.opcfoundation.UA.FolderType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:capability",
       "dov:refName": "ResultTransfer",
-      "href": "http://opcfoundation.org/UA/Machinery/Result/#Machinery_Result_ResultTransferType",
+      "href": "urn:org.opcfoundation.UA.Machinery.Result.ResultTransferType",
       "type": "application/tm+json"
     }
   ],
@@ -64,7 +64,7 @@
       "dov:namespace": "http://opcfoundation.org/UA/Machinery/Result/",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TTD.InputArguments",
         "required": [
           "ResultId",
           "Timeout"
@@ -84,7 +84,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TTD.OutputArguments",
         "required": [
           "ResultHandle",
           "Result",
