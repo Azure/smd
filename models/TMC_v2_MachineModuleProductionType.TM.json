@@ -6,25 +6,25 @@
     }
   ],
   "@type": "tm:ThingModel",
-  "id": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineModuleProductionType",
+  "id": "urn:org.opcfoundation.UA.TMC.v2.MachineModuleProductionType",
   "title": "TMC_v2_MachineModuleProductionType",
   "dov:typeRef": "org.opcfoundation.UA.TMC.v2.MachineModuleProductionType",
   "links": [
     {
       "rel": "tm:extends",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_BaseObjectType",
+      "href": "urn:org.opcfoundation.UA.BaseObjectType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:component",
       "dov:refName": "Data",
-      "href": "http://opcfoundation.org/UA/#OpcUaCore_FolderType",
+      "href": "urn:org.opcfoundation.UA.FolderType",
       "type": "application/tm+json"
     },
     {
       "rel": "dov:capability",
       "dov:refName": "StateMachine",
-      "href": "http://opcfoundation.org/UA/TMC/v2/#TMC_v2_MachineModuleProductionStateMachineType",
+      "href": "urn:org.opcfoundation.UA.TMC.v2.MachineModuleProductionStateMachineType",
       "type": "application/tm+json"
     }
   ],
@@ -99,7 +99,7 @@
       "description": "The AbortProductionOrder method is used to abnormally terminate, or abort, a production order  that is in execution or starting or completing. Aborting cannot be reversed or undone.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToAbort"
         ],
@@ -270,7 +270,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -323,7 +323,7 @@
       "description": "The AssignProductionOrder Method is used to transfer the information of an upcoming  production order to the machine module.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToAssign"
         ],
@@ -1077,7 +1077,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -1130,7 +1130,7 @@
       "description": "The ClearProductionOrder method is used to positively confirm that the machine module where  a production order is aborted has been cleared of the product or parts left by the aborted  production order.",
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -1183,7 +1183,7 @@
       "description": "The CompleteProductionOrder method is used to complete a production order in execution.",
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -1236,7 +1236,7 @@
       "description": "The Method ResetProductionTotals simultaneously resets the totals of the machine components  belonging to the following machine folders: DefectDetectionSensors, MaterialLoadingPoints, MaterialOutputPoints, MaterialRejectionPoints.",
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -1288,7 +1288,7 @@
       "dov:namespace": "http://opcfoundation.org/UA/TMC/v2/",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POHeaderToStart",
           "SourceMaterialLoadingPointIDs",
@@ -1475,7 +1475,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -1528,7 +1528,7 @@
       "description": "The StartProductionOrder Method starts a production order at the machine module.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToStart",
           "SourceMaterialLoadingPointIDs",
@@ -2298,7 +2298,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
@@ -2351,7 +2351,7 @@
       "description": "The UnAssignProductionOrder method is used to remove the specified production order from  AssignedProductionOrders[] of an infeed machine module.",
       "input": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.InputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.InputArguments",
         "required": [
           "POToUnassign"
         ],
@@ -2522,7 +2522,7 @@
       },
       "output": {
         "type": "object",
-        "dov:typeRef": "org.opcfoundation.UA.OutputArguments",
+        "dov:typeRef": "org.opcfoundation.UA.TMC.v2.OutputArguments",
         "required": [
           "ExecutionFeedback"
         ],
